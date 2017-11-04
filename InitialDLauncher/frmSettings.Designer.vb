@@ -581,6 +581,7 @@ Partial Class frmSettings
         Me.Label20.Size = New System.Drawing.Size(112, 15)
         Me.Label20.TabIndex = 8
         Me.Label20.Text = "Cabinet Seat (BETA)"
+        Me.Label20.Visible = False
         '
         'cmbSeat7
         '
@@ -591,6 +592,7 @@ Partial Class frmSettings
         Me.cmbSeat7.Name = "cmbSeat7"
         Me.cmbSeat7.Size = New System.Drawing.Size(108, 23)
         Me.cmbSeat7.TabIndex = 34
+        Me.cmbSeat7.Visible = False
         '
         'cbWindow7
         '

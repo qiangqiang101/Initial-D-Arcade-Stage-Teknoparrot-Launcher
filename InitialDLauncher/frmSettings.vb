@@ -4,7 +4,7 @@
     Dim Id6Config As String = String.Format("{0}\config.ini", My.Settings.Id6Path)
     Dim Id7Config As String = String.Format("{0}\config.ini", My.Settings.Id7Path)
     Dim SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
-    Dim SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
+    'Dim SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
     Dim bool As List(Of String) = New List(Of String) From {"true", "false"}
     Dim gotError As Boolean = False
 
@@ -50,7 +50,7 @@
             cbFree7.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id7Config, "General", "FreePlay")))
             If bool.Contains(ReadIniValue(Id7Config, "General", "Windowed").ToLower) Then cbWindow7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "Windowed"))
             If bool.Contains(ReadIniValue(Id7Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "EnableAmdFix"))
-            cmbSeat7.SelectedItem = GetSeatName(GetHex(SBYD_e2prom, 116, 4), 7)
+            'cmbSeat7.SelectedItem = GetSeatName(GetHex(SBYD_e2prom, 116, 4), 7)
 
             txtIP7.Text = ReadIniValue(Id7Config, "Network", "Ip")
             txtMask7.Text = ReadIniValue(Id7Config, "Network", "Mask")
@@ -112,7 +112,7 @@
             WriteIniValue(Id7Config, "General", "Windowed", cbWindow7.Checked.ToString.ToLower)
             WriteIniValue(Id7Config, "General", "EnableAmdFix", cbAMDFix7.Checked.ToString.ToLower)
 
-            If cbSaveSeat.Checked Then SetSeatName(cmbSeat7.SelectedItem, 7)
+            'If cbSaveSeat.Checked Then SetSeatName(cmbSeat7.SelectedItem, 7)
 
             WriteIniValue(Id7Config, "Network", "Ip", txtIP7.Text)
             WriteIniValue(Id7Config, "Network", "Mask", txtMask7.Text)
