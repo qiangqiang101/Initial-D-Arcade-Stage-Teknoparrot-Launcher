@@ -78,6 +78,8 @@ Partial Class frmSettings
         Me.cmbSeat7 = New System.Windows.Forms.ComboBox()
         Me.cbWindow7 = New System.Windows.Forms.CheckBox()
         Me.cbFree7 = New System.Windows.Forms.CheckBox()
+        Me.cbAMDFix6 = New System.Windows.Forms.CheckBox()
+        Me.cbAMDFix7 = New System.Windows.Forms.CheckBox()
         Me.gb6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -195,7 +197,7 @@ Partial Class frmSettings
         Me.txtCab2IP6.Location = New System.Drawing.Point(362, 103)
         Me.txtCab2IP6.Name = "txtCab2IP6"
         Me.txtCab2IP6.Size = New System.Drawing.Size(158, 23)
-        Me.txtCab2IP6.TabIndex = 21
+        Me.txtCab2IP6.TabIndex = 22
         '
         'Label8
         '
@@ -227,7 +229,7 @@ Partial Class frmSettings
         Me.txtBroadcast6.Location = New System.Drawing.Point(362, 45)
         Me.txtBroadcast6.Name = "txtBroadcast6"
         Me.txtBroadcast6.Size = New System.Drawing.Size(158, 23)
-        Me.txtBroadcast6.TabIndex = 19
+        Me.txtBroadcast6.TabIndex = 18
         '
         'Label10
         '
@@ -243,7 +245,7 @@ Partial Class frmSettings
         Me.txtDNSS6.Location = New System.Drawing.Point(105, 103)
         Me.txtDNSS6.Name = "txtDNSS6"
         Me.txtDNSS6.Size = New System.Drawing.Size(158, 23)
-        Me.txtDNSS6.TabIndex = 17
+        Me.txtDNSS6.TabIndex = 21
         '
         'Label7
         '
@@ -259,7 +261,7 @@ Partial Class frmSettings
         Me.txtDNSP6.Location = New System.Drawing.Point(105, 74)
         Me.txtDNSP6.Name = "txtDNSP6"
         Me.txtDNSP6.Size = New System.Drawing.Size(158, 23)
-        Me.txtDNSP6.TabIndex = 16
+        Me.txtDNSP6.TabIndex = 19
         '
         'Label6
         '
@@ -275,7 +277,7 @@ Partial Class frmSettings
         Me.txtMask6.Location = New System.Drawing.Point(362, 16)
         Me.txtMask6.Name = "txtMask6"
         Me.txtMask6.Size = New System.Drawing.Size(158, 23)
-        Me.txtMask6.TabIndex = 18
+        Me.txtMask6.TabIndex = 16
         '
         'Label5
         '
@@ -291,7 +293,7 @@ Partial Class frmSettings
         Me.txtGateway6.Location = New System.Drawing.Point(105, 45)
         Me.txtGateway6.Name = "txtGateway6"
         Me.txtGateway6.Size = New System.Drawing.Size(158, 23)
-        Me.txtGateway6.TabIndex = 15
+        Me.txtGateway6.TabIndex = 17
         '
         'Label4
         '
@@ -307,7 +309,7 @@ Partial Class frmSettings
         Me.txtIP6.Location = New System.Drawing.Point(105, 16)
         Me.txtIP6.Name = "txtIP6"
         Me.txtIP6.Size = New System.Drawing.Size(158, 23)
-        Me.txtIP6.TabIndex = 14
+        Me.txtIP6.TabIndex = 15
         '
         'Label3
         '
@@ -320,6 +322,7 @@ Partial Class frmSettings
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.cbAMDFix6)
         Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.cmbSeat6)
         Me.GroupBox2.Controls.Add(Me.cbWindow6)
@@ -334,7 +337,7 @@ Partial Class frmSettings
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(233, 23)
+        Me.Label11.Location = New System.Drawing.Point(271, 23)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(73, 15)
         Me.Label11.TabIndex = 8
@@ -346,16 +349,16 @@ Partial Class frmSettings
         Me.cmbSeat6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSeat6.FormattingEnabled = True
         Me.cmbSeat6.Items.AddRange(New Object() {"A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
-        Me.cmbSeat6.Location = New System.Drawing.Point(314, 20)
+        Me.cmbSeat6.Location = New System.Drawing.Point(352, 20)
         Me.cmbSeat6.Name = "cmbSeat6"
         Me.cmbSeat6.Size = New System.Drawing.Size(108, 23)
-        Me.cmbSeat6.TabIndex = 13
+        Me.cmbSeat6.TabIndex = 14
         Me.cmbSeat6.Visible = False
         '
         'cbWindow6
         '
         Me.cbWindow6.AutoSize = True
-        Me.cbWindow6.Location = New System.Drawing.Point(105, 22)
+        Me.cbWindow6.Location = New System.Drawing.Point(85, 22)
         Me.cbWindow6.Name = "cbWindow6"
         Me.cbWindow6.Size = New System.Drawing.Size(104, 19)
         Me.cbWindow6.TabIndex = 12
@@ -414,7 +417,7 @@ Partial Class frmSettings
         Me.txtCab2IP7.Location = New System.Drawing.Point(362, 103)
         Me.txtCab2IP7.Name = "txtCab2IP7"
         Me.txtCab2IP7.Size = New System.Drawing.Size(158, 23)
-        Me.txtCab2IP7.TabIndex = 41
+        Me.txtCab2IP7.TabIndex = 42
         '
         'Label12
         '
@@ -446,7 +449,7 @@ Partial Class frmSettings
         Me.txtBroadcast7.Location = New System.Drawing.Point(362, 45)
         Me.txtBroadcast7.Name = "txtBroadcast7"
         Me.txtBroadcast7.Size = New System.Drawing.Size(158, 23)
-        Me.txtBroadcast7.TabIndex = 39
+        Me.txtBroadcast7.TabIndex = 38
         '
         'Label14
         '
@@ -462,7 +465,7 @@ Partial Class frmSettings
         Me.txtDNSS7.Location = New System.Drawing.Point(105, 103)
         Me.txtDNSS7.Name = "txtDNSS7"
         Me.txtDNSS7.Size = New System.Drawing.Size(158, 23)
-        Me.txtDNSS7.TabIndex = 37
+        Me.txtDNSS7.TabIndex = 41
         '
         'Label15
         '
@@ -478,7 +481,7 @@ Partial Class frmSettings
         Me.txtDNSP7.Location = New System.Drawing.Point(105, 74)
         Me.txtDNSP7.Name = "txtDNSP7"
         Me.txtDNSP7.Size = New System.Drawing.Size(158, 23)
-        Me.txtDNSP7.TabIndex = 36
+        Me.txtDNSP7.TabIndex = 39
         '
         'Label16
         '
@@ -494,7 +497,7 @@ Partial Class frmSettings
         Me.txtMask7.Location = New System.Drawing.Point(362, 16)
         Me.txtMask7.Name = "txtMask7"
         Me.txtMask7.Size = New System.Drawing.Size(158, 23)
-        Me.txtMask7.TabIndex = 38
+        Me.txtMask7.TabIndex = 36
         '
         'Label17
         '
@@ -510,7 +513,7 @@ Partial Class frmSettings
         Me.txtGateway7.Location = New System.Drawing.Point(105, 45)
         Me.txtGateway7.Name = "txtGateway7"
         Me.txtGateway7.Size = New System.Drawing.Size(158, 23)
-        Me.txtGateway7.TabIndex = 35
+        Me.txtGateway7.TabIndex = 37
         '
         'Label18
         '
@@ -526,7 +529,7 @@ Partial Class frmSettings
         Me.txtIP7.Location = New System.Drawing.Point(105, 16)
         Me.txtIP7.Name = "txtIP7"
         Me.txtIP7.Size = New System.Drawing.Size(158, 23)
-        Me.txtIP7.TabIndex = 34
+        Me.txtIP7.TabIndex = 35
         '
         'Label19
         '
@@ -539,6 +542,7 @@ Partial Class frmSettings
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.cbAMDFix7)
         Me.GroupBox6.Controls.Add(Me.Label20)
         Me.GroupBox6.Controls.Add(Me.cmbSeat7)
         Me.GroupBox6.Controls.Add(Me.cbWindow7)
@@ -553,7 +557,7 @@ Partial Class frmSettings
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(233, 23)
+        Me.Label20.Location = New System.Drawing.Point(271, 23)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(73, 15)
         Me.Label20.TabIndex = 8
@@ -565,16 +569,16 @@ Partial Class frmSettings
         Me.cmbSeat7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSeat7.FormattingEnabled = True
         Me.cmbSeat7.Items.AddRange(New Object() {"A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
-        Me.cmbSeat7.Location = New System.Drawing.Point(314, 20)
+        Me.cmbSeat7.Location = New System.Drawing.Point(352, 20)
         Me.cmbSeat7.Name = "cmbSeat7"
         Me.cmbSeat7.Size = New System.Drawing.Size(108, 23)
-        Me.cmbSeat7.TabIndex = 33
+        Me.cmbSeat7.TabIndex = 34
         Me.cmbSeat7.Visible = False
         '
         'cbWindow7
         '
         Me.cbWindow7.AutoSize = True
-        Me.cbWindow7.Location = New System.Drawing.Point(105, 22)
+        Me.cbWindow7.Location = New System.Drawing.Point(85, 22)
         Me.cbWindow7.Name = "cbWindow7"
         Me.cbWindow7.Size = New System.Drawing.Size(104, 19)
         Me.cbWindow7.TabIndex = 32
@@ -590,6 +594,26 @@ Partial Class frmSettings
         Me.cbFree7.TabIndex = 31
         Me.cbFree7.Text = "Free Play"
         Me.cbFree7.UseVisualStyleBackColor = True
+        '
+        'cbAMDFix6
+        '
+        Me.cbAMDFix6.AutoSize = True
+        Me.cbAMDFix6.Location = New System.Drawing.Point(195, 22)
+        Me.cbAMDFix6.Name = "cbAMDFix6"
+        Me.cbAMDFix6.Size = New System.Drawing.Size(70, 19)
+        Me.cbAMDFix6.TabIndex = 13
+        Me.cbAMDFix6.Text = "AMD Fix"
+        Me.cbAMDFix6.UseVisualStyleBackColor = True
+        '
+        'cbAMDFix7
+        '
+        Me.cbAMDFix7.AutoSize = True
+        Me.cbAMDFix7.Location = New System.Drawing.Point(195, 22)
+        Me.cbAMDFix7.Name = "cbAMDFix7"
+        Me.cbAMDFix7.Size = New System.Drawing.Size(70, 19)
+        Me.cbAMDFix7.TabIndex = 33
+        Me.cbAMDFix7.Text = "AMD Fix"
+        Me.cbAMDFix7.UseVisualStyleBackColor = True
         '
         'frmSettings
         '
@@ -681,4 +705,6 @@ Partial Class frmSettings
     Friend WithEvents cmbSeat7 As ComboBox
     Friend WithEvents cbWindow7 As CheckBox
     Friend WithEvents cbFree7 As CheckBox
+    Friend WithEvents cbAMDFix6 As CheckBox
+    Friend WithEvents cbAMDFix7 As CheckBox
 End Class

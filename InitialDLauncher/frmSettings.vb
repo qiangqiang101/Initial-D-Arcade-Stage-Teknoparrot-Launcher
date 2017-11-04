@@ -4,6 +4,7 @@
     Dim Id6Config As String = String.Format("{0}\config.ini", My.Settings.Id6Path)
     Dim Id7Config As String = String.Format("{0}\config.ini", My.Settings.Id7Path)
     Dim SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
+    Dim bool As List(Of String) = New List(Of String) From {"true", "false"}
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -25,7 +26,8 @@
     Private Sub Load6Config()
         Try
             cbFree6.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id6Config, "General", "FreePlay")))
-            cbWindow6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "Windowed"))
+            If bool.Contains(ReadIniValue(Id6Config, "General", "Windowed").ToLower) Then cbWindow6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "Windowed"))
+            If bool.Contains(ReadIniValue(Id6Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "EnableAmdFix"))
             cmbSeat6.SelectedItem = My.Settings.Cabinet6
 
             txtIP6.Text = ReadIniValue(Id6Config, "Network", "Ip")
@@ -44,7 +46,8 @@
     Private Sub Load7Config()
         Try
             cbFree7.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id7Config, "General", "FreePlay")))
-            cbWindow7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "Windowed"))
+            If bool.Contains(ReadIniValue(Id7Config, "General", "Windowed").ToLower) Then cbWindow7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "Windowed"))
+            If bool.Contains(ReadIniValue(Id7Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "EnableAmdFix"))
             cmbSeat7.SelectedItem = My.Settings.Cabinet7
 
             txtIP7.Text = ReadIniValue(Id7Config, "Network", "Ip")
@@ -81,7 +84,8 @@
     Private Sub Save6Config()
         Try
             WriteIniValue(Id6Config, "General", "FreePlay", Convert.ToInt32(cbFree6.Checked))
-            WriteIniValue(Id6Config, "General", "Windowed", cbWindow6.Checked.ToString)
+            WriteIniValue(Id6Config, "General", "Windowed", cbWindow6.Checked.ToString.ToLower)
+            WriteIniValue(Id6Config, "General", "EnableAmdFix", cbAMDFix6.Checked.ToString.ToLower)
 
             WriteIniValue(Id6Config, "Network", "Ip", txtIP6.Text)
             WriteIniValue(Id6Config, "Network", "Mask", txtMask6.Text)
@@ -119,7 +123,8 @@
     Private Sub Save7Config()
         Try
             WriteIniValue(Id7Config, "General", "FreePlay", Convert.ToInt32(cbFree7.Checked))
-            WriteIniValue(Id7Config, "General", "Windowed", cbWindow7.Checked.ToString)
+            WriteIniValue(Id7Config, "General", "Windowed", cbWindow7.Checked.ToString.ToLower)
+            WriteIniValue(Id7Config, "General", "EnableAmdFix", cbAMDFix7.Checked.ToString.ToLower)
 
             WriteIniValue(Id7Config, "Network", "Ip", txtIP7.Text)
             WriteIniValue(Id7Config, "Network", "Mask", txtMask7.Text)

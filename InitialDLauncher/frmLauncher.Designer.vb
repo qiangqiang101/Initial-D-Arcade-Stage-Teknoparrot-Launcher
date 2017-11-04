@@ -22,6 +22,7 @@ Partial Class frmLauncher
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLauncher))
         Me.lblStart6 = New System.Windows.Forms.Label()
         Me.lblStart7 = New System.Windows.Forms.Label()
@@ -31,6 +32,7 @@ Partial Class frmLauncher
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
         Me.lblCardMan = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -145,6 +147,11 @@ Partial Class frmLauncher
         Me.lblCardMan.Text = "Card Selection"
         Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 3000
+        '
         'frmLauncher
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -182,4 +189,5 @@ Partial Class frmLauncher
     Friend WithEvents lblDebug As Label
     Friend WithEvents lblVersion As Label
     Friend WithEvents lblCardMan As Label
+    Friend WithEvents Timer1 As Timer
 End Class

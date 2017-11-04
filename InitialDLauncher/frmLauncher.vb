@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Net
 Imports System.Threading
 
 Public Class frmLauncher
@@ -150,6 +151,13 @@ Public Class frmLauncher
         threadE = New Thread(AddressOf EnterAni)
         threadE.Start()
     End Sub
+
+    Private Function CheckForUpdate() As Integer
+        Dim address As String = "https://raw.githubusercontent.com/qiangqiang101/Initial-D-Arcade-Stage-Teknoparrot-Launcher/master/ver/ver.txt"
+        Dim client As WebClient = New WebClient()
+        Dim reader As StreamReader = New StreamReader(client.OpenRead("https://raw.githubusercontent.com/qiangqiang101/Initial-D-Arcade-Stage-Teknoparrot-Launcher/master/ver/ver.txt"))
+        Return reader.ReadToEnd
+    End Function
 
     Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
@@ -308,6 +316,13 @@ Restart:
                         selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                         If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
                 End Select
+            Else
+                Select Case lastGame
+                    Case 6
+                        If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
+                    Case 7
+                        If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
+                End Select
             End If
 
             Me.WindowState = FormWindowState.Normal
@@ -329,5 +344,27 @@ Restart:
     Private Sub lblVersion_MouseLeave(sender As Object, e As EventArgs) Handles lblVersion.MouseLeave
         Me.Cursor = Cursors.Default
         lblVersion.ForeColor = Color.White
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Try
+            Timer1.Stop()
+            If curVer <> CheckForUpdate() Then
+                Dim result As Integer = MessageBox.Show("New version detected, do you want to update?", "Initial D Launcher", MessageBoxButtons.YesNo)
+                If result = DialogResult.No Then
+                    Exit Sub
+                ElseIf result = DialogResult.Yes Then
+                    If IsURLValid("https://www.imnotmental.com/tool/initial-d-arcade-stage-launcher-teknoparrot/") Then
+                        Process.Start("https://www.imnotmental.com/tool/initial-d-arcade-stage-launcher-teknoparrot/")
+                        End
+                    Else
+                        Process.Start("https://www.patreon.com/posts/initial-d-arcade-15177342")
+                        End
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 End Class

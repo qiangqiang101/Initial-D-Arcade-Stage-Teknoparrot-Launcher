@@ -97,4 +97,21 @@ Module Helper
     Function IsCardFolderEmpty(path As String) As Boolean
         Return Not Directory.EnumerateFileSystemEntries(path).Any()
     End Function
+
+    Function IsURLValid(url As String) As Boolean
+        Dim result As Boolean = True
+        Dim url1 As New System.Uri(url)
+        Dim req As System.Net.WebRequest
+        req = System.Net.WebRequest.Create(url)
+        Dim resp As System.Net.WebResponse
+        Try
+            resp = req.GetResponse()
+            resp.Close()
+            req = Nothing
+        Catch ex As Exception
+            req = Nothing
+            result = False
+        End Try
+        Return result
+    End Function
 End Module
