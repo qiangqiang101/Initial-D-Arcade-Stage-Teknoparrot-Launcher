@@ -1,0 +1,18 @@
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Release\InitialDLauncher.exe.config
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Release\InitialDLauncher.exe
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Release\InitialDLauncher.pdb
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Release\InitialDLauncher.xml
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.frmLauncher.resources
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.Resources.resources
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.frmSettings.resources
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.vbproj.GenerateResource.Cache
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.exe
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.xml
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.pdb
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.vbprojResolveAssemblyReference.cache
+E:\Users\Barry\Documents\Visual Studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.Card.resources
+E:\Users\Barry\Documents\Visual Studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Release\InitialDLauncher.frmCard.resources
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\InitialDLauncher.exe.config
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.exe
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.xml
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.pdb

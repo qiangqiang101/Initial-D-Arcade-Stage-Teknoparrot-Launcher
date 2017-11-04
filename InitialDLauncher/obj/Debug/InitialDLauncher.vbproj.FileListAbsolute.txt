@@ -1,0 +1,12 @@
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Debug\InitialDLauncher.exe.config
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Debug\InitialDLauncher.exe
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Debug\InitialDLauncher.pdb
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\bin\Debug\InitialDLauncher.xml
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.vbprojResolveAssemblyReference.cache
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.frmLauncher.resources
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.Resources.resources
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.vbproj.GenerateResource.Cache
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.exe
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.xml
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.pdb
+e:\users\barry\documents\visual studio 2015\Projects\InitialDLauncher\InitialDLauncher\obj\Debug\InitialDLauncher.frmSettings.resources

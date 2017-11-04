@@ -1,0 +1,103 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+InitialDLauncher
+</name>
+</assembly>
+<members>
+<member name="T:InitialDLauncher.Dropshadow">
+ <summary>
+     Dropshadow.
+     Add a shadow to a winform
+ </summary>
+</member>
+<member name="P:InitialDLauncher.Dropshadow.OffsetX">
+ <summary>
+     Offset X relate to Owner
+ </summary>
+</member>
+<member name="P:InitialDLauncher.Dropshadow.OffsetY">
+ <summary>
+     Offset Y relate to Owner
+ </summary>
+</member>
+<member name="M:InitialDLauncher.Dropshadow.RefreshShadow(System.Boolean)">
+ <summary>
+     Refresh shadow.
+ </summary>
+ <param name="redraw"> (optional) redraw the background bitmap. </param>
+</member>
+<member name="M:InitialDLauncher.Dropshadow.SetBitmap(System.Drawing.Bitmap,System.Byte)">
+ <para>Changes the current bitmap with a custom opacity level.  Here is where all happens!</para>
+</member>
+<member name="M:InitialDLauncher.Win32.SetWindowLong(System.IntPtr,System.Int32,System.Int32)">
+ <summary>
+     Changes an attribute of the specified window. The function also sets the 32-bit (long) value at the specified
+     offset into the extra window memory.
+ </summary>
+ <param name="hWnd">A handle to the window and, indirectly, the class to which the window belongs..</param>
+ <param name="nIndex">
+     The zero-based offset to the value to be set. Valid values are in the range zero through the
+     number of bytes of extra window memory, minus the size of an integer. To set any other value, specify one of the
+     following values: GWL_EXSTYLE, GWL_HINSTANCE, GWL_ID, GWL_STYLE, GWL_USERDATA, GWL_WNDPROC
+ </param>
+ <param name="dwNewLong">The replacement value.</param>
+ <returns>
+     If the function succeeds, the return value is the previous value of the specified 32-bit integer.
+     If the function fails, the return value is zero. To get extended error information, call GetLastError.
+ </returns>
+</member>
+<member name="T:InitialDLauncher.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources._select">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.card">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.checked">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.id_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.launcher_bg">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.play">
+<summary>
+  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.uncheck">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>
