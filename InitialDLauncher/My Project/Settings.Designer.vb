@@ -104,30 +104,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("A1")>  _
-        Public Property Cabinet6() As String
-            Get
-                Return CType(Me("Cabinet6"),String)
-            End Get
-            Set
-                Me("Cabinet6") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("A1")>  _
-        Public Property Cabinet7() As String
-            Get
-                Return CType(Me("Cabinet7"),String)
-            End Get
-            Set
-                Me("Cabinet7") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property Id6CardName() As String
             Get

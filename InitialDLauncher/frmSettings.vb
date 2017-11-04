@@ -4,7 +4,9 @@
     Dim Id6Config As String = String.Format("{0}\config.ini", My.Settings.Id6Path)
     Dim Id7Config As String = String.Format("{0}\config.ini", My.Settings.Id7Path)
     Dim SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
+    Dim SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
     Dim bool As List(Of String) = New List(Of String) From {"true", "false"}
+    Dim gotError As Boolean = False
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -28,7 +30,7 @@
             cbFree6.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id6Config, "General", "FreePlay")))
             If bool.Contains(ReadIniValue(Id6Config, "General", "Windowed").ToLower) Then cbWindow6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "Windowed"))
             If bool.Contains(ReadIniValue(Id6Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "EnableAmdFix"))
-            cmbSeat6.SelectedItem = My.Settings.Cabinet6
+            cmbSeat6.SelectedItem = GetSeatName(GetHex(SBUU_e2prom, 116, 4), 6)
 
             txtIP6.Text = ReadIniValue(Id6Config, "Network", "Ip")
             txtMask6.Text = ReadIniValue(Id6Config, "Network", "Mask")
@@ -48,7 +50,7 @@
             cbFree7.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id7Config, "General", "FreePlay")))
             If bool.Contains(ReadIniValue(Id7Config, "General", "Windowed").ToLower) Then cbWindow7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "Windowed"))
             If bool.Contains(ReadIniValue(Id7Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "EnableAmdFix"))
-            cmbSeat7.SelectedItem = My.Settings.Cabinet7
+            cmbSeat7.SelectedItem = GetSeatName(GetHex(SBYD_e2prom, 116, 4), 7)
 
             txtIP7.Text = ReadIniValue(Id7Config, "Network", "Ip")
             txtMask7.Text = ReadIniValue(Id7Config, "Network", "Mask")
@@ -75,9 +77,10 @@
             If gb7.Enabled Then Save7Config()
 
             frmLauncher.lblDebug.Visible = cbDebug.Checked
-            Me.Close()
+            If Not gotError Then Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            Exit Sub
         End Try
     End Sub
 
@@ -87,6 +90,8 @@
             WriteIniValue(Id6Config, "General", "Windowed", cbWindow6.Checked.ToString.ToLower)
             WriteIniValue(Id6Config, "General", "EnableAmdFix", cbAMDFix6.Checked.ToString.ToLower)
 
+            If cbSaveSeat.Checked Then SetSeatName(cmbSeat6.SelectedItem, 6)
+
             WriteIniValue(Id6Config, "Network", "Ip", txtIP6.Text)
             WriteIniValue(Id6Config, "Network", "Mask", txtMask6.Text)
             WriteIniValue(Id6Config, "Network", "Gateway", txtGateway6.Text)
@@ -95,28 +100,9 @@
             WriteIniValue(Id6Config, "Network", "BroadcastIP", txtBroadcast6.Text)
             WriteIniValue(Id6Config, "Network", "Cab1IP", txtCab1IP6.Text)
             WriteIniValue(Id6Config, "Network", "Cab2IP", txtCab2IP6.Text)
-
-            'Select Case cmbSeat6.SelectedIndex
-            '    Case 0
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H0"))), New Byte() {130, &H79, &H59, 9})
-            '        Dim buffer1 As Byte() = New Byte() {1}
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H2B"))), buffer1)
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H74"))), New Byte() {130, &H79, &H59, 9})
-            '        Dim buffer2 As Byte() = New Byte() {1}
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H9F"))), buffer2)
-            '    Case 1
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H0"))), New Byte() {&HD1, &H9B, &H7C, &HCA})
-            '        Dim buffer3 As Byte() = New Byte() {2}
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H2B"))), buffer3)
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H74"))), New Byte() {&HD1, &H9B, &H7C, &HCA})
-            '        Dim buffer4 As Byte() = New Byte() {2}
-            '        Cabinet(SBUU_e2prom, CLng(Math.Round(Conversion.Val("&H9F"))), buffer4)
-            'End Select
-
-            My.Settings.Cabinet6 = cmbSeat6.SelectedItem
-            My.Settings.Save()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            gotError = True
         End Try
     End Sub
 
@@ -125,6 +111,8 @@
             WriteIniValue(Id7Config, "General", "FreePlay", Convert.ToInt32(cbFree7.Checked))
             WriteIniValue(Id7Config, "General", "Windowed", cbWindow7.Checked.ToString.ToLower)
             WriteIniValue(Id7Config, "General", "EnableAmdFix", cbAMDFix7.Checked.ToString.ToLower)
+
+            If cbSaveSeat.Checked Then SetSeatName(cmbSeat7.SelectedItem, 7)
 
             WriteIniValue(Id7Config, "Network", "Ip", txtIP7.Text)
             WriteIniValue(Id7Config, "Network", "Mask", txtMask7.Text)
@@ -136,6 +124,7 @@
             WriteIniValue(Id7Config, "Network", "Cab2IP", txtCab2IP7.Text)
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            gotError = True
         End Try
     End Sub
 

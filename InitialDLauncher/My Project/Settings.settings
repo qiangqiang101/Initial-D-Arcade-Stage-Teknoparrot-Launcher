@@ -14,12 +14,6 @@
     <Setting Name="DebugMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Cabinet6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">A1</Value>
-    </Setting>
-    <Setting Name="Cabinet7" Type="System.String" Scope="User">
-      <Value Profile="(Default)">A1</Value>
-    </Setting>
     <Setting Name="Id6CardName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

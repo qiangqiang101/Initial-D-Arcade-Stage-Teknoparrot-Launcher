@@ -12,7 +12,7 @@ Public Class frmLauncher
     Dim threadE As Thread
     Dim shadow As Dropshadow
     Dim defaultLocation As Point
-    Dim curVer As Integer = 1
+    Dim curVer As Integer = 1, buildDate As String = "5/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -146,7 +146,7 @@ Public Class frmLauncher
         If My.Settings.Id6Path = Nothing Then lblStart6.Enabled = False
         If My.Settings.Id7Path = Nothing Then lblStart7.Enabled = False
 
-        lblVersion.Text = String.Format("Version: {0} Build: 4/11/2017", My.Application.Info.Version)
+        lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
 
         threadE = New Thread(AddressOf EnterAni)
         threadE.Start()

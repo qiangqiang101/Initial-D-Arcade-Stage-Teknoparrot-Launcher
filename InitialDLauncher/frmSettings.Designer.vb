@@ -51,6 +51,7 @@ Partial Class frmSettings
         Me.txtIP6 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cbAMDFix6 = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cmbSeat6 = New System.Windows.Forms.ComboBox()
         Me.cbWindow6 = New System.Windows.Forms.CheckBox()
@@ -74,12 +75,12 @@ Partial Class frmSettings
         Me.txtIP7 = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.cbAMDFix7 = New System.Windows.Forms.CheckBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.cmbSeat7 = New System.Windows.Forms.ComboBox()
         Me.cbWindow7 = New System.Windows.Forms.CheckBox()
         Me.cbFree7 = New System.Windows.Forms.CheckBox()
-        Me.cbAMDFix6 = New System.Windows.Forms.CheckBox()
-        Me.cbAMDFix7 = New System.Windows.Forms.CheckBox()
+        Me.cbSaveSeat = New System.Windows.Forms.CheckBox()
         Me.gb6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -334,26 +335,34 @@ Partial Class frmSettings
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "General"
         '
+        'cbAMDFix6
+        '
+        Me.cbAMDFix6.AutoSize = True
+        Me.cbAMDFix6.Location = New System.Drawing.Point(195, 22)
+        Me.cbAMDFix6.Name = "cbAMDFix6"
+        Me.cbAMDFix6.Size = New System.Drawing.Size(70, 19)
+        Me.cbAMDFix6.TabIndex = 13
+        Me.cbAMDFix6.Text = "AMD Fix"
+        Me.cbAMDFix6.UseVisualStyleBackColor = True
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(271, 23)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(73, 15)
+        Me.Label11.Size = New System.Drawing.Size(112, 15)
         Me.Label11.TabIndex = 8
-        Me.Label11.Text = "Cabinet Seat"
-        Me.Label11.Visible = False
+        Me.Label11.Text = "Cabinet Seat (BETA)"
         '
         'cmbSeat6
         '
         Me.cmbSeat6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSeat6.FormattingEnabled = True
-        Me.cmbSeat6.Items.AddRange(New Object() {"A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
-        Me.cmbSeat6.Location = New System.Drawing.Point(352, 20)
+        Me.cmbSeat6.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2", "Unknown"})
+        Me.cmbSeat6.Location = New System.Drawing.Point(389, 20)
         Me.cmbSeat6.Name = "cmbSeat6"
         Me.cmbSeat6.Size = New System.Drawing.Size(108, 23)
         Me.cmbSeat6.TabIndex = 14
-        Me.cmbSeat6.Visible = False
         '
         'cbWindow6
         '
@@ -554,26 +563,34 @@ Partial Class frmSettings
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "General"
         '
+        'cbAMDFix7
+        '
+        Me.cbAMDFix7.AutoSize = True
+        Me.cbAMDFix7.Location = New System.Drawing.Point(195, 22)
+        Me.cbAMDFix7.Name = "cbAMDFix7"
+        Me.cbAMDFix7.Size = New System.Drawing.Size(70, 19)
+        Me.cbAMDFix7.TabIndex = 33
+        Me.cbAMDFix7.Text = "AMD Fix"
+        Me.cbAMDFix7.UseVisualStyleBackColor = True
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
         Me.Label20.Location = New System.Drawing.Point(271, 23)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(73, 15)
+        Me.Label20.Size = New System.Drawing.Size(112, 15)
         Me.Label20.TabIndex = 8
-        Me.Label20.Text = "Cabinet Seat"
-        Me.Label20.Visible = False
+        Me.Label20.Text = "Cabinet Seat (BETA)"
         '
         'cmbSeat7
         '
         Me.cmbSeat7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSeat7.FormattingEnabled = True
-        Me.cmbSeat7.Items.AddRange(New Object() {"A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
-        Me.cmbSeat7.Location = New System.Drawing.Point(352, 20)
+        Me.cmbSeat7.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2", "Unknown"})
+        Me.cmbSeat7.Location = New System.Drawing.Point(389, 20)
         Me.cmbSeat7.Name = "cmbSeat7"
         Me.cmbSeat7.Size = New System.Drawing.Size(108, 23)
         Me.cmbSeat7.TabIndex = 34
-        Me.cmbSeat7.Visible = False
         '
         'cbWindow7
         '
@@ -595,25 +612,15 @@ Partial Class frmSettings
         Me.cbFree7.Text = "Free Play"
         Me.cbFree7.UseVisualStyleBackColor = True
         '
-        'cbAMDFix6
+        'cbSaveSeat
         '
-        Me.cbAMDFix6.AutoSize = True
-        Me.cbAMDFix6.Location = New System.Drawing.Point(195, 22)
-        Me.cbAMDFix6.Name = "cbAMDFix6"
-        Me.cbAMDFix6.Size = New System.Drawing.Size(70, 19)
-        Me.cbAMDFix6.TabIndex = 13
-        Me.cbAMDFix6.Text = "AMD Fix"
-        Me.cbAMDFix6.UseVisualStyleBackColor = True
-        '
-        'cbAMDFix7
-        '
-        Me.cbAMDFix7.AutoSize = True
-        Me.cbAMDFix7.Location = New System.Drawing.Point(195, 22)
-        Me.cbAMDFix7.Name = "cbAMDFix7"
-        Me.cbAMDFix7.Size = New System.Drawing.Size(70, 19)
-        Me.cbAMDFix7.TabIndex = 33
-        Me.cbAMDFix7.Text = "AMD Fix"
-        Me.cbAMDFix7.UseVisualStyleBackColor = True
+        Me.cbSaveSeat.AutoSize = True
+        Me.cbSaveSeat.Location = New System.Drawing.Point(313, 70)
+        Me.cbSaveSeat.Name = "cbSaveSeat"
+        Me.cbSaveSeat.Size = New System.Drawing.Size(119, 19)
+        Me.cbSaveSeat.TabIndex = 52
+        Me.cbSaveSeat.Text = "Save Cabinet Seat"
+        Me.cbSaveSeat.UseVisualStyleBackColor = True
         '
         'frmSettings
         '
@@ -621,6 +628,7 @@ Partial Class frmSettings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(562, 583)
+        Me.Controls.Add(Me.cbSaveSeat)
         Me.Controls.Add(Me.gb7)
         Me.Controls.Add(Me.gb6)
         Me.Controls.Add(Me.cbDebug)
@@ -707,4 +715,5 @@ Partial Class frmSettings
     Friend WithEvents cbFree7 As CheckBox
     Friend WithEvents cbAMDFix6 As CheckBox
     Friend WithEvents cbAMDFix7 As CheckBox
+    Friend WithEvents cbSaveSeat As CheckBox
 End Class
