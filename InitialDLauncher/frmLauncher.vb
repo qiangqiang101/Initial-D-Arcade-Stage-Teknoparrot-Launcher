@@ -13,7 +13,7 @@ Public Class frmLauncher
     Dim threadE, threadU As Thread
     Dim shadow As Dropshadow
     Dim defaultLocation As Point
-    Dim curVer As Integer = 4, buildDate As String = "6/11/2017"
+    Dim curVer As Integer = 5, buildDate As String = "6/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -30,14 +30,14 @@ Public Class frmLauncher
 
     Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown, pbLogo.MouseDown
         drag = True
-        mousex = System.Windows.Forms.Cursor.Position.X - Me.Left
-        mousey = System.Windows.Forms.Cursor.Position.Y - Me.Top
+        mousex = Cursor.Position.X - Me.Left
+        mousey = Cursor.Position.Y - Me.Top
     End Sub
 
     Private Sub frmLauncher_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove, pbLogo.MouseMove
         If drag Then
-            Me.Top = System.Windows.Forms.Cursor.Position.Y - mousey
-            Me.Left = System.Windows.Forms.Cursor.Position.X - mousex
+            Me.Top = Cursor.Position.Y - mousey
+            Me.Left = Cursor.Position.X - mousex
         End If
     End Sub
 
@@ -140,8 +140,8 @@ Public Class frmLauncher
         Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         Me.SetStyle(ControlStyles.UserPaint, True)
 
-        defaultLocation = Me.Location
-        Me.Location = New Point(((Screen.PrimaryScreen.Bounds.Width / 100) - (Me.Width * 2)) - 1000, Me.Location.Y)
+        'defaultLocation = Me.Location
+        'Me.Location = New Point(((Screen.PrimaryScreen.Bounds.Width / 100) - (Me.Width * 2)) - 1000, Me.Location.Y)
 
         shadow = New Dropshadow(Me) With {.ShadowBlur = 30, .ShadowSpread = 1, .ShadowColor = Color.Black}
         shadow.RefreshShadow()
@@ -164,8 +164,8 @@ Public Class frmLauncher
 
         Translate()
 
-        threadE = New Thread(AddressOf EnterAni)
-        threadE.Start()
+        'threadE = New Thread(AddressOf EnterAni)
+        'threadE.Start()
     End Sub
 
     Private Function CheckForUpdate() As Integer
@@ -177,9 +177,10 @@ Public Class frmLauncher
     Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         Me.Enabled = False
-        Thread.Sleep(1000)
-        threadE = New Thread(AddressOf ExitAni)
-        threadE.Start()
+        Thread.Sleep(2000)
+        End
+        'threadE = New Thread(AddressOf ExitAni)
+        'threadE.Start()
     End Sub
 
     Private Sub ExitAni()
