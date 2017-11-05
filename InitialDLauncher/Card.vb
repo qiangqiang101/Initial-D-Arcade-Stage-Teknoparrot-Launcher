@@ -2,6 +2,9 @@
 
 Public Class Card
 
+    'Translation
+    Dim file_already_exist As String
+
     Private _filename As String
     Public Property FileName() As String
         Get
@@ -29,13 +32,13 @@ Public Class Card
                     My.Settings.Id6CardName = _filename
                     My.Settings.Save()
                     frmLauncher.id6CardPath = _filename
-                    frmCard.lbl6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(_filename))
+                    frmCard.Translate()
                     frmCard.RefreshID6Cards()
                 Case 7
                     My.Settings.Id7CardName = _filename
                     My.Settings.Save()
                     frmLauncher.id7CardPath = _filename
-                    frmCard.lbl7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(_filename))
+                    frmCard.Translate()
                     frmCard.RefreshID7Cards()
             End Select
         Catch ex As Exception
@@ -50,13 +53,13 @@ Public Class Card
                     My.Settings.Id6CardName = ""
                     My.Settings.Save()
                     frmLauncher.id6CardPath = ""
-                    frmCard.lbl6.Text = String.Format("Selected ID6 Card: {0}", "")
+                    frmCard.Translate()
                     frmCard.RefreshID6Cards()
                 Case 7
                     My.Settings.Id7CardName = ""
                     My.Settings.Save()
                     frmLauncher.id7CardPath = ""
-                    frmCard.lbl7.Text = String.Format("Selected ID7 Card: {0}", "")
+                    frmCard.Translate()
                     frmCard.RefreshID7Cards()
             End Select
         Catch ex As Exception
@@ -109,7 +112,7 @@ Public Class Card
                 frmCard.RefreshID6Cards()
                 frmCard.RefreshID7Cards()
             Else
-                MsgBox(String.Format("{0}\{1} already exist.", fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
+                MsgBox(String.Format(file_already_exist, fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
             End If
         End If
     End Sub
@@ -123,5 +126,41 @@ Public Class Card
         rt = RenameType.RenameName
         GroupBox1.Show()
         txtName.Text = lblName.Text
+    End Sub
+
+    Private Sub Translate()
+        Select Case My.Settings.Language
+            Case "English"
+                btnEdit.Text = "Edit Name"
+                btnRename.Text = "Rename Card"
+                btnRenameOK.Text = "OK"
+                btnRenameCancel.Text = "Cancel"
+                btnSelect.Text = "Select Card"
+                btnUnselect.Text = "Deselect Card"
+                GroupBox1.Text = "Rename Card"
+                file_already_exist = "{0}\{1} already exist."
+            Case "Chinese"
+                btnEdit.Text = "改名"
+                btnRename.Text = "文件重命名"
+                btnRenameOK.Text = "OK"
+                btnRenameCancel.Text = "取消"
+                btnSelect.Text = "選擇卡"
+                btnUnselect.Text = "取消選擇"
+                GroupBox1.Text = "重命名"
+                file_already_exist = "{0}\{1} 已存在。"
+            Case "French"
+                btnEdit.Text = "Edit Nom"
+                btnRename.Text = "Renomer"
+                btnRenameOK.Text = "OK"
+                btnRenameCancel.Text = "Retour"
+                btnSelect.Text = "Activer"
+                btnUnselect.Text = "Desactiver"
+                GroupBox1.Text = "Changer Nom"
+                file_already_exist = "{0}\{1} already exist."
+        End Select
+    End Sub
+
+    Private Sub Card_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Translate()
     End Sub
 End Class

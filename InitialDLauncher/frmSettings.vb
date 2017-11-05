@@ -14,12 +14,15 @@
             txt7.Text = My.Settings.Id7Path
             cbTest.Checked = My.Settings.TestMode
             cbDebug.Checked = My.Settings.DebugMode
+            cmbLang.SelectedItem = My.Settings.Language
 
             If Not My.Settings.Id6Path = String.Empty Then gb6.Enabled = True
             If Not My.Settings.Id7Path = String.Empty Then gb7.Enabled = True
 
             If gb6.Enabled Then Load6Config()
             If gb7.Enabled Then Load7Config()
+
+            Translate()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -71,12 +74,14 @@
             My.Settings.Id7Path = txt7.Text
             My.Settings.TestMode = cbTest.Checked
             My.Settings.DebugMode = cbDebug.Checked
+            My.Settings.Language = cmbLang.SelectedItem
             My.Settings.Save()
 
             If gb6.Enabled Then Save6Config()
             If gb7.Enabled Then Save7Config()
 
             frmLauncher.lblDebug.Visible = cbDebug.Checked
+            frmLauncher.Translate()
             If Not gotError Then Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -145,11 +150,133 @@
     End Sub
 
     Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtIP6.KeyPress, txtBroadcast6.KeyPress, txtCab1IP6.KeyPress, txtCab2IP6.KeyPress, txtDNSP6.KeyPress, txtDNSS6.KeyPress, txtGateway6.KeyPress, txtMask6.KeyPress, txtBroadcast7.KeyPress, txtCab1IP7.KeyPress, txtCab2IP7.KeyPress, txtDNSP7.KeyPress, txtDNSS7.KeyPress, txtGateway7.KeyPress, txtIP7.KeyPress, txtMask7.KeyPress
-        If Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or Asc(e.KeyChar) = Keys.Delete Or
-           Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Back Then
+        If Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
+           Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then
             Return
         End If
         e.Handled = True
+    End Sub
+
+    Public Sub Translate()
+        Select Case My.Settings.Language
+            Case "English"
+                Me.Text = "Settings"
+                Label1.Text = "Initial D 6AA Path"
+                Label2.Text = "Initial D 7AAX Path"
+                cbTest.Text = "Test Menu"
+                cbDebug.Text = "Debug Mode"
+                cbSaveSeat.Text = "Save Cabinet Seat"
+                Label21.Text = "Launcher Language"
+                gb6.Text = "Initial D 6AA Config"
+                gb7.Text = "Initial D 7AAX Config"
+                GroupBox2.Text = "General"
+                GroupBox6.Text = GroupBox2.Text
+                GroupBox3.Text = "Network"
+                GroupBox5.Text = GroupBox3.Text
+                cbFree6.Text = "Free Play"
+                cbFree7.Text = cbFree6.Text
+                cbWindow6.Text = "Window Mode"
+                cbWindow7.Text = cbWindow6.Text
+                cbAMDFix6.Text = "AMD Fix"
+                cbAMDFix7.Text = cbAMDFix6.Text
+                Label11.Text = "Cabinet Seat (BETA)"
+                Label20.Text = Label11.Text
+                Label3.Text = "IP Address"
+                Label19.Text = Label3.Text
+                Label5.Text = "Subnet Mask"
+                Label17.Text = Label5.Text
+                Label4.Text = "Default Gateway"
+                Label18.Text = Label4.Text
+                Label10.Text = "Broadcast IP"
+                Label14.Text = Label10.Text
+                Label6.Text = "Primary DNS"
+                Label16.Text = Label6.Text
+                Label7.Text = "Secondary DNS"
+                Label15.Text = Label7.Text
+                Label9.Text = "Cabinet 1 IP"
+                Label13.Text = Label9.Text
+                Label8.Text = "Cabinet 2 IP"
+                Label12.Text = Label8.Text
+                btnSave.Text = "Save"
+            Case "Chinese"
+                Me.Text = "設定"
+                Label1.Text = "頭文字D6AA路徑"
+                Label2.Text = "頭文字D7AAX路徑"
+                cbTest.Text = "測試菜單"
+                cbDebug.Text = "調試模式"
+                cbSaveSeat.Text = "保存座位"
+                Label21.Text = "登陸器語言"
+                gb6.Text = "頭文字D6AA配置"
+                gb7.Text = "頭文字D7AAX配置"
+                GroupBox2.Text = "一般"
+                GroupBox6.Text = GroupBox2.Text
+                GroupBox3.Text = "網絡"
+                GroupBox5.Text = GroupBox3.Text
+                cbFree6.Text = "免费玩"
+                cbFree7.Text = cbFree6.Text
+                cbWindow6.Text = "窗口模式"
+                cbWindow7.Text = cbWindow6.Text
+                cbAMDFix6.Text = "AMD修復"
+                cbAMDFix7.Text = cbAMDFix6.Text
+                Label11.Text = "座位(BETA)"
+                Label20.Text = Label11.Text
+                Label3.Text = "IP地址"
+                Label19.Text = Label3.Text
+                Label5.Text = "子網掩碼"
+                Label17.Text = Label5.Text
+                Label4.Text = "默認網關"
+                Label18.Text = Label4.Text
+                Label10.Text = "廣播IP"
+                Label14.Text = Label10.Text
+                Label6.Text = "主DNS"
+                Label16.Text = Label6.Text
+                Label7.Text = "副DNS"
+                Label15.Text = Label7.Text
+                Label9.Text = "座位1 IP"
+                Label13.Text = Label9.Text
+                Label8.Text = "座位2 IP"
+                Label12.Text = Label8.Text
+                btnSave.Text = "保存"
+            Case "French"
+                Me.Text = "Réglages"
+                Label1.Text = "Initial D 6AA Chemin"
+                Label2.Text = "Initial D 7AAX Chemin"
+                cbTest.Text = "Test Menu"
+                cbDebug.Text = "Mode Debug"
+                cbSaveSeat.Text = "Sauv Cabinet Seat"
+                Label21.Text = "Langue"
+                gb6.Text = "Initial D 6AA Config"
+                gb7.Text = "Initial D 7AAX Config"
+                GroupBox2.Text = "General"
+                GroupBox6.Text = GroupBox2.Text
+                GroupBox3.Text = "Network"
+                GroupBox5.Text = GroupBox3.Text
+                cbFree6.Text = "Free Play"
+                cbFree7.Text = cbFree6.Text
+                cbWindow6.Text = "Fenetre Mod"
+                cbWindow7.Text = cbWindow6.Text
+                cbAMDFix6.Text = "AMD Fix"
+                cbAMDFix7.Text = cbAMDFix6.Text
+                Label11.Text = "Cabinet Seat (BETA)"
+                Label20.Text = Label11.Text
+                Label3.Text = "IP Address"
+                Label19.Text = Label3.Text
+                Label5.Text = "Subnet Mask"
+                Label17.Text = Label5.Text
+                Label4.Text = "Default Gateway"
+                Label18.Text = Label4.Text
+                Label10.Text = "Broadcast IP"
+                Label14.Text = Label10.Text
+                Label6.Text = "Primary DNS"
+                Label16.Text = Label6.Text
+                Label7.Text = "Secondary DNS"
+                Label15.Text = Label7.Text
+                Label9.Text = "Cabinet 1 IP"
+                Label13.Text = Label9.Text
+                Label8.Text = "Cabinet 2 IP"
+                Label12.Text = Label8.Text
+                btnSave.Text = "Sauv"
+        End Select
     End Sub
 
 End Class

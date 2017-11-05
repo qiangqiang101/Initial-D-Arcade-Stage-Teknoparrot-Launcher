@@ -21,6 +21,7 @@ Module Helper
         If wait Then
             frmLauncher.proc.EnableRaisingEvents = True
             frmLauncher.proc.WaitForExit()
+        Else
             frmLauncher.proc.EnableRaisingEvents = False
         End If
     End Sub
@@ -243,5 +244,4 @@ Module Helper
     Function HexStringToBinary(ByVal hexString As String) As Byte()
         Return Enumerable.Range(0, hexString.Length).Where(Function(x) x Mod 2 = 0).[Select](Function(x) Convert.ToByte(hexString.Substring(x, 2), 16)).ToArray()
     End Function
-
 End Module

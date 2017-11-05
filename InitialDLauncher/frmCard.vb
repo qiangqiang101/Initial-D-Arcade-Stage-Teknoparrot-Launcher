@@ -10,8 +10,7 @@ Public Class frmCard
         RefreshID6Cards()
         RefreshID7Cards()
 
-        lbl6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(My.Settings.Id6CardName))
-        lbl7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(My.Settings.Id7CardName))
+        Translate()
     End Sub
 
     Public Sub RefreshID6Cards()
@@ -53,4 +52,28 @@ Public Class frmCard
     Private Sub frmCard_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmLauncher.Enabled = True
     End Sub
+
+    Public Sub Translate()
+        Select Case My.Settings.Language
+            Case "English"
+                Me.Text = "Card Management"
+                TabPage1.Text = "Initial D 6 AA"
+                TabPage2.Text = "Initial D 7 AAX"
+                lbl6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(My.Settings.Id6CardName))
+                lbl7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(My.Settings.Id7CardName))
+            Case "Chinese"
+                Me.Text = "卡管理"
+                TabPage1.Text = "頭文字D6AA"
+                TabPage2.Text = "頭文字D7AAX"
+                lbl6.Text = String.Format("已經選擇的ID6卡: {0}", Path.GetFileName(My.Settings.Id6CardName))
+                lbl7.Text = String.Format("已經選擇的ID7卡: {0}", Path.GetFileName(My.Settings.Id7CardName))
+            Case "French"
+                Me.Text = "Gestion Cartes"
+                TabPage1.Text = "Initial D 6 AA"
+                TabPage2.Text = "Initial D 7 AAX"
+                lbl6.Text = String.Format("Choix Carte ID6: {0}", Path.GetFileName(My.Settings.Id6CardName))
+                lbl7.Text = String.Format("Choix Carte ID7: {0}", Path.GetFileName(My.Settings.Id7CardName))
+        End Select
+    End Sub
+
 End Class

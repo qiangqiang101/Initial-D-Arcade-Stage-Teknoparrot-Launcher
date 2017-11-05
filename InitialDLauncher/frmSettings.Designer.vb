@@ -81,6 +81,8 @@ Partial Class frmSettings
         Me.cbWindow7 = New System.Windows.Forms.CheckBox()
         Me.cbFree7 = New System.Windows.Forms.CheckBox()
         Me.cbSaveSeat = New System.Windows.Forms.CheckBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.cmbLang = New System.Windows.Forms.ComboBox()
         Me.gb6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -92,7 +94,7 @@ Partial Class frmSettings
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 15)
+        Me.Label1.Location = New System.Drawing.Point(9, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(99, 15)
         Me.Label1.TabIndex = 0
@@ -100,22 +102,22 @@ Partial Class frmSettings
         '
         'txt6
         '
-        Me.txt6.Location = New System.Drawing.Point(124, 12)
+        Me.txt6.Location = New System.Drawing.Point(137, 12)
         Me.txt6.Name = "txt6"
-        Me.txt6.Size = New System.Drawing.Size(426, 23)
+        Me.txt6.Size = New System.Drawing.Size(413, 23)
         Me.txt6.TabIndex = 1
         '
         'txt7
         '
-        Me.txt7.Location = New System.Drawing.Point(124, 41)
+        Me.txt7.Location = New System.Drawing.Point(137, 41)
         Me.txt7.Name = "txt7"
-        Me.txt7.Size = New System.Drawing.Size(426, 23)
+        Me.txt7.Size = New System.Drawing.Size(413, 23)
         Me.txt7.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 44)
+        Me.Label2.Location = New System.Drawing.Point(9, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(106, 15)
         Me.Label2.TabIndex = 2
@@ -134,7 +136,7 @@ Partial Class frmSettings
         'cbTest
         '
         Me.cbTest.AutoSize = True
-        Me.cbTest.Location = New System.Drawing.Point(124, 70)
+        Me.cbTest.Location = New System.Drawing.Point(12, 70)
         Me.cbTest.Name = "cbTest"
         Me.cbTest.Size = New System.Drawing.Size(82, 19)
         Me.cbTest.TabIndex = 3
@@ -145,7 +147,7 @@ Partial Class frmSettings
         '
         Me.cbDebug.AutoSize = True
         Me.cbDebug.Enabled = False
-        Me.cbDebug.Location = New System.Drawing.Point(212, 70)
+        Me.cbDebug.Location = New System.Drawing.Point(100, 70)
         Me.cbDebug.Name = "cbDebug"
         Me.cbDebug.Size = New System.Drawing.Size(95, 19)
         Me.cbDebug.TabIndex = 4
@@ -617,12 +619,31 @@ Partial Class frmSettings
         'cbSaveSeat
         '
         Me.cbSaveSeat.AutoSize = True
-        Me.cbSaveSeat.Location = New System.Drawing.Point(313, 70)
+        Me.cbSaveSeat.Location = New System.Drawing.Point(201, 70)
         Me.cbSaveSeat.Name = "cbSaveSeat"
         Me.cbSaveSeat.Size = New System.Drawing.Size(119, 19)
         Me.cbSaveSeat.TabIndex = 52
         Me.cbSaveSeat.Text = "Save Cabinet Seat"
         Me.cbSaveSeat.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(326, 71)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(111, 15)
+        Me.Label21.TabIndex = 53
+        Me.Label21.Text = "Launcher Language"
+        '
+        'cmbLang
+        '
+        Me.cmbLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbLang.FormattingEnabled = True
+        Me.cmbLang.Items.AddRange(New Object() {"English", "Chinese", "French"})
+        Me.cmbLang.Location = New System.Drawing.Point(443, 68)
+        Me.cmbLang.Name = "cmbLang"
+        Me.cmbLang.Size = New System.Drawing.Size(107, 23)
+        Me.cmbLang.TabIndex = 54
         '
         'frmSettings
         '
@@ -630,6 +651,8 @@ Partial Class frmSettings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(562, 583)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.cmbLang)
         Me.Controls.Add(Me.cbSaveSeat)
         Me.Controls.Add(Me.gb7)
         Me.Controls.Add(Me.gb6)
@@ -718,4 +741,6 @@ Partial Class frmSettings
     Friend WithEvents cbAMDFix6 As CheckBox
     Friend WithEvents cbAMDFix7 As CheckBox
     Friend WithEvents cbSaveSeat As CheckBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents cmbLang As ComboBox
 End Class

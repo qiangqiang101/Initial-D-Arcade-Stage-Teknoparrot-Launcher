@@ -39,13 +39,12 @@ Partial Class frmLauncher
         'lblStart6
         '
         Me.lblStart6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblStart6.AutoSize = True
         Me.lblStart6.BackColor = System.Drawing.Color.Transparent
         Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblStart6.ForeColor = System.Drawing.Color.White
-        Me.lblStart6.Location = New System.Drawing.Point(630, 88)
+        Me.lblStart6.Location = New System.Drawing.Point(564, 88)
         Me.lblStart6.Name = "lblStart6"
-        Me.lblStart6.Size = New System.Drawing.Size(228, 37)
+        Me.lblStart6.Size = New System.Drawing.Size(287, 37)
         Me.lblStart6.TabIndex = 1
         Me.lblStart6.Text = "Play Initial D 6 AA"
         Me.lblStart6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -53,13 +52,12 @@ Partial Class frmLauncher
         'lblStart7
         '
         Me.lblStart7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblStart7.AutoSize = True
         Me.lblStart7.BackColor = System.Drawing.Color.Transparent
         Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblStart7.ForeColor = System.Drawing.Color.White
-        Me.lblStart7.Location = New System.Drawing.Point(614, 125)
+        Me.lblStart7.Location = New System.Drawing.Point(564, 125)
         Me.lblStart7.Name = "lblStart7"
-        Me.lblStart7.Size = New System.Drawing.Size(244, 37)
+        Me.lblStart7.Size = New System.Drawing.Size(287, 37)
         Me.lblStart7.TabIndex = 2
         Me.lblStart7.Text = "Play Initial D 7 AAX"
         Me.lblStart7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -67,13 +65,12 @@ Partial Class frmLauncher
         'lblExit
         '
         Me.lblExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblExit.AutoSize = True
         Me.lblExit.BackColor = System.Drawing.Color.Transparent
         Me.lblExit.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblExit.ForeColor = System.Drawing.Color.White
-        Me.lblExit.Location = New System.Drawing.Point(713, 236)
+        Me.lblExit.Location = New System.Drawing.Point(564, 236)
         Me.lblExit.Name = "lblExit"
-        Me.lblExit.Size = New System.Drawing.Size(145, 37)
+        Me.lblExit.Size = New System.Drawing.Size(287, 37)
         Me.lblExit.TabIndex = 4
         Me.lblExit.Text = "Quit Game"
         Me.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -81,13 +78,12 @@ Partial Class frmLauncher
         'lblSetting
         '
         Me.lblSetting.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblSetting.AutoSize = True
         Me.lblSetting.BackColor = System.Drawing.Color.Transparent
         Me.lblSetting.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblSetting.ForeColor = System.Drawing.Color.White
-        Me.lblSetting.Location = New System.Drawing.Point(746, 199)
+        Me.lblSetting.Location = New System.Drawing.Point(564, 199)
         Me.lblSetting.Name = "lblSetting"
-        Me.lblSetting.Size = New System.Drawing.Size(112, 37)
+        Me.lblSetting.Size = New System.Drawing.Size(287, 37)
         Me.lblSetting.TabIndex = 3
         Me.lblSetting.Text = "Settings"
         Me.lblSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -95,13 +91,12 @@ Partial Class frmLauncher
         'lblDebug
         '
         Me.lblDebug.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblDebug.AutoSize = True
         Me.lblDebug.BackColor = System.Drawing.Color.Transparent
         Me.lblDebug.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblDebug.ForeColor = System.Drawing.Color.White
-        Me.lblDebug.Location = New System.Drawing.Point(761, 273)
+        Me.lblDebug.Location = New System.Drawing.Point(564, 273)
         Me.lblDebug.Name = "lblDebug"
-        Me.lblDebug.Size = New System.Drawing.Size(97, 37)
+        Me.lblDebug.Size = New System.Drawing.Size(287, 37)
         Me.lblDebug.TabIndex = 5
         Me.lblDebug.Text = "Debug"
         Me.lblDebug.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -136,13 +131,12 @@ Partial Class frmLauncher
         'lblCardMan
         '
         Me.lblCardMan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblCardMan.AutoSize = True
         Me.lblCardMan.BackColor = System.Drawing.Color.Transparent
         Me.lblCardMan.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblCardMan.ForeColor = System.Drawing.Color.White
-        Me.lblCardMan.Location = New System.Drawing.Point(670, 162)
+        Me.lblCardMan.Location = New System.Drawing.Point(564, 162)
         Me.lblCardMan.Name = "lblCardMan"
-        Me.lblCardMan.Size = New System.Drawing.Size(188, 37)
+        Me.lblCardMan.Size = New System.Drawing.Size(287, 37)
         Me.lblCardMan.TabIndex = 7
         Me.lblCardMan.Text = "Card Selection"
         Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -150,7 +144,7 @@ Partial Class frmLauncher
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 3000
+        Me.Timer1.Interval = 5000
         '
         'frmLauncher
         '

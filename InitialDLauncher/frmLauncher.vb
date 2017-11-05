@@ -4,15 +4,16 @@ Imports System.Threading
 
 Public Class frmLauncher
 
+    Dim widthx As Integer = 43
     Dim drag As Boolean
     Dim mousex As Integer
     Dim mousey As Integer
     Public WithEvents proc As Process
     Dim debug As Boolean = My.Settings.DebugMode
-    Dim threadE As Thread
+    Dim threadE, threadU As Thread
     Dim shadow As Dropshadow
     Dim defaultLocation As Point
-    Dim curVer As Integer = 3, buildDate As String = "5/11/2017"
+    Dim curVer As Integer = 4, buildDate As String = "6/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -23,6 +24,9 @@ Public Class frmLauncher
 
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
+
+    'Translation
+    Dim new_version, no_card_selected As String
 
     Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown, pbLogo.MouseDown
         drag = True
@@ -45,12 +49,14 @@ Public Class frmLauncher
         My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
         Me.Cursor = Cursors.Hand
         lblStart6.ForeColor = Color.Gold
+        lblStart6.Size = New Size(lblStart6.Size.Width + widthx, lblStart6.Size.Height)
         lblStart6.Text = lblStart6.Text & " <<"
     End Sub
 
     Private Sub lblStart6_MouseLeave(sender As Object, e As EventArgs) Handles lblStart6.MouseLeave
         Me.Cursor = Cursors.Default
         lblStart6.ForeColor = Color.White
+        lblStart6.Size = New Size(lblStart6.Size.Width - widthx, lblStart6.Size.Height)
         lblStart6.Text = lblStart6.Text.Replace(" <<", String.Empty)
     End Sub
 
@@ -58,12 +64,14 @@ Public Class frmLauncher
         My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
         Me.Cursor = Cursors.Hand
         lblStart7.ForeColor = Color.Gold
+        lblStart7.Size = New Size(lblStart7.Size.Width + widthx, lblStart7.Size.Height)
         lblStart7.Text = lblStart7.Text & " <<"
     End Sub
 
     Private Sub lblStart7_MouseLeave(sender As Object, e As EventArgs) Handles lblStart7.MouseLeave
         Me.Cursor = Cursors.Default
         lblStart7.ForeColor = Color.White
+        lblStart7.Size = New Size(lblStart7.Size.Width - widthx, lblStart7.Size.Height)
         lblStart7.Text = lblStart7.Text.Replace(" <<", String.Empty)
     End Sub
 
@@ -71,12 +79,14 @@ Public Class frmLauncher
         My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
         Me.Cursor = Cursors.Hand
         lblSetting.ForeColor = Color.Gold
+        lblSetting.Size = New Size(lblSetting.Size.Width + widthx, lblSetting.Size.Height)
         lblSetting.Text = lblSetting.Text & " <<"
     End Sub
 
     Private Sub lblSetting_MouseLeave(sender As Object, e As EventArgs) Handles lblSetting.MouseLeave
         Me.Cursor = Cursors.Default
         lblSetting.ForeColor = Color.White
+        lblSetting.Size = New Size(lblSetting.Size.Width - widthx, lblSetting.Size.Height)
         lblSetting.Text = lblSetting.Text.Replace(" <<", String.Empty)
     End Sub
 
@@ -84,12 +94,14 @@ Public Class frmLauncher
         My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
         Me.Cursor = Cursors.Hand
         lblExit.ForeColor = Color.Gold
+        lblExit.Size = New Size(lblExit.Size.Width + widthx, lblExit.Size.Height)
         lblExit.Text = lblExit.Text & " <<"
     End Sub
 
     Private Sub lblExit_MouseLeave(sender As Object, e As EventArgs) Handles lblExit.MouseLeave
         Me.Cursor = Cursors.Default
         lblExit.ForeColor = Color.White
+        lblExit.Size = New Size(lblExit.Size.Width - widthx, lblExit.Size.Height)
         lblExit.Text = lblExit.Text.Replace(" <<", String.Empty)
     End Sub
 
@@ -97,12 +109,14 @@ Public Class frmLauncher
         My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
         Me.Cursor = Cursors.Hand
         lblDebug.ForeColor = Color.Gold
+        lblDebug.Size = New Size(lblDebug.Size.Width + widthx, lblDebug.Size.Height)
         lblDebug.Text = lblDebug.Text & " <<"
     End Sub
 
     Private Sub lblDebug_MouseLeave(sender As Object, e As EventArgs) Handles lblDebug.MouseLeave
         Me.Cursor = Cursors.Default
         lblDebug.ForeColor = Color.White
+        lblDebug.Size = New Size(lblDebug.Size.Width - widthx, lblDebug.Size.Height)
         lblDebug.Text = lblDebug.Text.Replace(" <<", String.Empty)
     End Sub
 
@@ -110,12 +124,14 @@ Public Class frmLauncher
         My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
         Me.Cursor = Cursors.Hand
         lblCardMan.ForeColor = Color.Gold
+        lblCardMan.Size = New Size(lblCardMan.Size.Width + widthx, lblCardMan.Size.Height)
         lblCardMan.Text = lblCardMan.Text & " <<"
     End Sub
 
     Private Sub lblCardMan_MouseLeave(sender As Object, e As EventArgs) Handles lblCardMan.MouseLeave
         Me.Cursor = Cursors.Default
         lblCardMan.ForeColor = Color.White
+        lblCardMan.Size = New Size(lblCardMan.Size.Width - widthx, lblCardMan.Size.Height)
         lblCardMan.Text = lblCardMan.Text.Replace(" <<", String.Empty)
     End Sub
 
@@ -146,14 +162,13 @@ Public Class frmLauncher
         If My.Settings.Id6Path = Nothing Then lblStart6.Enabled = False
         If My.Settings.Id7Path = Nothing Then lblStart7.Enabled = False
 
-        lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
+        Translate()
 
         threadE = New Thread(AddressOf EnterAni)
         threadE.Start()
     End Sub
 
     Private Function CheckForUpdate() As Integer
-        Dim address As String = "https://raw.githubusercontent.com/qiangqiang101/Initial-D-Arcade-Stage-Teknoparrot-Launcher/master/ver/ver.txt"
         Dim client As WebClient = New WebClient()
         Dim reader As StreamReader = New StreamReader(client.OpenRead("https://raw.githubusercontent.com/qiangqiang101/Initial-D-Arcade-Stage-Teknoparrot-Launcher/master/ver/ver.txt"))
         Return reader.ReadToEnd
@@ -196,7 +211,7 @@ Restart:
             My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(id6CardDir) AndAlso id6CardPath = Nothing Then
-                Dim result As Integer = MessageBox.Show("No card selected! Are you sure you want to play without a card?", "Initial D Launcher", MessageBoxButtons.YesNo)
+                Dim result As Integer = MessageBox.Show(no_card_selected, "Initial D Launcher", MessageBoxButtons.YesNo)
                 If result = DialogResult.No Then
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
@@ -240,7 +255,7 @@ Restart:
             My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(id7CardDir) AndAlso id7CardPath = Nothing Then
-                Dim result As Integer = MessageBox.Show("No card selected! Are you sure you want to play without a card?", "Initial D Launcher", MessageBoxButtons.YesNo)
+                Dim result As Integer = MessageBox.Show(no_card_selected, "Initial D Launcher", MessageBoxButtons.YesNo)
                 If result = DialogResult.No Then
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
@@ -349,8 +364,17 @@ Restart:
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Try
             Timer1.Stop()
+            threadU = New Thread(AddressOf CheckUpdate)
+            threadU.Start()
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub CheckUpdate()
+        Try
             If curVer <> CheckForUpdate() Then
-                Dim result As Integer = MessageBox.Show("New version detected, do you want to update?", "Initial D Launcher", MessageBoxButtons.YesNo)
+                Dim result As Integer = MessageBox.Show(new_version, "Initial D Launcher", MessageBoxButtons.YesNo)
                 If result = DialogResult.No Then
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
@@ -366,5 +390,41 @@ Restart:
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+
+    Public Sub Translate()
+        Select Case My.Settings.Language
+            Case "English"
+                lblStart6.Text = "Play Initial D 6 AA"
+                lblStart7.Text = "Play Initial D 7 AAX"
+                lblCardMan.Text = "Card Selection"
+                lblSetting.Text = "Settings"
+                lblExit.Text = "Quit Game"
+                lblDebug.Text = "Debug"
+                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
+                new_version = "New version detected, do you want to update?"
+                no_card_selected = "No card selected! Are you sure you want to play without a card?"
+            Case "Chinese"
+                lblStart6.Text = "玩頭文字D6AA"
+                lblStart7.Text = "玩頭文字D7AAX"
+                lblCardMan.Text = "選擇卡"
+                lblSetting.Text = "設定"
+                lblExit.Text = "離開遊戲"
+                lblDebug.Text = "调试"
+                lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, buildDate)
+                new_version = "發現新版本，你想更新吗？"
+                no_card_selected = "没有选择卡！ 你想繼續嗎？"
+            Case "French"
+                lblStart6.Text = "Jouer Initial D 6 AA"
+                lblStart7.Text = "Jouer Initial D 7 AAX"
+                lblCardMan.Text = "Choisir Carte"
+                lblSetting.Text = "Réglages"
+                lblExit.Text = "Quitter"
+                lblDebug.Text = "Déboguer"
+                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
+                new_version = "New version detected, do you want to update?"
+                no_card_selected = "No card selected! Are you sure you want to play without a card?"
+        End Select
     End Sub
 End Class

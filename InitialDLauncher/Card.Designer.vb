@@ -28,9 +28,9 @@ Partial Class Card
         Me.btnUnselect = New System.Windows.Forms.Button()
         Me.btnRename = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnRenameOK = New System.Windows.Forms.Button()
-        Me.txtName = New System.Windows.Forms.TextBox()
         Me.btnRenameCancel = New System.Windows.Forms.Button()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.btnRenameOK = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -98,23 +98,6 @@ Partial Class Card
         Me.GroupBox1.Text = "Rename File"
         Me.GroupBox1.Visible = False
         '
-        'btnRenameOK
-        '
-        Me.btnRenameOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRenameOK.Location = New System.Drawing.Point(129, 49)
-        Me.btnRenameOK.Name = "btnRenameOK"
-        Me.btnRenameOK.Size = New System.Drawing.Size(63, 23)
-        Me.btnRenameOK.TabIndex = 3
-        Me.btnRenameOK.Text = "OK"
-        Me.btnRenameOK.UseVisualStyleBackColor = True
-        '
-        'txtName
-        '
-        Me.txtName.Location = New System.Drawing.Point(6, 22)
-        Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(255, 23)
-        Me.txtName.TabIndex = 4
-        '
         'btnRenameCancel
         '
         Me.btnRenameCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -124,6 +107,23 @@ Partial Class Card
         Me.btnRenameCancel.TabIndex = 5
         Me.btnRenameCancel.Text = "Cancel"
         Me.btnRenameCancel.UseVisualStyleBackColor = True
+        '
+        'txtName
+        '
+        Me.txtName.Location = New System.Drawing.Point(6, 22)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(255, 23)
+        Me.txtName.TabIndex = 4
+        '
+        'btnRenameOK
+        '
+        Me.btnRenameOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRenameOK.Location = New System.Drawing.Point(129, 49)
+        Me.btnRenameOK.Name = "btnRenameOK"
+        Me.btnRenameOK.Size = New System.Drawing.Size(63, 23)
+        Me.btnRenameOK.TabIndex = 3
+        Me.btnRenameOK.Text = "OK"
+        Me.btnRenameOK.UseVisualStyleBackColor = True
         '
         'Card
         '
