@@ -81,39 +81,41 @@ Public Class Card
     Dim rt As RenameType
 
     Private Sub btnRenameOK_Click(sender As Object, e As EventArgs) Handles btnRenameOK.Click
-        If rt = RenameType.RenameName Then
-            If txtName.TextLength <= 5 Then
-                Dim amount As Integer = 6 - txtName.TextLength
-                Dim newName As Char = Nothing
-                Select Case amount
-                    Case 1
-                        newName = Chr(0)
-                    Case 2
-                        newName = Chr(0) & Chr(0)
-                    Case 3
-                        newName = Chr(0) & Chr(0) & Chr(0)
-                    Case 4
-                        newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                    Case 5
-                        newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                    Case 6
-                        newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                End Select
-                SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
-            Else
-                SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
-            End If
+        'If rt = RenameType.RenameName Then
+        '    If txtName.TextLength <= 5 Then
+        '        Dim amount As Integer = 6 - txtName.TextLength
+        '        Dim newName As Char = Nothing
+        '        Select Case amount
+        '            Case 1
+        '                newName = Chr(0)
+        '            Case 2
+        '                newName = Chr(0) & Chr(0)
+        '            Case 3
+        '                newName = Chr(0) & Chr(0) & Chr(0)
+        '            Case 4
+        '                newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
+        '            Case 5
+        '                newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+        '            Case 6
+        '                newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+        '        End Select
+        '        SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
+        '    Else
+        '        SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
+        '    End If
+        '    frmCard.RefreshID6Cards()
+        '    frmCard.RefreshID7Cards()
+        'Else
+
+        'End If
+
+        Dim fpath As String = Path.GetDirectoryName(_filename)
+        If Not File.Exists(String.Format("{0}\{1}", fpath, txtName.Text)) Then
+            My.Computer.FileSystem.RenameFile(_filename, txtName.Text)
             frmCard.RefreshID6Cards()
             frmCard.RefreshID7Cards()
         Else
-            Dim fpath As String = Path.GetDirectoryName(_filename)
-            If Not File.Exists(String.Format("{0}\{1}", fpath, txtName.Text)) Then
-                My.Computer.FileSystem.RenameFile(_filename, txtName.Text)
-                frmCard.RefreshID6Cards()
-                frmCard.RefreshID7Cards()
-            Else
-                MsgBox(String.Format(file_already_exist, fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
-            End If
+            MsgBox(String.Format(file_already_exist, fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
         End If
     End Sub
 
@@ -123,15 +125,37 @@ Public Class Card
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        rt = RenameType.RenameName
-        GroupBox1.Show()
-        txtName.Text = lblName.Text
+        'rt = RenameType.RenameName
+        'GroupBox1.Show()
+        'txtName.Text = lblName.Text
+        Dim fe As frmEdit = New frmEdit()
+        fe.Version = _cardVersion
+        fe.txtName.Text = lblName.Text
+        If _cardVersion = 6 Then
+            fe.cmbGender.Enabled = False
+            fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
+            fe.cmbChapter.SelectedItem = GetChapter6(GetHex(_filename, 546, 2))
+            fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
+        Else
+            If GetGender(GetHex(_filename, 197, 6)) = Gender.female Then
+                fe.cmbGender.SelectedItem = "Female"
+            Else
+                fe.cmbGender.SelectedItem = "Male"
+            End If
+            fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
+            fe.cmbChapter.Enabled = False
+            fe.txtChapLevel.Enabled = False
+        End If
+        fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+        fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+        fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+        fe.Show()
     End Sub
 
     Private Sub Translate()
         Select Case My.Settings.Language
             Case "English"
-                btnEdit.Text = "Edit Name"
+                btnEdit.Text = "Edit Card"
                 btnRename.Text = "Rename Card"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "Cancel"
@@ -140,7 +164,7 @@ Public Class Card
                 GroupBox1.Text = "Rename Card"
                 file_already_exist = "{0}\{1} already exist."
             Case "Chinese"
-                btnEdit.Text = "改名"
+                btnEdit.Text = "改卡"
                 btnRename.Text = "文件重命名"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "取消"
@@ -149,7 +173,7 @@ Public Class Card
                 GroupBox1.Text = "重命名"
                 file_already_exist = "{0}\{1} 已存在。"
             Case "French"
-                btnEdit.Text = "Edit Nom"
+                btnEdit.Text = "Edit Cartes"
                 btnRename.Text = "Renomer"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "Retour"

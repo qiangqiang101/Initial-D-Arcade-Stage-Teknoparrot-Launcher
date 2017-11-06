@@ -63,7 +63,7 @@ Partial Class Card
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(87, 23)
         Me.btnEdit.TabIndex = 1
-        Me.btnEdit.Text = "Edit Name"
+        Me.btnEdit.Text = "Edit Card"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
         'btnUnselect

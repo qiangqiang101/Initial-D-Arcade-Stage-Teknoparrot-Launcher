@@ -20,8 +20,8 @@ Public Class frmCard
                 item = New Card()
                 With item
                     .lblName.Text = GetName(GetHex(file, 240, 12))
-                    .lblCar.Text = GetCar(GetHex(file, 256, 2))
-                    .lblLevel.Text = GetLevel(GetHex(file, 164, 1), True)
+                    .lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1))
+                    .lblLevel.Text = GetLevel(GetHex(file, 164, 1), True) + 1
                     .FileName = file
                     .CardVersion = 6
                     If GetGender(GetHex(file, 197, 6)) = Gender.female Then .BackgroundImage = My.Resources.cardf
@@ -41,7 +41,7 @@ Public Class frmCard
                 item = New Card()
                 With item
                     .lblName.Text = GetName(GetHex(file, 240, 12))
-                    .lblCar.Text = GetCar(GetHex(file, 256, 2))
+                    .lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1))
                     .lblLevel.Text = GetLevel(GetHex(file, 163, 1))
                     .FileName = file
                     If GetGender(GetHex(file, 197, 6)) = Gender.female Then .BackgroundImage = My.Resources.cardf
