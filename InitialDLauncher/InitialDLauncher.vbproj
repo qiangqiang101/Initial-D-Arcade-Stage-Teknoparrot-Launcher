@@ -75,6 +75,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioFile.vb" />
     <Compile Include="Card.Designer.vb">
       <DependentUpon>Card.vb</DependentUpon>
     </Compile>
@@ -166,8 +167,7 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\uncheck.png" />
-    <None Include="Resources\checked.png" />
+    <None Include="Resources\cardf.png" />
     <None Include="Resources\card.png" />
     <None Include="Resources\select.wav" />
     <None Include="Resources\play.wav" />

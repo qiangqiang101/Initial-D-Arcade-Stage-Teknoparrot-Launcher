@@ -31,6 +31,8 @@ Partial Class Card
         Me.btnRenameCancel = New System.Windows.Forms.Button()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.btnRenameOK = New System.Windows.Forms.Button()
+        Me.lblCar = New System.Windows.Forms.Label()
+        Me.lblLevel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,7 +44,7 @@ Partial Class Card
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(184, 34)
         Me.lblName.TabIndex = 0
-        Me.lblName.Text = "藤原文泰"
+        Me.lblName.Text = "藤原文太"
         '
         'btnSelect
         '
@@ -125,12 +127,35 @@ Partial Class Card
         Me.btnRenameOK.Text = "OK"
         Me.btnRenameOK.UseVisualStyleBackColor = True
         '
+        'lblCar
+        '
+        Me.lblCar.BackColor = System.Drawing.Color.Transparent
+        Me.lblCar.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.lblCar.Location = New System.Drawing.Point(76, 52)
+        Me.lblCar.Name = "lblCar"
+        Me.lblCar.Size = New System.Drawing.Size(241, 19)
+        Me.lblCar.TabIndex = 6
+        Me.lblCar.Text = "IMPREZA STi Ver.V (GC8)"
+        '
+        'lblLevel
+        '
+        Me.lblLevel.BackColor = System.Drawing.Color.Transparent
+        Me.lblLevel.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.lblLevel.Location = New System.Drawing.Point(264, 27)
+        Me.lblLevel.Name = "lblLevel"
+        Me.lblLevel.Size = New System.Drawing.Size(59, 42)
+        Me.lblLevel.TabIndex = 7
+        Me.lblLevel.Text = "E3"
+        Me.lblLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Card
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.card
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Controls.Add(Me.lblLevel)
+        Me.Controls.Add(Me.lblCar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnRename)
         Me.Controls.Add(Me.btnUnselect)
@@ -156,4 +181,6 @@ Partial Class Card
     Friend WithEvents txtName As TextBox
     Friend WithEvents btnRenameOK As Button
     Friend WithEvents btnRenameCancel As Button
+    Friend WithEvents lblCar As Label
+    Friend WithEvents lblLevel As Label
 End Class

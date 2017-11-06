@@ -6,6 +6,109 @@ InitialDLauncher
 </name>
 </assembly>
 <members>
+<member name="M:InitialDLauncher.AudioFile.#ctor(System.String)">
+ <summary>
+ Constructor:  Location is the filename of the media to play.  Wave files and Mp3 files are the supported formats.
+ </summary>
+ <param name="Location"></param>
+ <remarks></remarks>
+</member>
+<member name="M:InitialDLauncher.AudioFile.Play">
+ <summary>
+ Plays the file that is specified as the filename.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:InitialDLauncher.AudioFile.Pause">
+ <summary>
+ Pause the current play back.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:InitialDLauncher.AudioFile.Resume">
+ <summary>
+ Resume the current play back if it is currently paused.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:InitialDLauncher.AudioFile.Stop">
+ <summary>
+ Stop the current file if it's playing.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:InitialDLauncher.AudioFile.Close">
+ <summary>
+ Close the file.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.Wait">
+ <summary>
+ Halt the program until the .wav file is done playing.  Be careful, this will lock the entire program up until the
+ file is done playing.  It behaves as if the Windows Sleep API is called while the file is playing (and maybe it is, I don't
+ actually know, I'm just theorizing).  :P
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.Milleseconds">
+ <summary>
+ Sets the audio file's time format via the mciSendString API.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.Status">
+ <summary>
+ Gets the status of the current playback file via the mciSendString API.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.FileSize">
+ <summary>
+ Gets the file size of the current audio file.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.Channels">
+ <summary>
+ Gets the channels of the file via the mciSendString API.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.Debug">
+ <summary>
+ Used for debugging purposes.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.IsPaused">
+ <summary>
+ Whether or not the current playback is paused.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:InitialDLauncher.AudioFile.Filename">
+ <summary>
+ The current filename of the file that is to be played back.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
 <member name="T:InitialDLauncher.Dropshadow">
  <summary>
      Dropshadow.
@@ -74,7 +177,7 @@ InitialDLauncher
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:InitialDLauncher.My.Resources.Resources.checked">
+<member name="P:InitialDLauncher.My.Resources.Resources.cardf">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -92,11 +195,6 @@ InitialDLauncher
 <member name="P:InitialDLauncher.My.Resources.Resources.play">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-</summary>
-</member>
-<member name="P:InitialDLauncher.My.Resources.Resources.uncheck">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 </members>

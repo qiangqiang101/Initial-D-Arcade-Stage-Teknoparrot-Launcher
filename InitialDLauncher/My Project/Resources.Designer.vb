@@ -82,9 +82,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property checked() As System.Drawing.Bitmap
+        Friend ReadOnly Property cardf() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("checked", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("cardf", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -115,16 +115,6 @@ Namespace My.Resources
         Friend ReadOnly Property play() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("play", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property uncheck() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("uncheck", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
     End Module

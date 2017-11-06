@@ -77,6 +77,202 @@ Module Helper
         Return value
     End Function
 
+    Function GetCar(hex As Byte()) As String
+        Dim result As String = Nothing
+        Select Case BitConverter.ToString(hex).Replace("-", "")
+            'TOYOTA
+            Case "0000"
+                result = "TRUENO GT-APEX (AE86)"
+            Case "0100"
+                result = "LEVIN GT-APEX (AE86)"
+            Case "0200"
+                result = "LEVIN SR (AE85)"
+            Case "0700"
+                result = "86 GT (ZN6)"
+            Case "0300"
+                result = "MR2 G-Limited (SW20)"
+            Case "0500"
+                result = "MR-S (ZZW30)"
+            Case "0400"
+                result = "ALTEZZA RS200 (SXE10)"
+            Case "0600"
+                result = "SUPRA RZ (JZA80)"
+            Case "0800"
+                result = "PRIUS (ZVW30)"
+                'NISSAN
+            Case "0001"
+                result = "SKYLINE GT-R (BNR32)"
+            Case "0101"
+                result = "SKYLINE GT-R (BNR34)"
+            Case "0201"
+                result = "SILVIA K's (S13)"
+            Case "0301"
+                result = "Silvia Q's (S14)"
+            Case "0401"
+                result = "Silvia spec-R (S15)"
+            Case "0501"
+                result = "180SX TYPE II (RPS13)"
+            Case "0601"
+                result = "FAIRLADY Z (Z33)"
+            Case "0701"
+                result = "GT-R (R35)"
+            Case "0002"
+                result = "Civic SiR・II (EG6)"
+            Case "0102"
+                result = "CIVIC TYPE R (EK9)"
+            Case "0202"
+                result = "INTEGRA TYPE R (DC2)"
+            Case "0302"
+                result = "S2000 (AP1)"
+            Case "0402"
+                result = "NSX (NA1)"
+                'MAZDA
+            Case "0003"
+                result = "RX-7 ∞III (FC3S)"
+            Case "0103"
+                result = "RX-7 Type R (FD3S)"
+            Case "0503"
+                result = "RX-7 Type RS (FD3S)"
+            Case "0203"
+                result = "RX-8 Type S (SE3P)"
+            Case "0303"
+                result = "ROADSTER (NA6CE)"
+            Case "0403"
+                result = "ROADSTER RS (NB8C)"
+                'SUBARU
+            Case "0004"
+                result = "IMPREZA STi Ver.V (GC8)"
+            Case "0204"
+                result = "IMPREZA STi (GDBA)"
+            Case "0104"
+                result = "IMPREZA STI (GDBF)"
+                'MITSUBISHI
+            Case "0005"
+                result = "LANCER Evolution III (CE9A)"
+            Case "0105"
+                result = "LANCER EVOLUTION IV (CN9A)"
+            Case "0305"
+                result = "LANCER Evolution VII (CT9A)"
+            Case "0205"
+                result = "LANCER Evolution IX (CT9A)"
+            Case "0405"
+                result = "LANCER EVOLUTION X (CZ4A)"
+                'SUZUKI
+            Case "0006"
+                result = "Cappuccino (EA11R)"
+                'INITIAL D
+            Case "0007"
+                result = "SILEIGHTY"
+            Case "0107"
+                result = "TRUENO 2door GT-APEX (AE86)"
+                'COMPLETE
+            Case "0308"
+                result = "G-FORCE SUPRA (JZA80-kai)"
+            Case "0108"
+                result = "MONSTER CIVIC R (EK9)"
+            Case "0508"
+                result = "NSX-R GT (NA2)"
+            Case "0008"
+                result = "RE Amemiya Genki-7 (FD3S)"
+            Case "0208"
+                result = "S2000 GT1 (AP1)"
+            Case "0408"
+                result = "ROADSTER C-SPEC (NA8C Kai)"
+            Case Else
+                result = BitConverter.ToString(hex).Replace("-", "")
+        End Select
+        Return result
+    End Function
+
+    Function GetLevel(hex As Byte(), Optional num As Boolean = False) As String
+        Dim result As String = Nothing
+        If num Then
+            result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+        Else
+            Select Case Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+                Case 1
+                    result = "E3"
+                Case 2
+                    result = "E2"
+                Case 3
+                    result = "E1"
+                Case 4
+                    result = "D3"
+                Case 5
+                    result = "D2"
+                Case 6
+                    result = "D1"
+                Case 7
+                    result = "C3"
+                Case 8
+                    result = "C2"
+                Case 9
+                    result = "C1"
+                Case 10
+                    result = "B3"
+                Case 11
+                    result = "B2"
+                Case 12
+                    result = "B1"
+                Case 13
+                    result = "A3"
+                Case 14
+                    result = "A2"
+                Case 15
+                    result = "A1"
+                Case 16
+                    result = "S3"
+                Case 17
+                    result = "S2"
+                Case 18
+                    result = "S1"
+                Case 19
+                    result = "SS3"
+                Case 20
+                    result = "SS2"
+                Case 21
+                    result = "SS1"
+                Case 22
+                    result = "SS3"
+                Case 23
+                    result = "SS2"
+                Case 24
+                    result = "SS1"
+                Case 25
+                    result = "SSS3"
+                Case 26
+                    result = "SSS2"
+                Case 27
+                    result = "SSS1"
+                Case 28
+                    result = "X3"
+                Case 29
+                    result = "X2"
+                Case 30
+                    result = "X1"
+                Case Else
+                    result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+            End Select
+        End If
+        Return result
+    End Function
+
+    Enum Gender
+        male
+        female
+    End Enum
+
+    Function GetGender(hex As Byte()) As Gender
+        Dim result As Gender = Nothing
+        Select Case BitConverter.ToString(hex).Replace("-", "")
+            Case "5008B0C00D80"
+                result = Gender.male
+            Case "0008ABB00C46"
+                result = Gender.female
+        End Select
+        Return result
+    End Function
+
     Sub SetHex(filename As String, offset As Long, value As Byte())
         Try
             Dim fs As New FileStream(filename, FileMode.Open)

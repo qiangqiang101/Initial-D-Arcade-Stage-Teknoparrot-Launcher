@@ -13,7 +13,7 @@ Public Class frmLauncher
     Dim threadE, threadU As Thread
     Dim shadow As Dropshadow
     Dim defaultLocation As Point
-    Dim curVer As Integer = 5, buildDate As String = "6/11/2017"
+    Dim curVer As Integer = 6, buildDate As String = "7/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -24,6 +24,8 @@ Public Class frmLauncher
 
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
+    Dim mp3File As String = String.Format("{0}\launcher.mp3", My.Application.Info.DirectoryPath)
+    Dim audio As AudioFile
 
     'Translation
     Dim new_version, no_card_selected As String
@@ -164,6 +166,12 @@ Public Class frmLauncher
 
         Translate()
 
+        If File.Exists(mp3File) Then
+            audio = New AudioFile(mp3File)
+            audio.Play()
+            audio.SetVolume(500)
+        End If
+
         'threadE = New Thread(AddressOf EnterAni)
         'threadE.Start()
     End Sub
@@ -209,6 +217,7 @@ Restart:
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
         Try
+            If File.Exists(mp3File) Then audio.Pause()
             My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(id6CardDir) AndAlso id6CardPath = Nothing Then
@@ -253,6 +262,7 @@ Restart:
 
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click
         Try
+            If File.Exists(mp3File) Then audio.Pause()
             My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(id7CardDir) AndAlso id7CardPath = Nothing Then
@@ -304,6 +314,8 @@ Restart:
     Private Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If Not proc.HasExited Then
             e.Cancel = False
+        Else
+            If File.Exists(mp3File) Then audio.Stop()
         End If
     End Sub
 
@@ -342,6 +354,7 @@ Restart:
             End If
 
             Me.WindowState = FormWindowState.Normal
+            If File.Exists(mp3File) Then audio.Resume()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
