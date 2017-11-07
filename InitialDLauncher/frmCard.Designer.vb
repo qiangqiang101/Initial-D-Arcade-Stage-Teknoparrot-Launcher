@@ -45,7 +45,7 @@ Partial Class frmCard
         Me.tcTab.Location = New System.Drawing.Point(12, 12)
         Me.tcTab.Name = "tcTab"
         Me.tcTab.SelectedIndex = 0
-        Me.tcTab.Size = New System.Drawing.Size(814, 501)
+        Me.tcTab.Size = New System.Drawing.Size(814, 600)
         Me.tcTab.TabIndex = 0
         '
         'TabPage1
@@ -54,7 +54,7 @@ Partial Class frmCard
         Me.TabPage1.Location = New System.Drawing.Point(4, 24)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(806, 473)
+        Me.TabPage1.Size = New System.Drawing.Size(806, 572)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Initial D 6AA"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -65,7 +65,7 @@ Partial Class frmCard
         Me.flp6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flp6.Location = New System.Drawing.Point(3, 3)
         Me.flp6.Name = "flp6"
-        Me.flp6.Size = New System.Drawing.Size(800, 467)
+        Me.flp6.Size = New System.Drawing.Size(800, 566)
         Me.flp6.TabIndex = 0
         '
         'TabPage2
@@ -92,7 +92,7 @@ Partial Class frmCard
         '
         Me.lbl6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lbl6.AutoSize = True
-        Me.lbl6.Location = New System.Drawing.Point(12, 516)
+        Me.lbl6.Location = New System.Drawing.Point(12, 615)
         Me.lbl6.Name = "lbl6"
         Me.lbl6.Size = New System.Drawing.Size(55, 15)
         Me.lbl6.TabIndex = 53
@@ -102,7 +102,7 @@ Partial Class frmCard
         '
         Me.lbl7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lbl7.AutoSize = True
-        Me.lbl7.Location = New System.Drawing.Point(12, 531)
+        Me.lbl7.Location = New System.Drawing.Point(12, 630)
         Me.lbl7.Name = "lbl7"
         Me.lbl7.Size = New System.Drawing.Size(55, 15)
         Me.lbl7.TabIndex = 54
@@ -112,7 +112,7 @@ Partial Class frmCard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(838, 555)
+        Me.ClientSize = New System.Drawing.Size(838, 654)
         Me.Controls.Add(Me.lbl7)
         Me.Controls.Add(Me.lbl6)
         Me.Controls.Add(Me.tcTab)

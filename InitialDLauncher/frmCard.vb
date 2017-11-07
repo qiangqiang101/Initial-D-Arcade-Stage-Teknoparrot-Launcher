@@ -24,7 +24,7 @@ Public Class frmCard
                     .lblLevel.Text = GetLevel(GetHex(file, 164, 1), True) + 1
                     .FileName = file
                     .CardVersion = 6
-                    If GetGender(GetHex(file, 197, 6)) = Gender.female Then .BackgroundImage = My.Resources.cardf
+                    If GetGender6(GetHex(file, 196, 4)) = Gender.female Then .BackgroundImage = My.Resources.cardf
                     If My.Settings.Id6CardName = file Then .BackColor = Color.LightBlue
                 End With
                 flp6.Controls.Add(item)
@@ -44,7 +44,7 @@ Public Class frmCard
                     .lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1))
                     .lblLevel.Text = GetLevel(GetHex(file, 163, 1))
                     .FileName = file
-                    If GetGender(GetHex(file, 197, 6)) = Gender.female Then .BackgroundImage = My.Resources.cardf
+                    If GetGender7(GetHex(file, 197, 6)) = Gender.female Then .BackgroundImage = My.Resources.cardf
                     .CardVersion = 7
                     If My.Settings.Id7CardName = file Then .BackColor = Color.LightBlue
                 End With

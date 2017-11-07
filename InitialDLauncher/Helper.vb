@@ -189,6 +189,113 @@ Module Helper
         Return result
     End Function
 
+    Function SetCar(carName As String) As String
+        Dim result As String = Nothing
+        Select Case carName
+            'TOYOTA
+            Case "TRUENO GT-APEX (AE86)"
+                result = "0000"
+            Case "LEVIN GT-APEX (AE86)"
+                result = "0100"
+            Case "LEVIN SR (AE85)"
+                result = "0200"
+            Case "86 GT (ZN6)"
+                result = "0700"
+            Case "MR2 G-Limited (SW20)"
+                result = "0300"
+            Case "MR-S (ZZW30)"
+                result = "0500"
+            Case "ALTEZZA RS200 (SXE10)"
+                result = "0400"
+            Case "SUPRA RZ (JZA80)"
+                result = "0600"
+            Case "PRIUS (ZVW30)"
+                result = "0800"
+                'NISSAN
+            Case "SKYLINE GT-R (BNR32)"
+                result = "0001"
+            Case "SKYLINE GT-R (BNR34)"
+                result = "0101"
+            Case "SILVIA K's (S13)"
+                result = "0201"
+            Case "Silvia Q's (S14)"
+                result = "0301"
+            Case "Silvia spec-R (S15)"
+                result = "0401"
+            Case "180SX TYPE II (RPS13)"
+                result = "0501"
+            Case "FAIRLADY Z (Z33)"
+                result = "0601"
+            Case "GT-R (R35)"
+                result = "0701"
+            Case "Civic SiR・II (EG6)"
+                result = "0002"
+            Case "CIVIC TYPE R (EK9)"
+                result = "0102"
+            Case "INTEGRA TYPE R (DC2)"
+                result = "0202"
+            Case "S2000 (AP1)"
+                result = "0302"
+            Case "NSX (NA1)"
+                result = "0402"
+                'MAZDA
+            Case "RX-7 ∞III (FC3S)"
+                result = "0003"
+            Case "RX-7 Type R (FD3S)"
+                result = "0103"
+            Case "RX-7 Type RS (FD3S)"
+                result = "0503"
+            Case "RX-8 Type S (SE3P)"
+                result = "0203"
+            Case "ROADSTER (NA6CE)"
+                result = "0303"
+            Case "ROADSTER RS (NB8C)"
+                result = "0403"
+                'SUBARU
+            Case "IMPREZA STi Ver.V (GC8)"
+                result = "0004"
+            Case "IMPREZA STi (GDBA)"
+                result = "0204"
+            Case "IMPREZA STI (GDBF)"
+                result = "0104"
+                'MITSUBISHI
+            Case "LANCER Evolution III (CE9A)"
+                result = "0005"
+            Case "LANCER EVOLUTION IV (CN9A)"
+                result = "0105"
+            Case "LANCER Evolution VII (CT9A)"
+                result = "0305"
+            Case "LANCER Evolution IX (CT9A)"
+                result = "0205"
+            Case "LANCER EVOLUTION X (CZ4A)"
+                result = "0405"
+                'SUZUKI
+            Case "Cappuccino (EA11R)"
+                result = "0006"
+                'INITIAL D
+            Case "SILEIGHTY"
+                result = "0007"
+            Case "TRUENO 2door GT-APEX (AE86)"
+                result = "0107"
+                'COMPLETE
+            Case "G-FORCE SUPRA (JZA80-kai)"
+                result = "0308"
+            Case "MONSTER CIVIC R (EK9)"
+                result = "0108"
+            Case "NSX-R GT (NA2)"
+                result = "0508"
+            Case "RE Amemiya Genki-7 (FD3S)"
+                result = "0008"
+            Case "S2000 GT1 (AP1)"
+                result = "0208"
+            Case "ROADSTER C-SPEC (NA8C Kai)"
+                result = "0408"
+            Case Else
+                result = "FFFF"
+        End Select
+        Return result
+    End Function
+
     Function GetChapterLevel(hex As Byte()) As String
         Return Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
     End Function
@@ -271,7 +378,7 @@ Module Helper
         female
     End Enum
 
-    Function GetGender(hex As Byte()) As Gender
+    Function GetGender7(hex As Byte()) As Gender
         Dim result As Gender = Nothing
         Select Case BitConverter.ToString(hex).Replace("-", "")
             Case "5008B0C00D80"
@@ -282,15 +389,13 @@ Module Helper
         Return result
     End Function
 
-    Function GetChapter6(hex As Byte()) As String
-        Dim result As String = Nothing
+    Function GetGender6(hex As Byte()) As Gender
+        Dim result As Gender = Nothing
         Select Case BitConverter.ToString(hex).Replace("-", "")
-            Case "154E"
-                result = "Original"
-            Case "0EB0"
-                result = "Another"
-            Case "E83E"
-                result = "Legend"
+            Case "18D008B3"
+                result = Gender.male
+            Case "12F008B6"
+                result = Gender.female
         End Select
         Return result
     End Function
@@ -315,6 +420,10 @@ Module Helper
     Function SetName(val As String) As Byte()
         Dim enc = Encoding.GetEncoding("shift-jis")
         Return enc.GetBytes(val)
+    End Function
+
+    Function SetValue(val As Integer) As Byte()
+        Return HexStringToBinary(val.ToString("X2"))
     End Function
 
     Function IsCardFolderEmpty(path As String) As Boolean

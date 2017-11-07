@@ -130,21 +130,25 @@ Public Class Card
         'txtName.Text = lblName.Text
         Dim fe As frmEdit = New frmEdit()
         fe.Version = _cardVersion
+        fe.FileName = _filename
         fe.txtName.Text = lblName.Text
         If _cardVersion = 6 Then
-            fe.cmbGender.Enabled = False
-            fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
-            fe.cmbChapter.SelectedItem = GetChapter6(GetHex(_filename, 546, 2))
-            fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
-        Else
-            If GetGender(GetHex(_filename, 197, 6)) = Gender.female Then
+            If GetGender6(GetHex(_filename, 196, 4)) = Gender.female Then
                 fe.cmbGender.SelectedItem = "Female"
             Else
                 fe.cmbGender.SelectedItem = "Male"
             End If
             fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
-            fe.cmbChapter.Enabled = False
+            fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
+        Else
+            If GetGender7(GetHex(_filename, 197, 6)) = Gender.female Then
+                fe.cmbGender.SelectedItem = "Female"
+            Else
+                fe.cmbGender.SelectedItem = "Male"
+            End If
+            fe.txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
             fe.txtChapLevel.Enabled = False
+            fe.cbLegend.Enabled = False
         End If
         fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
         fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))

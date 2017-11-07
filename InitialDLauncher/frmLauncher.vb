@@ -27,6 +27,9 @@ Public Class frmLauncher
     Dim mp3File As String = String.Format("{0}\launcher.mp3", My.Application.Info.DirectoryPath)
     Dim audio As AudioFile
 
+    Public cheat As Boolean = False
+    Dim pattern As String = Nothing
+
     'Translation
     Dim new_version, no_card_selected As String
 
@@ -373,6 +376,42 @@ Restart:
     Private Sub lblVersion_MouseLeave(sender As Object, e As EventArgs) Handles lblVersion.MouseLeave
         Me.Cursor = Cursors.Default
         lblVersion.ForeColor = Color.White
+    End Sub
+
+    Private Sub frmLauncher_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+        pattern = pattern & e.KeyChar
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        Try
+            If Not cheat Then
+                If pattern.Substring(pattern.Length - 13) = "imnoobcheater" Then
+                    My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+                    cheat = True
+                End If
+            End If
+
+            If Not debug Then
+                If pattern.Substring(pattern.Length - 7) = "debugon" Then
+                    My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+                    My.Settings.DebugMode = True
+                    My.Settings.Save()
+                    debug = True
+                    lblDebug.Visible = debug
+                End If
+            End If
+
+            If debug Then
+                If pattern.Substring(pattern.Length - 8) = "debugoff" Then
+                    My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+                    My.Settings.DebugMode = False
+                    My.Settings.Save()
+                    debug = False
+                    lblDebug.Visible = debug
+                End If
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
