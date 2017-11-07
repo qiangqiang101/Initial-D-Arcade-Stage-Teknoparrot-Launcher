@@ -33,7 +33,7 @@
             cbFree6.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id6Config, "General", "FreePlay")))
             If bool.Contains(ReadIniValue(Id6Config, "General", "Windowed").ToLower) Then cbWindow6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "Windowed"))
             If bool.Contains(ReadIniValue(Id6Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "EnableAmdFix"))
-            cmbSeat6.SelectedItem = GetSeatName(GetHex(SBUU_e2prom, 116, 4), 6)
+            If IO.File.Exists(SBUU_e2prom) Then cmbSeat6.SelectedItem = GetSeatName(GetHex(SBUU_e2prom, 116, 4), 6)
 
             txtIP6.Text = ReadIniValue(Id6Config, "Network", "Ip")
             txtMask6.Text = ReadIniValue(Id6Config, "Network", "Mask")

@@ -67,6 +67,7 @@ Public Class frmEdit
                         If cbLegend.Checked Then SetHex(_filename, CLng("&H"), HexStringToBinary("218F"))
                         SetHex(_filename, CLng("&HE0"), SetValue(txtChapLevel.Text))
                         SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
+                        'SetHex(_filename, CLng("&HAD"), SetValue(txtPridePoint.Text))
                     Case 7
                         If cmbGender.SelectedItem = "Female" Then
                             SetHex(_filename, CLng("&HC5"), HexStringToBinary("0008ABB00C46"))
@@ -74,6 +75,8 @@ Public Class frmEdit
                             SetHex(_filename, CLng("&HC5"), HexStringToBinary("5008B0C00D80"))
                         End If
                         SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
+                        'SetHex(_filename, CLng("&HAA"), SetValue4(txtSPride.Text))
+                        'SetHex(_filename, CLng("&HAC"), SetValue4(txtTPride.Text))
                 End Select
             End If
 
@@ -102,46 +105,55 @@ Public Class frmEdit
                 Label1.Text = "Name"
                 Label2.Text = "Gender"
                 Label6.Text = "Level"
+                Label7.Text = "Pride Point"
                 Label8.Text = "Chapter Level"
                 Label3.Text = "Car 1"
                 Label4.Text = "Car 2"
-                Label3.Text = "Car 3"
+                Label5.Text = "Car 3"
                 cbCar1.Text = "Confirm"
                 cbCar2.Text = cbCar1.Text
                 cbCar3.Text = cbCar1.Text
                 cbLegend.Text = "Unlock Legend Chapter"
                 btnSave.Text = frmSettings.btnSave.Text
                 tool_tip = "Change car might lose ability to tune your car!"
+                GroupBox2.Text = "Initial D 6 AA"
+                GroupBox3.Text = "Initial D 7 AAX"
             Case "Chinese"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 Label1.Text = "名字"
                 Label2.Text = "性別"
                 Label6.Text = "等級"
+                Label7.Text = "自豪感點"
                 Label8.Text = "章節等級"
                 Label3.Text = "車1"
                 Label4.Text = "車2"
-                Label3.Text = "車3"
+                Label5.Text = "車3"
                 cbCar1.Text = "確認更改"
                 cbCar2.Text = cbCar1.Text
                 cbCar3.Text = cbCar1.Text
                 cbLegend.Text = "解鎖傳說章節"
                 btnSave.Text = frmSettings.btnSave.Text
                 tool_tip = "更換車可能會失去改車功能！"
+                GroupBox2.Text = "頭文字D6AA"
+                GroupBox3.Text = "頭文字D7AAX"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 Label1.Text = "Nom"
                 Label2.Text = "Genre"
                 Label6.Text = "Niveau"
+                Label7.Text = "Pride Point"
                 Label8.Text = "Niveau du chapitre"
                 Label3.Text = "Car 1"
                 Label4.Text = "Car 2"
-                Label3.Text = "Car 3"
+                Label5.Text = "Car 3"
                 cbCar1.Text = "Confirmer"
                 cbCar2.Text = cbCar1.Text
                 cbCar3.Text = cbCar1.Text
                 cbLegend.Text = "Unlock Legend Chapter"
                 btnSave.Text = frmSettings.btnSave.Text
                 tool_tip = "Change car might lose ability to tune your car!"
+                GroupBox2.Text = "Initial D 6 AA"
+                GroupBox3.Text = "Initial D 7 AAX"
         End Select
     End Sub
 End Class

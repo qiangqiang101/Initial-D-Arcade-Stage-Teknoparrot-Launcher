@@ -300,6 +300,10 @@ Module Helper
         Return Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
     End Function
 
+    Function GetTagPride(hex As Byte(), hex2 As Byte()) As String
+        Return Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16) + Convert.ToInt64(BitConverter.ToString(hex2).Replace("-", ""), 16)
+    End Function
+
     Function GetLevel(hex As Byte(), Optional num As Boolean = False) As String
         Dim result As String = Nothing
         If num Then
@@ -424,6 +428,10 @@ Module Helper
 
     Function SetValue(val As Integer) As Byte()
         Return HexStringToBinary(val.ToString("X2"))
+    End Function
+
+    Function SetValue4(val As Integer) As Byte()
+        Return HexStringToBinary(val.ToString("X4"))
     End Function
 
     Function IsCardFolderEmpty(path As String) As Boolean

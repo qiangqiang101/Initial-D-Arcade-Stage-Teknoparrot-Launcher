@@ -47,7 +47,17 @@ Partial Class frmEdit
         Me.ttCar2 = New System.Windows.Forms.ToolTip(Me.components)
         Me.ttCar3 = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtPridePoint = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtSPride = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtTPride = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtName
@@ -71,7 +81,7 @@ Partial Class frmEdit
         Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGender.FormattingEnabled = True
         Me.cmbGender.Items.AddRange(New Object() {"Male", "Female"})
-        Me.cmbGender.Location = New System.Drawing.Point(94, 22)
+        Me.cmbGender.Location = New System.Drawing.Point(86, 22)
         Me.cmbGender.Name = "cmbGender"
         Me.cmbGender.Size = New System.Drawing.Size(111, 23)
         Me.cmbGender.TabIndex = 2
@@ -88,7 +98,7 @@ Partial Class frmEdit
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(9, 112)
+        Me.Label3.Location = New System.Drawing.Point(9, 54)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 15)
         Me.Label3.TabIndex = 10
@@ -99,15 +109,15 @@ Partial Class frmEdit
         Me.cmbCar1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCar1.FormattingEnabled = True
         Me.cmbCar1.Items.AddRange(New Object() {"", "TRUENO GT-APEX (AE86)", "LEVIN GT-APEX (AE86)", "LEVIN SR (AE85)", "86 GT (ZN6)", "MR2 G-Limited (SW20)", "MR-S (ZZW30)", "ALTEZZA RS200 (SXE10)", "SUPRA RZ (JZA80)", "PRIUS (ZVW30)", "SKYLINE GT-R (BNR32)", "SKYLINE GT-R (BNR34)", "SILVIA K's (S13)", "Silvia Q's (S14)", "Silvia spec-R (S15)", "180SX TYPE II (RPS13)", "FAIRLADY Z (Z33)", "GT-R (R35)", "Civic SiR・II (EG6)", "CIVIC TYPE R (EK9)", "INTEGRA TYPE R (DC2)", "S2000 (AP1)", "NSX (NA1)", "RX-7 ∞III (FC3S)", "RX-7 Type R (FD3S)", "RX-7 Type RS (FD3S)", "RX-8 Type S (SE3P)", "ROADSTER (NA6CE)", "ROADSTER RS (NB8C)", "IMPREZA STi Ver.V (GC8)", "IMPREZA STi (GDBA)", "IMPREZA STI (GDBF)", "LANCER Evolution III (CE9A)", "LANCER EVOLUTION IV (CN9A)", "LANCER Evolution VII (CT9A)", "LANCER Evolution IX (CT9A)", "LANCER EVOLUTION X (CZ4A)", "Cappuccino (EA11R)", "SILEIGHTY", "TRUENO 2door GT-APEX (AE86)", "G-FORCE SUPRA (JZA80-kai)", "MONSTER CIVIC R (EK9)", "NSX-R GT (NA2)", "RE Amemiya Genki-7 (FD3S)", "S2000 GT1 (AP1)", "ROADSTER C-SPEC (NA8C Kai)"})
-        Me.cmbCar1.Location = New System.Drawing.Point(94, 109)
+        Me.cmbCar1.Location = New System.Drawing.Point(86, 51)
         Me.cmbCar1.Name = "cmbCar1"
         Me.cmbCar1.Size = New System.Drawing.Size(224, 23)
-        Me.cmbCar1.TabIndex = 5
+        Me.cmbCar1.TabIndex = 4
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 141)
+        Me.Label4.Location = New System.Drawing.Point(9, 83)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(34, 15)
         Me.Label4.TabIndex = 12
@@ -118,15 +128,15 @@ Partial Class frmEdit
         Me.cmbCar2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCar2.FormattingEnabled = True
         Me.cmbCar2.Items.AddRange(New Object() {"", "TRUENO GT-APEX (AE86)", "LEVIN GT-APEX (AE86)", "LEVIN SR (AE85)", "86 GT (ZN6)", "MR2 G-Limited (SW20)", "MR-S (ZZW30)", "ALTEZZA RS200 (SXE10)", "SUPRA RZ (JZA80)", "PRIUS (ZVW30)", "SKYLINE GT-R (BNR32)", "SKYLINE GT-R (BNR34)", "SILVIA K's (S13)", "Silvia Q's (S14)", "Silvia spec-R (S15)", "180SX TYPE II (RPS13)", "FAIRLADY Z (Z33)", "GT-R (R35)", "Civic SiR・II (EG6)", "CIVIC TYPE R (EK9)", "INTEGRA TYPE R (DC2)", "S2000 (AP1)", "NSX (NA1)", "RX-7 ∞III (FC3S)", "RX-7 Type R (FD3S)", "RX-7 Type RS (FD3S)", "RX-8 Type S (SE3P)", "ROADSTER (NA6CE)", "ROADSTER RS (NB8C)", "IMPREZA STi Ver.V (GC8)", "IMPREZA STi (GDBA)", "IMPREZA STI (GDBF)", "LANCER Evolution III (CE9A)", "LANCER EVOLUTION IV (CN9A)", "LANCER Evolution VII (CT9A)", "LANCER Evolution IX (CT9A)", "LANCER EVOLUTION X (CZ4A)", "Cappuccino (EA11R)", "SILEIGHTY", "TRUENO 2door GT-APEX (AE86)", "G-FORCE SUPRA (JZA80-kai)", "MONSTER CIVIC R (EK9)", "NSX-R GT (NA2)", "RE Amemiya Genki-7 (FD3S)", "S2000 GT1 (AP1)", "ROADSTER C-SPEC (NA8C Kai)"})
-        Me.cmbCar2.Location = New System.Drawing.Point(94, 138)
+        Me.cmbCar2.Location = New System.Drawing.Point(86, 80)
         Me.cmbCar2.Name = "cmbCar2"
         Me.cmbCar2.Size = New System.Drawing.Size(224, 23)
-        Me.cmbCar2.TabIndex = 7
+        Me.cmbCar2.TabIndex = 6
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 170)
+        Me.Label5.Location = New System.Drawing.Point(9, 112)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 15)
         Me.Label5.TabIndex = 14
@@ -137,15 +147,15 @@ Partial Class frmEdit
         Me.cmbCar3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCar3.FormattingEnabled = True
         Me.cmbCar3.Items.AddRange(New Object() {"", "TRUENO GT-APEX (AE86)", "LEVIN GT-APEX (AE86)", "LEVIN SR (AE85)", "86 GT (ZN6)", "MR2 G-Limited (SW20)", "MR-S (ZZW30)", "ALTEZZA RS200 (SXE10)", "SUPRA RZ (JZA80)", "PRIUS (ZVW30)", "SKYLINE GT-R (BNR32)", "SKYLINE GT-R (BNR34)", "SILVIA K's (S13)", "Silvia Q's (S14)", "Silvia spec-R (S15)", "180SX TYPE II (RPS13)", "FAIRLADY Z (Z33)", "GT-R (R35)", "Civic SiR・II (EG6)", "CIVIC TYPE R (EK9)", "INTEGRA TYPE R (DC2)", "S2000 (AP1)", "NSX (NA1)", "RX-7 ∞III (FC3S)", "RX-7 Type R (FD3S)", "RX-7 Type RS (FD3S)", "RX-8 Type S (SE3P)", "ROADSTER (NA6CE)", "ROADSTER RS (NB8C)", "IMPREZA STi Ver.V (GC8)", "IMPREZA STi (GDBA)", "IMPREZA STI (GDBF)", "LANCER Evolution III (CE9A)", "LANCER EVOLUTION IV (CN9A)", "LANCER Evolution VII (CT9A)", "LANCER Evolution IX (CT9A)", "LANCER EVOLUTION X (CZ4A)", "Cappuccino (EA11R)", "SILEIGHTY", "TRUENO 2door GT-APEX (AE86)", "G-FORCE SUPRA (JZA80-kai)", "MONSTER CIVIC R (EK9)", "NSX-R GT (NA2)", "RE Amemiya Genki-7 (FD3S)", "S2000 GT1 (AP1)", "ROADSTER C-SPEC (NA8C Kai)"})
-        Me.cmbCar3.Location = New System.Drawing.Point(94, 167)
+        Me.cmbCar3.Location = New System.Drawing.Point(86, 109)
         Me.cmbCar3.Name = "cmbCar3"
         Me.cmbCar3.Size = New System.Drawing.Size(224, 23)
-        Me.cmbCar3.TabIndex = 9
+        Me.cmbCar3.TabIndex = 8
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(9, 54)
+        Me.Label6.Location = New System.Drawing.Point(203, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(34, 15)
         Me.Label6.TabIndex = 16
@@ -153,7 +163,7 @@ Partial Class frmEdit
         '
         'txtLevel
         '
-        Me.txtLevel.Location = New System.Drawing.Point(94, 51)
+        Me.txtLevel.Location = New System.Drawing.Point(280, 22)
         Me.txtLevel.Name = "txtLevel"
         Me.txtLevel.Size = New System.Drawing.Size(111, 23)
         Me.txtLevel.TabIndex = 3
@@ -161,7 +171,7 @@ Partial Class frmEdit
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(9, 83)
+        Me.Label8.Location = New System.Drawing.Point(9, 25)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(79, 15)
         Me.Label8.TabIndex = 20
@@ -169,63 +179,68 @@ Partial Class frmEdit
         '
         'txtChapLevel
         '
-        Me.txtChapLevel.Location = New System.Drawing.Point(94, 80)
+        Me.txtChapLevel.Location = New System.Drawing.Point(94, 22)
         Me.txtChapLevel.Name = "txtChapLevel"
         Me.txtChapLevel.Size = New System.Drawing.Size(111, 23)
-        Me.txtChapLevel.TabIndex = 4
+        Me.txtChapLevel.TabIndex = 20
         '
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(343, 268)
+        Me.btnSave.Location = New System.Drawing.Point(354, 275)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 20
+        Me.btnSave.TabIndex = 40
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'cbLegend
         '
         Me.cbLegend.AutoSize = True
-        Me.cbLegend.Location = New System.Drawing.Point(94, 196)
+        Me.cbLegend.Location = New System.Drawing.Point(211, 24)
         Me.cbLegend.Name = "cbLegend"
         Me.cbLegend.Size = New System.Drawing.Size(150, 19)
-        Me.cbLegend.TabIndex = 11
+        Me.cbLegend.TabIndex = 21
         Me.cbLegend.Text = "Unlock Legend Chapter"
         Me.cbLegend.UseVisualStyleBackColor = True
         '
         'cbCar1
         '
         Me.cbCar1.AutoSize = True
-        Me.cbCar1.Location = New System.Drawing.Point(324, 111)
+        Me.cbCar1.Location = New System.Drawing.Point(316, 53)
         Me.cbCar1.Name = "cbCar1"
         Me.cbCar1.Size = New System.Drawing.Size(70, 19)
-        Me.cbCar1.TabIndex = 6
+        Me.cbCar1.TabIndex = 5
         Me.cbCar1.Text = "Confirm"
         Me.cbCar1.UseVisualStyleBackColor = True
         '
         'cbCar2
         '
         Me.cbCar2.AutoSize = True
-        Me.cbCar2.Location = New System.Drawing.Point(324, 140)
+        Me.cbCar2.Location = New System.Drawing.Point(316, 82)
         Me.cbCar2.Name = "cbCar2"
         Me.cbCar2.Size = New System.Drawing.Size(70, 19)
-        Me.cbCar2.TabIndex = 8
+        Me.cbCar2.TabIndex = 7
         Me.cbCar2.Text = "Confirm"
         Me.cbCar2.UseVisualStyleBackColor = True
         '
         'cbCar3
         '
         Me.cbCar3.AutoSize = True
-        Me.cbCar3.Location = New System.Drawing.Point(324, 169)
+        Me.cbCar3.Location = New System.Drawing.Point(316, 111)
         Me.cbCar3.Name = "cbCar3"
         Me.cbCar3.Size = New System.Drawing.Size(70, 19)
-        Me.cbCar3.TabIndex = 10
+        Me.cbCar3.TabIndex = 9
         Me.cbCar3.Text = "Confirm"
         Me.cbCar3.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.cmbGender)
         Me.GroupBox1.Controls.Add(Me.cbCar3)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -233,29 +248,104 @@ Partial Class frmEdit
         Me.GroupBox1.Controls.Add(Me.cmbCar1)
         Me.GroupBox1.Controls.Add(Me.cbCar1)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.cbLegend)
         Me.GroupBox1.Controls.Add(Me.cmbCar2)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.txtChapLevel)
         Me.GroupBox1.Controls.Add(Me.cmbCar3)
-        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.txtLevel)
         Me.GroupBox1.Enabled = False
         Me.GroupBox1.Location = New System.Drawing.Point(12, 41)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(405, 221)
+        Me.GroupBox1.Size = New System.Drawing.Size(416, 228)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cheat"
+        '
+        'txtPridePoint
+        '
+        Me.txtPridePoint.Location = New System.Drawing.Point(94, 51)
+        Me.txtPridePoint.Name = "txtPridePoint"
+        Me.txtPridePoint.Size = New System.Drawing.Size(111, 23)
+        Me.txtPridePoint.TabIndex = 22
+        Me.txtPridePoint.Visible = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(9, 54)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 15)
+        Me.Label7.TabIndex = 22
+        Me.Label7.Text = "Pride Point"
+        Me.Label7.Visible = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.txtChapLevel)
+        Me.GroupBox2.Controls.Add(Me.txtPridePoint)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.cbLegend)
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 138)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(404, 84)
+        Me.GroupBox2.TabIndex = 23
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Initial D 6 AA"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.txtTPride)
+        Me.GroupBox3.Controls.Add(Me.Label11)
+        Me.GroupBox3.Controls.Add(Me.txtSPride)
+        Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 228)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(404, 52)
+        Me.GroupBox3.TabIndex = 24
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Initial D 7 AAX"
+        Me.GroupBox3.Visible = False
+        '
+        'txtSPride
+        '
+        Me.txtSPride.Location = New System.Drawing.Point(94, 22)
+        Me.txtSPride.Name = "txtSPride"
+        Me.txtSPride.Size = New System.Drawing.Size(111, 23)
+        Me.txtSPride.TabIndex = 31
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(9, 25)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(69, 15)
+        Me.Label9.TabIndex = 20
+        Me.Label9.Text = "Single Pride"
+        '
+        'txtTPride
+        '
+        Me.txtTPride.Location = New System.Drawing.Point(287, 22)
+        Me.txtTPride.Name = "txtTPride"
+        Me.txtTPride.Size = New System.Drawing.Size(111, 23)
+        Me.txtTPride.TabIndex = 32
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(211, 25)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(57, 15)
+        Me.Label11.TabIndex = 24
+        Me.Label11.Text = "Tag Pride"
         '
         'frmEdit
         '
         Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(430, 303)
+        Me.ClientSize = New System.Drawing.Size(441, 310)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label1)
@@ -270,6 +360,10 @@ Partial Class frmEdit
         Me.Text = "Edit Card"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -298,4 +392,12 @@ Partial Class frmEdit
     Friend WithEvents ttCar2 As ToolTip
     Friend WithEvents ttCar3 As ToolTip
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtPridePoint As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents txtSPride As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents txtTPride As TextBox
+    Friend WithEvents Label11 As Label
 End Class

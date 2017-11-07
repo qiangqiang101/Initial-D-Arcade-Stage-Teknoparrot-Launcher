@@ -13,7 +13,7 @@ Public Class frmLauncher
     Dim threadE, threadU As Thread
     Dim shadow As Dropshadow
     Dim defaultLocation As Point
-    Dim curVer As Integer = 6, buildDate As String = "7/11/2017"
+    Dim curVer As Integer = 7, buildDate As String = "8/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
