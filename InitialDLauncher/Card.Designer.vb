@@ -40,7 +40,7 @@ Partial Class Card
         '
         Me.lblName.BackColor = System.Drawing.Color.Transparent
         Me.lblName.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblName.Location = New System.Drawing.Point(76, 12)
+        Me.lblName.Location = New System.Drawing.Point(72, 11)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(184, 34)
         Me.lblName.TabIndex = 0
@@ -130,10 +130,10 @@ Partial Class Card
         'lblCar
         '
         Me.lblCar.BackColor = System.Drawing.Color.Transparent
-        Me.lblCar.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.lblCar.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.lblCar.Location = New System.Drawing.Point(76, 52)
         Me.lblCar.Name = "lblCar"
-        Me.lblCar.Size = New System.Drawing.Size(241, 19)
+        Me.lblCar.Size = New System.Drawing.Size(255, 19)
         Me.lblCar.TabIndex = 6
         Me.lblCar.Text = "IMPREZA STi Ver.V (GC8)"
         '
@@ -141,9 +141,9 @@ Partial Class Card
         '
         Me.lblLevel.BackColor = System.Drawing.Color.Transparent
         Me.lblLevel.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Bold)
-        Me.lblLevel.Location = New System.Drawing.Point(264, 27)
+        Me.lblLevel.Location = New System.Drawing.Point(258, 27)
         Me.lblLevel.Name = "lblLevel"
-        Me.lblLevel.Size = New System.Drawing.Size(59, 42)
+        Me.lblLevel.Size = New System.Drawing.Size(73, 42)
         Me.lblLevel.TabIndex = 7
         Me.lblLevel.Text = "E3"
         Me.lblLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -152,7 +152,7 @@ Partial Class Card
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.card
+        Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.card7m
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Controls.Add(Me.lblLevel)
         Me.Controls.Add(Me.lblCar)

@@ -112,38 +112,52 @@ Public Class Card
     End Sub
 
     Private Sub EditCard()
-        Dim fe As frmEdit = New frmEdit()
-        fe.Version = _cardVersion
-        fe.FileName = _filename
-        fe.txtName.Text = lblName.Text
-        If _cardVersion = 6 Then
-            If GetGender6(GetHex(_filename, 196, 4)) = Gender.female Then
-                fe.cmbGender.SelectedItem = "Female"
+        Try
+            Dim fe As frmEdit = New frmEdit()
+            fe.Version = _cardVersion
+            fe.FileName = _filename
+            fe.txtName.Text = lblName.Text
+            If _cardVersion = 6 Then
+                If GetGender(GetHex(_filename, 90, 1)) = Gender.female Then
+                    fe.cmbGender.SelectedItem = "Female"
+                Else
+                    fe.cmbGender.SelectedItem = "Male"
+                End If
+                fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
+                fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
+                'fe.txtPridePoint.Text = GetChapterLevel(GetHex(_filename, 173, 2))
+                fe.txtSPride.Enabled = False
+                fe.txtTPride.Enabled = False
+                fe.txtAcc.Text = GetChapterLevel(GetHex(_filename, 203, 1))
+                fe.txtCoat.Text = GetChapterLevel(GetHex(_filename, 198, 1))
+                fe.txtEyebrown.Text = GetChapterLevel(GetHex(_filename, 196, 1))
+                fe.txtEyes.Text = GetChapterLevel(GetHex(_filename, 199, 1))
+                fe.txtEyes2.Text = GetChapterLevel(GetHex(_filename, 200, 1))
+                fe.txtHair.Text = GetChapterLevel(GetHex(_filename, 202, 1))
+                fe.txtMouth.Text = GetChapterLevel(GetHex(_filename, 201, 1))
+                fe.txtTorso.Text = GetChapterLevel(GetHex(_filename, 197, 1))
             Else
-                fe.cmbGender.SelectedItem = "Male"
+                If GetGender(GetHex(_filename, 90, 1)) = Gender.female Then
+                    fe.cmbGender.SelectedItem = "Female"
+                Else
+                    fe.cmbGender.SelectedItem = "Male"
+                End If
+                fe.txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
+                fe.Label8.Enabled = False
+                fe.txtChapLevel.Enabled = False
+                fe.cbLegend.Enabled = False
+                fe.cbAvatar.Enabled = False
+                fe.txtPridePoint.Enabled = False
+                'fe.txtSPride.Text = GetChapterLevel(GetHex(_filename, 170, 2))
+                'fe.txtTPride.Text = GetChapterLevel(GetHex(_filename, 172, 2))
             End If
-            fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
-            fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
-            'fe.txtPridePoint.Text = GetChapterLevel(GetHex(_filename, 173, 2))
-            fe.txtSPride.Enabled = False
-            fe.txtTPride.Enabled = False
-        Else
-            If GetGender7(GetHex(_filename, 197, 6)) = Gender.female Then
-                fe.cmbGender.SelectedItem = "Female"
-            Else
-                fe.cmbGender.SelectedItem = "Male"
-            End If
-            fe.txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
-            fe.txtChapLevel.Enabled = False
-            fe.cbLegend.Enabled = False
-            fe.txtPridePoint.Enabled = False
-            'fe.txtSPride.Text = GetChapterLevel(GetHex(_filename, 170, 2))
-            'fe.txtTPride.Text = GetChapterLevel(GetHex(_filename, 172, 2))
-        End If
-        fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
-        fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
-        fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
-        fe.Show()
+            fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+            fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+            fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+            fe.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub Translate()

@@ -30,6 +30,24 @@ Public Class frmEdit
             Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
             File.Copy(_filename, newFileName, True)
 
+            If _version = 6 Then
+                If Integer.Parse(txtLevel.Text) > 98 Then txtLevel.Text = "98"
+                If Integer.Parse(txtChapLevel.Text) > 99 Then txtChapLevel.Text = "99"
+            Else
+                If Integer.Parse(txtLevel.Text) > 30 Then txtLevel.Text = "30"
+            End If
+
+            If cbAvatar.Checked Then
+                If Integer.Parse(txtAcc.Text) > 255 Then txtAcc.Text = "255"
+                If Integer.Parse(txtCoat.Text) > 255 Then txtCoat.Text = "255"
+                If Integer.Parse(txtEyebrown.Text) > 255 Then txtEyebrown.Text = "255"
+                If Integer.Parse(txtEyes.Text) > 255 Then txtEyes.Text = "255"
+                If Integer.Parse(txtEyes2.Text) > 255 Then txtEyes2.Text = "255"
+                If Integer.Parse(txtHair.Text) > 255 Then txtHair.Text = "255"
+                If Integer.Parse(txtTorso.Text) > 255 Then txtTorso.Text = "255"
+                If Integer.Parse(txtMouth.Text) > 255 Then txtMouth.Text = "255"
+            End If
+
             If txtName.TextLength <= 5 Then
                 Dim amount As Integer = 6 - txtName.TextLength
                 Dim newName As Char = Nothing
@@ -57,23 +75,30 @@ Public Class frmEdit
                 If Not cmbCar2.SelectedItem = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem)))
                 If Not cmbCar3.SelectedItem = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem)))
 
+                If cmbGender.SelectedItem = "Female" Then
+                    SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
+                Else
+                    SetHex(_filename, CLng("&H5A"), HexStringToBinary("00"))
+                End If
+
                 Select Case _version
                     Case 6
-                        If cmbGender.SelectedItem = "Female" Then
-                            SetHex(_filename, CLng("&HC4"), HexStringToBinary("12F008B6"))
-                        Else
-                            SetHex(_filename, CLng("&HC4"), HexStringToBinary("18D008B3"))
-                        End If
-                        If cbLegend.Checked Then SetHex(_filename, CLng("&H"), HexStringToBinary("218F"))
-                        SetHex(_filename, CLng("&HE0"), SetValue(txtChapLevel.Text))
+                        If cbLegend.Checked Then SetHex(_filename, CLng("&H222"), HexStringToBinary("218F"))
+                        SetHex(_filename, CLng("&H224"), SetValue(txtChapLevel.Text))
                         SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
                         'SetHex(_filename, CLng("&HAD"), SetValue(txtPridePoint.Text))
-                    Case 7
-                        If cmbGender.SelectedItem = "Female" Then
-                            SetHex(_filename, CLng("&HC5"), HexStringToBinary("0008ABB00C46"))
-                        Else
-                            SetHex(_filename, CLng("&HC5"), HexStringToBinary("5008B0C00D80"))
+
+                        If cbAvatar.Checked Then
+                            SetHex(_filename, CLng("&HC4"), SetValue(txtEyebrown.Text))
+                            SetHex(_filename, CLng("&HC5"), SetValue(txtTorso.Text))
+                            SetHex(_filename, CLng("&HC6"), SetValue(txtCoat.Text))
+                            SetHex(_filename, CLng("&HC7"), SetValue(txtEyes.Text))
+                            SetHex(_filename, CLng("&HC8"), SetValue(txtEyes2.Text))
+                            SetHex(_filename, CLng("&HC9"), SetValue(txtMouth.Text))
+                            SetHex(_filename, CLng("&HCA"), SetValue(txtHair.Text))
+                            SetHex(_filename, CLng("&HCB"), SetValue(txtAcc.Text))
                         End If
+                    Case 7
                         SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
                         'SetHex(_filename, CLng("&HAA"), SetValue4(txtSPride.Text))
                         'SetHex(_filename, CLng("&HAC"), SetValue4(txtTPride.Text))
@@ -118,6 +143,16 @@ Public Class frmEdit
                 tool_tip = "Change car might lose ability to tune your car!"
                 GroupBox2.Text = "Initial D 6 AA"
                 GroupBox3.Text = "Initial D 7 AAX"
+                cbAvatar.Text = "Change Avatar (Experimental)"
+                GroupBox4.Text = "Avatar"
+                Label10.Text = "Eyebrowns"
+                Label12.Text = "Torso"
+                Label13.Text = "Coat"
+                Label14.Text = "Eyes"
+                Label17.Text = "Eyes 2"
+                Label18.Text = "Mouth"
+                Label15.Text = "Hair"
+                Label16.Text = "Accessory"
             Case "Chinese"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 Label1.Text = "名字"
@@ -136,6 +171,16 @@ Public Class frmEdit
                 tool_tip = "更換車可能會失去改車功能！"
                 GroupBox2.Text = "頭文字D6AA"
                 GroupBox3.Text = "頭文字D7AAX"
+                cbAvatar.Text = "更換頭像 (試驗)"
+                GroupBox4.Text = "頭像"
+                Label10.Text = "眉毛"
+                Label12.Text = "上衣"
+                Label13.Text = "外套"
+                Label14.Text = "眼睛"
+                Label17.Text = "眼睛2"
+                Label18.Text = "嘴巴"
+                Label15.Text = "髮型"
+                Label16.Text = "配件"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 Label1.Text = "Nom"
@@ -154,6 +199,52 @@ Public Class frmEdit
                 tool_tip = "Change car might lose ability to tune your car!"
                 GroupBox2.Text = "Initial D 6 AA"
                 GroupBox3.Text = "Initial D 7 AAX"
+                cbAvatar.Text = "Changer Avatar (Expérimental)"
+                GroupBox4.Text = "Avatar"
+                Label10.Text = "Les sourcils"
+                Label12.Text = "Torse"
+                Label13.Text = "Manteau"
+                Label14.Text = "Les yeux"
+                Label17.Text = "Les yeux 2"
+                Label18.Text = "Bouche"
+                Label15.Text = "Cheveux"
+                Label16.Text = "Accessoire"
         End Select
     End Sub
+
+    Private Sub cbAvatar_CheckedChanged(sender As Object, e As EventArgs) Handles cbAvatar.CheckedChanged
+        GroupBox4.Enabled = cbAvatar.Checked
+    End Sub
+
+    'Private Sub txtLevel_TextChanged(sender As Object, e As EventArgs) Handles txtLevel.TextChanged, txtChapLevel.TextChanged
+    '    If _version = 6 Then
+    '        If Integer.Parse(txtLevel.Text) > 98 Then txtLevel.Text = "98"
+    '        If Integer.Parse(txtChapLevel.Text) > 99 Then txtChapLevel.Text = "99"
+    '    Else
+    '        If Integer.Parse(txtLevel.Text) > 30 Then txtLevel.Text = "30"
+    '    End If
+    'End Sub
+
+    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAcc.KeyPress, txtChapLevel.KeyPress, txtCoat.KeyPress, txtEyebrown.KeyPress, txtEyes.KeyPress, txtEyes2.KeyPress, txtHair.KeyPress, txtLevel.KeyPress, txtMouth.KeyPress, txtPridePoint.KeyPress, txtSPride.KeyPress, txtTorso.KeyPress, txtTPride.KeyPress
+        Try
+            If Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
+           Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then
+                Return
+            End If
+            e.Handled = True
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    'Private Sub txtEyebrown_TextChanged(sender As Object, e As EventArgs) Handles txtEyebrown.TextChanged, txtAcc.TextChanged, txtCoat.TextChanged, txtEyes.TextChanged, txtEyes2.TextChanged, txtHair.TextChanged, txtMouth.TextChanged, txtTorso.TextChanged
+    '    If Integer.Parse(txtAcc.Text) > 255 Then txtAcc.Text = "255"
+    '    If Integer.Parse(txtCoat.Text) > 255 Then txtCoat.Text = "255"
+    '    If Integer.Parse(txtEyebrown.Text) > 255 Then txtEyebrown.Text = "255"
+    '    If Integer.Parse(txtEyes.Text) > 255 Then txtEyes.Text = "255"
+    '    If Integer.Parse(txtEyes2.Text) > 255 Then txtEyes2.Text = "255"
+    '    If Integer.Parse(txtHair.Text) > 255 Then txtHair.Text = "255"
+    '    If Integer.Parse(txtTorso.Text) > 255 Then txtTorso.Text = "255"
+    '    If Integer.Parse(txtMouth.Text) > 255 Then txtMouth.Text = "255"
+    'End Sub
 End Class

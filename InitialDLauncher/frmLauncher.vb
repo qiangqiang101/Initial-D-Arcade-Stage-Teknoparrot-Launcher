@@ -10,10 +10,9 @@ Public Class frmLauncher
     Dim mousey As Integer
     Public WithEvents proc As Process
     Dim debug As Boolean = My.Settings.DebugMode
-    Dim threadE, threadU As Thread
+    Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim defaultLocation As Point
-    Dim curVer As Integer = 7, buildDate As String = "8/11/2017"
+    Dim curVer As Integer = 8, buildDate As String = "9/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -145,8 +144,8 @@ Public Class frmLauncher
         Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
         Me.SetStyle(ControlStyles.UserPaint, True)
 
-        'defaultLocation = Me.Location
-        'Me.Location = New Point(((Screen.PrimaryScreen.Bounds.Width / 100) - (Me.Width * 2)) - 1000, Me.Location.Y)
+        If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
+        If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
 
         shadow = New Dropshadow(Me) With {.ShadowBlur = 30, .ShadowSpread = 1, .ShadowColor = Color.Black}
         shadow.RefreshShadow()
@@ -174,9 +173,6 @@ Public Class frmLauncher
             audio.Play()
             audio.SetVolume(500)
         End If
-
-        'threadE = New Thread(AddressOf EnterAni)
-        'threadE.Start()
     End Sub
 
     Private Function CheckForUpdate() As Integer
@@ -190,32 +186,6 @@ Public Class frmLauncher
         Me.Enabled = False
         Thread.Sleep(2000)
         End
-        'threadE = New Thread(AddressOf ExitAni)
-        'threadE.Start()
-    End Sub
-
-    Private Sub ExitAni()
-        Dim x As Integer = Me.Location.X
-Restart:
-        If Not Me.Location.X = (Screen.PrimaryScreen.Bounds.Width + Me.Width + 1000) Then
-            x += 1
-            Me.Location = New Point(x, Me.Location.Y)
-        Else
-            End
-        End If
-        GoTo Restart
-    End Sub
-
-    Private Sub EnterAni()
-        Dim x As Integer = Me.Location.X
-Restart:
-        If Not Me.Location.X = defaultLocation.X Then
-            x += 1
-            Me.Location = New Point(x, Me.Location.Y)
-        Else
-            Exit Sub
-        End If
-        GoTo Restart
     End Sub
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click

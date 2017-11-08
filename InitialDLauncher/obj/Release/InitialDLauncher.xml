@@ -172,12 +172,22 @@ InitialDLauncher
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
 </summary>
 </member>
-<member name="P:InitialDLauncher.My.Resources.Resources.card">
+<member name="P:InitialDLauncher.My.Resources.Resources.card6f">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:InitialDLauncher.My.Resources.Resources.cardf">
+<member name="P:InitialDLauncher.My.Resources.Resources.card6m">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.card7f">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.card7m">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

@@ -176,8 +176,10 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cardf.png" />
-    <None Include="Resources\card.png" />
+    <None Include="Resources\card7m.png" />
+    <None Include="Resources\card7f.png" />
+    <None Include="Resources\card6m.png" />
+    <None Include="Resources\card6f.png" />
     <None Include="Resources\select.wav" />
     <None Include="Resources\play.wav" />
     <None Include="Resources\launcher_bg.jpg" />

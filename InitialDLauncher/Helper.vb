@@ -382,23 +382,13 @@ Module Helper
         female
     End Enum
 
-    Function GetGender7(hex As Byte()) As Gender
-        Dim result As Gender = Nothing
-        Select Case BitConverter.ToString(hex).Replace("-", "")
-            Case "5008B0C00D80"
-                result = Gender.male
-            Case "0008ABB00C46"
-                result = Gender.female
-        End Select
-        Return result
-    End Function
 
-    Function GetGender6(hex As Byte()) As Gender
+    Function GetGender(hex As Byte()) As Gender
         Dim result As Gender = Nothing
         Select Case BitConverter.ToString(hex).Replace("-", "")
-            Case "18D008B3"
+            Case "00"
                 result = Gender.male
-            Case "12F008B6"
+            Case "01"
                 result = Gender.female
         End Select
         Return result
