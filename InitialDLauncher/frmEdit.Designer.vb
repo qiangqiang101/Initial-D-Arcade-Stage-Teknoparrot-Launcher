@@ -53,37 +53,59 @@ Partial Class frmEdit
         Me.txtSPride = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cbAvatar = New System.Windows.Forms.CheckBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.txtHair = New System.Windows.Forms.TextBox()
-        Me.txtAcc = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtEyes2 = New System.Windows.Forms.TextBox()
-        Me.txtMouth = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.txtCoat = New System.Windows.Forms.TextBox()
-        Me.txtEyes = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtEyebrown = New System.Windows.Forms.TextBox()
-        Me.txtTorso = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.txtPridePoint = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.gbFrame = New System.Windows.Forms.GroupBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.gbShirt = New System.Windows.Forms.GroupBox()
+        Me.pbShirt = New System.Windows.Forms.PictureBox()
+        Me.gbHair = New System.Windows.Forms.GroupBox()
+        Me.pbHair = New System.Windows.Forms.PictureBox()
+        Me.gbAccessories = New System.Windows.Forms.GroupBox()
+        Me.pbAccessories = New System.Windows.Forms.PictureBox()
+        Me.gbShades = New System.Windows.Forms.GroupBox()
+        Me.pbShades = New System.Windows.Forms.PictureBox()
+        Me.gbMouth = New System.Windows.Forms.GroupBox()
+        Me.pbMouth = New System.Windows.Forms.PictureBox()
+        Me.gbEyes = New System.Windows.Forms.GroupBox()
+        Me.pbEyes = New System.Windows.Forms.PictureBox()
+        Me.gbSkin = New System.Windows.Forms.GroupBox()
+        Me.pbSkin = New System.Windows.Forms.PictureBox()
+        Me.btnSet = New System.Windows.Forms.Button()
+        Me.pbPreview = New System.Windows.Forms.PictureBox()
+        Me.cmbAvatar = New System.Windows.Forms.ComboBox()
+        Me.cmbAvatarCat = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.gbFrame.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbShirt.SuspendLayout()
+        CType(Me.pbShirt, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbHair.SuspendLayout()
+        CType(Me.pbHair, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbAccessories.SuspendLayout()
+        CType(Me.pbAccessories, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbShades.SuspendLayout()
+        CType(Me.pbShades, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbMouth.SuspendLayout()
+        CType(Me.pbMouth, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbEyes.SuspendLayout()
+        CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbSkin.SuspendLayout()
+        CType(Me.pbSkin, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtName
         '
         Me.txtName.Location = New System.Drawing.Point(97, 12)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(224, 23)
+        Me.txtName.Size = New System.Drawing.Size(166, 23)
         Me.txtName.TabIndex = 1
         '
         'Label1
@@ -99,8 +121,7 @@ Partial Class frmEdit
         '
         Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGender.FormattingEnabled = True
-        Me.cmbGender.Items.AddRange(New Object() {"Male", "Female"})
-        Me.cmbGender.Location = New System.Drawing.Point(86, 22)
+        Me.cmbGender.Location = New System.Drawing.Point(320, 12)
         Me.cmbGender.Name = "cmbGender"
         Me.cmbGender.Size = New System.Drawing.Size(111, 23)
         Me.cmbGender.TabIndex = 2
@@ -108,7 +129,7 @@ Partial Class frmEdit
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 25)
+        Me.Label2.Location = New System.Drawing.Point(269, 15)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(45, 15)
         Me.Label2.TabIndex = 8
@@ -174,7 +195,7 @@ Partial Class frmEdit
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(203, 25)
+        Me.Label6.Location = New System.Drawing.Point(9, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(34, 15)
         Me.Label6.TabIndex = 16
@@ -182,7 +203,7 @@ Partial Class frmEdit
         '
         'txtLevel
         '
-        Me.txtLevel.Location = New System.Drawing.Point(280, 22)
+        Me.txtLevel.Location = New System.Drawing.Point(86, 22)
         Me.txtLevel.MaxLength = 2
         Me.txtLevel.Name = "txtLevel"
         Me.txtLevel.Size = New System.Drawing.Size(111, 23)
@@ -208,7 +229,7 @@ Partial Class frmEdit
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(354, 418)
+        Me.btnSave.Location = New System.Drawing.Point(356, 643)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 50
@@ -262,9 +283,7 @@ Partial Class frmEdit
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
-        Me.GroupBox1.Controls.Add(Me.cmbGender)
         Me.GroupBox1.Controls.Add(Me.cbCar3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.cbCar2)
         Me.GroupBox1.Controls.Add(Me.cmbCar1)
         Me.GroupBox1.Controls.Add(Me.cbCar1)
@@ -276,9 +295,9 @@ Partial Class frmEdit
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.txtLevel)
         Me.GroupBox1.Enabled = False
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 41)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 411)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(416, 371)
+        Me.GroupBox1.Size = New System.Drawing.Size(418, 226)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cheat"
@@ -289,7 +308,7 @@ Partial Class frmEdit
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.txtSPride)
         Me.GroupBox3.Controls.Add(Me.Label9)
-        Me.GroupBox3.Location = New System.Drawing.Point(6, 371)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 225)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(404, 52)
         Me.GroupBox3.TabIndex = 24
@@ -331,8 +350,6 @@ Partial Class frmEdit
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.cbAvatar)
-        Me.GroupBox2.Controls.Add(Me.GroupBox4)
         Me.GroupBox2.Controls.Add(Me.txtChapLevel)
         Me.GroupBox2.Controls.Add(Me.txtPridePoint)
         Me.GroupBox2.Controls.Add(Me.Label8)
@@ -340,182 +357,10 @@ Partial Class frmEdit
         Me.GroupBox2.Controls.Add(Me.cbLegend)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 138)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(404, 227)
+        Me.GroupBox2.Size = New System.Drawing.Size(404, 81)
         Me.GroupBox2.TabIndex = 23
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Initial D 6 AA"
-        '
-        'cbAvatar
-        '
-        Me.cbAvatar.AutoSize = True
-        Me.cbAvatar.Location = New System.Drawing.Point(211, 53)
-        Me.cbAvatar.Name = "cbAvatar"
-        Me.cbAvatar.Size = New System.Drawing.Size(183, 19)
-        Me.cbAvatar.TabIndex = 23
-        Me.cbAvatar.Text = "Change Avatar (Experimental)"
-        Me.cbAvatar.UseVisualStyleBackColor = True
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.txtHair)
-        Me.GroupBox4.Controls.Add(Me.txtAcc)
-        Me.GroupBox4.Controls.Add(Me.Label15)
-        Me.GroupBox4.Controls.Add(Me.Label16)
-        Me.GroupBox4.Controls.Add(Me.txtEyes2)
-        Me.GroupBox4.Controls.Add(Me.txtMouth)
-        Me.GroupBox4.Controls.Add(Me.Label17)
-        Me.GroupBox4.Controls.Add(Me.Label18)
-        Me.GroupBox4.Controls.Add(Me.txtCoat)
-        Me.GroupBox4.Controls.Add(Me.txtEyes)
-        Me.GroupBox4.Controls.Add(Me.Label13)
-        Me.GroupBox4.Controls.Add(Me.Label14)
-        Me.GroupBox4.Controls.Add(Me.txtEyebrown)
-        Me.GroupBox4.Controls.Add(Me.txtTorso)
-        Me.GroupBox4.Controls.Add(Me.Label10)
-        Me.GroupBox4.Controls.Add(Me.Label12)
-        Me.GroupBox4.Enabled = False
-        Me.GroupBox4.Location = New System.Drawing.Point(6, 80)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(392, 141)
-        Me.GroupBox4.TabIndex = 23
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Avatar"
-        '
-        'txtHair
-        '
-        Me.txtHair.Location = New System.Drawing.Point(253, 80)
-        Me.txtHair.MaxLength = 3
-        Me.txtHair.Name = "txtHair"
-        Me.txtHair.Size = New System.Drawing.Size(111, 23)
-        Me.txtHair.TabIndex = 29
-        '
-        'txtAcc
-        '
-        Me.txtAcc.Location = New System.Drawing.Point(253, 109)
-        Me.txtAcc.MaxLength = 3
-        Me.txtAcc.Name = "txtAcc"
-        Me.txtAcc.Size = New System.Drawing.Size(111, 23)
-        Me.txtAcc.TabIndex = 31
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(188, 83)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(29, 15)
-        Me.Label15.TabIndex = 36
-        Me.Label15.Text = "Hair"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(188, 112)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(60, 15)
-        Me.Label16.TabIndex = 38
-        Me.Label16.Text = "Accessory"
-        '
-        'txtEyes2
-        '
-        Me.txtEyes2.Location = New System.Drawing.Point(253, 22)
-        Me.txtEyes2.MaxLength = 3
-        Me.txtEyes2.Name = "txtEyes2"
-        Me.txtEyes2.Size = New System.Drawing.Size(111, 23)
-        Me.txtEyes2.TabIndex = 25
-        '
-        'txtMouth
-        '
-        Me.txtMouth.Location = New System.Drawing.Point(253, 51)
-        Me.txtMouth.MaxLength = 3
-        Me.txtMouth.Name = "txtMouth"
-        Me.txtMouth.Size = New System.Drawing.Size(111, 23)
-        Me.txtMouth.TabIndex = 27
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(188, 25)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(39, 15)
-        Me.Label17.TabIndex = 32
-        Me.Label17.Text = "Eyes 2"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(188, 54)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(43, 15)
-        Me.Label18.TabIndex = 34
-        Me.Label18.Text = "Mouth"
-        '
-        'txtCoat
-        '
-        Me.txtCoat.Location = New System.Drawing.Point(71, 80)
-        Me.txtCoat.MaxLength = 3
-        Me.txtCoat.Name = "txtCoat"
-        Me.txtCoat.Size = New System.Drawing.Size(111, 23)
-        Me.txtCoat.TabIndex = 28
-        '
-        'txtEyes
-        '
-        Me.txtEyes.Location = New System.Drawing.Point(71, 109)
-        Me.txtEyes.MaxLength = 3
-        Me.txtEyes.Name = "txtEyes"
-        Me.txtEyes.Size = New System.Drawing.Size(111, 23)
-        Me.txtEyes.TabIndex = 30
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(6, 83)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(32, 15)
-        Me.Label13.TabIndex = 28
-        Me.Label13.Text = "Coat"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 112)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(30, 15)
-        Me.Label14.TabIndex = 30
-        Me.Label14.Text = "Eyes"
-        '
-        'txtEyebrown
-        '
-        Me.txtEyebrown.Location = New System.Drawing.Point(71, 22)
-        Me.txtEyebrown.MaxLength = 3
-        Me.txtEyebrown.Name = "txtEyebrown"
-        Me.txtEyebrown.Size = New System.Drawing.Size(111, 23)
-        Me.txtEyebrown.TabIndex = 24
-        '
-        'txtTorso
-        '
-        Me.txtTorso.Location = New System.Drawing.Point(71, 51)
-        Me.txtTorso.MaxLength = 3
-        Me.txtTorso.Name = "txtTorso"
-        Me.txtTorso.Size = New System.Drawing.Size(111, 23)
-        Me.txtTorso.TabIndex = 26
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(6, 25)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(59, 15)
-        Me.Label10.TabIndex = 24
-        Me.Label10.Text = "Eyebrown"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 54)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(37, 15)
-        Me.Label12.TabIndex = 26
-        Me.Label12.Text = "Torso"
         '
         'txtPridePoint
         '
@@ -536,14 +381,257 @@ Partial Class frmEdit
         Me.Label7.Text = "Pride Point"
         Me.Label7.Visible = False
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.gbFrame)
+        Me.GroupBox4.Controls.Add(Me.gbShirt)
+        Me.GroupBox4.Controls.Add(Me.gbHair)
+        Me.GroupBox4.Controls.Add(Me.gbAccessories)
+        Me.GroupBox4.Controls.Add(Me.gbShades)
+        Me.GroupBox4.Controls.Add(Me.gbMouth)
+        Me.GroupBox4.Controls.Add(Me.gbEyes)
+        Me.GroupBox4.Controls.Add(Me.gbSkin)
+        Me.GroupBox4.Controls.Add(Me.btnSet)
+        Me.GroupBox4.Controls.Add(Me.pbPreview)
+        Me.GroupBox4.Controls.Add(Me.cmbAvatar)
+        Me.GroupBox4.Controls.Add(Me.cmbAvatarCat)
+        Me.GroupBox4.Controls.Add(Me.Label10)
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 41)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(418, 364)
+        Me.GroupBox4.TabIndex = 23
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Avatar"
+        '
+        'gbFrame
+        '
+        Me.gbFrame.Controls.Add(Me.PictureBox5)
+        Me.gbFrame.Location = New System.Drawing.Point(311, 246)
+        Me.gbFrame.Name = "gbFrame"
+        Me.gbFrame.Size = New System.Drawing.Size(96, 112)
+        Me.gbFrame.TabIndex = 58
+        Me.gbFrame.TabStop = False
+        Me.gbFrame.Text = "Reserved"
+        Me.gbFrame.Visible = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox5.Location = New System.Drawing.Point(3, 19)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(90, 90)
+        Me.PictureBox5.TabIndex = 30
+        Me.PictureBox5.TabStop = False
+        '
+        'gbShirt
+        '
+        Me.gbShirt.Controls.Add(Me.pbShirt)
+        Me.gbShirt.Location = New System.Drawing.Point(210, 246)
+        Me.gbShirt.Name = "gbShirt"
+        Me.gbShirt.Size = New System.Drawing.Size(96, 112)
+        Me.gbShirt.TabIndex = 56
+        Me.gbShirt.TabStop = False
+        Me.gbShirt.Text = "Shirt"
+        '
+        'pbShirt
+        '
+        Me.pbShirt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbShirt.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbShirt.Location = New System.Drawing.Point(3, 19)
+        Me.pbShirt.Name = "pbShirt"
+        Me.pbShirt.Size = New System.Drawing.Size(90, 90)
+        Me.pbShirt.TabIndex = 30
+        Me.pbShirt.TabStop = False
+        '
+        'gbHair
+        '
+        Me.gbHair.Controls.Add(Me.pbHair)
+        Me.gbHair.Location = New System.Drawing.Point(108, 246)
+        Me.gbHair.Name = "gbHair"
+        Me.gbHair.Size = New System.Drawing.Size(96, 112)
+        Me.gbHair.TabIndex = 57
+        Me.gbHair.TabStop = False
+        Me.gbHair.Text = "Hair"
+        '
+        'pbHair
+        '
+        Me.pbHair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbHair.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbHair.Location = New System.Drawing.Point(3, 19)
+        Me.pbHair.Name = "pbHair"
+        Me.pbHair.Size = New System.Drawing.Size(90, 90)
+        Me.pbHair.TabIndex = 30
+        Me.pbHair.TabStop = False
+        '
+        'gbAccessories
+        '
+        Me.gbAccessories.Controls.Add(Me.pbAccessories)
+        Me.gbAccessories.Location = New System.Drawing.Point(6, 246)
+        Me.gbAccessories.Name = "gbAccessories"
+        Me.gbAccessories.Size = New System.Drawing.Size(96, 112)
+        Me.gbAccessories.TabIndex = 55
+        Me.gbAccessories.TabStop = False
+        Me.gbAccessories.Text = "Accessories"
+        '
+        'pbAccessories
+        '
+        Me.pbAccessories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbAccessories.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbAccessories.Location = New System.Drawing.Point(3, 19)
+        Me.pbAccessories.Name = "pbAccessories"
+        Me.pbAccessories.Size = New System.Drawing.Size(90, 90)
+        Me.pbAccessories.TabIndex = 30
+        Me.pbAccessories.TabStop = False
+        '
+        'gbShades
+        '
+        Me.gbShades.Controls.Add(Me.pbShades)
+        Me.gbShades.Location = New System.Drawing.Point(311, 128)
+        Me.gbShades.Name = "gbShades"
+        Me.gbShades.Size = New System.Drawing.Size(96, 112)
+        Me.gbShades.TabIndex = 54
+        Me.gbShades.TabStop = False
+        Me.gbShades.Text = "Shades"
+        '
+        'pbShades
+        '
+        Me.pbShades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbShades.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbShades.Location = New System.Drawing.Point(3, 19)
+        Me.pbShades.Name = "pbShades"
+        Me.pbShades.Size = New System.Drawing.Size(90, 90)
+        Me.pbShades.TabIndex = 30
+        Me.pbShades.TabStop = False
+        '
+        'gbMouth
+        '
+        Me.gbMouth.Controls.Add(Me.pbMouth)
+        Me.gbMouth.Location = New System.Drawing.Point(210, 128)
+        Me.gbMouth.Name = "gbMouth"
+        Me.gbMouth.Size = New System.Drawing.Size(96, 112)
+        Me.gbMouth.TabIndex = 53
+        Me.gbMouth.TabStop = False
+        Me.gbMouth.Text = "Mouth"
+        '
+        'pbMouth
+        '
+        Me.pbMouth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbMouth.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbMouth.Location = New System.Drawing.Point(3, 19)
+        Me.pbMouth.Name = "pbMouth"
+        Me.pbMouth.Size = New System.Drawing.Size(90, 90)
+        Me.pbMouth.TabIndex = 30
+        Me.pbMouth.TabStop = False
+        '
+        'gbEyes
+        '
+        Me.gbEyes.Controls.Add(Me.pbEyes)
+        Me.gbEyes.Location = New System.Drawing.Point(108, 128)
+        Me.gbEyes.Name = "gbEyes"
+        Me.gbEyes.Size = New System.Drawing.Size(96, 112)
+        Me.gbEyes.TabIndex = 53
+        Me.gbEyes.TabStop = False
+        Me.gbEyes.Text = "Eyes"
+        '
+        'pbEyes
+        '
+        Me.pbEyes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbEyes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbEyes.Location = New System.Drawing.Point(3, 19)
+        Me.pbEyes.Name = "pbEyes"
+        Me.pbEyes.Size = New System.Drawing.Size(90, 90)
+        Me.pbEyes.TabIndex = 30
+        Me.pbEyes.TabStop = False
+        '
+        'gbSkin
+        '
+        Me.gbSkin.Controls.Add(Me.pbSkin)
+        Me.gbSkin.Location = New System.Drawing.Point(6, 128)
+        Me.gbSkin.Name = "gbSkin"
+        Me.gbSkin.Size = New System.Drawing.Size(96, 112)
+        Me.gbSkin.TabIndex = 52
+        Me.gbSkin.TabStop = False
+        Me.gbSkin.Text = "Face && Skin"
+        '
+        'pbSkin
+        '
+        Me.pbSkin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbSkin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbSkin.Location = New System.Drawing.Point(3, 19)
+        Me.pbSkin.Name = "pbSkin"
+        Me.pbSkin.Size = New System.Drawing.Size(90, 90)
+        Me.pbSkin.TabIndex = 30
+        Me.pbSkin.TabStop = False
+        '
+        'btnSet
+        '
+        Me.btnSet.Location = New System.Drawing.Point(85, 80)
+        Me.btnSet.Name = "btnSet"
+        Me.btnSet.Size = New System.Drawing.Size(220, 23)
+        Me.btnSet.TabIndex = 51
+        Me.btnSet.Text = "Save Selection"
+        Me.btnSet.UseVisualStyleBackColor = True
+        '
+        'pbPreview
+        '
+        Me.pbPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbPreview.Location = New System.Drawing.Point(311, 22)
+        Me.pbPreview.Name = "pbPreview"
+        Me.pbPreview.Size = New System.Drawing.Size(100, 100)
+        Me.pbPreview.TabIndex = 29
+        Me.pbPreview.TabStop = False
+        '
+        'cmbAvatar
+        '
+        Me.cmbAvatar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAvatar.FormattingEnabled = True
+        Me.cmbAvatar.Location = New System.Drawing.Point(85, 51)
+        Me.cmbAvatar.Name = "cmbAvatar"
+        Me.cmbAvatar.Size = New System.Drawing.Size(220, 23)
+        Me.cmbAvatar.TabIndex = 28
+        '
+        'cmbAvatarCat
+        '
+        Me.cmbAvatarCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAvatarCat.FormattingEnabled = True
+        Me.cmbAvatarCat.Location = New System.Drawing.Point(85, 22)
+        Me.cmbAvatarCat.Name = "cmbAvatarCat"
+        Me.cmbAvatarCat.Size = New System.Drawing.Size(220, 23)
+        Me.cmbAvatarCat.TabIndex = 27
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(6, 25)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(55, 15)
+        Me.Label10.TabIndex = 24
+        Me.Label10.Text = "Category"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(6, 54)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(55, 15)
+        Me.Label12.TabIndex = 26
+        Me.Label12.Text = "Selection"
+        '
         'frmEdit
         '
         Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(441, 453)
+        Me.ClientSize = New System.Drawing.Size(443, 678)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBox4)
+        Me.Controls.Add(Me.cmbGender)
         Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtName)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -562,6 +650,23 @@ Partial Class frmEdit
         Me.GroupBox2.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.gbFrame.ResumeLayout(False)
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbShirt.ResumeLayout(False)
+        CType(Me.pbShirt, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbHair.ResumeLayout(False)
+        CType(Me.pbHair, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbAccessories.ResumeLayout(False)
+        CType(Me.pbAccessories, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbShades.ResumeLayout(False)
+        CType(Me.pbShades, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbMouth.ResumeLayout(False)
+        CType(Me.pbMouth, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbEyes.ResumeLayout(False)
+        CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbSkin.ResumeLayout(False)
+        CType(Me.pbSkin, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -598,22 +703,27 @@ Partial Class frmEdit
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtTPride As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents cbAvatar As CheckBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents txtHair As TextBox
-    Friend WithEvents txtAcc As TextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents txtEyes2 As TextBox
-    Friend WithEvents txtMouth As TextBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents txtCoat As TextBox
-    Friend WithEvents txtEyes As TextBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents txtEyebrown As TextBox
-    Friend WithEvents txtTorso As TextBox
+    Friend WithEvents pbPreview As PictureBox
+    Friend WithEvents cmbAvatar As ComboBox
+    Friend WithEvents cmbAvatarCat As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents btnSet As Button
+    Friend WithEvents gbFrame As GroupBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents gbShirt As GroupBox
+    Friend WithEvents pbShirt As PictureBox
+    Friend WithEvents gbHair As GroupBox
+    Friend WithEvents pbHair As PictureBox
+    Friend WithEvents gbAccessories As GroupBox
+    Friend WithEvents pbAccessories As PictureBox
+    Friend WithEvents gbShades As GroupBox
+    Friend WithEvents pbShades As PictureBox
+    Friend WithEvents gbMouth As GroupBox
+    Friend WithEvents pbMouth As PictureBox
+    Friend WithEvents gbEyes As GroupBox
+    Friend WithEvents pbEyes As PictureBox
+    Friend WithEvents gbSkin As GroupBox
+    Friend WithEvents pbSkin As PictureBox
 End Class

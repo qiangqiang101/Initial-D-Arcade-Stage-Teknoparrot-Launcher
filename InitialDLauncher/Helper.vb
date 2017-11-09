@@ -569,4 +569,102 @@ Module Helper
     Function HexStringToBinary(ByVal hexString As String) As Byte()
         Return Enumerable.Range(0, hexString.Length).Where(Function(x) x Mod 2 = 0).[Select](Function(x) Convert.ToByte(hexString.Substring(x, 2), 16)).ToArray()
     End Function
+
+    Function SafeImageFromFile(path As String) As Image
+        Dim bytes = File.ReadAllBytes(path)
+        Using ms As New MemoryStream(bytes)
+            Dim img = Image.FromStream(ms)
+            Return img
+        End Using
+    End Function
+
+    Enum AvatarType
+        Skin
+        Hair
+        Eyes
+        Shades
+        Mouth
+        Shirt
+        Accessories
+    End Enum
+
+    Function GetAvatar(filename As String, type As AvatarType) As String
+        Dim result As String = Nothing
+        Select Case type
+            Case AvatarType.Skin
+                Dim c4 = BitConverter.ToString(GetHex(filename, 196, 1))
+                Dim c5 = BitConverter.ToString(GetHex(filename, 197, 1))
+                Dim _c5 = c5.Replace(c5(0), "X")
+                result = c4 & _c5
+            Case AvatarType.Shirt
+                Dim c5 = BitConverter.ToString(GetHex(filename, 197, 1))
+                Dim c6 = BitConverter.ToString(GetHex(filename, 198, 1))
+                Dim _c5 = c5.Replace(c5(c5.Length - 1), "X")
+                result = _c5 & c6
+            Case AvatarType.Eyes
+                Dim c7 = BitConverter.ToString(GetHex(filename, 199, 1))
+                Dim c8 = BitConverter.ToString(GetHex(filename, 200, 1))
+                Dim _c8 = c8.Replace(c8(0), "X")
+                result = c7 & _c8
+            Case AvatarType.Mouth
+                Dim c8 = BitConverter.ToString(GetHex(filename, 200, 1))
+                Dim c9 = BitConverter.ToString(GetHex(filename, 201, 1))
+                Dim _c8 = c8.Replace(c8(c8.Length - 1), "X")
+                result = _c8 & c9
+            Case AvatarType.Accessories 'Shades if no accessories
+                Dim ca = BitConverter.ToString(GetHex(filename, 202, 1))
+                Dim cb = BitConverter.ToString(GetHex(filename, 203, 1))
+                Dim _cb = cb.Replace(cb(0), "X")
+                result = ca & _cb
+            Case AvatarType.Shades 'Hair if no accessories
+                Dim cb = BitConverter.ToString(GetHex(filename, 203, 1))
+                Dim cc = BitConverter.ToString(GetHex(filename, 204, 1))
+                Dim _cb = cb.Replace(cb(cb.Length - 1), "X")
+                result = _cb & cc
+            Case AvatarType.Hair
+                Dim cd = BitConverter.ToString(GetHex(filename, 205, 1))
+                Dim ce = BitConverter.ToString(GetHex(filename, 206, 1))
+                result = cd & ce
+        End Select
+        Return result
+    End Function
+
+    Sub SetAvatar(filename As String, type As AvatarType, hex As String)
+        Select Case type
+            Case AvatarType.Skin
+                Dim c5 = BitConverter.ToString(GetHex(filename, 197, 1))
+                Dim val = hex.Replace("X", c5(0))
+                'SetHex(filename, CLng("&HC4"), HexStringToBinary(val))
+                MsgBox(String.Format("SetHex: {0} Offset: C4 C5", val))
+            Case AvatarType.Shirt
+                Dim c5 = BitConverter.ToString(GetHex(filename, 197, 1))
+                Dim val = hex.Replace("X", c5(c5.Length - 1))
+                'SetHex(filename, CLng("&HC5"), HexStringToBinary(val))
+                MsgBox(String.Format("SetHex: {0} Offset: C5 C6", val))
+            Case AvatarType.Eyes
+                Dim c8 = BitConverter.ToString(GetHex(filename, 200, 1))
+                Dim val = hex.Replace("X", c8(0))
+                'SetHex(filename, CLng("&HC7"), HexStringToBinary(val))
+                MsgBox(String.Format("SetHex: {0} Offset: C7 C8", val))
+            Case AvatarType.Mouth
+                Dim c8 = BitConverter.ToString(GetHex(filename, 200, 1))
+                Dim val = hex.Replace("X", c8(c8.Length - 1))
+                'SetHex(filename, CLng("&HC8"), HexStringToBinary(val))
+                MsgBox(String.Format("SetHex: {0} Offset: C8 C9", val))
+            Case AvatarType.Accessories
+                Dim cb = BitConverter.ToString(GetHex(filename, 203, 1))
+                Dim val = hex.Replace("X", cb(0))
+                'SetHex(filename, CLng("&HCA"), HexStringToBinary(val))
+                MsgBox(String.Format("SetHex: {0} Offset: CA CB", val))
+            Case AvatarType.Shades
+                Dim cb = BitConverter.ToString(GetHex(filename, 203, 1))
+                Dim val = hex.Replace("X", cb(cb.Length - 1))
+                'SetHex(filename, CLng("&HCB"), HexStringToBinary(val))
+                MsgBox(String.Format("SetHex: {0} Offset: CB CC", val))
+            Case AvatarType.Hair
+                'SetHex(filename, CLng("&HCD"), HexStringToBinary(hex))
+                MsgBox(String.Format("SetHex: {0} Offset: CD CE", hex))
+        End Select
+    End Sub
+
 End Module

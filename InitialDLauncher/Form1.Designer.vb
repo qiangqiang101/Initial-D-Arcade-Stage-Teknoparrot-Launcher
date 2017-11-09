@@ -28,6 +28,8 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -79,11 +81,30 @@ Partial Class Form1
         Me.Button3.Text = "Button3"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(120, 124)
+        Me.TextBox4.Multiline = True
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(326, 172)
+        Me.TextBox4.TabIndex = 6
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(476, 198)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 7
+        Me.Button4.Text = "Button4"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 335)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Button2)
@@ -103,4 +124,6 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Button4 As Button
 End Class
