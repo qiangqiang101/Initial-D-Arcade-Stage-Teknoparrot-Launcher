@@ -202,6 +202,11 @@ InitialDLauncher
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InitialDLauncher.My.Resources.Resources.nada">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InitialDLauncher.My.Resources.Resources.play">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.

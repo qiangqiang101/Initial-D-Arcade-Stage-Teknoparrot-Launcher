@@ -91,6 +91,12 @@
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCard.Designer.vb">
       <DependentUpon>frmCard.vb</DependentUpon>
     </Compile>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="frmLauncher.Designer.vb">
       <DependentUpon>frmLauncher.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLeaderboard.Designer.vb">
+      <DependentUpon>frmLeaderboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLeaderboard.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Helper.vb" />
@@ -141,6 +153,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCard.resx">
       <DependentUpon>frmCard.vb</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLauncher.resx">
       <DependentUpon>frmLauncher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLeaderboard.resx">
+      <DependentUpon>frmLeaderboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -176,6 +194,7 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\nada.png" />
     <None Include="Resources\card7m.png" />
     <None Include="Resources\card7f.png" />
     <None Include="Resources\card6m.png" />

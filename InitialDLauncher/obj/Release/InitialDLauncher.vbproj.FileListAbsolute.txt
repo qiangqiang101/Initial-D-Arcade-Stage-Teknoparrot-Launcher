@@ -43,3 +43,4 @@ F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launche
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmSettings.resources
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.vbproj.GenerateResource.Cache
 E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmEdit.resources
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmAbout.resources

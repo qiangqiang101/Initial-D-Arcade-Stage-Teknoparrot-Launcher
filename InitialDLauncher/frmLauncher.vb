@@ -12,7 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 8, buildDate As String = "9/11/2017"
+    Dim curVer As Integer = 8
+    Public buildDate As String = "11/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -334,7 +335,8 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click
-        Process.Start("https://www.imnotmental.com")
+        'Process.Start("https://www.imnotmental.com")
+        frmAbout.Show()
     End Sub
 
     Private Sub lblVersion_MouseEnter(sender As Object, e As EventArgs) Handles lblVersion.MouseEnter
