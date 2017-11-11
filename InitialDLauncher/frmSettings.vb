@@ -1,4 +1,7 @@
-﻿Public Class frmSettings
+﻿Imports System.IO
+Imports System.Net
+
+Public Class frmSettings
 
     Dim pattern As String
     Dim Id6Config As String = String.Format("{0}\config.ini", My.Settings.Id6Path)
@@ -8,10 +11,16 @@
     Dim bool As List(Of String) = New List(Of String) From {"true", "false"}
     Dim gotError As Boolean = False
 
+    Dim GetUserURL As String = "http://id.imnotmental.com/CheckUser.php?"
+
+    'Translate
+    Dim no_exe, no_name, name_is_taken, name_is_available As String
+
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             txt6.Text = My.Settings.Id6Path
             txt7.Text = My.Settings.Id7Path
+            txtPlayerName.Text = My.Settings.UserName
             cbTest.Checked = My.Settings.TestMode
             cbDebug.Checked = My.Settings.DebugMode
             cmbLang.SelectedItem = My.Settings.Language
@@ -70,19 +79,31 @@
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            My.Settings.Id6Path = txt6.Text
-            My.Settings.Id7Path = txt7.Text
-            My.Settings.TestMode = cbTest.Checked
-            My.Settings.DebugMode = cbDebug.Checked
-            My.Settings.Language = cmbLang.SelectedItem
-            My.Settings.Save()
+            If txt6.Text.Contains(".exe") Then
+                MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
+                txt6.Focus()
+            ElseIf txt7.Text.Contains(".exe") Then
+                MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
+                txt7.Focus()
+            ElseIf txtPlayerName.Text = Nothing Then
+                MsgBox(no_name, MsgBoxStyle.Critical, "Error")
+                txtPlayerName.Focus()
+            Else
+                My.Settings.Id6Path = txt6.Text
+                My.Settings.Id7Path = txt7.Text
+                My.Settings.UserName = txtPlayerName.Text
+                My.Settings.TestMode = cbTest.Checked
+                My.Settings.DebugMode = cbDebug.Checked
+                My.Settings.Language = cmbLang.SelectedItem
+                My.Settings.Save()
 
-            If gb6.Enabled Then Save6Config()
-            If gb7.Enabled Then Save7Config()
+                If gb6.Enabled Then Save6Config()
+                If gb7.Enabled Then Save7Config()
 
-            frmLauncher.lblDebug.Visible = cbDebug.Checked
-            frmLauncher.Translate()
-            If Not gotError Then Me.Close()
+                frmLauncher.lblDebug.Visible = cbDebug.Checked
+                frmLauncher.Translate()
+                If Not gotError Then Me.Close()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             Exit Sub
@@ -157,6 +178,34 @@
         e.Handled = True
     End Sub
 
+    Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
+        If txtPlayerName.Text = Nothing Then
+            MsgBox(no_name, MsgBoxStyle.Critical, "Error")
+            txtPlayerName.Focus()
+        Else
+            If IsNameTaken(txtPlayerName.Text) Then
+                MsgBox(name_is_taken, MsgBoxStyle.Information, "Name Check")
+            Else
+                MsgBox(name_is_available, MsgBoxStyle.Information, "Name Check")
+            End If
+        End If
+    End Sub
+
+    Private Function IsNameTaken(name As String) As Boolean
+        Dim result As Boolean = False
+
+        Dim Client As WebClient = New WebClient
+        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserURL + "name=" & name)))
+        Dim Source As String = reader.ReadToEnd
+        If Source = "no" Then
+            result = False
+        Else
+            result = True
+        End If
+
+        Return result
+    End Function
+
     Public Sub Translate()
         Select Case My.Settings.Language
             Case "English"
@@ -198,6 +247,12 @@
                 Label8.Text = "Cabinet 2 IP"
                 Label12.Text = Label8.Text
                 btnSave.Text = "Save"
+                no_exe = "Please Enter Path without file name."
+                no_name = "Please Enter your User Name."
+                name_is_taken = "This name is already taken."
+                name_is_available = "This name is available."
+                Label22.Text = "User Name"
+                btnCheck.Text = "Check"
             Case "Chinese"
                 Me.Text = "設定"
                 Label1.Text = "頭文字D6AA路徑"
@@ -237,6 +292,12 @@
                 Label8.Text = "座位2 IP"
                 Label12.Text = Label8.Text
                 btnSave.Text = "保存"
+                no_exe = "請輸入沒有文件名的路徑。"
+                no_name = "請輸入您的用戶名。"
+                name_is_taken = "這個名字已有人使用。"
+                name_is_available = "這個名字可使用."
+                Label22.Text = "用戶名"
+                btnCheck.Text = "檢測"
             Case "French"
                 Me.Text = "Réglages"
                 Label1.Text = "Initial D 6AA Chemin"
@@ -276,6 +337,12 @@
                 Label8.Text = "Cabinet 2 IP"
                 Label12.Text = Label8.Text
                 btnSave.Text = "Sauv"
+                no_exe = "Veuillez entrer le chemin sans nom de fichier."
+                no_name = "S'il vous plaît entrez votre nom d'utilisateur."
+                name_is_taken = "Ce nom est déjà pris."
+                name_is_available = "Ce nom est disponible."
+                Label22.Text = "Nom d'utilisateur"
+                btnCheck.Text = "Vérifier"
         End Select
     End Sub
 

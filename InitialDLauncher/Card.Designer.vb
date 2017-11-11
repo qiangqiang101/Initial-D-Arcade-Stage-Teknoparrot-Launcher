@@ -25,7 +25,7 @@ Partial Class Card
         Me.lblName = New System.Windows.Forms.Label()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnUnselect = New System.Windows.Forms.Button()
+        Me.btnTimeAttack = New System.Windows.Forms.Button()
         Me.btnRename = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnRenameCancel = New System.Windows.Forms.Button()
@@ -66,15 +66,15 @@ Partial Class Card
         Me.btnEdit.Text = "Edit Card"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
-        'btnUnselect
+        'btnTimeAttack
         '
-        Me.btnUnselect.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUnselect.Location = New System.Drawing.Point(194, 244)
-        Me.btnUnselect.Name = "btnUnselect"
-        Me.btnUnselect.Size = New System.Drawing.Size(87, 23)
-        Me.btnUnselect.TabIndex = 3
-        Me.btnUnselect.Text = "Deselect Card"
-        Me.btnUnselect.UseVisualStyleBackColor = True
+        Me.btnTimeAttack.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnTimeAttack.Location = New System.Drawing.Point(194, 244)
+        Me.btnTimeAttack.Name = "btnTimeAttack"
+        Me.btnTimeAttack.Size = New System.Drawing.Size(87, 23)
+        Me.btnTimeAttack.TabIndex = 3
+        Me.btnTimeAttack.Text = "Time Attack"
+        Me.btnTimeAttack.UseVisualStyleBackColor = True
         '
         'btnRename
         '
@@ -158,7 +158,7 @@ Partial Class Card
         Me.Controls.Add(Me.lblCar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnRename)
-        Me.Controls.Add(Me.btnUnselect)
+        Me.Controls.Add(Me.btnTimeAttack)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnSelect)
         Me.Controls.Add(Me.lblName)
@@ -175,7 +175,7 @@ Partial Class Card
     Friend WithEvents lblName As Label
     Friend WithEvents btnSelect As Button
     Friend WithEvents btnEdit As Button
-    Friend WithEvents btnUnselect As Button
+    Friend WithEvents btnTimeAttack As Button
     Friend WithEvents btnRename As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtName As TextBox

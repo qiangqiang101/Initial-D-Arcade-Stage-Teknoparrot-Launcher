@@ -3,7 +3,7 @@
 Public Class Card
 
     'Translation
-    Dim file_already_exist, rules As String
+    Dim file_already_exist, rules, select_card, deselect_card As String
 
     Private _filename As String
     Public Property FileName() As String
@@ -25,43 +25,59 @@ Public Class Card
         End Set
     End Property
 
+    Private _selected As Boolean
+    Public Property Selected() As Boolean
+        Get
+            Return _selected
+        End Get
+        Set(value As Boolean)
+            _selected = value
+        End Set
+    End Property
+
     Private Sub btnSelect_Click(sender As Object, e As EventArgs) Handles btnSelect.Click
         Try
             Select Case _cardVersion
                 Case 6
-                    My.Settings.Id6CardName = _filename
-                    My.Settings.Save()
-                    frmLauncher.id6CardPath = _filename
-                    frmCard.Translate()
-                    frmCard.RefreshID6Cards()
+                    If btnSelect.Text = select_card Then
+                        My.Settings.Id6CardName = _filename
+                        My.Settings.Save()
+                        frmLauncher.id6CardPath = _filename
+                        frmCard.Translate()
+                        frmCard.RefreshID6Cards()
+                    Else
+                        My.Settings.Id6CardName = ""
+                        My.Settings.Save()
+                        frmLauncher.id6CardPath = ""
+                        frmCard.Translate()
+                        frmCard.RefreshID6Cards()
+                    End If
                 Case 7
-                    My.Settings.Id7CardName = _filename
-                    My.Settings.Save()
-                    frmLauncher.id7CardPath = _filename
-                    frmCard.Translate()
-                    frmCard.RefreshID7Cards()
+                    If btnSelect.Text = select_card Then
+                        My.Settings.Id7CardName = _filename
+                        My.Settings.Save()
+                        frmLauncher.id7CardPath = _filename
+                        frmCard.Translate()
+                        frmCard.RefreshID7Cards()
+                    Else
+                        My.Settings.Id7CardName = ""
+                        My.Settings.Save()
+                        frmLauncher.id7CardPath = ""
+                        frmCard.Translate()
+                        frmCard.RefreshID7Cards()
+                    End If
             End Select
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
-    Private Sub btnUnselect_Click(sender As Object, e As EventArgs) Handles btnUnselect.Click
+    Private Sub btnTimeAttack_Click(sender As Object, e As EventArgs) Handles btnTimeAttack.Click
         Try
-            Select Case _cardVersion
-                Case 6
-                    My.Settings.Id6CardName = ""
-                    My.Settings.Save()
-                    frmLauncher.id6CardPath = ""
-                    frmCard.Translate()
-                    frmCard.RefreshID6Cards()
-                Case 7
-                    My.Settings.Id7CardName = ""
-                    My.Settings.Save()
-                    frmLauncher.id7CardPath = ""
-                    frmCard.Translate()
-                    frmCard.RefreshID7Cards()
-            End Select
+            Dim ta As frmTimeAttack = New frmTimeAttack()
+            ta.Version = _cardVersion
+            ta.FileName = _filename
+            ta.Show()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -148,8 +164,10 @@ Public Class Card
                 btnRename.Text = "Rename Card"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "Cancel"
-                btnSelect.Text = "Select Card"
-                btnUnselect.Text = "Deselect Card"
+                select_card = "Select Card"
+                deselect_card = "Deselect Card"
+                If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
+                btnTimeAttack.Text = "Time Attack"
                 GroupBox1.Text = "Rename Card"
                 file_already_exist = "{0}\{1} already exist."
                 rules = "Please backup your card file before making changes, I will accept no responsibility for game progress lost or data corrupt. Click Yes if you agreed and continue, click No to cancel."
@@ -158,8 +176,10 @@ Public Class Card
                 btnRename.Text = "文件重命名"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "取消"
-                btnSelect.Text = "選擇卡"
-                btnUnselect.Text = "取消選擇"
+                select_card = "選擇卡"
+                deselect_card = "取消選擇"
+                If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
+                btnTimeAttack.Text = "時間攻擊"
                 GroupBox1.Text = "重命名"
                 file_already_exist = "{0}\{1} 已存在。"
                 rules = "請在修改任何東西之前先備份你的記憶卡，我將不會負責任何帶給你的損失。如果你同意點擊是，如果你不同意點擊否。"
@@ -168,8 +188,10 @@ Public Class Card
                 btnRename.Text = "Renomer"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "Retour"
-                btnSelect.Text = "Activer"
-                btnUnselect.Text = "Desactiver"
+                select_card = "Activer"
+                deselect_card = "Desactiver"
+                If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
+                btnTimeAttack.Text = "Time Attack"
                 GroupBox1.Text = "Changer Nom"
                 file_already_exist = "{0}\{1} already exist."
                 rules = "S'il vous plaît sauvegarder votre fichier de carte avant d'apporter des modifications, je n'accepterai aucune responsabilité pour la progression du jeu perdu ou des données corrompues. Cliquez sur Oui si vous avez accepté et continuez, cliquez sur Non pour annuler."

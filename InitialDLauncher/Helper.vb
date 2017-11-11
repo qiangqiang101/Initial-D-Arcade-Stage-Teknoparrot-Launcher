@@ -1,5 +1,6 @@
 ﻿Imports System.Globalization
 Imports System.IO
+Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Xml
 
@@ -576,6 +577,42 @@ Module Helper
             Dim img = Image.FromStream(ms)
             Return img
         End Using
+    End Function
+
+    Function ScoreToTime(score As String) As String
+        Dim milliseconds As Double = score
+        Dim ts As TimeSpan = TimeSpan.FromMilliseconds(milliseconds)
+        Dim m As String = ts.Minutes.ToString("#")
+        Dim s As String = ts.Seconds.ToString("D2")
+        Dim ms As String = ts.Milliseconds.ToString("D3")
+        If m = "" Then m = "0"
+        If s = "" Then s = "00"
+        If ms = "" Then ms = "000"
+        Return String.Format("{0}'{1}""{2}", m, s, ms)
+    End Function
+
+    Function GetTimeResult(filename As String, pos As Integer, Optional num As Boolean = False) As String
+        Dim result As String = Nothing
+        Dim a = BitConverter.ToString(GetHex(filename, pos, 1))
+        pos += 1
+        Dim b = BitConverter.ToString(GetHex(filename, pos, 1))
+        pos += 1
+        Dim c = BitConverter.ToString(GetHex(filename, pos, 1))
+        Dim d = c & b & a
+        If num Then result = Convert.ToInt64(d, 16).ToString Else result = ScoreToTime(Convert.ToInt64(d, 16).ToString)
+        Return result
+    End Function
+
+    Function Md5Sum(strToEncrypt As String) As String
+        Dim ue As New System.Text.UTF8Encoding()
+        Dim bytes As Byte() = ue.GetBytes(strToEncrypt)
+        Dim md5 As New MD5CryptoServiceProvider()
+        Dim hashBytes As Byte() = md5.ComputeHash(bytes)
+        Dim hashString As String = ""
+        For i As Integer = 0 To hashBytes.Length - 1
+            hashString += Convert.ToString(hashBytes(i), 16).PadLeft(2, "0"c)
+        Next
+        Return hashString.PadLeft(32, "0"c)
     End Function
 
 End Module

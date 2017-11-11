@@ -50,10 +50,12 @@
     <ApplicationIcon>ID7.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -122,6 +124,18 @@
     <Compile Include="frmLeaderboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSubmit.Designer.vb">
+      <DependentUpon>frmSubmit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubmit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimeAttack.Designer.vb">
+      <DependentUpon>frmTimeAttack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimeAttack.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Helper.vb" />
     <Compile Include="iniRead.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -144,6 +158,12 @@
     </Compile>
     <Compile Include="frmSettings.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeAttack.Designer.vb">
+      <DependentUpon>TimeAttack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TimeAttack.vb">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +188,12 @@
     <EmbeddedResource Include="frmLeaderboard.resx">
       <DependentUpon>frmLeaderboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSubmit.resx">
+      <DependentUpon>frmSubmit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimeAttack.resx">
+      <DependentUpon>frmTimeAttack.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -176,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeAttack.resx">
+      <DependentUpon>TimeAttack.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

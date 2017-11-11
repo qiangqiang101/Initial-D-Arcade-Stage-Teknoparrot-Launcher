@@ -47,6 +47,14 @@ Public Class frmEdit
     End Property
 
     Private _filename As String
+    Public Property FileName() As String
+        Get
+            Return _filename
+        End Get
+        Set(value As String)
+            _filename = value
+        End Set
+    End Property
 
     Private Sub btnSet_Click(sender As Object, e As EventArgs) Handles btnSet.Click
         Try
@@ -117,15 +125,6 @@ Public Class frmEdit
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
-
-    Public Property FileName() As String
-        Get
-            Return _filename
-        End Get
-        Set(value As String)
-            _filename = value
-        End Set
-    End Property
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try

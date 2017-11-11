@@ -7,16 +7,21 @@
         //We use real escape string to stop people from injecting. We handle this in Unity too, but it's important we do it here as well in case people extract our url.
         $name = mysql_real_escape_string($_GET['name'], $db); 
         $score = mysql_real_escape_string($_GET['score'], $db); 
+		$car = mysql_real_escape_string($_GET['car'], $db); 
+        $weather = mysql_real_escape_string($_GET['weather'], $db); 
+		$track = mysql_real_escape_string($_GET['track'], $db); 
+        $coursetype = mysql_real_escape_string($_GET['coursetype'], $db); 
+		$gameversion = mysql_real_escape_string($_GET['gameversion'], $db); 
         $hash = $_GET['hash']; 
         
         //This is the polite version of our name
         $politestring = sanitize($name);
         
         //This is your key. You have to fill this in! Go and generate a strong one.
-        $secretKey="DSLSROCKS";
+        $secretKey="TEKNOPARROT";
         
         //We md5 hash our results.
-        $expected_hash = md5($name . $score . $secretKey); 
+        $expected_hash = md5($name . $score . $car . $weather . $track . $coursetype . $gameversion . $secretKey); 
         
         //If what we expect is what we have:
         if($expected_hash == $hash) { 
@@ -24,9 +29,14 @@
             $query = "INSERT INTO Scores
 SET name = '$politestring'
    , score = '$score'
+   , car = '$car'
+   , weather = '$weather'
+   , track = '$track'
+   , coursetype = '$coursetype'
+   , gameversion = '$gameversion'
    , ts = CURRENT_TIMESTAMP
 ON DUPLICATE KEY UPDATE
-   ts = if('$score'>score,CURRENT_TIMESTAMP,ts), score = if ('$score'>score, '$score', score);"; 
+   ts = if('$score'>score,CURRENT_TIMESTAMP,ts), score = if ('$score'>score, '$score', score), weather = if ('$weather'<>weather, '$weather', weather), track = if ('$track'<>track, '$track', track), coursetype = if ('$coursetype'<>coursetype, '$coursetype', coursetype), gameversion = if ('$gameversion'<>gameversion, '$gameversion', gameversion);"; 
             //And finally we send our query.
             $result = mysql_query($query) or die('Query failed: ' . mysql_error()); 
         } 

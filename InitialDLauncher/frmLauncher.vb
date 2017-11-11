@@ -13,7 +13,7 @@ Public Class frmLauncher
     Dim threadU As Thread
     Dim shadow As Dropshadow
     Dim curVer As Integer = 8
-    Public buildDate As String = "11/11/2017"
+    Public buildDate As String = "12/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -138,6 +138,21 @@ Public Class frmLauncher
         lblCardMan.ForeColor = Color.White
         lblCardMan.Size = New Size(lblCardMan.Size.Width - widthx, lblCardMan.Size.Height)
         lblCardMan.Text = lblCardMan.Text.Replace(" <<", String.Empty)
+    End Sub
+
+    Private Sub lblLeaderboard_MouseEnter(sender As Object, e As EventArgs) Handles lblLeaderboard.MouseEnter
+        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
+        Me.Cursor = Cursors.Hand
+        lblLeaderboard.ForeColor = Color.Gold
+        lblLeaderboard.Size = New Size(lblLeaderboard.Size.Width + widthx, lblLeaderboard.Size.Height)
+        lblLeaderboard.Text = lblLeaderboard.Text & " <<"
+    End Sub
+
+    Private Sub lblLeaderboard_MouseLeave(sender As Object, e As EventArgs) Handles lblLeaderboard.MouseLeave
+        Me.Cursor = Cursors.Default
+        lblLeaderboard.ForeColor = Color.White
+        lblLeaderboard.Size = New Size(lblLeaderboard.Size.Width - widthx, lblLeaderboard.Size.Height)
+        lblLeaderboard.Text = lblLeaderboard.Text.Replace(" <<", String.Empty)
     End Sub
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -307,6 +322,12 @@ Public Class frmLauncher
         Me.Enabled = False
     End Sub
 
+    Private Sub lblLeaderboard_Click(sender As Object, e As EventArgs) Handles lblLeaderboard.Click
+        My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+        frmLeaderboard.Show()
+        Me.Enabled = False
+    End Sub
+
     Private Sub Proc_Exited() Handles proc.Exited
         Try
             If selPath = Nothing Then
@@ -417,12 +438,12 @@ Public Class frmLauncher
         End Try
     End Sub
 
-
     Public Sub Translate()
         Select Case My.Settings.Language
             Case "English"
                 lblStart6.Text = "Play Initial D 6 AA"
                 lblStart7.Text = "Play Initial D 7 AAX"
+                lblLeaderboard.Text = "Time Attack Ranking"
                 lblCardMan.Text = "Card Selection"
                 lblSetting.Text = "Settings"
                 lblExit.Text = "Quit Game"
@@ -433,6 +454,7 @@ Public Class frmLauncher
             Case "Chinese"
                 lblStart6.Text = "玩頭文字D6AA"
                 lblStart7.Text = "玩頭文字D7AAX"
+                lblLeaderboard.Text = "時間攻擊排行榜"
                 lblCardMan.Text = "選擇卡"
                 lblSetting.Text = "設定"
                 lblExit.Text = "離開遊戲"
@@ -443,6 +465,7 @@ Public Class frmLauncher
             Case "French"
                 lblStart6.Text = "Jouer Initial D 6 AA"
                 lblStart7.Text = "Jouer Initial D 7 AAX"
+                lblLeaderboard.Text = "TA Classement"
                 lblCardMan.Text = "Choisir Carte"
                 lblSetting.Text = "Réglages"
                 lblExit.Text = "Quitter"

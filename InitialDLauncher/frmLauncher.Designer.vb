@@ -34,6 +34,7 @@ Partial Class frmLauncher
         Me.lblCardMan = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.lblLeaderboard = New System.Windows.Forms.Label()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,7 +44,7 @@ Partial Class frmLauncher
         Me.lblStart6.BackColor = System.Drawing.Color.Transparent
         Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblStart6.ForeColor = System.Drawing.Color.White
-        Me.lblStart6.Location = New System.Drawing.Point(564, 88)
+        Me.lblStart6.Location = New System.Drawing.Point(564, 51)
         Me.lblStart6.Name = "lblStart6"
         Me.lblStart6.Size = New System.Drawing.Size(287, 37)
         Me.lblStart6.TabIndex = 1
@@ -56,7 +57,7 @@ Partial Class frmLauncher
         Me.lblStart7.BackColor = System.Drawing.Color.Transparent
         Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblStart7.ForeColor = System.Drawing.Color.White
-        Me.lblStart7.Location = New System.Drawing.Point(564, 125)
+        Me.lblStart7.Location = New System.Drawing.Point(564, 88)
         Me.lblStart7.Name = "lblStart7"
         Me.lblStart7.Size = New System.Drawing.Size(287, 37)
         Me.lblStart7.TabIndex = 2
@@ -151,6 +152,19 @@ Partial Class frmLauncher
         '
         Me.Timer2.Enabled = True
         '
+        'lblLeaderboard
+        '
+        Me.lblLeaderboard.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblLeaderboard.BackColor = System.Drawing.Color.Transparent
+        Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblLeaderboard.ForeColor = System.Drawing.Color.White
+        Me.lblLeaderboard.Location = New System.Drawing.Point(564, 125)
+        Me.lblLeaderboard.Name = "lblLeaderboard"
+        Me.lblLeaderboard.Size = New System.Drawing.Size(287, 37)
+        Me.lblLeaderboard.TabIndex = 8
+        Me.lblLeaderboard.Text = "TA Leaderboard"
+        Me.lblLeaderboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmLauncher
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -158,6 +172,7 @@ Partial Class frmLauncher
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(952, 538)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblLeaderboard)
         Me.Controls.Add(Me.lblCardMan)
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.lblDebug)
@@ -190,4 +205,5 @@ Partial Class frmLauncher
     Friend WithEvents lblCardMan As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
+    Friend WithEvents lblLeaderboard As Label
 End Class

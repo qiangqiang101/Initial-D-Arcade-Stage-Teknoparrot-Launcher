@@ -7,8 +7,10 @@ I'm Not MentaL
 This application uses some parts which provided by third party.<br /><br />
 
 Build with Microsoft Visual Studio 2015, <br />
+The PHP Group, <br />
 Winform DropShadow © 陈杨文, <br />
-PlayFile © Blake Pell<br />
+PlayFile © Blake Pell, <br />
+PHP/SQL Leaderboard © Alex Rose<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL<br />
@@ -20,6 +22,7 @@ BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset<b
 Lemon The Kid - Avatar Offset & Avatar Preview Pictures<br />
 oPTToXenMe - Level Offset<br />
 Gammaガァマ - Car Name Offset<br />
+DSThanatos - Time Attack ID6 Offset
 I'm Not MentaL - Gender Offset<br />
 
 <h2>Thanks to</h2>

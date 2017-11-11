@@ -83,6 +83,9 @@ Partial Class frmSettings
         Me.cbSaveSeat = New System.Windows.Forms.CheckBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmbLang = New System.Windows.Forms.ComboBox()
+        Me.txtPlayerName = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.btnCheck = New System.Windows.Forms.Button()
         Me.gb6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -126,7 +129,7 @@ Partial Class frmSettings
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(475, 548)
+        Me.btnSave.Location = New System.Drawing.Point(475, 575)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 51
@@ -136,10 +139,10 @@ Partial Class frmSettings
         'cbTest
         '
         Me.cbTest.AutoSize = True
-        Me.cbTest.Location = New System.Drawing.Point(12, 70)
+        Me.cbTest.Location = New System.Drawing.Point(15, 99)
         Me.cbTest.Name = "cbTest"
         Me.cbTest.Size = New System.Drawing.Size(82, 19)
-        Me.cbTest.TabIndex = 3
+        Me.cbTest.TabIndex = 6
         Me.cbTest.Text = "Test Menu"
         Me.cbTest.UseVisualStyleBackColor = True
         '
@@ -147,10 +150,10 @@ Partial Class frmSettings
         '
         Me.cbDebug.AutoSize = True
         Me.cbDebug.Enabled = False
-        Me.cbDebug.Location = New System.Drawing.Point(100, 70)
+        Me.cbDebug.Location = New System.Drawing.Point(103, 99)
         Me.cbDebug.Name = "cbDebug"
         Me.cbDebug.Size = New System.Drawing.Size(95, 19)
-        Me.cbDebug.TabIndex = 4
+        Me.cbDebug.TabIndex = 7
         Me.cbDebug.Text = "Debug Mode"
         Me.cbDebug.UseVisualStyleBackColor = True
         '
@@ -163,7 +166,7 @@ Partial Class frmSettings
         Me.gb6.Controls.Add(Me.GroupBox3)
         Me.gb6.Controls.Add(Me.GroupBox2)
         Me.gb6.Enabled = False
-        Me.gb6.Location = New System.Drawing.Point(12, 95)
+        Me.gb6.Location = New System.Drawing.Point(12, 124)
         Me.gb6.Name = "gb6"
         Me.gb6.Size = New System.Drawing.Size(538, 220)
         Me.gb6.TabIndex = 6
@@ -391,7 +394,7 @@ Partial Class frmSettings
         Me.gb7.Controls.Add(Me.GroupBox5)
         Me.gb7.Controls.Add(Me.GroupBox6)
         Me.gb7.Enabled = False
-        Me.gb7.Location = New System.Drawing.Point(12, 321)
+        Me.gb7.Location = New System.Drawing.Point(12, 350)
         Me.gb7.Name = "gb7"
         Me.gb7.Size = New System.Drawing.Size(538, 220)
         Me.gb7.TabIndex = 7
@@ -619,17 +622,17 @@ Partial Class frmSettings
         'cbSaveSeat
         '
         Me.cbSaveSeat.AutoSize = True
-        Me.cbSaveSeat.Location = New System.Drawing.Point(201, 70)
+        Me.cbSaveSeat.Location = New System.Drawing.Point(204, 99)
         Me.cbSaveSeat.Name = "cbSaveSeat"
         Me.cbSaveSeat.Size = New System.Drawing.Size(119, 19)
-        Me.cbSaveSeat.TabIndex = 52
+        Me.cbSaveSeat.TabIndex = 8
         Me.cbSaveSeat.Text = "Save Cabinet Seat"
         Me.cbSaveSeat.UseVisualStyleBackColor = True
         '
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(326, 71)
+        Me.Label21.Location = New System.Drawing.Point(326, 73)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(111, 15)
         Me.Label21.TabIndex = 53
@@ -640,17 +643,47 @@ Partial Class frmSettings
         Me.cmbLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbLang.FormattingEnabled = True
         Me.cmbLang.Items.AddRange(New Object() {"English", "Chinese", "French"})
-        Me.cmbLang.Location = New System.Drawing.Point(443, 68)
+        Me.cmbLang.Location = New System.Drawing.Point(443, 70)
         Me.cmbLang.Name = "cmbLang"
         Me.cmbLang.Size = New System.Drawing.Size(107, 23)
-        Me.cmbLang.TabIndex = 54
+        Me.cmbLang.TabIndex = 5
+        '
+        'txtPlayerName
+        '
+        Me.txtPlayerName.Location = New System.Drawing.Point(137, 70)
+        Me.txtPlayerName.MaxLength = 20
+        Me.txtPlayerName.Name = "txtPlayerName"
+        Me.txtPlayerName.Size = New System.Drawing.Size(102, 23)
+        Me.txtPlayerName.TabIndex = 3
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(9, 73)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(74, 15)
+        Me.Label22.TabIndex = 56
+        Me.Label22.Text = "Player Name"
+        '
+        'btnCheck
+        '
+        Me.btnCheck.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCheck.Location = New System.Drawing.Point(245, 70)
+        Me.btnCheck.Name = "btnCheck"
+        Me.btnCheck.Size = New System.Drawing.Size(75, 23)
+        Me.btnCheck.TabIndex = 4
+        Me.btnCheck.Text = "Check"
+        Me.btnCheck.UseVisualStyleBackColor = True
         '
         'frmSettings
         '
         Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 583)
+        Me.ClientSize = New System.Drawing.Size(562, 610)
+        Me.Controls.Add(Me.btnCheck)
+        Me.Controls.Add(Me.txtPlayerName)
+        Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.cmbLang)
         Me.Controls.Add(Me.cbSaveSeat)
@@ -743,4 +776,7 @@ Partial Class frmSettings
     Friend WithEvents cbSaveSeat As CheckBox
     Friend WithEvents Label21 As Label
     Friend WithEvents cmbLang As ComboBox
+    Friend WithEvents txtPlayerName As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents btnCheck As Button
 End Class

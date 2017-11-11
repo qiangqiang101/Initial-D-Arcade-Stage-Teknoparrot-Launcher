@@ -2,6 +2,9 @@
 
 Public Class frmCard
 
+    'Translate
+    Dim select_card, deselect_card As String
+
     Dim id6CardPath As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardPath As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
     Dim item As Card
@@ -30,7 +33,14 @@ Public Class frmCard
                     Else
                         .BackgroundImage = My.Resources.card6m
                     End If
-                    If My.Settings.Id6CardName = file Then .BackColor = Color.LightBlue
+                    If My.Settings.Id6CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
                 End With
                 flp6.Controls.Add(item)
             Next
@@ -55,7 +65,14 @@ Public Class frmCard
                         .BackgroundImage = My.Resources.card7m
                     End If
                     .CardVersion = 7
-                    If My.Settings.Id7CardName = file Then .BackColor = Color.LightBlue
+                    If My.Settings.Id7CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
                 End With
                 flp7.Controls.Add(item)
             Next
@@ -76,18 +93,24 @@ Public Class frmCard
                 TabPage2.Text = "Initial D 7 AAX"
                 lbl6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(My.Settings.Id6CardName))
                 lbl7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(My.Settings.Id7CardName))
+                select_card = "Select Card"
+                deselect_card = "Deselect Card"
             Case "Chinese"
                 Me.Text = "卡管理"
                 TabPage1.Text = "頭文字D6AA"
                 TabPage2.Text = "頭文字D7AAX"
                 lbl6.Text = String.Format("已經選擇的ID6卡: {0}", Path.GetFileName(My.Settings.Id6CardName))
                 lbl7.Text = String.Format("已經選擇的ID7卡: {0}", Path.GetFileName(My.Settings.Id7CardName))
+                select_card = "選擇卡"
+                deselect_card = "取消選擇"
             Case "French"
                 Me.Text = "Gestion Cartes"
                 TabPage1.Text = "Initial D 6 AA"
                 TabPage2.Text = "Initial D 7 AAX"
                 lbl6.Text = String.Format("Choix Carte ID6: {0}", Path.GetFileName(My.Settings.Id6CardName))
                 lbl7.Text = String.Format("Choix Carte ID7: {0}", Path.GetFileName(My.Settings.Id7CardName))
+                select_card = "Activer"
+                deselect_card = "Desactiver"
         End Select
     End Sub
 
