@@ -12,7 +12,7 @@
 	$gameversion = mysql_real_escape_string($_GET['gameversion'], $db); 
  
      //This query grabs the top 10 scores, sorting by score and timestamp.
-    $query = "SELECT * FROM Scores WHERE gameversion = '$gameversion' AND track = '$track' AND coursetype = '$coursetype' AND weather = '$weather' ORDER by score DESC, ts ASC LIMIT 30";
+    $query = "SELECT * FROM Scores WHERE gameversion = '$gameversion' AND track = '$track' AND coursetype = '$coursetype' AND weather = '$weather' ORDER by score ASC, ts ASC LIMIT 30";
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
  
     //We find our number of rows

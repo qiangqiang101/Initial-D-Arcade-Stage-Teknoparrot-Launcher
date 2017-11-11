@@ -84,9 +84,9 @@ Partial Class TimeAttack
         Me.Controls.Add(Me.lblType)
         Me.Controls.Add(Me.lblCourse)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Margin = New System.Windows.Forms.Padding(0)
         Me.Name = "TimeAttack"
-        Me.Padding = New System.Windows.Forms.Padding(3)
-        Me.Size = New System.Drawing.Size(610, 25)
+        Me.Size = New System.Drawing.Size(615, 25)
         Me.ResumeLayout(False)
 
     End Sub

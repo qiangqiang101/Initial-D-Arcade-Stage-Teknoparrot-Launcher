@@ -179,7 +179,7 @@ Public Class Card
                 select_card = "選擇卡"
                 deselect_card = "取消選擇"
                 If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
-                btnTimeAttack.Text = "時間攻擊"
+                btnTimeAttack.Text = "時間挑戰"
                 GroupBox1.Text = "重命名"
                 file_already_exist = "{0}\{1} 已存在。"
                 rules = "請在修改任何東西之前先備份你的記憶卡，我將不會負責任何帶給你的損失。如果你同意點擊是，如果你不同意點擊否。"

@@ -454,7 +454,7 @@ Public Class frmLauncher
             Case "Chinese"
                 lblStart6.Text = "玩頭文字D6AA"
                 lblStart7.Text = "玩頭文字D7AAX"
-                lblLeaderboard.Text = "時間攻擊排行榜"
+                lblLeaderboard.Text = "時間挑戰排行榜"
                 lblCardMan.Text = "選擇卡"
                 lblSetting.Text = "設定"
                 lblExit.Text = "離開遊戲"

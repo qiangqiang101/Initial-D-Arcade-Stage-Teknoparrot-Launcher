@@ -29,8 +29,10 @@ Partial Class frmTimeAttack
         'flPanel
         '
         Me.flPanel.AutoScroll = True
+        Me.flPanel.BackColor = System.Drawing.Color.Black
         Me.flPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flPanel.Location = New System.Drawing.Point(0, 0)
+        Me.flPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.flPanel.Name = "flPanel"
         Me.flPanel.Size = New System.Drawing.Size(634, 442)
         Me.flPanel.TabIndex = 1

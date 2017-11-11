@@ -12,9 +12,20 @@
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim num As Integer = 1
-        For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\avatar\E6-eyeglass-offset cb cc", "*.png")
-            TextBox4.Text = String.Format("{0}{1}shades_f.Add({2}{3}{2}, {2}{4}{2})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file))
+        For Each file As String In IO.Directory.GetFiles("E:\TeknoParrot\LAUNCHER\FEMALE\HAIR", "*.png")
+            TextBox4.Text = String.Format("{0}{1}hair_f.Add({2}{3}{2}, {2}{4}{2})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file))
             num += 1
+        Next
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim p As String = "E:\TeknoParrot\LAUNCHER\FEMALE\HAIR\F"
+        Dim np As String = "E:\TeknoParrot\LAUNCHER\FEMALE\HAIR\"
+        For Each file As String In IO.Directory.GetFiles(p, "*.png")
+            Dim oldf As String = IO.Path.GetFileNameWithoutExtension(file)
+            Dim newf As String = oldf.Replace("x", "X")
+            'My.Computer.FileSystem.RenameFile(file, newf & ".png")
+            IO.File.Move(file, np & newf & ".png")
         Next
     End Sub
 

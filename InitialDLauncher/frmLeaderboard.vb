@@ -8,11 +8,82 @@ Public Class frmLeaderboard
 
     Dim trackname6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackname7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
-    Dim tracktype As Dictionary(Of String, String) = New Dictionary(Of String, String)
-    Dim trackweather As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim tracktype6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim tracktype7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim trackweather6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim trackweather7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
 
     'Translate
     Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow As String
+
+    Private Sub cmbCourse7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse7.SelectedIndexChanged
+        cmbType7.DataSource = Nothing
+        cmbType7.Items.Clear()
+        cmbType7.DisplayMember = "Key"
+        cmbType7.ValueMember = "Value"
+        tracktype7.Clear()
+
+        cmbWeather7.DataSource = Nothing
+        cmbWeather7.Items.Clear()
+        cmbWeather7.DisplayMember = "Key"
+        cmbWeather7.ValueMember = "Value"
+        trackweather7.Clear()
+
+        Select Case cmbCourse7.SelectedValue.ToString
+            Case "LakeAkina", "Usui"
+                tracktype7.Add(Counterclockwise, "Counterclockwise")
+                tracktype7.Add(Clockwise, "Clockwise")
+                trackweather7.Add(Dry, "Dry")
+            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine", "Nanamagari", "Sadamine"
+                tracktype7.Add(Uphill, "Uphill")
+                tracktype7.Add(Downhill, "Downhill")
+                trackweather7.Add(Dry, "Dry")
+            Case "Irohazka"
+                tracktype7.Add(Downhill, "Downhill")
+                tracktype7.Add(Reversed, "Reversed")
+                trackweather7.Add(Dry, "Dry")
+            Case "Happogahara", "Tsukuba", "Tsuchisaka"
+                tracktype7.Add(Inbound, "Inbound")
+                tracktype7.Add(Outbound, "Outbound")
+                trackweather7.Add(Dry, "Dry")
+            Case "AkinaSnow"
+                tracktype7.Add(Uphill, "Uphill")
+                tracktype7.Add(Downhill, "Downhill")
+                trackweather7.Add(Snow, "Snow")
+        End Select
+
+        cmbType7.DataSource = New BindingSource(tracktype7, Nothing)
+        cmbType7.SelectedIndex = 0
+        cmbWeather7.DataSource = New BindingSource(trackweather7, Nothing)
+        cmbWeather7.SelectedIndex = 0
+    End Sub
+
+    Private Sub cmbCourse6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse6.SelectedIndexChanged
+        cmbType6.DataSource = Nothing
+        cmbType6.Items.Clear()
+        cmbType6.DisplayMember = "Key"
+        cmbType6.ValueMember = "Value"
+        tracktype6.Clear()
+
+        Select Case cmbCourse6.SelectedValue.ToString
+            Case "LakeAkina", "Usui"
+                tracktype6.Add(Counterclockwise, "Counterclockwise")
+                tracktype6.Add(Clockwise, "Clockwise")
+            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine"
+                tracktype6.Add(Uphill, "Uphill")
+                tracktype6.Add(Downhill, "Downhill")
+            Case "Irohazka"
+                tracktype6.Add(Downhill, "Downhill")
+                tracktype6.Add(Reversed, "Reversed")
+            Case "Happogahara", "Tsukuba"
+                tracktype6.Add(Inbound, "Inbound")
+                tracktype6.Add(Outbound, "Outbound")
+        End Select
+
+        cmbType6.DataSource = New BindingSource(tracktype6, Nothing)
+        cmbType6.SelectedIndex = 0
+    End Sub
+
     Dim Dry, Wet, Snow As String, Uphill, Downhill, Counterclockwise, Clockwise, Inbound, Outbound, Reversed As String
 
     Private Sub frmLeaderboard_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -21,7 +92,7 @@ Public Class frmLeaderboard
 
     Private Sub RefreshLeaderboard6(course As String, type As String, weather As String)
         lv6.Items.Clear()
-        Dim number As Integer = 0
+        Dim number As Integer = 1
 
         Try
             Dim Client As WebClient = New WebClient()
@@ -35,12 +106,13 @@ Public Class frmLeaderboard
                     Dim name As String = result(0)
                     Dim score As String = result(1)
                     Dim car As String = result(2)
-                    items = lv6.Items.Add(number + 1)
+                    items = lv6.Items.Add(number)
                     With items
                         .SubItems.Add(name)
                         .SubItems.Add(car)
                         .SubItems.Add(ScoreToTime(score))
                     End With
+                    number += 1
                 Next
             End If
         Catch ex As Exception
@@ -50,7 +122,7 @@ Public Class frmLeaderboard
 
     Private Sub RefreshLeaderboard7(course As String, type As String, weather As String)
         lv7.Items.Clear()
-        Dim number As Integer = 0
+        Dim number As Integer = 1
 
         Try
             Dim Client As WebClient = New WebClient()
@@ -64,12 +136,13 @@ Public Class frmLeaderboard
                     Dim name As String = result(0)
                     Dim score As String = result(1)
                     Dim car As String = result(2)
-                    items = lv7.Items.Add(number + 1)
+                    items = lv7.Items.Add(number)
                     With items
                         .SubItems.Add(name)
                         .SubItems.Add(car)
                         .SubItems.Add(ScoreToTime(score))
                     End With
+                    number += 1
                 Next
             End If
         Catch ex As Exception
@@ -120,36 +193,15 @@ Public Class frmLeaderboard
         cmbCourse7.ValueMember = "Value"
         cmbCourse7.DataSource = New BindingSource(trackname7, Nothing)
 
-        tracktype.Add(Uphill, "Uphill")
-        tracktype.Add(Downhill, "Downhill")
-        tracktype.Add(Counterclockwise, "Counterclockwise")
-        tracktype.Add(Clockwise, "Clockwise")
-        tracktype.Add(Inbound, "Inbound")
-        tracktype.Add(Outbound, "Outbound")
-        tracktype.Add(Reversed, "Reversed")
-        cmbType6.DisplayMember = "Key"
-        cmbType6.ValueMember = "Value"
-        cmbType6.DataSource = New BindingSource(tracktype, Nothing)
-        cmbType7.DisplayMember = "Key"
-        cmbType7.ValueMember = "Value"
-        cmbType7.DataSource = New BindingSource(tracktype, Nothing)
-
-        trackweather.Add(Dry, "Dry")
-        trackweather.Add(Wet, "Wet")
-        trackweather.Add(Snow, "Snow")
+        trackweather6.Add(Dry, "Dry")
+        trackweather6.Add(Wet, "Wet")
         cmbWeather6.DisplayMember = "Key"
         cmbWeather6.ValueMember = "Value"
-        cmbWeather6.DataSource = New BindingSource(trackweather, Nothing)
-        cmbWeather7.DisplayMember = "Key"
-        cmbWeather7.ValueMember = "Value"
-        cmbWeather7.DataSource = New BindingSource(trackweather, Nothing)
+        cmbWeather6.DataSource = New BindingSource(trackweather6, Nothing)
 
         cmbCourse6.SelectedIndex = 0
         cmbCourse7.SelectedIndex = 0
-        cmbType6.SelectedIndex = 0
-        cmbType7.SelectedIndex = 0
         cmbWeather6.SelectedIndex = 0
-        cmbWeather7.SelectedIndex = 0
 
         RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
         RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
@@ -202,7 +254,7 @@ Public Class frmLeaderboard
                 Wet = "Wet"
                 Snow = "Snow"
             Case "Chinese"
-                Me.Text = "時間攻擊排行榜"
+                Me.Text = "時間挑戰排行榜"
                 tp6.Text = "頭文字D6AA"
                 tp7.Text = "頭文字D7AAX"
                 Label3.Text = "地圖"

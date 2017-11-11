@@ -25,31 +25,31 @@ Partial Class frmLeaderboard
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLeaderboard))
         Me.tcGames = New System.Windows.Forms.TabControl()
         Me.tp6 = New System.Windows.Forms.TabPage()
-        Me.tp7 = New System.Windows.Forms.TabPage()
+        Me.btnRefresh6 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbCourse6 = New System.Windows.Forms.ComboBox()
         Me.lv6 = New System.Windows.Forms.ListView()
+        Me.chNo6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chName6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chCar6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chTime6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chNo6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.cmbType6 = New System.Windows.Forms.ComboBox()
         Me.cmbWeather6 = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbCourse6 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbType6 = New System.Windows.Forms.ComboBox()
+        Me.tp7 = New System.Windows.Forms.TabPage()
+        Me.btnRefresh7 = New System.Windows.Forms.Button()
+        Me.lv7 = New System.Windows.Forms.ListView()
+        Me.chNo7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chName7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chCar7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chTime7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbCourse7 = New System.Windows.Forms.ComboBox()
         Me.cmbWeather7 = New System.Windows.Forms.ComboBox()
         Me.cmbType7 = New System.Windows.Forms.ComboBox()
-        Me.lv7 = New System.Windows.Forms.ListView()
-        Me.chNo7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chName7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chCar7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTime7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.btnRefresh6 = New System.Windows.Forms.Button()
-        Me.btnRefresh7 = New System.Windows.Forms.Button()
         Me.tcGames.SuspendLayout()
         Me.tp6.SuspendLayout()
         Me.tp7.SuspendLayout()
@@ -86,75 +86,32 @@ Partial Class frmLeaderboard
         Me.tp6.Text = "Initial D 6 AA"
         Me.tp6.UseVisualStyleBackColor = True
         '
-        'tp7
+        'btnRefresh6
         '
-        Me.tp7.Controls.Add(Me.btnRefresh7)
-        Me.tp7.Controls.Add(Me.lv7)
-        Me.tp7.Controls.Add(Me.Label4)
-        Me.tp7.Controls.Add(Me.Label5)
-        Me.tp7.Controls.Add(Me.Label6)
-        Me.tp7.Controls.Add(Me.cmbCourse7)
-        Me.tp7.Controls.Add(Me.cmbWeather7)
-        Me.tp7.Controls.Add(Me.cmbType7)
-        Me.tp7.Location = New System.Drawing.Point(4, 24)
-        Me.tp7.Name = "tp7"
-        Me.tp7.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp7.Size = New System.Drawing.Size(752, 510)
-        Me.tp7.TabIndex = 1
-        Me.tp7.Text = "Initial D 7 AAX"
-        Me.tp7.UseVisualStyleBackColor = True
+        Me.btnRefresh6.Location = New System.Drawing.Point(615, 6)
+        Me.btnRefresh6.Name = "btnRefresh6"
+        Me.btnRefresh6.Size = New System.Drawing.Size(75, 23)
+        Me.btnRefresh6.TabIndex = 4
+        Me.btnRefresh6.Text = "Refresh"
+        Me.btnRefresh6.UseVisualStyleBackColor = True
         '
-        'lv6
+        'Label2
         '
-        Me.lv6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv6.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo6, Me.chName6, Me.chCar6, Me.chTime6})
-        Me.lv6.GridLines = True
-        Me.lv6.Location = New System.Drawing.Point(6, 35)
-        Me.lv6.MultiSelect = False
-        Me.lv6.Name = "lv6"
-        Me.lv6.Size = New System.Drawing.Size(740, 469)
-        Me.lv6.TabIndex = 0
-        Me.lv6.UseCompatibleStateImageBehavior = False
-        Me.lv6.View = System.Windows.Forms.View.Details
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(412, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(51, 15)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "Weather"
         '
-        'chName6
+        'Label1
         '
-        Me.chName6.Text = "Name"
-        Me.chName6.Width = 150
-        '
-        'chCar6
-        '
-        Me.chCar6.Text = "Car"
-        Me.chCar6.Width = 200
-        '
-        'chTime6
-        '
-        Me.chTime6.Text = "Time"
-        Me.chTime6.Width = 100
-        '
-        'chNo6
-        '
-        Me.chNo6.Text = "No."
-        '
-        'cmbType6
-        '
-        Me.cmbType6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbType6.FormattingEnabled = True
-        Me.cmbType6.Location = New System.Drawing.Point(286, 6)
-        Me.cmbType6.Name = "cmbType6"
-        Me.cmbType6.Size = New System.Drawing.Size(120, 23)
-        Me.cmbType6.TabIndex = 2
-        '
-        'cmbWeather6
-        '
-        Me.cmbWeather6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbWeather6.FormattingEnabled = True
-        Me.cmbWeather6.Location = New System.Drawing.Point(489, 6)
-        Me.cmbWeather6.Name = "cmbWeather6"
-        Me.cmbWeather6.Size = New System.Drawing.Size(120, 23)
-        Me.cmbWeather6.TabIndex = 3
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(209, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(33, 15)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Type"
         '
         'Label3
         '
@@ -174,23 +131,118 @@ Partial Class frmLeaderboard
         Me.cmbCourse6.Size = New System.Drawing.Size(120, 23)
         Me.cmbCourse6.TabIndex = 1
         '
-        'Label1
+        'lv6
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(209, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 15)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Type"
+        Me.lv6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lv6.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo6, Me.chName6, Me.chCar6, Me.chTime6})
+        Me.lv6.GridLines = True
+        Me.lv6.Location = New System.Drawing.Point(6, 35)
+        Me.lv6.MultiSelect = False
+        Me.lv6.Name = "lv6"
+        Me.lv6.Size = New System.Drawing.Size(740, 469)
+        Me.lv6.TabIndex = 0
+        Me.lv6.UseCompatibleStateImageBehavior = False
+        Me.lv6.View = System.Windows.Forms.View.Details
         '
-        'Label2
+        'chNo6
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(412, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 15)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Weather"
+        Me.chNo6.Text = "No."
+        '
+        'chName6
+        '
+        Me.chName6.Text = "Name"
+        Me.chName6.Width = 150
+        '
+        'chCar6
+        '
+        Me.chCar6.Text = "Car"
+        Me.chCar6.Width = 200
+        '
+        'chTime6
+        '
+        Me.chTime6.Text = "Time"
+        Me.chTime6.Width = 100
+        '
+        'cmbWeather6
+        '
+        Me.cmbWeather6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbWeather6.FormattingEnabled = True
+        Me.cmbWeather6.Location = New System.Drawing.Point(489, 6)
+        Me.cmbWeather6.Name = "cmbWeather6"
+        Me.cmbWeather6.Size = New System.Drawing.Size(120, 23)
+        Me.cmbWeather6.TabIndex = 3
+        '
+        'cmbType6
+        '
+        Me.cmbType6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbType6.FormattingEnabled = True
+        Me.cmbType6.Location = New System.Drawing.Point(286, 6)
+        Me.cmbType6.Name = "cmbType6"
+        Me.cmbType6.Size = New System.Drawing.Size(120, 23)
+        Me.cmbType6.TabIndex = 2
+        '
+        'tp7
+        '
+        Me.tp7.Controls.Add(Me.btnRefresh7)
+        Me.tp7.Controls.Add(Me.lv7)
+        Me.tp7.Controls.Add(Me.Label4)
+        Me.tp7.Controls.Add(Me.Label5)
+        Me.tp7.Controls.Add(Me.Label6)
+        Me.tp7.Controls.Add(Me.cmbCourse7)
+        Me.tp7.Controls.Add(Me.cmbWeather7)
+        Me.tp7.Controls.Add(Me.cmbType7)
+        Me.tp7.Location = New System.Drawing.Point(4, 24)
+        Me.tp7.Name = "tp7"
+        Me.tp7.Padding = New System.Windows.Forms.Padding(3)
+        Me.tp7.Size = New System.Drawing.Size(752, 510)
+        Me.tp7.TabIndex = 1
+        Me.tp7.Text = "Initial D 7 AAX"
+        Me.tp7.UseVisualStyleBackColor = True
+        '
+        'btnRefresh7
+        '
+        Me.btnRefresh7.Location = New System.Drawing.Point(615, 6)
+        Me.btnRefresh7.Name = "btnRefresh7"
+        Me.btnRefresh7.Size = New System.Drawing.Size(75, 23)
+        Me.btnRefresh7.TabIndex = 14
+        Me.btnRefresh7.Text = "Refresh"
+        Me.btnRefresh7.UseVisualStyleBackColor = True
+        '
+        'lv7
+        '
+        Me.lv7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lv7.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo7, Me.chName7, Me.chCar7, Me.chTime7})
+        Me.lv7.GridLines = True
+        Me.lv7.Location = New System.Drawing.Point(6, 35)
+        Me.lv7.MultiSelect = False
+        Me.lv7.Name = "lv7"
+        Me.lv7.Size = New System.Drawing.Size(740, 469)
+        Me.lv7.TabIndex = 16
+        Me.lv7.UseCompatibleStateImageBehavior = False
+        Me.lv7.View = System.Windows.Forms.View.Details
+        '
+        'chNo7
+        '
+        Me.chNo7.Text = "No."
+        '
+        'chName7
+        '
+        Me.chName7.Text = "Name"
+        Me.chName7.Width = 150
+        '
+        'chCar7
+        '
+        Me.chCar7.Text = "Car"
+        Me.chCar7.Width = 200
+        '
+        'chTime7
+        '
+        Me.chTime7.Text = "Time"
+        Me.chTime7.Width = 100
         '
         'Label4
         '
@@ -245,58 +297,6 @@ Partial Class frmLeaderboard
         Me.cmbType7.Name = "cmbType7"
         Me.cmbType7.Size = New System.Drawing.Size(120, 23)
         Me.cmbType7.TabIndex = 12
-        '
-        'lv7
-        '
-        Me.lv7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv7.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo7, Me.chName7, Me.chCar7, Me.chTime7})
-        Me.lv7.GridLines = True
-        Me.lv7.Location = New System.Drawing.Point(6, 35)
-        Me.lv7.MultiSelect = False
-        Me.lv7.Name = "lv7"
-        Me.lv7.Size = New System.Drawing.Size(740, 469)
-        Me.lv7.TabIndex = 16
-        Me.lv7.UseCompatibleStateImageBehavior = False
-        Me.lv7.View = System.Windows.Forms.View.Details
-        '
-        'chNo7
-        '
-        Me.chNo7.Text = "No."
-        '
-        'chName7
-        '
-        Me.chName7.Text = "Name"
-        Me.chName7.Width = 150
-        '
-        'chCar7
-        '
-        Me.chCar7.Text = "Car"
-        Me.chCar7.Width = 200
-        '
-        'chTime7
-        '
-        Me.chTime7.Text = "Time"
-        Me.chTime7.Width = 100
-        '
-        'btnRefresh6
-        '
-        Me.btnRefresh6.Location = New System.Drawing.Point(615, 6)
-        Me.btnRefresh6.Name = "btnRefresh6"
-        Me.btnRefresh6.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh6.TabIndex = 4
-        Me.btnRefresh6.Text = "Refresh"
-        Me.btnRefresh6.UseVisualStyleBackColor = True
-        '
-        'btnRefresh7
-        '
-        Me.btnRefresh7.Location = New System.Drawing.Point(615, 6)
-        Me.btnRefresh7.Name = "btnRefresh7"
-        Me.btnRefresh7.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh7.TabIndex = 14
-        Me.btnRefresh7.Text = "Refresh"
-        Me.btnRefresh7.UseVisualStyleBackColor = True
         '
         'frmLeaderboard
         '

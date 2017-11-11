@@ -44,7 +44,7 @@
             cs.Version = _version
             cs.Score = _score
             cs.lblName.Text = My.Settings.UserName
-            If _score = 6 Then cs.lblVersion.Text = id6 Else cs.lblVersion.Text = id7
+            If _version = 6 Then cs.lblVersion.Text = id6 Else cs.lblVersion.Text = id7
             cs.lblCourse.Text = lblCourse.Text
             cs.Track = trackname.Item(lblCourse.Text)
             cs.lblTime.Text = lblTime.Text
