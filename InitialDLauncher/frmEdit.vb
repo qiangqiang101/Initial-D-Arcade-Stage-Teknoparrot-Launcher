@@ -186,6 +186,8 @@ Public Class frmEdit
                         'SetHex(_filename, CLng("&HAA"), SetValue4(txtSPride.Text))
                         'SetHex(_filename, CLng("&HAC"), SetValue4(txtTPride.Text))
                 End Select
+
+                SetHex(_filename, CLng("&H76C"), HexStringToBinary("6E6F6F62")) 'noob
             End If
 
             frmCard.RefreshID6Cards()

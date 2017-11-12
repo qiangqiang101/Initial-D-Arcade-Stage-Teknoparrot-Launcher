@@ -4,9 +4,10 @@ Public Class frmSubmit
 
     Dim PrivateKey As String = "TEKNOPARROT"
     Dim AddScoreURL As String = "http://id.imnotmental.com/AddScore.php?"
+    Dim cpuid As String = Nothing
 
     'Translate
-    Dim no_name, no_car As String
+    Dim no_name, no_car, u_r_banned As String
 
     Private _version As Integer
     Public Property Version() As Integer
@@ -60,10 +61,13 @@ Public Class frmSubmit
 
     Private Sub AddScore(name As String, score As String, car As String, weather As String, track As String, coursetype As String, gameversion As Integer)
         Try
+            While cpuid = Nothing
+                cpuid = GetProcessorId()
+            End While
             Dim numScore As String = score.Replace("'", "").Replace("""", "")
             Dim hash As String = Md5Sum((name & score & car & weather & track & coursetype & gameversion) & PrivateKey)
             Dim client As WebClient = New WebClient()
-            client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&hash=") & hash)
+            client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -75,6 +79,8 @@ Public Class frmSubmit
                 MsgBox(no_name, MsgBoxStyle.Critical, "Error")
             ElseIf cmbCar.SelectedItem = Nothing Then
                 MsgBox(no_car, MsgBoxStyle.Critical, "Error")
+            ElseIf IsMeBanned() Then
+                MsgBox(u_r_banned, MsgBoxStyle.Critical, "Error")
             Else
                 AddScore(lblName.Text, _score, cmbCar.SelectedItem.ToString, _weather, _track, _coursetype, _version)
                 Me.Close()
@@ -102,6 +108,7 @@ Public Class frmSubmit
                 btnSubmit.Text = "Submit"
                 no_name = "Could not proceed with Blank Name."
                 no_car = "Please select a car."
+                u_r_banned = "You are not allow to Upload Time Attack results."
             Case "Chinese"
                 Me.Text = "確認提交"
                 Label5.Text = "用戶名"
@@ -114,6 +121,7 @@ Public Class frmSubmit
                 btnSubmit.Text = "提交"
                 no_name = "用戶名為空。"
                 no_car = "請選擇一台車。"
+                u_r_banned = "您不允許上傳時間挑戰結果。"
             Case "French"
                 Me.Text = "Confirmer Envoyer"
                 Label5.Text = "Nom d'utilisateur"
@@ -126,6 +134,7 @@ Public Class frmSubmit
                 btnSubmit.Text = "Soumettre"
                 no_name = "Impossible de continuer avec le nom vide."
                 no_car = "S'il vous plaît sélectionner une voiture."
+                u_r_banned = "Vous n'êtes pas autorisé à télécharger les résultats Time Attack."
         End Select
     End Sub
 End Class

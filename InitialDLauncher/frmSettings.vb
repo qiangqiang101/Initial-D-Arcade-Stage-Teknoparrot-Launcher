@@ -178,6 +178,13 @@ Public Class frmSettings
         e.Handled = True
     End Sub
 
+    Dim _allowedCharacters As String = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    Private Sub txtPlayerName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPlayerName.KeyPress
+        If Not _allowedCharacters.Contains(e.KeyChar) AndAlso e.KeyChar <> ChrW(Keys.Back) Then
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
         If txtPlayerName.Text = Nothing Then
             MsgBox(no_name, MsgBoxStyle.Critical, "Error")

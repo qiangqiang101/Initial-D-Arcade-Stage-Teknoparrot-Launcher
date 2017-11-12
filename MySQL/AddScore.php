@@ -12,6 +12,7 @@
 		$track = mysql_real_escape_string($_GET['track'], $db); 
         $coursetype = mysql_real_escape_string($_GET['coursetype'], $db); 
 		$gameversion = mysql_real_escape_string($_GET['gameversion'], $db); 
+		$diupc = mysql_real_escape_string($_GET['diupc'], $db); 
         $hash = $_GET['hash']; 
         
         //This is the polite version of our name
@@ -34,9 +35,8 @@ SET name = '$politestring'
    , track = '$track'
    , coursetype = '$coursetype'
    , gameversion = '$gameversion'
-   , ts = CURRENT_TIMESTAMP
-ON DUPLICATE KEY UPDATE
-   ts = if('$score'>score,CURRENT_TIMESTAMP,ts), score = if ('$score'>score, '$score', score), weather = if ('$weather'<>weather, '$weather', weather), track = if ('$track'<>track, '$track', track), coursetype = if ('$coursetype'<>coursetype, '$coursetype', coursetype), gameversion = if ('$gameversion'<>gameversion, '$gameversion', gameversion);"; 
+   , cpuid = '$diupc'
+   , ts = CURRENT_TIMESTAMP;"; 
             //And finally we send our query.
             $result = mysql_query($query) or die('Query failed: ' . mysql_error()); 
         } 

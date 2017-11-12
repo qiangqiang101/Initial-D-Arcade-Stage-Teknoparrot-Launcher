@@ -18,12 +18,12 @@ English - I'm Not MentaL<br />
 French - nucleaireland<br />
 
 <h2>Skill contributors</h2>
-BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset<br />
-Lemon The Kid - Avatar Offset & Avatar Preview Pictures<br />
-oPTToXenMe - Level Offset<br />
-Gammaガァマ - Car Name Offset<br />
-DSThanatos - Time Attack ID6 Offset
-I'm Not MentaL - Gender Offset<br />
+BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset,<br />
+Lemon The Kid - Avatar Offset & Avatar Preview Pictures,<br />
+oPTToXenMe - Level Offset,<br />
+Gammaガァマ - Car Name Offset,<br />
+DSThanatos - Time Attack ID6 Offset,<br />
+I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
 <h2>Thanks to</h2>
 (alphabetically)<br />

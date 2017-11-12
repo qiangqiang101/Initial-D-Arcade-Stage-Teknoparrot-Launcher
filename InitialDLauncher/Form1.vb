@@ -29,6 +29,10 @@
         Next
     End Sub
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        TextBox6.Text = ScoreToTime(TextBox5.Text)
+    End Sub
+
     'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
     '    TextBox3.Text = HexStringToBinary(TextBox1.Text)
     'End Sub

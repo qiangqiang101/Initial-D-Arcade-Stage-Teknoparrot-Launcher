@@ -3,6 +3,8 @@ Imports System.IO
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Xml
+Imports System.Management
+Imports System.Net
 
 Module Helper
 
@@ -613,6 +615,32 @@ Module Helper
             hashString += Convert.ToString(hashBytes(i), 16).PadLeft(2, "0"c)
         Next
         Return hashString.PadLeft(32, "0"c)
+    End Function
+
+    Function GetProcessorId() As String
+        Dim strProcessorId As String = String.Empty
+        Dim query As New SelectQuery("Win32_processor")
+        Dim search As New ManagementObjectSearcher(query)
+        Dim info As ManagementObject
+        For Each info In search.Get()
+            strProcessorId = info("processorId").ToString()
+        Next
+        Return strProcessorId
+    End Function
+
+    Function IsMeBanned() As Boolean
+        Dim result As Boolean = False
+
+        Dim Client As WebClient = New WebClient
+        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & GetProcessorId())))
+        Dim Source As String = reader.ReadToEnd
+        If Source = "no" Then
+            result = False
+        Else
+            result = True
+        End If
+
+        Return result
     End Function
 
 End Module
