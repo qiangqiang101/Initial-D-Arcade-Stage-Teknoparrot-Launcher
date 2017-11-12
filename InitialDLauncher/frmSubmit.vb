@@ -66,7 +66,7 @@ Public Class frmSubmit
             End While
             Dim numScore As String = score.Replace("'", "").Replace("""", "")
             Dim hash As String = Md5Sum((name & score & car & weather & track & coursetype & gameversion) & PrivateKey)
-            Dim client As WebClient = New WebClient()
+            Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
             client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")

@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Threading
 
 Public Class frmLeaderboard
 
@@ -12,6 +13,8 @@ Public Class frmLeaderboard
     Dim tracktype7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackweather6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackweather7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+
+    Dim thread6, thread7 As Thread
 
     'Translate
     Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow As String
@@ -95,7 +98,7 @@ Public Class frmLeaderboard
         Dim number As Integer = 1
 
         Try
-            Dim Client As WebClient = New WebClient()
+            Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
             Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=6&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
             Dim Source As String = reader.ReadToEnd
             If Not Source = Nothing Then
@@ -125,7 +128,7 @@ Public Class frmLeaderboard
         Dim number As Integer = 1
 
         Try
-            Dim Client As WebClient = New WebClient()
+            Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
             Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=7&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
             Dim Source As String = reader.ReadToEnd
             If Not Source = Nothing Then
@@ -151,14 +154,22 @@ Public Class frmLeaderboard
     End Sub
 
     Private Sub btnRefresh6_Click(sender As Object, e As EventArgs) Handles btnRefresh6.Click
-        RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
+        'RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
+
+        thread6 = New Thread(Sub() RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString))
+        thread6.Start()
     End Sub
 
     Private Sub btnRefresh7_Click(sender As Object, e As EventArgs) Handles btnRefresh7.Click
-        RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
+        'RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
+
+        thread7 = New Thread(Sub() RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString))
+        thread7.Start()
     End Sub
 
     Private Sub frmLeaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckForIllegalCrossThreadCalls = False
+
         Translate()
 
         trackname6.Add(LakeAkina, "LakeAkina")
@@ -203,8 +214,13 @@ Public Class frmLeaderboard
         cmbCourse7.SelectedIndex = 0
         cmbWeather6.SelectedIndex = 0
 
-        RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
-        RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
+        thread6 = New Thread(Sub() RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString))
+        thread6.Start()
+        thread7 = New Thread(Sub() RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString))
+        thread7.Start()
+
+        'RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
+        'RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
     End Sub
 
     Private Sub Translate()

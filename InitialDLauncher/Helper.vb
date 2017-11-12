@@ -432,20 +432,14 @@ Module Helper
     End Function
 
     Function IsURLValid(url As String) As Boolean
-        Dim result As Boolean = True
-        Dim url1 As New System.Uri(url)
-        Dim req As System.Net.WebRequest
-        req = System.Net.WebRequest.Create(url)
-        Dim resp As System.Net.WebResponse
         Try
-            resp = req.GetResponse()
-            resp.Close()
-            req = Nothing
+            Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 5000}
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(url)))
+            Dim Source As String = reader.ReadToEnd
         Catch ex As Exception
-            req = Nothing
-            result = False
+            Return False
         End Try
-        Return result
+        Return True
     End Function
 
     Function GetSeatName(hex As Byte(), version As Integer) As String
@@ -631,14 +625,18 @@ Module Helper
     Function IsMeBanned() As Boolean
         Dim result As Boolean = False
 
-        Dim Client As WebClient = New WebClient
-        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & GetProcessorId())))
-        Dim Source As String = reader.ReadToEnd
-        If Source = "no" Then
-            result = False
-        Else
+        Try
+            Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & GetProcessorId())))
+            Dim Source As String = reader.ReadToEnd
+            If Source = "no" Then
+                result = False
+            Else
+                result = True
+            End If
+        Catch ex As Exception
             result = True
-        End If
+        End Try
 
         Return result
     End Function

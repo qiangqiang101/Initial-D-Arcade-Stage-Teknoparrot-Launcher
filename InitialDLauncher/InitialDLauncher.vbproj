@@ -166,6 +166,9 @@
     <Compile Include="TimeAttack.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="WebClientEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Card.resx">
