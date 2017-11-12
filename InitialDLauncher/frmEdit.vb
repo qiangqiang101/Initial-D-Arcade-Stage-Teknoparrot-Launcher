@@ -16,7 +16,7 @@ Public Class frmEdit
     Dim CE As String = "00"
 
     'Translation
-    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, male, female As String
+    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, male, female, coming_soon As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -58,69 +58,74 @@ Public Class frmEdit
 
     Private Sub btnSet_Click(sender As Object, e As EventArgs) Handles btnSet.Click
         Try
-            Select Case cmbAvatarCat.SelectedValue.ToString
-                Case "SKIN"
-                    lblc4c5.Text = cmbAvatar.SelectedValue.ToString
-                    pbSkin.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\SKIN\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
-                    Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
-                    Dim C5A = C5.Substring(0, 1)
-                    SV = SV.Replace("X", C5A)
-                    C4 = FV
-                    C5 = SV
-                Case "SHIRT"
-                    lblc5c6.Text = cmbAvatar.SelectedValue.ToString
-                    pbShirt.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\SHIRT\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '0X
-                    Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
-                    Dim C5B = C5.Substring(C5.Length - 1)
-                    FV = FV.Replace("X", C5B)
-                    C5 = FV
-                    C6 = SV
-                Case "EYES"
-                    lblc7c8.Text = cmbAvatar.SelectedValue.ToString
-                    pbEyes.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\EYES\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
-                    Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
-                    Dim C8A = C8.Substring(0, 1)
-                    SV = SV.Replace("X", C8A)
-                    C7 = FV
-                    C8 = SV
-                Case "MOUTH"
-                    lblc8c9.Text = cmbAvatar.SelectedValue.ToString
-                    pbMouth.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\MOUTH\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '0X
-                    Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
-                    Dim C8B = C8.Substring(C8.Length - 1)
-                    FV = FV.Replace("X", C8B)
-                    C8 = FV
-                    C9 = SV
-                Case "ACCESSORIES"
-                    lblcacb.Text = cmbAvatar.SelectedValue.ToString
-                    pbAccessories.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\ACCESSORIES\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
-                    Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
-                    Dim CBA = CB.Substring(0, 1)
-                    SV = SV.Replace("X", CBA)
-                    CA = FV
-                    CB = SV
-                Case "SHADES"
-                    lblcbcc.Text = cmbAvatar.SelectedValue.ToString
-                    pbShades.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\SHADES\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '0X
-                    Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
-                    Dim CBB = CB.Substring(CB.Length - 1)
-                    FV = FV.Replace("X", CBB)
-                    CB = FV
-                    CC = SV
-                Case "HAIR"
-                    lblcdce.Text = cmbAvatar.SelectedValue.ToString
-                    pbHair.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\HAIR\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
-                    CD = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
-                    CE = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
-            End Select
+            If Not cmbAvatar.SelectedValue.ToString = "XXXX" Then
+                Select Case cmbAvatarCat.SelectedValue.ToString
+                    Case "SKIN"
+                        lblc4c5.Text = cmbAvatar.SelectedValue.ToString
+                        pbSkin.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\SKIN\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
+                        Dim C5A = C5.Substring(0, 1)
+                        SV = SV.Replace("X", C5A)
+                        C4 = FV
+                        C5 = SV
+                    Case "SHIRT"
+                        lblc5c6.Text = cmbAvatar.SelectedValue.ToString
+                        pbShirt.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\SHIRT\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '0X
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
+                        Dim C5B = C5.Substring(C5.Length - 1)
+                        FV = FV.Replace("X", C5B)
+                        C5 = FV
+                        C6 = SV
+                    Case "EYES"
+                        lblc7c8.Text = cmbAvatar.SelectedValue.ToString
+                        pbEyes.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\EYES\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
+                        Dim C8A = C8.Substring(0, 1)
+                        SV = SV.Replace("X", C8A)
+                        C7 = FV
+                        C8 = SV
+                    Case "MOUTH"
+                        lblc8c9.Text = cmbAvatar.SelectedValue.ToString
+                        pbMouth.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\MOUTH\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '0X
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
+                        Dim C8B = C8.Substring(C8.Length - 1)
+                        FV = FV.Replace("X", C8B)
+                        C8 = FV
+                        C9 = SV
+                    Case "ACCESSORIES"
+                        lblcacb.Text = cmbAvatar.SelectedValue.ToString
+                        pbAccessories.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\ACCESSORIES\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
+                        Dim CBA = CB.Substring(0, 1)
+                        SV = SV.Replace("X", CBA)
+                        CA = FV
+                        CB = SV
+                    Case "SHADES"
+                        lblcbcc.Text = cmbAvatar.SelectedValue.ToString
+                        pbShades.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\SHADES\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '0X
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    '00
+                        Dim CBB = CB.Substring(CB.Length - 1)
+                        FV = FV.Replace("X", CBB)
+                        CB = FV
+                        CC = SV
+                    Case "HAIR"
+                        lblcdce.Text = cmbAvatar.SelectedValue.ToString
+                        pbHair.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\HAIR\{2}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
+                        Dim FV = cmbAvatar.SelectedValue.ToString.Substring(0, 2)                                           '00
+                        Dim SV = cmbAvatar.SelectedValue.ToString.Substring(cmbAvatar.SelectedValue.ToString.Length - 2)    'X0
+                        SV = SV.Replace("X", "0")
+                        CD = FV
+                        CE = SV
+                End Select
 
-            lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+                lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -276,6 +281,7 @@ Public Class frmEdit
                 btnSet.Text = "Apply"
                 GroupBox5.Text = "Basic"
                 cbSaveAvatar.Text = "Save" & vbNewLine & "Avatar"
+                coming_soon = "Coming Soon"
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
                 Label1.Text = "名字"
@@ -317,6 +323,7 @@ Public Class frmEdit
                 btnSet.Text = "應用"
                 GroupBox5.Text = "一般"
                 cbSaveAvatar.Text = "保存" & vbNewLine & "頭像"
+                coming_soon = "即將登場"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 Label1.Text = "Nom"
@@ -358,6 +365,7 @@ Public Class frmEdit
                 btnSet.Text = "Appliquer"
                 GroupBox5.Text = "De base"
                 cbSaveAvatar.Text = "Enregistrer" & vbNewLine & "Avatar"
+                coming_soon = "Arrive bientôt"
         End Select
     End Sub
 
@@ -422,7 +430,7 @@ Public Class frmEdit
 
     Private Sub cmbAvatar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAvatar.SelectedIndexChanged
         Try
-            If cmbAvatar.SelectedItem IsNot Nothing Then
+            If cmbAvatar.SelectedItem IsNot Nothing AndAlso Not cmbAvatar.SelectedValue = "XXXX" Then
                 pbPreview.BackgroundImage = SafeImageFromFile(String.Format("{0}\LAUNCHER\{1}\{2}\{3}.png", My.Application.Info.DirectoryPath, cmbGender.SelectedValue.ToString, cmbAvatarCat.SelectedValue.ToString, cmbAvatar.SelectedValue.ToString))
             End If
         Catch ex As Exception
@@ -431,6 +439,7 @@ Public Class frmEdit
     End Sub
 
     Private Sub DictionaryAdd()
+        'Female
         'Add Mouth
         mouth_f.Add("01", "0X0C")
         mouth_f.Add("02", "0X0D")
@@ -466,6 +475,130 @@ Public Class frmEdit
         mouth_f.Add("32", "EX0C")
         mouth_f.Add("33", "FX0B")
         mouth_f.Add("34", "FX0C")
+
+        'Add Shirt
+        shirt_f.Add("1", "0X02")
+        shirt_f.Add("2", "0X03")
+        shirt_f.Add("3", "0X04")
+        shirt_f.Add("4", "0X05")
+        shirt_f.Add("5", "0X06")
+        shirt_f.Add("6", "0X07")
+        shirt_f.Add("7", "0X08")
+        shirt_f.Add("8", "1X02")
+        shirt_f.Add("9", "1X03")
+        shirt_f.Add("10", "1X04")
+        shirt_f.Add("11", "1X05")
+        shirt_f.Add("12", "1X06")
+        shirt_f.Add("13", "1X07")
+        shirt_f.Add("14", "1X08")
+        shirt_f.Add("15", "2X02")
+        shirt_f.Add("16", "2X03")
+        shirt_f.Add("17", "2X04")
+        shirt_f.Add("18", "2X05")
+        shirt_f.Add("19", "2X06")
+        shirt_f.Add("20", "2X07")
+        shirt_f.Add("21", "2X08")
+        shirt_f.Add("22", "3X02")
+        shirt_f.Add("23", "3X03")
+        shirt_f.Add("24", "3X04")
+        shirt_f.Add("25", "3X05")
+        shirt_f.Add("26", "3X06")
+        shirt_f.Add("27", "3X07")
+        shirt_f.Add("28", "3X08")
+        shirt_f.Add("29", "4X02")
+        shirt_f.Add("30", "4X03")
+        shirt_f.Add("31", "4X04")
+        shirt_f.Add("32", "4X05")
+        shirt_f.Add("33", "4X06")
+        shirt_f.Add("34", "4X07")
+        shirt_f.Add("35", "4X08")
+        shirt_f.Add("36", "5X02")
+        shirt_f.Add("37", "5X03")
+        shirt_f.Add("38", "5X04")
+        shirt_f.Add("39", "5X05")
+        shirt_f.Add("40", "5X06")
+        shirt_f.Add("41", "5X07")
+        shirt_f.Add("42", "5X08")
+        shirt_f.Add("43", "6X01")
+        shirt_f.Add("44", "6X02")
+        shirt_f.Add("45", "6X03")
+        shirt_f.Add("46", "6X04")
+        shirt_f.Add("47", "6X05")
+        shirt_f.Add("48", "6X06")
+        shirt_f.Add("49", "6X07")
+        shirt_f.Add("50", "6X08")
+        shirt_f.Add("51", "7X01")
+        shirt_f.Add("52", "7X02")
+        shirt_f.Add("53", "7X03")
+        shirt_f.Add("54", "7X04")
+        shirt_f.Add("55", "7X05")
+        shirt_f.Add("56", "7X06")
+        shirt_f.Add("57", "7X07")
+        shirt_f.Add("58", "7X08")
+        shirt_f.Add("59", "8X01")
+        shirt_f.Add("60", "8X02")
+        shirt_f.Add("61", "8X03")
+        shirt_f.Add("62", "8X04")
+        shirt_f.Add("63", "8X05")
+        shirt_f.Add("64", "8X06")
+        shirt_f.Add("65", "8X07")
+        shirt_f.Add("66", "8X08")
+        shirt_f.Add("67", "9X01")
+        shirt_f.Add("68", "9X02")
+        shirt_f.Add("69", "9X03")
+        shirt_f.Add("70", "9X04")
+        shirt_f.Add("71", "9X05")
+        shirt_f.Add("72", "9X06")
+        shirt_f.Add("73", "9X07")
+        shirt_f.Add("74", "9X08")
+        shirt_f.Add("75", "AX01")
+        shirt_f.Add("76", "AX02")
+        shirt_f.Add("77", "AX03")
+        shirt_f.Add("78", "AX04")
+        shirt_f.Add("79", "AX05")
+        shirt_f.Add("80", "AX06")
+        shirt_f.Add("81", "AX07")
+        shirt_f.Add("82", "AX08")
+        shirt_f.Add("83", "BX01")
+        shirt_f.Add("84", "BX02")
+        shirt_f.Add("85", "BX03")
+        shirt_f.Add("86", "BX04")
+        shirt_f.Add("87", "BX05")
+        shirt_f.Add("88", "BX06")
+        shirt_f.Add("89", "BX07")
+        shirt_f.Add("90", "BX08")
+        shirt_f.Add("91", "CX01")
+        shirt_f.Add("92", "CX02")
+        shirt_f.Add("93", "CX03")
+        shirt_f.Add("94", "CX04")
+        shirt_f.Add("95", "CX05")
+        shirt_f.Add("96", "CX06")
+        shirt_f.Add("97", "CX07")
+        shirt_f.Add("98", "CX08")
+        shirt_f.Add("99", "DX01")
+        shirt_f.Add("100", "DX02")
+        shirt_f.Add("101", "DX03")
+        shirt_f.Add("102", "DX04")
+        shirt_f.Add("103", "DX05")
+        shirt_f.Add("104", "DX06")
+        shirt_f.Add("105", "DX07")
+        shirt_f.Add("106", "DX08")
+        shirt_f.Add("107", "EX01")
+        shirt_f.Add("108", "EX02")
+        shirt_f.Add("109", "EX03")
+        shirt_f.Add("110", "EX04")
+        shirt_f.Add("111", "EX05")
+        shirt_f.Add("112", "EX06")
+        shirt_f.Add("113", "EX07")
+        shirt_f.Add("114", "EX08")
+        shirt_f.Add("115", "FX01")
+        shirt_f.Add("116", "FX02")
+        shirt_f.Add("117", "FX03")
+        shirt_f.Add("118", "FX04")
+        shirt_f.Add("119", "FX05")
+        shirt_f.Add("120", "FX06")
+        shirt_f.Add("121", "FX07")
+        shirt_f.Add("122", "FX08")
 
         'Add Eyes
         eyes_f.Add("01", "90X0")
@@ -708,6 +841,15 @@ Public Class frmEdit
         hair_f.Add("116", "82X1")
         hair_f.Add("117", "83X1")
         hair_f.Add("118", "84X1")
+
+        'Male
+        mouth_m.Add(coming_soon, "XXXX")
+        shirt_m.Add(coming_soon, "XXXX")
+        eyes_m.Add(coming_soon, "XXXX")
+        skin_m.Add(coming_soon, "XXXX")
+        accessories_m.Add(coming_soon, "XXXX")
+        shades_m.Add(coming_soon, "XXXX")
+        hair_m.Add(coming_soon, "XXXX")
 
         'Add Category
         category.Add(face_skin_t, "SKIN")
