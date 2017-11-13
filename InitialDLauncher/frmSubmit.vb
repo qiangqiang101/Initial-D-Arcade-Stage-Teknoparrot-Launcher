@@ -62,7 +62,7 @@ Public Class frmSubmit
     Private Sub AddScore(name As String, score As String, car As String, weather As String, track As String, coursetype As String, gameversion As Integer)
         Try
             While cpuid = Nothing
-                cpuid = GetProcessorId()
+                cpuid = getNewCPUID()
             End While
             Dim numScore As String = score.Replace("'", "").Replace("""", "")
             Dim hash As String = Md5Sum((name & score & car & weather & track & coursetype & gameversion) & PrivateKey)

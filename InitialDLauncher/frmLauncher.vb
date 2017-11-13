@@ -314,6 +314,7 @@ Public Class frmLauncher
         MsgBox(String.Format("ID6 Card File Path: {0}{1}ID7 Card File Path: {2}", id6CardPath, vbNewLine, id7CardPath))
         MsgBox(String.Format("ID6 Game Path: {0}{1}ID7 Game Path: {2}", My.Settings.Id6Path, vbNewLine, My.Settings.Id7Path))
         MsgBox(String.Format("ID6 Selected Card: {0}{1}ID7 Selected Card: {2}", My.Settings.Id6CardName, vbNewLine, My.Settings.Id7CardName))
+        MsgBox(getNewCPUID)
     End Sub
 
     Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click

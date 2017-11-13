@@ -622,12 +622,59 @@ Module Helper
         Return strProcessorId
     End Function
 
+    Function GetMACAddress() As String
+        Dim mc As ManagementClass = New ManagementClass("Win32_NetworkAdapterConfiguration")
+        Dim moc As ManagementObjectCollection = mc.GetInstances()
+        Dim MACAddress As String = String.Empty
+        For Each mo As ManagementObject In moc
+            If (MACAddress.Equals(String.Empty)) Then
+                If CBool(mo("IPEnabled")) Then MACAddress = mo("MacAddress").ToString()
+                mo.Dispose()
+            End If
+            MACAddress = MACAddress.Replace(":", String.Empty)
+        Next
+        Return MACAddress
+    End Function
+
+    Function GetVolumeSerial(Optional ByVal strDriveLetter As String = "C") As String
+        Dim disk As ManagementObject = New ManagementObject(String.Format("win32_logicaldisk.deviceid=""{0}:""", strDriveLetter))
+        disk.Get()
+        Return disk("VolumeSerialNumber").ToString()
+    End Function
+
+    Function GetMotherBoardID() As String
+
+        Dim strMotherBoardID As String = String.Empty
+        Dim query As New SelectQuery("Win32_BaseBoard")
+        Dim search As New ManagementObjectSearcher(query)
+        Dim info As ManagementObject
+        For Each info In search.Get()
+            strMotherBoardID = info("SerialNumber").ToString()
+        Next
+        Return strMotherBoardID
+    End Function
+
+    Function getMD5Hash(ByVal strToHash As String) As String
+        Dim md5Obj As New MD5CryptoServiceProvider
+        Dim bytesToHash() As Byte = System.Text.Encoding.ASCII.GetBytes(strToHash)
+        bytesToHash = md5Obj.ComputeHash(bytesToHash)
+        Dim strResult As String = ""
+        For Each b As Byte In bytesToHash
+            strResult += b.ToString("x2")
+        Next
+        Return strResult
+    End Function
+
+    Function getNewCPUID() As String
+        Return getMD5Hash(GetMotherBoardID() & GetVolumeSerial() & GetMACAddress() & GetProcessorId()).Substring(0, 14).ToUpper
+    End Function
+
     Function IsMeBanned() As Boolean
         Dim result As Boolean = False
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & GetProcessorId())))
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & getNewCPUID())))
             Dim Source As String = reader.ReadToEnd
             If Source = "no" Then
                 result = False
@@ -646,7 +693,7 @@ Module Helper
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(String.Format("http://id.imnotmental.com/isrecordexist.php?cpuid={0}&score={1}&track={2}&coursetype={3}&gameversion={4}&weather={5}", GetProcessorId, score, track, coursetype, version, weather))))
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(String.Format("http://id.imnotmental.com/isrecordexist.php?cpuid={0}&score={1}&track={2}&coursetype={3}&gameversion={4}&weather={5}", getNewCPUID, score, track, coursetype, version, weather))))
             Dim Source As String = reader.ReadToEnd
             If Source = "no" Then
                 result = False
