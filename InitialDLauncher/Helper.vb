@@ -641,4 +641,23 @@ Module Helper
         Return result
     End Function
 
+    Function DoesRecordExists(score As String, track As String, coursetype As String, weather As String, version As Integer) As Boolean
+        Dim result As Boolean = True
+
+        Try
+            Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(String.Format("http://id.imnotmental.com/isrecordexist.php?cpuid={0}&score={1}&track={2}&coursetype={3}&gameversion={4}&weather={5}", GetProcessorId, score, track, coursetype, version, weather))))
+            Dim Source As String = reader.ReadToEnd
+            If Source = "no" Then
+                result = False
+            Else
+                result = True
+            End If
+        Catch ex As Exception
+            result = True
+        End Try
+
+        Return result
+    End Function
+
 End Module

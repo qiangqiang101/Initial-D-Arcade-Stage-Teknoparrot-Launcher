@@ -7,7 +7,7 @@ Public Class frmSubmit
     Dim cpuid As String = Nothing
 
     'Translate
-    Dim no_name, no_car, u_r_banned As String
+    Dim no_name, no_car, u_r_banned, record_exist As String
 
     Private _version As Integer
     Public Property Version() As Integer
@@ -81,6 +81,8 @@ Public Class frmSubmit
                 MsgBox(no_car, MsgBoxStyle.Critical, "Error")
             ElseIf IsMeBanned() Then
                 MsgBox(u_r_banned, MsgBoxStyle.Critical, "Error")
+            ElseIf DoesRecordExists(_score, _track, _coursetype, _weather, _version) Then
+                MsgBox(record_exist, MsgBoxStyle.Critical, "Error")
             Else
                 AddScore(lblName.Text, _score, cmbCar.SelectedItem.ToString, _weather, _track, _coursetype, _version)
                 Me.Close()
@@ -109,6 +111,7 @@ Public Class frmSubmit
                 no_name = "Could not proceed with Blank Name."
                 no_car = "Please select a car."
                 u_r_banned = "You are not allow to Upload Time Attack results."
+                record_exist = "Record already exist on server, please submit another."
             Case "Chinese"
                 Me.Text = "確認提交"
                 Label5.Text = "用戶名"
@@ -122,6 +125,7 @@ Public Class frmSubmit
                 no_name = "用戶名為空。"
                 no_car = "請選擇一台車。"
                 u_r_banned = "您不允許上傳時間挑戰結果。"
+                record_exist = "記錄已經存在於服務器上，請提交另一個。"
             Case "French"
                 Me.Text = "Confirmer Envoyer"
                 Label5.Text = "Nom d'utilisateur"
@@ -135,6 +139,7 @@ Public Class frmSubmit
                 no_name = "Impossible de continuer avec le nom vide."
                 no_car = "S'il vous plaît sélectionner une voiture."
                 u_r_banned = "Vous n'êtes pas autorisé à télécharger les résultats Time Attack."
+                record_exist = "L'enregistrement existe déjà sur le serveur, veuillez en soumettre un autre."
         End Select
     End Sub
 End Class

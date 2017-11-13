@@ -50,6 +50,8 @@ Partial Class frmLeaderboard
         Me.cmbCourse7 = New System.Windows.Forms.ComboBox()
         Me.cmbWeather7 = New System.Windows.Forms.ComboBox()
         Me.cmbType7 = New System.Windows.Forms.ComboBox()
+        Me.btnReport6 = New System.Windows.Forms.Button()
+        Me.btnReport7 = New System.Windows.Forms.Button()
         Me.tcGames.SuspendLayout()
         Me.tp6.SuspendLayout()
         Me.tp7.SuspendLayout()
@@ -65,11 +67,12 @@ Partial Class frmLeaderboard
         Me.tcGames.Location = New System.Drawing.Point(12, 12)
         Me.tcGames.Name = "tcGames"
         Me.tcGames.SelectedIndex = 0
-        Me.tcGames.Size = New System.Drawing.Size(760, 538)
+        Me.tcGames.Size = New System.Drawing.Size(785, 538)
         Me.tcGames.TabIndex = 0
         '
         'tp6
         '
+        Me.tp6.Controls.Add(Me.btnReport6)
         Me.tp6.Controls.Add(Me.btnRefresh6)
         Me.tp6.Controls.Add(Me.Label2)
         Me.tp6.Controls.Add(Me.Label1)
@@ -81,7 +84,7 @@ Partial Class frmLeaderboard
         Me.tp6.Location = New System.Drawing.Point(4, 24)
         Me.tp6.Name = "tp6"
         Me.tp6.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp6.Size = New System.Drawing.Size(752, 510)
+        Me.tp6.Size = New System.Drawing.Size(777, 510)
         Me.tp6.TabIndex = 0
         Me.tp6.Text = "Initial D 6 AA"
         Me.tp6.UseVisualStyleBackColor = True
@@ -137,11 +140,13 @@ Partial Class frmLeaderboard
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lv6.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo6, Me.chName6, Me.chCar6, Me.chTime6})
+        Me.lv6.FullRowSelect = True
         Me.lv6.GridLines = True
+        Me.lv6.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lv6.Location = New System.Drawing.Point(6, 35)
         Me.lv6.MultiSelect = False
         Me.lv6.Name = "lv6"
-        Me.lv6.Size = New System.Drawing.Size(740, 469)
+        Me.lv6.Size = New System.Drawing.Size(765, 469)
         Me.lv6.TabIndex = 0
         Me.lv6.UseCompatibleStateImageBehavior = False
         Me.lv6.View = System.Windows.Forms.View.Details
@@ -185,6 +190,7 @@ Partial Class frmLeaderboard
         '
         'tp7
         '
+        Me.tp7.Controls.Add(Me.btnReport7)
         Me.tp7.Controls.Add(Me.btnRefresh7)
         Me.tp7.Controls.Add(Me.lv7)
         Me.tp7.Controls.Add(Me.Label4)
@@ -196,7 +202,7 @@ Partial Class frmLeaderboard
         Me.tp7.Location = New System.Drawing.Point(4, 24)
         Me.tp7.Name = "tp7"
         Me.tp7.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp7.Size = New System.Drawing.Size(752, 510)
+        Me.tp7.Size = New System.Drawing.Size(777, 510)
         Me.tp7.TabIndex = 1
         Me.tp7.Text = "Initial D 7 AAX"
         Me.tp7.UseVisualStyleBackColor = True
@@ -216,11 +222,13 @@ Partial Class frmLeaderboard
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lv7.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo7, Me.chName7, Me.chCar7, Me.chTime7})
+        Me.lv7.FullRowSelect = True
         Me.lv7.GridLines = True
+        Me.lv7.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.lv7.Location = New System.Drawing.Point(6, 35)
         Me.lv7.MultiSelect = False
         Me.lv7.Name = "lv7"
-        Me.lv7.Size = New System.Drawing.Size(740, 469)
+        Me.lv7.Size = New System.Drawing.Size(765, 469)
         Me.lv7.TabIndex = 16
         Me.lv7.UseCompatibleStateImageBehavior = False
         Me.lv7.View = System.Windows.Forms.View.Details
@@ -298,11 +306,31 @@ Partial Class frmLeaderboard
         Me.cmbType7.Size = New System.Drawing.Size(120, 23)
         Me.cmbType7.TabIndex = 12
         '
+        'btnReport6
+        '
+        Me.btnReport6.Enabled = False
+        Me.btnReport6.Location = New System.Drawing.Point(696, 6)
+        Me.btnReport6.Name = "btnReport6"
+        Me.btnReport6.Size = New System.Drawing.Size(75, 23)
+        Me.btnReport6.TabIndex = 5
+        Me.btnReport6.Text = "Report"
+        Me.btnReport6.UseVisualStyleBackColor = True
+        '
+        'btnReport7
+        '
+        Me.btnReport7.Enabled = False
+        Me.btnReport7.Location = New System.Drawing.Point(696, 6)
+        Me.btnReport7.Name = "btnReport7"
+        Me.btnReport7.Size = New System.Drawing.Size(75, 23)
+        Me.btnReport7.TabIndex = 15
+        Me.btnReport7.Text = "Report"
+        Me.btnReport7.UseVisualStyleBackColor = True
+        '
         'frmLeaderboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 562)
+        Me.ClientSize = New System.Drawing.Size(809, 562)
         Me.Controls.Add(Me.tcGames)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -348,4 +376,6 @@ Partial Class frmLeaderboard
     Friend WithEvents cmbType7 As ComboBox
     Friend WithEvents btnRefresh6 As Button
     Friend WithEvents btnRefresh7 As Button
+    Friend WithEvents btnReport6 As Button
+    Friend WithEvents btnReport7 As Button
 End Class

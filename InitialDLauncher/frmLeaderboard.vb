@@ -19,6 +19,30 @@ Public Class frmLeaderboard
     'Translate
     Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow As String
 
+    Private Sub btnReport6_Click(sender As Object, e As EventArgs) Handles btnReport6.Click
+
+    End Sub
+
+    Private Sub btnReport7_Click(sender As Object, e As EventArgs) Handles btnReport7.Click
+
+    End Sub
+
+    Private Sub lv7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv7.SelectedIndexChanged
+        If lv7.SelectedItems.Count >= 1 Then
+            btnReport7.Enabled = True
+        Else
+            btnReport7.Enabled = False
+        End If
+    End Sub
+
+    Private Sub lv6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv6.SelectedIndexChanged
+        If lv6.SelectedItems.Count >= 1 Then
+            btnReport6.Enabled = True
+        Else
+            btnReport6.Enabled = False
+        End If
+    End Sub
+
     Private Sub cmbCourse7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse7.SelectedIndexChanged
         cmbType7.DataSource = Nothing
         cmbType7.Items.Clear()
@@ -109,11 +133,14 @@ Public Class frmLeaderboard
                     Dim name As String = result(0)
                     Dim score As String = result(1)
                     Dim car As String = result(2)
+                    Dim id As String = result(3)
+                    Dim cpuid As String = result(4)
                     items = lv6.Items.Add(number)
                     With items
                         .SubItems.Add(name)
                         .SubItems.Add(car)
                         .SubItems.Add(ScoreToTime(score))
+                        .Tag = id
                     End With
                     number += 1
                 Next
@@ -139,11 +166,14 @@ Public Class frmLeaderboard
                     Dim name As String = result(0)
                     Dim score As String = result(1)
                     Dim car As String = result(2)
+                    Dim id As String = result(3)
+                    Dim cpuid As String = result(4)
                     items = lv7.Items.Add(number)
                     With items
                         .SubItems.Add(name)
                         .SubItems.Add(car)
                         .SubItems.Add(ScoreToTime(score))
+                        .Tag = id
                     End With
                     number += 1
                 Next
@@ -250,7 +280,7 @@ Public Class frmLeaderboard
                 Usui = "Usui"
                 Akagi = "Akagi"
                 Akina = "Akina"
-                Irohazka = "Irohazka"
+                Irohazka = "Irohazaka"
                 Happogahara = "Happogahara"
                 Nagao = "Nagao"
                 Tsukuba = "Tsukuba"
@@ -269,6 +299,8 @@ Public Class frmLeaderboard
                 Dry = "Dry"
                 Wet = "Wet"
                 Snow = "Snow"
+                btnReport6.Text = "Report"
+                btnReport7.Text = btnReport6.Text
             Case "Chinese"
                 Me.Text = "時間挑戰排行榜"
                 tp6.Text = "頭文字D6AA"
@@ -313,6 +345,8 @@ Public Class frmLeaderboard
                 Dry = "晴"
                 Wet = "雨"
                 Snow = "雪"
+                btnReport6.Text = "舉報"
+                btnReport7.Text = btnReport6.Text
             Case "French"
                 Me.Text = "Classement des attaques de temps"
                 tp6.Text = "Initial D 6 AA"
@@ -338,7 +372,7 @@ Public Class frmLeaderboard
                 Usui = "Usui"
                 Akagi = "Akagi"
                 Akina = "Akina"
-                Irohazka = "Irohazka"
+                Irohazka = "Irohazaka"
                 Happogahara = "Happogahara"
                 Nagao = "Nagao"
                 Tsukuba = "Tsukuba"
@@ -357,6 +391,8 @@ Public Class frmLeaderboard
                 Dry = "Sec"
                 Wet = "Humide"
                 Snow = "Neige"
+                btnReport6.Text = "Rapport"
+                btnReport7.Text = btnReport6.Text
         End Select
     End Sub
 End Class
