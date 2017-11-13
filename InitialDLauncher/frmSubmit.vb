@@ -2,7 +2,7 @@
 
 Public Class frmSubmit
 
-    Dim PrivateKey As String = "TEKNOPARROT"
+    Dim PrivateKey As String = "T3KN0PARR0T"
     Dim AddScoreURL As String = "http://id.imnotmental.com/AddScore.php?"
     Dim cpuid As String = Nothing
 

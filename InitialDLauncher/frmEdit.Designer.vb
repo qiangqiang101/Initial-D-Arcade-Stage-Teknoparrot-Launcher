@@ -407,6 +407,7 @@ Partial Class frmEdit
         Me.GroupBox4.Controls.Add(Me.cmbAvatarCat)
         Me.GroupBox4.Controls.Add(Me.Label10)
         Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Enabled = False
         Me.GroupBox4.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(419, 364)

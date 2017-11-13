@@ -25,6 +25,7 @@ Partial Class frmLeaderboard
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLeaderboard))
         Me.tcGames = New System.Windows.Forms.TabControl()
         Me.tp6 = New System.Windows.Forms.TabPage()
+        Me.btnReport6 = New System.Windows.Forms.Button()
         Me.btnRefresh6 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -38,6 +39,7 @@ Partial Class frmLeaderboard
         Me.cmbWeather6 = New System.Windows.Forms.ComboBox()
         Me.cmbType6 = New System.Windows.Forms.ComboBox()
         Me.tp7 = New System.Windows.Forms.TabPage()
+        Me.btnReport7 = New System.Windows.Forms.Button()
         Me.btnRefresh7 = New System.Windows.Forms.Button()
         Me.lv7 = New System.Windows.Forms.ListView()
         Me.chNo7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -50,8 +52,8 @@ Partial Class frmLeaderboard
         Me.cmbCourse7 = New System.Windows.Forms.ComboBox()
         Me.cmbWeather7 = New System.Windows.Forms.ComboBox()
         Me.cmbType7 = New System.Windows.Forms.ComboBox()
-        Me.btnReport6 = New System.Windows.Forms.Button()
-        Me.btnReport7 = New System.Windows.Forms.Button()
+        Me.chDate7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chDate6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tcGames.SuspendLayout()
         Me.tp6.SuspendLayout()
         Me.tp7.SuspendLayout()
@@ -88,6 +90,17 @@ Partial Class frmLeaderboard
         Me.tp6.TabIndex = 0
         Me.tp6.Text = "Initial D 6 AA"
         Me.tp6.UseVisualStyleBackColor = True
+        '
+        'btnReport6
+        '
+        Me.btnReport6.Enabled = False
+        Me.btnReport6.Location = New System.Drawing.Point(696, 6)
+        Me.btnReport6.Name = "btnReport6"
+        Me.btnReport6.Size = New System.Drawing.Size(75, 23)
+        Me.btnReport6.TabIndex = 5
+        Me.btnReport6.Text = "Report"
+        Me.btnReport6.UseVisualStyleBackColor = True
+        Me.btnReport6.Visible = False
         '
         'btnRefresh6
         '
@@ -139,7 +152,7 @@ Partial Class frmLeaderboard
         Me.lv6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv6.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo6, Me.chName6, Me.chCar6, Me.chTime6})
+        Me.lv6.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo6, Me.chName6, Me.chCar6, Me.chTime6, Me.chDate6})
         Me.lv6.FullRowSelect = True
         Me.lv6.GridLines = True
         Me.lv6.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -207,6 +220,17 @@ Partial Class frmLeaderboard
         Me.tp7.Text = "Initial D 7 AAX"
         Me.tp7.UseVisualStyleBackColor = True
         '
+        'btnReport7
+        '
+        Me.btnReport7.Enabled = False
+        Me.btnReport7.Location = New System.Drawing.Point(696, 6)
+        Me.btnReport7.Name = "btnReport7"
+        Me.btnReport7.Size = New System.Drawing.Size(75, 23)
+        Me.btnReport7.TabIndex = 15
+        Me.btnReport7.Text = "Report"
+        Me.btnReport7.UseVisualStyleBackColor = True
+        Me.btnReport7.Visible = False
+        '
         'btnRefresh7
         '
         Me.btnRefresh7.Location = New System.Drawing.Point(615, 6)
@@ -221,7 +245,7 @@ Partial Class frmLeaderboard
         Me.lv7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv7.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo7, Me.chName7, Me.chCar7, Me.chTime7})
+        Me.lv7.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo7, Me.chName7, Me.chCar7, Me.chTime7, Me.chDate7})
         Me.lv7.FullRowSelect = True
         Me.lv7.GridLines = True
         Me.lv7.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -306,25 +330,15 @@ Partial Class frmLeaderboard
         Me.cmbType7.Size = New System.Drawing.Size(120, 23)
         Me.cmbType7.TabIndex = 12
         '
-        'btnReport6
+        'chDate7
         '
-        Me.btnReport6.Enabled = False
-        Me.btnReport6.Location = New System.Drawing.Point(696, 6)
-        Me.btnReport6.Name = "btnReport6"
-        Me.btnReport6.Size = New System.Drawing.Size(75, 23)
-        Me.btnReport6.TabIndex = 5
-        Me.btnReport6.Text = "Report"
-        Me.btnReport6.UseVisualStyleBackColor = True
+        Me.chDate7.Text = "Date"
+        Me.chDate7.Width = 200
         '
-        'btnReport7
+        'chDate6
         '
-        Me.btnReport7.Enabled = False
-        Me.btnReport7.Location = New System.Drawing.Point(696, 6)
-        Me.btnReport7.Name = "btnReport7"
-        Me.btnReport7.Size = New System.Drawing.Size(75, 23)
-        Me.btnReport7.TabIndex = 15
-        Me.btnReport7.Text = "Report"
-        Me.btnReport7.UseVisualStyleBackColor = True
+        Me.chDate6.Text = "Date"
+        Me.chDate6.Width = 200
         '
         'frmLeaderboard
         '
@@ -378,4 +392,6 @@ Partial Class frmLeaderboard
     Friend WithEvents btnRefresh7 As Button
     Friend WithEvents btnReport6 As Button
     Friend WithEvents btnReport7 As Button
+    Friend WithEvents chDate6 As ColumnHeader
+    Friend WithEvents chDate7 As ColumnHeader
 End Class

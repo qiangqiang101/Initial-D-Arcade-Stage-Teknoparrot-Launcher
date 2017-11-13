@@ -135,11 +135,13 @@ Public Class frmLeaderboard
                     Dim car As String = result(2)
                     Dim id As String = result(3)
                     Dim cpuid As String = result(4)
+                    Dim ts As String = result(5)
                     items = lv6.Items.Add(number)
                     With items
                         .SubItems.Add(name)
                         .SubItems.Add(car)
                         .SubItems.Add(ScoreToTime(score))
+                        .SubItems.Add(ts)
                         .Tag = id
                     End With
                     number += 1
@@ -168,11 +170,13 @@ Public Class frmLeaderboard
                     Dim car As String = result(2)
                     Dim id As String = result(3)
                     Dim cpuid As String = result(4)
+                    Dim ts As String = result(5)
                     items = lv7.Items.Add(number)
                     With items
                         .SubItems.Add(name)
                         .SubItems.Add(car)
                         .SubItems.Add(ScoreToTime(score))
+                        .SubItems.Add(ts)
                         .Tag = id
                     End With
                     number += 1

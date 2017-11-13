@@ -225,7 +225,10 @@ Public Class frmEdit
         ttCar2.SetToolTip(cbCar2, tool_tip)
         ttCar3.SetToolTip(cbCar3, tool_tip)
 
-        DictionaryAdd()
+        If _version = 6 Then
+            DictionaryAdd()
+            GroupBox4.Enabled = True
+        End If
 
         lblAvatarOffset.Visible = My.Settings.DebugMode
         lblc4c5.Visible = My.Settings.DebugMode
