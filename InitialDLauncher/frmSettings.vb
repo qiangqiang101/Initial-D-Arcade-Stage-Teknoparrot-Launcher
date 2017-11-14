@@ -11,8 +11,6 @@ Public Class frmSettings
     Dim bool As List(Of String) = New List(Of String) From {"true", "false"}
     Dim gotError As Boolean = False
 
-    Dim GetUserURL As String = "http://id.imnotmental.com/CheckUser.php?"
-
     'Translate
     Dim no_exe, no_name, name_is_taken, name_is_available As String
 
@@ -24,6 +22,7 @@ Public Class frmSettings
             cbTest.Checked = My.Settings.TestMode
             cbDebug.Checked = My.Settings.DebugMode
             cmbLang.SelectedItem = My.Settings.Language
+            cmbCountry.SelectedItem = My.Settings.UserCountry
 
             If Not My.Settings.Id6Path = String.Empty Then gb6.Enabled = True
             If Not My.Settings.Id7Path = String.Empty Then gb7.Enabled = True
@@ -89,12 +88,15 @@ Public Class frmSettings
                 MsgBox(no_name, MsgBoxStyle.Critical, "Error")
                 txtPlayerName.Focus()
             Else
+                If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
+
                 My.Settings.Id6Path = txt6.Text
                 My.Settings.Id7Path = txt7.Text
                 My.Settings.UserName = txtPlayerName.Text
                 My.Settings.TestMode = cbTest.Checked
                 My.Settings.DebugMode = cbDebug.Checked
                 My.Settings.Language = cmbLang.SelectedItem
+                My.Settings.UserCountry = cmbCountry.SelectedItem
                 My.Settings.Save()
 
                 If gb6.Enabled Then Save6Config()
@@ -185,34 +187,6 @@ Public Class frmSettings
         End If
     End Sub
 
-    Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
-        If txtPlayerName.Text = Nothing Then
-            MsgBox(no_name, MsgBoxStyle.Critical, "Error")
-            txtPlayerName.Focus()
-        Else
-            If IsNameTaken(txtPlayerName.Text) Then
-                MsgBox(name_is_taken, MsgBoxStyle.Information, "Name Check")
-            Else
-                MsgBox(name_is_available, MsgBoxStyle.Information, "Name Check")
-            End If
-        End If
-    End Sub
-
-    Private Function IsNameTaken(name As String) As Boolean
-        Dim result As Boolean = False
-
-        Dim Client As WebClient = New WebClient
-        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserURL + "name=" & name)))
-        Dim Source As String = reader.ReadToEnd
-        If Source = "no" Then
-            result = False
-        Else
-            result = True
-        End If
-
-        Return result
-    End Function
-
     Public Sub Translate()
         Select Case My.Settings.Language
             Case "English"
@@ -259,7 +233,7 @@ Public Class frmSettings
                 name_is_taken = "This name is already taken."
                 name_is_available = "This name is available."
                 Label22.Text = "User Name"
-                btnCheck.Text = "Check"
+                Label23.Text = "Country"
             Case "Chinese"
                 Me.Text = "設定"
                 Label1.Text = "頭文字D6AA路徑"
@@ -304,7 +278,7 @@ Public Class frmSettings
                 name_is_taken = "這個名字已有人使用。"
                 name_is_available = "這個名字可使用."
                 Label22.Text = "用戶名"
-                btnCheck.Text = "檢測"
+                Label23.Text = "國家"
             Case "French"
                 Me.Text = "Réglages"
                 Label1.Text = "Initial D 6AA Chemin"
@@ -349,8 +323,24 @@ Public Class frmSettings
                 name_is_taken = "Ce nom est déjà pris."
                 name_is_available = "Ce nom est disponible."
                 Label22.Text = "Nom d'utilisateur"
-                btnCheck.Text = "Vérifier"
+                Label23.Text = "Pays"
         End Select
+    End Sub
+
+
+    Dim UpdateUserCountryURL As String = "http://id.imnotmental.com/SetUserCountry.php?"
+    Dim UpdateUserCountryURLCN As String = "http://www.emulot.cn/id/SetUserCountry.php?"
+    Private Sub UpdateUserCountry()
+        Try
+            Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+            If My.Settings.Server = "World" Then
+                client.DownloadString(Convert.ToString(UpdateUserCountryURL + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
+            Else
+                client.DownloadString(Convert.ToString(UpdateUserCountryURLCN + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
 End Class

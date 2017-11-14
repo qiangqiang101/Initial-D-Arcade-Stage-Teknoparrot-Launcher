@@ -2,8 +2,9 @@
 
 Public Class frmSubmit
 
-    Dim PrivateKey As String = "T3KN0PARR0T"
+    Dim PrivateKey As String = "_7sY*>]uKT5>se}N"
     Dim AddScoreURL As String = "http://id.imnotmental.com/AddScore.php?"
+    Dim AddScoreURLCN As String = "http://www.emulot.cn/id/AddScore.php?"
     Dim cpuid As String = Nothing
 
     'Translate
@@ -67,7 +68,11 @@ Public Class frmSubmit
             Dim numScore As String = score.Replace("'", "").Replace("""", "")
             Dim hash As String = Md5Sum((name & score & car & weather & track & coursetype & gameversion) & PrivateKey)
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-            client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
+            If My.Settings.Server = "World" Then
+                client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
+            Else
+                client.DownloadString(Convert.ToString(AddScoreURLCN + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -84,7 +89,7 @@ Public Class frmSubmit
             ElseIf DoesRecordExists(_score, _track, _coursetype, _weather, _version) Then
                 MsgBox(record_exist, MsgBoxStyle.Critical, "Error")
             Else
-                AddScore(lblName.Text, _score, cmbCar.SelectedItem.ToString, _weather, _track, _coursetype, _version)
+                AddScore(String.Format("[{0}]{1}", GetCountryCode(), lblName.Text), _score, cmbCar.SelectedItem.ToString, _weather, _track, _coursetype, _version)
                 Me.Close()
             End If
         Catch ex As Exception
@@ -112,6 +117,7 @@ Public Class frmSubmit
                 no_car = "Please select a car."
                 u_r_banned = "You are not allow to Upload Time Attack results."
                 record_exist = "Record already exist on server, please submit another."
+                Label8.Text = "Server"
             Case "Chinese"
                 Me.Text = "確認提交"
                 Label5.Text = "用戶名"
@@ -126,6 +132,7 @@ Public Class frmSubmit
                 no_car = "請選擇一台車。"
                 u_r_banned = "您不允許上傳時間挑戰結果。"
                 record_exist = "記錄已經存在於服務器上，請提交另一個。"
+                Label8.Text = "服務器"
             Case "French"
                 Me.Text = "Confirmer Envoyer"
                 Label5.Text = "Nom d'utilisateur"
@@ -140,6 +147,7 @@ Public Class frmSubmit
                 no_car = "S'il vous plaît sélectionner une voiture."
                 u_r_banned = "Vous n'êtes pas autorisé à télécharger les résultats Time Attack."
                 record_exist = "L'enregistrement existe déjà sur le serveur, veuillez en soumettre un autre."
+                Label8.Text = "Server"
         End Select
     End Sub
 End Class

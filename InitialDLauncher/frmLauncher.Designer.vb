@@ -35,6 +35,7 @@ Partial Class frmLauncher
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.lblLeaderboard = New System.Windows.Forms.Label()
+        Me.lblLogout = New System.Windows.Forms.Label()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -116,7 +117,7 @@ Partial Class frmLauncher
         Me.lblVersion.Size = New System.Drawing.Size(81, 19)
         Me.lblVersion.TabIndex = 6
         Me.lblVersion.Text = "Version: 1.0"
-        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'pbLogo
         '
@@ -165,6 +166,20 @@ Partial Class frmLauncher
         Me.lblLeaderboard.Text = "TA Leaderboard"
         Me.lblLeaderboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'lblLogout
+        '
+        Me.lblLogout.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblLogout.AutoSize = True
+        Me.lblLogout.BackColor = System.Drawing.Color.Transparent
+        Me.lblLogout.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblLogout.ForeColor = System.Drawing.Color.White
+        Me.lblLogout.Location = New System.Drawing.Point(12, 9)
+        Me.lblLogout.Name = "lblLogout"
+        Me.lblLogout.Size = New System.Drawing.Size(60, 19)
+        Me.lblLogout.TabIndex = 9
+        Me.lblLogout.Text = "User: {0}"
+        Me.lblLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'frmLauncher
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -172,6 +187,7 @@ Partial Class frmLauncher
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(952, 538)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblLogout)
         Me.Controls.Add(Me.lblLeaderboard)
         Me.Controls.Add(Me.lblCardMan)
         Me.Controls.Add(Me.lblVersion)
@@ -206,4 +222,5 @@ Partial Class frmLauncher
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
     Friend WithEvents lblLeaderboard As Label
+    Friend WithEvents lblLogout As Label
 End Class

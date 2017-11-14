@@ -38,6 +38,8 @@ Partial Class frmSubmit
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblVersion = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblServer = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblTime
@@ -134,7 +136,7 @@ Partial Class frmSubmit
         '
         Me.cmbCar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCar.FormattingEnabled = True
-        Me.cmbCar.Location = New System.Drawing.Point(134, 149)
+        Me.cmbCar.Location = New System.Drawing.Point(134, 170)
         Me.cmbCar.Name = "cmbCar"
         Me.cmbCar.Size = New System.Drawing.Size(224, 23)
         Me.cmbCar.TabIndex = 1
@@ -142,7 +144,7 @@ Partial Class frmSubmit
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(35, 152)
+        Me.Label6.Location = New System.Drawing.Point(35, 173)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(25, 15)
         Me.Label6.TabIndex = 16
@@ -150,7 +152,7 @@ Partial Class frmSubmit
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(166, 178)
+        Me.btnSubmit.Location = New System.Drawing.Point(166, 199)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
         Me.btnSubmit.TabIndex = 2
@@ -175,12 +177,32 @@ Partial Class frmSubmit
         Me.lblVersion.TabIndex = 53
         Me.lblVersion.Text = "Initial D 6 AA"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(35, 148)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(39, 15)
+        Me.Label8.TabIndex = 56
+        Me.Label8.Text = "Server"
+        '
+        'lblServer
+        '
+        Me.lblServer.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblServer.Location = New System.Drawing.Point(131, 146)
+        Me.lblServer.Name = "lblServer"
+        Me.lblServer.Size = New System.Drawing.Size(227, 21)
+        Me.lblServer.TabIndex = 55
+        Me.lblServer.Text = "World"
+        '
         'frmSubmit
         '
         Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(407, 224)
+        Me.ClientSize = New System.Drawing.Size(407, 249)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.lblServer)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.btnSubmit)
@@ -224,4 +246,6 @@ Partial Class frmSubmit
     Friend WithEvents btnSubmit As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents lblVersion As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents lblServer As Label
 End Class

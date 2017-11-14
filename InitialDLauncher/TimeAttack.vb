@@ -51,6 +51,7 @@
             cs.lblType.Text = lblType.Text
             cs.CourseType = tracktype.Item(lblType.Text)
             cs.lblWeather.Text = lblWeather.Text
+            cs.lblServer.Text = My.Settings.Server
             cs.Weather = trackweather.Item(lblWeather.Text)
             Dim car1 = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
             Dim car2 = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))

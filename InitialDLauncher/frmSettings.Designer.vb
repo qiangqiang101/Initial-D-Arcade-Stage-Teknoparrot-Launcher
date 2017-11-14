@@ -85,7 +85,8 @@ Partial Class frmSettings
         Me.cmbLang = New System.Windows.Forms.ComboBox()
         Me.txtPlayerName = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.btnCheck = New System.Windows.Forms.Button()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.cmbCountry = New System.Windows.Forms.ComboBox()
         Me.gb6.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -139,7 +140,7 @@ Partial Class frmSettings
         'cbTest
         '
         Me.cbTest.AutoSize = True
-        Me.cbTest.Location = New System.Drawing.Point(15, 99)
+        Me.cbTest.Location = New System.Drawing.Point(12, 101)
         Me.cbTest.Name = "cbTest"
         Me.cbTest.Size = New System.Drawing.Size(82, 19)
         Me.cbTest.TabIndex = 6
@@ -150,7 +151,7 @@ Partial Class frmSettings
         '
         Me.cbDebug.AutoSize = True
         Me.cbDebug.Enabled = False
-        Me.cbDebug.Location = New System.Drawing.Point(103, 99)
+        Me.cbDebug.Location = New System.Drawing.Point(100, 101)
         Me.cbDebug.Name = "cbDebug"
         Me.cbDebug.Size = New System.Drawing.Size(95, 19)
         Me.cbDebug.TabIndex = 7
@@ -622,7 +623,7 @@ Partial Class frmSettings
         'cbSaveSeat
         '
         Me.cbSaveSeat.AutoSize = True
-        Me.cbSaveSeat.Location = New System.Drawing.Point(204, 99)
+        Me.cbSaveSeat.Location = New System.Drawing.Point(201, 101)
         Me.cbSaveSeat.Name = "cbSaveSeat"
         Me.cbSaveSeat.Size = New System.Drawing.Size(119, 19)
         Me.cbSaveSeat.TabIndex = 8
@@ -632,7 +633,7 @@ Partial Class frmSettings
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(326, 73)
+        Me.Label21.Location = New System.Drawing.Point(326, 102)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(111, 15)
         Me.Label21.TabIndex = 53
@@ -643,17 +644,18 @@ Partial Class frmSettings
         Me.cmbLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbLang.FormattingEnabled = True
         Me.cmbLang.Items.AddRange(New Object() {"English", "Chinese", "French"})
-        Me.cmbLang.Location = New System.Drawing.Point(443, 70)
+        Me.cmbLang.Location = New System.Drawing.Point(443, 99)
         Me.cmbLang.Name = "cmbLang"
         Me.cmbLang.Size = New System.Drawing.Size(107, 23)
-        Me.cmbLang.TabIndex = 5
+        Me.cmbLang.TabIndex = 9
         '
         'txtPlayerName
         '
         Me.txtPlayerName.Location = New System.Drawing.Point(137, 70)
         Me.txtPlayerName.MaxLength = 20
         Me.txtPlayerName.Name = "txtPlayerName"
-        Me.txtPlayerName.Size = New System.Drawing.Size(102, 23)
+        Me.txtPlayerName.ReadOnly = True
+        Me.txtPlayerName.Size = New System.Drawing.Size(160, 23)
         Me.txtPlayerName.TabIndex = 3
         '
         'Label22
@@ -665,15 +667,24 @@ Partial Class frmSettings
         Me.Label22.TabIndex = 56
         Me.Label22.Text = "Player Name"
         '
-        'btnCheck
+        'Label23
         '
-        Me.btnCheck.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCheck.Location = New System.Drawing.Point(245, 70)
-        Me.btnCheck.Name = "btnCheck"
-        Me.btnCheck.Size = New System.Drawing.Size(75, 23)
-        Me.btnCheck.TabIndex = 4
-        Me.btnCheck.Text = "Check"
-        Me.btnCheck.UseVisualStyleBackColor = True
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(303, 73)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(50, 15)
+        Me.Label23.TabIndex = 58
+        Me.Label23.Text = "Country"
+        '
+        'cmbCountry
+        '
+        Me.cmbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCountry.FormattingEnabled = True
+        Me.cmbCountry.Items.AddRange(New Object() {"Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Myanmar/Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominican Republic", "Dominica", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "French Guiana", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Great Britain", "Greece", "Grenada", "Guadeloupe", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Israel and the Occupied Territories", "Italy", "Ivory Coast (Cote d'Ivoire)", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kosovo", "Kuwait", "Kyrgyz Republic (Kyrgyzstan)", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Republic of Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Moldova, Republic of", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Korea, Democratic Republic of (North Korea)", "Norway", "Oman", "Pacific Islands", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent's & Grenadines", "Samoa", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovak Republic (Slovakia)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Korea, Republic of (South Korea)", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor Leste", "Togo", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos Islands", "Uganda", "Ukraine", "United Arab Emirates", "United States of America (USA)", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (UK)", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"})
+        Me.cmbCountry.Location = New System.Drawing.Point(407, 70)
+        Me.cmbCountry.Name = "cmbCountry"
+        Me.cmbCountry.Size = New System.Drawing.Size(143, 23)
+        Me.cmbCountry.TabIndex = 5
         '
         'frmSettings
         '
@@ -681,7 +692,8 @@ Partial Class frmSettings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(562, 610)
-        Me.Controls.Add(Me.btnCheck)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.cmbCountry)
         Me.Controls.Add(Me.txtPlayerName)
         Me.Controls.Add(Me.Label22)
         Me.Controls.Add(Me.Label21)
@@ -778,5 +790,6 @@ Partial Class frmSettings
     Friend WithEvents cmbLang As ComboBox
     Friend WithEvents txtPlayerName As TextBox
     Friend WithEvents Label22 As Label
-    Friend WithEvents btnCheck As Button
+    Friend WithEvents Label23 As Label
+    Friend WithEvents cmbCountry As ComboBox
 End Class

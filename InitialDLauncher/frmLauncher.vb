@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 10
-    Public buildDate As String = "13/11/2017"
+    Dim curVer As Integer = 11
+    Public buildDate As String = "15/11/2017"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -189,6 +189,12 @@ Public Class frmLauncher
             audio.Play()
             audio.SetVolume(500)
         End If
+
+        If Not My.Settings.LoggedIn Then
+            frmLogin.Show()
+            Me.WindowState = FormWindowState.Minimized
+            Me.Enabled = False
+        End If
     End Sub
 
     Private Function CheckForUpdate() As Integer
@@ -357,7 +363,6 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click
-        'Process.Start("https://www.imnotmental.com")
         frmAbout.Show()
     End Sub
 
@@ -370,6 +375,28 @@ Public Class frmLauncher
     Private Sub lblVersion_MouseLeave(sender As Object, e As EventArgs) Handles lblVersion.MouseLeave
         Me.Cursor = Cursors.Default
         lblVersion.ForeColor = Color.White
+    End Sub
+
+    Private Sub lblLogout_Click(sender As Object, e As EventArgs) Handles lblLogout.Click
+        My.Settings.LoggedIn = False
+        My.Settings.UserEmail = Nothing
+        My.Settings.UserName = Nothing
+        My.Settings.UserCountry = Nothing
+        My.Settings.Save()
+        Translate()
+        frmLogin.Show()
+        Me.Enabled = False
+    End Sub
+
+    Private Sub lblLogout_MouseEnter(sender As Object, e As EventArgs) Handles lblLogout.MouseEnter
+        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
+        Me.Cursor = Cursors.Hand
+        lblLogout.ForeColor = Color.Gold
+    End Sub
+
+    Private Sub lblLogout_MouseLeave(sender As Object, e As EventArgs) Handles lblLogout.MouseLeave
+        Me.Cursor = Cursors.Default
+        lblLogout.ForeColor = Color.White
     End Sub
 
     Private Sub frmLauncher_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
@@ -452,6 +479,7 @@ Public Class frmLauncher
                 lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
                 new_version = "New version detected, do you want to update?"
                 no_card_selected = "No card selected! Are you sure you want to play without a card?"
+                If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("User: {0} | Logout", My.Settings.UserName) Else lblLogout.Text = "Login"
             Case "Chinese"
                 lblStart6.Text = "玩頭文字D6AA"
                 lblStart7.Text = "玩頭文字D7AAX"
@@ -463,6 +491,7 @@ Public Class frmLauncher
                 lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, buildDate)
                 new_version = "發現新版本，你想更新吗？"
                 no_card_selected = "没有选择卡！ 你想繼續嗎？"
+                If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("用戶名: {0} | 登出", My.Settings.UserName) Else lblLogout.Text = "登錄"
             Case "French"
                 lblStart6.Text = "Jouer Initial D 6 AA"
                 lblStart7.Text = "Jouer Initial D 7 AAX"
@@ -474,6 +503,7 @@ Public Class frmLauncher
                 lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
                 new_version = "New version detected, do you want to update?"
                 no_card_selected = "No card selected! Are you sure you want to play without a card?"
+                If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("Utilisateur: {0} | Connectez - Out", My.Settings.UserName) Else lblLogout.Text = "S'identifier"
         End Select
     End Sub
 End Class

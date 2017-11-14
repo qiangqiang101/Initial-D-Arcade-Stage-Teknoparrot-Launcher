@@ -5,6 +5,7 @@ Imports System.Threading
 Public Class frmLeaderboard
 
     Dim TopScoresURL As String = "http://id.imnotmental.com/TopScores.php?"
+    Dim TopScoresURLCN As String = "http://www.emulot.cn/id/TopScores.php?"
     Dim items As New ListViewItem()
 
     Dim trackname6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -123,7 +124,12 @@ Public Class frmLeaderboard
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=6&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            Dim reader As StreamReader
+            If My.Settings.Server = "World" Then
+                reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=6&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            Else
+                reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURLCN + "gameversion=6&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            End If
             Dim Source As String = reader.ReadToEnd
             If Not Source = Nothing Then
                 Dim Source2 As String = Source.Remove(Source.Length - 1)
@@ -158,7 +164,12 @@ Public Class frmLeaderboard
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=7&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            Dim reader As StreamReader
+            If My.Settings.Server = "World" Then
+                reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=7&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            Else
+                reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURLCN + "gameversion=7&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            End If
             Dim Source As String = reader.ReadToEnd
             If Not Source = Nothing Then
                 Dim Source2 As String = Source.Remove(Source.Length - 1)

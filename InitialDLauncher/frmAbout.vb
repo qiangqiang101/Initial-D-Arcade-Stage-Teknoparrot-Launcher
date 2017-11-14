@@ -12,6 +12,7 @@ Winform DropShadow © 陈杨文, <br />
 PlayFile © Blake Pell, <br />
 PHP/SQL Leaderboard © Alex Rose<br />
 ExtendedWebClient © ChrisD<br />
+GameSpot Theme © w3layouts<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL<br />
@@ -37,7 +38,7 @@ Reaver, Keb, Avail, NTAuthority<br />
 SEGA</center>"
 
     Private Sub frmAbout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
+        Translate()
         wbAbout.DocumentText = htmlstring
     End Sub
 
@@ -47,5 +48,22 @@ SEGA</center>"
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub Translate()
+        Select Case My.Settings.Language
+            Case "English"
+                btnClose.Text = "Close"
+                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
+                lblTitle.Text = "Initial D Arcade Stage Launcher"
+            Case "Chinese"
+                btnClose.Text = "關閉"
+                lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, frmLauncher.buildDate)
+                lblTitle.Text = "頭文字D Arcade Stage 登陸器"
+            Case "French"
+                btnClose.Text = "Fermer"
+                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
+                lblTitle.Text = "Initial D Arcade Stage Launcher"
+        End Select
     End Sub
 End Class
