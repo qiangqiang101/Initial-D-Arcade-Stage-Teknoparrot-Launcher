@@ -16,7 +16,7 @@ Public Class frmEdit
     Dim CE As String = "00"
 
     'Translation
-    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, male, female, coming_soon As String
+    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, male, female, coming_soon, must_select_avatar As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -167,6 +167,11 @@ Public Class frmEdit
 
             If cbSaveAvatar.Checked Then
                 SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
+                Select Case True
+                    Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000"
+                        MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
+                        Exit Sub
+                End Select
             End If
 
             If GroupBox1.Enabled Then
@@ -285,6 +290,7 @@ Public Class frmEdit
                 GroupBox5.Text = "Basic"
                 cbSaveAvatar.Text = "Save" & vbNewLine & "Avatar"
                 coming_soon = "Coming Soon"
+                must_select_avatar = "Avatar cannot be blank."
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
                 Label1.Text = "名字"
@@ -327,6 +333,7 @@ Public Class frmEdit
                 GroupBox5.Text = "一般"
                 cbSaveAvatar.Text = "保存" & vbNewLine & "頭像"
                 coming_soon = "即將登場"
+                must_select_avatar = "頭像不能為空。"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 Label1.Text = "Nom"
@@ -369,6 +376,7 @@ Public Class frmEdit
                 GroupBox5.Text = "De base"
                 cbSaveAvatar.Text = "Enregistrer" & vbNewLine & "Avatar"
                 coming_soon = "Arrive bientôt"
+                must_select_avatar = "Avatar ne peut pas être vide."
         End Select
     End Sub
 
@@ -668,6 +676,7 @@ Public Class frmEdit
         skin_f.Add("21", "15X0")
 
         'Add Accesories
+        accessories_f.Add("00", "00X0")
         accessories_f.Add("01", "00X1")
         accessories_f.Add("02", "D9X0")
         accessories_f.Add("03", "DAX0")
@@ -710,6 +719,7 @@ Public Class frmEdit
         accessories_f.Add("40", "FFX0")
 
         'Add Shades
+        shades_f.Add("00", "0X00")
         shades_f.Add("01", "1X10")
         shades_f.Add("02", "2X10")
         shades_f.Add("03", "3X10")

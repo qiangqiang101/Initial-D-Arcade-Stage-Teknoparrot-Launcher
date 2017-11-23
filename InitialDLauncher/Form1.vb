@@ -19,11 +19,11 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim p As String = "E:\TeknoParrot\LAUNCHER\FEMALE\SHIRT\FF"
-        Dim np As String = "E:\TeknoParrot\LAUNCHER\FEMALE\SHIRT\"
+        Dim p As String = "F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\LAUNCHER\MALE\SKIN\LTK"
+        Dim np As String = "F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\LAUNCHER\MALE\SKIN\"
         For Each file As String In IO.Directory.GetFiles(p, "*.png")
             Dim oldf As String = IO.Path.GetFileNameWithoutExtension(file)
-            Dim newf As String = oldf.Replace("x", "X")
+            Dim newf As String = oldf.Replace("x", "Y")
             'My.Computer.FileSystem.RenameFile(file, newf & ".png")
             IO.File.Move(file, np & newf & ".png")
         Next

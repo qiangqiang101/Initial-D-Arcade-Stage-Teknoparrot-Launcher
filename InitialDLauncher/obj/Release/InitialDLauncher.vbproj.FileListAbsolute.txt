@@ -49,3 +49,10 @@ E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\Init
 E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmSubmit.resources
 E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.vbprojResolveAssemblyReference.cache
 E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmLogin.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmAbout.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmEdit.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmLeaderboard.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmLogin.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmSubmit.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.frmTimeAttack.resources
+F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\obj\Release\InitialDLauncher.TimeAttack.resources
