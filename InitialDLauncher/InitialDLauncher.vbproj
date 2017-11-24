@@ -249,6 +249,12 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LemonTheKid\LemonTheKid.vbproj">
+      <Project>{871bb56b-4622-4c73-9cca-33f96515fdf4}</Project>
+      <Name>LemonTheKid</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY "$(TargetPath)" "E:\TeknoParrot"</PostBuildEvent>

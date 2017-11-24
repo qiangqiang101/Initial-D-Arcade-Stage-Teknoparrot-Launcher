@@ -90,6 +90,7 @@ Partial Class Form1
         Me.TextBox4.Location = New System.Drawing.Point(120, 124)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.TextBox4.Size = New System.Drawing.Size(326, 172)
         Me.TextBox4.TabIndex = 6
         '

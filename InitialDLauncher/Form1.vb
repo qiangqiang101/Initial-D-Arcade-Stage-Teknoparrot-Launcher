@@ -12,8 +12,8 @@
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim num As Integer = 1
-        For Each file As String In IO.Directory.GetFiles("E:\TeknoParrot\LAUNCHER\FEMALE\SHIRT", "*.png")
-            TextBox4.Text = String.Format("{0}{1}shirt_f.Add({2}{3}{2}, {2}{4}{2})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file))
+        For Each file As String In IO.Directory.GetFiles("F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\LAUNCHER\MALE\HAIR", "*.png")
+            TextBox4.Text = String.Format("{0}{1}hair_m.Add({2}{3}{2}, mha.HA_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file).Replace("Y", "X"))
             num += 1
         Next
     End Sub

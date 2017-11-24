@@ -133,7 +133,7 @@ Partial Class frmEdit
         '
         Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGender.FormattingEnabled = True
-        Me.cmbGender.Location = New System.Drawing.Point(303, 23)
+        Me.cmbGender.Location = New System.Drawing.Point(299, 22)
         Me.cmbGender.Name = "cmbGender"
         Me.cmbGender.Size = New System.Drawing.Size(111, 23)
         Me.cmbGender.TabIndex = 2
