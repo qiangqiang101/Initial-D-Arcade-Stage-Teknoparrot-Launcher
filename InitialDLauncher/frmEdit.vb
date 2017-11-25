@@ -164,6 +164,12 @@ Public Class frmEdit
                 SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
             End If
 
+            If cmbGender.SelectedIndex = 1 Then
+                SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
+            Else
+                SetHex(_filename, CLng("&H5A"), HexStringToBinary("00"))
+            End If
+
             If cbSaveAvatar.Checked Then
                 SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
                 Select Case True
@@ -177,12 +183,6 @@ Public Class frmEdit
                 If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, CLng("&H100"), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
                 If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
                 If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
-
-                If cmbGender.SelectedIndex = 1 Then
-                    SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
-                Else
-                    SetHex(_filename, CLng("&H5A"), HexStringToBinary("00"))
-                End If
 
                 Select Case _version
                     Case 6
@@ -680,6 +680,7 @@ Public Class frmEdit
 
         'Add Accesories
         Dim fac As New Female.Accessories
+        accessories_f.Add("00", fac.AC_00X0)
         accessories_f.Add("01", fac.AC_00X1)
         accessories_f.Add("02", fac.AC_D9X0)
         accessories_f.Add("03", fac.AC_DAX0)
@@ -723,6 +724,7 @@ Public Class frmEdit
 
         'Add Shades
         Dim fsp As New Female.Shades
+        shades_f.Add("00", fsp.SP_0X00)
         shades_f.Add("01", fsp.SP_1X10)
         shades_f.Add("02", fsp.SP_2X10)
         shades_f.Add("03", fsp.SP_3X10)
@@ -911,7 +913,7 @@ Public Class frmEdit
 
         'Add Shirt
         Dim msh As New Male.Shirt
-        'shirt_m.Add("01", msh.SH_0X00)
+        shirt_m.Add("01", msh.SH_0X00)
         shirt_m.Add("02", msh.SH_0X02)
         shirt_m.Add("03", msh.SH_0X03)
         shirt_m.Add("04", msh.SH_0X04)
@@ -1100,6 +1102,7 @@ Public Class frmEdit
 
         'Add Accessories
         Dim mac As New Male.Accessories
+        accessories_m.Add("00", mac.AC_00X0)
         accessories_m.Add("01", mac.AC_00X1)
         accessories_m.Add("02", mac.AC_01X1)
         accessories_m.Add("03", mac.AC_02X1)
@@ -1142,6 +1145,7 @@ Public Class frmEdit
 
         'Add Shades
         Dim msp As New Male.Shades
+        shades_m.Add("00", msp.SP_0X00)
         shades_m.Add("01", msp.SP_0X11)
         shades_m.Add("02", msp.SP_1X11)
         shades_m.Add("03", msp.SP_2X11)

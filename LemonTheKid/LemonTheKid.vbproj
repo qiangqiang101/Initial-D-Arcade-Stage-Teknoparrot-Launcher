@@ -1371,9 +1371,6 @@
     <None Include="Resources\FBY0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FCY0.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\FDY0.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2013,9 +2010,6 @@
     <None Include="Resources\FY10.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\0Y00.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\0Y02.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2292,9 +2286,6 @@
     <None Include="Resources\CY05.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CY06.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\CY07.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2437,6 +2428,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\18Y0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CY06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00Y0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FCY0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0Y00.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

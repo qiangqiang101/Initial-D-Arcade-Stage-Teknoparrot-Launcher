@@ -5,6 +5,7 @@ Namespace InitialD6
     Namespace Female
 
         Public Class Accessories
+            Public AC_00X0 As New Bitmap(My.Resources._12X0) With {.Tag = "00X0"}
             Public AC_00X1 As New Bitmap(My.Resources._00X1) With {.Tag = "00X1"}
             Public AC_D9X0 As New Bitmap(My.Resources.D9X0) With {.Tag = "D9X0"}
             Public AC_DAX0 As New Bitmap(My.Resources.DAX0) With {.Tag = "DAX0"}
@@ -248,6 +249,7 @@ Namespace InitialD6
         End Class
 
         Public Class Shades
+            Public SP_0X00 As New Bitmap(My.Resources._12X0) With {.Tag = "0X00"}
             Public SP_1X10 As New Bitmap(My.Resources._1X10) With {.Tag = "1X10"}
             Public SP_2X10 As New Bitmap(My.Resources._2X10) With {.Tag = "2X10"}
             Public SP_3X10 As New Bitmap(My.Resources._3X10) With {.Tag = "3X10"}

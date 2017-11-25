@@ -27,6 +27,11 @@ Thumbs
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs.My.Resources.Resources._00Y0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs.My.Resources.Resources._00Y1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
