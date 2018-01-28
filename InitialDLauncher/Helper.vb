@@ -29,12 +29,44 @@ Module Helper
         End If
     End Sub
 
+    Sub RunParrotLoaderUI(ByVal arg As String, wait As Boolean, Optional test As Boolean = False)
+        Dim startInfo As New ProcessStartInfo()
+        startInfo.FileName = My.Application.Info.DirectoryPath & "\TeknoParrotUi.exe"
+        startInfo.WindowStyle = ProcessWindowStyle.Minimized
+        If test Then
+            startInfo.Arguments = String.Format("""{0}"" {1}", arg, "--test")
+        Else
+            startInfo.Arguments = """" & arg & """"
+        End If
+        frmLauncher.proc = Process.Start(startInfo)
+        If wait Then
+            frmLauncher.proc.EnableRaisingEvents = True
+            frmLauncher.proc.WaitForExit()
+        Else
+            frmLauncher.proc.EnableRaisingEvents = False
+        End If
+    End Sub
+
+    Sub RunTeknoParrotOnline(wait As Boolean)
+        Process.Start("steam://rungameid/0")
+        Dim startInfo As New ProcessStartInfo()
+        startInfo.FileName = My.Application.Info.DirectoryPath & "\TeknoParrotOnline.exe"
+        startInfo.WindowStyle = ProcessWindowStyle.Normal
+        frmLauncher.proc = Process.Start(startInfo)
+        If wait Then
+            frmLauncher.proc.EnableRaisingEvents = True
+            frmLauncher.proc.WaitForExit()
+        Else
+            frmLauncher.proc.EnableRaisingEvents = False
+        End If
+    End Sub
+
     Sub GetGamePath()
         Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path}
         If pList.Contains(String.Empty) Then
-            If File.Exists(My.Application.Info.DirectoryPath & "\GameProfiles\ID6.xml") Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml") Then
                 Dim xd As New XmlDocument()
-                xd.Load(My.Application.Info.DirectoryPath & "\GameProfiles\ID6.xml")
+                xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml")
                 Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
                     For Each item As XmlNode In items
                         Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
@@ -43,9 +75,9 @@ Module Helper
                     Next
                 End Using
             End If
-            If File.Exists(My.Application.Info.DirectoryPath & "\GameProfiles\ID7.xml") Then
+            If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml") Then
                 Dim xd As New XmlDocument()
-                xd.Load(My.Application.Info.DirectoryPath & "\GameProfiles\ID7.xml")
+                xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml")
                 Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
                     For Each item As XmlNode In items
                         Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText

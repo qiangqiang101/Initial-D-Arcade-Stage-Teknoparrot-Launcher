@@ -59,3 +59,6 @@ F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launche
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\Thumbs.dll
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\Thumbs.pdb
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\Thumbs.xml
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\Thumbs.dll
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\Thumbs.pdb
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\Thumbs.xml

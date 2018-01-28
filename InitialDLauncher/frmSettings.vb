@@ -21,6 +21,7 @@ Public Class frmSettings
             txtPlayerName.Text = My.Settings.UserName
             cbTest.Checked = My.Settings.TestMode
             cbDebug.Checked = My.Settings.DebugMode
+            cbMP.Checked = My.Settings.Multiplayer
             cmbLang.SelectedItem = My.Settings.Language
             cmbCountry.SelectedItem = My.Settings.UserCountry
 
@@ -38,19 +39,7 @@ Public Class frmSettings
 
     Private Sub Load6Config()
         Try
-            cbFree6.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id6Config, "General", "FreePlay")))
-            If bool.Contains(ReadIniValue(Id6Config, "General", "Windowed").ToLower) Then cbWindow6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "Windowed"))
-            If bool.Contains(ReadIniValue(Id6Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix6.Checked = Convert.ToBoolean(ReadIniValue(Id6Config, "General", "EnableAmdFix"))
             If IO.File.Exists(SBUU_e2prom) Then cmbSeat6.SelectedItem = GetSeatName(GetHex(SBUU_e2prom, 116, 4), 6)
-
-            txtIP6.Text = ReadIniValue(Id6Config, "Network", "Ip")
-            txtMask6.Text = ReadIniValue(Id6Config, "Network", "Mask")
-            txtGateway6.Text = ReadIniValue(Id6Config, "Network", "Gateway")
-            txtDNSP6.Text = ReadIniValue(Id6Config, "Network", "Dns1")
-            txtDNSS6.Text = ReadIniValue(Id6Config, "Network", "Dns2")
-            txtBroadcast6.Text = ReadIniValue(Id6Config, "Network", "BroadcastIP")
-            txtCab1IP6.Text = ReadIniValue(Id6Config, "Network", "Cab1IP")
-            txtCab2IP6.Text = ReadIniValue(Id6Config, "Network", "Cab2IP")
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -58,19 +47,7 @@ Public Class frmSettings
 
     Private Sub Load7Config()
         Try
-            cbFree7.Checked = Convert.ToBoolean(CInt(ReadIniValue(Id7Config, "General", "FreePlay")))
-            If bool.Contains(ReadIniValue(Id7Config, "General", "Windowed").ToLower) Then cbWindow7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "Windowed"))
-            If bool.Contains(ReadIniValue(Id7Config, "General", "EnableAmdFix").ToLower) Then cbAMDFix7.Checked = Convert.ToBoolean(ReadIniValue(Id7Config, "General", "EnableAmdFix"))
             'cmbSeat7.SelectedItem = GetSeatName(GetHex(SBYD_e2prom, 116, 4), 7)
-
-            txtIP7.Text = ReadIniValue(Id7Config, "Network", "Ip")
-            txtMask7.Text = ReadIniValue(Id7Config, "Network", "Mask")
-            txtGateway7.Text = ReadIniValue(Id7Config, "Network", "Gateway")
-            txtDNSP7.Text = ReadIniValue(Id7Config, "Network", "Dns1")
-            txtDNSS7.Text = ReadIniValue(Id7Config, "Network", "Dns2")
-            txtBroadcast7.Text = ReadIniValue(Id7Config, "Network", "BroadcastIP")
-            txtCab1IP7.Text = ReadIniValue(Id7Config, "Network", "Cab1IP")
-            txtCab2IP7.Text = ReadIniValue(Id7Config, "Network", "Cab2IP")
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -95,6 +72,7 @@ Public Class frmSettings
                 My.Settings.UserName = txtPlayerName.Text
                 My.Settings.TestMode = cbTest.Checked
                 My.Settings.DebugMode = cbDebug.Checked
+                My.Settings.Multiplayer = cbMP.Checked
                 My.Settings.Language = cmbLang.SelectedItem
                 My.Settings.UserCountry = cmbCountry.SelectedItem
                 My.Settings.Save()
@@ -114,20 +92,7 @@ Public Class frmSettings
 
     Private Sub Save6Config()
         Try
-            WriteIniValue(Id6Config, "General", "FreePlay", Convert.ToInt32(cbFree6.Checked))
-            WriteIniValue(Id6Config, "General", "Windowed", cbWindow6.Checked.ToString.ToLower)
-            WriteIniValue(Id6Config, "General", "EnableAmdFix", cbAMDFix6.Checked.ToString.ToLower)
-
             If cbSaveSeat.Checked Then SetSeatName(cmbSeat6.SelectedItem, 6)
-
-            WriteIniValue(Id6Config, "Network", "Ip", txtIP6.Text)
-            WriteIniValue(Id6Config, "Network", "Mask", txtMask6.Text)
-            WriteIniValue(Id6Config, "Network", "Gateway", txtGateway6.Text)
-            WriteIniValue(Id6Config, "Network", "Dns1", txtDNSP6.Text)
-            WriteIniValue(Id6Config, "Network", "Dns2", txtDNSS6.Text)
-            WriteIniValue(Id6Config, "Network", "BroadcastIP", txtBroadcast6.Text)
-            WriteIniValue(Id6Config, "Network", "Cab1IP", txtCab1IP6.Text)
-            WriteIniValue(Id6Config, "Network", "Cab2IP", txtCab2IP6.Text)
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             gotError = True
@@ -136,20 +101,7 @@ Public Class frmSettings
 
     Private Sub Save7Config()
         Try
-            WriteIniValue(Id7Config, "General", "FreePlay", Convert.ToInt32(cbFree7.Checked))
-            WriteIniValue(Id7Config, "General", "Windowed", cbWindow7.Checked.ToString.ToLower)
-            WriteIniValue(Id7Config, "General", "EnableAmdFix", cbAMDFix7.Checked.ToString.ToLower)
-
             'If cbSaveSeat.Checked Then SetSeatName(cmbSeat7.SelectedItem, 7)
-
-            WriteIniValue(Id7Config, "Network", "Ip", txtIP7.Text)
-            WriteIniValue(Id7Config, "Network", "Mask", txtMask7.Text)
-            WriteIniValue(Id7Config, "Network", "Gateway", txtGateway7.Text)
-            WriteIniValue(Id7Config, "Network", "Dns1", txtDNSP7.Text)
-            WriteIniValue(Id7Config, "Network", "Dns2", txtDNSS7.Text)
-            WriteIniValue(Id7Config, "Network", "BroadcastIP", txtBroadcast7.Text)
-            WriteIniValue(Id7Config, "Network", "Cab1IP", txtCab1IP7.Text)
-            WriteIniValue(Id7Config, "Network", "Cab2IP", txtCab2IP7.Text)
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             gotError = True
@@ -172,7 +124,7 @@ Public Class frmSettings
         If pattern = "12121" Then cbDebug.Enabled = True
     End Sub
 
-    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtIP6.KeyPress, txtBroadcast6.KeyPress, txtCab1IP6.KeyPress, txtCab2IP6.KeyPress, txtDNSP6.KeyPress, txtDNSS6.KeyPress, txtGateway6.KeyPress, txtMask6.KeyPress, txtBroadcast7.KeyPress, txtCab1IP7.KeyPress, txtCab2IP7.KeyPress, txtDNSP7.KeyPress, txtDNSS7.KeyPress, txtGateway7.KeyPress, txtIP7.KeyPress, txtMask7.KeyPress
+    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
            Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then
             Return
@@ -197,36 +149,8 @@ Public Class frmSettings
                 cbDebug.Text = "Debug Mode"
                 cbSaveSeat.Text = "Save Cabinet Seat"
                 Label21.Text = "Launcher Language"
-                gb6.Text = "Initial D 6AA Config"
-                gb7.Text = "Initial D 7AAX Config"
-                GroupBox2.Text = "General"
-                GroupBox6.Text = GroupBox2.Text
-                GroupBox3.Text = "Network"
-                GroupBox5.Text = GroupBox3.Text
-                cbFree6.Text = "Free Play"
-                cbFree7.Text = cbFree6.Text
-                cbWindow6.Text = "Window Mode"
-                cbWindow7.Text = cbWindow6.Text
-                cbAMDFix6.Text = "AMD Fix"
-                cbAMDFix7.Text = cbAMDFix6.Text
-                Label11.Text = "Cabinet Seat (BETA)"
-                Label20.Text = Label11.Text
-                Label3.Text = "IP Address"
-                Label19.Text = Label3.Text
-                Label5.Text = "Subnet Mask"
-                Label17.Text = Label5.Text
-                Label4.Text = "Default Gateway"
-                Label18.Text = Label4.Text
-                Label10.Text = "Broadcast IP"
-                Label14.Text = Label10.Text
-                Label6.Text = "Primary DNS"
-                Label16.Text = Label6.Text
-                Label7.Text = "Secondary DNS"
-                Label15.Text = Label7.Text
-                Label9.Text = "Cabinet 1 IP"
-                Label13.Text = Label9.Text
-                Label8.Text = "Cabinet 2 IP"
-                Label12.Text = Label8.Text
+                gb6.Text = "Initial D 6AA Cabinet Seat (BETA)"
+                gb7.Text = "Initial D 7AAX Cabinet Seat (BETA)"
                 btnSave.Text = "Save"
                 no_exe = "Please Enter Path without file name."
                 no_name = "Please Enter your User Name."
@@ -234,6 +158,7 @@ Public Class frmSettings
                 name_is_available = "This name is available."
                 Label22.Text = "User Name"
                 Label23.Text = "Country"
+                cbMP.Text = "Multiplayer"
             Case "Chinese"
                 Me.Text = "設定"
                 Label1.Text = "頭文字D6AA路徑"
@@ -242,36 +167,8 @@ Public Class frmSettings
                 cbDebug.Text = "調試模式"
                 cbSaveSeat.Text = "保存座位"
                 Label21.Text = "登陸器語言"
-                gb6.Text = "頭文字D6AA配置"
-                gb7.Text = "頭文字D7AAX配置"
-                GroupBox2.Text = "一般"
-                GroupBox6.Text = GroupBox2.Text
-                GroupBox3.Text = "網絡"
-                GroupBox5.Text = GroupBox3.Text
-                cbFree6.Text = "免费玩"
-                cbFree7.Text = cbFree6.Text
-                cbWindow6.Text = "窗口模式"
-                cbWindow7.Text = cbWindow6.Text
-                cbAMDFix6.Text = "AMD修復"
-                cbAMDFix7.Text = cbAMDFix6.Text
-                Label11.Text = "座位(BETA)"
-                Label20.Text = Label11.Text
-                Label3.Text = "IP地址"
-                Label19.Text = Label3.Text
-                Label5.Text = "子網掩碼"
-                Label17.Text = Label5.Text
-                Label4.Text = "默認網關"
-                Label18.Text = Label4.Text
-                Label10.Text = "廣播IP"
-                Label14.Text = Label10.Text
-                Label6.Text = "主DNS"
-                Label16.Text = Label6.Text
-                Label7.Text = "副DNS"
-                Label15.Text = Label7.Text
-                Label9.Text = "座位1 IP"
-                Label13.Text = Label9.Text
-                Label8.Text = "座位2 IP"
-                Label12.Text = Label8.Text
+                gb6.Text = "頭文字D6AA座位(BETA)"
+                gb7.Text = "頭文字D7AAX座位(BETA)"
                 btnSave.Text = "保存"
                 no_exe = "請輸入沒有文件名的路徑。"
                 no_name = "請輸入您的用戶名。"
@@ -279,6 +176,7 @@ Public Class frmSettings
                 name_is_available = "這個名字可使用."
                 Label22.Text = "用戶名"
                 Label23.Text = "國家"
+                cbMP.Text = "線上模式"
             Case "French"
                 Me.Text = "Réglages"
                 Label1.Text = "Initial D 6AA Chemin"
@@ -287,36 +185,8 @@ Public Class frmSettings
                 cbDebug.Text = "Mode Debug"
                 cbSaveSeat.Text = "Sauv Cabinet Seat"
                 Label21.Text = "Langue"
-                gb6.Text = "Initial D 6AA Config"
-                gb7.Text = "Initial D 7AAX Config"
-                GroupBox2.Text = "General"
-                GroupBox6.Text = GroupBox2.Text
-                GroupBox3.Text = "Network"
-                GroupBox5.Text = GroupBox3.Text
-                cbFree6.Text = "Free Play"
-                cbFree7.Text = cbFree6.Text
-                cbWindow6.Text = "Fenetre Mod"
-                cbWindow7.Text = cbWindow6.Text
-                cbAMDFix6.Text = "AMD Fix"
-                cbAMDFix7.Text = cbAMDFix6.Text
-                Label11.Text = "Cabinet Seat (BETA)"
-                Label20.Text = Label11.Text
-                Label3.Text = "IP Address"
-                Label19.Text = Label3.Text
-                Label5.Text = "Subnet Mask"
-                Label17.Text = Label5.Text
-                Label4.Text = "Default Gateway"
-                Label18.Text = Label4.Text
-                Label10.Text = "Broadcast IP"
-                Label14.Text = Label10.Text
-                Label6.Text = "Primary DNS"
-                Label16.Text = Label6.Text
-                Label7.Text = "Secondary DNS"
-                Label15.Text = Label7.Text
-                Label9.Text = "Cabinet 1 IP"
-                Label13.Text = Label9.Text
-                Label8.Text = "Cabinet 2 IP"
-                Label12.Text = Label8.Text
+                gb6.Text = "Initial D 6AA Cabinet Seat (BETA)"
+                gb7.Text = "Initial D 7AAX Cabinet Seat (BETA)"
                 btnSave.Text = "Sauv"
                 no_exe = "Veuillez entrer le chemin sans nom de fichier."
                 no_name = "S'il vous plaît entrez votre nom d'utilisateur."
@@ -324,6 +194,7 @@ Public Class frmSettings
                 name_is_available = "Ce nom est disponible."
                 Label22.Text = "Nom d'utilisateur"
                 Label23.Text = "Pays"
+                cbMP.Text = "Multijoueur"
         End Select
     End Sub
 

@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 13
-    Public buildDate As String = "26/11/2017"
+    Dim curVer As Integer = 14
+    Public buildDate As String = "29/01/2018"
 
     Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
     Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
@@ -210,44 +210,40 @@ Public Class frmLauncher
         End
     End Sub
 
-    Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
+    Private Sub RunGame(CardDir As String, CardPath As String, GameID As Integer, AppData As String, MySettingGameDir As String, Profile As String)
         Try
             If File.Exists(mp3File) Then audio.Pause()
             My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
 
-            If Not IsCardFolderEmpty(id6CardDir) AndAlso id6CardPath = Nothing Then
+            If Not IsCardFolderEmpty(CardDir) AndAlso CardPath = Nothing Then
                 Dim result As Integer = MessageBox.Show(no_card_selected, "Initial D Launcher", MessageBoxButtons.YesNo)
                 If result = DialogResult.No Then
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
-                    selPath = id6CardPath
-                    lastGame = 6
+                    selPath = CardPath
+                    lastGame = GameID
                     Me.WindowState = FormWindowState.Minimized
 
-                    If File.Exists(id6CardPath) Then If Not File.Exists(id6AppData) Then File.Move(id6CardPath, id6AppData)
-                    RunParrotLoader(String.Format("{0}\picodaemon.exe", My.Settings.Id6Path), False)
-                    Shell(My.Application.Info.DirectoryPath & "\dumbjvscmd.exe 8")
-                    If My.Settings.TestMode Then
-                        RunParrotLoader(String.Format("{0}\id6_dump_.exe", My.Settings.Id6Path), True, True)
+                    If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
+                    RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
+                    If My.Settings.Multiplayer Then
+                        RunTeknoParrotOnline(True)
                     Else
-                        RunParrotLoader(String.Format("{0}\id6_dump_.exe", My.Settings.Id6Path), True)
+                        RunParrotLoaderUI(Profile, True, My.Settings.TestMode)
                     End If
-                    Shell("taskkill /F /IM dumbjvscmd.exe", AppWinStyle.Hide)
                 End If
             Else
-                selPath = id6CardPath
-                lastGame = 6
+                selPath = CardPath
+                lastGame = GameID
                 Me.WindowState = FormWindowState.Minimized
 
-                If File.Exists(id6CardPath) Then If Not File.Exists(id6AppData) Then File.Move(id6CardPath, id6AppData)
-                RunParrotLoader(String.Format("{0}\picodaemon.exe", My.Settings.Id6Path), False)
-                Shell(My.Application.Info.DirectoryPath & "\dumbjvscmd.exe 8")
-                If My.Settings.TestMode Then
-                    RunParrotLoader(String.Format("{0}\id6_dump_.exe", My.Settings.Id6Path), True, True)
+                If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
+                RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
+                If My.Settings.Multiplayer Then
+                    RunTeknoParrotOnline(True)
                 Else
-                    RunParrotLoader(String.Format("{0}\id6_dump_.exe", My.Settings.Id6Path), True)
+                    RunParrotLoaderUI(Profile, True, My.Settings.TestMode)
                 End If
-                Shell("taskkill /F /IM dumbjvscmd.exe", AppWinStyle.Hide)
             End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -255,49 +251,12 @@ Public Class frmLauncher
         End Try
     End Sub
 
+    Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
+        RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
+    End Sub
+
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click
-        Try
-            If File.Exists(mp3File) Then audio.Pause()
-            My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-
-            If Not IsCardFolderEmpty(id7CardDir) AndAlso id7CardPath = Nothing Then
-                Dim result As Integer = MessageBox.Show(no_card_selected, "Initial D Launcher", MessageBoxButtons.YesNo)
-                If result = DialogResult.No Then
-                    Exit Sub
-                ElseIf result = DialogResult.Yes Then
-                    selPath = id7CardPath
-                    lastGame = 7
-                    Me.WindowState = FormWindowState.Minimized
-
-                    If File.Exists(id7CardPath) Then If Not File.Exists(id7AppData) Then File.Move(id7CardPath, id7AppData)
-                    RunParrotLoader(String.Format("{0}\picodaemon.exe", My.Settings.Id7Path), False)
-                    Shell(My.Application.Info.DirectoryPath & "\dumbjvscmd.exe 8")
-                    If My.Settings.TestMode Then
-                        RunParrotLoader(String.Format("{0}\InitialD7_GLW_RE_SBYD_dumped_.exe", My.Settings.Id7Path), True, True)
-                    Else
-                        RunParrotLoader(String.Format("{0}\InitialD7_GLW_RE_SBYD_dumped_.exe", My.Settings.Id7Path), True)
-                    End If
-                    Shell("taskkill /F /IM dumbjvscmd.exe", AppWinStyle.Hide)
-                End If
-            Else
-                selPath = id7CardPath
-                lastGame = 7
-                Me.WindowState = FormWindowState.Minimized
-
-                If File.Exists(id7CardPath) Then If Not File.Exists(id7AppData) Then File.Move(id7CardPath, id7AppData)
-                RunParrotLoader(String.Format("{0}\picodaemon.exe", My.Settings.Id7Path), False)
-                Shell(My.Application.Info.DirectoryPath & "\dumbjvscmd.exe 8")
-                If My.Settings.TestMode Then
-                    RunParrotLoader(String.Format("{0}\InitialD7_GLW_RE_SBYD_dumped_.exe", My.Settings.Id7Path), True, True)
-                Else
-                    RunParrotLoader(String.Format("{0}\InitialD7_GLW_RE_SBYD_dumped_.exe", My.Settings.Id7Path), True)
-                End If
-                Shell("taskkill /F /IM dumbjvscmd.exe", AppWinStyle.Hide)
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-            Exit Sub
-        End Try
+        RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
     End Sub
 
     Private Sub lblSetting_Click(sender As Object, e As EventArgs) Handles lblSetting.Click
@@ -340,10 +299,10 @@ Public Class frmLauncher
             If selPath = Nothing Then
                 Select Case lastGame
                     Case 6
-                        selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                         If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
                     Case 7
-                        selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                         If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
                 End Select
             Else
