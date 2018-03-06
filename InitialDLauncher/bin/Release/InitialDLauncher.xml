@@ -172,6 +172,21 @@ InitialDLauncher
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
 </summary>
 </member>
+<member name="P:InitialDLauncher.My.Resources.Resources.akagi">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.akina">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.akinaSnow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InitialDLauncher.My.Resources.Resources.card6f">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -192,7 +207,22 @@ InitialDLauncher
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InitialDLauncher.My.Resources.Resources.happogahara">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InitialDLauncher.My.Resources.Resources.id_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.irohazaka">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.lakeAkina">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -202,7 +232,22 @@ InitialDLauncher
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InitialDLauncher.My.Resources.Resources.myogi">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InitialDLauncher.My.Resources.Resources.nada">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.nagao">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.namagari">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -210,6 +255,41 @@ InitialDLauncher
 <member name="P:InitialDLauncher.My.Resources.Resources.play">
 <summary>
   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.sadamine">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.tsubakiLine">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.tsuchisaka">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.tsuchisakaSnow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.tsukuba">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.tsukubaSnow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InitialDLauncher.My.Resources.Resources.usui">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 </members>

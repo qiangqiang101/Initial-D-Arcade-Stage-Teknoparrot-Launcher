@@ -5,7 +5,7 @@
     Dim trackweather As Dictionary(Of String, String) = New Dictionary(Of String, String)
 
     'Translate
-    Public LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow As String
+    Public LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow As String
     Dim id6, id7 As String
 
     Private _version As Integer
@@ -85,6 +85,8 @@
         trackname.Add(Sadamine, "Sadamine")
         trackname.Add(Tsuchisaka, "Tsuchisaka")
         trackname.Add(AkinaSnow, "AkinaSnow")
+        trackname.Add(TsukubaSnow, "TsukubaSnow")
+        trackname.Add(TsuchisakaSnow, "TsuchisakaSnow")
         tracktype.Add(Uphill, "Uphill")
         tracktype.Add(Downhill, "Downhill")
         tracktype.Add(Counterclockwise, "Counterclockwise")
@@ -114,6 +116,8 @@
                 Sadamine = "Sadamine"
                 Tsuchisaka = "Tsuchisaka"
                 AkinaSnow = "Akina Snow"
+                TsukubaSnow = "Tsukuba Snow"
+                TsuchisakaSnow = "Tsuchisaka Snow"
                 Uphill = "Uphill"
                 Downhill = "Downhill"
                 Counterclockwise = "Counterclockwise"
@@ -142,6 +146,8 @@
                 Sadamine = "定峰"
                 Tsuchisaka = "土坂"
                 AkinaSnow = "秋明(雪)"
+                TsukubaSnow = "筑波(雪)"
+                TsuchisakaSnow = "土坂(雪)"
                 Uphill = "上坡"
                 Downhill = "下坡"
                 Counterclockwise = "左週"
@@ -170,6 +176,8 @@
                 Sadamine = "Sadamine"
                 Tsuchisaka = "Tsuchisaka"
                 AkinaSnow = "Akina Snow"
+                TsukubaSnow = "Tsukuba Snow"
+                TsuchisakaSnow = "Tsuchisaka Snow"
                 Uphill = "Montée"
                 Downhill = "Une descente"
                 Counterclockwise = "Dans le sens antihoraire"

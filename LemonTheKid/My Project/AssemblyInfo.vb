@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Avatar Thumbnails by LemonTheKid")>
 <Assembly: AssemblyCompany("Zettabyte Technology")>
 <Assembly: AssemblyProduct("Avatar Thumbnails")>
-<Assembly: AssemblyCopyright("Copyright © 2017 Zettabyte Technology")>
+<Assembly: AssemblyCopyright("Copyright © 2017-2018 Zettabyte Technology")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

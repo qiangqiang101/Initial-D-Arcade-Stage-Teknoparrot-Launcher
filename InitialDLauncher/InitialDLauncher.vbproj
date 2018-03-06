@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
@@ -172,6 +173,9 @@
     <Compile Include="TimeAttack.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="TransparentControl.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WebClientEx.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -236,6 +240,22 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\usui.jpg" />
+    <None Include="Resources\tsukubaSnow.jpg" />
+    <None Include="Resources\tsukuba.jpg" />
+    <None Include="Resources\tsuchisakaSnow.jpg" />
+    <None Include="Resources\tsuchisaka.jpg" />
+    <None Include="Resources\tsubakiLine.jpg" />
+    <None Include="Resources\sadamine.jpg" />
+    <None Include="Resources\namagari.jpg" />
+    <None Include="Resources\nagao.jpg" />
+    <None Include="Resources\myogi.jpg" />
+    <None Include="Resources\lakeAkina.jpg" />
+    <None Include="Resources\irohazaka.jpg" />
+    <None Include="Resources\happogahara.jpg" />
+    <None Include="Resources\akinaSnow.jpg" />
+    <None Include="Resources\akina.jpg" />
+    <None Include="Resources\akagi.jpg" />
     <None Include="Resources\nada.png" />
     <None Include="Resources\card7m.png" />
     <None Include="Resources\card7f.png" />
@@ -250,6 +270,10 @@
     <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AkiiHoshi\AkiiHoshi.vbproj">
+      <Project>{90760b33-16cc-4d4a-af5d-ef9470c13d08}</Project>
+      <Name>AkiiHoshi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LemonTheKid\LemonTheKid.vbproj">
       <Project>{871bb56b-4622-4c73-9cca-33f96515fdf4}</Project>
       <Name>LemonTheKid</Name>

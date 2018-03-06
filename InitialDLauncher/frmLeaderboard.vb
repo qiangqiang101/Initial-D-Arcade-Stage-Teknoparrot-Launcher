@@ -18,7 +18,7 @@ Public Class frmLeaderboard
     Dim thread6, thread7 As Thread
 
     'Translate
-    Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow As String
+    Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow As String
 
     Private Sub btnReport6_Click(sender As Object, e As EventArgs) Handles btnReport6.Click
 
@@ -78,6 +78,10 @@ Public Class frmLeaderboard
                 tracktype7.Add(Uphill, "Uphill")
                 tracktype7.Add(Downhill, "Downhill")
                 trackweather7.Add(Snow, "Snow")
+            Case "TsukubaSnow", "TsuchisakaSnow"
+                tracktype7.Add(Inbound, "Inbound")
+                tracktype7.Add(Outbound, "Outbound")
+                trackweather7.Add(Snow, "Snow")
         End Select
 
         cmbType7.DataSource = New BindingSource(tracktype7, Nothing)
@@ -93,23 +97,47 @@ Public Class frmLeaderboard
         cmbType6.ValueMember = "Value"
         tracktype6.Clear()
 
+        cmbWeather6.DataSource = Nothing
+        cmbWeather6.Items.Clear()
+        cmbWeather6.DisplayMember = "Key"
+        cmbWeather6.ValueMember = "Value"
+        trackweather6.Clear()
+
         Select Case cmbCourse6.SelectedValue.ToString
             Case "LakeAkina", "Usui"
                 tracktype6.Add(Counterclockwise, "Counterclockwise")
                 tracktype6.Add(Clockwise, "Clockwise")
-            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine"
+                trackweather6.Add(Dry, "Dry")
+                trackweather6.Add(Wet, "Wet")
+            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine", "Sadamine"
                 tracktype6.Add(Uphill, "Uphill")
                 tracktype6.Add(Downhill, "Downhill")
+                trackweather6.Add(Dry, "Dry")
+                trackweather6.Add(Wet, "Wet")
             Case "Irohazka"
                 tracktype6.Add(Downhill, "Downhill")
                 tracktype6.Add(Reversed, "Reversed")
-            Case "Happogahara", "Tsukuba"
+                trackweather6.Add(Dry, "Dry")
+                trackweather6.Add(Wet, "Wet")
+            Case "Happogahara", "Tsukuba", "Tsuchisaka"
                 tracktype6.Add(Inbound, "Inbound")
                 tracktype6.Add(Outbound, "Outbound")
+                trackweather6.Add(Dry, "Dry")
+                trackweather6.Add(Wet, "Wet")
+            Case "AkinaSnow"
+                tracktype6.Add(Uphill, "Uphill")
+                tracktype6.Add(Downhill, "Downhill")
+                trackweather6.Add(Snow, "Snow")
+            Case "TsukubaSnow", "TsuchisakaSnow"
+                tracktype6.Add(Inbound, "Inbound")
+                tracktype6.Add(Outbound, "Outbound")
+                trackweather6.Add(Snow, "Snow")
         End Select
 
         cmbType6.DataSource = New BindingSource(tracktype6, Nothing)
         cmbType6.SelectedIndex = 0
+        cmbWeather6.DataSource = New BindingSource(trackweather6, Nothing)
+        cmbWeather6.SelectedIndex = 0
     End Sub
 
     Dim Dry, Wet, Snow As String, Uphill, Downhill, Counterclockwise, Clockwise, Inbound, Outbound, Reversed As String
@@ -227,6 +255,11 @@ Public Class frmLeaderboard
         trackname6.Add(Nagao, "Nagao")
         trackname6.Add(Tsukuba, "Tsukuba")
         trackname6.Add(TsubakiLine, "TsubakiLine")
+        trackname6.Add(Sadamine, "Sadamine")
+        trackname6.Add(Tsuchisaka, "Tsuchisaka")
+        trackname6.Add(AkinaSnow, "AkinaSnow")
+        trackname6.Add(TsukubaSnow, "TsukubaSnow")
+        trackname6.Add(TsuchisakaSnow, "TsuchisakaSnow")
         cmbCourse6.DisplayMember = "Key"
         cmbCourse6.ValueMember = "Value"
         cmbCourse6.DataSource = New BindingSource(trackname6, Nothing)
@@ -245,19 +278,15 @@ Public Class frmLeaderboard
         trackname7.Add(Sadamine, "Sadamine")
         trackname7.Add(Tsuchisaka, "Tsuchisaka")
         trackname7.Add(AkinaSnow, "AkinaSnow")
+        trackname7.Add(TsukubaSnow, "TsukubaSnow")
+        trackname7.Add(TsuchisakaSnow, "TsuchisakaSnow")
         cmbCourse7.DisplayMember = "Key"
         cmbCourse7.ValueMember = "Value"
         cmbCourse7.DataSource = New BindingSource(trackname7, Nothing)
 
-        trackweather6.Add(Dry, "Dry")
-        trackweather6.Add(Wet, "Wet")
-        cmbWeather6.DisplayMember = "Key"
-        cmbWeather6.ValueMember = "Value"
-        cmbWeather6.DataSource = New BindingSource(trackweather6, Nothing)
-
         cmbCourse6.SelectedIndex = 0
         cmbCourse7.SelectedIndex = 0
-        cmbWeather6.SelectedIndex = 0
+
 
         thread6 = New Thread(Sub() RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString))
         thread6.Start()
@@ -304,6 +333,8 @@ Public Class frmLeaderboard
                 Sadamine = "Sadamine"
                 Tsuchisaka = "Tsuchisaka"
                 AkinaSnow = "Akina Snow"
+                TsukubaSnow = "Tsukuba Snow"
+                TsuchisakaSnow = "Tsuchisaka Snow"
                 Uphill = "Uphill"
                 Downhill = "Downhill"
                 Counterclockwise = "Counterclockwise"
@@ -350,6 +381,8 @@ Public Class frmLeaderboard
                 Sadamine = "定峰"
                 Tsuchisaka = "土坂"
                 AkinaSnow = "秋明(雪)"
+                TsukubaSnow = "筑波(雪)"
+                TsuchisakaSnow = "土坂(雪)"
                 Uphill = "上坡"
                 Downhill = "下坡"
                 Counterclockwise = "左週"
@@ -396,6 +429,8 @@ Public Class frmLeaderboard
                 Sadamine = "Sadamine"
                 Tsuchisaka = "Tsuchisaka"
                 AkinaSnow = "Akina Snow"
+                TsukubaSnow = "Tsukuba Snow"
+                TsuchisakaSnow = "Tsuchisaka Snow"
                 Uphill = "Montée"
                 Downhill = "Une descente"
                 Counterclockwise = "Dans le sens antihoraire"

@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Zettabyte Technology")>
 <Assembly: AssemblyProduct("InitialD Launcher")>
-<Assembly: AssemblyCopyright("Copyright © 2017 InitialD Launcher")>
+<Assembly: AssemblyCopyright("Copyright © 2017-2018 InitialD Launcher")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.0.129.0")>
-<Assembly: AssemblyFileVersion("2.0.129.0")>
+<Assembly: AssemblyVersion("2.1.36.1")>
+<Assembly: AssemblyFileVersion("2.1.36.1")>
