@@ -12,10 +12,18 @@
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim num As Integer = 1
-        For Each file As String In IO.Directory.GetFiles("F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\LAUNCHER\MALE\HAIR", "*.png")
-            TextBox4.Text = String.Format("{0}{1}hair_m.Add({2}{3}{2}, mha.HA_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file).Replace("Y", "X"))
+        For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\Avatar D7\Background", "*.jpg")
+            TextBox4.Text = String.Format("{0}{1}frame.Add({2}{3}{2}, fm.FM_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file))
             num += 1
         Next
+
+        'For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\Avatar D7\Background", "*.jpg")
+        '    Dim fname As String = IO.Path.GetFileNameWithoutExtension(file)
+        '    Dim fname1 As Char = fname.Substring(0, 1)
+        '    Dim fname2 As String = fname
+        '    If IsNumeric(fname1) Then fname2 = "_" & fname
+        '    TextBox4.Text = String.Format("{0}{1}Public FM_{3} As New Bitmap(My.Resources.{4}) With {5}.Tag = {2}{3}{2}{6}", TextBox4.Text, vbNewLine, """", fname, fname2, "{", "}")
+        'Next
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click

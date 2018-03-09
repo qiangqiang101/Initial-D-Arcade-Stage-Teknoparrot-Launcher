@@ -34,14 +34,14 @@ Partial Class frmTimeAttack
         Me.flPanel.Location = New System.Drawing.Point(0, 0)
         Me.flPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.flPanel.Name = "flPanel"
-        Me.flPanel.Size = New System.Drawing.Size(899, 627)
+        Me.flPanel.Size = New System.Drawing.Size(914, 697)
         Me.flPanel.TabIndex = 1
         '
         'frmTimeAttack
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(899, 627)
+        Me.ClientSize = New System.Drawing.Size(914, 697)
         Me.Controls.Add(Me.flPanel)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

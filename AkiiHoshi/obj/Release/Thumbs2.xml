@@ -27,6 +27,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._01">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._01V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -38,6 +43,11 @@ Thumbs2
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._01W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._02">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -57,6 +67,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._03">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._03V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -68,6 +83,11 @@ Thumbs2
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._03W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._04">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -87,12 +107,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._05">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._05V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._05W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._06">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -107,12 +137,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._07">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._07V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._07W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._08">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -127,12 +167,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._09">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._09V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._09W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._0A">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -152,6 +202,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._0B">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._0BV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -163,6 +218,11 @@ Thumbs2
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._0BW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._0C">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -182,6 +242,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._0D">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._0DV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -197,6 +262,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._0E">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._0EV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -208,6 +278,11 @@ Thumbs2
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._0EW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._0F">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -317,6 +392,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._10">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._10V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -328,6 +408,11 @@ Thumbs2
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._10W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._11">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -347,6 +432,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._12">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._12V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -362,12 +452,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._13">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._13V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._13W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._14">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -382,6 +482,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._15">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._15V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -392,7 +497,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._16V1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._17">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -402,7 +517,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._18">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._18V1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._19">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -417,12 +542,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._1A">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._1AV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._1AW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._1B">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -437,12 +572,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._1C">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._1CV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._1CW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._1D">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -457,12 +602,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._1E">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._1EV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._1EW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._1F">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -572,12 +727,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._20V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._20W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._21">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -592,6 +757,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._22">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._22V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -602,12 +772,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._23">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._23V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._23W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1662,12 +1842,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._65">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._65V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._65W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._66">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1682,12 +1872,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._67">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._67V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._67W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._68">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1702,12 +1902,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._69">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._69V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._69W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._6A">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1722,12 +1932,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._6B">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._6BV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._6BW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._6C">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1742,6 +1962,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._6D">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._6DV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -1752,12 +1977,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._6E">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._6EV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._6EW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._6F">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1882,12 +2117,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._70">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._70V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._70W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._71">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1902,12 +2147,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._72">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._72V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._72W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._73">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1922,12 +2177,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._74">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._74V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._74W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._75">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1942,12 +2207,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._76">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._76V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._76W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._77">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1962,12 +2237,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._78">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._78V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._78W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._79">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1982,12 +2267,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._7A">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._7AV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._7AW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._7B">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2002,12 +2297,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._7C">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._7CV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._7CW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._7D">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2022,12 +2327,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._7E">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._7EV1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._7EW1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._7F">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2152,12 +2467,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._80">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._80V1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._80W1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._81">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2177,12 +2502,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._82">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._82V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._82V1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._83">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2197,6 +2532,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._84">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._84V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -2207,12 +2547,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._85">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._85V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._85V1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._86">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2232,12 +2582,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._87">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._87V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._87W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._88">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2252,12 +2612,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._89">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._89V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._89W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._8A">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2272,12 +2642,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._8B">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._8BV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._8BW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._8C">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2292,6 +2672,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._8D">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._8DV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -2302,12 +2687,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._8E">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._8EV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._8EW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._8F">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2432,12 +2827,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._90">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._90V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._90W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._91">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2452,12 +2857,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._92">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._92V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._92W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._93">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2472,12 +2887,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._94">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._94V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._94W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._95">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2492,12 +2917,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._96">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._96V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._96W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._97">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2512,12 +2947,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._98">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._98V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._98W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._99">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2532,12 +2977,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._9A">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._9AV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._9AW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._9B">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2552,12 +3007,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._9C">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._9CV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._9CW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._9D">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2572,12 +3037,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources._9E">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources._9EV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources._9EW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources._9F">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2697,12 +3172,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.A0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.A0V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.A0W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.A1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2717,12 +3202,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.A2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.A2V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.A2W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.A3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2737,12 +3232,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.A4">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.A4V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.A4W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.A5">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2757,12 +3262,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.A6">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.A6V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.A6W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.A7">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2777,12 +3292,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.A8">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.A8V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.A8W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.A9">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2797,12 +3322,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.AA">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.AAV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.AAW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.AB">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2817,12 +3352,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.AC">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.ACV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.ACW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.AD">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2837,12 +3382,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.AE">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.AEV0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.AEW0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.AF">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -2957,12 +3512,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.B0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.B0V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.B0W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.B1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3092,6 +3657,41 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.C9">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.CA">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.CB">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.CC">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.CD">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.CE">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.CF">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.CV01">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -3192,7 +3792,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.D0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.D0V0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.D1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3202,7 +3812,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.D2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.D2V0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.D3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3212,7 +3832,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.D4">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.D4V0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.D5">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3222,7 +3852,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.D6">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.D6V0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.D7">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3232,7 +3872,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.D8">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.D8V0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.D9">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3242,7 +3892,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.DA">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.DAV0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.DB">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3252,7 +3912,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.DC">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.DCV0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.DD">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3262,7 +3932,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.DE">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.DEV0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.DF">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3372,7 +4052,17 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.E0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.E0V0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.E1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3387,12 +4077,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.E2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.E2V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.E2W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.E3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3407,12 +4107,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.E4">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.E4V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.E4W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.E5">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -3427,6 +4137,11 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.E6">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.E6V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -3437,12 +4152,22 @@ Thumbs2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Thumbs2.My.Resources.Resources.E7">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Thumbs2.My.Resources.Resources.E7V0">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Thumbs2.My.Resources.Resources.E7W0">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Thumbs2.My.Resources.Resources.E8">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

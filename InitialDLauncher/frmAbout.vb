@@ -27,6 +27,7 @@ AkiiHoshi - Avatar Preview Pictures for InitialD 7, <br />
 oPTToXenMe - Level Offset,<br />
 Gammaガァマ - Car Name Offset,<br />
 DSThanatos - Time Attack ID6 Offset,<br />
+Turtle - Mileage Offset,<br />
 I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
 <h2>Thanks to</h2>

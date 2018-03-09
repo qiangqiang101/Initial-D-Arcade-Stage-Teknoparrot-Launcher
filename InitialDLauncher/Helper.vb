@@ -335,8 +335,31 @@ Module Helper
         Return Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
     End Function
 
-    Function GetTagPride(hex As Byte(), hex2 As Byte()) As String
-        Return Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16) + Convert.ToInt64(BitConverter.ToString(hex2).Replace("-", ""), 16)
+    Function GetPridePoint(hex1 As Byte(), hex2 As Byte()) As String
+        Return CInt("&H" & BitConverter.ToString(hex2).Replace("-", "") & BitConverter.ToString(hex1).Replace("-", ""))
+    End Function
+
+    Function SetPridePoint(pPoint As Integer) As String
+        Dim hexString As String = pPoint.ToString("X4")
+        Dim F2 = hexString.Substring(0, 2)
+        Dim L2 = hexString.Substring(2)
+        Return L2 & F2
+    End Function
+
+    Function GetMilelage(hex1 As Byte(), hex2 As Byte(), hex3 As Byte(), hex4 As Byte()) As String
+        Return CInt("&H" & BitConverter.ToString(hex4).Replace("-", "") & BitConverter.ToString(hex3).Replace("-", "") & BitConverter.ToString(hex2).Replace("-", "") & BitConverter.ToString(hex1).Replace("-", ""))
+    End Function
+
+    Function SetMilelage(mileage As Integer) As String
+        Dim hexString As String = mileage.ToString("X8")
+
+        Dim F4 = hexString.Substring(0, 4)
+        Dim L4 = hexString.Substring(4)
+        Dim F2 = F4.Substring(0, 2)
+        Dim L2 = F4.Substring(2)
+        Dim _F2 = L4.Substring(0, 2)
+        Dim _L2 = L4.Substring(2)
+        Return _L2 & _F2 & L2 & F2
     End Function
 
     Function GetLevel(hex As Byte(), Optional num As Boolean = False) As String
@@ -388,23 +411,15 @@ Module Helper
                 Case 21
                     result = "SS1"
                 Case 22
-                    result = "SS3"
+                    result = "SSS"
                 Case 23
-                    result = "SS2"
-                Case 24
-                    result = "SS1"
-                Case 25
-                    result = "SSS3"
-                Case 26
-                    result = "SSS2"
-                Case 27
-                    result = "SSS1"
-                Case 28
                     result = "X3"
-                Case 29
+                Case 24
                     result = "X2"
-                Case 30
+                Case 25
                     result = "X1"
+                Case 26
+                    result = "X"
                 Case Else
                     result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
             End Select

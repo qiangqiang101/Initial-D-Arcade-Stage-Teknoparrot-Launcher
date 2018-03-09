@@ -133,20 +133,19 @@ Public Class Card
             fe.Version = _cardVersion
             fe.FileName = _filename
             fe.txtName.Text = lblName.Text
+            fe.txtGamePoint.Text = GetMilelage(GetHex(_filename, 192, 1), GetHex(_filename, 193, 1), GetHex(_filename, 194, 1), GetHex(_filename, 195, 1))
             If _cardVersion = 6 Then
                 fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
                 fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
-                'fe.txtPridePoint.Text = GetChapterLevel(GetHex(_filename, 173, 2))
-                fe.txtSPride.Enabled = False
-                fe.txtTPride.Enabled = False
+                fe.txtPridePoint.Text = GetPridePoint(GetHex(_filename, 173, 1), GetHex(_filename, 174, 1))
+                fe.txtMileage.Text = GetMilelage(GetHex(_filename, 1096, 1), GetHex(_filename, 1097, 1), GetHex(_filename, 1098, 1), GetHex(_filename, 1099, 1))
+                fe.GroupBox3.Enabled = False
             Else
                 fe.txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
-                fe.Label8.Enabled = False
-                fe.txtChapLevel.Enabled = False
-                fe.cbLegend.Enabled = False
-                fe.txtPridePoint.Enabled = False
-                'fe.txtSPride.Text = GetChapterLevel(GetHex(_filename, 170, 2))
-                'fe.txtTPride.Text = GetChapterLevel(GetHex(_filename, 172, 2))
+                fe.GroupBox2.Enabled = False
+                fe.txtSPride.Text = GetPridePoint(GetHex(_filename, 170, 1), GetHex(_filename, 171, 1))
+                fe.txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
+                fe.txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
             End If
             fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
             fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))

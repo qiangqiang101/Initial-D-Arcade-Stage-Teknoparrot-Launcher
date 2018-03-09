@@ -16,9 +16,10 @@ Public Class frmEdit
     Dim CC As String = "00"
     Dim CD As String = "00"
     Dim CE As String = "00"
+    Dim _221 As String = "00"
 
     'Translation
-    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, male, female, coming_soon, must_select_avatar As String
+    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -37,8 +38,10 @@ Public Class frmEdit
     Dim shirt_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim accessories_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim shades_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
+    Dim frame As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
 
     Private _version As Integer
+
     Public Property Version() As Integer
         Get
             Return _version
@@ -123,6 +126,11 @@ Public Class frmEdit
                     SV = SV.Replace("X", "0")
                     CD = FV
                     CE = SV
+                Case "FRAME"
+                    lbl221.Text = cmbAvatar.SelectedValue.tag
+                    pbFrame.BackgroundImage = cmbAvatar.SelectedValue
+                    Dim FV = cmbAvatar.SelectedValue.tag
+                    _221 = FV
             End Select
 
             lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
@@ -140,7 +148,7 @@ Public Class frmEdit
                 If Integer.Parse(txtLevel.Text) > 98 Then txtLevel.Text = "98"
                 If Integer.Parse(txtChapLevel.Text) > 99 Then txtChapLevel.Text = "99"
             Else
-                If Integer.Parse(txtLevel.Text) > 30 Then txtLevel.Text = "30"
+                If Integer.Parse(txtLevel.Text) > 26 Then txtLevel.Text = "26"
             End If
 
             If txtName.TextLength <= 5 Then
@@ -173,8 +181,9 @@ Public Class frmEdit
 
             If cbSaveAvatar.Checked Then
                 SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
+                SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
                 Select Case True
-                    Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000"
+                    Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "00"
                         MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
                         Exit Sub
                 End Select
@@ -185,16 +194,22 @@ Public Class frmEdit
                 If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
                 If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
 
+                SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
+
                 Select Case _version
                     Case 6
                         If cbLegend.Checked Then SetHex(_filename, CLng("&H222"), HexStringToBinary("218F"))
                         SetHex(_filename, CLng("&H224"), SetValue(txtChapLevel.Text))
                         SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
-                    'SetHex(_filename, CLng("&HAD"), SetValue(txtPridePoint.Text))
+                        SetHex(_filename, CLng("&HAD"), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
+                        SetHex(_filename, CLng("&H448"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+
                     Case 7
                         SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
-                        'SetHex(_filename, CLng("&HAA"), SetValue4(txtSPride.Text))
-                        'SetHex(_filename, CLng("&HAC"), SetValue4(txtTPride.Text))
+                        SetHex(_filename, CLng("&HBD"), HexStringToBinary("20")) 'Unlock X level
+                        SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
+                        SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
+                        SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
                 End Select
             End If
 
@@ -248,6 +263,7 @@ Public Class frmEdit
         lblcacb.Visible = My.Settings.DebugMode
         lblcbcc.Visible = My.Settings.DebugMode
         lblcdce.Visible = My.Settings.DebugMode
+        lbl221.Visible = My.Settings.DebugMode
 
     End Sub
 
@@ -263,6 +279,10 @@ Public Class frmEdit
                 Label3.Text = "Car 1"
                 Label4.Text = "Car 2"
                 Label5.Text = "Car 3"
+                Label13.Text = "Mileage"
+                Label14.Text = "Game Point"
+                Label9.Text = "Single Pride"
+                Label11.Text = "Tag Pride"
                 cbCar1.Text = "Confirm"
                 cbCar2.Text = cbCar1.Text
                 cbCar3.Text = cbCar1.Text
@@ -289,6 +309,8 @@ Public Class frmEdit
                 gbShades.Text = shades_t
                 gbHair.Text = hair_t
                 gbShirt.Text = shirt_t
+                frame_t = "Frame"
+                gbFrame.Text = frame_t
                 male = "Male"
                 female = "Female"
                 btnSet.Text = "Apply"
@@ -306,6 +328,10 @@ Public Class frmEdit
                 Label3.Text = "車1"
                 Label4.Text = "車2"
                 Label5.Text = "車3"
+                Label13.Text = "里程"
+                Label14.Text = "点数"
+                Label9.Text = "全国自豪感点"
+                Label11.Text = "2v2自豪感点"
                 cbCar1.Text = "確認更改"
                 cbCar2.Text = cbCar1.Text
                 cbCar3.Text = cbCar1.Text
@@ -332,6 +358,8 @@ Public Class frmEdit
                 gbShades.Text = shades_t
                 gbHair.Text = hair_t
                 gbShirt.Text = shirt_t
+                frame_t = "背景"
+                gbFrame.Text = frame_t
                 male = "帥哥"
                 female = "美女"
                 btnSet.Text = "應用"
@@ -349,6 +377,10 @@ Public Class frmEdit
                 Label3.Text = "Car 1"
                 Label4.Text = "Car 2"
                 Label5.Text = "Car 3"
+                Label13.Text = "Kilométrage"
+                Label14.Text = "Point de jeu"
+                Label9.Text = "Single Pride"
+                Label11.Text = "Tag Pride"
                 cbCar1.Text = "Confirmer"
                 cbCar2.Text = cbCar1.Text
                 cbCar3.Text = cbCar1.Text
@@ -375,6 +407,8 @@ Public Class frmEdit
                 gbShades.Text = shades_t
                 gbHair.Text = hair_t
                 gbShirt.Text = shirt_t
+                frame_t = "Frame"
+                gbFrame.Text = frame_t
                 male = "Mâle"
                 female = "Femelle"
                 btnSet.Text = "Appliquer"
@@ -420,6 +454,8 @@ Public Class frmEdit
                         cmbAvatar.DataSource = New BindingSource(shades_f, Nothing)
                     Case "HAIR"
                         cmbAvatar.DataSource = New BindingSource(hair_f, Nothing)
+                    Case "FRAME"
+                        cmbAvatar.DataSource = New BindingSource(frame, Nothing)
                 End Select
             Else
                 Select Case cmbAvatarCat.SelectedValue.ToString
@@ -437,6 +473,8 @@ Public Class frmEdit
                         cmbAvatar.DataSource = New BindingSource(shades_m, Nothing)
                     Case "HAIR"
                         cmbAvatar.DataSource = New BindingSource(hair_m, Nothing)
+                    Case "FRAME"
+                        cmbAvatar.DataSource = New BindingSource(frame, Nothing)
                 End Select
             End If
         Catch ex As Exception
@@ -1282,6 +1320,154 @@ Public Class frmEdit
         hair_m.Add("111", mha.HA_85X1)
         hair_m.Add("112", mha.HA_86X1)
 
+        'Add Frame
+        Dim fm As New InitialD7.Share.Frame
+        frame.Add("01", fm.FM_01)
+        frame.Add("02", fm.FM_02)
+        frame.Add("03", fm.FM_03)
+        frame.Add("04", fm.FM_04)
+        frame.Add("05", fm.FM_05)
+        frame.Add("06", fm.FM_06)
+        frame.Add("07", fm.FM_07)
+        frame.Add("08", fm.FM_08)
+        frame.Add("09", fm.FM_09)
+        frame.Add("10", fm.FM_0A)
+        frame.Add("11", fm.FM_0B)
+        frame.Add("12", fm.FM_0C)
+        frame.Add("13", fm.FM_0D)
+        frame.Add("14", fm.FM_0E)
+        frame.Add("15", fm.FM_0F)
+        frame.Add("16", fm.FM_10)
+        frame.Add("17", fm.FM_11)
+        frame.Add("18", fm.FM_12)
+        frame.Add("19", fm.FM_13)
+        frame.Add("20", fm.FM_14)
+        frame.Add("21", fm.FM_15)
+        frame.Add("22", fm.FM_16)
+        frame.Add("23", fm.FM_17)
+        frame.Add("24", fm.FM_18)
+        frame.Add("25", fm.FM_19)
+        frame.Add("26", fm.FM_1A)
+        frame.Add("27", fm.FM_1B)
+        frame.Add("28", fm.FM_1C)
+        frame.Add("29", fm.FM_1D)
+        frame.Add("30", fm.FM_1E)
+        frame.Add("31", fm.FM_1F)
+        frame.Add("32", fm.FM_20)
+        frame.Add("33", fm.FM_21)
+        frame.Add("34", fm.FM_22)
+        frame.Add("35", fm.FM_23)
+        frame.Add("36", fm.FM_24)
+        frame.Add("37", fm.FM_65)
+        frame.Add("38", fm.FM_66)
+        frame.Add("39", fm.FM_67)
+        frame.Add("40", fm.FM_68)
+        frame.Add("41", fm.FM_69)
+        frame.Add("42", fm.FM_6A)
+        frame.Add("43", fm.FM_6B)
+        frame.Add("44", fm.FM_6C)
+        frame.Add("45", fm.FM_6D)
+        frame.Add("46", fm.FM_6E)
+        frame.Add("47", fm.FM_6F)
+        frame.Add("48", fm.FM_70)
+        frame.Add("49", fm.FM_71)
+        frame.Add("50", fm.FM_72)
+        frame.Add("51", fm.FM_73)
+        frame.Add("52", fm.FM_74)
+        frame.Add("53", fm.FM_75)
+        frame.Add("54", fm.FM_76)
+        frame.Add("55", fm.FM_77)
+        frame.Add("56", fm.FM_78)
+        frame.Add("57", fm.FM_79)
+        frame.Add("58", fm.FM_7A)
+        frame.Add("59", fm.FM_7B)
+        frame.Add("60", fm.FM_7C)
+        frame.Add("61", fm.FM_7D)
+        frame.Add("62", fm.FM_7E)
+        frame.Add("63", fm.FM_7F)
+        frame.Add("64", fm.FM_80)
+        frame.Add("65", fm.FM_81)
+        frame.Add("66", fm.FM_82)
+        frame.Add("67", fm.FM_83)
+        frame.Add("68", fm.FM_84)
+        frame.Add("69", fm.FM_85)
+        frame.Add("70", fm.FM_86)
+        frame.Add("71", fm.FM_87)
+        frame.Add("72", fm.FM_88)
+        frame.Add("73", fm.FM_89)
+        frame.Add("74", fm.FM_8A)
+        frame.Add("75", fm.FM_8B)
+        frame.Add("76", fm.FM_8C)
+        frame.Add("77", fm.FM_8D)
+        frame.Add("78", fm.FM_8E)
+        frame.Add("79", fm.FM_8F)
+        frame.Add("80", fm.FM_90)
+        frame.Add("81", fm.FM_91)
+        frame.Add("82", fm.FM_92)
+        frame.Add("83", fm.FM_93)
+        frame.Add("84", fm.FM_94)
+        frame.Add("85", fm.FM_95)
+        frame.Add("86", fm.FM_96)
+        frame.Add("87", fm.FM_97)
+        frame.Add("88", fm.FM_98)
+        frame.Add("89", fm.FM_99)
+        frame.Add("90", fm.FM_9A)
+        frame.Add("91", fm.FM_9B)
+        frame.Add("92", fm.FM_9C)
+        frame.Add("93", fm.FM_9D)
+        frame.Add("94", fm.FM_9E)
+        frame.Add("95", fm.FM_9F)
+        frame.Add("96", fm.FM_A0)
+        frame.Add("97", fm.FM_A1)
+        frame.Add("98", fm.FM_A2)
+        frame.Add("99", fm.FM_A3)
+        frame.Add("100", fm.FM_A4)
+        frame.Add("101", fm.FM_A5)
+        frame.Add("102", fm.FM_A6)
+        frame.Add("103", fm.FM_A7)
+        frame.Add("104", fm.FM_A8)
+        frame.Add("105", fm.FM_A9)
+        frame.Add("106", fm.FM_AA)
+        frame.Add("107", fm.FM_AB)
+        frame.Add("108", fm.FM_AC)
+        frame.Add("109", fm.FM_AD)
+        frame.Add("110", fm.FM_AE)
+        frame.Add("111", fm.FM_AF)
+        frame.Add("112", fm.FM_B0)
+        frame.Add("113", fm.FM_B1)
+        frame.Add("114", fm.FM_C9)
+        frame.Add("115", fm.FM_CA)
+        frame.Add("116", fm.FM_CB)
+        frame.Add("117", fm.FM_CC)
+        frame.Add("118", fm.FM_CD)
+        frame.Add("119", fm.FM_CE)
+        frame.Add("120", fm.FM_CF)
+        frame.Add("121", fm.FM_D0)
+        frame.Add("122", fm.FM_D1)
+        frame.Add("123", fm.FM_D2)
+        frame.Add("124", fm.FM_D3)
+        frame.Add("125", fm.FM_D4)
+        frame.Add("126", fm.FM_D5)
+        frame.Add("127", fm.FM_D6)
+        frame.Add("128", fm.FM_D7)
+        frame.Add("129", fm.FM_D8)
+        frame.Add("130", fm.FM_D9)
+        frame.Add("131", fm.FM_DA)
+        frame.Add("132", fm.FM_DB)
+        frame.Add("133", fm.FM_DC)
+        frame.Add("134", fm.FM_DD)
+        frame.Add("135", fm.FM_DE)
+        frame.Add("136", fm.FM_DF)
+        frame.Add("137", fm.FM_E0)
+        frame.Add("138", fm.FM_E1)
+        frame.Add("139", fm.FM_E2)
+        frame.Add("140", fm.FM_E3)
+        frame.Add("141", fm.FM_E4)
+        frame.Add("142", fm.FM_E5)
+        frame.Add("143", fm.FM_E6)
+        frame.Add("144", fm.FM_E7)
+        frame.Add("145", fm.FM_E8)
+
         'Add Category
         category.Add(face_skin_t, "SKIN")
         category.Add(hair_t, "HAIR")
@@ -1290,6 +1476,7 @@ Public Class frmEdit
         category.Add(mouth_t, "MOUTH")
         category.Add(shirt_t, "SHIRT")
         category.Add(accessories_t, "ACCESSORIES")
+        category.Add(frame_t, "FRAME")
         cmbAvatarCat.DisplayMember = "Key"
         cmbAvatarCat.ValueMember = "Value"
         cmbAvatarCat.DataSource = New BindingSource(category, Nothing)
@@ -1518,6 +1705,7 @@ Public Class frmEdit
 
         'Add Accessories
         Dim accessories As New InitialD7.Female.Accessories
+        accessories_f.Add("00", accessories.AC_00X0)
         accessories_f.Add("01", accessories.AC_D0X0)
         accessories_f.Add("02", accessories.AC_D1X0)
         accessories_f.Add("03", accessories.AC_D2X0)
@@ -1561,6 +1749,7 @@ Public Class frmEdit
 
         'Add Shades
         Dim shades As New InitialD7.Female.Shades
+        shades_f.Add("00", shades.SP_0X00)
         shades_f.Add("01", shades.SP_1X10)
         shades_f.Add("02", shades.SP_2X10)
         shades_f.Add("03", shades.SP_3X10)
@@ -1946,6 +2135,7 @@ Public Class frmEdit
 
         'Add Accessories
         Dim accessories2 As New InitialD7.Male.Accessories
+        accessories_m.Add("00", accessories2.AC_00X0)
         accessories_m.Add("01", accessories2.AC_00X1)
         accessories_m.Add("02", accessories2.AC_01X1)
         accessories_m.Add("03", accessories2.AC_02X1)
@@ -1985,6 +2175,7 @@ Public Class frmEdit
 
         'Add shades
         Dim shades2 As New InitialD7.Male.Shades
+        shades_m.Add("00", shades2.SP_0X00)
         shades_m.Add("01", shades2.SP_0X11)
         shades_m.Add("02", shades2.SP_1X11)
         shades_m.Add("03", shades2.SP_2X11)
@@ -2114,6 +2305,154 @@ Public Class frmEdit
         hair_m.Add("104", hair2.HA_80X1)
         hair_m.Add("105", hair2.HA_81X1)
 
+        'Add Frame
+        Dim fm As New InitialD7.Share.Frame
+        frame.Add("01", fm.FM_01)
+        frame.Add("02", fm.FM_02)
+        frame.Add("03", fm.FM_03)
+        frame.Add("04", fm.FM_04)
+        frame.Add("05", fm.FM_05)
+        frame.Add("06", fm.FM_06)
+        frame.Add("07", fm.FM_07)
+        frame.Add("08", fm.FM_08)
+        frame.Add("09", fm.FM_09)
+        frame.Add("10", fm.FM_0A)
+        frame.Add("11", fm.FM_0B)
+        frame.Add("12", fm.FM_0C)
+        frame.Add("13", fm.FM_0D)
+        frame.Add("14", fm.FM_0E)
+        frame.Add("15", fm.FM_0F)
+        frame.Add("16", fm.FM_10)
+        frame.Add("17", fm.FM_11)
+        frame.Add("18", fm.FM_12)
+        frame.Add("19", fm.FM_13)
+        frame.Add("20", fm.FM_14)
+        frame.Add("21", fm.FM_15)
+        frame.Add("22", fm.FM_16)
+        frame.Add("23", fm.FM_17)
+        frame.Add("24", fm.FM_18)
+        frame.Add("25", fm.FM_19)
+        frame.Add("26", fm.FM_1A)
+        frame.Add("27", fm.FM_1B)
+        frame.Add("28", fm.FM_1C)
+        frame.Add("29", fm.FM_1D)
+        frame.Add("30", fm.FM_1E)
+        frame.Add("31", fm.FM_1F)
+        frame.Add("32", fm.FM_20)
+        frame.Add("33", fm.FM_21)
+        frame.Add("34", fm.FM_22)
+        frame.Add("35", fm.FM_23)
+        frame.Add("36", fm.FM_24)
+        frame.Add("37", fm.FM_65)
+        frame.Add("38", fm.FM_66)
+        frame.Add("39", fm.FM_67)
+        frame.Add("40", fm.FM_68)
+        frame.Add("41", fm.FM_69)
+        frame.Add("42", fm.FM_6A)
+        frame.Add("43", fm.FM_6B)
+        frame.Add("44", fm.FM_6C)
+        frame.Add("45", fm.FM_6D)
+        frame.Add("46", fm.FM_6E)
+        frame.Add("47", fm.FM_6F)
+        frame.Add("48", fm.FM_70)
+        frame.Add("49", fm.FM_71)
+        frame.Add("50", fm.FM_72)
+        frame.Add("51", fm.FM_73)
+        frame.Add("52", fm.FM_74)
+        frame.Add("53", fm.FM_75)
+        frame.Add("54", fm.FM_76)
+        frame.Add("55", fm.FM_77)
+        frame.Add("56", fm.FM_78)
+        frame.Add("57", fm.FM_79)
+        frame.Add("58", fm.FM_7A)
+        frame.Add("59", fm.FM_7B)
+        frame.Add("60", fm.FM_7C)
+        frame.Add("61", fm.FM_7D)
+        frame.Add("62", fm.FM_7E)
+        frame.Add("63", fm.FM_7F)
+        frame.Add("64", fm.FM_80)
+        frame.Add("65", fm.FM_81)
+        frame.Add("66", fm.FM_82)
+        frame.Add("67", fm.FM_83)
+        frame.Add("68", fm.FM_84)
+        frame.Add("69", fm.FM_85)
+        frame.Add("70", fm.FM_86)
+        frame.Add("71", fm.FM_87)
+        frame.Add("72", fm.FM_88)
+        frame.Add("73", fm.FM_89)
+        frame.Add("74", fm.FM_8A)
+        frame.Add("75", fm.FM_8B)
+        frame.Add("76", fm.FM_8C)
+        frame.Add("77", fm.FM_8D)
+        frame.Add("78", fm.FM_8E)
+        frame.Add("79", fm.FM_8F)
+        frame.Add("80", fm.FM_90)
+        frame.Add("81", fm.FM_91)
+        frame.Add("82", fm.FM_92)
+        frame.Add("83", fm.FM_93)
+        frame.Add("84", fm.FM_94)
+        frame.Add("85", fm.FM_95)
+        frame.Add("86", fm.FM_96)
+        frame.Add("87", fm.FM_97)
+        frame.Add("88", fm.FM_98)
+        frame.Add("89", fm.FM_99)
+        frame.Add("90", fm.FM_9A)
+        frame.Add("91", fm.FM_9B)
+        frame.Add("92", fm.FM_9C)
+        frame.Add("93", fm.FM_9D)
+        frame.Add("94", fm.FM_9E)
+        frame.Add("95", fm.FM_9F)
+        frame.Add("96", fm.FM_A0)
+        frame.Add("97", fm.FM_A1)
+        frame.Add("98", fm.FM_A2)
+        frame.Add("99", fm.FM_A3)
+        frame.Add("100", fm.FM_A4)
+        frame.Add("101", fm.FM_A5)
+        frame.Add("102", fm.FM_A6)
+        frame.Add("103", fm.FM_A7)
+        frame.Add("104", fm.FM_A8)
+        frame.Add("105", fm.FM_A9)
+        frame.Add("106", fm.FM_AA)
+        frame.Add("107", fm.FM_AB)
+        frame.Add("108", fm.FM_AC)
+        frame.Add("109", fm.FM_AD)
+        frame.Add("110", fm.FM_AE)
+        frame.Add("111", fm.FM_AF)
+        frame.Add("112", fm.FM_B0)
+        frame.Add("113", fm.FM_B1)
+        frame.Add("114", fm.FM_C9)
+        frame.Add("115", fm.FM_CA)
+        frame.Add("116", fm.FM_CB)
+        frame.Add("117", fm.FM_CC)
+        frame.Add("118", fm.FM_CD)
+        frame.Add("119", fm.FM_CE)
+        frame.Add("120", fm.FM_CF)
+        frame.Add("121", fm.FM_D0)
+        frame.Add("122", fm.FM_D1)
+        frame.Add("123", fm.FM_D2)
+        frame.Add("124", fm.FM_D3)
+        frame.Add("125", fm.FM_D4)
+        frame.Add("126", fm.FM_D5)
+        frame.Add("127", fm.FM_D6)
+        frame.Add("128", fm.FM_D7)
+        frame.Add("129", fm.FM_D8)
+        frame.Add("130", fm.FM_D9)
+        frame.Add("131", fm.FM_DA)
+        frame.Add("132", fm.FM_DB)
+        frame.Add("133", fm.FM_DC)
+        frame.Add("134", fm.FM_DD)
+        frame.Add("135", fm.FM_DE)
+        frame.Add("136", fm.FM_DF)
+        frame.Add("137", fm.FM_E0)
+        frame.Add("138", fm.FM_E1)
+        frame.Add("139", fm.FM_E2)
+        frame.Add("140", fm.FM_E3)
+        frame.Add("141", fm.FM_E4)
+        frame.Add("142", fm.FM_E5)
+        frame.Add("143", fm.FM_E6)
+        frame.Add("144", fm.FM_E7)
+        frame.Add("145", fm.FM_E8)
+
         'Add Category
         category.Add(face_skin_t, "SKIN")
         category.Add(hair_t, "HAIR")
@@ -2122,12 +2461,10 @@ Public Class frmEdit
         category.Add(mouth_t, "MOUTH")
         category.Add(shirt_t, "SHIRT")
         category.Add(accessories_t, "ACCESSORIES")
+        category.Add(frame_t, "FRAME")
         cmbAvatarCat.DisplayMember = "Key"
         cmbAvatarCat.ValueMember = "Value"
         cmbAvatarCat.DataSource = New BindingSource(category, Nothing)
         cmbAvatarCat.SelectedIndex = 0
     End Sub
-
-
-
 End Class
