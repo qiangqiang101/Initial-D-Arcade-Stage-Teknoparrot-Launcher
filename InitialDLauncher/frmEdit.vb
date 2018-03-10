@@ -61,6 +61,16 @@ Public Class frmEdit
         End Set
     End Property
 
+    Private _extension As String
+    Public Property Extension() As String
+        Get
+            Return _extension
+        End Get
+        Set(value As String)
+            _extension = value
+        End Set
+    End Property
+
     Private Sub btnSet_Click(sender As Object, e As EventArgs) Handles btnSet.Click
         Try
             Select Case cmbAvatarCat.SelectedValue.ToString
@@ -233,10 +243,18 @@ Public Class frmEdit
         cmbGender.DisplayMember = "Key"
         cmbGender.ValueMember = "Value"
         cmbGender.DataSource = New BindingSource(sex, Nothing)
-        If GetGender(GetHex(_filename, 90, 1)) = Gender.female Then
-            cmbGender.SelectedIndex = 1
+        If _extension = "bin" Then
+            If GetGender(GetHex(_filename, 90, 1)) = Gender.female Then
+                cmbGender.SelectedIndex = 1
+            Else
+                cmbGender.SelectedIndex = 0
+            End If
         Else
-            cmbGender.SelectedIndex = 0
+            If GetGender(GetHex(_filename, Neg60(90), 1)) = Gender.female Then
+                cmbGender.SelectedIndex = 1
+            Else
+                cmbGender.SelectedIndex = 0
+            End If
         End If
 
         GroupBox1.Enabled = frmLauncher.cheat

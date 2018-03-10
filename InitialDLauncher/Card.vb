@@ -25,6 +25,16 @@ Public Class Card
         End Set
     End Property
 
+    Private _extension As String
+    Public Property Extension() As String
+        Get
+            Return _extension
+        End Get
+        Set(value As String)
+            _extension = value
+        End Set
+    End Property
+
     Private _selected As Boolean
     Public Property Selected() As Boolean
         Get
@@ -77,6 +87,7 @@ Public Class Card
             Dim ta As frmTimeAttack = New frmTimeAttack()
             ta.Version = _cardVersion
             ta.FileName = _filename
+            ta.Extension = _extension
             ta.Show()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -133,23 +144,44 @@ Public Class Card
             fe.Version = _cardVersion
             fe.FileName = _filename
             fe.txtName.Text = lblName.Text
-            fe.txtGamePoint.Text = GetMilelage(GetHex(_filename, 192, 1), GetHex(_filename, 193, 1), GetHex(_filename, 194, 1), GetHex(_filename, 195, 1))
-            If _cardVersion = 6 Then
-                fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
-                fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
-                fe.txtPridePoint.Text = GetPridePoint(GetHex(_filename, 173, 1), GetHex(_filename, 174, 1))
-                fe.txtMileage.Text = GetMilelage(GetHex(_filename, 1096, 1), GetHex(_filename, 1097, 1), GetHex(_filename, 1098, 1), GetHex(_filename, 1099, 1))
-                fe.GroupBox3.Enabled = False
+            fe.Extension = _extension
+            If _extension = "bin" Then
+                fe.txtGamePoint.Text = GetMilelage(GetHex(_filename, 192, 1), GetHex(_filename, 193, 1), GetHex(_filename, 194, 1), GetHex(_filename, 195, 1))
+                If _cardVersion = 6 Then
+                    fe.txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
+                    fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
+                    fe.txtPridePoint.Text = GetPridePoint(GetHex(_filename, 173, 1), GetHex(_filename, 174, 1))
+                    fe.txtMileage.Text = GetMilelage(GetHex(_filename, 1096, 1), GetHex(_filename, 1097, 1), GetHex(_filename, 1098, 1), GetHex(_filename, 1099, 1))
+                    fe.GroupBox3.Enabled = False
+                Else
+                    fe.txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
+                    fe.GroupBox2.Enabled = False
+                    fe.txtSPride.Text = GetPridePoint(GetHex(_filename, 170, 1), GetHex(_filename, 171, 1))
+                    fe.txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
+                    fe.txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
+                End If
+                fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+                fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+                fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
             Else
-                fe.txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
-                fe.GroupBox2.Enabled = False
-                fe.txtSPride.Text = GetPridePoint(GetHex(_filename, 170, 1), GetHex(_filename, 171, 1))
-                fe.txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
-                fe.txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
+                fe.txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
+                If _cardVersion = 6 Then
+                    fe.txtLevel.Text = GetLevel(GetHex(_filename, Neg60(164), 1), True)
+                    fe.txtChapLevel.Text = GetChapterLevel(GetHex(_filename, Neg60(548), 1))
+                    fe.txtPridePoint.Text = GetPridePoint(GetHex(_filename, Neg60(173), 1), GetHex(_filename, Neg60(174), 1))
+                    fe.txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(1096), 1), GetHex(_filename, Neg60(1097), 1), GetHex(_filename, Neg60(1098), 1), GetHex(_filename, Neg60(1099), 1))
+                    fe.GroupBox3.Enabled = False
+                Else
+                    fe.txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True)
+                    fe.GroupBox2.Enabled = False
+                    fe.txtSPride.Text = GetPridePoint(GetHex(_filename, Neg60(170), 1), GetHex(_filename, Neg60(171), 1))
+                    fe.txtTPride.Text = GetPridePoint(GetHex(_filename, Neg60(172), 1), GetHex(_filename, Neg60(173), 1))
+                    fe.txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(896), 1), GetHex(_filename, Neg60(897), 1), GetHex(_filename, Neg60(898), 1), GetHex(_filename, Neg60(899), 1))
+                End If
+                fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
+                fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
+                fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
             End If
-            fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
-            fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
-            fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
             fe.Show()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")

@@ -32,6 +32,16 @@
         End Set
     End Property
 
+    Private _extension As String
+    Public Property Extension() As String
+        Get
+            Return _extension
+        End Get
+        Set(value As String)
+            _extension = value
+        End Set
+    End Property
+
     Private Sub frmTimeAttack_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Translate()
 
@@ -41,7 +51,7 @@
             LakeAkinaDryC = Helper.GetTimeResult(_filename, 596, False)
             LakeAkinaWetC = Helper.GetTimeResult(_filename, 600, False)
             If Not LakeAkinaDryCC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 588, True), .BackgroundImage = My.Resources.lakeAkina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 588, True), .BackgroundImage = My.Resources.lakeAkina}
                 With item
                     .Translate()
                     .lblCourse.Text = .LakeAkina
@@ -53,7 +63,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not LakeAkinaWetCC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 592, True), .BackgroundImage = My.Resources.lakeAkina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 592, True), .BackgroundImage = My.Resources.lakeAkina}
                 With item
                     .Translate()
                     .lblCourse.Text = .LakeAkina
@@ -65,7 +75,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not LakeAkinaDryC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 596, True), .BackgroundImage = My.Resources.lakeAkina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 596, True), .BackgroundImage = My.Resources.lakeAkina}
                 With item
                     .Translate()
                     .lblCourse.Text = .LakeAkina
@@ -77,7 +87,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not LakeAkinaWetC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 600, True), .BackgroundImage = My.Resources.lakeAkina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 600, True), .BackgroundImage = My.Resources.lakeAkina}
                 With item
                     .Translate()
                     .lblCourse.Text = .LakeAkina
@@ -94,7 +104,7 @@
             MyogiDryUH = Helper.GetTimeResult(_filename, 612, False)
             MyogiWetUH = Helper.GetTimeResult(_filename, 616, False)
             If Not MyogiDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 604, True), .BackgroundImage = My.Resources.myogi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 604, True), .BackgroundImage = My.Resources.myogi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Myogi
@@ -106,7 +116,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not MyogiWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 608, True), .BackgroundImage = My.Resources.myogi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 608, True), .BackgroundImage = My.Resources.myogi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Myogi
@@ -118,7 +128,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not MyogiDryUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 612, True), .BackgroundImage = My.Resources.myogi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 612, True), .BackgroundImage = My.Resources.myogi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Myogi
@@ -130,7 +140,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not MyogiWetUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 616, True), .BackgroundImage = My.Resources.myogi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 616, True), .BackgroundImage = My.Resources.myogi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Myogi
@@ -147,7 +157,7 @@
             AkagiDryUH = Helper.GetTimeResult(_filename, 628, False)
             AkagiWetUH = Helper.GetTimeResult(_filename, 632, False)
             If Not AkagiDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 620, True), .BackgroundImage = My.Resources.akagi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 620, True), .BackgroundImage = My.Resources.akagi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akagi
@@ -159,7 +169,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkagiWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 624, True), .BackgroundImage = My.Resources.akagi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 624, True), .BackgroundImage = My.Resources.akagi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akagi
@@ -171,7 +181,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkagiDryUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 628, True), .BackgroundImage = My.Resources.akagi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 628, True), .BackgroundImage = My.Resources.akagi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akagi
@@ -183,7 +193,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkagiWetUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 632, True), .BackgroundImage = My.Resources.akagi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 632, True), .BackgroundImage = My.Resources.akagi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akagi
@@ -200,7 +210,7 @@
             AkinaDryUH = Helper.GetTimeResult(_filename, 644, False)
             AkinaWetUH = Helper.GetTimeResult(_filename, 648, False)
             If Not AkinaDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 636, True), .BackgroundImage = My.Resources.akina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 636, True), .BackgroundImage = My.Resources.akina}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akina
@@ -212,7 +222,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkinaWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 640, True), .BackgroundImage = My.Resources.akina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 640, True), .BackgroundImage = My.Resources.akina}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akina
@@ -224,7 +234,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkinaDryUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 644, True), .BackgroundImage = My.Resources.akina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 644, True), .BackgroundImage = My.Resources.akina}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akina
@@ -236,7 +246,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkinaWetUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 648, True), .BackgroundImage = My.Resources.akina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 648, True), .BackgroundImage = My.Resources.akina}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akina
@@ -253,7 +263,7 @@
             IrohazkaDryR = Helper.GetTimeResult(_filename, 660, False)
             IrohazkaWetR = Helper.GetTimeResult(_filename, 664, False)
             If Not IrohazkaDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 652, True), .BackgroundImage = My.Resources.irohazaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 652, True), .BackgroundImage = My.Resources.irohazaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Irohazka
@@ -265,7 +275,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not IrohazkaWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 656, True), .BackgroundImage = My.Resources.irohazaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 656, True), .BackgroundImage = My.Resources.irohazaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Irohazka
@@ -277,7 +287,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not IrohazkaDryR = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 660, True), .BackgroundImage = My.Resources.irohazaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 660, True), .BackgroundImage = My.Resources.irohazaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Irohazka
@@ -289,7 +299,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not IrohazkaWetR = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 664, True), .BackgroundImage = My.Resources.irohazaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 664, True), .BackgroundImage = My.Resources.irohazaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Irohazka
@@ -306,7 +316,7 @@
             TsukubaDryIB = Helper.GetTimeResult(_filename, 676, False)
             TsukubaWetIB = Helper.GetTimeResult(_filename, 680, False)
             If Not TsukubaDryOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 668, True), .BackgroundImage = My.Resources.tsukuba}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 668, True), .BackgroundImage = My.Resources.tsukuba}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsukuba
@@ -318,7 +328,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsukubaWetOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 672, True), .BackgroundImage = My.Resources.tsukuba}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 672, True), .BackgroundImage = My.Resources.tsukuba}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsukuba
@@ -330,7 +340,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsukubaDryIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 676, True), .BackgroundImage = My.Resources.tsukuba}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 676, True), .BackgroundImage = My.Resources.tsukuba}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsukuba
@@ -342,7 +352,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsukubaWetIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 680, True), .BackgroundImage = My.Resources.tsukuba}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 680, True), .BackgroundImage = My.Resources.tsukuba}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsukuba
@@ -359,7 +369,7 @@
             HappogaharaDryIB = Helper.GetTimeResult(_filename, 692, False)
             HappogaharaWetIB = Helper.GetTimeResult(_filename, 696, False)
             If Not HappogaharaDryOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 684, True), .BackgroundImage = My.Resources.happogahara}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 684, True), .BackgroundImage = My.Resources.happogahara}
                 With item
                     Translate()
                     .lblCourse.Text = .Happogahara
@@ -375,7 +385,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not HappogaharaWetOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 688, True), .BackgroundImage = My.Resources.happogahara}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 688, True), .BackgroundImage = My.Resources.happogahara}
                 With item
                     .Translate()
                     .lblCourse.Text = .Happogahara
@@ -391,7 +401,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not HappogaharaDryIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 692, True), .BackgroundImage = My.Resources.happogahara}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 692, True), .BackgroundImage = My.Resources.happogahara}
                 With item
                     .Translate()
                     .lblCourse.Text = .Happogahara
@@ -407,7 +417,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not HappogaharaWetIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 696, True), .BackgroundImage = My.Resources.happogahara}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 696, True), .BackgroundImage = My.Resources.happogahara}
                 With item
                     .Translate()
                     .lblCourse.Text = .Happogahara
@@ -428,7 +438,7 @@
             NagaoDryUH = Helper.GetTimeResult(_filename, 708, False)
             NagaoWetUH = Helper.GetTimeResult(_filename, 712, False)
             If Not NagaoDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.nagao}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.nagao}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nagao
@@ -440,7 +450,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not NagaoWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.nagao}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.nagao}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nagao
@@ -452,7 +462,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not NagaoDryUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 708, True), .BackgroundImage = My.Resources.nagao}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 708, True), .BackgroundImage = My.Resources.nagao}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nagao
@@ -464,7 +474,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not NagaoWetUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 712, True), .BackgroundImage = My.Resources.nagao}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 712, True), .BackgroundImage = My.Resources.nagao}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nagao
@@ -481,7 +491,7 @@
             TsubakiLineDryUH = Helper.GetTimeResult(_filename, 724, False)
             TsubakiLineWetUH = Helper.GetTimeResult(_filename, 728, False)
             If Not TsubakiLineDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 716, True), .BackgroundImage = My.Resources.tsubakiLine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 716, True), .BackgroundImage = My.Resources.tsubakiLine}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsubakiLine
@@ -493,7 +503,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsubakiLineWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 720, True), .BackgroundImage = My.Resources.tsubakiLine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 720, True), .BackgroundImage = My.Resources.tsubakiLine}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsubakiLine
@@ -505,7 +515,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsubakiLineDryUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 724, True), .BackgroundImage = My.Resources.tsubakiLine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 724, True), .BackgroundImage = My.Resources.tsubakiLine}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsubakiLine
@@ -517,7 +527,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsubakiLineWetUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 728, True), .BackgroundImage = My.Resources.tsubakiLine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 728, True), .BackgroundImage = My.Resources.tsubakiLine}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsubakiLine
@@ -534,7 +544,7 @@
             UsuiDryC = Helper.GetTimeResult(_filename, 740, False)
             UsuiWetC = Helper.GetTimeResult(_filename, 744, False)
             If Not UsuiDryCC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 732, True), .BackgroundImage = My.Resources.usui}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 732, True), .BackgroundImage = My.Resources.usui}
                 With item
                     .Translate()
                     .lblCourse.Text = .Usui
@@ -546,7 +556,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not UsuiWetCC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 736, True), .BackgroundImage = My.Resources.usui}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 736, True), .BackgroundImage = My.Resources.usui}
                 With item
                     .Translate()
                     .lblCourse.Text = .Usui
@@ -558,7 +568,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not UsuiDryC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 740, True), .BackgroundImage = My.Resources.usui}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 740, True), .BackgroundImage = My.Resources.usui}
                 With item
                     .Translate()
                     .lblCourse.Text = .Usui
@@ -570,7 +580,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not UsuiWetC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 744, True), .BackgroundImage = My.Resources.usui}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 744, True), .BackgroundImage = My.Resources.usui}
                 With item
                     .Translate()
                     .lblCourse.Text = .Usui
@@ -587,7 +597,7 @@
             SadamineDryUH = Helper.GetTimeResult(_filename, 756, False)
             SadamineWetUH = Helper.GetTimeResult(_filename, 760, False)
             If Not SadamineDryDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 748, True), .BackgroundImage = My.Resources.sadamine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 748, True), .BackgroundImage = My.Resources.sadamine}
                 With item
                     .Translate()
                     .lblCourse.Text = .Sadamine
@@ -599,7 +609,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not SadamineWetDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 752, True), .BackgroundImage = My.Resources.sadamine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 752, True), .BackgroundImage = My.Resources.sadamine}
                 With item
                     .Translate()
                     .lblCourse.Text = .Sadamine
@@ -611,7 +621,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not SadamineDryUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 756, True), .BackgroundImage = My.Resources.sadamine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 756, True), .BackgroundImage = My.Resources.sadamine}
                 With item
                     .Translate()
                     .lblCourse.Text = .Sadamine
@@ -623,7 +633,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not SadamineWetUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 760, True), .BackgroundImage = My.Resources.sadamine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 760, True), .BackgroundImage = My.Resources.sadamine}
                 With item
                     .Translate()
                     .lblCourse.Text = .Sadamine
@@ -640,7 +650,7 @@
             TsuchisakaDryIB = Helper.GetTimeResult(_filename, 772, False)
             TsuchisakaWetIB = Helper.GetTimeResult(_filename, 776, False)
             If Not TsuchisakaDryOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 764, True), .BackgroundImage = My.Resources.tsuchisaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 764, True), .BackgroundImage = My.Resources.tsuchisaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsuchisaka
@@ -652,7 +662,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsuchisakaWetOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 768, True), .BackgroundImage = My.Resources.tsuchisaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 768, True), .BackgroundImage = My.Resources.tsuchisaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsuchisaka
@@ -664,7 +674,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsuchisakaDryIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 772, True), .BackgroundImage = My.Resources.tsuchisaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 772, True), .BackgroundImage = My.Resources.tsuchisaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsuchisaka
@@ -676,7 +686,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsuchisakaWetIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 776, True), .BackgroundImage = My.Resources.tsuchisaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 776, True), .BackgroundImage = My.Resources.tsuchisaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsuchisaka
@@ -691,7 +701,7 @@
             AkinaSnowDH = Helper.GetTimeResult(_filename, 784, False)
             AkinaSnowUH = Helper.GetTimeResult(_filename, 792, False)
             If Not AkinaSnowDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 784, True), .BackgroundImage = My.Resources.akinaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 784, True), .BackgroundImage = My.Resources.akinaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .AkinaSnow
@@ -703,7 +713,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkinaSnowUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 792, True), .BackgroundImage = My.Resources.akinaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 792, True), .BackgroundImage = My.Resources.akinaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .AkinaSnow
@@ -718,7 +728,7 @@
             TsukubaSnowOB = Helper.GetTimeResult(_filename, 800, False)
             TsukubaSnowIB = Helper.GetTimeResult(_filename, 808, False)
             If Not TsukubaSnowOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 800, True), .BackgroundImage = My.Resources.tsukubaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 800, True), .BackgroundImage = My.Resources.tsukubaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsukubaSnow
@@ -734,7 +744,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsukubaSnowIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 808, True), .BackgroundImage = My.Resources.tsukubaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 808, True), .BackgroundImage = My.Resources.tsukubaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsukubaSnow
@@ -753,7 +763,7 @@
             TsuchisakaSnowOB = Helper.GetTimeResult(_filename, 812, False)
             TsuchisakaSnowIB = Helper.GetTimeResult(_filename, 820, False)
             If Not TsuchisakaSnowOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 812, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 812, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsuchisakaSnow
@@ -769,7 +779,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsuchisakaSnowIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 820, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 820, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsuchisakaSnow
@@ -788,7 +798,7 @@
             LakeAkinaCC = Helper.GetTimeResult(_filename, 596, False)
             LakeAkinaC = Helper.GetTimeResult(_filename, 600, False)
             If Not LakeAkinaCC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 596, True), .BackgroundImage = My.Resources.lakeAkina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 596, True), .BackgroundImage = My.Resources.lakeAkina}
                 With item
                     .Translate()
                     .lblCourse.Text = .LakeAkina
@@ -800,7 +810,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not LakeAkinaC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 600, True), .BackgroundImage = My.Resources.lakeAkina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 600, True), .BackgroundImage = My.Resources.lakeAkina}
                 With item
                     .Translate()
                     .lblCourse.Text = .LakeAkina
@@ -815,7 +825,7 @@
             MyogiDH = Helper.GetTimeResult(_filename, 604, False)
             MyogiUH = Helper.GetTimeResult(_filename, 608, False)
             If Not MyogiDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 604, True), .BackgroundImage = My.Resources.myogi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 604, True), .BackgroundImage = My.Resources.myogi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Myogi
@@ -827,7 +837,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not MyogiUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 608, True), .BackgroundImage = My.Resources.myogi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 608, True), .BackgroundImage = My.Resources.myogi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Myogi
@@ -842,7 +852,7 @@
             AkagiDH = Helper.GetTimeResult(_filename, 612, False)
             AkagiUH = Helper.GetTimeResult(_filename, 616, False)
             If Not AkagiDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 612, True), .BackgroundImage = My.Resources.akagi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 612, True), .BackgroundImage = My.Resources.akagi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akagi
@@ -854,7 +864,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkagiUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 616, True), .BackgroundImage = My.Resources.akagi}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 616, True), .BackgroundImage = My.Resources.akagi}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akagi
@@ -869,7 +879,7 @@
             AkinaDH = Helper.GetTimeResult(_filename, 620, False)
             AkinaUH = Helper.GetTimeResult(_filename, 624, False)
             If Not AkinaDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 620, True), .BackgroundImage = My.Resources.akina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 620, True), .BackgroundImage = My.Resources.akina}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akina
@@ -881,7 +891,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not AkinaUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 624, True), .BackgroundImage = My.Resources.akina}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 624, True), .BackgroundImage = My.Resources.akina}
                 With item
                     .Translate()
                     .lblCourse.Text = .Akina
@@ -896,7 +906,7 @@
             IrohazkaDH = Helper.GetTimeResult(_filename, 628, False)
             IrohazkaR = Helper.GetTimeResult(_filename, 632, False)
             If Not IrohazkaDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 628, True), .BackgroundImage = My.Resources.irohazaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 628, True), .BackgroundImage = My.Resources.irohazaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Irohazka
@@ -908,7 +918,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not IrohazkaR = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 632, True), .BackgroundImage = My.Resources.irohazaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 632, True), .BackgroundImage = My.Resources.irohazaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Irohazka
@@ -923,7 +933,7 @@
             TsukubaOB = Helper.GetTimeResult(_filename, 636, False)
             TsukubaIB = Helper.GetTimeResult(_filename, 640, False)
             If Not TsukubaOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 636, True), .BackgroundImage = My.Resources.tsukuba}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 636, True), .BackgroundImage = My.Resources.tsukuba}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsukuba
@@ -935,7 +945,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsukubaIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 640, True), .BackgroundImage = My.Resources.tsukuba}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 640, True), .BackgroundImage = My.Resources.tsukuba}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsukuba
@@ -950,7 +960,7 @@
             HappogaharaOB = Helper.GetTimeResult(_filename, 644, False)
             HappogaharaIB = Helper.GetTimeResult(_filename, 648, False)
             If Not HappogaharaOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 644, True), .BackgroundImage = My.Resources.happogahara}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 644, True), .BackgroundImage = My.Resources.happogahara}
                 With item
                     .Translate()
                     .lblCourse.Text = .Happogahara
@@ -967,7 +977,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not HappogaharaIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 648, True), .BackgroundImage = My.Resources.happogahara}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 648, True), .BackgroundImage = My.Resources.happogahara}
                 With item
                     .Translate()
                     .lblCourse.Text = .Happogahara
@@ -986,7 +996,7 @@
             NagaoDH = Helper.GetTimeResult(_filename, 652, False)
             NagaoUH = Helper.GetTimeResult(_filename, 656, False)
             If Not NagaoDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 652, True), .BackgroundImage = My.Resources.nagao}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 652, True), .BackgroundImage = My.Resources.nagao}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nagao
@@ -1002,7 +1012,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not NagaoUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 656, True), .BackgroundImage = My.Resources.nagao}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 656, True), .BackgroundImage = My.Resources.nagao}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nagao
@@ -1017,7 +1027,7 @@
             TsubakiLineDH = Helper.GetTimeResult(_filename, 660, False)
             TsubakiLineUH = Helper.GetTimeResult(_filename, 664, False)
             If Not TsubakiLineDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 660, True), .BackgroundImage = My.Resources.tsubakiLine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 660, True), .BackgroundImage = My.Resources.tsubakiLine}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsubakiLine
@@ -1029,7 +1039,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsubakiLineUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 664, True), .BackgroundImage = My.Resources.tsubakiLine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 664, True), .BackgroundImage = My.Resources.tsubakiLine}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsubakiLine
@@ -1044,7 +1054,7 @@
             UsuiCC = Helper.GetTimeResult(_filename, 668, False)
             UsuiC = Helper.GetTimeResult(_filename, 672, False)
             If Not UsuiCC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 668, True), .BackgroundImage = My.Resources.usui}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 668, True), .BackgroundImage = My.Resources.usui}
                 With item
                     .Translate()
                     .lblCourse.Text = .Usui
@@ -1056,7 +1066,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not UsuiC = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 672, True), .BackgroundImage = My.Resources.usui}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 672, True), .BackgroundImage = My.Resources.usui}
                 With item
                     .Translate()
                     .lblCourse.Text = .Usui
@@ -1071,7 +1081,7 @@
             SadamineDH = Helper.GetTimeResult(_filename, 676, False)
             SadamineUH = Helper.GetTimeResult(_filename, 680, False)
             If Not SadamineDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 676, True), .BackgroundImage = My.Resources.sadamine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 676, True), .BackgroundImage = My.Resources.sadamine}
                 With item
                     .Translate()
                     .lblCourse.Text = .Sadamine
@@ -1083,7 +1093,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not SadamineUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 680, True), .BackgroundImage = My.Resources.sadamine}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 680, True), .BackgroundImage = My.Resources.sadamine}
                 With item
                     .Translate()
                     .lblCourse.Text = .Sadamine
@@ -1098,7 +1108,7 @@
             TsuchisakaOB = Helper.GetTimeResult(_filename, 684, False)
             TsuchisakaIB = Helper.GetTimeResult(_filename, 688, False)
             If Not TsuchisakaOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 684, True), .BackgroundImage = My.Resources.tsuchisaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 684, True), .BackgroundImage = My.Resources.tsuchisaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsuchisaka
@@ -1110,7 +1120,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not TsuchisakaIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 688, True), .BackgroundImage = My.Resources.tsuchisaka}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 688, True), .BackgroundImage = My.Resources.tsuchisaka}
                 With item
                     .Translate()
                     .lblCourse.Text = .Tsuchisaka
@@ -1125,7 +1135,7 @@
             _AkinaSnowDH = Helper.GetTimeResult(_filename, 692, False)
             _AkinaSnowUH = Helper.GetTimeResult(_filename, 696, False)
             If Not _AkinaSnowDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 692, True), .BackgroundImage = My.Resources.akinaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 692, True), .BackgroundImage = My.Resources.akinaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .AkinaSnow
@@ -1137,7 +1147,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not _AkinaSnowUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 696, True), .BackgroundImage = My.Resources.akinaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 696, True), .BackgroundImage = My.Resources.akinaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .AkinaSnow
@@ -1152,7 +1162,7 @@
             _TsukubaSnowOB = Helper.GetTimeResult(_filename, 700, False)
             _TsukubaSnowIB = Helper.GetTimeResult(_filename, 704, False)
             If Not _TsukubaSnowOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.tsukubaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.tsukubaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsukubaSnow
@@ -1168,7 +1178,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not _TsukubaSnowIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.tsukubaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.tsukubaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsukubaSnow
@@ -1187,7 +1197,7 @@
             _TsuchisakaSnowOB = Helper.GetTimeResult(_filename, 708, False)
             _TsuchisakaSnowIB = Helper.GetTimeResult(_filename, 712, False)
             If Not _TsuchisakaSnowOB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsuchisakaSnow
@@ -1203,7 +1213,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not _TsuchisakaSnowIB = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.tsuchisakaSnow}
                 With item
                     .Translate()
                     .lblCourse.Text = .TsuchisakaSnow
@@ -1222,7 +1232,7 @@
             NanamagariDH = Helper.GetTimeResult(_filename, 716, False)
             NanamagariUH = Helper.GetTimeResult(_filename, 720, False)
             If Not NanamagariDH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 716, True), .BackgroundImage = My.Resources.namagari}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 716, True), .BackgroundImage = My.Resources.namagari}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nanamagari
@@ -1234,7 +1244,7 @@
                 flPanel.Controls.Add(item)
             End If
             If Not NanamagariUH = NoRecord Then
-                item = New TimeAttack With {.Version = _version, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 720, True), .BackgroundImage = My.Resources.namagari}
+                item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 720, True), .BackgroundImage = My.Resources.namagari}
                 With item
                     .Translate()
                     .lblCourse.Text = .Nanamagari

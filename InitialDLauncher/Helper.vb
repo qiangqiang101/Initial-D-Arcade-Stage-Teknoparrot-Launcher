@@ -89,22 +89,27 @@ Module Helper
         End If
     End Sub
 
-    Function GetHex(filename As String, pos As Integer, requiredBytes As Integer) As Byte()
+    Function GetHex(filename As String, offset As Integer, requiredBytes As Integer) As Byte()
         Dim value(0 To requiredBytes - 1) As Byte
         Using reader As New BinaryReader(File.Open(filename, FileMode.Open))
             ' Loop through length of file.
             Dim fileLength As Long = reader.BaseStream.Length
             Dim byteCount As Integer = 0
-            reader.BaseStream.Seek(pos, SeekOrigin.Begin)
-            While pos < fileLength And byteCount < requiredBytes
+            reader.BaseStream.Seek(offset, SeekOrigin.Begin)
+            While offset < fileLength And byteCount < requiredBytes
                 value(byteCount) = reader.ReadByte()
-                pos += 1
+                offset += 1
                 byteCount += 1
             End While
         End Using
 
         Return value
     End Function
+
+    Function Neg60(offset As Integer) As Integer
+        Return (offset - 60)
+    End Function
+
 
     Function GetName(hex As Byte()) As String
         Dim enc = Encoding.GetEncoding("shift-jis")
@@ -460,6 +465,10 @@ Module Helper
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+    Function Neg3C(offset As Long) As Long
+        Return (offset - &H3C)
+    End Function
 
     Function SetName(val As String) As Byte()
         Dim enc = Encoding.GetEncoding("shift-jis")

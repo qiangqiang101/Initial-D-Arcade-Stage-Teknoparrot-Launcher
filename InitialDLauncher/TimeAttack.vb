@@ -38,6 +38,16 @@
         End Set
     End Property
 
+    Private _extension As String
+    Public Property Extension() As String
+        Get
+            Return _extension
+        End Get
+        Set(value As String)
+            _extension = value
+        End Set
+    End Property
+
     Private Sub btnTimeAttack_Click(sender As Object, e As EventArgs) Handles btnTimeAttack.Click
         Try
             Dim cs As frmSubmit = New frmSubmit()
@@ -53,9 +63,17 @@
             cs.lblWeather.Text = lblWeather.Text
             cs.lblServer.Text = My.Settings.Server
             cs.Weather = trackweather.Item(lblWeather.Text)
-            Dim car1 = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
-            Dim car2 = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
-            Dim car3 = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+            Dim car1, car2, car3 As String
+            If _extension = "bin" Then
+                car1 = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+                car2 = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+                car3 = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+            Else
+                car1 = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
+                car2 = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
+                car3 = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+            End If
+
             If Not car1 = Nothing Then cs.cmbCar.Items.Add(car1)
             If Not car2 = Nothing Then cs.cmbCar.Items.Add(car2)
             If Not car3 = Nothing Then cs.cmbCar.Items.Add(car3)
