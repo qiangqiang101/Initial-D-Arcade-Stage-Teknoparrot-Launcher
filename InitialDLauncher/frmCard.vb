@@ -45,32 +45,32 @@ Public Class frmCard
                 End With
                 flp6.Controls.Add(item)
             Next
-            'For Each file As String In IO.Directory.GetFiles(id6CardPath, "*.crd")
-            '    item = New Card()
-            '    With item
-            '        .lblLevel.Location = New Point(260, 5)
-            '        .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
-            '        .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
-            '        .lblLevel.Text = GetLevel(GetHex(file, Neg60(164), 1), True) + 1
-            '        .FileName = file
-            '        .Extension = "crd"
-            '        .CardVersion = 6
-            '        If GetGender(GetHex(file, Neg60(90), 1)) = Gender.female Then
-            '            .BackgroundImage = My.Resources.card6f
-            '        Else
-            '            .BackgroundImage = My.Resources.card6m
-            '        End If
-            '        If My.Settings.Id6CardName = file Then
-            '            .BackColor = Color.LightBlue
-            '            .btnSelect.Text = deselect_card
-            '            .Selected = True
-            '        Else
-            '            .btnSelect.Text = select_card
-            '            .Selected = False
-            '        End If
-            '    End With
-            '    flp6.Controls.Add(item)
-            'Next
+            For Each file As String In IO.Directory.GetFiles(id6CardPath, "*.crd")
+                item = New Card()
+                With item
+                    .lblLevel.Location = New Point(260, 5)
+                    .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
+                    .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
+                    .lblLevel.Text = GetLevel(GetHex(file, Neg60(164), 1), True) + 1
+                    .FileName = file
+                    .Extension = "crd"
+                    .CardVersion = 6
+                    If GetGender(GetHex(file, Neg60(90), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card6f
+                    Else
+                        .BackgroundImage = My.Resources.card6m
+                    End If
+                    If My.Settings.Id6CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                flp6.Controls.Add(item)
+            Next
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -104,31 +104,31 @@ Public Class frmCard
                 End With
                 flp7.Controls.Add(item)
             Next
-            'For Each file As String In IO.Directory.GetFiles(id7CardPath, "*.crd")
-            '    item = New Card()
-            '    With item
-            '        .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
-            '        .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
-            '        .lblLevel.Text = GetLevel(GetHex(file, Neg60(163), 1))
-            '        .FileName = file
-            '        .Extension = "crd"
-            '        If GetGender(GetHex(file, Neg60(90), 1)) = Gender.female Then
-            '            .BackgroundImage = My.Resources.card7f
-            '        Else
-            '            .BackgroundImage = My.Resources.card7m
-            '        End If
-            '        .CardVersion = 7
-            '        If My.Settings.Id7CardName = file Then
-            '            .BackColor = Color.LightBlue
-            '            .btnSelect.Text = deselect_card
-            '            .Selected = True
-            '        Else
-            '            .btnSelect.Text = select_card
-            '            .Selected = False
-            '        End If
-            '    End With
-            '    flp7.Controls.Add(item)
-            'Next
+            For Each file As String In IO.Directory.GetFiles(id7CardPath, "*.crd")
+                item = New Card()
+                With item
+                    .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
+                    .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
+                    .lblLevel.Text = GetLevel(GetHex(file, Neg60(163), 1))
+                    .FileName = file
+                    .Extension = "crd"
+                    If GetGender(GetHex(file, Neg60(90), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card7f
+                    Else
+                        .BackgroundImage = My.Resources.card7m
+                    End If
+                    .CardVersion = 7
+                    If My.Settings.Id7CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                flp7.Controls.Add(item)
+            Next
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try

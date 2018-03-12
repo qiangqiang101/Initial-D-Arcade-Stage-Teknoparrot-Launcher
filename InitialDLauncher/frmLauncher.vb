@@ -12,11 +12,13 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 17
-    Public buildDate As String = "10/03/2018"
+    Dim curVer As Integer = 18
+    Public buildDate As String = "13/03/2018"
 
-    Dim id6AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_card.bin"
-    Dim id7AppData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_card.bin"
+    Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
+    Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
+    Dim id6GameDir As String = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
+    Dim id7GameDir As String = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
     Public id6CardPath As String = My.Settings.Id6CardName
     Public id7CardPath As String = My.Settings.Id7CardName
     Dim id6CardDir As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
@@ -225,7 +227,7 @@ Public Class frmLauncher
                     Me.WindowState = FormWindowState.Minimized
 
                     If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
-                    RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
+                    If IO.Path.GetExtension(AppData) = ".bin" Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
                     If My.Settings.Multiplayer Then
                         RunTeknoParrotOnline(True)
                     Else
@@ -238,7 +240,7 @@ Public Class frmLauncher
                 Me.WindowState = FormWindowState.Minimized
 
                 If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
-                RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
+                If IO.Path.GetExtension(AppData) = ".bin" Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
                 If My.Settings.Multiplayer Then
                     RunTeknoParrotOnline(True)
                 Else
@@ -252,11 +254,21 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
-        RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
+        Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
+            Case ".bin"
+                RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
+            Case ".crd"
+                RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
+        End Select
     End Sub
 
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click
-        RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
+        Select Case IO.Path.GetExtension(My.Settings.Id7CardName)
+            Case ".bin"
+                RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
+            Case ".crd"
+                RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
+        End Select
     End Sub
 
     Private Sub lblSetting_Click(sender As Object, e As EventArgs) Handles lblSetting.Click
@@ -275,11 +287,7 @@ Public Class frmLauncher
 
     Private Sub lblDebug_Click(sender As Object, e As EventArgs) Handles lblDebug.Click
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        MsgBox(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}", id6AppData, vbNewLine, id7AppData))
-        MsgBox(String.Format("ID6 Card File Path: {0}{1}ID7 Card File Path: {2}", id6CardPath, vbNewLine, id7CardPath))
-        MsgBox(String.Format("ID6 Game Path: {0}{1}ID7 Game Path: {2}", My.Settings.Id6Path, vbNewLine, My.Settings.Id7Path))
-        MsgBox(String.Format("ID6 Selected Card: {0}{1}ID7 Selected Card: {2}", My.Settings.Id6CardName, vbNewLine, My.Settings.Id7CardName))
-        MsgBox(getNewCPUID)
+        MsgBox(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID))
     End Sub
 
     Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click
@@ -299,18 +307,32 @@ Public Class frmLauncher
             If selPath = Nothing Then
                 Select Case lastGame
                     Case 6
-                        selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
+                        Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
+                            Case ".bin"
+                                selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                                If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
+                            Case ".crd"
+                                selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                                If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
+                        End Select
                     Case 7
-                        selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
+                        Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
+                            Case ".bin"
+                                selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                                If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
+                            Case ".crd"
+                                selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                                If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
+                        End Select
                 End Select
             Else
                 Select Case lastGame
                     Case 6
                         If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
+                        If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
                     Case 7
                         If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
+                        If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
                 End Select
             End If
 
@@ -402,6 +424,13 @@ Public Class frmLauncher
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub AutoCardMove()
+        If File.Exists(id6AppData) Then File.Move(id6AppData, id6CardDir)
+        If File.Exists(id6GameDir) Then File.Move(id6GameDir, id6CardDir)
+        If File.Exists(id7AppData) Then File.Move(id7AppData, id7CardDir)
+        If File.Exists(id7GameDir) Then File.Move(id7GameDir, id7CardDir)
     End Sub
 
     Private Sub CheckUpdate()

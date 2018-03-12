@@ -110,6 +110,26 @@ Module Helper
         Return (offset - 60)
     End Function
 
+    Sub SetHex(filename As String, offset As Long, value As Byte())
+        Try
+            Dim fs As New FileStream(filename, FileMode.Open)
+            Dim reader As New BinaryReader(fs)
+            fs.Position = offset
+            For Each num As Byte In value
+                If num.ToString() = String.Empty Then
+                    Exit For
+                End If
+                reader.BaseStream.WriteByte(num)
+            Next
+            reader.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Function Neg3C(offset As Long) As Long
+        Return (offset - &H3C)
+    End Function
 
     Function GetName(hex As Byte()) As String
         Dim enc = Encoding.GetEncoding("shift-jis")
@@ -447,27 +467,6 @@ Module Helper
                 result = Gender.female
         End Select
         Return result
-    End Function
-
-    Sub SetHex(filename As String, offset As Long, value As Byte())
-        Try
-            Dim fs As New FileStream(filename, FileMode.Open)
-            Dim reader As New BinaryReader(fs)
-            fs.Position = offset
-            For Each num As Byte In value
-                If num.ToString() = String.Empty Then
-                    Exit For
-                End If
-                reader.BaseStream.WriteByte(num)
-            Next
-            reader.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
-    Function Neg3C(offset As Long) As Long
-        Return (offset - &H3C)
     End Function
 
     Function SetName(val As String) As Byte()

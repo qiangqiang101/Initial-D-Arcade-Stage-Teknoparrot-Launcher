@@ -161,74 +161,145 @@ Public Class frmEdit
                 If Integer.Parse(txtLevel.Text) > 26 Then txtLevel.Text = "26"
             End If
 
-            If txtName.TextLength <= 5 Then
-                Dim amount As Integer = 6 - txtName.TextLength
-                Dim newName As Char = Nothing
-                Select Case amount
-                    Case 1
-                        newName = Chr(0)
-                    Case 2
-                        newName = Chr(0) & Chr(0)
-                    Case 3
-                        newName = Chr(0) & Chr(0) & Chr(0)
-                    Case 4
-                        newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                    Case 5
-                        newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                    Case 6
-                        newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                End Select
-                SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
-            Else
-                SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
+            If _extension = "bin" Then
+                If txtName.TextLength <= 5 Then
+                    Dim amount As Integer = 6 - txtName.TextLength
+                    Dim newName As Char = Nothing
+                    Select Case amount
+                        Case 1
+                            newName = Chr(0)
+                        Case 2
+                            newName = Chr(0) & Chr(0)
+                        Case 3
+                            newName = Chr(0) & Chr(0) & Chr(0)
+                        Case 4
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 5
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 6
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                    End Select
+                    SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
+                Else
+                    SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
+                End If
+
+                If cmbGender.SelectedIndex = 1 Then
+                    SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
+                Else
+                    SetHex(_filename, CLng("&H5A"), HexStringToBinary("00"))
+                End If
+
+                If cbSaveAvatar.Checked Then
+                    SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
+                    SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
+                    Select Case True
+                        Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "00"
+                            MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
+                            Exit Sub
+                    End Select
+                End If
+
+                If GroupBox1.Enabled Then
+                    If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, CLng("&H100"), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
+                    If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
+                    If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
+
+                    SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
+
+                    Select Case _version
+                        Case 6
+                            If cbLegend.Checked Then SetHex(_filename, CLng("&H222"), HexStringToBinary("218F"))
+                            SetHex(_filename, CLng("&H224"), SetValue(txtChapLevel.Text))
+                            SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
+                            SetHex(_filename, CLng("&HAD"), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
+                            SetHex(_filename, CLng("&H448"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+
+                        Case 7
+                            SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
+                            SetHex(_filename, CLng("&HBD"), HexStringToBinary("20")) 'Unlock X level
+                            SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
+                            SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
+                            SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                    End Select
+                End If
+
+                SetHex(_filename, CLng("&H759"), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
+
+                frmCard.RefreshID6Cards()
+                frmCard.RefreshID7Cards()
+
+                Me.Close()
+            Else 'crd
+                If txtName.TextLength <= 5 Then
+                    Dim amount As Integer = 6 - txtName.TextLength
+                    Dim newName As Char = Nothing
+                    Select Case amount
+                        Case 1
+                            newName = Chr(0)
+                        Case 2
+                            newName = Chr(0) & Chr(0)
+                        Case 3
+                            newName = Chr(0) & Chr(0) & Chr(0)
+                        Case 4
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 5
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 6
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                    End Select
+                    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text & newName))
+                Else
+                    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text))
+                End If
+
+                If cmbGender.SelectedIndex = 1 Then
+                    SetHex(_filename, Neg3C(&H5A), HexStringToBinary("01"))
+                Else
+                    SetHex(_filename, Neg3C(&H5A), HexStringToBinary("00"))
+                End If
+
+                If cbSaveAvatar.Checked Then
+                    SetHex(_filename, Neg3C(&HC4), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
+                    SetHex(_filename, Neg3C(&H221), HexStringToBinary(_221)) 'Frame
+                    Select Case True
+                        Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "00"
+                            MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
+                            Exit Sub
+                    End Select
+                End If
+
+                If GroupBox1.Enabled Then
+                    If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, Neg3C(&H100), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
+                    If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
+                    If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, Neg3C(&H1C0), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
+
+                    SetHex(_filename, Neg3C(&HC0), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
+
+                    Select Case _version
+                        Case 6
+                            If cbLegend.Checked Then SetHex(_filename, Neg3C(&H222), HexStringToBinary("218F"))
+                            SetHex(_filename, Neg3C(&H224), SetValue(txtChapLevel.Text))
+                            SetHex(_filename, Neg3C(&HA4), SetValue(txtLevel.Text))
+                            SetHex(_filename, Neg3C(&HAD), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
+                            SetHex(_filename, Neg3C(&H448), HexStringToBinary(SetMilelage(txtMileage.Text)))
+
+                        Case 7
+                            SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
+                            SetHex(_filename, Neg3C(&HBD), HexStringToBinary("20")) 'Unlock X level
+                            SetHex(_filename, Neg3C(&HAA), HexStringToBinary(SetPridePoint(txtSPride.Text)))
+                            SetHex(_filename, Neg3C(&HAC), HexStringToBinary(SetPridePoint(txtTPride.Text)))
+                            SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                    End Select
+                End If
+
+                'SetHex(_filename, Neg3C(&H759), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
+
+                frmCard.RefreshID6Cards()
+                frmCard.RefreshID7Cards()
+
+                Me.Close()
             End If
-
-            If cmbGender.SelectedIndex = 1 Then
-                SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
-            Else
-                SetHex(_filename, CLng("&H5A"), HexStringToBinary("00"))
-            End If
-
-            If cbSaveAvatar.Checked Then
-                SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
-                SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
-                Select Case True
-                    Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "00"
-                        MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
-                        Exit Sub
-                End Select
-            End If
-
-            If GroupBox1.Enabled Then
-                If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, CLng("&H100"), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
-                If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
-                If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
-
-                SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
-
-                Select Case _version
-                    Case 6
-                        If cbLegend.Checked Then SetHex(_filename, CLng("&H222"), HexStringToBinary("218F"))
-                        SetHex(_filename, CLng("&H224"), SetValue(txtChapLevel.Text))
-                        SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
-                        SetHex(_filename, CLng("&HAD"), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
-                        SetHex(_filename, CLng("&H448"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-
-                    Case 7
-                        SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
-                        SetHex(_filename, CLng("&HBD"), HexStringToBinary("20")) 'Unlock X level
-                        SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
-                        SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
-                        SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                End Select
-            End If
-
-            SetHex(_filename, CLng("&H759"), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
-
-            frmCard.RefreshID6Cards()
-            frmCard.RefreshID7Cards()
-
-            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
