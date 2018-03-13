@@ -3,7 +3,7 @@
 Public Class Card
 
     'Translation
-    Dim file_already_exist, rules, select_card, deselect_card As String
+    Dim file_already_exist, rules, select_card, deselect_card, error_5108_fixed As String
 
     Private _filename As String
     Public Property FileName() As String
@@ -84,11 +84,18 @@ Public Class Card
 
     Private Sub btnTimeAttack_Click(sender As Object, e As EventArgs) Handles btnTimeAttack.Click
         Try
-            Dim ta As frmTimeAttack = New frmTimeAttack()
-            ta.Version = _cardVersion
-            ta.FileName = _filename
-            ta.Extension = _extension
-            ta.Show()
+            If Not My.Settings.LoggedIn Then
+                frmLogin.Show()
+                frmCard.Close()
+                frmLauncher.WindowState = FormWindowState.Minimized
+                frmLauncher.Enabled = False
+            Else
+                Dim ta As frmTimeAttack = New frmTimeAttack()
+                ta.Version = _cardVersion
+                ta.FileName = _filename
+                ta.Extension = _extension
+                ta.Show()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -123,7 +130,7 @@ Public Class Card
         txtName.Clear()
     End Sub
 
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+    Private Sub sbtnEdit_Click(sender As Object, e As EventArgs) Handles sbtnEdit.Click
         If Not My.Settings.Warned Then
             Dim result As Integer = MessageBox.Show(rules, "Initial D Launcher", MessageBoxButtons.YesNo)
             If result = DialogResult.No Then
@@ -136,6 +143,13 @@ Public Class Card
         Else
             EditCard()
         End If
+    End Sub
+
+    Private Sub tsmi5108_Click(sender As Object, e As EventArgs) Handles tsmi5108.Click
+        SetHex(_filename, &HC, HexStringToBinary("00"))
+        SetHex(_filename, &HD, HexStringToBinary("00"))
+        SetHex(_filename, &HE, HexStringToBinary("00"))
+        MsgBox(error_5108_fixed, MsgBoxStyle.Information, "5108")
     End Sub
 
     Private Sub EditCard()
@@ -191,7 +205,9 @@ Public Class Card
     Private Sub Translate()
         Select Case My.Settings.Language
             Case "English"
-                btnEdit.Text = "Edit Card"
+                error_5108_fixed = "Error fixed."
+                tsmi5108.Text = "Fix Error 5108"
+                sbtnEdit.Text = "Edit Card"
                 btnRename.Text = "Rename Card"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "Cancel"
@@ -203,7 +219,9 @@ Public Class Card
                 file_already_exist = "{0}\{1} already exist."
                 rules = "Please backup your card file before making changes, I will accept no responsibility for game progress lost or data corrupt. Click Yes if you agreed and continue, click No to cancel."
             Case "Chinese"
-                btnEdit.Text = "改卡"
+                error_5108_fixed = "修復完成。"
+                tsmi5108.Text = "修復錯誤5108"
+                sbtnEdit.Text = "改卡"
                 btnRename.Text = "文件重命名"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "取消"
@@ -215,7 +233,9 @@ Public Class Card
                 file_already_exist = "{0}\{1} 已存在。"
                 rules = "請在修改任何東西之前先備份你的記憶卡，我將不會負責任何帶給你的損失。如果你同意點擊是，如果你不同意點擊否。"
             Case "French"
-                btnEdit.Text = "Edit Cartes"
+                error_5108_fixed = "Erreur corrigée."
+                tsmi5108.Text = "Correction d'erreur 5108"
+                sbtnEdit.Text = "Edit Cartes"
                 btnRename.Text = "Renomer"
                 btnRenameOK.Text = "OK"
                 btnRenameCancel.Text = "Retour"

@@ -14,6 +14,7 @@ PHP/SQL Leaderboard © Alex Rose, <br />
 ExtendedWebClient © ChrisD, <br />
 GameSpot Theme © w3layouts, <br />
 Translucent Control using GDI+ © a_pess<br />
+SplitButton Control © bergerkiller<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL<br />

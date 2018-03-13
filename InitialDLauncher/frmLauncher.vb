@@ -192,11 +192,11 @@ Public Class frmLauncher
             audio.SetVolume(500)
         End If
 
-        If Not My.Settings.LoggedIn Then
-            frmLogin.Show()
-            Me.WindowState = FormWindowState.Minimized
-            Me.Enabled = False
-        End If
+        'If Not My.Settings.LoggedIn Then
+        '    frmLogin.Show()
+        '    Me.WindowState = FormWindowState.Minimized
+        '    Me.Enabled = False
+        'End If
     End Sub
 
     Private Function CheckForUpdate() As Integer

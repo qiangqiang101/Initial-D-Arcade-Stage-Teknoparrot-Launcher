@@ -7,3 +7,12 @@ F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launche
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.xml
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.pdb
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.Resources.resources
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\bin\Release\Thumbs.dll
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\bin\Release\Thumbs.pdb
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\bin\Release\Thumbs.xml
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\LemonTheKid.vbprojResolveAssemblyReference.cache
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.Resources.resources
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\LemonTheKid.vbproj.GenerateResource.Cache
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.dll
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.xml
+E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.pdb

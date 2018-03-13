@@ -28,6 +28,7 @@ Public Class frmCard
                     .lblLevel.Text = GetLevel(GetHex(file, 164, 1), True) + 1
                     .FileName = file
                     .Extension = "bin"
+                    .tsmi5108.Enabled = False
                     .CardVersion = 6
                     If GetGender(GetHex(file, 90, 1)) = Gender.female Then
                         .BackgroundImage = My.Resources.card6f
@@ -87,6 +88,7 @@ Public Class frmCard
                     .lblLevel.Text = GetLevel(GetHex(file, 163, 1))
                     .FileName = file
                     .Extension = "bin"
+                    .tsmi5108.Enabled = False
                     If GetGender(GetHex(file, 90, 1)) = Gender.female Then
                         .BackgroundImage = My.Resources.card7f
                     Else

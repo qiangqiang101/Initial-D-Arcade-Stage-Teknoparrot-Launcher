@@ -22,9 +22,9 @@ Partial Class Card
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblName = New System.Windows.Forms.Label()
         Me.btnSelect = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnTimeAttack = New System.Windows.Forms.Button()
         Me.btnRename = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -33,7 +33,11 @@ Partial Class Card
         Me.btnRenameOK = New System.Windows.Forms.Button()
         Me.lblCar = New System.Windows.Forms.Label()
         Me.lblLevel = New System.Windows.Forms.Label()
+        Me.sbtnEdit = New InitialDLauncher.SplitButton()
+        Me.cmsEdit = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.tsmi5108 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
+        Me.cmsEdit.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblName
@@ -49,29 +53,19 @@ Partial Class Card
         'btnSelect
         '
         Me.btnSelect.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSelect.Location = New System.Drawing.Point(287, 244)
+        Me.btnSelect.Location = New System.Drawing.Point(286, 242)
         Me.btnSelect.Name = "btnSelect"
-        Me.btnSelect.Size = New System.Drawing.Size(87, 23)
+        Me.btnSelect.Size = New System.Drawing.Size(87, 25)
         Me.btnSelect.TabIndex = 4
         Me.btnSelect.Text = "Select Card"
         Me.btnSelect.UseVisualStyleBackColor = True
         '
-        'btnEdit
-        '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Location = New System.Drawing.Point(6, 244)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(87, 23)
-        Me.btnEdit.TabIndex = 1
-        Me.btnEdit.Text = "Edit Card"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
         'btnTimeAttack
         '
         Me.btnTimeAttack.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnTimeAttack.Location = New System.Drawing.Point(194, 244)
+        Me.btnTimeAttack.Location = New System.Drawing.Point(193, 242)
         Me.btnTimeAttack.Name = "btnTimeAttack"
-        Me.btnTimeAttack.Size = New System.Drawing.Size(87, 23)
+        Me.btnTimeAttack.Size = New System.Drawing.Size(87, 25)
         Me.btnTimeAttack.TabIndex = 3
         Me.btnTimeAttack.Text = "Time Attack"
         Me.btnTimeAttack.UseVisualStyleBackColor = True
@@ -79,9 +73,9 @@ Partial Class Card
         'btnRename
         '
         Me.btnRename.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRename.Location = New System.Drawing.Point(99, 244)
+        Me.btnRename.Location = New System.Drawing.Point(100, 242)
         Me.btnRename.Name = "btnRename"
-        Me.btnRename.Size = New System.Drawing.Size(87, 23)
+        Me.btnRename.Size = New System.Drawing.Size(87, 25)
         Me.btnRename.TabIndex = 2
         Me.btnRename.Text = "Rename Card"
         Me.btnRename.UseVisualStyleBackColor = True
@@ -148,18 +142,42 @@ Partial Class Card
         Me.lblLevel.Text = "E3"
         Me.lblLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'sbtnEdit
+        '
+        Me.sbtnEdit.AutoSize = True
+        Me.sbtnEdit.ContextMenuStrip = Me.cmsEdit
+        Me.sbtnEdit.Location = New System.Drawing.Point(7, 242)
+        Me.sbtnEdit.Name = "sbtnEdit"
+        Me.sbtnEdit.ShowSplit = True
+        Me.sbtnEdit.Size = New System.Drawing.Size(87, 25)
+        Me.sbtnEdit.TabIndex = 8
+        Me.sbtnEdit.Text = "Edit Card"
+        Me.sbtnEdit.UseVisualStyleBackColor = True
+        '
+        'cmsEdit
+        '
+        Me.cmsEdit.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmi5108})
+        Me.cmsEdit.Name = "cmsEdit"
+        Me.cmsEdit.Size = New System.Drawing.Size(153, 48)
+        '
+        'tsmi5108
+        '
+        Me.tsmi5108.Name = "tsmi5108"
+        Me.tsmi5108.Size = New System.Drawing.Size(152, 22)
+        Me.tsmi5108.Text = "Fix Error 5108"
+        '
         'Card
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.card7m
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Controls.Add(Me.sbtnEdit)
         Me.Controls.Add(Me.lblLevel)
         Me.Controls.Add(Me.lblCar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnRename)
         Me.Controls.Add(Me.btnTimeAttack)
-        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnSelect)
         Me.Controls.Add(Me.lblName)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -168,13 +186,14 @@ Partial Class Card
         Me.Size = New System.Drawing.Size(380, 273)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.cmsEdit.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents lblName As Label
     Friend WithEvents btnSelect As Button
-    Friend WithEvents btnEdit As Button
     Friend WithEvents btnTimeAttack As Button
     Friend WithEvents btnRename As Button
     Friend WithEvents GroupBox1 As GroupBox
@@ -183,4 +202,7 @@ Partial Class Card
     Friend WithEvents btnRenameCancel As Button
     Friend WithEvents lblCar As Label
     Friend WithEvents lblLevel As Label
+    Friend WithEvents sbtnEdit As SplitButton
+    Friend WithEvents cmsEdit As ContextMenuStrip
+    Friend WithEvents tsmi5108 As ToolStripMenuItem
 End Class
