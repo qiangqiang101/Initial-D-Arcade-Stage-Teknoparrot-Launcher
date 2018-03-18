@@ -52,6 +52,37 @@ Public Class frmEdit
     End Property
 
     Private _filename As String
+
+    Private Sub btnEditCar1_Click(sender As Object, e As EventArgs) Handles btnEditCar1.Click
+        Dim fe As frmEditCar = New frmEditCar()
+        fe.Version = _version
+        fe.FileName = _filename
+        fe.Extension = _extension
+        fe.CarSlot = 1
+        fe.CarName = cmbCar1.Text
+        fe.Show()
+    End Sub
+
+    Private Sub btnEditCar2_Click(sender As Object, e As EventArgs) Handles btnEditCar2.Click
+        Dim fe As frmEditCar = New frmEditCar()
+        fe.Version = _version
+        fe.FileName = _filename
+        fe.Extension = _extension
+        fe.CarSlot = 2
+        fe.CarName = cmbCar2.Text
+        fe.Show()
+    End Sub
+
+    Private Sub btnEditCar3_Click(sender As Object, e As EventArgs) Handles btnEditCar3.Click
+        Dim fe As frmEditCar = New frmEditCar()
+        fe.Version = _version
+        fe.FileName = _filename
+        fe.Extension = _extension
+        fe.CarSlot = 3
+        fe.CarName = cmbCar3.Text
+        fe.Show()
+    End Sub
+
     Public Property FileName() As String
         Get
             Return _filename
@@ -201,9 +232,9 @@ Public Class frmEdit
                 End If
 
                 If GroupBox1.Enabled Then
-                    If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, CLng("&H100"), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
-                    If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
-                    If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
+                    'If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, CLng("&H100"), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
+                    'If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
+                    'If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
 
                     SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
 
@@ -270,9 +301,9 @@ Public Class frmEdit
                 End If
 
                 If GroupBox1.Enabled Then
-                    If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, Neg3C(&H100), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
-                    If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
-                    If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, Neg3C(&H1C0), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
+                    'If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, Neg3C(&H100), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
+                    'If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
+                    'If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, Neg3C(&H1C0), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
 
                     SetHex(_filename, Neg3C(&HC0), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
 
@@ -330,10 +361,6 @@ Public Class frmEdit
 
         GroupBox1.Enabled = frmLauncher.cheat
 
-        ttCar1.SetToolTip(cbCar1, tool_tip)
-        ttCar2.SetToolTip(cbCar2, tool_tip)
-        ttCar3.SetToolTip(cbCar3, tool_tip)
-
         If _version = 6 Then
             DictionaryAdd6()
             GroupBox4.Enabled = True
@@ -372,9 +399,6 @@ Public Class frmEdit
                 Label14.Text = "Game Point"
                 Label9.Text = "Single Pride"
                 Label11.Text = "Tag Pride"
-                cbCar1.Text = "Confirm"
-                cbCar2.Text = cbCar1.Text
-                cbCar3.Text = cbCar1.Text
                 cbLegend.Text = "Unlock Legend Chapter"
                 btnSave.Text = "Save"
                 tool_tip = "Change car might lose ability to tune your car!"
@@ -421,9 +445,6 @@ Public Class frmEdit
                 Label14.Text = "点数"
                 Label9.Text = "全国自豪感点"
                 Label11.Text = "2v2自豪感点"
-                cbCar1.Text = "確認更改"
-                cbCar2.Text = cbCar1.Text
-                cbCar3.Text = cbCar1.Text
                 cbLegend.Text = "解鎖傳說章節"
                 btnSave.Text = "保存"
                 tool_tip = "更換車可能會失去改車功能！"
@@ -470,9 +491,6 @@ Public Class frmEdit
                 Label14.Text = "Point de jeu"
                 Label9.Text = "Single Pride"
                 Label11.Text = "Tag Pride"
-                cbCar1.Text = "Confirmer"
-                cbCar2.Text = cbCar1.Text
-                cbCar3.Text = cbCar1.Text
                 cbLegend.Text = "Unlock Legend Chapter"
                 btnSave.Text = "Sauv"
                 tool_tip = "Change car might lose ability to tune your car!"

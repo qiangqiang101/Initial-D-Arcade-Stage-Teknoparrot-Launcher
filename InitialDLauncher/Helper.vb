@@ -110,6 +110,10 @@ Module Helper
         Return (offset - 60)
     End Function
 
+    Function Plus60(offset As Integer) As Integer
+        Return (offset + 60)
+    End Function
+
     Sub SetHex(filename As String, offset As Long, value As Byte())
         Try
             Dim fs As New FileStream(filename, FileMode.Open)
@@ -129,6 +133,30 @@ Module Helper
 
     Function Neg3C(offset As Long) As Long
         Return (offset - &H3C)
+    End Function
+
+    Function Plus3C(offset As Long) As Long
+        Return (offset + &H3C)
+    End Function
+
+    Enum Transmission
+        AT
+        MT
+        Unk
+    End Enum
+
+    Function GetTransmission(hex As Byte()) As Transmission
+        Dim tResult As Transmission = Transmission.Unk
+        Dim result As Integer = CInt("&H" & BitConverter.ToString(hex).Replace("-", ""))
+        Select Case result
+            Case 0 To 80
+                tResult = Transmission.AT
+            Case 128 To 208
+                tResult = Transmission.MT
+            Case Else
+                tResult = Transmission.Unk
+        End Select
+        Return tResult
     End Function
 
     Function GetName(hex As Byte()) As String

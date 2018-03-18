@@ -113,6 +113,12 @@
     <Compile Include="frmEdit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmEditCar.Designer.vb">
+      <DependentUpon>frmEditCar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditCar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLauncher.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEdit.resx">
       <DependentUpon>frmEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCar.resx">
+      <DependentUpon>frmEditCar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLauncher.resx">
       <DependentUpon>frmLauncher.vb</DependentUpon>

@@ -174,9 +174,9 @@ Public Class Card
                     fe.txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
                     fe.txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
                 End If
-                fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
-                fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
-                fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+                fe.cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+                fe.cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+                fe.cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
             Else
                 fe.txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
                 If _cardVersion = 6 Then
@@ -192,9 +192,9 @@ Public Class Card
                     fe.txtTPride.Text = GetPridePoint(GetHex(_filename, Neg60(172), 1), GetHex(_filename, Neg60(173), 1))
                     fe.txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(896), 1), GetHex(_filename, Neg60(897), 1), GetHex(_filename, Neg60(898), 1), GetHex(_filename, Neg60(899), 1))
                 End If
-                fe.cmbCar1.SelectedItem = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
-                fe.cmbCar2.SelectedItem = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
-                fe.cmbCar3.SelectedItem = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+                fe.cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
+                fe.cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
+                fe.cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
             End If
             fe.Show()
         Catch ex As Exception
