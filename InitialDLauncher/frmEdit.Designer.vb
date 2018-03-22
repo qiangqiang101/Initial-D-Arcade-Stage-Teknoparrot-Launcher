@@ -287,6 +287,7 @@ Partial Class frmEdit
         Me.btnEditCar3.TabIndex = 29
         Me.btnEditCar3.Text = "Edit"
         Me.btnEditCar3.UseVisualStyleBackColor = True
+        Me.btnEditCar3.Visible = False
         '
         'btnEditCar2
         '
@@ -296,6 +297,7 @@ Partial Class frmEdit
         Me.btnEditCar2.TabIndex = 28
         Me.btnEditCar2.Text = "Edit"
         Me.btnEditCar2.UseVisualStyleBackColor = True
+        Me.btnEditCar2.Visible = False
         '
         'btnEditCar1
         '
@@ -305,6 +307,7 @@ Partial Class frmEdit
         Me.btnEditCar1.TabIndex = 27
         Me.btnEditCar1.Text = "Edit"
         Me.btnEditCar1.UseVisualStyleBackColor = True
+        Me.btnEditCar1.Visible = False
         '
         'txtGamePoint
         '

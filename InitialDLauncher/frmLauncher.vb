@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 19
-    Public buildDate As String = "14/03/2018"
+    Dim curVer As Integer = 20
+    Public buildDate As String = "23/03/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -171,6 +171,7 @@ Public Class frmLauncher
         lblDebug.Visible = debug
         CheckForIllegalCrossThreadCalls = False
         GetGamePath()
+        AutoCardMove()
 
         If Not File.Exists(id6CardPath) Then
             My.Settings.Id6CardName = ""
@@ -259,6 +260,8 @@ Public Class frmLauncher
                 RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
             Case ".crd"
                 RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
+            Case Else
+                RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
         End Select
     End Sub
 
@@ -267,6 +270,8 @@ Public Class frmLauncher
             Case ".bin"
                 RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
             Case ".crd"
+                RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
+            Case Else
                 RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
         End Select
     End Sub
@@ -307,23 +312,29 @@ Public Class frmLauncher
             If selPath = Nothing Then
                 Select Case lastGame
                     Case 6
-                        Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
-                            Case ".bin"
-                                selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                                If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
-                            Case ".crd"
-                                selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                                If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
-                        End Select
+                        'Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
+                        '    Case ".bin"
+                        '        selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        '        If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
+                        '    Case ".crd"
+                        '        selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        '        If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
+                        '    Case Else
+                        'End Select
+                        selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
                     Case 7
-                        Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
-                            Case ".bin"
-                                selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                                If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
-                            Case ".crd"
-                                selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                                If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
-                        End Select
+                        'Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
+                        '    Case ".bin"
+                        '        selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        '        If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
+                        '    Case ".crd"
+                        '        selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        '        If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
+                        '    Case Else
+                        'End Select
+                        selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
                 End Select
             Else
                 Select Case lastGame

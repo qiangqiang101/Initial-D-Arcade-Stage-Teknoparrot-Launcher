@@ -2409,7 +2409,7 @@
                 _TsuchisakaSnowOB = Helper.GetTimeResult(_filename, Neg60(708), False)
                 _TsuchisakaSnowIB = Helper.GetTimeResult(_filename, Neg60(712), False)
                 If Not _TsuchisakaSnowOB = NoRecord Then
-                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(700), True), .BackgroundImage = My.Resources.tsuchisakaSnow}
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(708), True), .BackgroundImage = My.Resources.tsuchisakaSnow}
                     With item
                         .Translate()
                         .lblCourse.Text = .TsuchisakaSnow
@@ -2425,7 +2425,7 @@
                     flPanel.Controls.Add(item)
                 End If
                 If Not _TsuchisakaSnowIB = NoRecord Then
-                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(704), True), .BackgroundImage = My.Resources.tsuchisakaSnow}
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(712), True), .BackgroundImage = My.Resources.tsuchisakaSnow}
                     With item
                         .Translate()
                         .lblCourse.Text = .TsuchisakaSnow

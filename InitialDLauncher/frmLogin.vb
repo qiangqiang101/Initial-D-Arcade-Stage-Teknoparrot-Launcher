@@ -90,7 +90,12 @@ Public Class frmLogin
     End Sub
 
     Private Sub llblRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblRegister.LinkClicked
-        Process.Start("http://id.imnotmental.com/member/register.php")
+        Select Case cmbServer.SelectedItem
+            Case "World"
+                Process.Start("http://id.imnotmental.com/member/register.php")
+            Case "China"
+                Process.Start("http://www.emulot.cn/id/member/register.php")
+        End Select
     End Sub
 
     Private Function IsUserEmailPasswordValid(email As String, pass As String) As Boolean
