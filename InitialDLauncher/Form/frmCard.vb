@@ -24,11 +24,10 @@ Public Class frmCard
                 With item
                     .lblLevel.Location = New Point(260, 5)
                     .lblName.Text = GetName(GetHex(file, 240, 12))
-                    .lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1))
+                    .lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1), 6)
                     .lblLevel.Text = GetLevel(GetHex(file, 164, 1), True) + 1
                     .FileName = file
                     .Extension = "bin"
-                    .tsmi5108.Enabled = False
                     .CardVersion = 6
                     If GetGender(GetHex(file, 90, 1)) = Gender.female Then
                         .BackgroundImage = My.Resources.card6f
@@ -51,7 +50,7 @@ Public Class frmCard
                 With item
                     .lblLevel.Location = New Point(260, 5)
                     .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
-                    .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
+                    .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1), 6)
                     .lblLevel.Text = GetLevel(GetHex(file, Neg60(164), 1), True) + 1
                     .FileName = file
                     .Extension = "crd"
@@ -88,7 +87,6 @@ Public Class frmCard
                     .lblLevel.Text = GetLevel(GetHex(file, 163, 1))
                     .FileName = file
                     .Extension = "bin"
-                    .tsmi5108.Enabled = False
                     If GetGender(GetHex(file, 90, 1)) = Gender.female Then
                         .BackgroundImage = My.Resources.card7f
                     Else
@@ -144,26 +142,29 @@ Public Class frmCard
         Select Case My.Settings.Language
             Case "English"
                 Me.Text = "Card Management"
-                TabPage1.Text = "Initial D 6 AA"
-                TabPage2.Text = "Initial D 7 AAX"
-                lbl6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(My.Settings.Id6CardName))
-                lbl7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(My.Settings.Id7CardName))
+                NsTheme1.Text = Me.Text
+                TabPage3.Text = "InitialD 6 AA Cards"
+                TabPage4.Text = "InitialD 7 AAX Cards"
+                txt6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(My.Settings.Id6CardName))
+                txt7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(My.Settings.Id7CardName))
                 select_card = "Select Card"
                 deselect_card = "Deselect Card"
             Case "Chinese"
                 Me.Text = "卡管理"
-                TabPage1.Text = "頭文字D6AA"
-                TabPage2.Text = "頭文字D7AAX"
-                lbl6.Text = String.Format("已經選擇的ID6卡: {0}", Path.GetFileName(My.Settings.Id6CardName))
-                lbl7.Text = String.Format("已經選擇的ID7卡: {0}", Path.GetFileName(My.Settings.Id7CardName))
+                NsTheme1.Text = Me.Text
+                TabPage3.Text = "頭文字D6AA卡"
+                TabPage4.Text = "頭文字D7AAX卡"
+                txt6.Text = String.Format("已經選擇的ID6卡: {0}", Path.GetFileName(My.Settings.Id6CardName))
+                txt7.Text = String.Format("已經選擇的ID7卡: {0}", Path.GetFileName(My.Settings.Id7CardName))
                 select_card = "選擇卡"
                 deselect_card = "取消選擇"
             Case "French"
+                NsTheme1.Text = Me.Text
                 Me.Text = "Gestion Cartes"
-                TabPage1.Text = "Initial D 6 AA"
-                TabPage2.Text = "Initial D 7 AAX"
-                lbl6.Text = String.Format("Choix Carte ID6: {0}", Path.GetFileName(My.Settings.Id6CardName))
-                lbl7.Text = String.Format("Choix Carte ID7: {0}", Path.GetFileName(My.Settings.Id7CardName))
+                TabPage3.Text = "InitialD 6 AA Cards"
+                TabPage4.Text = "InitialD 7 AAX Cards"
+                txt6.Text = String.Format("Choix Carte ID6: {0}", Path.GetFileName(My.Settings.Id6CardName))
+                txt7.Text = String.Format("Choix Carte ID7: {0}", Path.GetFileName(My.Settings.Id7CardName))
                 select_card = "Activer"
                 deselect_card = "Desactiver"
         End Select

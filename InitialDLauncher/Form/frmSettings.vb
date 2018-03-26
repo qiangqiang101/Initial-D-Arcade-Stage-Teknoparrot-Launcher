@@ -61,11 +61,11 @@ Public Class frmSettings
             ElseIf txt7.Text.Contains(".exe") Then
                 MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
                 txt7.Focus()
-            ElseIf txtPlayerName.Text = Nothing Then
-                MsgBox(no_name, MsgBoxStyle.Critical, "Error")
-                txtPlayerName.Focus()
+                'ElseIf txtPlayerName.Text = Nothing Then
+                '    MsgBox(no_name, MsgBoxStyle.Critical, "Error")
+                '    txtPlayerName.Focus()
             Else
-                If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
+                If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
 
                 My.Settings.Id6Path = txt6.Text
                 My.Settings.Id7Path = txt7.Text
@@ -143,14 +143,16 @@ Public Class frmSettings
         Select Case My.Settings.Language
             Case "English"
                 Me.Text = "Settings"
+                NsTheme1.Text = Me.Text
                 Label1.Text = "Initial D 6AA Path"
                 Label2.Text = "Initial D 7AAX Path"
                 cbTest.Text = "Test Menu"
                 cbDebug.Text = "Debug Mode"
                 cbSaveSeat.Text = "Save Cabinet Seat"
                 Label21.Text = "Launcher Language"
-                gb6.Text = "Initial D 6AA Cabinet Seat (BETA)"
-                gb7.Text = "Initial D 7AAX Cabinet Seat (BETA)"
+                gb6.Title = "Initial D 6AA Cabinet Seat (BETA)"
+                gb7.Title = "Initial D 7AAX Cabinet Seat (BETA)"
+                GroupBox1.Title = "Cabinet Seat (BETA)"
                 btnSave.Text = "Save"
                 no_exe = "Please Enter Path without file name."
                 no_name = "Please Enter your User Name."
@@ -161,14 +163,16 @@ Public Class frmSettings
                 cbMP.Text = "Multiplayer"
             Case "Chinese"
                 Me.Text = "設定"
+                NsTheme1.Text = Me.Text
                 Label1.Text = "頭文字D6AA路徑"
                 Label2.Text = "頭文字D7AAX路徑"
                 cbTest.Text = "測試菜單"
                 cbDebug.Text = "調試模式"
                 cbSaveSeat.Text = "保存座位"
                 Label21.Text = "登陸器語言"
-                gb6.Text = "頭文字D6AA座位(BETA)"
-                gb7.Text = "頭文字D7AAX座位(BETA)"
+                gb6.Title = "頭文字D6AA座位(BETA)"
+                gb7.Title = "頭文字D7AAX座位(BETA)"
+                GroupBox1.Title = "座位(BETA)"
                 btnSave.Text = "保存"
                 no_exe = "請輸入沒有文件名的路徑。"
                 no_name = "請輸入您的用戶名。"
@@ -179,14 +183,16 @@ Public Class frmSettings
                 cbMP.Text = "線上模式"
             Case "French"
                 Me.Text = "Réglages"
+                NsTheme1.Text = Me.Text
                 Label1.Text = "Initial D 6AA Chemin"
                 Label2.Text = "Initial D 7AAX Chemin"
                 cbTest.Text = "Test Menu"
                 cbDebug.Text = "Mode Debug"
                 cbSaveSeat.Text = "Sauv Cabinet Seat"
                 Label21.Text = "Langue"
-                gb6.Text = "Initial D 6AA Cabinet Seat (BETA)"
-                gb7.Text = "Initial D 7AAX Cabinet Seat (BETA)"
+                gb6.Title = "Initial D 6AA Cabinet Seat (BETA)"
+                gb7.Title = "Initial D 7AAX Cabinet Seat (BETA)"
+                GroupBox1.Title = "Cabinet Seat (BETA)"
                 btnSave.Text = "Sauv"
                 no_exe = "Veuillez entrer le chemin sans nom de fichier."
                 no_name = "S'il vous plaît entrez votre nom d'utilisateur."
@@ -204,6 +210,7 @@ Public Class frmSettings
     Private Sub UpdateUserCountry()
         Try
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+
             If My.Settings.Server = "World" Then
                 client.DownloadString(Convert.ToString(UpdateUserCountryURL + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
             Else

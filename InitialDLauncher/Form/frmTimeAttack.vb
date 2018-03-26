@@ -2475,10 +2475,13 @@
         Select Case My.Settings.Language
             Case "English"
                 Me.Text = "Time Attack Result"
+                NsTheme1.Text = Me.Text
             Case "Chinese"
                 Me.Text = "時間挑戰成就"
+                NsTheme1.Text = Me.Text
             Case "French"
                 Me.Text = "Résultat Time Attack"
+                NsTheme1.Text = Me.Text
         End Select
     End Sub
 End Class

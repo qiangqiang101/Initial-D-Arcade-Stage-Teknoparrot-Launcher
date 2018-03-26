@@ -33,19 +33,23 @@ Partial Class frmSubmit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
-        Me.cmbCar = New System.Windows.Forms.ComboBox()
+        Me.cmbCar = New InitialDLauncher.NSComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnSubmit = New System.Windows.Forms.Button()
+        Me.btnSubmit = New InitialDLauncher.NSButton()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblServer = New System.Windows.Forms.Label()
+        Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.NsTheme1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblTime
         '
         Me.lblTime.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.Location = New System.Drawing.Point(131, 125)
+        Me.lblTime.ForeColor = System.Drawing.Color.White
+        Me.lblTime.Location = New System.Drawing.Point(133, 149)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(227, 21)
         Me.lblTime.TabIndex = 7
@@ -54,7 +58,8 @@ Partial Class frmSubmit
         'lblWeather
         '
         Me.lblWeather.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWeather.Location = New System.Drawing.Point(131, 104)
+        Me.lblWeather.ForeColor = System.Drawing.Color.White
+        Me.lblWeather.Location = New System.Drawing.Point(133, 128)
         Me.lblWeather.Name = "lblWeather"
         Me.lblWeather.Size = New System.Drawing.Size(180, 21)
         Me.lblWeather.TabIndex = 6
@@ -63,7 +68,8 @@ Partial Class frmSubmit
         'lblType
         '
         Me.lblType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblType.Location = New System.Drawing.Point(131, 83)
+        Me.lblType.ForeColor = System.Drawing.Color.White
+        Me.lblType.Location = New System.Drawing.Point(133, 107)
         Me.lblType.Name = "lblType"
         Me.lblType.Size = New System.Drawing.Size(227, 21)
         Me.lblType.TabIndex = 5
@@ -72,7 +78,8 @@ Partial Class frmSubmit
         'lblCourse
         '
         Me.lblCourse.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCourse.Location = New System.Drawing.Point(131, 62)
+        Me.lblCourse.ForeColor = System.Drawing.Color.White
+        Me.lblCourse.Location = New System.Drawing.Point(133, 86)
         Me.lblCourse.Name = "lblCourse"
         Me.lblCourse.Size = New System.Drawing.Size(227, 21)
         Me.lblCourse.TabIndex = 4
@@ -81,7 +88,8 @@ Partial Class frmSubmit
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(35, 64)
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(37, 88)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 15)
         Me.Label3.TabIndex = 8
@@ -90,7 +98,8 @@ Partial Class frmSubmit
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(35, 106)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(37, 130)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 15)
         Me.Label2.TabIndex = 11
@@ -99,7 +108,8 @@ Partial Class frmSubmit
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(35, 85)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(37, 109)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(33, 15)
         Me.Label1.TabIndex = 10
@@ -108,7 +118,8 @@ Partial Class frmSubmit
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(35, 127)
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(37, 151)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(34, 15)
         Me.Label4.TabIndex = 12
@@ -117,7 +128,8 @@ Partial Class frmSubmit
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(35, 22)
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(37, 46)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(39, 15)
         Me.Label5.TabIndex = 14
@@ -126,7 +138,8 @@ Partial Class frmSubmit
         'lblName
         '
         Me.lblName.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblName.Location = New System.Drawing.Point(131, 20)
+        Me.lblName.ForeColor = System.Drawing.Color.White
+        Me.lblName.Location = New System.Drawing.Point(133, 44)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(227, 21)
         Me.lblName.TabIndex = 13
@@ -134,17 +147,21 @@ Partial Class frmSubmit
         '
         'cmbCar
         '
+        Me.cmbCar.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbCar.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cmbCar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbCar.FormattingEnabled = True
-        Me.cmbCar.Location = New System.Drawing.Point(134, 170)
+        Me.cmbCar.Location = New System.Drawing.Point(136, 194)
         Me.cmbCar.Name = "cmbCar"
-        Me.cmbCar.Size = New System.Drawing.Size(224, 23)
+        Me.cmbCar.Size = New System.Drawing.Size(224, 24)
         Me.cmbCar.TabIndex = 1
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(35, 173)
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(37, 197)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(25, 15)
         Me.Label6.TabIndex = 16
@@ -152,17 +169,17 @@ Partial Class frmSubmit
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(166, 199)
+        Me.btnSubmit.Location = New System.Drawing.Point(168, 223)
         Me.btnSubmit.Name = "btnSubmit"
-        Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
+        Me.btnSubmit.Size = New System.Drawing.Size(75, 24)
         Me.btnSubmit.TabIndex = 2
         Me.btnSubmit.Text = "Submit"
-        Me.btnSubmit.UseVisualStyleBackColor = True
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(35, 43)
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(37, 67)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 15)
         Me.Label7.TabIndex = 54
@@ -171,7 +188,8 @@ Partial Class frmSubmit
         'lblVersion
         '
         Me.lblVersion.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVersion.Location = New System.Drawing.Point(131, 41)
+        Me.lblVersion.ForeColor = System.Drawing.Color.White
+        Me.lblVersion.Location = New System.Drawing.Point(133, 65)
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.Size = New System.Drawing.Size(227, 21)
         Me.lblVersion.TabIndex = 53
@@ -180,7 +198,8 @@ Partial Class frmSubmit
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(35, 148)
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(37, 172)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 15)
         Me.Label8.TabIndex = 56
@@ -189,45 +208,84 @@ Partial Class frmSubmit
         'lblServer
         '
         Me.lblServer.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblServer.Location = New System.Drawing.Point(131, 146)
+        Me.lblServer.ForeColor = System.Drawing.Color.White
+        Me.lblServer.Location = New System.Drawing.Point(133, 170)
         Me.lblServer.Name = "lblServer"
         Me.lblServer.Size = New System.Drawing.Size(227, 21)
         Me.lblServer.TabIndex = 55
         Me.lblServer.Text = "World"
         '
+        'NsTheme1
+        '
+        Me.NsTheme1.AccentOffset = 42
+        Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.NsControlButton1)
+        Me.NsTheme1.Controls.Add(Me.Label8)
+        Me.NsTheme1.Controls.Add(Me.lblName)
+        Me.NsTheme1.Controls.Add(Me.lblServer)
+        Me.NsTheme1.Controls.Add(Me.lblCourse)
+        Me.NsTheme1.Controls.Add(Me.Label7)
+        Me.NsTheme1.Controls.Add(Me.lblType)
+        Me.NsTheme1.Controls.Add(Me.lblVersion)
+        Me.NsTheme1.Controls.Add(Me.lblWeather)
+        Me.NsTheme1.Controls.Add(Me.btnSubmit)
+        Me.NsTheme1.Controls.Add(Me.lblTime)
+        Me.NsTheme1.Controls.Add(Me.Label6)
+        Me.NsTheme1.Controls.Add(Me.Label3)
+        Me.NsTheme1.Controls.Add(Me.cmbCar)
+        Me.NsTheme1.Controls.Add(Me.Label1)
+        Me.NsTheme1.Controls.Add(Me.Label5)
+        Me.NsTheme1.Controls.Add(Me.Label2)
+        Me.NsTheme1.Controls.Add(Me.Label4)
+        Me.NsTheme1.Customization = ""
+        Me.NsTheme1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NsTheme1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.NsTheme1.Image = Nothing
+        Me.NsTheme1.Location = New System.Drawing.Point(0, 0)
+        Me.NsTheme1.Movable = True
+        Me.NsTheme1.Name = "NsTheme1"
+        Me.NsTheme1.NoRounding = False
+        Me.NsTheme1.Sizable = False
+        Me.NsTheme1.Size = New System.Drawing.Size(407, 273)
+        Me.NsTheme1.SmartBounds = True
+        Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.NsTheme1.TabIndex = 57
+        Me.NsTheme1.Text = "Confirm Submit"
+        Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
+        Me.NsTheme1.Transparent = False
+        '
+        'NsControlButton1
+        '
+        Me.NsControlButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NsControlButton1.ControlButton = InitialDLauncher.NSControlButton.Button.Close
+        Me.NsControlButton1.Location = New System.Drawing.Point(384, 2)
+        Me.NsControlButton1.Margin = New System.Windows.Forms.Padding(0)
+        Me.NsControlButton1.MaximumSize = New System.Drawing.Size(18, 20)
+        Me.NsControlButton1.MinimumSize = New System.Drawing.Size(18, 20)
+        Me.NsControlButton1.Name = "NsControlButton1"
+        Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
+        Me.NsControlButton1.TabIndex = 67
+        Me.NsControlButton1.Text = "NsControlButton1"
+        '
         'frmSubmit
         '
-        Me.AcceptButton = Me.btnSubmit
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(407, 249)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.lblServer)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.lblVersion)
-        Me.Controls.Add(Me.btnSubmit)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.cmbCar)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.lblName)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lblTime)
-        Me.Controls.Add(Me.lblWeather)
-        Me.Controls.Add(Me.lblType)
-        Me.Controls.Add(Me.lblCourse)
+        Me.ClientSize = New System.Drawing.Size(407, 273)
+        Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmSubmit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Confirm Submit"
+        Me.NsTheme1.ResumeLayout(False)
+        Me.NsTheme1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -241,11 +299,13 @@ Partial Class frmSubmit
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents lblName As Label
-    Friend WithEvents cmbCar As ComboBox
+    Friend WithEvents cmbCar As NSComboBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents btnSubmit As Button
+    Friend WithEvents btnSubmit As NSButton
     Friend WithEvents Label7 As Label
     Friend WithEvents lblVersion As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents lblServer As Label
+    Friend WithEvents NsTheme1 As NSTheme
+    Friend WithEvents NsControlButton1 As NSControlButton
 End Class

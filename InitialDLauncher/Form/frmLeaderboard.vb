@@ -152,6 +152,7 @@ Public Class frmLeaderboard
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+
             Dim reader As StreamReader
             If My.Settings.Server = "World" Then
                 reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=6&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
@@ -192,6 +193,7 @@ Public Class frmLeaderboard
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+
             Dim reader As StreamReader
             If My.Settings.Server = "World" Then
                 reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=7&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
@@ -301,6 +303,7 @@ Public Class frmLeaderboard
         Select Case My.Settings.Language
             Case "English"
                 Me.Text = "Time Attack Ranking"
+                NsTheme1.Text = Me.Text
                 tp6.Text = "Initial D 6 AA"
                 tp7.Text = "Initial D 7 AAX"
                 Label3.Text = "Course"
@@ -319,6 +322,8 @@ Public Class frmLeaderboard
                 chCar7.Text = chCar6.Text
                 chTime6.Text = "Time"
                 chTime7.Text = chTime6.Text
+                chDate6.Text = "Date"
+                chDate7.Text = chDate6.Text
                 LakeAkina = "Lake Akina"
                 Myogi = "Myogi"
                 Usui = "Usui"
@@ -349,6 +354,7 @@ Public Class frmLeaderboard
                 btnReport7.Text = btnReport6.Text
             Case "Chinese"
                 Me.Text = "時間挑戰排行榜"
+                NsTheme1.Text = Me.Text
                 tp6.Text = "頭文字D6AA"
                 tp7.Text = "頭文字D7AAX"
                 Label3.Text = "地圖"
@@ -367,6 +373,8 @@ Public Class frmLeaderboard
                 chCar7.Text = chCar6.Text
                 chTime6.Text = "時間"
                 chTime7.Text = chTime6.Text
+                chDate6.Text = "日期"
+                chDate7.Text = chDate6.Text
                 LakeAkina = "秋明湖"
                 Myogi = "妙義"
                 Usui = "碓冰"
@@ -397,6 +405,7 @@ Public Class frmLeaderboard
                 btnReport7.Text = btnReport6.Text
             Case "French"
                 Me.Text = "Classement des attaques de temps"
+                NsTheme1.Text = Me.Text
                 tp6.Text = "Initial D 6 AA"
                 tp7.Text = "Initial D 7 AAX"
                 Label3.Text = "Piste"
@@ -415,6 +424,8 @@ Public Class frmLeaderboard
                 chCar7.Text = chCar6.Text
                 chTime6.Text = "Temps"
                 chTime7.Text = chTime6.Text
+                chDate6.Text = "Dater"
+                chDate7.Text = chDate6.Text
                 LakeAkina = "Lake Akina"
                 Myogi = "Myogi"
                 Usui = "Usui"

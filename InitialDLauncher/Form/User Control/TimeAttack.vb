@@ -65,13 +65,25 @@
             cs.Weather = trackweather.Item(lblWeather.Text)
             Dim car1, car2, car3 As String
             If _extension = "bin" Then
-                car1 = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
-                car2 = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
-                car3 = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+                If _version = 6 Then
+                    car1 = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
+                    car2 = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
+                    car3 = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
+                Else
+                    car1 = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+                    car2 = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+                    car3 = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+                End If
             Else
-                car1 = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
-                car2 = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
-                car3 = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+                If _version = 6 Then
+                    car1 = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
+                    car2 = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
+                    car3 = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
+                Else
+                    car1 = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
+                    car2 = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
+                    car3 = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+                End If
             End If
 
             If Not car1 = Nothing Then cs.cmbCar.Items.Add(car1)

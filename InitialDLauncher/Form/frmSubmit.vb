@@ -68,6 +68,7 @@ Public Class frmSubmit
             Dim numScore As String = score.Replace("'", "").Replace("""", "")
             Dim hash As String = Md5Sum((name & score & car & weather & track & coursetype & gameversion) & PrivateKey)
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+
             If My.Settings.Server = "World" Then
                 client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
             Else
@@ -105,6 +106,7 @@ Public Class frmSubmit
         Select Case My.Settings.Language
             Case "English"
                 Me.Text = "Confirm Submit"
+                NsTheme1.Text = Me.Text
                 Label5.Text = "User Name"
                 Label7.Text = "Game Version"
                 Label3.Text = "Course"
@@ -120,6 +122,7 @@ Public Class frmSubmit
                 Label8.Text = "Server"
             Case "Chinese"
                 Me.Text = "確認提交"
+                NsTheme1.Text = Me.Text
                 Label5.Text = "用戶名"
                 Label7.Text = "遊戲"
                 Label3.Text = "地圖"
@@ -135,6 +138,7 @@ Public Class frmSubmit
                 Label8.Text = "服務器"
             Case "French"
                 Me.Text = "Confirmer Envoyer"
+                NsTheme1.Text = Me.Text
                 Label5.Text = "Nom d'utilisateur"
                 Label7.Text = "Jeu"
                 Label3.Text = "Piste"

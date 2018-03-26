@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 20
-    Public buildDate As String = "23/03/2018"
+    Dim curVer As Integer = 21
+    Public buildDate As String = "26/03/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -201,7 +201,8 @@ Public Class frmLauncher
     End Sub
 
     Private Function CheckForUpdate() As Integer
-        Dim client As WebClient = New WebClient()
+        Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+
         Dim reader As StreamReader = New StreamReader(client.OpenRead("https://raw.githubusercontent.com/qiangqiang101/Initial-D-Arcade-Stage-Teknoparrot-Launcher/master/ver/ver.txt"))
         Return reader.ReadToEnd
     End Function

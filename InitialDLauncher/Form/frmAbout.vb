@@ -15,6 +15,7 @@ ExtendedWebClient © ChrisD, <br />
 GameSpot Theme © w3layouts, <br />
 Translucent Control using GDI+ © a_pess<br />
 SplitButton Control © bergerkiller<br />
+Net Seal Theme © aeonhack<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL<br />
@@ -50,24 +51,31 @@ SEGA</center>"
         Process.Start("https://www.imnotmental.com")
     End Sub
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+    Private Sub btnClose_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
     Private Sub Translate()
         Select Case My.Settings.Language
             Case "English"
-                btnClose.Text = "Close"
                 lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
                 lblTitle.Text = "Initial D Arcade Stage Launcher"
+                Me.Text = "About"
+                NsTheme1.Text = Me.Text
             Case "Chinese"
-                btnClose.Text = "關閉"
                 lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, frmLauncher.buildDate)
                 lblTitle.Text = "頭文字D Arcade Stage 登陸器"
+                Me.Text = "關於"
+                NsTheme1.Text = Me.Text
             Case "French"
-                btnClose.Text = "Fermer"
                 lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
                 lblTitle.Text = "Initial D Arcade Stage Launcher"
+                Me.Text = "About"
+                NsTheme1.Text = Me.Text
         End Select
+    End Sub
+
+    Private Sub btnDonate_Click(sender As Object, e As EventArgs) Handles btnDonate.Click
+        Process.Start("https://www.paypal.me/IMNOTMENTAL")
     End Sub
 End Class

@@ -25,7 +25,7 @@ Partial Class TimeAttack
         Me.lblType = New System.Windows.Forms.Label()
         Me.lblWeather = New System.Windows.Forms.Label()
         Me.tcPanel = New InitialDLauncher.TransparentControl()
-        Me.btnTimeAttack = New System.Windows.Forms.Button()
+        Me.btnTimeAttack = New InitialDLauncher.NSButton()
         Me.lblTypeWeather = New System.Windows.Forms.Label()
         Me.lblCourse = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
@@ -74,12 +74,12 @@ Partial Class TimeAttack
         '
         'btnTimeAttack
         '
+        Me.btnTimeAttack.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.btnTimeAttack.Location = New System.Drawing.Point(172, 28)
         Me.btnTimeAttack.Name = "btnTimeAttack"
         Me.btnTimeAttack.Size = New System.Drawing.Size(113, 23)
         Me.btnTimeAttack.TabIndex = 1
         Me.btnTimeAttack.Text = "Submit Score"
-        Me.btnTimeAttack.UseVisualStyleBackColor = True
         '
         'lblTypeWeather
         '
@@ -135,7 +135,7 @@ Partial Class TimeAttack
     Friend WithEvents lblType As Label
     Friend WithEvents lblWeather As Label
     Friend WithEvents lblTime As Label
-    Friend WithEvents btnTimeAttack As Button
+    Friend WithEvents btnTimeAttack As NSButton
     Friend WithEvents tcPanel As TransparentControl
     Friend WithEvents lblTypeWeather As Label
 End Class

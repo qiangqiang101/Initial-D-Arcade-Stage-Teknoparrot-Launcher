@@ -79,79 +79,85 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioFile.vb" />
-    <Compile Include="Card.Designer.vb">
+    <Compile Include="Class\Component\AudioFile.vb" />
+    <Compile Include="Form\Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\User Control\Card.Designer.vb">
       <DependentUpon>Card.vb</DependentUpon>
     </Compile>
-    <Compile Include="Card.vb">
+    <Compile Include="Form\User Control\Card.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DropShadow.vb">
+    <Compile Include="Class\Component\DropShadow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
+    <Compile Include="Form\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="Form\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.vb">
+    <Compile Include="Form\frmAbout.Designer.vb">
       <DependentUpon>frmAbout.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAbout.vb">
+    <Compile Include="Form\frmAbout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCard.Designer.vb">
+    <Compile Include="Form\frmCard.Designer.vb">
       <DependentUpon>frmCard.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCard.vb">
+    <Compile Include="Form\frmCard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEdit.Designer.vb">
+    <Compile Include="Form\frmEdit.Designer.vb">
       <DependentUpon>frmEdit.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmEdit.vb">
+    <Compile Include="Form\frmEdit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditCar.Designer.vb">
+    <Compile Include="Form\frmEditCar.Designer.vb">
       <DependentUpon>frmEditCar.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmEditCar.vb">
+    <Compile Include="Form\frmEditCar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLauncher.vb">
+    <Compile Include="Form\frmLauncher.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLauncher.Designer.vb">
+    <Compile Include="Form\frmLauncher.Designer.vb">
       <DependentUpon>frmLauncher.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLeaderboard.Designer.vb">
+    <Compile Include="Form\frmLeaderboard.Designer.vb">
       <DependentUpon>frmLeaderboard.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLeaderboard.vb">
+    <Compile Include="Form\frmLeaderboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.vb">
+    <Compile Include="Form\frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.vb">
+    <Compile Include="Form\frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSubmit.Designer.vb">
+    <Compile Include="Form\frmSubmit.Designer.vb">
       <DependentUpon>frmSubmit.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmSubmit.vb">
+    <Compile Include="Form\frmSubmit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTimeAttack.Designer.vb">
+    <Compile Include="Form\frmTimeAttack.Designer.vb">
       <DependentUpon>frmTimeAttack.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmTimeAttack.vb">
+    <Compile Include="Form\frmTimeAttack.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Helper.vb" />
-    <Compile Include="iniRead.vb" />
+    <Compile Include="Class\Helper.vb" />
+    <Compile Include="Class\iniRead.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -167,60 +173,66 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="frmSettings.Designer.vb">
+    <Compile Include="Form\frmSettings.Designer.vb">
       <DependentUpon>frmSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmSettings.vb">
+    <Compile Include="Form\frmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplitButton.vb">
+    <Compile Include="Class\Component\SplitButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TimeAttack.Designer.vb">
+    <Compile Include="Class\Component\Theme.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\User Control\TimeAttack.Designer.vb">
       <DependentUpon>TimeAttack.vb</DependentUpon>
     </Compile>
-    <Compile Include="TimeAttack.vb">
+    <Compile Include="Form\User Control\TimeAttack.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TransparentControl.vb">
+    <Compile Include="Class\Component\TransparentControl.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WebClientEx.vb">
+    <Compile Include="Class\Component\WebClientEx.vb">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Card.resx">
+    <EmbeddedResource Include="Form\Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User Control\Card.resx">
       <DependentUpon>Card.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAbout.resx">
+    <EmbeddedResource Include="Form\frmAbout.resx">
       <DependentUpon>frmAbout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCard.resx">
+    <EmbeddedResource Include="Form\frmCard.resx">
       <DependentUpon>frmCard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEdit.resx">
+    <EmbeddedResource Include="Form\frmEdit.resx">
       <DependentUpon>frmEdit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditCar.resx">
+    <EmbeddedResource Include="Form\frmEditCar.resx">
       <DependentUpon>frmEditCar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLauncher.resx">
+    <EmbeddedResource Include="Form\frmLauncher.resx">
       <DependentUpon>frmLauncher.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLeaderboard.resx">
+    <EmbeddedResource Include="Form\frmLeaderboard.resx">
       <DependentUpon>frmLeaderboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Form\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSubmit.resx">
+    <EmbeddedResource Include="Form\frmSubmit.resx">
       <DependentUpon>frmSubmit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTimeAttack.resx">
+    <EmbeddedResource Include="Form\frmTimeAttack.resx">
       <DependentUpon>frmTimeAttack.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -229,10 +241,10 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSettings.resx">
+    <EmbeddedResource Include="Form\frmSettings.resx">
       <DependentUpon>frmSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TimeAttack.resx">
+    <EmbeddedResource Include="Form\User Control\TimeAttack.resx">
       <DependentUpon>TimeAttack.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

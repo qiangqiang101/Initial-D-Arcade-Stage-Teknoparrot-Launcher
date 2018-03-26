@@ -54,33 +54,42 @@ Public Class frmEdit
     Private _filename As String
 
     Private Sub btnEditCar1_Click(sender As Object, e As EventArgs) Handles btnEditCar1.Click
-        Dim fe As frmEditCar = New frmEditCar()
-        fe.Version = _version
-        fe.FileName = _filename
-        fe.Extension = _extension
-        fe.CarSlot = 1
-        fe.CarName = cmbCar1.Text
-        fe.Show()
+        If Not cmbCar1.Text = "" Then
+            Dim fe As frmEditCar = New frmEditCar()
+            fe.Version = _version
+            fe.FileName = _filename
+            fe.Extension = _extension
+            fe.CarSlot = 1
+            fe.CarName = cmbCar1.Text
+            fe.parentForm = Me
+            fe.Show()
+        End If
     End Sub
 
     Private Sub btnEditCar2_Click(sender As Object, e As EventArgs) Handles btnEditCar2.Click
-        Dim fe As frmEditCar = New frmEditCar()
-        fe.Version = _version
-        fe.FileName = _filename
-        fe.Extension = _extension
-        fe.CarSlot = 2
-        fe.CarName = cmbCar2.Text
-        fe.Show()
+        If Not cmbCar2.Text = "" Then
+            Dim fe As frmEditCar = New frmEditCar()
+            fe.Version = _version
+            fe.FileName = _filename
+            fe.Extension = _extension
+            fe.CarSlot = 2
+            fe.CarName = cmbCar2.Text
+            fe.parentForm = Me
+            fe.Show()
+        End If
     End Sub
 
     Private Sub btnEditCar3_Click(sender As Object, e As EventArgs) Handles btnEditCar3.Click
-        Dim fe As frmEditCar = New frmEditCar()
-        fe.Version = _version
-        fe.FileName = _filename
-        fe.Extension = _extension
-        fe.CarSlot = 3
-        fe.CarName = cmbCar3.Text
-        fe.Show()
+        If Not cmbCar3.Text = "" Then
+            Dim fe As frmEditCar = New frmEditCar()
+            fe.Version = _version
+            fe.FileName = _filename
+            fe.Extension = _extension
+            fe.CarSlot = 3
+            fe.CarName = cmbCar3.Text
+            fe.parentForm = Me
+            fe.Show()
+        End If
     End Sub
 
     Public Property FileName() As String
@@ -193,8 +202,8 @@ Public Class frmEdit
             End If
 
             If _extension = "bin" Then
-                If txtName.TextLength <= 5 Then
-                    Dim amount As Integer = 6 - txtName.TextLength
+                If txtName.Text.Length <= 5 Then
+                    Dim amount As Integer = 6 - txtName.Text.Length
                     Dim newName As Char = Nothing
                     Select Case amount
                         Case 1
@@ -262,8 +271,8 @@ Public Class frmEdit
 
                 Me.Close()
             Else 'crd
-                If txtName.TextLength <= 5 Then
-                    Dim amount As Integer = 6 - txtName.TextLength
+                If txtName.Text.Length <= 5 Then
+                    Dim amount As Integer = 6 - txtName.Text.Length
                     Dim newName As Char = Nothing
                     Select Case amount
                         Case 1
@@ -387,6 +396,7 @@ Public Class frmEdit
         Select Case My.Settings.Language
             Case "English"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
+                NsTheme1.Text = Me.Text
                 Label1.Text = "Name"
                 Label2.Text = "Gender"
                 Label6.Text = "Level"
@@ -402,10 +412,11 @@ Public Class frmEdit
                 cbLegend.Text = "Unlock Legend Chapter"
                 btnSave.Text = "Save"
                 tool_tip = "Change car might lose ability to tune your car!"
-                GroupBox1.Text = "Cheat"
-                GroupBox2.Text = "Initial D 6 AA"
-                GroupBox3.Text = "Initial D 7 AAX"
+                GroupBox1.Title = "Cheat"
+                GroupBox2.Title = "Initial D 6 AA"
+                GroupBox3.Title = "Initial D 7 AAX"
                 GroupBox4.Text = "Avatar"
+                GroupBox4.Title = GroupBox4.Text
                 Label10.Text = "Category"
                 Label12.Text = "Selection"
                 mouth_t = "Mouth"
@@ -415,24 +426,41 @@ Public Class frmEdit
                 shades_t = "Specs"
                 hair_t = "Hair"
                 shirt_t = "Shirt"
-                gbMouth.Text = mouth_t
-                gbEyes.Text = eyes_t
-                gbSkin.Text = face_skin_t
-                gbAccessories.Text = accessories_t
-                gbShades.Text = shades_t
-                gbHair.Text = hair_t
-                gbShirt.Text = shirt_t
+                gbMouth.Title = mouth_t
+                gbEyes.Title = eyes_t
+                gbSkin.Title = face_skin_t
+                gbAccessories.Title = accessories_t
+                gbSpec.Title = shades_t
+                gbHair.Title = hair_t
+                gbShirt.Title = shirt_t
                 frame_t = "Frame"
-                gbFrame.Text = frame_t
+                gbFrame.Title = frame_t
                 male = "Male"
                 female = "Female"
                 btnSet.Text = "Apply"
-                GroupBox5.Text = "Basic"
+                GroupBox5.Title = "Basic"
                 cbSaveAvatar.Text = "Save" & vbNewLine & "Avatar"
                 coming_soon = "Coming Soon"
                 must_select_avatar = "Avatar cannot be blank."
+                btnEditCar1.Text = "Edit"
+                btnEditCar2.Text = btnEditCar1.Text
+                btnEditCar3.Text = btnEditCar1.Text
+                GroupBox4.SubTitle = "Edit the Avatar of your card."
+                gbSkin.SubTitle = "Face & Skin Color"
+                gbShirt.SubTitle = "Shirt"
+                gbEyes.SubTitle = "Eyes"
+                gbMouth.SubTitle = "Mouth"
+                gbAccessories.SubTitle = "Necklace, Speech, Etc"
+                gbSpec.SubTitle = "Glasses & Sunglasses"
+                gbHair.SubTitle = "Headgear & Hairstyle"
+                gbFrame.SubTitle = "Background"
+                GroupBox1.SubTitle = "Not recommended for using Online."
+                GroupBox2.SubTitle = "These options are only available for InitialD 6 AA."
+                GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
+                GroupBox5.SubTitle = "Edit your name and gender."
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
+                NsTheme1.Text = Me.Text
                 Label1.Text = "名字"
                 Label2.Text = "性別"
                 Label6.Text = "等級"
@@ -448,10 +476,10 @@ Public Class frmEdit
                 cbLegend.Text = "解鎖傳說章節"
                 btnSave.Text = "保存"
                 tool_tip = "更換車可能會失去改車功能！"
-                GroupBox1.Text = "作弊"
-                GroupBox2.Text = "頭文字D6AA"
-                GroupBox3.Text = "頭文字D7AAX"
-                GroupBox4.Text = "頭像"
+                GroupBox1.Title = "作弊"
+                GroupBox2.Title = "頭文字D6AA"
+                GroupBox3.Title = "頭文字D7AAX"
+                GroupBox4.Title = "頭像"
                 Label10.Text = "類型"
                 Label12.Text = "選項"
                 mouth_t = "嘴巴"
@@ -461,24 +489,41 @@ Public Class frmEdit
                 shades_t = "眼鏡"
                 hair_t = "頭髮"
                 shirt_t = "上衣"
-                gbMouth.Text = mouth_t
-                gbEyes.Text = eyes_t
-                gbSkin.Text = face_skin_t
-                gbAccessories.Text = accessories_t
-                gbShades.Text = shades_t
-                gbHair.Text = hair_t
-                gbShirt.Text = shirt_t
+                gbMouth.Title = mouth_t
+                gbEyes.Title = eyes_t
+                gbSkin.Title = face_skin_t
+                gbAccessories.Title = accessories_t
+                gbSpec.Title = shades_t
+                gbHair.Title = hair_t
+                gbShirt.Title = shirt_t
                 frame_t = "背景"
-                gbFrame.Text = frame_t
+                gbFrame.Title = frame_t
                 male = "帥哥"
                 female = "美女"
                 btnSet.Text = "應用"
-                GroupBox5.Text = "一般"
+                GroupBox5.Title = "一般"
                 cbSaveAvatar.Text = "保存" & vbNewLine & "頭像"
                 coming_soon = "即將登場"
                 must_select_avatar = "頭像不能為空。"
+                btnEditCar1.Text = "修改"
+                btnEditCar2.Text = btnEditCar1.Text
+                btnEditCar3.Text = btnEditCar1.Text
+                GroupBox4.SubTitle = "設置您卡的頭像。"
+                gbSkin.SubTitle = "臉型與膚色"
+                gbShirt.SubTitle = "上衣"
+                gbEyes.SubTitle = "眼睛"
+                gbMouth.SubTitle = "嘴巴"
+                gbAccessories.SubTitle = "項鍊、對話、等等"
+                gbSpec.SubTitle = "眼鏡與太陽眼鏡"
+                gbHair.SubTitle = "髮型與帽子"
+                gbFrame.SubTitle = "背景"
+                GroupBox1.SubTitle = "不推薦使用與在線模式。"
+                GroupBox2.SubTitle = "頭文字D6AA選項。"
+                GroupBox3.SubTitle = "頭文字D7AAX選項。"
+                GroupBox5.SubTitle = "設置您的名字與性別。"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
+                NsTheme1.Text = Me.Text
                 Label1.Text = "Nom"
                 Label2.Text = "Genre"
                 Label6.Text = "Niveau"
@@ -494,10 +539,10 @@ Public Class frmEdit
                 cbLegend.Text = "Unlock Legend Chapter"
                 btnSave.Text = "Sauv"
                 tool_tip = "Change car might lose ability to tune your car!"
-                GroupBox1.Text = "Tricher"
-                GroupBox2.Text = "Initial D 6 AA"
-                GroupBox3.Text = "Initial D 7 AAX"
-                GroupBox4.Text = "Avatar"
+                GroupBox1.Title = "Tricher"
+                GroupBox2.Title = "Initial D 6 AA"
+                GroupBox3.Title = "Initial D 7 AAX"
+                GroupBox4.Title = "Avatar"
                 Label10.Text = "Catégorie"
                 Label12.Text = "Sélection"
                 mouth_t = "Bouche"
@@ -507,22 +552,38 @@ Public Class frmEdit
                 shades_t = "Des lunettes"
                 hair_t = "Cheveux"
                 shirt_t = "Chemise"
-                gbMouth.Text = mouth_t
-                gbEyes.Text = eyes_t
-                gbSkin.Text = face_skin_t
-                gbAccessories.Text = accessories_t
-                gbShades.Text = shades_t
-                gbHair.Text = hair_t
-                gbShirt.Text = shirt_t
+                gbMouth.Title = mouth_t
+                gbEyes.Title = eyes_t
+                gbSkin.Title = face_skin_t
+                gbAccessories.Title = accessories_t
+                gbSpec.Title = shades_t
+                gbHair.Title = hair_t
+                gbShirt.Title = shirt_t
                 frame_t = "Frame"
-                gbFrame.Text = frame_t
+                gbFrame.Title = frame_t
                 male = "Mâle"
                 female = "Femelle"
                 btnSet.Text = "Appliquer"
-                GroupBox5.Text = "De base"
+                GroupBox5.Title = "De base"
                 cbSaveAvatar.Text = "Enregistrer" & vbNewLine & "Avatar"
                 coming_soon = "Arrive bientôt"
                 must_select_avatar = "Avatar ne peut pas être vide."
+                btnEditCar1.Text = "Edit"
+                btnEditCar2.Text = btnEditCar1.Text
+                btnEditCar3.Text = btnEditCar1.Text
+                GroupBox4.SubTitle = "Edit the Avatar of your card."
+                gbSkin.SubTitle = "Face & Skin Color"
+                gbShirt.SubTitle = "Shirt"
+                gbEyes.SubTitle = "Eyes"
+                gbMouth.SubTitle = "Mouth"
+                gbAccessories.SubTitle = "Necklace, Speech, Etc"
+                gbSpec.SubTitle = "Glasses & Sunglasses"
+                gbHair.SubTitle = "Headgear & Hairstyle"
+                gbFrame.SubTitle = "Background"
+                GroupBox1.SubTitle = "Not recommended for using Online."
+                GroupBox2.SubTitle = "These options are only available for InitialD 6 AA."
+                GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
+                GroupBox5.SubTitle = "Edit your name and gender."
         End Select
     End Sub
 
