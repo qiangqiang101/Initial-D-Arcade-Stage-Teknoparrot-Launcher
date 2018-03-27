@@ -138,6 +138,12 @@ Public Class frmCard
         frmLauncher.Enabled = True
     End Sub
 
+    Private Sub frmCard_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
+        If Me.Location.Y <= -1 Then
+            Me.Location = New Point(Me.Location.X, 0)
+        End If
+    End Sub
+
     Public Sub Translate()
         Select Case My.Settings.Language
             Case "English"

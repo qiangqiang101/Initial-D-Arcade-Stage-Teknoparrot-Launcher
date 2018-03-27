@@ -150,4 +150,10 @@ Public Class frmLogin
         End If
         Return reader.ReadToEnd
     End Function
+
+    Private Sub frmLogin_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
+        If Me.Location.Y <= -1 Then
+            Me.Location = New Point(Me.Location.X, 0)
+        End If
+    End Sub
 End Class

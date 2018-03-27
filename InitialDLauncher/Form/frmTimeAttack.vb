@@ -2484,4 +2484,10 @@
                 NsTheme1.Text = Me.Text
         End Select
     End Sub
+
+    Private Sub frmTimeAttack_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
+        If Me.Location.Y <= -1 Then
+            Me.Location = New Point(Me.Location.X, 0)
+        End If
+    End Sub
 End Class

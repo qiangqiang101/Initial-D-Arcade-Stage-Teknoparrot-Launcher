@@ -2635,4 +2635,10 @@ Public Class frmEdit
         cmbAvatarCat.DataSource = New BindingSource(category, Nothing)
         cmbAvatarCat.SelectedIndex = 0
     End Sub
+
+    Private Sub frmEdit_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
+        If Me.Location.Y <= -1 Then
+            Me.Location = New Point(Me.Location.X, 0)
+        End If
+    End Sub
 End Class

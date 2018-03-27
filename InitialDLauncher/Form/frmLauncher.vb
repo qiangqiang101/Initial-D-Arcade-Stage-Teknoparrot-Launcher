@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 21
-    Public buildDate As String = "26/03/2018"
+    Dim curVer As Integer = 22
+    Public buildDate As String = "27/03/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
