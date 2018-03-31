@@ -24,6 +24,22 @@ Partial Class frmEditCar
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditCar))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.NsGroupBox3 = New InitialDLauncher.NSGroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmbSticker4 = New InitialDLauncher.NSComboBox()
+        Me.cmbSticker3 = New InitialDLauncher.NSComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cmbSticker2 = New InitialDLauncher.NSComboBox()
+        Me.cmbSticker1 = New InitialDLauncher.NSComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.NsGroupBox2 = New InitialDLauncher.NSGroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cmbPlace = New InitialDLauncher.NSComboBox()
+        Me.cmbHiragana = New InitialDLauncher.NSComboBox()
+        Me.txtNumberPlate = New InitialDLauncher.NSTextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbColor = New InitialDLauncher.NSComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
@@ -37,6 +53,8 @@ Partial Class frmEditCar
         Me.btnSave = New InitialDLauncher.NSButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.NsTheme1.SuspendLayout()
+        Me.NsGroupBox3.SuspendLayout()
+        Me.NsGroupBox2.SuspendLayout()
         Me.NsGroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -46,6 +64,8 @@ Partial Class frmEditCar
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.NsGroupBox3)
+        Me.NsTheme1.Controls.Add(Me.NsGroupBox2)
         Me.NsTheme1.Controls.Add(Me.cmbColor)
         Me.NsTheme1.Controls.Add(Me.Label4)
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
@@ -61,14 +81,209 @@ Partial Class frmEditCar
         Me.NsTheme1.Movable = True
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
-        Me.NsTheme1.Sizable = True
-        Me.NsTheme1.Size = New System.Drawing.Size(373, 276)
+        Me.NsTheme1.Sizable = False
+        Me.NsTheme1.Size = New System.Drawing.Size(374, 574)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 53
         Me.NsTheme1.Text = "Edit Car"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
+        '
+        'NsGroupBox3
+        '
+        Me.NsGroupBox3.Controls.Add(Me.Label10)
+        Me.NsGroupBox3.Controls.Add(Me.cmbSticker4)
+        Me.NsGroupBox3.Controls.Add(Me.cmbSticker3)
+        Me.NsGroupBox3.Controls.Add(Me.Label11)
+        Me.NsGroupBox3.Controls.Add(Me.Label8)
+        Me.NsGroupBox3.Controls.Add(Me.cmbSticker2)
+        Me.NsGroupBox3.Controls.Add(Me.cmbSticker1)
+        Me.NsGroupBox3.Controls.Add(Me.Label9)
+        Me.NsGroupBox3.DrawSeperator = False
+        Me.NsGroupBox3.Location = New System.Drawing.Point(12, 99)
+        Me.NsGroupBox3.Name = "NsGroupBox3"
+        Me.NsGroupBox3.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox3.Size = New System.Drawing.Size(350, 162)
+        Me.NsGroupBox3.SubTitle = "Edit the Hidden Event Stickers of this car."
+        Me.NsGroupBox3.TabIndex = 60
+        Me.NsGroupBox3.Text = "NsGroupBox3"
+        Me.NsGroupBox3.Title = "Event Stickers"
+        '
+        'Label10
+        '
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(6, 124)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(92, 24)
+        Me.Label10.TabIndex = 68
+        Me.Label10.Text = "Sticker 4"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cmbSticker4
+        '
+        Me.cmbSticker4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSticker4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSticker4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSticker4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSticker4.FormattingEnabled = True
+        Me.cmbSticker4.Location = New System.Drawing.Point(104, 126)
+        Me.cmbSticker4.Name = "cmbSticker4"
+        Me.cmbSticker4.Size = New System.Drawing.Size(234, 24)
+        Me.cmbSticker4.TabIndex = 13
+        '
+        'cmbSticker3
+        '
+        Me.cmbSticker3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSticker3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSticker3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSticker3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSticker3.FormattingEnabled = True
+        Me.cmbSticker3.Location = New System.Drawing.Point(104, 96)
+        Me.cmbSticker3.Name = "cmbSticker3"
+        Me.cmbSticker3.Size = New System.Drawing.Size(234, 24)
+        Me.cmbSticker3.TabIndex = 12
+        '
+        'Label11
+        '
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(6, 94)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(92, 24)
+        Me.Label11.TabIndex = 65
+        Me.Label11.Text = "Sticker 3"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label8
+        '
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(6, 64)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(92, 24)
+        Me.Label8.TabIndex = 64
+        Me.Label8.Text = "Sticker 2"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cmbSticker2
+        '
+        Me.cmbSticker2.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSticker2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSticker2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSticker2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSticker2.FormattingEnabled = True
+        Me.cmbSticker2.Location = New System.Drawing.Point(104, 66)
+        Me.cmbSticker2.Name = "cmbSticker2"
+        Me.cmbSticker2.Size = New System.Drawing.Size(234, 24)
+        Me.cmbSticker2.TabIndex = 11
+        '
+        'cmbSticker1
+        '
+        Me.cmbSticker1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSticker1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSticker1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSticker1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSticker1.FormattingEnabled = True
+        Me.cmbSticker1.Location = New System.Drawing.Point(104, 36)
+        Me.cmbSticker1.Name = "cmbSticker1"
+        Me.cmbSticker1.Size = New System.Drawing.Size(234, 24)
+        Me.cmbSticker1.TabIndex = 10
+        '
+        'Label9
+        '
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(6, 34)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(92, 24)
+        Me.Label9.TabIndex = 61
+        Me.Label9.Text = "Sticker 1"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'NsGroupBox2
+        '
+        Me.NsGroupBox2.Controls.Add(Me.Label7)
+        Me.NsGroupBox2.Controls.Add(Me.cmbPlace)
+        Me.NsGroupBox2.Controls.Add(Me.cmbHiragana)
+        Me.NsGroupBox2.Controls.Add(Me.txtNumberPlate)
+        Me.NsGroupBox2.Controls.Add(Me.Label5)
+        Me.NsGroupBox2.Controls.Add(Me.Label6)
+        Me.NsGroupBox2.DrawSeperator = False
+        Me.NsGroupBox2.Location = New System.Drawing.Point(12, 267)
+        Me.NsGroupBox2.Name = "NsGroupBox2"
+        Me.NsGroupBox2.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox2.Size = New System.Drawing.Size(350, 129)
+        Me.NsGroupBox2.SubTitle = "Edit the Number Plate of this car."
+        Me.NsGroupBox2.TabIndex = 59
+        Me.NsGroupBox2.Text = "NsGroupBox2"
+        Me.NsGroupBox2.Title = "Number Plate"
+        '
+        'Label7
+        '
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(6, 94)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(92, 24)
+        Me.Label7.TabIndex = 60
+        Me.Label7.Text = "Place Name"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cmbPlace
+        '
+        Me.cmbPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbPlace.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPlace.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbPlace.FormattingEnabled = True
+        Me.cmbPlace.Items.AddRange(New Object() {"札幌", "函館", "旭川", "室蘭", "釧路", "帯広", "北見", "青森", "八戸", "岩手", "宮城", "仙台", "福島", "いわき", "会津", "山形", "庄内", "秋田", "水戸", "土浦", "つくば", "栃木", "宇都宮", "とちぎ", "那須", "群馬", "高崎", "千葉", "野田", "習志野", "袖ヶ浦", "成田", "柏", "大宮", "熊谷", "春日部", "所沢", "川越", "品川", "足立", "練馬", "多摩", "八王子", "横浜", "川崎", "相模", "湘南", "山梨", "新潟", "長岡", "長野", "松本", "諏訪", "富山", "石川", "金沢", "名古屋", "三河", "尾張小牧", "豊橋", "豊田", "岡崎", "一宮", "静岡", "沼津", "浜松", "伊豆", "岐阜", "飛騨", "三重", "鈴鹿", "福井", "大阪", "なにわ", "和泉", "堺", "京都", "奈良", "滋賀", "和歌山", "神戸", "姫路", "広島", "福山", "鳥取", "島根", "岡山", "倉敷", "山口", "下関", "徳島", "香川", "愛媛", "高知", "福岡", "北九州", "筑豊", "久留米", "佐賀", "長崎", "佐世保", "熊本", "大分", "宮崎", "鹿児島", "沖縄", "富士山"})
+        Me.cmbPlace.Location = New System.Drawing.Point(104, 96)
+        Me.cmbPlace.Name = "cmbPlace"
+        Me.cmbPlace.Size = New System.Drawing.Size(234, 24)
+        Me.cmbPlace.TabIndex = 22
+        '
+        'cmbHiragana
+        '
+        Me.cmbHiragana.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbHiragana.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbHiragana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbHiragana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbHiragana.FormattingEnabled = True
+        Me.cmbHiragana.Items.AddRange(New Object() {"あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ", "さ"})
+        Me.cmbHiragana.Location = New System.Drawing.Point(104, 66)
+        Me.cmbHiragana.Name = "cmbHiragana"
+        Me.cmbHiragana.Size = New System.Drawing.Size(234, 24)
+        Me.cmbHiragana.TabIndex = 21
+        '
+        'txtNumberPlate
+        '
+        Me.txtNumberPlate.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtNumberPlate.Location = New System.Drawing.Point(104, 36)
+        Me.txtNumberPlate.MaxLength = 5
+        Me.txtNumberPlate.Multiline = False
+        Me.txtNumberPlate.Name = "txtNumberPlate"
+        Me.txtNumberPlate.ReadOnly = False
+        Me.txtNumberPlate.Size = New System.Drawing.Size(234, 24)
+        Me.txtNumberPlate.TabIndex = 20
+        Me.txtNumberPlate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNumberPlate.UseSystemPasswordChar = False
+        '
+        'Label5
+        '
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(6, 64)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(92, 24)
+        Me.Label5.TabIndex = 53
+        Me.Label5.Text = "Hiragana"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label6
+        '
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(6, 33)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(83, 24)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Plate Number"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cmbColor
         '
@@ -80,7 +295,7 @@ Partial Class frmEditCar
         Me.cmbColor.Location = New System.Drawing.Point(81, 69)
         Me.cmbColor.Name = "cmbColor"
         Me.cmbColor.Size = New System.Drawing.Size(269, 24)
-        Me.cmbColor.TabIndex = 57
+        Me.cmbColor.TabIndex = 2
         '
         'Label4
         '
@@ -96,7 +311,7 @@ Partial Class frmEditCar
         '
         Me.NsControlButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NsControlButton1.ControlButton = InitialDLauncher.NSControlButton.Button.Close
-        Me.NsControlButton1.Location = New System.Drawing.Point(350, 3)
+        Me.NsControlButton1.Location = New System.Drawing.Point(351, 3)
         Me.NsControlButton1.Margin = New System.Windows.Forms.Padding(0)
         Me.NsControlButton1.MaximumSize = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.MinimumSize = New System.Drawing.Size(18, 20)
@@ -113,7 +328,7 @@ Partial Class frmEditCar
         Me.NsGroupBox1.Controls.Add(Me.cbFullSpec)
         Me.NsGroupBox1.Controls.Add(Me.Label1)
         Me.NsGroupBox1.DrawSeperator = False
-        Me.NsGroupBox1.Location = New System.Drawing.Point(12, 106)
+        Me.NsGroupBox1.Location = New System.Drawing.Point(12, 402)
         Me.NsGroupBox1.Name = "NsGroupBox1"
         Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox1.Size = New System.Drawing.Size(350, 129)
@@ -133,7 +348,7 @@ Partial Class frmEditCar
         Me.cmbRollbar.Location = New System.Drawing.Point(104, 93)
         Me.cmbRollbar.Name = "cmbRollbar"
         Me.cmbRollbar.Size = New System.Drawing.Size(234, 24)
-        Me.cmbRollbar.TabIndex = 54
+        Me.cmbRollbar.TabIndex = 32
         '
         'Label2
         '
@@ -157,7 +372,7 @@ Partial Class frmEditCar
         Me.cmbEngine.Location = New System.Drawing.Point(104, 63)
         Me.cmbEngine.Name = "cmbEngine"
         Me.cmbEngine.Size = New System.Drawing.Size(234, 24)
-        Me.cmbEngine.TabIndex = 13
+        Me.cmbEngine.TabIndex = 31
         '
         'cbFullSpec
         '
@@ -165,7 +380,7 @@ Partial Class frmEditCar
         Me.cbFullSpec.Location = New System.Drawing.Point(6, 36)
         Me.cbFullSpec.Name = "cbFullSpec"
         Me.cbFullSpec.Size = New System.Drawing.Size(161, 24)
-        Me.cbFullSpec.TabIndex = 52
+        Me.cbFullSpec.TabIndex = 30
         Me.cbFullSpec.Text = "Save Performance Parts"
         '
         'Label1
@@ -190,15 +405,15 @@ Partial Class frmEditCar
         Me.cmbCarList.Location = New System.Drawing.Point(81, 39)
         Me.cmbCarList.Name = "cmbCarList"
         Me.cmbCarList.Size = New System.Drawing.Size(269, 24)
-        Me.cmbCarList.TabIndex = 0
+        Me.cmbCarList.TabIndex = 1
         '
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(286, 241)
+        Me.btnSave.Location = New System.Drawing.Point(287, 539)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 51
+        Me.btnSave.TabIndex = 40
         Me.btnSave.Text = "Save"
         '
         'Label3
@@ -215,7 +430,7 @@ Partial Class frmEditCar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(373, 276)
+        Me.ClientSize = New System.Drawing.Size(374, 574)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -227,6 +442,8 @@ Partial Class frmEditCar
         Me.Text = "Edit Car"
         Me.NsTheme1.ResumeLayout(False)
         Me.NsTheme1.PerformLayout()
+        Me.NsGroupBox3.ResumeLayout(False)
+        Me.NsGroupBox2.ResumeLayout(False)
         Me.NsGroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -245,4 +462,20 @@ Partial Class frmEditCar
     Friend WithEvents NsControlButton1 As NSControlButton
     Friend WithEvents cmbColor As NSComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents NsGroupBox2 As NSGroupBox
+    Friend WithEvents txtNumberPlate As NSTextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents cmbHiragana As NSComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents cmbPlace As NSComboBox
+    Friend WithEvents NsGroupBox3 As NSGroupBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cmbSticker4 As NSComboBox
+    Friend WithEvents cmbSticker3 As NSComboBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents cmbSticker2 As NSComboBox
+    Friend WithEvents cmbSticker1 As NSComboBox
+    Friend WithEvents Label9 As Label
 End Class

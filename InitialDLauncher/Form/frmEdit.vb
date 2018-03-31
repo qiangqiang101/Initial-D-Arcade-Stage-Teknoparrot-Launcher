@@ -19,10 +19,11 @@ Public Class frmEdit
     Dim _221 As String = "00"
 
     'Translation
-    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar As String
+    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar, a7_none, a7_hot, a7_wind, a7_light, a7_sprit, a7_overlord, a7_fly As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim aura As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim category As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim mouth_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim eyes_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
@@ -39,6 +40,10 @@ Public Class frmEdit
     Dim accessories_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim shades_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim frame As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
+
+    Private Sub cbGRumble_CheckedChanged(sender As Object)
+
+    End Sub
 
     Private _version As Integer
 
@@ -261,6 +266,8 @@ Public Class frmEdit
                             SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
                             SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
                             SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                            SetHex(_filename, Plus3C(&H374), SetValue(cmbAura7.SelectedIndex.ToString("X2")))
+                            If cbGRumble.Checked Then SetHex(_filename, Plus3C(&H33C), HexStringToBinary("01"))
                     End Select
                 End If
 
@@ -330,6 +337,8 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&HAA), HexStringToBinary(SetPridePoint(txtSPride.Text)))
                             SetHex(_filename, Neg3C(&HAC), HexStringToBinary(SetPridePoint(txtTPride.Text)))
                             SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                            SetHex(_filename, &H374, SetValue(cmbAura7.SelectedIndex.ToString("X2")))
+                            If cbGRumble.Checked Then SetHex(_filename, &H33C, HexStringToBinary("01"))
                     End Select
                 End If
 
@@ -366,6 +375,23 @@ Public Class frmEdit
             Else
                 cmbGender.SelectedIndex = 0
             End If
+        End If
+
+        'Add Aura
+        aura.Add(a7_none, "NONE")
+        aura.Add(a7_hot, "HOT")
+        aura.Add(a7_wind, "WIND")
+        aura.Add(a7_light, "LIGHT")
+        aura.Add(a7_sprit, "SPRIT")
+        aura.Add(a7_overlord, "OVERLORD")
+        aura.Add(a7_fly, "FLY")
+        cmbAura7.DisplayMember = "Key"
+        cmbAura7.ValueMember = "Value"
+        cmbAura7.DataSource = New BindingSource(aura, Nothing)
+        If _extension = "bin" Then
+            cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, Plus60(884), 1))
+        Else
+            cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, 884, 1))
         End If
 
         GroupBox1.Enabled = frmLauncher.cheat
@@ -458,6 +484,15 @@ Public Class frmEdit
                 GroupBox2.SubTitle = "These options are only available for InitialD 6 AA."
                 GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
                 GroupBox5.SubTitle = "Edit your name and gender."
+                Label15.Text = "Aura"
+                a7_none = "None"
+                a7_hot = "Scorching Hot"
+                a7_wind = "Whirlwind"
+                a7_light = "Lightning"
+                a7_sprit = "Evil Spirit"
+                a7_overlord = "Overlord"
+                a7_fly = "Fly"
+                cbGRumble.Text = "Unlock Gamble Rumble BGM"
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
                 NsTheme1.Text = Me.Text
@@ -521,6 +556,15 @@ Public Class frmEdit
                 GroupBox2.SubTitle = "頭文字D6AA選項。"
                 GroupBox3.SubTitle = "頭文字D7AAX選項。"
                 GroupBox5.SubTitle = "設置您的名字與性別。"
+                Label15.Text = "靈氣"
+                a7_none = "無"
+                a7_hot = "灼熱"
+                a7_wind = "旋風"
+                a7_light = "雷光"
+                a7_sprit = "邪気"
+                a7_overlord = "覇王"
+                a7_fly = "飛翔"
+                cbGRumble.Text = "解鎖Gamble Rumble BGM"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 NsTheme1.Text = Me.Text
@@ -584,6 +628,15 @@ Public Class frmEdit
                 GroupBox2.SubTitle = "These options are only available for InitialD 6 AA."
                 GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
                 GroupBox5.SubTitle = "Edit your name and gender."
+                Label15.Text = "Aura"
+                a7_none = "None"
+                a7_hot = "Scorching Hot"
+                a7_wind = "Whirlwind"
+                a7_light = "Lightning"
+                a7_sprit = "Evil Spirit"
+                a7_overlord = "Overlord"
+                a7_fly = "Fly"
+                cbGRumble.Text = "Unlock Gamble Rumble BGM"
         End Select
     End Sub
 

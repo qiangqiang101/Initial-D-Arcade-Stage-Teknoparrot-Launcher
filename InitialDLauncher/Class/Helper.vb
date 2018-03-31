@@ -159,6 +159,28 @@ Module Helper
         Return tResult
     End Function
 
+    '01灼熱
+    '02旋風
+    '03雷光
+    '04邪気
+    '05覇王
+    '06飛翔
+
+    Enum D7Aura
+        None = 0
+        ScorchingHot = 1
+        Whirlwind = 2
+        Lightning = 3
+        EvilSpirit = 4
+        Overlord = 5
+        Fly = 6
+    End Enum
+
+    Function GetID7Aura(hex As Byte()) As D7Aura
+        Dim result As Integer = CInt("&H" & BitConverter.ToString(hex).Replace("-", ""))
+        Return result
+    End Function
+
     Function GetName(hex As Byte()) As String
         Dim enc = Encoding.GetEncoding("shift-jis")
         Dim value = enc.GetString(hex)
@@ -274,7 +296,7 @@ Module Helper
         Return result
     End Function
 
-    Function GetCarColor(carname As String) As Tuple(of string, List(Of String), List(Of String))
+    Function GetCarColor(carname As String) As Tuple(Of String, List(Of String), List(Of String))
         Dim result As Tuple(Of String, List(Of String), List(Of String)) = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {Nothing}), New List(Of String)(New String() {Nothing}))
 
         Select Case carname
@@ -381,10 +403,16 @@ Module Helper
         Return result
     End Function
 
+    Function GetEventSticker(Optional ver As Integer = 7) As Tuple(Of String, List(Of String), List(Of String))
+        Dim result As Tuple(Of String, List(Of String), List(Of String)) = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"FF", "95", "96", "01", "7D", "22", "28", "7A", "76", "5E", "1B", "7B", "21", "81", "8F", "73", "91", "4A", "14", "31", "42", "02", "5F", "5D", "56", "48", "03", "5B", "70", "37", "04", "57", "67", "32", "69", "61", "51", "11", "0E", "05", "75", "72", "93", "24", "84", "25", "16", "36", "06", "65", "40", "77", "60", "2D", "23", "26", "07", "74", "43", "78", "1D", "1E", "2C", "54", "6C", "39", "8C", "92", "3E", "8E", "44", "12", "49", "68", "94", "4D", "6E", "15", "6B", "52", "00", "6D", "3D", "29", "7E", "0F", "4F", "79", "10", "45", "3A", "4E", "58", "A0", "A6", "46", "47", "80", "17", "63", "3F", "59", "1C", "2B", "83", "1A", "2A", "85", "4B", "53", "19", "1F", "6A", "0C", "5C", "86", "62", "0A", "27", "2F", "0D", "71", "13", "82", "7C", "8B", "38", "87", "4C", "7F", "30", "89", "8A", "A4", "A3", "A2", "A5", "35", "50", "33", "09", "20", "64", "88", "2E", "66", "3C", "90", "6F", "8D", "41", "18", "A1", "34", "5A", "55", "08", "A7", "A8", "A9", "AA", "AB", "97", "98"}), New List(Of String)(New String() {"None", "週刊ヤングマガジン", "頭文字D", "TOYOTA", "TRD", "C-ONE", "Crystal Body Yokohama", "TOM'S", "TARGET", "ネッツトヨタ", "ブーム", "TOOL BOX", "Complete Speed", "UGO", "横浜レーシング＆スポーツ", "スティルウェイ", "YSS", "IMPUL", "BEE☆R", "FPS", "HASEMI MOTOR SPORT", "NISSAN", "nismo", "Myumyu Papa Factory", "MARGA HILLS PRODUCTS", "HONDA TWINCAM", "Honda", "無限", "SPOON", "GARAGE VARY", "MAZDA", "MAZDASPEED", "RE雨宮", "藤田エンジニアリング", "R Magic", "PAN SPEED", "KNIGHT SPORTS", "AutoExe", "AQUA", "SUBARU", "SYMS", "STI", "ZERO/SPORTS", "CREATIVE-SPORTS", "VALDI sport", "CRUISE", "BFMフルブラスト", "Garage HRS", "MITSUBISHI", "RALLIART", "HALFWAY", "TAKE OFF", "NRF", "エリートSPL", "コスミック・ガレージ", "Crux", "SUZUKI", "SUZUKI SPORT", "HEARTLAND", "Techno PRO Spirit", "BOZZ SPEED", "CASHIEWスポーツ", "EAST BEAR SPORTS", "車工房リキ", "SARD", "GIALLA", "WIN CORPORATION", "ZEAL", "グランドスラム習志野", "ワークスベル", "Hippo sleek", "オートステージ", "アイメック", "レイブロス", "けつばん", "J'S RACING", "シグナル", "Besiege", "サンアイワークス", "K-ONE", "けつばん", "シーケンシャル", "グレネード", "CUSCO", "TRUTH", "ARC", "JUN", "テトラクリエイト", "ARP SPORT", "HKS", "GOOD LINE", "Jubiride", "MCR", "ADVANCE", "AUTO PRODUCE BOSS", "HKS関西", "HKS九州", "TRUST", "BLITZ", "RS☆R", "圭オフィス", "Mine's", "BORDER", "D.speed", "浮谷商会", "BOMEX", "C-WEST", "VARIS", "ings", "KSAUTO×BURNOUT", "BN Sports", "CHARGE SPEED", "ルーキー", "アレスクリエイト", "MYTHOS", "VeilSide", "PHOENIX's POWER", "Abflag", "CRUX_other", "ファースト", "エアロステーション", "STOUT", "AXIA SPORTS", "URAS", "TOP SECRET", "WEST YOKOHAMA", "Gコーポレーション", "VERTEX", "j.blood", "TRIAL", "First Molding", "VOLTEX", "VOLTEX(ボツ)", "Route KS", "GP SPORTS", "FreeStyle", "Garage Kagotani", "GarageBB", "柿本改", "FUJITSUBO", "5ZIGEN", "CIBIE", "RS-Watanabe", "VOLK RACING", "ENKEI", "RAYS", "GRAM LIGHTS", "YOKOHAMA", "SPEED STAR WHEEL", "WORK", "Racing Hart", "B.I.M creativestudio", "BBS", "GANADOR", "monster", "ラ・アンスポーツ", "DAIHATSU", "ASI", "TOMMYKAIRA", "power house amuse", "TOP SECRET", "MODELLISTA", "頭文字D簡体字版", "GACKT"}))
+        If ver = 6 Then result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"FF", "95", "96", "01", "7D", "22", "28", "7A", "76", "5E", "1B", "7B", "21", "81", "8F", "73", "91", "4A", "14", "31", "42", "02", "5F", "5D", "56", "48", "03", "5B", "70", "37", "04", "57", "67", "32", "69", "61", "51", "11", "0E", "05", "75", "72", "93", "24", "84", "25", "16", "36", "06", "65", "40", "77", "60", "2D", "23", "26", "07", "74", "43", "78", "1D", "1E", "2C", "54", "6C", "39", "8C", "92", "3E", "8E", "44", "12", "49", "68", "94", "4D", "6E", "15", "6B", "52", "00", "6D", "3D", "29", "7E", "0F", "4F", "79", "10", "45", "3A", "4E", "58", "A0", "A6", "46", "47", "80", "17", "63", "3F", "59", "1C", "2B", "83", "1A", "2A", "85", "4B", "53", "19", "1F", "6A", "0C", "5C", "86", "62", "0A", "27", "2F", "0D", "71", "13", "82", "7C", "8B", "38", "87", "4C", "7F", "30", "89", "8A", "A4", "A3", "A2", "A5", "35", "50", "33", "09", "20", "64", "88", "2E", "66", "3C", "90", "6F", "8D", "41", "18", "A1", "34", "5A", "55", "08", "A7", "A8"}), New List(Of String)(New String() {"None", "週刊ヤングマガジン", "頭文字D", "TOYOTA", "TRD", "C-ONE", "Crystal Body Yokohama", "TOM'S", "TARGET", "ネッツトヨタ", "ブーム", "TOOL BOX", "Complete Speed", "UGO", "横浜レーシング＆スポーツ", "スティルウェイ", "YSS", "IMPUL", "BEE☆R", "FPS", "HASEMI MOTOR SPORT", "NISSAN", "nismo", "Myumyu Papa Factory", "MARGA HILLS PRODUCTS", "HONDA TWINCAM", "Honda", "無限", "SPOON", "GARAGE VARY", "MAZDA", "MAZDASPEED", "RE雨宮", "藤田エンジニアリング", "R Magic", "PAN SPEED", "KNIGHT SPORTS", "AutoExe", "AQUA", "SUBARU", "SYMS", "STI", "ZERO/SPORTS", "CREATIVE-SPORTS", "VALDI sport", "CRUISE", "BFMフルブラスト", "Garage HRS", "MITSUBISHI", "RALLIART", "HALFWAY", "TAKE OFF", "NRF", "エリートSPL", "コスミック・ガレージ", "Crux", "SUZUKI", "SUZUKI SPORT", "HEARTLAND", "Techno PRO Spirit", "BOZZ SPEED", "CASHIEWスポーツ", "EAST BEAR SPORTS", "車工房リキ", "SARD", "GIALLA", "WIN CORPORATION", "ZEAL", "グランドスラム習志野", "ワークスベル", "Hippo sleek", "オートステージ", "アイメック", "レイブロス", "けつばん", "J'S RACING", "シグナル", "Besiege", "サンアイワークス", "K-ONE", "けつばん", "シーケンシャル", "グレネード", "CUSCO", "TRUTH", "ARC", "JUN", "テトラクリエイト", "ARP SPORT", "HKS", "GOOD LINE", "Jubiride", "MCR", "ADVANCE", "AUTO PRODUCE BOSS", "HKS関西", "HKS九州", "TRUST", "BLITZ", "RS☆R", "圭オフィス", "Mine's", "BORDER", "D.speed", "浮谷商会", "BOMEX", "C-WEST", "VARIS", "ings", "KSAUTO×BURNOUT", "BN Sports", "CHARGE SPEED", "ルーキー", "アレスクリエイト", "MYTHOS", "VeilSide", "PHOENIX's POWER", "Abflag", "CRUX_other", "ファースト", "エアロステーション", "STOUT", "AXIA SPORTS", "URAS", "TOP SECRET", "WEST YOKOHAMA", "Gコーポレーション", "VERTEX", "j.blood", "TRIAL", "First Molding", "VOLTEX", "VOLTEX(ボツ)", "Route KS", "GP SPORTS", "FreeStyle", "Garage Kagotani", "GarageBB", "柿本改", "FUJITSUBO", "5ZIGEN", "CIBIE", "RS-Watanabe", "VOLK RACING", "ENKEI", "RAYS", "GRAM LIGHTS", "YOKOHAMA", "SPEED STAR WHEEL", "WORK", "Racing Hart", "B.I.M creativestudio", "BBS", "GANADOR", "monster", "ラ・アンスポーツ", "DAIHATSU", "ASI", "TOMMYKAIRA"}))
+        Return result
+    End Function
+
     Function GetCar(hex As Byte(), hex2 As Byte(), Optional ver As Integer = 7) As String
         Dim result As String = Nothing
         Dim ff As String = BitConverter.ToString(hex2).Replace("-", "")
-        If ff = "FF" Then
+        If Not ff = "00" Then
             Select Case BitConverter.ToString(hex).Replace("-", "")
             'TOYOTA
                 Case "0000"
@@ -624,6 +652,10 @@ Module Helper
         Return CInt("&H" & BitConverter.ToString(hex4).Replace("-", "") & BitConverter.ToString(hex3).Replace("-", "") & BitConverter.ToString(hex2).Replace("-", "") & BitConverter.ToString(hex1).Replace("-", ""))
     End Function
 
+    Function GetPlateNumber(hex1 As Byte(), hex2 As Byte(), hex3 As Byte()) As String
+        Return CInt("&H" & BitConverter.ToString(hex3).Replace("-", "") & BitConverter.ToString(hex2).Replace("-", "") & BitConverter.ToString(hex1).Replace("-", ""))
+    End Function
+
     Function SetMilelage(mileage As Integer) As String
         Dim hexString As String = mileage.ToString("X8")
 
@@ -634,6 +666,16 @@ Module Helper
         Dim _F2 = L4.Substring(0, 2)
         Dim _L2 = L4.Substring(2)
         Return _L2 & _F2 & L2 & F2
+    End Function
+
+    Function SetPlateNumber(plate As Integer) As String
+        Dim hexString As String = plate.ToString("X6")
+
+        Dim F4 = hexString.Substring(0, 4)
+        Dim L4 = hexString.Substring(4)
+        Dim F2 = F4.Substring(0, 2)
+        Dim L2 = F4.Substring(2)
+        Return L4 & L2 & F2
     End Function
 
     Function GetLevel(hex As Byte(), Optional num As Boolean = False) As String

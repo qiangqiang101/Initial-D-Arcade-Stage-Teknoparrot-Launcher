@@ -79,6 +79,9 @@ Partial Class frmEdit
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.GroupBox1 = New InitialDLauncher.NSGroupBox()
         Me.GroupBox3 = New InitialDLauncher.NSGroupBox()
+        Me.cbGRumble = New InitialDLauncher.NSCheckBox()
+        Me.cmbAura7 = New InitialDLauncher.NSComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New InitialDLauncher.NSGroupBox()
         Me.GroupBox5 = New InitialDLauncher.NSGroupBox()
         Me.GroupBox4 = New InitialDLauncher.NSGroupBox()
@@ -279,7 +282,7 @@ Partial Class frmEdit
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(850, 490)
+        Me.btnSave.Location = New System.Drawing.Point(850, 505)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
         Me.btnSave.TabIndex = 50
@@ -345,7 +348,7 @@ Partial Class frmEdit
         '
         Me.txtTPride.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtTPride.Location = New System.Drawing.Point(284, 36)
-        Me.txtTPride.MaxLength = 5
+        Me.txtTPride.MaxLength = 4
         Me.txtTPride.Multiline = False
         Me.txtTPride.Name = "txtTPride"
         Me.txtTPride.ReadOnly = False
@@ -368,7 +371,7 @@ Partial Class frmEdit
         '
         Me.txtSPride.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtSPride.Location = New System.Drawing.Point(91, 36)
-        Me.txtSPride.MaxLength = 5
+        Me.txtSPride.MaxLength = 4
         Me.txtSPride.Multiline = False
         Me.txtSPride.Name = "txtSPride"
         Me.txtSPride.ReadOnly = False
@@ -391,7 +394,7 @@ Partial Class frmEdit
         '
         Me.txtPridePoint.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtPridePoint.Location = New System.Drawing.Point(91, 65)
-        Me.txtPridePoint.MaxLength = 5
+        Me.txtPridePoint.MaxLength = 4
         Me.txtPridePoint.Multiline = False
         Me.txtPridePoint.Name = "txtPridePoint"
         Me.txtPridePoint.ReadOnly = False
@@ -687,7 +690,7 @@ Partial Class frmEdit
         Me.lblAvatarOffset.BackColor = System.Drawing.Color.Black
         Me.lblAvatarOffset.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.lblAvatarOffset.ForeColor = System.Drawing.Color.White
-        Me.lblAvatarOffset.Location = New System.Drawing.Point(0, 510)
+        Me.lblAvatarOffset.Location = New System.Drawing.Point(0, 525)
         Me.lblAvatarOffset.Name = "lblAvatarOffset"
         Me.lblAvatarOffset.Size = New System.Drawing.Size(139, 15)
         Me.lblAvatarOffset.TabIndex = 51
@@ -713,7 +716,7 @@ Partial Class frmEdit
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(935, 525)
+        Me.NsTheme1.Size = New System.Drawing.Size(935, 540)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 53
@@ -744,7 +747,7 @@ Partial Class frmEdit
         Me.GroupBox1.Location = New System.Drawing.Point(505, 111)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(420, 369)
+        Me.GroupBox1.Size = New System.Drawing.Size(420, 388)
         Me.GroupBox1.SubTitle = "Not recommended for using Online."
         Me.GroupBox1.TabIndex = 58
         Me.GroupBox1.Text = "NsGroupBox1"
@@ -752,6 +755,9 @@ Partial Class frmEdit
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.cbGRumble)
+        Me.GroupBox3.Controls.Add(Me.cmbAura7)
+        Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.txtTPride)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.Label9)
@@ -760,11 +766,42 @@ Partial Class frmEdit
         Me.GroupBox3.Location = New System.Drawing.Point(6, 283)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox3.Size = New System.Drawing.Size(408, 66)
+        Me.GroupBox3.Size = New System.Drawing.Size(408, 97)
         Me.GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
         Me.GroupBox3.TabIndex = 60
         Me.GroupBox3.Text = "NsGroupBox1"
         Me.GroupBox3.Title = "InitialD 7 AAX"
+        '
+        'cbGRumble
+        '
+        Me.cbGRumble.Checked = False
+        Me.cbGRumble.Location = New System.Drawing.Point(212, 66)
+        Me.cbGRumble.Name = "cbGRumble"
+        Me.cbGRumble.Size = New System.Drawing.Size(150, 24)
+        Me.cbGRumble.TabIndex = 44
+        Me.cbGRumble.Text = "Unlock Gamble Rumble"
+        '
+        'cmbAura7
+        '
+        Me.cmbAura7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbAura7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbAura7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAura7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbAura7.FormattingEnabled = True
+        Me.cmbAura7.Location = New System.Drawing.Point(91, 66)
+        Me.cmbAura7.Name = "cmbAura7"
+        Me.cmbAura7.Size = New System.Drawing.Size(111, 24)
+        Me.cmbAura7.TabIndex = 43
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.ForeColor = System.Drawing.Color.White
+        Me.Label15.Location = New System.Drawing.Point(6, 69)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(32, 15)
+        Me.Label15.TabIndex = 59
+        Me.Label15.Text = "Aura"
         '
         'GroupBox2
         '
@@ -820,7 +857,7 @@ Partial Class frmEdit
         Me.GroupBox4.Location = New System.Drawing.Point(12, 36)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox4.Size = New System.Drawing.Size(487, 444)
+        Me.GroupBox4.Size = New System.Drawing.Size(487, 463)
         Me.GroupBox4.SubTitle = "Edit the Avatar of your card."
         Me.GroupBox4.TabIndex = 56
         Me.GroupBox4.Text = "Avatar"
@@ -955,7 +992,7 @@ Partial Class frmEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(935, 525)
+        Me.ClientSize = New System.Drawing.Size(935, 540)
         Me.Controls.Add(Me.lblAvatarOffset)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -1075,4 +1112,7 @@ Partial Class frmEdit
     Friend WithEvents GroupBox1 As NSGroupBox
     Friend WithEvents GroupBox3 As NSGroupBox
     Friend WithEvents GroupBox2 As NSGroupBox
+    Friend WithEvents cmbAura7 As NSComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents cbGRumble As NSCheckBox
 End Class
