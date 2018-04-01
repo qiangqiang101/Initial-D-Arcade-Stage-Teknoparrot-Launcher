@@ -13,7 +13,7 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 24
+    Dim curVer As Integer = 25
     Public buildDate As String = "02/04/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
@@ -27,8 +27,7 @@ Public Class frmLauncher
 
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
-    Public Shared mp3File As String ' = String.Format("{0}\launcher.mp3", My.Application.Info.DirectoryPath)
-    Public Shared audio As AudioFile
+    Public Shared isGameRunning As Boolean = False
 
     Public Shared cheat As Boolean = False
     Dim pattern As String = Nothing
@@ -193,6 +192,8 @@ Public Class frmLauncher
 
             For Each item In plugins
                 item.DoSomething()
+                Dim timer As System.Windows.Forms.Timer = New System.Windows.Forms.Timer With {.Interval = 60, .Enabled = True}
+                AddHandler timer.Tick, AddressOf item.TimerTick
             Next
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -216,7 +217,6 @@ Public Class frmLauncher
 
     Private Sub RunGame(CardDir As String, CardPath As String, GameID As Integer, AppData As String, MySettingGameDir As String, Profile As String)
         Try
-            If File.Exists(mp3File) Then audio.Pause()
             My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(CardDir) AndAlso CardPath = Nothing Then
@@ -256,6 +256,9 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
+        isGameRunning = True
+        wait(500)
+
         Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
             Case ".bin"
                 RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
@@ -267,6 +270,9 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click
+        isGameRunning = True
+        wait(500)
+
         Select Case IO.Path.GetExtension(My.Settings.Id7CardName)
             Case ".bin"
                 RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
@@ -287,7 +293,7 @@ Public Class frmLauncher
         If Not proc.HasExited Then
             e.Cancel = False
         Else
-            If File.Exists(mp3File) Then audio.Stop()
+            isGameRunning = False
         End If
     End Sub
 
@@ -349,7 +355,7 @@ Public Class frmLauncher
             End If
 
             Me.WindowState = FormWindowState.Normal
-            If File.Exists(mp3File) Then audio.Resume()
+            isGameRunning = False
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try

@@ -18,11 +18,15 @@ Public Class CheatsAlwaysEnable
 
     Public ReadOnly Property Version As String Implements iPlugin.Version
         Get
-            Version = "1.0"
+            Version = "1.1"
         End Get
     End Property
 
     Public Sub DoSomething() Implements iPlugin.DoSomething
         frmLauncher.cheat = True
+    End Sub
+
+    Public Sub TimerTick(sender As Object, e As EventArgs) Implements iPlugin.TimerTick
+
     End Sub
 End Class

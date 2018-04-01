@@ -1554,4 +1554,14 @@ Module Helper
         Return cc
     End Function
 
+    Sub wait(ByVal interval As Integer)
+        Dim stopW As New Stopwatch
+        stopW.Start()
+        Do While stopW.ElapsedMilliseconds < interval
+            ' Allows your UI to remain responsive
+            Application.DoEvents()
+        Loop
+        stopW.Stop()
+    End Sub
+
 End Module
