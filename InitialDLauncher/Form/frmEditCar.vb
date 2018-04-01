@@ -81,6 +81,7 @@
                 Label8.Text = "Sticker 2"
                 Label11.Text = "Sticker 3"
                 Label10.Text = "Sticker 4"
+                Label12.Text = "Class Code"
             Case "Chinese"
                 Me.Text = "改车: " & _carname & "[" & _slot & "]"
                 NsTheme1.Text = Me.Text
@@ -103,6 +104,7 @@
                 Label8.Text = "貼紙2"
                 Label11.Text = "貼紙3"
                 Label10.Text = "貼紙4"
+                Label12.Text = "分類編號"
             Case "French"
                 Me.Text = "Edit Car: " & _carname & "[" & _slot & "]"
                 NsTheme1.Text = Me.Text
@@ -125,6 +127,7 @@
                 Label8.Text = "Sticker 2"
                 Label11.Text = "Sticker 3"
                 Label10.Text = "Sticker 4"
+                Label12.Text = "Class Code"
         End Select
     End Sub
 
@@ -212,6 +215,7 @@
                         cmbSticker2.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 209, 1))
                         cmbSticker3.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 210, 1))
                         cmbSticker4.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 211, 1))
+                        txtClassCode.Text = GetPridePoint(GetHex(_filename, Neg3C(&H11A), 1), GetHex(_filename, Neg3C(&H11B), 1))
                     Case 2
                         cmbColor.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 294, 1))
                         txtNumberPlate.Text = GetPlateNumber(GetHex(_filename, Neg60(380), 1), GetHex(_filename, Neg60(381), 1), GetHex(_filename, Neg60(382), 1))
@@ -221,6 +225,7 @@
                         cmbSticker2.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 305, 1))
                         cmbSticker3.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 306, 1))
                         cmbSticker4.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 307, 1))
+                        txtClassCode.Text = GetPridePoint(GetHex(_filename, Neg3C(&H17A), 1), GetHex(_filename, Neg3C(&H17B), 1))
                     Case 3
                         cmbColor.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 390, 1))
                         txtNumberPlate.Text = GetPlateNumber(GetHex(_filename, Neg60(476), 1), GetHex(_filename, Neg60(477), 1), GetHex(_filename, Neg60(478), 1))
@@ -230,6 +235,7 @@
                         cmbSticker2.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 401, 1))
                         cmbSticker3.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 402, 1))
                         cmbSticker4.SelectedValue = GetHexStringFromBinary(GetHex(_filename, 403, 1))
+                        txtClassCode.Text = GetPridePoint(GetHex(_filename, Neg3C(&H1DA), 1), GetHex(_filename, Neg3C(&H1DB), 1))
                 End Select
             Else
                 Select Case _slot
@@ -242,6 +248,7 @@
                         cmbSticker2.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(209), 1))
                         cmbSticker3.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(210), 1))
                         cmbSticker4.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(211), 1))
+                        txtClassCode.Text = GetPridePoint(GetHex(_filename, &H11A, 1), GetHex(_filename, &H11B, 1))
                     Case 2
                         cmbColor.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(294), 1))
                         txtNumberPlate.Text = GetPlateNumber(GetHex(_filename, 380, 1), GetHex(_filename, 381, 1), GetHex(_filename, 382, 1))
@@ -251,6 +258,7 @@
                         cmbSticker2.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(305), 1))
                         cmbSticker3.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(306), 1))
                         cmbSticker4.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(307), 1))
+                        txtClassCode.Text = GetPridePoint(GetHex(_filename, &H17A, 1), GetHex(_filename, &H17B, 1))
                     Case 3
                         cmbColor.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(390), 1))
                         txtNumberPlate.Text = GetPlateNumber(GetHex(_filename, 476, 1), GetHex(_filename, 477, 1), GetHex(_filename, 478, 1))
@@ -260,6 +268,7 @@
                         cmbSticker2.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(401), 1))
                         cmbSticker3.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(402), 1))
                         cmbSticker4.SelectedValue = GetHexStringFromBinary(GetHex(_filename, Plus60(403), 1))
+                        txtClassCode.Text = GetPridePoint(GetHex(_filename, &H1DA, 1), GetHex(_filename, &H1DB, 1))
                 End Select
             End If
         Catch ex As Exception
@@ -285,6 +294,7 @@
                         SetHex(_filename, Plus3C(&HD2), HexStringToBinary(cmbSticker3.SelectedValue.ToString))
                         SetHex(_filename, Plus3C(&HD3), HexStringToBinary(cmbSticker4.SelectedValue.ToString))
                         SetHex(_filename, Plus3C(&HCA), HexStringToBinary("10"))
+                        SetHex(_filename, &H11A, HexStringToBinary(SetPridePoint(txtClassCode.Text)))
                     Case 2
                         If Not cmbCarList.SelectedItem = Nothing Then
                             SetHex(_filename, &H160, HexStringToBinary(SetCar(cmbCarList.SelectedItem.ToString)))
@@ -299,6 +309,7 @@
                         SetHex(_filename, Plus3C(&H132), HexStringToBinary(cmbSticker3.SelectedValue.ToString))
                         SetHex(_filename, Plus3C(&H133), HexStringToBinary(cmbSticker4.SelectedValue.ToString))
                         SetHex(_filename, Plus3C(&H12A), HexStringToBinary("10"))
+                        SetHex(_filename, &H17A, HexStringToBinary(SetPridePoint(txtClassCode.Text)))
                     Case 3
                         If Not cmbCarList.SelectedItem = Nothing Then
                             SetHex(_filename, &H1C0, HexStringToBinary(SetCar(cmbCarList.SelectedItem.ToString)))
@@ -313,6 +324,7 @@
                         SetHex(_filename, Plus3C(&H192), HexStringToBinary(cmbSticker3.SelectedValue.ToString))
                         SetHex(_filename, Plus3C(&H193), HexStringToBinary(cmbSticker4.SelectedValue.ToString))
                         SetHex(_filename, Plus3C(&H18A), HexStringToBinary("10"))
+                        SetHex(_filename, &H1DA, HexStringToBinary(SetPridePoint(txtClassCode.Text)))
                 End Select
                 If cbFullSpec.Checked Then
                     Select Case _slot
@@ -364,6 +376,7 @@
                         SetHex(_filename, &HD2, HexStringToBinary(cmbSticker3.SelectedValue.ToString))
                         SetHex(_filename, &HD3, HexStringToBinary(cmbSticker4.SelectedValue.ToString))
                         SetHex(_filename, &HCA, HexStringToBinary("10"))
+                        SetHex(_filename, Neg3C(&H11A), HexStringToBinary(SetPridePoint(txtClassCode.Text)))
                     Case 2
                         If Not cmbCarList.SelectedItem = Nothing Then
                             SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(cmbCarList.SelectedItem.ToString)))
@@ -378,6 +391,7 @@
                         SetHex(_filename, &H132, HexStringToBinary(cmbSticker3.SelectedValue.ToString))
                         SetHex(_filename, &H133, HexStringToBinary(cmbSticker4.SelectedValue.ToString))
                         SetHex(_filename, &H12A, HexStringToBinary("10"))
+                        SetHex(_filename, Neg3C(&H17A), HexStringToBinary(SetPridePoint(txtClassCode.Text)))
                     Case 3
                         If Not cmbCarList.SelectedItem = Nothing Then
                             SetHex(_filename, Neg3C(&H1C0), HexStringToBinary(SetCar(cmbCarList.SelectedItem.ToString)))
@@ -392,6 +406,7 @@
                         SetHex(_filename, &H192, HexStringToBinary(cmbSticker3.SelectedValue.ToString))
                         SetHex(_filename, &H193, HexStringToBinary(cmbSticker4.SelectedValue.ToString))
                         SetHex(_filename, &H18A, HexStringToBinary("10"))
+                        SetHex(_filename, Neg3C(&H1DA), HexStringToBinary(SetPridePoint(txtClassCode.Text)))
                 End Select
                 If cbFullSpec.Checked Then
                     Select Case _slot

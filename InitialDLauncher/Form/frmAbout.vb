@@ -16,6 +16,7 @@ GameSpot Theme © w3layouts, <br />
 Translucent Control using GDI+ © a_pess<br />
 SplitButton Control © bergerkiller<br />
 Net Seal Theme © aeonhack<br />
+simple plugin mechanism © chriga<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL<br />
@@ -24,7 +25,7 @@ French - nucleaireland<br />
 
 <h2>Community contributors</h2>
 BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset,<br />
-Lemon The Kid - Avatar Offset & Avatar Preview Pictures for InitialD 6, <br />
+Lemon The Kid - Avatar Offset, Avatar Preview Pictures, Car Color, Car Engine/Rollbar Parts, Car Fullspec, Car Number Plate, Aura & etc, <br />
 AkiiHoshi - Avatar Preview Pictures for InitialD 7, <br />
 oPTToXenMe - Level Offset,<br />
 Gammaガァマ - Car Name Offset,<br />
@@ -45,6 +46,10 @@ SEGA</center>"
     Private Sub frmAbout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Translate()
         wbAbout.DocumentText = htmlstring
+
+        For Each item In frmLauncher.plugins
+            lvPlugins.AddItem(item.Name, item.Version, item.Author)
+        Next
     End Sub
 
     Private Sub llblWebsite_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblWebsite.LinkClicked
@@ -62,16 +67,31 @@ SEGA</center>"
                 lblTitle.Text = "Initial D Arcade Stage Launcher"
                 Me.Text = "About"
                 NsTheme1.Text = Me.Text
+                NsGroupBox1.Title = "Plugins"
+                btnDonate.Text = "Donate"
+                lvPlugins.Columns(0).Text = "Plugin Name"
+                lvPlugins.Columns(1).Text = "Version"
+                lvPlugins.Columns(2).Text = "Author"
             Case "Chinese"
                 lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, frmLauncher.buildDate)
                 lblTitle.Text = "頭文字D Arcade Stage 登陸器"
                 Me.Text = "關於"
                 NsTheme1.Text = Me.Text
+                NsGroupBox1.Title = "插件"
+                btnDonate.Text = "贊助"
+                lvPlugins.Columns(0).Text = "插件名"
+                lvPlugins.Columns(1).Text = "版本"
+                lvPlugins.Columns(2).Text = "作者"
             Case "French"
                 lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
                 lblTitle.Text = "Initial D Arcade Stage Launcher"
                 Me.Text = "About"
                 NsTheme1.Text = Me.Text
+                NsGroupBox1.Title = "Plugins"
+                btnDonate.Text = "Donate"
+                lvPlugins.Columns(0).Text = "Plugin Name"
+                lvPlugins.Columns(1).Text = "Version"
+                lvPlugins.Columns(2).Text = "Author"
         End Select
     End Sub
 

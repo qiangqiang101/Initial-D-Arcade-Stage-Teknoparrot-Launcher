@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Component\AudioFile.vb" />
+    <Compile Include="Class\PluginLoader.vb" />
     <Compile Include="Form\Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
@@ -301,6 +302,10 @@
     <ProjectReference Include="..\LemonTheKid\LemonTheKid.vbproj">
       <Project>{871bb56b-4622-4c73-9cca-33f96515fdf4}</Project>
       <Name>LemonTheKid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginContract\PluginContract.vbproj">
+      <Project>{413aa0e0-8bbb-4cd2-8a3d-f7904ee54f95}</Project>
+      <Name>PluginContract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

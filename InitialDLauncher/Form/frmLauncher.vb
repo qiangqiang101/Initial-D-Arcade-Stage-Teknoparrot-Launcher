@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Threading
+Imports PluginContract
 
 Public Class frmLauncher
 
@@ -12,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 23
-    Public buildDate As String = "01/04/2018"
+    Dim curVer As Integer = 24
+    Public buildDate As String = "02/04/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -26,11 +27,13 @@ Public Class frmLauncher
 
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
-    Dim mp3File As String = String.Format("{0}\launcher.mp3", My.Application.Info.DirectoryPath)
-    Dim audio As AudioFile
+    Public Shared mp3File As String ' = String.Format("{0}\launcher.mp3", My.Application.Info.DirectoryPath)
+    Public Shared audio As AudioFile
 
-    Public cheat As Boolean = False
+    Public Shared cheat As Boolean = False
     Dim pattern As String = Nothing
+
+    Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins")
 
     'Translation
     Dim new_version, no_card_selected As String
@@ -158,46 +161,43 @@ Public Class frmLauncher
     End Sub
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
-        Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
-        Me.SetStyle(ControlStyles.UserPaint, True)
+        Try
+            Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
+            Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
+            Me.SetStyle(ControlStyles.UserPaint, True)
 
-        If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
-        If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
+            If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
+            If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
 
-        shadow = New Dropshadow(Me) With {.ShadowBlur = 30, .ShadowSpread = 1, .ShadowColor = Color.Black}
-        shadow.RefreshShadow()
+            shadow = New Dropshadow(Me) With {.ShadowBlur = 30, .ShadowSpread = 1, .ShadowColor = Color.Black}
+            shadow.RefreshShadow()
 
-        lblDebug.Visible = debug
-        CheckForIllegalCrossThreadCalls = False
-        GetGamePath()
-        AutoCardMove()
+            lblDebug.Visible = debug
+            CheckForIllegalCrossThreadCalls = False
+            GetGamePath()
+            AutoCardMove()
 
-        If Not File.Exists(id6CardPath) Then
-            My.Settings.Id6CardName = ""
-            My.Settings.Save()
-        End If
-        If Not File.Exists(id7CardPath) Then
-            My.Settings.Id7CardName = ""
-            My.Settings.Save()
-        End If
+            If Not File.Exists(id6CardPath) Then
+                My.Settings.Id6CardName = ""
+                My.Settings.Save()
+            End If
+            If Not File.Exists(id7CardPath) Then
+                My.Settings.Id7CardName = ""
+                My.Settings.Save()
+            End If
 
-        If My.Settings.Id6Path = Nothing Then lblStart6.Enabled = False
-        If My.Settings.Id7Path = Nothing Then lblStart7.Enabled = False
+            If My.Settings.Id6Path = Nothing Then lblStart6.Enabled = False
+            If My.Settings.Id7Path = Nothing Then lblStart7.Enabled = False
 
-        Translate()
+            Translate()
 
-        If File.Exists(mp3File) Then
-            audio = New AudioFile(mp3File)
-            audio.Play()
-            audio.SetVolume(500)
-        End If
-
-        'If Not My.Settings.LoggedIn Then
-        '    frmLogin.Show()
-        '    Me.WindowState = FormWindowState.Minimized
-        '    Me.Enabled = False
-        'End If
+            For Each item In plugins
+                item.DoSomething()
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End Try
     End Sub
 
     Private Function CheckForUpdate() As Integer

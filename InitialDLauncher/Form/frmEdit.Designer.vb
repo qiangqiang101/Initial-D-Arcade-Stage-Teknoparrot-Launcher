@@ -777,7 +777,7 @@ Partial Class frmEdit
         Me.cbGRumble.Checked = False
         Me.cbGRumble.Location = New System.Drawing.Point(212, 66)
         Me.cbGRumble.Name = "cbGRumble"
-        Me.cbGRumble.Size = New System.Drawing.Size(150, 24)
+        Me.cbGRumble.Size = New System.Drawing.Size(184, 24)
         Me.cbGRumble.TabIndex = 44
         Me.cbGRumble.Text = "Unlock Gamble Rumble"
         '

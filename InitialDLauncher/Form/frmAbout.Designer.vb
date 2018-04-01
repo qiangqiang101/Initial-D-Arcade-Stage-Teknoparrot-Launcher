@@ -22,8 +22,13 @@ Partial Class frmAbout
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim NsListViewColumnHeader1 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader2 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader3 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAbout))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
+        Me.lvPlugins = New InitialDLauncher.NSListView()
         Me.btnDonate = New InitialDLauncher.NSButton()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.wbAbout = New System.Windows.Forms.WebBrowser()
@@ -31,6 +36,7 @@ Partial Class frmAbout
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.llblWebsite = New System.Windows.Forms.LinkLabel()
         Me.NsTheme1.SuspendLayout()
+        Me.NsGroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'NsTheme1
@@ -39,6 +45,7 @@ Partial Class frmAbout
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.NsGroupBox1)
         Me.NsTheme1.Controls.Add(Me.btnDonate)
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
         Me.NsTheme1.Controls.Add(Me.wbAbout)
@@ -54,13 +61,47 @@ Partial Class frmAbout
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(475, 536)
+        Me.NsTheme1.Size = New System.Drawing.Size(475, 692)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 54
         Me.NsTheme1.Text = "About"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
+        '
+        'NsGroupBox1
+        '
+        Me.NsGroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.NsGroupBox1.Controls.Add(Me.lvPlugins)
+        Me.NsGroupBox1.DrawSeperator = True
+        Me.NsGroupBox1.Location = New System.Drawing.Point(12, 530)
+        Me.NsGroupBox1.Name = "NsGroupBox1"
+        Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox1.Size = New System.Drawing.Size(451, 150)
+        Me.NsGroupBox1.SubTitle = ""
+        Me.NsGroupBox1.TabIndex = 56
+        Me.NsGroupBox1.Text = "NsGroupBox1"
+        Me.NsGroupBox1.Title = "Plugins"
+        '
+        'lvPlugins
+        '
+        Me.lvPlugins.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        NsListViewColumnHeader1.Text = "Plugin Name"
+        NsListViewColumnHeader1.Width = 150
+        NsListViewColumnHeader2.Text = "Version"
+        NsListViewColumnHeader2.Width = 60
+        NsListViewColumnHeader3.Text = "Author"
+        NsListViewColumnHeader3.Width = 300
+        Me.lvPlugins.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1, NsListViewColumnHeader2, NsListViewColumnHeader3}
+        Me.lvPlugins.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
+        Me.lvPlugins.Location = New System.Drawing.Point(6, 36)
+        Me.lvPlugins.MultiSelect = True
+        Me.lvPlugins.Name = "lvPlugins"
+        Me.lvPlugins.Size = New System.Drawing.Size(439, 108)
+        Me.lvPlugins.TabIndex = 10
+        Me.lvPlugins.Text = "NsListView1"
         '
         'btnDonate
         '
@@ -116,6 +157,7 @@ Partial Class frmAbout
         'llblWebsite
         '
         Me.llblWebsite.AutoSize = True
+        Me.llblWebsite.LinkColor = System.Drawing.Color.Aqua
         Me.llblWebsite.Location = New System.Drawing.Point(13, 70)
         Me.llblWebsite.Name = "llblWebsite"
         Me.llblWebsite.Size = New System.Drawing.Size(173, 15)
@@ -127,7 +169,7 @@ Partial Class frmAbout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(475, 536)
+        Me.ClientSize = New System.Drawing.Size(475, 692)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -139,6 +181,7 @@ Partial Class frmAbout
         Me.Text = "About"
         Me.NsTheme1.ResumeLayout(False)
         Me.NsTheme1.PerformLayout()
+        Me.NsGroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -150,4 +193,6 @@ Partial Class frmAbout
     Friend WithEvents NsTheme1 As NSTheme
     Friend WithEvents NsControlButton1 As NSControlButton
     Friend WithEvents btnDonate As NSButton
+    Friend WithEvents NsGroupBox1 As NSGroupBox
+    Friend WithEvents lvPlugins As NSListView
 End Class

@@ -377,33 +377,31 @@ Public Class frmEdit
             End If
         End If
 
-        'Add Aura
-        aura.Add(a7_none, "NONE")
-        aura.Add(a7_hot, "HOT")
-        aura.Add(a7_wind, "WIND")
-        aura.Add(a7_light, "LIGHT")
-        aura.Add(a7_sprit, "SPRIT")
-        aura.Add(a7_overlord, "OVERLORD")
-        aura.Add(a7_fly, "FLY")
-        cmbAura7.DisplayMember = "Key"
-        cmbAura7.ValueMember = "Value"
-        cmbAura7.DataSource = New BindingSource(aura, Nothing)
-        If _extension = "bin" Then
-            cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, Plus60(884), 1))
-        Else
-            cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, 884, 1))
-        End If
-
         GroupBox1.Enabled = frmLauncher.cheat
 
         If _version = 6 Then
             DictionaryAdd6()
-            GroupBox4.Enabled = True
         End If
 
         If _version = 7 Then
             DictionaryAdd7()
-            GroupBox4.Enabled = True
+
+            'Add Aura
+            aura.Add(a7_none, "NONE")
+            aura.Add(a7_hot, "HOT")
+            aura.Add(a7_wind, "WIND")
+            aura.Add(a7_light, "LIGHT")
+            aura.Add(a7_sprit, "SPRIT")
+            aura.Add(a7_overlord, "OVERLORD")
+            aura.Add(a7_fly, "FLY")
+            cmbAura7.DisplayMember = "Key"
+            cmbAura7.ValueMember = "Value"
+            cmbAura7.DataSource = New BindingSource(aura, Nothing)
+            If _extension = "bin" Then
+                cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, Plus60(884), 1))
+            Else
+                cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, 884, 1))
+            End If
         End If
 
         lblAvatarOffset.Visible = My.Settings.DebugMode

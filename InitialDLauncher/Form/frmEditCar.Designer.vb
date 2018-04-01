@@ -34,6 +34,8 @@ Partial Class frmEditCar
         Me.cmbSticker1 = New InitialDLauncher.NSComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.NsGroupBox2 = New InitialDLauncher.NSGroupBox()
+        Me.txtClassCode = New InitialDLauncher.NSTextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cmbPlace = New InitialDLauncher.NSComboBox()
         Me.cmbHiragana = New InitialDLauncher.NSComboBox()
@@ -82,7 +84,7 @@ Partial Class frmEditCar
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(374, 574)
+        Me.NsTheme1.Size = New System.Drawing.Size(374, 605)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 53
@@ -200,6 +202,8 @@ Partial Class frmEditCar
         '
         'NsGroupBox2
         '
+        Me.NsGroupBox2.Controls.Add(Me.txtClassCode)
+        Me.NsGroupBox2.Controls.Add(Me.Label12)
         Me.NsGroupBox2.Controls.Add(Me.Label7)
         Me.NsGroupBox2.Controls.Add(Me.cmbPlace)
         Me.NsGroupBox2.Controls.Add(Me.cmbHiragana)
@@ -210,16 +214,39 @@ Partial Class frmEditCar
         Me.NsGroupBox2.Location = New System.Drawing.Point(12, 267)
         Me.NsGroupBox2.Name = "NsGroupBox2"
         Me.NsGroupBox2.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.NsGroupBox2.Size = New System.Drawing.Size(350, 129)
+        Me.NsGroupBox2.Size = New System.Drawing.Size(350, 160)
         Me.NsGroupBox2.SubTitle = "Edit the Number Plate of this car."
         Me.NsGroupBox2.TabIndex = 59
         Me.NsGroupBox2.Text = "NsGroupBox2"
         Me.NsGroupBox2.Title = "Number Plate"
         '
+        'txtClassCode
+        '
+        Me.txtClassCode.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtClassCode.Location = New System.Drawing.Point(104, 66)
+        Me.txtClassCode.MaxLength = 3
+        Me.txtClassCode.Multiline = False
+        Me.txtClassCode.Name = "txtClassCode"
+        Me.txtClassCode.ReadOnly = False
+        Me.txtClassCode.Size = New System.Drawing.Size(234, 24)
+        Me.txtClassCode.TabIndex = 21
+        Me.txtClassCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtClassCode.UseSystemPasswordChar = False
+        '
+        'Label12
+        '
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(6, 63)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(83, 24)
+        Me.Label12.TabIndex = 61
+        Me.Label12.Text = "Class Code"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Label7
         '
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(6, 94)
+        Me.Label7.Location = New System.Drawing.Point(6, 124)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(92, 24)
         Me.Label7.TabIndex = 60
@@ -234,10 +261,10 @@ Partial Class frmEditCar
         Me.cmbPlace.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbPlace.FormattingEnabled = True
         Me.cmbPlace.Items.AddRange(New Object() {"札幌", "函館", "旭川", "室蘭", "釧路", "帯広", "北見", "青森", "八戸", "岩手", "宮城", "仙台", "福島", "いわき", "会津", "山形", "庄内", "秋田", "水戸", "土浦", "つくば", "栃木", "宇都宮", "とちぎ", "那須", "群馬", "高崎", "千葉", "野田", "習志野", "袖ヶ浦", "成田", "柏", "大宮", "熊谷", "春日部", "所沢", "川越", "品川", "足立", "練馬", "多摩", "八王子", "横浜", "川崎", "相模", "湘南", "山梨", "新潟", "長岡", "長野", "松本", "諏訪", "富山", "石川", "金沢", "名古屋", "三河", "尾張小牧", "豊橋", "豊田", "岡崎", "一宮", "静岡", "沼津", "浜松", "伊豆", "岐阜", "飛騨", "三重", "鈴鹿", "福井", "大阪", "なにわ", "和泉", "堺", "京都", "奈良", "滋賀", "和歌山", "神戸", "姫路", "広島", "福山", "鳥取", "島根", "岡山", "倉敷", "山口", "下関", "徳島", "香川", "愛媛", "高知", "福岡", "北九州", "筑豊", "久留米", "佐賀", "長崎", "佐世保", "熊本", "大分", "宮崎", "鹿児島", "沖縄", "富士山"})
-        Me.cmbPlace.Location = New System.Drawing.Point(104, 96)
+        Me.cmbPlace.Location = New System.Drawing.Point(104, 126)
         Me.cmbPlace.Name = "cmbPlace"
         Me.cmbPlace.Size = New System.Drawing.Size(234, 24)
-        Me.cmbPlace.TabIndex = 22
+        Me.cmbPlace.TabIndex = 23
         '
         'cmbHiragana
         '
@@ -247,10 +274,10 @@ Partial Class frmEditCar
         Me.cmbHiragana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbHiragana.FormattingEnabled = True
         Me.cmbHiragana.Items.AddRange(New Object() {"あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ", "さ"})
-        Me.cmbHiragana.Location = New System.Drawing.Point(104, 66)
+        Me.cmbHiragana.Location = New System.Drawing.Point(104, 96)
         Me.cmbHiragana.Name = "cmbHiragana"
         Me.cmbHiragana.Size = New System.Drawing.Size(234, 24)
-        Me.cmbHiragana.TabIndex = 21
+        Me.cmbHiragana.TabIndex = 22
         '
         'txtNumberPlate
         '
@@ -268,7 +295,7 @@ Partial Class frmEditCar
         'Label5
         '
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(6, 64)
+        Me.Label5.Location = New System.Drawing.Point(6, 94)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(92, 24)
         Me.Label5.TabIndex = 53
@@ -328,7 +355,7 @@ Partial Class frmEditCar
         Me.NsGroupBox1.Controls.Add(Me.cbFullSpec)
         Me.NsGroupBox1.Controls.Add(Me.Label1)
         Me.NsGroupBox1.DrawSeperator = False
-        Me.NsGroupBox1.Location = New System.Drawing.Point(12, 402)
+        Me.NsGroupBox1.Location = New System.Drawing.Point(12, 433)
         Me.NsGroupBox1.Name = "NsGroupBox1"
         Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox1.Size = New System.Drawing.Size(350, 129)
@@ -410,7 +437,7 @@ Partial Class frmEditCar
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(287, 539)
+        Me.btnSave.Location = New System.Drawing.Point(287, 570)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
         Me.btnSave.TabIndex = 40
@@ -430,7 +457,7 @@ Partial Class frmEditCar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(374, 574)
+        Me.ClientSize = New System.Drawing.Size(374, 605)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -478,4 +505,6 @@ Partial Class frmEditCar
     Friend WithEvents cmbSticker2 As NSComboBox
     Friend WithEvents cmbSticker1 As NSComboBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents txtClassCode As NSTextBox
+    Friend WithEvents Label12 As Label
 End Class
