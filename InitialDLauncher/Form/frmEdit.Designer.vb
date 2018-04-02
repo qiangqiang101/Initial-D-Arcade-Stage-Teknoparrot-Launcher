@@ -1043,8 +1043,6 @@ Partial Class frmEdit
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents txtName As NSTextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbGender As NSComboBox
     Friend WithEvents Label2 As Label
@@ -1115,4 +1113,5 @@ Partial Class frmEdit
     Friend WithEvents cmbAura7 As NSComboBox
     Friend WithEvents Label15 As Label
     Friend WithEvents cbGRumble As NSCheckBox
+    Friend WithEvents txtName As NSTextBox
 End Class

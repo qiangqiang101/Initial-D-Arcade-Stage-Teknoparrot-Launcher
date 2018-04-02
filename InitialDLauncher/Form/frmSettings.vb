@@ -24,6 +24,7 @@ Public Class frmSettings
             cbMP.Checked = My.Settings.Multiplayer
             cmbLang.SelectedItem = My.Settings.Language
             cmbCountry.SelectedItem = My.Settings.UserCountry
+            cmbPrefer.SelectedItem = My.Settings.PerferCardExt
 
             If Not My.Settings.Id6Path = String.Empty Then gb6.Enabled = True
             If Not My.Settings.Id7Path = String.Empty Then gb7.Enabled = True
@@ -75,6 +76,7 @@ Public Class frmSettings
                 My.Settings.Multiplayer = cbMP.Checked
                 My.Settings.Language = cmbLang.SelectedItem
                 My.Settings.UserCountry = cmbCountry.SelectedItem
+                My.Settings.PerferCardExt = cmbPrefer.SelectedItem
                 My.Settings.Save()
 
                 If gb6.Enabled Then Save6Config()

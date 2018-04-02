@@ -1564,4 +1564,15 @@ Module Helper
         stopW.Stop()
     End Sub
 
+    Function GetCardVersion(hex As Byte()) As Integer
+        Dim result As Integer = 0
+        Select Case BitConverter.ToString(hex).Replace("-", "")
+            Case "1270"
+                result = 7
+            Case "1360"
+                result = 6
+        End Select
+        Return result
+    End Function
+
 End Module

@@ -47,6 +47,8 @@ Partial Class frmSettings
         Me.gb7 = New InitialDLauncher.NSGroupBox()
         Me.gb6 = New InitialDLauncher.NSGroupBox()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbPrefer = New InitialDLauncher.NSComboBox()
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gb7.SuspendLayout()
@@ -102,7 +104,7 @@ Partial Class frmSettings
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(475, 357)
+        Me.btnSave.Location = New System.Drawing.Point(475, 387)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
         Me.btnSave.TabIndex = 12
@@ -111,20 +113,20 @@ Partial Class frmSettings
         'cbTest
         '
         Me.cbTest.Checked = False
-        Me.cbTest.Location = New System.Drawing.Point(137, 182)
+        Me.cbTest.Location = New System.Drawing.Point(137, 213)
         Me.cbTest.Name = "cbTest"
         Me.cbTest.Size = New System.Drawing.Size(84, 24)
-        Me.cbTest.TabIndex = 6
+        Me.cbTest.TabIndex = 7
         Me.cbTest.Text = "Test Menu"
         '
         'cbDebug
         '
         Me.cbDebug.Checked = False
         Me.cbDebug.Enabled = False
-        Me.cbDebug.Location = New System.Drawing.Point(225, 182)
+        Me.cbDebug.Location = New System.Drawing.Point(225, 213)
         Me.cbDebug.Name = "cbDebug"
         Me.cbDebug.Size = New System.Drawing.Size(97, 24)
-        Me.cbDebug.TabIndex = 7
+        Me.cbDebug.TabIndex = 8
         Me.cbDebug.Text = "Debug Mode"
         '
         'Timer1
@@ -239,10 +241,10 @@ Partial Class frmSettings
         'cbMP
         '
         Me.cbMP.Checked = False
-        Me.cbMP.Location = New System.Drawing.Point(326, 182)
+        Me.cbMP.Location = New System.Drawing.Point(326, 213)
         Me.cbMP.Name = "cbMP"
         Me.cbMP.Size = New System.Drawing.Size(88, 24)
-        Me.cbMP.TabIndex = 8
+        Me.cbMP.TabIndex = 9
         Me.cbMP.Text = "Multiplayer"
         '
         'NsTheme1
@@ -251,6 +253,8 @@ Partial Class frmSettings
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.Label3)
+        Me.NsTheme1.Controls.Add(Me.cmbPrefer)
         Me.NsTheme1.Controls.Add(Me.GroupBox1)
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
         Me.NsTheme1.Controls.Add(Me.cbMP)
@@ -276,7 +280,7 @@ Partial Class frmSettings
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(562, 392)
+        Me.NsTheme1.Size = New System.Drawing.Size(562, 422)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 61
@@ -290,7 +294,7 @@ Partial Class frmSettings
         Me.GroupBox1.Controls.Add(Me.cbSaveSeat)
         Me.GroupBox1.Controls.Add(Me.gb6)
         Me.GroupBox1.DrawSeperator = False
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 212)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 243)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.GroupBox1.Size = New System.Drawing.Size(495, 137)
@@ -339,11 +343,34 @@ Partial Class frmSettings
         Me.NsControlButton1.TabIndex = 66
         Me.NsControlButton1.Text = "NsControlButton1"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(9, 186)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(38, 15)
+        Me.Label3.TabIndex = 71
+        Me.Label3.Text = "Prefer"
+        '
+        'cmbPrefer
+        '
+        Me.cmbPrefer.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbPrefer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPrefer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPrefer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbPrefer.FormattingEnabled = True
+        Me.cmbPrefer.Items.AddRange(New Object() {"CRD", "BIN"})
+        Me.cmbPrefer.Location = New System.Drawing.Point(137, 183)
+        Me.cmbPrefer.Name = "cmbPrefer"
+        Me.cmbPrefer.Size = New System.Drawing.Size(170, 24)
+        Me.cmbPrefer.TabIndex = 6
+        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 392)
+        Me.ClientSize = New System.Drawing.Size(562, 422)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -383,4 +410,6 @@ Partial Class frmSettings
     Friend WithEvents NsControlButton1 As NSControlButton
     Friend WithEvents gb7 As NSGroupBox
     Friend WithEvents GroupBox1 As NSGroupBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cmbPrefer As NSComboBox
 End Class

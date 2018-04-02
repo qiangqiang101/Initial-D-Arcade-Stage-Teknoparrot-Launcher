@@ -266,7 +266,7 @@ Public Class frmEdit
                             SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
                             SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
                             SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                            SetHex(_filename, Plus3C(&H374), SetValue(cmbAura7.SelectedIndex.ToString("X2")))
+                            SetHex(_filename, Plus3C(&H374), SetValue(cmbAura7.SelectedIndex))
                             If cbGRumble.Checked Then SetHex(_filename, Plus3C(&H33C), HexStringToBinary("01"))
                     End Select
                 End If
@@ -337,7 +337,7 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&HAA), HexStringToBinary(SetPridePoint(txtSPride.Text)))
                             SetHex(_filename, Neg3C(&HAC), HexStringToBinary(SetPridePoint(txtTPride.Text)))
                             SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                            SetHex(_filename, &H374, SetValue(cmbAura7.SelectedIndex.ToString("X2")))
+                            SetHex(_filename, &H374, SetValue(cmbAura7.SelectedIndex))
                             If cbGRumble.Checked Then SetHex(_filename, &H33C, HexStringToBinary("01"))
                     End Select
                 End If
@@ -414,6 +414,56 @@ Public Class frmEdit
         lblcdce.Visible = My.Settings.DebugMode
         lbl221.Visible = My.Settings.DebugMode
 
+        Try
+            If _extension = "bin" Then
+                txtName.Text = GetName(GetHex(_filename, 240, 12))
+                txtGamePoint.Text = GetMilelage(GetHex(_filename, 192, 1), GetHex(_filename, 193, 1), GetHex(_filename, 194, 1), GetHex(_filename, 195, 1))
+                If _version = 6 Then
+                    txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
+                    txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
+                    txtPridePoint.Text = GetPridePoint(GetHex(_filename, 173, 1), GetHex(_filename, 174, 1))
+                    txtMileage.Text = GetMilelage(GetHex(_filename, 1096, 1), GetHex(_filename, 1097, 1), GetHex(_filename, 1098, 1), GetHex(_filename, 1099, 1))
+                    GroupBox3.Enabled = False
+                    cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
+                    cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
+                    cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
+                Else
+                    txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
+                    GroupBox2.Enabled = False
+                    txtSPride.Text = GetPridePoint(GetHex(_filename, 170, 1), GetHex(_filename, 171, 1))
+                    txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
+                    txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
+                    cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
+                    cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
+                    cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+                End If
+            Else
+                txtName.Text = GetName(GetHex(_filename, Neg60(240), 12))
+                txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
+                If _version = 6 Then
+                    txtLevel.Text = GetLevel(GetHex(_filename, Neg60(164), 1), True)
+                    txtChapLevel.Text = GetChapterLevel(GetHex(_filename, Neg60(548), 1))
+                    txtPridePoint.Text = GetPridePoint(GetHex(_filename, Neg60(173), 1), GetHex(_filename, Neg60(174), 1))
+                    txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(1096), 1), GetHex(_filename, Neg60(1097), 1), GetHex(_filename, Neg60(1098), 1), GetHex(_filename, Neg60(1099), 1))
+                    GroupBox3.Enabled = False
+                    cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
+                    cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
+                    cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
+                Else
+                    txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True)
+                    GroupBox2.Enabled = False
+                    txtSPride.Text = GetPridePoint(GetHex(_filename, Neg60(170), 1), GetHex(_filename, Neg60(171), 1))
+                    txtTPride.Text = GetPridePoint(GetHex(_filename, Neg60(172), 1), GetHex(_filename, Neg60(173), 1))
+                    txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(896), 1), GetHex(_filename, Neg60(897), 1), GetHex(_filename, Neg60(898), 1), GetHex(_filename, Neg60(899), 1))
+                    cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
+                    cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
+                    cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+
     End Sub
 
     Private Sub Translate()
@@ -489,7 +539,7 @@ Public Class frmEdit
                 a7_light = "Lightning"
                 a7_sprit = "Evil Spirit"
                 a7_overlord = "Overlord"
-                a7_fly = "Fly"
+                a7_fly = "Wings"
                 cbGRumble.Text = "Unlock Gamble Rumble BGM"
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
@@ -633,7 +683,7 @@ Public Class frmEdit
                 a7_light = "Lightning"
                 a7_sprit = "Evil Spirit"
                 a7_overlord = "Overlord"
-                a7_fly = "Fly"
+                a7_fly = "Wing"
                 cbGRumble.Text = "Unlock Gamble Rumble BGM"
         End Select
     End Sub

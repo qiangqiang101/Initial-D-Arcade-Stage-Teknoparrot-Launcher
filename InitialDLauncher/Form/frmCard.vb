@@ -43,7 +43,9 @@ Public Class frmCard
                         .Selected = False
                     End If
                 End With
-                flp6.Controls.Add(item)
+                If GetCardVersion(GetHex(file, &H50, 2)) = 6 Then
+                    flp6.Controls.Add(item)
+                End If
             Next
             For Each file As String In IO.Directory.GetFiles(id6CardPath, "*.crd")
                 item = New Card()
@@ -69,7 +71,9 @@ Public Class frmCard
                         .Selected = False
                     End If
                 End With
-                flp6.Controls.Add(item)
+                If GetCardVersion(GetHex(file, &H14, 2)) = 6 Then
+                    flp6.Controls.Add(item)
+                End If
             Next
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -102,7 +106,9 @@ Public Class frmCard
                         .Selected = False
                     End If
                 End With
-                flp7.Controls.Add(item)
+                If GetCardVersion(GetHex(file, &H50, 2)) = 7 Then
+                    flp7.Controls.Add(item)
+                End If
             Next
             For Each file As String In IO.Directory.GetFiles(id7CardPath, "*.crd")
                 item = New Card()
@@ -127,7 +133,9 @@ Public Class frmCard
                         .Selected = False
                     End If
                 End With
-                flp7.Controls.Add(item)
+                If GetCardVersion(GetHex(file, &H14, 2)) = 7 Then
+                    flp7.Controls.Add(item)
+                End If
             Next
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")

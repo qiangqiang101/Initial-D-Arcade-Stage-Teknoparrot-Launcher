@@ -13,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 25
-    Public buildDate As String = "02/04/2018"
+    Dim curVer As Integer = 26
+    Public buildDate As String = "03/04/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -28,6 +28,8 @@ Public Class frmLauncher
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
     Public Shared isGameRunning As Boolean = False
+    Public Shared hideMe As Boolean = False
+    Public Shared endMe As Boolean = False
 
     Public Shared cheat As Boolean = False
     Dim pattern As String = Nothing
@@ -265,7 +267,12 @@ Public Class frmLauncher
             Case ".crd"
                 RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
             Case Else
-                RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
+                Select Case My.Settings.PerferCardExt
+                    Case "CRD"
+                        RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
+                    Case "BIN"
+                        RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
+                End Select
         End Select
     End Sub
 
@@ -279,7 +286,12 @@ Public Class frmLauncher
             Case ".crd"
                 RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
             Case Else
-                RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
+                Select Case My.Settings.PerferCardExt
+                    Case "CRD"
+                        RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
+                    Case "BIN"
+                        RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
+                End Select
         End Select
     End Sub
 
@@ -430,6 +442,14 @@ Public Class frmLauncher
                     lblDebug.Visible = debug
                 End If
             End If
+
+            If hideMe Then
+                Me.Hide()
+            Else
+                Me.Show()
+            End If
+
+            If endMe Then Me.Close()
         Catch ex As Exception
         End Try
     End Sub
