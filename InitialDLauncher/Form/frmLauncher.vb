@@ -13,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 26
-    Public buildDate As String = "03/04/2018"
+    Dim curVer As Integer = 27
+    Public buildDate As String = "04/04/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -176,7 +176,6 @@ Public Class frmLauncher
             lblDebug.Visible = debug
             CheckForIllegalCrossThreadCalls = False
             GetGamePath()
-            AutoCardMove()
 
             If Not File.Exists(id6CardPath) Then
                 My.Settings.Id6CardName = ""
@@ -197,6 +196,8 @@ Public Class frmLauncher
                 Dim timer As System.Windows.Forms.Timer = New System.Windows.Forms.Timer With {.Interval = 60, .Enabled = True}
                 AddHandler timer.Tick, AddressOf item.TimerTick
             Next
+
+            'AutoCardMove()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             Exit Sub
@@ -465,10 +466,10 @@ Public Class frmLauncher
     End Sub
 
     Private Sub AutoCardMove()
-        If File.Exists(id6AppData) Then File.Move(id6AppData, id6CardDir)
-        If File.Exists(id6GameDir) Then File.Move(id6GameDir, id6CardDir)
-        If File.Exists(id7AppData) Then File.Move(id7AppData, id7CardDir)
-        If File.Exists(id7GameDir) Then File.Move(id7GameDir, id7CardDir)
+        If File.Exists(id6AppData) Then If Not File.Exists(Path.Combine(id6CardDir, "SBUU_card.bin")) Then File.Move(id6AppData, id6CardDir)
+        If File.Exists(id6GameDir) Then If Not File.Exists(Path.Combine(id6CardDir, "InidCrd000.crd")) Then File.Move(id6GameDir, id6CardDir)
+        If File.Exists(id7AppData) Then If Not File.Exists(Path.Combine(id7CardDir, "SBYD_card.bin")) Then File.Move(id7AppData, id7CardDir)
+        If File.Exists(id7GameDir) Then If Not File.Exists(Path.Combine(id7CardDir, "InidCrd000.crd")) Then File.Move(id7GameDir, id7CardDir)
     End Sub
 
     Private Sub CheckUpdate()

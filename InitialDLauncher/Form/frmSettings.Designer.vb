@@ -32,9 +32,6 @@ Partial Class frmSettings
         Me.cbTest = New InitialDLauncher.NSCheckBox()
         Me.cbDebug = New InitialDLauncher.NSCheckBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cmbSeat6 = New InitialDLauncher.NSComboBox()
-        Me.cmbSeat7 = New InitialDLauncher.NSComboBox()
-        Me.cbSaveSeat = New InitialDLauncher.NSCheckBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cmbLang = New InitialDLauncher.NSComboBox()
         Me.txtPlayerName = New InitialDLauncher.NSTextBox()
@@ -43,16 +40,10 @@ Partial Class frmSettings
         Me.cmbCountry = New InitialDLauncher.NSComboBox()
         Me.cbMP = New InitialDLauncher.NSCheckBox()
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
-        Me.GroupBox1 = New InitialDLauncher.NSGroupBox()
-        Me.gb7 = New InitialDLauncher.NSGroupBox()
-        Me.gb6 = New InitialDLauncher.NSGroupBox()
-        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbPrefer = New InitialDLauncher.NSComboBox()
+        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.NsTheme1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.gb7.SuspendLayout()
-        Me.gb6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -104,7 +95,7 @@ Partial Class frmSettings
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(475, 387)
+        Me.btnSave.Location = New System.Drawing.Point(475, 245)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
         Me.btnSave.TabIndex = 12
@@ -132,42 +123,6 @@ Partial Class frmSettings
         'Timer1
         '
         Me.Timer1.Enabled = True
-        '
-        'cmbSeat6
-        '
-        Me.cmbSeat6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.cmbSeat6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbSeat6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSeat6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.cmbSeat6.FormattingEnabled = True
-        Me.cmbSeat6.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2", "Unknown"})
-        Me.cmbSeat6.Location = New System.Drawing.Point(6, 36)
-        Me.cmbSeat6.Name = "cmbSeat6"
-        Me.cmbSeat6.Size = New System.Drawing.Size(225, 24)
-        Me.cmbSeat6.TabIndex = 10
-        '
-        'cmbSeat7
-        '
-        Me.cmbSeat7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.cmbSeat7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbSeat7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSeat7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.cmbSeat7.FormattingEnabled = True
-        Me.cmbSeat7.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2", "Unknown"})
-        Me.cmbSeat7.Location = New System.Drawing.Point(6, 36)
-        Me.cmbSeat7.Name = "cmbSeat7"
-        Me.cmbSeat7.Size = New System.Drawing.Size(225, 24)
-        Me.cmbSeat7.TabIndex = 11
-        Me.cmbSeat7.Visible = False
-        '
-        'cbSaveSeat
-        '
-        Me.cbSaveSeat.Checked = False
-        Me.cbSaveSeat.Location = New System.Drawing.Point(6, 29)
-        Me.cbSaveSeat.Name = "cbSaveSeat"
-        Me.cbSaveSeat.Size = New System.Drawing.Size(133, 24)
-        Me.cbSaveSeat.TabIndex = 9
-        Me.cbSaveSeat.Text = "Save Cabinet Seat"
         '
         'Label21
         '
@@ -255,7 +210,6 @@ Partial Class frmSettings
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
         Me.NsTheme1.Controls.Add(Me.Label3)
         Me.NsTheme1.Controls.Add(Me.cmbPrefer)
-        Me.NsTheme1.Controls.Add(Me.GroupBox1)
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
         Me.NsTheme1.Controls.Add(Me.cbMP)
         Me.NsTheme1.Controls.Add(Me.txt6)
@@ -280,68 +234,13 @@ Partial Class frmSettings
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(562, 422)
+        Me.NsTheme1.Size = New System.Drawing.Size(562, 280)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 61
         Me.NsTheme1.Text = "Settings"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.gb7)
-        Me.GroupBox1.Controls.Add(Me.cbSaveSeat)
-        Me.GroupBox1.Controls.Add(Me.gb6)
-        Me.GroupBox1.DrawSeperator = False
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 243)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(495, 137)
-        Me.GroupBox1.SubTitle = ""
-        Me.GroupBox1.TabIndex = 69
-        Me.GroupBox1.Text = "NsGroupBox2"
-        Me.GroupBox1.Title = "Cabinet Seat"
-        '
-        'gb7
-        '
-        Me.gb7.Controls.Add(Me.cmbSeat7)
-        Me.gb7.DrawSeperator = False
-        Me.gb7.Location = New System.Drawing.Point(249, 59)
-        Me.gb7.Name = "gb7"
-        Me.gb7.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.gb7.Size = New System.Drawing.Size(237, 69)
-        Me.gb7.SubTitle = ""
-        Me.gb7.TabIndex = 68
-        Me.gb7.Text = "NsGroupBox2"
-        Me.gb7.Title = "InitialD 7AAX Cabinet Seat (BETA)"
-        Me.gb7.Visible = False
-        '
-        'gb6
-        '
-        Me.gb6.Controls.Add(Me.cmbSeat6)
-        Me.gb6.DrawSeperator = False
-        Me.gb6.Location = New System.Drawing.Point(6, 59)
-        Me.gb6.Name = "gb6"
-        Me.gb6.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.gb6.Size = New System.Drawing.Size(237, 69)
-        Me.gb6.SubTitle = ""
-        Me.gb6.TabIndex = 67
-        Me.gb6.Text = "NsGroupBox1"
-        Me.gb6.Title = "InitiaD 6AA Cabinet Seat (BETA)"
-        '
-        'NsControlButton1
-        '
-        Me.NsControlButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NsControlButton1.ControlButton = InitialDLauncher.NSControlButton.Button.Close
-        Me.NsControlButton1.Location = New System.Drawing.Point(539, 3)
-        Me.NsControlButton1.Margin = New System.Windows.Forms.Padding(0)
-        Me.NsControlButton1.MaximumSize = New System.Drawing.Size(18, 20)
-        Me.NsControlButton1.MinimumSize = New System.Drawing.Size(18, 20)
-        Me.NsControlButton1.Name = "NsControlButton1"
-        Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
-        Me.NsControlButton1.TabIndex = 66
-        Me.NsControlButton1.Text = "NsControlButton1"
         '
         'Label3
         '
@@ -366,11 +265,24 @@ Partial Class frmSettings
         Me.cmbPrefer.Size = New System.Drawing.Size(170, 24)
         Me.cmbPrefer.TabIndex = 6
         '
+        'NsControlButton1
+        '
+        Me.NsControlButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NsControlButton1.ControlButton = InitialDLauncher.NSControlButton.Button.Close
+        Me.NsControlButton1.Location = New System.Drawing.Point(539, 3)
+        Me.NsControlButton1.Margin = New System.Windows.Forms.Padding(0)
+        Me.NsControlButton1.MaximumSize = New System.Drawing.Size(18, 20)
+        Me.NsControlButton1.MinimumSize = New System.Drawing.Size(18, 20)
+        Me.NsControlButton1.Name = "NsControlButton1"
+        Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
+        Me.NsControlButton1.TabIndex = 66
+        Me.NsControlButton1.Text = "NsControlButton1"
+        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 422)
+        Me.ClientSize = New System.Drawing.Size(562, 280)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -380,9 +292,6 @@ Partial Class frmSettings
         Me.Text = "Settings"
         Me.NsTheme1.ResumeLayout(False)
         Me.NsTheme1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.gb7.ResumeLayout(False)
-        Me.gb6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -395,9 +304,6 @@ Partial Class frmSettings
     Friend WithEvents cbTest As NSCheckBox
     Friend WithEvents cbDebug As NSCheckBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents cmbSeat6 As NSComboBox
-    Friend WithEvents cmbSeat7 As NSComboBox
-    Friend WithEvents cbSaveSeat As NSCheckBox
     Friend WithEvents Label21 As Label
     Friend WithEvents cmbLang As NSComboBox
     Friend WithEvents txtPlayerName As NSTextBox
@@ -406,10 +312,7 @@ Partial Class frmSettings
     Friend WithEvents cmbCountry As NSComboBox
     Friend WithEvents cbMP As NSCheckBox
     Friend WithEvents NsTheme1 As NSTheme
-    Friend WithEvents gb6 As NSGroupBox
     Friend WithEvents NsControlButton1 As NSControlButton
-    Friend WithEvents gb7 As NSGroupBox
-    Friend WithEvents GroupBox1 As NSGroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents cmbPrefer As NSComboBox
 End Class

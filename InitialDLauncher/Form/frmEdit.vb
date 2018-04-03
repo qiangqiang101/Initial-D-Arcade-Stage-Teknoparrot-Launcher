@@ -204,6 +204,13 @@ Public Class frmEdit
                 If Integer.Parse(txtChapLevel.Text) > 99 Then txtChapLevel.Text = "99"
             Else
                 If Integer.Parse(txtLevel.Text) > 26 Then txtLevel.Text = "26"
+                If Integer.Parse(txtLegend.Text) > 450 Then txtLegend.Text = "450"
+                If Integer.Parse(txtTAttack.Text) > 450 Then txtTAttack.Text = "450"
+                If Integer.Parse(txtNational.Text) > 450 Then txtNational.Text = "450"
+                If Integer.Parse(txtTag.Text) > 450 Then txtTag.Text = "450"
+                If Integer.Parse(txtStore.Text) > 450 Then txtStore.Text = "450"
+                If Integer.Parse(txtKanto.Text) > 450 Then txtKanto.Text = "450"
+                If Integer.Parse(txtEvent.Text) > 450 Then txtEvent.Text = "450"
             End If
 
             If _extension = "bin" Then
@@ -245,11 +252,9 @@ Public Class frmEdit
                     End Select
                 End If
 
-                If GroupBox1.Enabled Then
-                    'If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, CLng("&H100"), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
-                    'If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, CLng("&H160"), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
-                    'If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, CLng("&H1C0"), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
+                SetHex(_filename, &H58, SetValue(cmbPlace.SelectedIndex))
 
+                If GroupBox1.Enabled Then
                     SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
 
                     Select Case _version
@@ -267,6 +272,13 @@ Public Class frmEdit
                             SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
                             SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
                             SetHex(_filename, Plus3C(&H374), SetValue(cmbAura7.SelectedIndex))
+                            SetHex(_filename, &H390, HexStringToBinary(SetPridePoint(txtLegend.Text)))
+                            SetHex(_filename, &H392, HexStringToBinary(SetPridePoint(txtTAttack.Text)))
+                            SetHex(_filename, &H394, HexStringToBinary(SetPridePoint(txtNational.Text)))
+                            SetHex(_filename, &H396, HexStringToBinary(SetPridePoint(txtStore.Text)))
+                            SetHex(_filename, &H398, HexStringToBinary(SetPridePoint(txtTag.Text)))
+                            SetHex(_filename, &H39A, HexStringToBinary(SetPridePoint(txtKanto.Text)))
+                            SetHex(_filename, &H39C, HexStringToBinary(SetPridePoint(txtEvent.Text)))
                             If cbGRumble.Checked Then SetHex(_filename, Plus3C(&H33C), HexStringToBinary("01"))
                     End Select
                 End If
@@ -316,11 +328,9 @@ Public Class frmEdit
                     End Select
                 End If
 
-                If GroupBox1.Enabled Then
-                    'If Not cmbCar1.SelectedItem.ToString = "" AndAlso cbCar1.Checked Then SetHex(_filename, Neg3C(&H100), HexStringToBinary(SetCar(cmbCar1.SelectedItem.ToString)))
-                    'If Not cmbCar2.SelectedItem.ToString = "" AndAlso cbCar2.Checked Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(cmbCar2.SelectedItem.ToString)))
-                    'If Not cmbCar3.SelectedItem.ToString = "" AndAlso cbCar3.Checked Then SetHex(_filename, Neg3C(&H1C0), HexStringToBinary(SetCar(cmbCar3.SelectedItem.ToString)))
+                SetHex(_filename, &H1C, SetValue(cmbPlace.SelectedIndex))
 
+                If GroupBox1.Enabled Then
                     SetHex(_filename, Neg3C(&HC0), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
 
                     Select Case _version
@@ -339,6 +349,13 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetMilelage(txtMileage.Text)))
                             SetHex(_filename, &H374, SetValue(cmbAura7.SelectedIndex))
                             If cbGRumble.Checked Then SetHex(_filename, &H33C, HexStringToBinary("01"))
+                            SetHex(_filename, Neg3C(&H390), HexStringToBinary(SetPridePoint(txtLegend.Text)))
+                            SetHex(_filename, Neg3C(&H392), HexStringToBinary(SetPridePoint(txtTAttack.Text)))
+                            SetHex(_filename, Neg3C(&H394), HexStringToBinary(SetPridePoint(txtNational.Text)))
+                            SetHex(_filename, Neg3C(&H396), HexStringToBinary(SetPridePoint(txtStore.Text)))
+                            SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(txtTag.Text)))
+                            SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(txtKanto.Text)))
+                            SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(txtEvent.Text)))
                     End Select
                 End If
 
@@ -397,11 +414,6 @@ Public Class frmEdit
             cmbAura7.DisplayMember = "Key"
             cmbAura7.ValueMember = "Value"
             cmbAura7.DataSource = New BindingSource(aura, Nothing)
-            If _extension = "bin" Then
-                cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, Plus60(884), 1))
-            Else
-                cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, 884, 1))
-            End If
         End If
 
         lblAvatarOffset.Visible = My.Settings.DebugMode
@@ -418,6 +430,7 @@ Public Class frmEdit
             If _extension = "bin" Then
                 txtName.Text = GetName(GetHex(_filename, 240, 12))
                 txtGamePoint.Text = GetMilelage(GetHex(_filename, 192, 1), GetHex(_filename, 193, 1), GetHex(_filename, 194, 1), GetHex(_filename, 195, 1))
+                cmbPlace.SelectedIndex = GetLevel(GetHex(_filename, &H58, 1), True)
                 If _version = 6 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
@@ -436,10 +449,19 @@ Public Class frmEdit
                     cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
                     cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
                     cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+                    cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, Plus60(884), 1))
+                    txtLegend.Text = GetPridePoint(GetHex(_filename, &H390, 1), GetHex(_filename, &H391, 1))
+                    txtTAttack.Text = GetPridePoint(GetHex(_filename, &H392, 1), GetHex(_filename, &H393, 1))
+                    txtNational.Text = GetPridePoint(GetHex(_filename, &H394, 1), GetHex(_filename, &H395, 1))
+                    txtStore.Text = GetPridePoint(GetHex(_filename, &H396, 1), GetHex(_filename, &H397, 1))
+                    txtTag.Text = GetPridePoint(GetHex(_filename, &H398, 1), GetHex(_filename, &H399, 1))
+                    txtKanto.Text = GetPridePoint(GetHex(_filename, &H39A, 1), GetHex(_filename, &H39B, 1))
+                    txtEvent.Text = GetPridePoint(GetHex(_filename, &H39C, 1), GetHex(_filename, &H39D, 1))
                 End If
             Else
                 txtName.Text = GetName(GetHex(_filename, Neg60(240), 12))
                 txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
+                cmbPlace.SelectedIndex = GetLevel(GetHex(_filename, &H1C, 1), True)
                 If _version = 6 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(164), 1), True)
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, Neg60(548), 1))
@@ -458,6 +480,14 @@ Public Class frmEdit
                     cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
                     cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
                     cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+                    cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, 884, 1))
+                    txtLegend.Text = GetPridePoint(GetHex(_filename, Neg3C(&H390), 1), GetHex(_filename, Neg3C(&H391), 1))
+                    txtTAttack.Text = GetPridePoint(GetHex(_filename, Neg3C(&H392), 1), GetHex(_filename, Neg3C(&H393), 1))
+                    txtNational.Text = GetPridePoint(GetHex(_filename, Neg3C(&H394), 1), GetHex(_filename, Neg3C(&H395), 1))
+                    txtStore.Text = GetPridePoint(GetHex(_filename, Neg3C(&H396), 1), GetHex(_filename, Neg3C(&H397), 1))
+                    txtTag.Text = GetPridePoint(GetHex(_filename, Neg3C(&H398), 1), GetHex(_filename, Neg3C(&H399), 1))
+                    txtKanto.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39A), 1), GetHex(_filename, Neg3C(&H39B), 1))
+                    txtEvent.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39C), 1), GetHex(_filename, Neg3C(&H39D), 1))
                 End If
             End If
         Catch ex As Exception
@@ -513,7 +543,7 @@ Public Class frmEdit
                 female = "Female"
                 btnSet.Text = "Apply"
                 GroupBox5.Title = "Basic"
-                cbSaveAvatar.Text = "Save" & vbNewLine & "Avatar"
+                cbSaveAvatar.Text = "Save Avatar"
                 coming_soon = "Coming Soon"
                 must_select_avatar = "Avatar cannot be blank."
                 btnEditCar1.Text = "Edit"
@@ -541,6 +571,16 @@ Public Class frmEdit
                 a7_overlord = "Overlord"
                 a7_fly = "Wings"
                 cbGRumble.Text = "Unlock Gamble Rumble BGM"
+                Label16.Text = "Region"
+                Label19.Text = "Street Legend"
+                Label17.Text = "Time Attack"
+                Label20.Text = "National Battle"
+                Label18.Text = "In-Store Battle"
+                Label22.Text = "TAG Battle"
+                Label21.Text = "Operation Kanto"
+                Label23.Text = "Event Battle"
+                NsGroupBox1.Title = "X Marks"
+                NsGroupBox1.SubTitle = "Edit the X marks on your card."
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
                 NsTheme1.Text = Me.Text
@@ -585,7 +625,7 @@ Public Class frmEdit
                 female = "美女"
                 btnSet.Text = "應用"
                 GroupBox5.Title = "一般"
-                cbSaveAvatar.Text = "保存" & vbNewLine & "頭像"
+                cbSaveAvatar.Text = "保存頭像"
                 coming_soon = "即將登場"
                 must_select_avatar = "頭像不能為空。"
                 btnEditCar1.Text = "修改"
@@ -613,6 +653,16 @@ Public Class frmEdit
                 a7_overlord = "覇王"
                 a7_fly = "飛翔"
                 cbGRumble.Text = "解鎖Gamble Rumble BGM"
+                Label16.Text = "地區"
+                Label19.Text = "公道最速伝說"
+                Label17.Text = "計時賽"
+                Label20.Text = "全國對戰"
+                Label18.Text = "店內對戰"
+                Label22.Text = "TAG對戰"
+                Label21.Text = "關東最速計畫"
+                Label23.Text = "活動對戰"
+                NsGroupBox1.Title = "X標記"
+                NsGroupBox1.SubTitle = "修改卡內的ㄨ標記。"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 NsTheme1.Text = Me.Text
@@ -657,7 +707,7 @@ Public Class frmEdit
                 female = "Femelle"
                 btnSet.Text = "Appliquer"
                 GroupBox5.Title = "De base"
-                cbSaveAvatar.Text = "Enregistrer" & vbNewLine & "Avatar"
+                cbSaveAvatar.Text = "Enregistrer Avatar"
                 coming_soon = "Arrive bientôt"
                 must_select_avatar = "Avatar ne peut pas être vide."
                 btnEditCar1.Text = "Edit"
@@ -685,10 +735,20 @@ Public Class frmEdit
                 a7_overlord = "Overlord"
                 a7_fly = "Wing"
                 cbGRumble.Text = "Unlock Gamble Rumble BGM"
+                Label16.Text = "Region"
+                Label19.Text = "Street Legend"
+                Label17.Text = "Time Attack"
+                Label20.Text = "National Battle"
+                Label18.Text = "In-Store Battle"
+                Label22.Text = "TAG Battle"
+                Label21.Text = "Operation Kanto"
+                Label23.Text = "Event Battle"
+                NsGroupBox1.Title = "X Marks"
+                NsGroupBox1.SubTitle = "Edit the X marks on your card."
         End Select
     End Sub
 
-    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtChapLevel.KeyPress, txtLevel.KeyPress, txtPridePoint.KeyPress, txtSPride.KeyPress, txtTPride.KeyPress
+    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtChapLevel.KeyPress, txtLevel.KeyPress, txtPridePoint.KeyPress, txtSPride.KeyPress, txtTPride.KeyPress, txtEvent.KeyPress, txtKanto.KeyPress, txtLegend.KeyPress, txtNational.KeyPress, txtStore.KeyPress, txtTag.KeyPress, txtTAttack.KeyPress
         Try
             If Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
            Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then

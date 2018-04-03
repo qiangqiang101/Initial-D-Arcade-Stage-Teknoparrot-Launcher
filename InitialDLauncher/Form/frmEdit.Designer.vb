@@ -79,11 +79,28 @@ Partial Class frmEdit
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.GroupBox1 = New InitialDLauncher.NSGroupBox()
         Me.GroupBox3 = New InitialDLauncher.NSGroupBox()
+        Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.txtEvent = New InitialDLauncher.NSTextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtKanto = New InitialDLauncher.NSTextBox()
+        Me.txtTag = New InitialDLauncher.NSTextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtStore = New InitialDLauncher.NSTextBox()
+        Me.txtNational = New InitialDLauncher.NSTextBox()
+        Me.txtTAttack = New InitialDLauncher.NSTextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txtLegend = New InitialDLauncher.NSTextBox()
         Me.cbGRumble = New InitialDLauncher.NSCheckBox()
         Me.cmbAura7 = New InitialDLauncher.NSComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New InitialDLauncher.NSGroupBox()
         Me.GroupBox5 = New InitialDLauncher.NSGroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.cmbPlace = New InitialDLauncher.NSComboBox()
         Me.GroupBox4 = New InitialDLauncher.NSGroupBox()
         Me.gbFrame = New InitialDLauncher.NSGroupBox()
         Me.gbHair = New InitialDLauncher.NSGroupBox()
@@ -106,6 +123,7 @@ Partial Class frmEdit
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.NsGroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -136,7 +154,7 @@ Partial Class frmEdit
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(10, 40)
+        Me.Label1.Location = New System.Drawing.Point(6, 40)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 15)
         Me.Label1.TabIndex = 6
@@ -151,7 +169,7 @@ Partial Class frmEdit
         Me.cmbGender.FormattingEnabled = True
         Me.cmbGender.Location = New System.Drawing.Point(303, 36)
         Me.cmbGender.Name = "cmbGender"
-        Me.cmbGender.Size = New System.Drawing.Size(111, 24)
+        Me.cmbGender.Size = New System.Drawing.Size(166, 24)
         Me.cmbGender.TabIndex = 12
         '
         'Label2
@@ -282,10 +300,10 @@ Partial Class frmEdit
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(850, 505)
+        Me.btnSave.Location = New System.Drawing.Point(850, 587)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 50
+        Me.btnSave.TabIndex = 60
         Me.btnSave.Text = "Save"
         '
         'cbLegend
@@ -690,7 +708,7 @@ Partial Class frmEdit
         Me.lblAvatarOffset.BackColor = System.Drawing.Color.Black
         Me.lblAvatarOffset.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.lblAvatarOffset.ForeColor = System.Drawing.Color.White
-        Me.lblAvatarOffset.Location = New System.Drawing.Point(0, 525)
+        Me.lblAvatarOffset.Location = New System.Drawing.Point(0, 607)
         Me.lblAvatarOffset.Name = "lblAvatarOffset"
         Me.lblAvatarOffset.Size = New System.Drawing.Size(139, 15)
         Me.lblAvatarOffset.TabIndex = 51
@@ -716,7 +734,7 @@ Partial Class frmEdit
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(935, 540)
+        Me.NsTheme1.Size = New System.Drawing.Size(935, 622)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 53
@@ -744,10 +762,10 @@ Partial Class frmEdit
         Me.GroupBox1.Controls.Add(Me.cmbCar1)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.DrawSeperator = False
-        Me.GroupBox1.Location = New System.Drawing.Point(505, 111)
+        Me.GroupBox1.Location = New System.Drawing.Point(505, 36)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(420, 388)
+        Me.GroupBox1.Size = New System.Drawing.Size(420, 545)
         Me.GroupBox1.SubTitle = "Not recommended for using Online."
         Me.GroupBox1.TabIndex = 58
         Me.GroupBox1.Text = "NsGroupBox1"
@@ -755,6 +773,7 @@ Partial Class frmEdit
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.NsGroupBox1)
         Me.GroupBox3.Controls.Add(Me.cbGRumble)
         Me.GroupBox3.Controls.Add(Me.cmbAura7)
         Me.GroupBox3.Controls.Add(Me.Label15)
@@ -766,11 +785,198 @@ Partial Class frmEdit
         Me.GroupBox3.Location = New System.Drawing.Point(6, 283)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox3.Size = New System.Drawing.Size(408, 97)
+        Me.GroupBox3.Size = New System.Drawing.Size(408, 256)
         Me.GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
         Me.GroupBox3.TabIndex = 60
         Me.GroupBox3.Text = "NsGroupBox1"
         Me.GroupBox3.Title = "InitialD 7 AAX"
+        '
+        'NsGroupBox1
+        '
+        Me.NsGroupBox1.Controls.Add(Me.Label23)
+        Me.NsGroupBox1.Controls.Add(Me.txtEvent)
+        Me.NsGroupBox1.Controls.Add(Me.Label21)
+        Me.NsGroupBox1.Controls.Add(Me.Label22)
+        Me.NsGroupBox1.Controls.Add(Me.txtKanto)
+        Me.NsGroupBox1.Controls.Add(Me.txtTag)
+        Me.NsGroupBox1.Controls.Add(Me.Label18)
+        Me.NsGroupBox1.Controls.Add(Me.Label20)
+        Me.NsGroupBox1.Controls.Add(Me.Label17)
+        Me.NsGroupBox1.Controls.Add(Me.txtStore)
+        Me.NsGroupBox1.Controls.Add(Me.txtNational)
+        Me.NsGroupBox1.Controls.Add(Me.txtTAttack)
+        Me.NsGroupBox1.Controls.Add(Me.Label19)
+        Me.NsGroupBox1.Controls.Add(Me.txtLegend)
+        Me.NsGroupBox1.DrawSeperator = False
+        Me.NsGroupBox1.Location = New System.Drawing.Point(6, 96)
+        Me.NsGroupBox1.Name = "NsGroupBox1"
+        Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox1.Size = New System.Drawing.Size(396, 154)
+        Me.NsGroupBox1.SubTitle = "Edit the X marks on your card."
+        Me.NsGroupBox1.TabIndex = 61
+        Me.NsGroupBox1.Text = "NsGroupBox1"
+        Me.NsGroupBox1.Title = "X Mark"
+        '
+        'Label23
+        '
+        Me.Label23.ForeColor = System.Drawing.Color.White
+        Me.Label23.Location = New System.Drawing.Point(6, 126)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(85, 24)
+        Me.Label23.TabIndex = 55
+        Me.Label23.Text = "Event Battle"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtEvent
+        '
+        Me.txtEvent.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtEvent.Location = New System.Drawing.Point(97, 126)
+        Me.txtEvent.MaxLength = 3
+        Me.txtEvent.Multiline = False
+        Me.txtEvent.Name = "txtEvent"
+        Me.txtEvent.ReadOnly = False
+        Me.txtEvent.Size = New System.Drawing.Size(92, 24)
+        Me.txtEvent.TabIndex = 56
+        Me.txtEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtEvent.UseSystemPasswordChar = False
+        '
+        'Label21
+        '
+        Me.Label21.ForeColor = System.Drawing.Color.White
+        Me.Label21.Location = New System.Drawing.Point(195, 96)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(95, 24)
+        Me.Label21.TabIndex = 53
+        Me.Label21.Text = "Operation Kanto"
+        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label22
+        '
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(6, 96)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(85, 24)
+        Me.Label22.TabIndex = 52
+        Me.Label22.Text = "TAG Battle"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtKanto
+        '
+        Me.txtKanto.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtKanto.Location = New System.Drawing.Point(296, 96)
+        Me.txtKanto.MaxLength = 3
+        Me.txtKanto.Multiline = False
+        Me.txtKanto.Name = "txtKanto"
+        Me.txtKanto.ReadOnly = False
+        Me.txtKanto.Size = New System.Drawing.Size(92, 24)
+        Me.txtKanto.TabIndex = 55
+        Me.txtKanto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtKanto.UseSystemPasswordChar = False
+        '
+        'txtTag
+        '
+        Me.txtTag.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtTag.Location = New System.Drawing.Point(97, 96)
+        Me.txtTag.MaxLength = 3
+        Me.txtTag.Multiline = False
+        Me.txtTag.Name = "txtTag"
+        Me.txtTag.ReadOnly = False
+        Me.txtTag.Size = New System.Drawing.Size(92, 24)
+        Me.txtTag.TabIndex = 54
+        Me.txtTag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTag.UseSystemPasswordChar = False
+        '
+        'Label18
+        '
+        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(195, 66)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(85, 24)
+        Me.Label18.TabIndex = 49
+        Me.Label18.Text = "In-Store Battle"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label20
+        '
+        Me.Label20.ForeColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(6, 66)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(85, 24)
+        Me.Label20.TabIndex = 48
+        Me.Label20.Text = "National Battle"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label17
+        '
+        Me.Label17.ForeColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(195, 36)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(79, 24)
+        Me.Label17.TabIndex = 47
+        Me.Label17.Text = "Time Attack"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtStore
+        '
+        Me.txtStore.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtStore.Location = New System.Drawing.Point(296, 66)
+        Me.txtStore.MaxLength = 3
+        Me.txtStore.Multiline = False
+        Me.txtStore.Name = "txtStore"
+        Me.txtStore.ReadOnly = False
+        Me.txtStore.Size = New System.Drawing.Size(92, 24)
+        Me.txtStore.TabIndex = 53
+        Me.txtStore.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtStore.UseSystemPasswordChar = False
+        '
+        'txtNational
+        '
+        Me.txtNational.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtNational.Location = New System.Drawing.Point(97, 66)
+        Me.txtNational.MaxLength = 3
+        Me.txtNational.Multiline = False
+        Me.txtNational.Name = "txtNational"
+        Me.txtNational.ReadOnly = False
+        Me.txtNational.Size = New System.Drawing.Size(92, 24)
+        Me.txtNational.TabIndex = 52
+        Me.txtNational.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNational.UseSystemPasswordChar = False
+        '
+        'txtTAttack
+        '
+        Me.txtTAttack.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtTAttack.Location = New System.Drawing.Point(296, 36)
+        Me.txtTAttack.MaxLength = 3
+        Me.txtTAttack.Multiline = False
+        Me.txtTAttack.Name = "txtTAttack"
+        Me.txtTAttack.ReadOnly = False
+        Me.txtTAttack.Size = New System.Drawing.Size(92, 24)
+        Me.txtTAttack.TabIndex = 51
+        Me.txtTAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTAttack.UseSystemPasswordChar = False
+        '
+        'Label19
+        '
+        Me.Label19.ForeColor = System.Drawing.Color.White
+        Me.Label19.Location = New System.Drawing.Point(6, 36)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(79, 24)
+        Me.Label19.TabIndex = 20
+        Me.Label19.Text = "Street Legend"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtLegend
+        '
+        Me.txtLegend.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtLegend.Location = New System.Drawing.Point(97, 36)
+        Me.txtLegend.MaxLength = 3
+        Me.txtLegend.Multiline = False
+        Me.txtLegend.Name = "txtLegend"
+        Me.txtLegend.ReadOnly = False
+        Me.txtLegend.Size = New System.Drawing.Size(92, 24)
+        Me.txtLegend.TabIndex = 50
+        Me.txtLegend.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLegend.UseSystemPasswordChar = False
         '
         'cbGRumble
         '
@@ -822,19 +1028,44 @@ Partial Class frmEdit
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Label16)
+        Me.GroupBox5.Controls.Add(Me.cmbPlace)
         Me.GroupBox5.Controls.Add(Me.Label1)
         Me.GroupBox5.Controls.Add(Me.cmbGender)
         Me.GroupBox5.Controls.Add(Me.txtName)
         Me.GroupBox5.Controls.Add(Me.Label2)
         Me.GroupBox5.DrawSeperator = False
-        Me.GroupBox5.Location = New System.Drawing.Point(505, 36)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 483)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox5.Size = New System.Drawing.Size(420, 69)
+        Me.GroupBox5.Size = New System.Drawing.Size(487, 98)
         Me.GroupBox5.SubTitle = "Edit your name and gender."
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.Text = "NsGroupBox1"
         Me.GroupBox5.Title = "Basic"
+        '
+        'Label16
+        '
+        Me.Label16.ForeColor = System.Drawing.Color.White
+        Me.Label16.Location = New System.Drawing.Point(6, 64)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(64, 24)
+        Me.Label16.TabIndex = 62
+        Me.Label16.Text = "Region"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cmbPlace
+        '
+        Me.cmbPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbPlace.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbPlace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPlace.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbPlace.FormattingEnabled = True
+        Me.cmbPlace.Items.AddRange(New Object() {"北海道", "青森県", "岩手県", "宮城県", "福島県", "山形県", "秋田県", "茨城県", "栃木県", "群馬県", "千葉県", "埼玉県", "東京都", "神奈川県", "山梨県", "新潟県", "長野県", "富山県", "石川県", "愛知県", "静岡県", "岐阜県", "三重県", "福井県", "大阪府", "京都府", "奈良県", "滋賀県", "和歌山県", "兵庫県", "広島県", "鳥取県", "島根県", "岡山県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県", "中國/上海 China", "香港 Hong Kong", "韓國 South Korea", "馬來西亞 Malaysia", "新加坡 Singapore", "台灣 Taiwan"})
+        Me.cmbPlace.Location = New System.Drawing.Point(76, 66)
+        Me.cmbPlace.Name = "cmbPlace"
+        Me.cmbPlace.Size = New System.Drawing.Size(166, 24)
+        Me.cmbPlace.TabIndex = 13
         '
         'GroupBox4
         '
@@ -857,7 +1088,7 @@ Partial Class frmEdit
         Me.GroupBox4.Location = New System.Drawing.Point(12, 36)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox4.Size = New System.Drawing.Size(487, 463)
+        Me.GroupBox4.Size = New System.Drawing.Size(487, 441)
         Me.GroupBox4.SubTitle = "Edit the Avatar of your card."
         Me.GroupBox4.TabIndex = 56
         Me.GroupBox4.Text = "Avatar"
@@ -992,7 +1223,7 @@ Partial Class frmEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(935, 540)
+        Me.ClientSize = New System.Drawing.Size(935, 622)
         Me.Controls.Add(Me.lblAvatarOffset)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -1017,6 +1248,7 @@ Partial Class frmEdit
         Me.GroupBox1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.NsGroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
@@ -1114,4 +1346,21 @@ Partial Class frmEdit
     Friend WithEvents Label15 As Label
     Friend WithEvents cbGRumble As NSCheckBox
     Friend WithEvents txtName As NSTextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents cmbPlace As NSComboBox
+    Friend WithEvents NsGroupBox1 As NSGroupBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents txtEvent As NSTextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents txtKanto As NSTextBox
+    Friend WithEvents txtTag As NSTextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txtStore As NSTextBox
+    Friend WithEvents txtNational As NSTextBox
+    Friend WithEvents txtTAttack As NSTextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txtLegend As NSTextBox
 End Class

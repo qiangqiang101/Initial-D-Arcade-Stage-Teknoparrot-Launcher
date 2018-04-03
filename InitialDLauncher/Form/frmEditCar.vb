@@ -514,4 +514,16 @@
             Me.Location = New Point(Me.Location.X, 0)
         End If
     End Sub
+
+    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClassCode.KeyPress, txtNumberPlate.KeyPress
+        Try
+            If Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
+           Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then
+                Return
+            End If
+            e.Handled = True
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 End Class
