@@ -411,7 +411,7 @@
                 If cbFullSpec.Checked Then
                     Select Case _slot
                         Case 1
-                            Select Case GetTransmission(GetHex(_filename, 261, 1)) '105
+                            Select Case GetTransmission(GetHex(_filename, Neg60(261), 1)) '105
                                 Case Transmission.AT
                                     SetHex(_filename, Neg3C(&H105), HexStringToBinary("50"))
                                 Case Transmission.MT
@@ -421,7 +421,7 @@
                             SetHex(_filename, &HCE, HexStringToBinary(cmbEngine.SelectedValue.ToString))
                             SetHex(_filename, &HE4, HexStringToBinary(cmbRollbar.SelectedValue.ToString))
                         Case 2
-                            Select Case GetTransmission(GetHex(_filename, 357, 1)) '165
+                            Select Case GetTransmission(GetHex(_filename, Neg60(357), 1)) '165
                                 Case Transmission.AT
                                     SetHex(_filename, Neg3C(&H165), HexStringToBinary("50"))
                                 Case Transmission.MT
@@ -431,7 +431,7 @@
                             SetHex(_filename, &H12E, HexStringToBinary(cmbEngine.SelectedValue.ToString))
                             SetHex(_filename, &H144, HexStringToBinary(cmbRollbar.SelectedValue.ToString))
                         Case 3
-                            Select Case GetTransmission(GetHex(_filename, 453, 1)) '1c5
+                            Select Case GetTransmission(GetHex(_filename, Neg60(453), 1)) '1c5
                                 Case Transmission.AT
                                     SetHex(_filename, Neg3C(&H1C5), HexStringToBinary("50"))
                                 Case Transmission.MT

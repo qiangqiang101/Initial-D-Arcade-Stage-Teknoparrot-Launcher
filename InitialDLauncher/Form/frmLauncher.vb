@@ -13,13 +13,13 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Dim shadow As Dropshadow
-    Dim curVer As Integer = 27
+    Dim curVer As Integer = 28
     Public buildDate As String = "04/04/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
-    Dim id6GameDir As String = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
-    Dim id7GameDir As String = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
+    Public Shared id6GameDir As String = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
+    Public Shared id7GameDir As String = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
     Public id6CardPath As String = My.Settings.Id6CardName
     Public id7CardPath As String = My.Settings.Id7CardName
     Dim id6CardDir As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)

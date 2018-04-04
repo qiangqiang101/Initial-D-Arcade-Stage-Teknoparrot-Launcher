@@ -52,6 +52,9 @@ Public Class frmSettings
                 My.Settings.PerferCardExt = cmbPrefer.SelectedItem
                 My.Settings.Save()
 
+                frmLauncher.id6GameDir = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
+                frmLauncher.id7GameDir = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
+
                 frmLauncher.lblDebug.Visible = cbDebug.Checked
                 frmLauncher.Translate()
                 If Not gotError Then Me.Close()
