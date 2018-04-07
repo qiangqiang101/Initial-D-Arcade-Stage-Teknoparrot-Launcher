@@ -79,6 +79,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Car.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />
     <Compile Include="Class\PluginLoader.vb" />
     <Compile Include="Form\Form2.Designer.vb">

@@ -19,7 +19,7 @@ Public Class frmEdit
     Dim _221 As String = "00"
 
     'Translation
-    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar, a7_none, a7_hot, a7_wind, a7_light, a7_sprit, a7_overlord, a7_fly As String
+    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar, a7_none, a7_hot, a7_wind, a7_light, a7_sprit, a7_overlord, a7_fly, import_complete As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -41,9 +41,8 @@ Public Class frmEdit
     Dim shades_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim frame As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
 
-    Private Sub cbGRumble_CheckedChanged(sender As Object)
-
-    End Sub
+    'Car Modifier
+    Public car1 As New Car(), car2 As New Car(), car3 As New Car()
 
     Private _version As Integer
 
@@ -59,42 +58,117 @@ Public Class frmEdit
     Private _filename As String
 
     Private Sub btnEditCar1_Click(sender As Object, e As EventArgs) Handles btnEditCar1.Click
-        If Not cmbCar1.Text = "" Then
-            Dim fe As frmEditCar = New frmEditCar()
-            fe.Version = _version
-            fe.FileName = _filename
-            fe.Extension = _extension
-            fe.CarSlot = 1
-            fe.CarName = cmbCar1.Text
-            fe.parentForm = Me
-            fe.Show()
-        End If
+        Try
+            If Not cmbCar1.Text = "" Then
+                Dim fe As frmEditCar = New frmEditCar()
+                fe.Car = car1
+                fe.Version = _version
+                fe.FileName = _filename
+                fe.Extension = _extension
+                fe.CarSlot = 1
+                fe.CarName = cmbCar1.Text
+                fe._parentForm = Me
+                fe.Show()
+            Else
+                Dim ofd As New OpenFileDialog()
+                ofd.Filter = "Car files (*.car)|*.car"
+                ofd.FilterIndex = 1
+                ofd.RestoreDirectory = True
+                ofd.InitialDirectory = My.Application.Info.DirectoryPath
+                If ofd.ShowDialog() = DialogResult.OK Then
+                    Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
+                    File.Copy(_filename, newFileName, True)
+                    Select Case _extension
+                        Case "crd"
+                            SetHex(_filename, &HC4, GetHex(ofd.FileName, &H0, 96))
+                            cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
+                        Case "bin"
+                            SetHex(_filename, Plus3C(&HC4), GetHex(ofd.FileName, &H0, 96))
+                            cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
+                    End Select
+                    MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                    Me.Close()
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub btnEditCar2_Click(sender As Object, e As EventArgs) Handles btnEditCar2.Click
-        If Not cmbCar2.Text = "" Then
-            Dim fe As frmEditCar = New frmEditCar()
-            fe.Version = _version
-            fe.FileName = _filename
-            fe.Extension = _extension
-            fe.CarSlot = 2
-            fe.CarName = cmbCar2.Text
-            fe.parentForm = Me
-            fe.Show()
-        End If
+        Try
+            If Not cmbCar2.Text = "" Then
+                Dim fe As frmEditCar = New frmEditCar()
+                fe.Car = car2
+                fe.Version = _version
+                fe.FileName = _filename
+                fe.Extension = _extension
+                fe.CarSlot = 2
+                fe.CarName = cmbCar2.Text
+                fe._parentForm = Me
+                fe.Show()
+            Else
+                Dim ofd As New OpenFileDialog()
+                ofd.Filter = "Car files (*.car)|*.car"
+                ofd.FilterIndex = 1
+                ofd.RestoreDirectory = True
+                ofd.InitialDirectory = My.Application.Info.DirectoryPath
+                If ofd.ShowDialog() = DialogResult.OK Then
+                    Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
+                    File.Copy(_filename, newFileName, True)
+                    Select Case _extension
+                        Case "crd"
+                            SetHex(_filename, &H124, GetHex(ofd.FileName, &H0, 96))
+                            cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
+                        Case "bin"
+                            SetHex(_filename, Plus3C(&H124), GetHex(ofd.FileName, &H0, 96))
+                            cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
+                    End Select
+                    MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                    Me.Close()
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub btnEditCar3_Click(sender As Object, e As EventArgs) Handles btnEditCar3.Click
-        If Not cmbCar3.Text = "" Then
-            Dim fe As frmEditCar = New frmEditCar()
-            fe.Version = _version
-            fe.FileName = _filename
-            fe.Extension = _extension
-            fe.CarSlot = 3
-            fe.CarName = cmbCar3.Text
-            fe.parentForm = Me
-            fe.Show()
-        End If
+        Try
+            If Not cmbCar3.Text = "" Then
+                Dim fe As frmEditCar = New frmEditCar()
+                fe.Car = car3
+                fe.Version = _version
+                fe.FileName = _filename
+                fe.Extension = _extension
+                fe.CarSlot = 3
+                fe.CarName = cmbCar3.Text
+                fe._parentForm = Me
+                fe.Show()
+            Else
+                Dim ofd As New OpenFileDialog()
+                ofd.Filter = "Car files (*.car)|*.car"
+                ofd.FilterIndex = 1
+                ofd.RestoreDirectory = True
+                ofd.InitialDirectory = My.Application.Info.DirectoryPath
+                If ofd.ShowDialog() = DialogResult.OK Then
+                    Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
+                    File.Copy(_filename, newFileName, True)
+                    Select Case _extension
+                        Case "crd"
+                            SetHex(_filename, &H184, GetHex(ofd.FileName, &H0, 96))
+                            cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
+                        Case "bin"
+                            SetHex(_filename, Plus3C(&H184), GetHex(ofd.FileName, &H0, 96))
+                            cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
+                    End Select
+                    MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                    Me.Close()
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Public Property FileName() As String
@@ -283,6 +357,80 @@ Public Class frmEdit
                     End Select
                 End If
 
+                'Save Car
+                If car1.Edited Then
+                    If Not car1.ReplaceTo = "" Then SetHex(_filename, &H100, HexStringToBinary(SetCar(car1.ReplaceTo)))
+                    SetHex(_filename, Plus3C(&HC6), HexStringToBinary(car1.CarColor))
+                    SetHex(_filename, &H11C, HexStringToBinary(SetPlateNumber(car1.PlateNo)))
+                    SetHex(_filename, &H119, SetValue(car1.Hiragana))
+                    SetHex(_filename, &H118, SetValue(car1.PlaceName))
+                    SetHex(_filename, Plus3C(&HD0), HexStringToBinary(car1.Sticker1))
+                    SetHex(_filename, Plus3C(&HD1), HexStringToBinary(car1.Sticker2))
+                    SetHex(_filename, Plus3C(&HD2), HexStringToBinary(car1.Sticker3))
+                    SetHex(_filename, Plus3C(&HD3), HexStringToBinary(car1.Sticker4))
+                    SetHex(_filename, Plus3C(&HCA), HexStringToBinary("10"))
+                    SetHex(_filename, &H11A, HexStringToBinary(SetPridePoint(car1.ClassCode)))
+                    If car1.FullSpec Then
+                        Select Case car1.Transmission
+                            Case Transmission.AT
+                                SetHex(_filename, &H105, HexStringToBinary("50"))
+                            Case Transmission.MT
+                                SetHex(_filename, &H105, HexStringToBinary("D0"))
+                        End Select
+                        SetHex(_filename, Plus3C(&HCC), HexStringToBinary(car1.Param))
+                        SetHex(_filename, Plus3C(&HCE), HexStringToBinary(car1.Engine))
+                        SetHex(_filename, Plus3C(&HE4), HexStringToBinary(car1.Rollbar))
+                    End If
+                End If
+                If car2.Edited Then
+                    If Not car2.ReplaceTo = "" Then SetHex(_filename, &H160, HexStringToBinary(SetCar(car2.ReplaceTo)))
+                    SetHex(_filename, Plus3C(&H126), HexStringToBinary(car2.CarColor))
+                    SetHex(_filename, &H17C, HexStringToBinary(SetPlateNumber(car2.PlateNo)))
+                    SetHex(_filename, &H179, SetValue(car2.Hiragana))
+                    SetHex(_filename, &H178, SetValue(car2.PlaceName))
+                    SetHex(_filename, Plus3C(&H130), HexStringToBinary(car2.Sticker1))
+                    SetHex(_filename, Plus3C(&H131), HexStringToBinary(car2.Sticker2))
+                    SetHex(_filename, Plus3C(&H132), HexStringToBinary(car2.Sticker3))
+                    SetHex(_filename, Plus3C(&H133), HexStringToBinary(car2.Sticker4))
+                    SetHex(_filename, Plus3C(&H12A), HexStringToBinary("10"))
+                    SetHex(_filename, &H17A, HexStringToBinary(SetPridePoint(car2.ClassCode)))
+                    If car2.FullSpec Then
+                        Select Case car2.Transmission
+                            Case Transmission.AT
+                                SetHex(_filename, &H165, HexStringToBinary("50"))
+                            Case Transmission.MT
+                                SetHex(_filename, &H165, HexStringToBinary("D0"))
+                        End Select
+                        SetHex(_filename, Plus3C(&H12C), HexStringToBinary(car2.Param))
+                        SetHex(_filename, Plus3C(&H12E), HexStringToBinary(car2.Engine))
+                        SetHex(_filename, Plus3C(&H144), HexStringToBinary(car2.Rollbar))
+                    End If
+                End If
+                If car3.Edited Then
+                    If Not car3.ReplaceTo = "" Then SetHex(_filename, &H1C0, HexStringToBinary(SetCar(car3.ReplaceTo)))
+                    SetHex(_filename, Plus3C(&H186), HexStringToBinary(car3.CarColor))
+                    SetHex(_filename, &H1DC, HexStringToBinary(SetPlateNumber(car3.PlateNo)))
+                    SetHex(_filename, &H1D9, SetValue(car3.Hiragana))
+                    SetHex(_filename, &H1D8, SetValue(car3.PlaceName))
+                    SetHex(_filename, Plus3C(&H190), HexStringToBinary(car3.Sticker1))
+                    SetHex(_filename, Plus3C(&H191), HexStringToBinary(car3.Sticker2))
+                    SetHex(_filename, Plus3C(&H192), HexStringToBinary(car3.Sticker3))
+                    SetHex(_filename, Plus3C(&H193), HexStringToBinary(car3.Sticker4))
+                    SetHex(_filename, Plus3C(&H18A), HexStringToBinary("10"))
+                    SetHex(_filename, &H1DA, HexStringToBinary(SetPridePoint(car3.ClassCode)))
+                    If car3.FullSpec Then
+                        Select Case car3.Transmission
+                            Case Transmission.AT
+                                SetHex(_filename, &H1C5, HexStringToBinary("50"))
+                            Case Transmission.MT
+                                SetHex(_filename, &H1C5, HexStringToBinary("D0"))
+                        End Select
+                        SetHex(_filename, Plus3C(&H18C), HexStringToBinary(car3.Param))
+                        SetHex(_filename, Plus3C(&H18E), HexStringToBinary(car3.Engine))
+                        SetHex(_filename, Plus3C(&H1A4), HexStringToBinary(car3.Rollbar))
+                    End If
+                End If
+
                 SetHex(_filename, CLng("&H759"), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
 
                 frmCard.RefreshID6Cards()
@@ -357,6 +505,80 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(txtKanto.Text)))
                             SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(txtEvent.Text)))
                     End Select
+                End If
+
+                'Save Car
+                If car1.Edited Then
+                    If Not car1.ReplaceTo = "" Then SetHex(_filename, Neg3C(&H100), HexStringToBinary(SetCar(car1.ReplaceTo)))
+                    SetHex(_filename, &HC6, HexStringToBinary(car1.CarColor))
+                    SetHex(_filename, Neg3C(&H11C), HexStringToBinary(SetPlateNumber(car1.PlateNo)))
+                    SetHex(_filename, Neg3C(&H119), SetValue(car1.Hiragana))
+                    SetHex(_filename, Neg3C(&H118), SetValue(car1.PlaceName))
+                    SetHex(_filename, &HD0, HexStringToBinary(car1.Sticker1))
+                    SetHex(_filename, &HD1, HexStringToBinary(car1.Sticker2))
+                    SetHex(_filename, &HD2, HexStringToBinary(car1.Sticker3))
+                    SetHex(_filename, &HD3, HexStringToBinary(car1.Sticker4))
+                    SetHex(_filename, &HCA, HexStringToBinary("10"))
+                    SetHex(_filename, Neg3C(&H11A), HexStringToBinary(SetPridePoint(car1.ClassCode)))
+                    If car1.FullSpec Then
+                        Select Case car1.Transmission
+                            Case Transmission.AT
+                                SetHex(_filename, Neg3C(&H105), HexStringToBinary("50"))
+                            Case Transmission.MT
+                                SetHex(_filename, Neg3C(&H105), HexStringToBinary("D0"))
+                        End Select
+                        SetHex(_filename, &HCC, HexStringToBinary(car1.Param))
+                        SetHex(_filename, &HCE, HexStringToBinary(car1.Engine))
+                        SetHex(_filename, &HE4, HexStringToBinary(car1.Rollbar))
+                    End If
+                End If
+                If car2.Edited Then
+                    If Not car2.ReplaceTo = "" Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(car2.ReplaceTo)))
+                    SetHex(_filename, &H126, HexStringToBinary(car2.CarColor))
+                    SetHex(_filename, Neg3C(&H17C), HexStringToBinary(SetPlateNumber(car2.PlateNo)))
+                    SetHex(_filename, Neg3C(&H179), SetValue(car2.Hiragana))
+                    SetHex(_filename, Neg3C(&H178), SetValue(car2.PlaceName))
+                    SetHex(_filename, &H130, HexStringToBinary(car2.Sticker1))
+                    SetHex(_filename, &H131, HexStringToBinary(car2.Sticker2))
+                    SetHex(_filename, &H132, HexStringToBinary(car2.Sticker3))
+                    SetHex(_filename, &H133, HexStringToBinary(car2.Sticker4))
+                    SetHex(_filename, &H12A, HexStringToBinary("10"))
+                    SetHex(_filename, Neg3C(&H17A), HexStringToBinary(SetPridePoint(car2.ClassCode)))
+                    If car2.FullSpec Then
+                        Select Case car2.Transmission
+                            Case Transmission.AT
+                                SetHex(_filename, Neg3C(&H165), HexStringToBinary("50"))
+                            Case Transmission.MT
+                                SetHex(_filename, Neg3C(&H165), HexStringToBinary("D0"))
+                        End Select
+                        SetHex(_filename, &H12C, HexStringToBinary(car2.Param))
+                        SetHex(_filename, &H12E, HexStringToBinary(car2.Engine))
+                        SetHex(_filename, &H144, HexStringToBinary(car2.Rollbar))
+                    End If
+                End If
+                If car3.Edited Then
+                    If Not car3.ReplaceTo = "" Then SetHex(_filename, Neg3C(&H1C0), HexStringToBinary(SetCar(car3.ReplaceTo)))
+                    SetHex(_filename, &H186, HexStringToBinary(car3.CarColor))
+                    SetHex(_filename, Neg3C(&H1DC), HexStringToBinary(SetPlateNumber(car3.PlateNo)))
+                    SetHex(_filename, Neg3C(&H1D9), SetValue(car3.Hiragana))
+                    SetHex(_filename, Neg3C(&H1D8), SetValue(car3.PlaceName))
+                    SetHex(_filename, &H190, HexStringToBinary(car3.Sticker1))
+                    SetHex(_filename, &H191, HexStringToBinary(car3.Sticker2))
+                    SetHex(_filename, &H192, HexStringToBinary(car3.Sticker3))
+                    SetHex(_filename, &H193, HexStringToBinary(car3.Sticker4))
+                    SetHex(_filename, &H18A, HexStringToBinary("10"))
+                    SetHex(_filename, Neg3C(&H1DA), HexStringToBinary(SetPridePoint(car3.ClassCode)))
+                    If car3.FullSpec Then
+                        Select Case car3.Transmission
+                            Case Transmission.AT
+                                SetHex(_filename, Neg3C(&H1C5), HexStringToBinary("50"))
+                            Case Transmission.MT
+                                SetHex(_filename, Neg3C(&H1C5), HexStringToBinary("D0"))
+                        End Select
+                        SetHex(_filename, &H18C, HexStringToBinary(car3.Param))
+                        SetHex(_filename, &H18E, HexStringToBinary(car3.Engine))
+                        SetHex(_filename, &H1A4, HexStringToBinary(car3.Rollbar))
+                    End If
                 End If
 
                 'SetHex(_filename, Neg3C(&H759), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
@@ -458,6 +680,62 @@ Public Class frmEdit
                     txtKanto.Text = GetPridePoint(GetHex(_filename, &H39A, 1), GetHex(_filename, &H39B, 1))
                     txtEvent.Text = GetPridePoint(GetHex(_filename, &H39C, 1), GetHex(_filename, &H39D, 1))
                 End If
+
+                'Read Car
+                If Not cmbCar1.Text = "" Then
+                    car1.ReplaceTo = Nothing
+                    car1.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(198), 1))
+                    car1.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(208), 1))
+                    car1.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(209), 1))
+                    car1.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(210), 1))
+                    car1.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(211), 1))
+                    car1.PlateNo = GetPlateNumber(GetHex(_filename, 284, 1), GetHex(_filename, 285, 1), GetHex(_filename, 286, 1))
+                    car1.ClassCode = GetPridePoint(GetHex(_filename, &H11A, 1), GetHex(_filename, &H11B, 1))
+                    car1.Hiragana = GetLevel(GetHex(_filename, 281, 1), True)
+                    car1.PlaceName = GetLevel(GetHex(_filename, 280, 1), True)
+                    car1.Transmission = GetTransmission(GetHex(_filename, 261, 1))
+                    car1.Param = Nothing
+                    car1.FullSpec = False
+                    car1.Engine = ""
+                    car1.Rollbar = ""
+                    car1.Edited = False
+                End If
+                If Not cmbCar2.Text = "" Then
+                    car2.ReplaceTo = Nothing
+                    car2.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(294), 1))
+                    car2.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(304), 1))
+                    car2.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(305), 1))
+                    car2.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(306), 1))
+                    car2.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(307), 1))
+                    car2.PlateNo = GetPlateNumber(GetHex(_filename, 380, 1), GetHex(_filename, 381, 1), GetHex(_filename, 382, 1))
+                    car2.ClassCode = GetPridePoint(GetHex(_filename, &H17A, 1), GetHex(_filename, &H17B, 1))
+                    car2.Hiragana = GetLevel(GetHex(_filename, 377, 1), True)
+                    car2.PlaceName = GetLevel(GetHex(_filename, 376, 1), True)
+                    car2.Transmission = GetTransmission(GetHex(_filename, 357, 1))
+                    car2.Param = Nothing
+                    car2.FullSpec = False
+                    car2.Engine = ""
+                    car2.Rollbar = ""
+                    car2.Edited = False
+                End If
+                If Not cmbCar3.Text = "" Then
+                    car3.ReplaceTo = Nothing
+                    car3.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(390), 1))
+                    car3.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(400), 1))
+                    car3.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(401), 1))
+                    car3.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(402), 1))
+                    car3.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(403), 1))
+                    car3.PlateNo = GetPlateNumber(GetHex(_filename, 476, 1), GetHex(_filename, 477, 1), GetHex(_filename, 478, 1))
+                    car3.ClassCode = GetPridePoint(GetHex(_filename, &H1DA, 1), GetHex(_filename, &H1DB, 1))
+                    car3.Hiragana = GetLevel(GetHex(_filename, 473, 1), True)
+                    car3.PlaceName = GetLevel(GetHex(_filename, 472, 1), True)
+                    car3.Transmission = GetTransmission(GetHex(_filename, 453, 1))
+                    car3.Param = Nothing
+                    car3.FullSpec = False
+                    car3.Engine = ""
+                    car3.Rollbar = ""
+                    car3.Edited = False
+                End If
             Else
                 txtName.Text = GetName(GetHex(_filename, Neg60(240), 12))
                 txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
@@ -489,11 +767,68 @@ Public Class frmEdit
                     txtKanto.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39A), 1), GetHex(_filename, Neg3C(&H39B), 1))
                     txtEvent.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39C), 1), GetHex(_filename, Neg3C(&H39D), 1))
                 End If
+
+                'Read Car
+                If Not cmbCar1.Text = "" Then
+                    car1.ReplaceTo = Nothing
+                    car1.CarColor = GetHexStringFromBinary(GetHex(_filename, 198, 1))
+                    car1.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 208, 1))
+                    car1.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 209, 1))
+                    car1.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 210, 1))
+                    car1.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 211, 1))
+                    car1.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(284), 1), GetHex(_filename, Neg60(285), 1), GetHex(_filename, Neg60(286), 1))
+                    car1.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H11A), 1), GetHex(_filename, Neg3C(&H11B), 1))
+                    car1.Hiragana = GetLevel(GetHex(_filename, Neg60(281), 1), True)
+                    car1.PlaceName = GetLevel(GetHex(_filename, Neg60(280), 1), True)
+                    car1.Transmission = GetTransmission(GetHex(_filename, Neg60(261), 1))
+                    car1.Param = Nothing
+                    car1.FullSpec = False
+                    car1.Engine = ""
+                    car1.Rollbar = ""
+                    car1.Edited = False
+                End If
+                If Not cmbCar2.Text = "" Then
+                    car2.ReplaceTo = Nothing
+                    car2.CarColor = GetHexStringFromBinary(GetHex(_filename, 294, 1))
+                    car2.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 304, 1))
+                    car2.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 305, 1))
+                    car2.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 306, 1))
+                    car2.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 307, 1))
+                    car2.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(380), 1), GetHex(_filename, Neg60(381), 1), GetHex(_filename, Neg60(382), 1))
+                    car2.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H17A), 1), GetHex(_filename, Neg3C(&H17B), 1))
+                    car2.Hiragana = GetLevel(GetHex(_filename, Neg60(377), 1), True)
+                    car2.PlaceName = GetLevel(GetHex(_filename, Neg60(376), 1), True)
+                    car2.Transmission = GetTransmission(GetHex(_filename, Neg60(357), 1))
+                    car2.Param = Nothing
+                    car2.FullSpec = False
+                    car2.Engine = ""
+                    car2.Rollbar = ""
+                    car2.Edited = False
+                End If
+                If Not cmbCar3.Text = "" Then
+                    car3.ReplaceTo = Nothing
+                    car3.CarColor = GetHexStringFromBinary(GetHex(_filename, 390, 1))
+                    car3.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 400, 1))
+                    car3.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 401, 1))
+                    car3.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 402, 1))
+                    car3.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 403, 1))
+                    car3.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(476), 1), GetHex(_filename, Neg60(477), 1), GetHex(_filename, Neg60(478), 1))
+                    car3.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H1DA), 1), GetHex(_filename, Neg3C(&H1DB), 1))
+                    car3.Hiragana = GetLevel(GetHex(_filename, Neg60(473), 1), True)
+                    car3.PlaceName = GetLevel(GetHex(_filename, Neg60(472), 1), True)
+                    car3.Transmission = GetTransmission(GetHex(_filename, Neg60(453), 1))
+                    car3.Param = Nothing
+                    car3.FullSpec = False
+                    car3.Engine = ""
+                    car3.Rollbar = ""
+                    car3.Edited = False
+                End If
             End If
+
+            Translate2()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
-
     End Sub
 
     Private Sub Translate()
@@ -581,6 +916,7 @@ Public Class frmEdit
                 Label23.Text = "Event Battle"
                 NsGroupBox1.Title = "X Marks"
                 NsGroupBox1.SubTitle = "Edit the X marks on your card."
+                import_complete = "Car Import completed, Restart Card Editor to take effect."
             Case "Chinese"
                 Me.Text = "改卡: " & Path.GetFileName(_filename)
                 NsTheme1.Text = Me.Text
@@ -663,6 +999,7 @@ Public Class frmEdit
                 Label23.Text = "活動對戰"
                 NsGroupBox1.Title = "X標記"
                 NsGroupBox1.SubTitle = "修改卡內的ㄨ標記。"
+                import_complete = "導入完成，請重啟改卡視窗。"
             Case "French"
                 Me.Text = "Edit Card: " & Path.GetFileName(_filename)
                 NsTheme1.Text = Me.Text
@@ -745,6 +1082,24 @@ Public Class frmEdit
                 Label23.Text = "Event Battle"
                 NsGroupBox1.Title = "X Marks"
                 NsGroupBox1.SubTitle = "Edit the X marks on your card."
+                import_complete = "Card Import completed, Restart Card Editor to take effect."
+        End Select
+    End Sub
+
+    Private Sub Translate2()
+        Select Case My.Settings.Language
+            Case "English"
+                If cmbCar1.Text = "" Then btnEditCar1.Text = "Import"
+                If cmbCar2.Text = "" Then btnEditCar2.Text = "Import"
+                If cmbCar3.Text = "" Then btnEditCar3.Text = "Import"
+            Case "Chinese"
+                If cmbCar1.Text = "" Then btnEditCar1.Text = "導入"
+                If cmbCar2.Text = "" Then btnEditCar2.Text = "導入"
+                If cmbCar3.Text = "" Then btnEditCar3.Text = "導入"
+            Case "French"
+                If cmbCar1.Text = "" Then btnEditCar1.Text = "Import"
+                If cmbCar2.Text = "" Then btnEditCar2.Text = "Import"
+                If cmbCar3.Text = "" Then btnEditCar3.Text = "Import"
         End Select
     End Sub
 

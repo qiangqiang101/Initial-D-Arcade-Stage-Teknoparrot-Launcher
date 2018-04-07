@@ -24,6 +24,8 @@ Partial Class frmEditCar
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditCar))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.btnLoad = New InitialDLauncher.NSButton()
+        Me.btnSave = New InitialDLauncher.NSButton()
         Me.NsGroupBox3 = New InitialDLauncher.NSGroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cmbSticker4 = New InitialDLauncher.NSComboBox()
@@ -52,7 +54,7 @@ Partial Class frmEditCar
         Me.cbFullSpec = New InitialDLauncher.NSCheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbCarList = New InitialDLauncher.NSComboBox()
-        Me.btnSave = New InitialDLauncher.NSButton()
+        Me.btnApply = New InitialDLauncher.NSButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.NsTheme1.SuspendLayout()
         Me.NsGroupBox3.SuspendLayout()
@@ -66,6 +68,8 @@ Partial Class frmEditCar
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.btnLoad)
+        Me.NsTheme1.Controls.Add(Me.btnSave)
         Me.NsTheme1.Controls.Add(Me.NsGroupBox3)
         Me.NsTheme1.Controls.Add(Me.NsGroupBox2)
         Me.NsTheme1.Controls.Add(Me.cmbColor)
@@ -73,7 +77,7 @@ Partial Class frmEditCar
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
         Me.NsTheme1.Controls.Add(Me.NsGroupBox1)
         Me.NsTheme1.Controls.Add(Me.cmbCarList)
-        Me.NsTheme1.Controls.Add(Me.btnSave)
+        Me.NsTheme1.Controls.Add(Me.btnApply)
         Me.NsTheme1.Controls.Add(Me.Label3)
         Me.NsTheme1.Customization = ""
         Me.NsTheme1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -91,6 +95,24 @@ Partial Class frmEditCar
         Me.NsTheme1.Text = "Edit Car"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
+        '
+        'btnLoad
+        '
+        Me.btnLoad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnLoad.Location = New System.Drawing.Point(93, 570)
+        Me.btnLoad.Name = "btnLoad"
+        Me.btnLoad.Size = New System.Drawing.Size(75, 24)
+        Me.btnLoad.TabIndex = 62
+        Me.btnLoad.Text = "Load"
+        '
+        'btnSave
+        '
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.Location = New System.Drawing.Point(12, 570)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 24)
+        Me.btnSave.TabIndex = 61
+        Me.btnSave.Text = "Save"
         '
         'NsGroupBox3
         '
@@ -385,7 +407,7 @@ Partial Class frmEditCar
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 24)
         Me.Label2.TabIndex = 53
-        Me.Label2.Text = "Select Rollcage"
+        Me.Label2.Text = "Select Rollbar"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cmbEngine
@@ -434,14 +456,14 @@ Partial Class frmEditCar
         Me.cmbCarList.Size = New System.Drawing.Size(269, 24)
         Me.cmbCarList.TabIndex = 1
         '
-        'btnSave
+        'btnApply
         '
-        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(287, 570)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 40
-        Me.btnSave.Text = "Save"
+        Me.btnApply.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnApply.Location = New System.Drawing.Point(287, 570)
+        Me.btnApply.Name = "btnApply"
+        Me.btnApply.Size = New System.Drawing.Size(75, 24)
+        Me.btnApply.TabIndex = 40
+        Me.btnApply.Text = "Apply"
         '
         'Label3
         '
@@ -478,7 +500,7 @@ Partial Class frmEditCar
 
     Friend WithEvents cmbCarList As NSComboBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents btnSave As NSButton
+    Friend WithEvents btnApply As NSButton
     Friend WithEvents cbFullSpec As NSCheckBox
     Friend WithEvents NsTheme1 As NSTheme
     Friend WithEvents NsGroupBox1 As NSGroupBox
@@ -507,4 +529,6 @@ Partial Class frmEditCar
     Friend WithEvents Label9 As Label
     Friend WithEvents txtClassCode As NSTextBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents btnLoad As NSButton
+    Friend WithEvents btnSave As NSButton
 End Class
