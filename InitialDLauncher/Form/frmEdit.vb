@@ -377,11 +377,13 @@ Public Class frmEdit
                             Case Transmission.MT
                                 SetHex(_filename, &H105, HexStringToBinary("D0"))
                         End Select
-                        SetHex(_filename, Plus3C(&HCC), HexStringToBinary(car1.Param))
-                        SetHex(_filename, Plus3C(&HCE), HexStringToBinary(car1.Engine))
-                        SetHex(_filename, Plus3C(&HE4), HexStringToBinary(car1.Rollbar))
+                        If car1.SaveEngineRollbar Then
+                            SetHex(_filename, Plus3C(&HCC), HexStringToBinary(car1.Param))
+                            SetHex(_filename, Plus3C(&HCE), HexStringToBinary(car1.Engine))
+                            SetHex(_filename, Plus3C(&HE4), HexStringToBinary(car1.Rollbar))
+                        End If
                     End If
-                End If
+                    End If
                 If car2.Edited Then
                     If Not car2.ReplaceTo = "" Then SetHex(_filename, &H160, HexStringToBinary(SetCar(car2.ReplaceTo)))
                     SetHex(_filename, Plus3C(&H126), HexStringToBinary(car2.CarColor))
@@ -401,11 +403,13 @@ Public Class frmEdit
                             Case Transmission.MT
                                 SetHex(_filename, &H165, HexStringToBinary("D0"))
                         End Select
-                        SetHex(_filename, Plus3C(&H12C), HexStringToBinary(car2.Param))
-                        SetHex(_filename, Plus3C(&H12E), HexStringToBinary(car2.Engine))
-                        SetHex(_filename, Plus3C(&H144), HexStringToBinary(car2.Rollbar))
+                        If car2.SaveEngineRollbar Then
+                            SetHex(_filename, Plus3C(&H12C), HexStringToBinary(car2.Param))
+                            SetHex(_filename, Plus3C(&H12E), HexStringToBinary(car2.Engine))
+                            SetHex(_filename, Plus3C(&H144), HexStringToBinary(car2.Rollbar))
+                        End If
                     End If
-                End If
+                    End If
                 If car3.Edited Then
                     If Not car3.ReplaceTo = "" Then SetHex(_filename, &H1C0, HexStringToBinary(SetCar(car3.ReplaceTo)))
                     SetHex(_filename, Plus3C(&H186), HexStringToBinary(car3.CarColor))
@@ -425,9 +429,11 @@ Public Class frmEdit
                             Case Transmission.MT
                                 SetHex(_filename, &H1C5, HexStringToBinary("D0"))
                         End Select
-                        SetHex(_filename, Plus3C(&H18C), HexStringToBinary(car3.Param))
-                        SetHex(_filename, Plus3C(&H18E), HexStringToBinary(car3.Engine))
-                        SetHex(_filename, Plus3C(&H1A4), HexStringToBinary(car3.Rollbar))
+                        If car3.SaveEngineRollbar Then
+                            SetHex(_filename, Plus3C(&H18C), HexStringToBinary(car3.Param))
+                            SetHex(_filename, Plus3C(&H18E), HexStringToBinary(car3.Engine))
+                            SetHex(_filename, Plus3C(&H1A4), HexStringToBinary(car3.Rollbar))
+                        End If
                     End If
                 End If
 
@@ -527,11 +533,13 @@ Public Class frmEdit
                             Case Transmission.MT
                                 SetHex(_filename, Neg3C(&H105), HexStringToBinary("D0"))
                         End Select
-                        SetHex(_filename, &HCC, HexStringToBinary(car1.Param))
-                        SetHex(_filename, &HCE, HexStringToBinary(car1.Engine))
-                        SetHex(_filename, &HE4, HexStringToBinary(car1.Rollbar))
+                        If car1.SaveEngineRollbar Then
+                            SetHex(_filename, &HCC, HexStringToBinary(car1.Param))
+                            SetHex(_filename, &HCE, HexStringToBinary(car1.Engine))
+                            SetHex(_filename, &HE4, HexStringToBinary(car1.Rollbar))
+                        End If
                     End If
-                End If
+                    End If
                 If car2.Edited Then
                     If Not car2.ReplaceTo = "" Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(car2.ReplaceTo)))
                     SetHex(_filename, &H126, HexStringToBinary(car2.CarColor))
@@ -551,9 +559,11 @@ Public Class frmEdit
                             Case Transmission.MT
                                 SetHex(_filename, Neg3C(&H165), HexStringToBinary("D0"))
                         End Select
-                        SetHex(_filename, &H12C, HexStringToBinary(car2.Param))
-                        SetHex(_filename, &H12E, HexStringToBinary(car2.Engine))
-                        SetHex(_filename, &H144, HexStringToBinary(car2.Rollbar))
+                        If car2.SaveEngineRollbar Then
+                            SetHex(_filename, &H12C, HexStringToBinary(car2.Param))
+                            SetHex(_filename, &H12E, HexStringToBinary(car2.Engine))
+                            SetHex(_filename, &H144, HexStringToBinary(car2.Rollbar))
+                        End If
                     End If
                 End If
                 If car3.Edited Then
@@ -575,9 +585,11 @@ Public Class frmEdit
                             Case Transmission.MT
                                 SetHex(_filename, Neg3C(&H1C5), HexStringToBinary("D0"))
                         End Select
-                        SetHex(_filename, &H18C, HexStringToBinary(car3.Param))
-                        SetHex(_filename, &H18E, HexStringToBinary(car3.Engine))
-                        SetHex(_filename, &H1A4, HexStringToBinary(car3.Rollbar))
+                        If car3.SaveEngineRollbar Then
+                            SetHex(_filename, &H18C, HexStringToBinary(car3.Param))
+                            SetHex(_filename, &H18E, HexStringToBinary(car3.Engine))
+                            SetHex(_filename, &H1A4, HexStringToBinary(car3.Rollbar))
+                        End If
                     End If
                 End If
 
@@ -2443,14 +2455,14 @@ Public Class frmEdit
         shades_f.Add("07", shades.SP_7X10)
         shades_f.Add("08", shades.SP_8X10)
         shades_f.Add("09", shades.SP_9X10)
-        shades_f.Add("10", shades.SP_F8X0)
-        shades_f.Add("11", shades.SP_F9X0)
-        shades_f.Add("12", shades.SP_FAX0)
-        shades_f.Add("13", shades.SP_FBX0)
-        shades_f.Add("14", shades.SP_FCX0)
-        shades_f.Add("15", shades.SP_FDX0)
-        shades_f.Add("16", shades.SP_FEX0)
-        shades_f.Add("17", shades.SP_FFX0)
+        'shades_f.Add("10", shades.SP_F8X0)
+        'shades_f.Add("11", shades.SP_F9X0)
+        'shades_f.Add("12", shades.SP_FAX0)
+        'shades_f.Add("13", shades.SP_FBX0)
+        'shades_f.Add("14", shades.SP_FCX0)
+        'shades_f.Add("15", shades.SP_FDX0)
+        'shades_f.Add("16", shades.SP_FEX0)
+        'shades_f.Add("17", shades.SP_FFX0)
 
         'Add Hair
         Dim hair As New InitialD7.Female.Hair

@@ -152,4 +152,14 @@
             _edited = value
         End Set
     End Property
+
+    Private _saveEngineRollbar As Boolean
+    Public Property SaveEngineRollbar() As Boolean
+        Get
+            Return _saveEngineRollbar
+        End Get
+        Set(value As Boolean)
+            _saveEngineRollbar = value
+        End Set
+    End Property
 End Class

@@ -56,6 +56,7 @@ Partial Class frmEditCar
         Me.cmbCarList = New InitialDLauncher.NSComboBox()
         Me.btnApply = New InitialDLauncher.NSButton()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbEngineRollbar = New InitialDLauncher.NSCheckBox()
         Me.NsTheme1.SuspendLayout()
         Me.NsGroupBox3.SuspendLayout()
         Me.NsGroupBox2.SuspendLayout()
@@ -371,6 +372,7 @@ Partial Class frmEditCar
         '
         'NsGroupBox1
         '
+        Me.NsGroupBox1.Controls.Add(Me.cbEngineRollbar)
         Me.NsGroupBox1.Controls.Add(Me.cmbRollbar)
         Me.NsGroupBox1.Controls.Add(Me.Label2)
         Me.NsGroupBox1.Controls.Add(Me.cmbEngine)
@@ -475,6 +477,16 @@ Partial Class frmEditCar
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Change to"
         '
+        'cbEngineRollbar
+        '
+        Me.cbEngineRollbar.Checked = False
+        Me.cbEngineRollbar.Enabled = False
+        Me.cbEngineRollbar.Location = New System.Drawing.Point(173, 36)
+        Me.cbEngineRollbar.Name = "cbEngineRollbar"
+        Me.cbEngineRollbar.Size = New System.Drawing.Size(161, 24)
+        Me.cbEngineRollbar.TabIndex = 54
+        Me.cbEngineRollbar.Text = "Save Engine & Rollbar"
+        '
         'frmEditCar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -531,4 +543,5 @@ Partial Class frmEditCar
     Friend WithEvents Label12 As Label
     Friend WithEvents btnLoad As NSButton
     Friend WithEvents btnSave As NSButton
+    Friend WithEvents cbEngineRollbar As NSCheckBox
 End Class

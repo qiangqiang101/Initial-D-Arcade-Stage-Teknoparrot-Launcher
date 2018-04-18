@@ -271,14 +271,14 @@ Namespace InitialD7
             Public SP_7X10 As New Bitmap(My.Resources._7V10) With {.Tag = "7X10"}
             Public SP_8X10 As New Bitmap(My.Resources._8V10) With {.Tag = "8X10"}
             Public SP_9X10 As New Bitmap(My.Resources._9V10) With {.Tag = "9X10"}
-            Public SP_F8X0 As New Bitmap(My.Resources.F8V0) With {.Tag = "F8X0"}
-            Public SP_F9X0 As New Bitmap(My.Resources.F9V0) With {.Tag = "F9X0"}
-            Public SP_FAX0 As New Bitmap(My.Resources.FAV0) With {.Tag = "FAX0"}
-            Public SP_FBX0 As New Bitmap(My.Resources.FBV0) With {.Tag = "FBX0"}
-            Public SP_FCX0 As New Bitmap(My.Resources.FCV0) With {.Tag = "FCX0"}
-            Public SP_FDX0 As New Bitmap(My.Resources.FDV0) With {.Tag = "FDX0"}
-            Public SP_FEX0 As New Bitmap(My.Resources.FEV0) With {.Tag = "FEX0"}
-            Public SP_FFX0 As New Bitmap(My.Resources.FFV0) With {.Tag = "FFX0"}
+            'Public SP_F8X0 As New Bitmap(My.Resources.F8V0) With {.Tag = "F8X0"}
+            'Public SP_F9X0 As New Bitmap(My.Resources.F9V0) With {.Tag = "F9X0"}
+            'Public SP_FAX0 As New Bitmap(My.Resources.FAV0) With {.Tag = "FAX0"}
+            'Public SP_FBX0 As New Bitmap(My.Resources.FBV0) With {.Tag = "FBX0"}
+            'Public SP_FCX0 As New Bitmap(My.Resources.FCV0) With {.Tag = "FCX0"}
+            'Public SP_FDX0 As New Bitmap(My.Resources.FDV0) With {.Tag = "FDX0"}
+            'Public SP_FEX0 As New Bitmap(My.Resources.FEV0) With {.Tag = "FEX0"}
+            'Public SP_FFX0 As New Bitmap(My.Resources.FFV0) With {.Tag = "FFX0"}
         End Class
 
         Public Class Shirt
