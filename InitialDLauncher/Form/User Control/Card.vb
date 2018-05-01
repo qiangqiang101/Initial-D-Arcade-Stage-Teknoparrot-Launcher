@@ -79,6 +79,20 @@ Public Class Card
                         frmCard.Translate()
                         frmCard.RefreshID7Cards()
                     End If
+                Case 8
+                    If btnSelect.Text = select_card Then
+                        My.Settings.Id8CardName = _filename
+                        My.Settings.Save()
+                        frmLauncher.id8CardPath = _filename
+                        frmCard.Translate()
+                        frmCard.RefreshID8Cards()
+                    Else
+                        My.Settings.Id8CardName = ""
+                        My.Settings.Save()
+                        frmLauncher.id8CardPath = ""
+                        frmCard.Translate()
+                        frmCard.RefreshID8Cards()
+                    End If
             End Select
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")

@@ -34,10 +34,14 @@ Partial Class frmCard
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.flp7 = New System.Windows.Forms.FlowLayoutPanel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.flp8 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.txt8 = New InitialDLauncher.NSTextBox()
         Me.NsTheme1.SuspendLayout()
         Me.nstcTab.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'NsTheme1
@@ -46,6 +50,7 @@ Partial Class frmCard
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.txt8)
         Me.NsTheme1.Controls.Add(Me.txt7)
         Me.NsTheme1.Controls.Add(Me.txt6)
         Me.NsTheme1.Controls.Add(Me.NsControlButton3)
@@ -74,12 +79,12 @@ Partial Class frmCard
         '
         Me.txt7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txt7.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txt7.Location = New System.Drawing.Point(418, 613)
+        Me.txt7.Location = New System.Drawing.Point(318, 613)
         Me.txt7.MaxLength = 32767
         Me.txt7.Multiline = False
         Me.txt7.Name = "txt7"
         Me.txt7.ReadOnly = True
-        Me.txt7.Size = New System.Drawing.Size(400, 23)
+        Me.txt7.Size = New System.Drawing.Size(300, 23)
         Me.txt7.TabIndex = 59
         Me.txt7.Text = "ID7 Card:"
         Me.txt7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -94,7 +99,7 @@ Partial Class frmCard
         Me.txt6.Multiline = False
         Me.txt6.Name = "txt6"
         Me.txt6.ReadOnly = True
-        Me.txt6.Size = New System.Drawing.Size(400, 23)
+        Me.txt6.Size = New System.Drawing.Size(300, 23)
         Me.txt6.TabIndex = 58
         Me.txt6.Text = "ID6 Card:"
         Me.txt6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -134,6 +139,7 @@ Partial Class frmCard
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.nstcTab.Controls.Add(Me.TabPage3)
         Me.nstcTab.Controls.Add(Me.TabPage4)
+        Me.nstcTab.Controls.Add(Me.TabPage1)
         Me.nstcTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.nstcTab.ItemSize = New System.Drawing.Size(50, 130)
         Me.nstcTab.Location = New System.Drawing.Point(12, 36)
@@ -197,6 +203,40 @@ Partial Class frmCard
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
         '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage1.Controls.Add(Me.flp8)
+        Me.TabPage1.Location = New System.Drawing.Point(134, 4)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(806, 563)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "InitialD 8 Infinity Cards"
+        '
+        'flp8
+        '
+        Me.flp8.AutoScroll = True
+        Me.flp8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flp8.Location = New System.Drawing.Point(0, 0)
+        Me.flp8.Name = "flp8"
+        Me.flp8.Size = New System.Drawing.Size(806, 563)
+        Me.flp8.TabIndex = 2
+        '
+        'txt8
+        '
+        Me.txt8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txt8.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt8.Location = New System.Drawing.Point(624, 613)
+        Me.txt8.MaxLength = 32767
+        Me.txt8.Multiline = False
+        Me.txt8.Name = "txt8"
+        Me.txt8.ReadOnly = True
+        Me.txt8.Size = New System.Drawing.Size(300, 23)
+        Me.txt8.TabIndex = 60
+        Me.txt8.Text = "ID8 Card:"
+        Me.txt8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt8.UseSystemPasswordChar = False
+        '
         'frmCard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -214,6 +254,7 @@ Partial Class frmCard
         Me.nstcTab.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -228,4 +269,7 @@ Partial Class frmCard
     Friend WithEvents NsControlButton2 As NSControlButton
     Friend WithEvents txt7 As NSTextBox
     Friend WithEvents txt6 As NSTextBox
+    Friend WithEvents txt8 As NSTextBox
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents flp8 As FlowLayoutPanel
 End Class

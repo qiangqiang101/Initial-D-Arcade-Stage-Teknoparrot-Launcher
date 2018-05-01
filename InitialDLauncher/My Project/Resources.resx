@@ -118,23 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tsuchisakaSnow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tsuchisakaSnow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="card7m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card7m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\play.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tsukuba" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tsukuba.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\select.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="nagao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nagao.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="id_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\id_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tsuchisaka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tsuchisaka.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="card7f" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card7f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="id_logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\id_logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="card6f" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card6f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="akinaSnow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\akinaSnow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="card6m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card6m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,55 +145,58 @@
   <data name="launcher_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\launcher_bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nada" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="akagi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\akagi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="akina" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\akina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="akinaSnow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\akinaSnow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="happogahara" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\happogahara.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="irohazaka" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\irohazaka.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="id_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\id_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lakeAkina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lakeAkina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="tsukubaSnow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tsukubaSnow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\select.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\play.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="myogi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\myogi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nagao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nagao.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="card6f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card6f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="namagari" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\namagari.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="irohazaka" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\irohazaka.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nada" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sadamine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sadamine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="akina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\akina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="namagari" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\namagari.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card7f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card7f.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tsubakiLine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tsubakiLine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tsuchisaka" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tsuchisaka.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="akagi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\akagi.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tsuchisakaSnow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tsuchisakaSnow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tsukuba" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tsukuba.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tsukubaSnow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tsukubaSnow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="happogahara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happogahara.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usui" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usui.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="card8m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card8m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

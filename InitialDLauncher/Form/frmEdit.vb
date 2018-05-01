@@ -276,7 +276,7 @@ Public Class frmEdit
             If _version = 6 Then
                 If Integer.Parse(txtLevel.Text) > 98 Then txtLevel.Text = "98"
                 If Integer.Parse(txtChapLevel.Text) > 99 Then txtChapLevel.Text = "99"
-            Else
+            ElseIf _version = 7 Then
                 If Integer.Parse(txtLevel.Text) > 26 Then txtLevel.Text = "26"
                 If Integer.Parse(txtLegend.Text) > 450 Then txtLegend.Text = "450"
                 If Integer.Parse(txtTAttack.Text) > 450 Then txtTAttack.Text = "450"
@@ -285,6 +285,8 @@ Public Class frmEdit
                 If Integer.Parse(txtStore.Text) > 450 Then txtStore.Text = "450"
                 If Integer.Parse(txtKanto.Text) > 450 Then txtKanto.Text = "450"
                 If Integer.Parse(txtEvent.Text) > 450 Then txtEvent.Text = "450"
+            ElseIf _version = 8 Then
+                If Integer.Parse(txtLevel.Text) > 22 Then txtLevel.Text = "22"
             End If
 
             If _extension = "bin" Then
@@ -338,7 +340,6 @@ Public Class frmEdit
                             SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
                             SetHex(_filename, CLng("&HAD"), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
                             SetHex(_filename, CLng("&H448"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-
                         Case 7
                             SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
                             SetHex(_filename, CLng("&HBD"), HexStringToBinary("20")) 'Unlock X level
@@ -354,6 +355,9 @@ Public Class frmEdit
                             SetHex(_filename, &H39A, HexStringToBinary(SetPridePoint(txtKanto.Text)))
                             SetHex(_filename, &H39C, HexStringToBinary(SetPridePoint(txtEvent.Text)))
                             If cbGRumble.Checked Then SetHex(_filename, Plus3C(&H33C), HexStringToBinary("01"))
+                        Case 8
+                            SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
+                            SetHex(_filename, CLng("&H3B0"), HexStringToBinary(SetMilelage(txtMileage.Text)))
                     End Select
                 End If
 
@@ -441,6 +445,7 @@ Public Class frmEdit
 
                 frmCard.RefreshID6Cards()
                 frmCard.RefreshID7Cards()
+                frmCard.RefreshID8Cards()
 
                 Me.Close()
             Else 'crd
@@ -494,7 +499,6 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&HA4), SetValue(txtLevel.Text))
                             SetHex(_filename, Neg3C(&HAD), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
                             SetHex(_filename, Neg3C(&H448), HexStringToBinary(SetMilelage(txtMileage.Text)))
-
                         Case 7
                             SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
                             SetHex(_filename, Neg3C(&HBD), HexStringToBinary("20")) 'Unlock X level
@@ -510,6 +514,9 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(txtTag.Text)))
                             SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(txtKanto.Text)))
                             SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(txtEvent.Text)))
+                        Case 8
+                            SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
+                            SetHex(_filename, Neg3C(&H3B0), HexStringToBinary(SetMilelage(txtMileage.Text)))
                     End Select
                 End If
 
@@ -597,6 +604,7 @@ Public Class frmEdit
 
                 frmCard.RefreshID6Cards()
                 frmCard.RefreshID7Cards()
+                frmCard.RefreshID8Cards()
 
                 Me.Close()
             End If
@@ -606,6 +614,10 @@ Public Class frmEdit
     End Sub
 
     Private Sub frmEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TabPage1.Enabled = False
+        TabPage2.Enabled = False
+        TabPage3.Enabled = False
+
         Translate()
 
         'Add Gender
@@ -650,6 +662,10 @@ Public Class frmEdit
             cmbAura7.DataSource = New BindingSource(aura, Nothing)
         End If
 
+        'If _version = 8 Then
+        '    DictionaryAdd7()
+        'End If
+
         lblAvatarOffset.Visible = My.Settings.DebugMode
         lblc4c5.Visible = My.Settings.DebugMode
         lblc5c6.Visible = My.Settings.DebugMode
@@ -670,13 +686,13 @@ Public Class frmEdit
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
                     txtPridePoint.Text = GetPridePoint(GetHex(_filename, 173, 1), GetHex(_filename, 174, 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, 1096, 1), GetHex(_filename, 1097, 1), GetHex(_filename, 1098, 1), GetHex(_filename, 1099, 1))
-                    GroupBox3.Enabled = False
+                    TabPage1.Enabled = True
                     cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
                     cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
                     cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
-                Else
+                ElseIf _version = 7 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
-                    GroupBox2.Enabled = False
+                    TabPage2.Enabled = True
                     txtSPride.Text = GetPridePoint(GetHex(_filename, 170, 1), GetHex(_filename, 171, 1))
                     txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
@@ -691,6 +707,15 @@ Public Class frmEdit
                     txtTag.Text = GetPridePoint(GetHex(_filename, &H398, 1), GetHex(_filename, &H399, 1))
                     txtKanto.Text = GetPridePoint(GetHex(_filename, &H39A, 1), GetHex(_filename, &H39B, 1))
                     txtEvent.Text = GetPridePoint(GetHex(_filename, &H39C, 1), GetHex(_filename, &H39D, 1))
+                ElseIf _version = 8 Then
+                    TabPage3.Enabled = True
+                    txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True, True)
+                    txtMileage.Text = GetMilelage(GetHex(_filename, 944, 1), GetHex(_filename, 945, 1), GetHex(_filename, 946, 1), GetHex(_filename, 947, 1))
+                    cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 8)
+                    cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 8)
+                    cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 8)
+                Else
+
                 End If
 
                 'Read Car
@@ -757,13 +782,13 @@ Public Class frmEdit
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, Neg60(548), 1))
                     txtPridePoint.Text = GetPridePoint(GetHex(_filename, Neg60(173), 1), GetHex(_filename, Neg60(174), 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(1096), 1), GetHex(_filename, Neg60(1097), 1), GetHex(_filename, Neg60(1098), 1), GetHex(_filename, Neg60(1099), 1))
-                    GroupBox3.Enabled = False
+                    TabPage1.Enabled = False
                     cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
                     cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
                     cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
-                Else
+                ElseIf _version = 7 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True)
-                    GroupBox2.Enabled = False
+                    TabPage2.Enabled = False
                     txtSPride.Text = GetPridePoint(GetHex(_filename, Neg60(170), 1), GetHex(_filename, Neg60(171), 1))
                     txtTPride.Text = GetPridePoint(GetHex(_filename, Neg60(172), 1), GetHex(_filename, Neg60(173), 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(896), 1), GetHex(_filename, Neg60(897), 1), GetHex(_filename, Neg60(898), 1), GetHex(_filename, Neg60(899), 1))
@@ -778,6 +803,13 @@ Public Class frmEdit
                     txtTag.Text = GetPridePoint(GetHex(_filename, Neg3C(&H398), 1), GetHex(_filename, Neg3C(&H399), 1))
                     txtKanto.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39A), 1), GetHex(_filename, Neg3C(&H39B), 1))
                     txtEvent.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39C), 1), GetHex(_filename, Neg3C(&H39D), 1))
+                ElseIf _version = 8 Then
+                    TabPage3.Enabled = True
+                    txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True, True)
+                    txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(944), 1), GetHex(_filename, Neg60(945), 1), GetHex(_filename, Neg60(946), 1), GetHex(_filename, Neg60(947), 1))
+                    cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 8)
+                    cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 8)
+                    cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 8)
                 End If
 
                 'Read Car
@@ -864,8 +896,9 @@ Public Class frmEdit
                 btnSave.Text = "Save"
                 tool_tip = "Change car might lose ability to tune your car!"
                 GroupBox1.Title = "Cheat"
-                GroupBox2.Title = "Initial D 6 AA"
-                GroupBox3.Title = "Initial D 7 AAX"
+                TabPage1.Text = "InitialD 6 AA"
+                TabPage2.Text = "InitialD 7 AAX"
+                TabPage3.Text = "InitialD 8 ∞"
                 GroupBox4.Text = "Avatar"
                 GroupBox4.Title = GroupBox4.Text
                 Label10.Text = "Category"
@@ -906,8 +939,6 @@ Public Class frmEdit
                 gbHair.SubTitle = "Headgear & Hairstyle"
                 gbFrame.SubTitle = "Background"
                 GroupBox1.SubTitle = "Not recommended for using Online."
-                GroupBox2.SubTitle = "These options are only available for InitialD 6 AA."
-                GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
                 GroupBox5.SubTitle = "Edit your name and gender."
                 Label15.Text = "Aura"
                 a7_none = "None"
@@ -942,14 +973,15 @@ Public Class frmEdit
                 Label5.Text = "車3"
                 Label13.Text = "里程"
                 Label14.Text = "点数"
-                Label9.Text = "全国自豪感点"
-                Label11.Text = "2v2自豪感点"
+                Label9.Text = "全国自豪点"
+                Label11.Text = "2v2自豪点"
                 cbLegend.Text = "解鎖傳說章節"
                 btnSave.Text = "保存"
                 tool_tip = "更換車可能會失去改車功能！"
                 GroupBox1.Title = "作弊"
-                GroupBox2.Title = "頭文字D6AA"
-                GroupBox3.Title = "頭文字D7AAX"
+                TabPage1.Text = "頭文字D6AA"
+                TabPage2.Text = "頭文字D7AAX"
+                TabPage3.Text = "頭文字D8∞"
                 GroupBox4.Title = "頭像"
                 Label10.Text = "類型"
                 Label12.Text = "選項"
@@ -989,8 +1021,6 @@ Public Class frmEdit
                 gbHair.SubTitle = "髮型與帽子"
                 gbFrame.SubTitle = "背景"
                 GroupBox1.SubTitle = "不推薦使用與在線模式。"
-                GroupBox2.SubTitle = "頭文字D6AA選項。"
-                GroupBox3.SubTitle = "頭文字D7AAX選項。"
                 GroupBox5.SubTitle = "設置您的名字與性別。"
                 Label15.Text = "靈氣"
                 a7_none = "無"
@@ -1031,8 +1061,9 @@ Public Class frmEdit
                 btnSave.Text = "Sauv"
                 tool_tip = "Change car might lose ability to tune your car!"
                 GroupBox1.Title = "Tricher"
-                GroupBox2.Title = "Initial D 6 AA"
-                GroupBox3.Title = "Initial D 7 AAX"
+                TabPage1.Text = "InitialD 6 AA"
+                TabPage2.Text = "InitialD 7 AAX"
+                TabPage3.Text = "InitialD 8 ∞"
                 GroupBox4.Title = "Avatar"
                 Label10.Text = "Catégorie"
                 Label12.Text = "Sélection"
@@ -1072,8 +1103,6 @@ Public Class frmEdit
                 gbHair.SubTitle = "Headgear & Hairstyle"
                 gbFrame.SubTitle = "Background"
                 GroupBox1.SubTitle = "Not recommended for using Online."
-                GroupBox2.SubTitle = "These options are only available for InitialD 6 AA."
-                GroupBox3.SubTitle = "These options are only available for InitialD 7 AAX."
                 GroupBox5.SubTitle = "Edit your name and gender."
                 Label15.Text = "Aura"
                 a7_none = "None"

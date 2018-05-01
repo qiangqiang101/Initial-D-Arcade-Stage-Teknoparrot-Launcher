@@ -36,6 +36,7 @@ Partial Class frmLauncher
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.lblLeaderboard = New System.Windows.Forms.Label()
         Me.lblLogout = New System.Windows.Forms.Label()
+        Me.lblStart8 = New System.Windows.Forms.Label()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,9 +46,9 @@ Partial Class frmLauncher
         Me.lblStart6.BackColor = System.Drawing.Color.Transparent
         Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblStart6.ForeColor = System.Drawing.Color.White
-        Me.lblStart6.Location = New System.Drawing.Point(564, 51)
+        Me.lblStart6.Location = New System.Drawing.Point(581, 194)
         Me.lblStart6.Name = "lblStart6"
-        Me.lblStart6.Size = New System.Drawing.Size(287, 37)
+        Me.lblStart6.Size = New System.Drawing.Size(287, 38)
         Me.lblStart6.TabIndex = 1
         Me.lblStart6.Text = "Play Initial D 6 AA"
         Me.lblStart6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -58,9 +59,9 @@ Partial Class frmLauncher
         Me.lblStart7.BackColor = System.Drawing.Color.Transparent
         Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblStart7.ForeColor = System.Drawing.Color.White
-        Me.lblStart7.Location = New System.Drawing.Point(564, 88)
+        Me.lblStart7.Location = New System.Drawing.Point(581, 232)
         Me.lblStart7.Name = "lblStart7"
-        Me.lblStart7.Size = New System.Drawing.Size(287, 37)
+        Me.lblStart7.Size = New System.Drawing.Size(287, 38)
         Me.lblStart7.TabIndex = 2
         Me.lblStart7.Text = "Play Initial D 7 AAX"
         Me.lblStart7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -71,9 +72,9 @@ Partial Class frmLauncher
         Me.lblExit.BackColor = System.Drawing.Color.Transparent
         Me.lblExit.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblExit.ForeColor = System.Drawing.Color.White
-        Me.lblExit.Location = New System.Drawing.Point(564, 236)
+        Me.lblExit.Location = New System.Drawing.Point(581, 422)
         Me.lblExit.Name = "lblExit"
-        Me.lblExit.Size = New System.Drawing.Size(287, 37)
+        Me.lblExit.Size = New System.Drawing.Size(287, 38)
         Me.lblExit.TabIndex = 4
         Me.lblExit.Text = "Quit Game"
         Me.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -84,9 +85,9 @@ Partial Class frmLauncher
         Me.lblSetting.BackColor = System.Drawing.Color.Transparent
         Me.lblSetting.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblSetting.ForeColor = System.Drawing.Color.White
-        Me.lblSetting.Location = New System.Drawing.Point(564, 199)
+        Me.lblSetting.Location = New System.Drawing.Point(581, 384)
         Me.lblSetting.Name = "lblSetting"
-        Me.lblSetting.Size = New System.Drawing.Size(287, 37)
+        Me.lblSetting.Size = New System.Drawing.Size(287, 38)
         Me.lblSetting.TabIndex = 3
         Me.lblSetting.Text = "Settings"
         Me.lblSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -97,9 +98,9 @@ Partial Class frmLauncher
         Me.lblDebug.BackColor = System.Drawing.Color.Transparent
         Me.lblDebug.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblDebug.ForeColor = System.Drawing.Color.White
-        Me.lblDebug.Location = New System.Drawing.Point(564, 273)
+        Me.lblDebug.Location = New System.Drawing.Point(581, 460)
         Me.lblDebug.Name = "lblDebug"
-        Me.lblDebug.Size = New System.Drawing.Size(287, 37)
+        Me.lblDebug.Size = New System.Drawing.Size(287, 38)
         Me.lblDebug.TabIndex = 5
         Me.lblDebug.Text = "Debug"
         Me.lblDebug.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -123,10 +124,10 @@ Partial Class frmLauncher
         '
         Me.pbLogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbLogo.BackColor = System.Drawing.Color.Transparent
-        Me.pbLogo.Image = Global.InitialDLauncher.My.Resources.Resources.id_logo
-        Me.pbLogo.Location = New System.Drawing.Point(564, 291)
+        Me.pbLogo.Image = Global.InitialDLauncher.My.Resources.Resources.id_logo1
+        Me.pbLogo.Location = New System.Drawing.Point(12, 12)
         Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(392, 250)
+        Me.pbLogo.Size = New System.Drawing.Size(928, 179)
         Me.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbLogo.TabIndex = 0
         Me.pbLogo.TabStop = False
@@ -137,9 +138,9 @@ Partial Class frmLauncher
         Me.lblCardMan.BackColor = System.Drawing.Color.Transparent
         Me.lblCardMan.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblCardMan.ForeColor = System.Drawing.Color.White
-        Me.lblCardMan.Location = New System.Drawing.Point(564, 162)
+        Me.lblCardMan.Location = New System.Drawing.Point(581, 346)
         Me.lblCardMan.Name = "lblCardMan"
-        Me.lblCardMan.Size = New System.Drawing.Size(287, 37)
+        Me.lblCardMan.Size = New System.Drawing.Size(287, 38)
         Me.lblCardMan.TabIndex = 7
         Me.lblCardMan.Text = "Card Selection"
         Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -159,9 +160,9 @@ Partial Class frmLauncher
         Me.lblLeaderboard.BackColor = System.Drawing.Color.Transparent
         Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.lblLeaderboard.ForeColor = System.Drawing.Color.White
-        Me.lblLeaderboard.Location = New System.Drawing.Point(564, 125)
+        Me.lblLeaderboard.Location = New System.Drawing.Point(581, 308)
         Me.lblLeaderboard.Name = "lblLeaderboard"
-        Me.lblLeaderboard.Size = New System.Drawing.Size(287, 37)
+        Me.lblLeaderboard.Size = New System.Drawing.Size(287, 38)
         Me.lblLeaderboard.TabIndex = 8
         Me.lblLeaderboard.Text = "TA Leaderboard"
         Me.lblLeaderboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -180,6 +181,19 @@ Partial Class frmLauncher
         Me.lblLogout.Text = "User: {0}"
         Me.lblLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'lblStart8
+        '
+        Me.lblStart8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblStart8.BackColor = System.Drawing.Color.Transparent
+        Me.lblStart8.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart8.ForeColor = System.Drawing.Color.White
+        Me.lblStart8.Location = New System.Drawing.Point(581, 270)
+        Me.lblStart8.Name = "lblStart8"
+        Me.lblStart8.Size = New System.Drawing.Size(287, 38)
+        Me.lblStart8.TabIndex = 10
+        Me.lblStart8.Text = "Play Initial D 8 Infinity"
+        Me.lblStart8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmLauncher
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -187,6 +201,7 @@ Partial Class frmLauncher
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(952, 538)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblStart8)
         Me.Controls.Add(Me.lblLogout)
         Me.Controls.Add(Me.lblLeaderboard)
         Me.Controls.Add(Me.lblCardMan)
@@ -223,4 +238,5 @@ Partial Class frmLauncher
     Friend WithEvents Timer2 As Timer
     Friend WithEvents lblLeaderboard As Label
     Friend WithEvents lblLogout As Label
+    Friend WithEvents lblStart8 As Label
 End Class

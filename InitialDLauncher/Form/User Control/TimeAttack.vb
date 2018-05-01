@@ -6,7 +6,7 @@
 
     'Translate
     Public LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow As String
-    Dim id6, id7 As String
+    Dim id6, id7, id8 As String
 
     Private _version As Integer
     Public Property Version() As Integer
@@ -54,7 +54,7 @@
             cs.Version = _version
             cs.Score = _score
             cs.lblName.Text = My.Settings.UserName
-            If _version = 6 Then cs.lblVersion.Text = id6 Else cs.lblVersion.Text = id7
+            If _version = 6 Then cs.lblVersion.Text = id6 Else If _version = 7 Then cs.lblVersion.Text = id7 Else If _version = 8 Then cs.lblVersion.Text = id8
             cs.lblCourse.Text = lblCourse.Text
             cs.Track = trackname.Item(lblCourse.Text)
             cs.lblTime.Text = lblTime.Text
@@ -159,8 +159,9 @@
                 Wet = "Wet"
                 Snow = "Snow"
                 btnTimeAttack.Text = "Submit"
-                id6 = "Initial D 6 AA"
-                id7 = "Initial D 7 AAX"
+                id6 = "InitialD 6 AA"
+                id7 = "InitialD 7 AAX"
+                id8 = "InitialD 8 ∞"
             Case "Chinese"
                 LakeAkina = "秋明湖"
                 Myogi = "妙義"
@@ -191,6 +192,7 @@
                 btnTimeAttack.Text = "提交"
                 id6 = "頭文字D6AA"
                 id7 = "頭文字D7AAX"
+                id8 = "頭文字D8∞"
             Case "French"
                 LakeAkina = "Lake Akina"
                 Myogi = "Myogi"
@@ -219,8 +221,9 @@
                 Wet = "Humide"
                 Snow = "Neige"
                 btnTimeAttack.Text = "Soumettre"
-                id6 = "Initial D 6 AA"
-                id7 = "Initial D 7 AAX"
+                id6 = "InitialD 6 AA"
+                id7 = "InitialD 7 AAX"
+                id8 = "InitialD 8 ∞"
         End Select
     End Sub
 

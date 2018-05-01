@@ -13,6 +13,7 @@ Public Class frmSettings
         Try
             txt6.Text = My.Settings.Id6Path
             txt7.Text = My.Settings.Id7Path
+            txt8.Text = My.Settings.Id8Path
             txtPlayerName.Text = My.Settings.UserName
             cbTest.Checked = My.Settings.TestMode
             cbDebug.Checked = My.Settings.DebugMode
@@ -38,11 +39,15 @@ Public Class frmSettings
                 'ElseIf txtPlayerName.Text = Nothing Then
                 '    MsgBox(no_name, MsgBoxStyle.Critical, "Error")
                 '    txtPlayerName.Focus()
+            ElseIf txt8.Text.Contains(".exe") Then
+                MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
+                txt8.Focus()
             Else
                 If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
 
                 My.Settings.Id6Path = txt6.Text
                 My.Settings.Id7Path = txt7.Text
+                My.Settings.Id8Path = txt8.Text
                 My.Settings.UserName = txtPlayerName.Text
                 My.Settings.TestMode = cbTest.Checked
                 My.Settings.DebugMode = cbDebug.Checked
@@ -54,6 +59,7 @@ Public Class frmSettings
 
                 frmLauncher.id6GameDir = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
                 frmLauncher.id7GameDir = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
+                frmLauncher.id8GameDir = Path.Combine(My.Settings.Id8Path, "InidCrd000.crd")
 
                 frmLauncher.lblDebug.Visible = cbDebug.Checked
                 frmLauncher.Translate()
@@ -103,6 +109,7 @@ Public Class frmSettings
                 NsTheme1.Text = Me.Text
                 Label1.Text = "Initial D 6AA Path"
                 Label2.Text = "Initial D 7AAX Path"
+                Label4.Text = "Initial D 8 Path"
                 cbTest.Text = "Test Menu"
                 cbDebug.Text = "Debug Mode"
                 Label21.Text = "Launcher Language"
@@ -115,11 +122,13 @@ Public Class frmSettings
                 Label23.Text = "Country"
                 cbMP.Text = "Multiplayer"
                 Label3.Text = "Card Prefer"
+                cbPicodaemon.Text = "Run Card Reader"
             Case "Chinese"
                 Me.Text = "設定"
                 NsTheme1.Text = Me.Text
                 Label1.Text = "頭文字D6AA路徑"
                 Label2.Text = "頭文字D7AAX路徑"
+                Label4.Text = "頭文字D8路徑"
                 cbTest.Text = "測試菜單"
                 cbDebug.Text = "調試模式"
                 Label21.Text = "登陸器語言"
@@ -132,11 +141,13 @@ Public Class frmSettings
                 Label23.Text = "國家"
                 cbMP.Text = "線上模式"
                 Label3.Text = "默認選擇卡"
+                cbPicodaemon.Text = "運行讀卡器"
             Case "French"
                 Me.Text = "Réglages"
                 NsTheme1.Text = Me.Text
                 Label1.Text = "Initial D 6AA Chemin"
                 Label2.Text = "Initial D 7AAX Chemin"
+                Label4.Text = "Initial D 8 Chemin"
                 cbTest.Text = "Test Menu"
                 cbDebug.Text = "Mode Debug"
                 Label21.Text = "Langue"
@@ -149,6 +160,7 @@ Public Class frmSettings
                 Label23.Text = "Pays"
                 cbMP.Text = "Multijoueur"
                 Label3.Text = "Card Prefer"
+                cbPicodaemon.Text = "Run Card Reader"
         End Select
     End Sub
 

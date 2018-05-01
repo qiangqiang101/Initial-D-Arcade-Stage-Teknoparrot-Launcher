@@ -14,16 +14,20 @@ Public Class frmLauncher
     Dim threadU As Thread
     Dim shadow As Dropshadow
     Dim curVer As Integer = 30
-    Public buildDate As String = "18/04/2018"
+    Public buildDate As String = "01/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
+    Dim id8AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBZZ_card.bin")
     Public Shared id6GameDir As String = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
     Public Shared id7GameDir As String = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
+    Public Shared id8GameDir As String = Path.Combine(My.Settings.Id8Path, "InidCrd000.crd")
     Public id6CardPath As String = My.Settings.Id6CardName
     Public id7CardPath As String = My.Settings.Id7CardName
+    Public id8CardPath As String = My.Settings.Id8CardName
     Dim id6CardDir As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardDir As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
+    Dim id8CardDir As String = String.Format("{0}\ID8_CARD\", My.Application.Info.DirectoryPath)
 
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
@@ -84,6 +88,21 @@ Public Class frmLauncher
         lblStart7.ForeColor = Color.White
         lblStart7.Size = New Size(lblStart7.Size.Width - widthx, lblStart7.Size.Height)
         lblStart7.Text = lblStart7.Text.Replace(" <<", String.Empty)
+    End Sub
+
+    Private Sub lblStart8_MouseEnter(sender As Object, e As EventArgs) Handles lblStart8.MouseEnter
+        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
+        Me.Cursor = Cursors.Hand
+        lblStart8.ForeColor = Color.Gold
+        lblStart8.Size = New Size(lblStart8.Size.Width + widthx, lblStart8.Size.Height)
+        lblStart8.Text = lblStart8.Text & " <<"
+    End Sub
+
+    Private Sub lblStart8_MouseLeave(sender As Object, e As EventArgs) Handles lblStart8.MouseLeave
+        Me.Cursor = Cursors.Default
+        lblStart8.ForeColor = Color.White
+        lblStart8.Size = New Size(lblStart8.Size.Width - widthx, lblStart8.Size.Height)
+        lblStart8.Text = lblStart8.Text.Replace(" <<", String.Empty)
     End Sub
 
     Private Sub lblSetting_MouseEnter(sender As Object, e As EventArgs) Handles lblSetting.MouseEnter
@@ -169,6 +188,7 @@ Public Class frmLauncher
 
             If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
             If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
+            If Not Directory.Exists(id8CardDir) Then Directory.CreateDirectory(id8CardDir)
 
             shadow = New Dropshadow(Me) With {.ShadowBlur = 30, .ShadowSpread = 1, .ShadowColor = Color.Black}
             shadow.RefreshShadow()
@@ -185,9 +205,14 @@ Public Class frmLauncher
                 My.Settings.Id7CardName = ""
                 My.Settings.Save()
             End If
+            If Not File.Exists(id8CardPath) Then
+                My.Settings.Id8CardName = ""
+                My.Settings.Save()
+            End If
 
             If My.Settings.Id6Path = Nothing Then lblStart6.Enabled = False
             If My.Settings.Id7Path = Nothing Then lblStart7.Enabled = False
+            If My.Settings.Id8Path = Nothing Then lblStart8.Enabled = False
 
             Translate()
 
@@ -232,7 +257,7 @@ Public Class frmLauncher
                     Me.WindowState = FormWindowState.Minimized
 
                     If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
-                    If IO.Path.GetExtension(AppData) = ".bin" Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
+                    If IO.Path.GetExtension(AppData) = ".bin" Then If My.Settings.RunCardReader Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
                     If My.Settings.Multiplayer Then
                         RunTeknoParrotOnline(True)
                     Else
@@ -245,7 +270,7 @@ Public Class frmLauncher
                 Me.WindowState = FormWindowState.Minimized
 
                 If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
-                If IO.Path.GetExtension(AppData) = ".bin" Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
+                If IO.Path.GetExtension(AppData) = ".bin" Then If My.Settings.RunCardReader Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
                 If My.Settings.Multiplayer Then
                     RunTeknoParrotOnline(True)
                 Else
@@ -296,6 +321,25 @@ Public Class frmLauncher
         End Select
     End Sub
 
+    Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click
+        isGameRunning = True
+        wait(500)
+
+        Select Case IO.Path.GetExtension(My.Settings.Id8CardName)
+            Case ".bin"
+                RunGame(id8CardDir, id8CardPath, 8, id8AppData, My.Settings.Id8Path, "--profile=ID8.xml")
+            Case ".crd"
+                RunGame(id8CardDir, id8CardPath, 8, id8GameDir, My.Settings.Id8Path, "--profile=ID8.xml")
+            Case Else
+                Select Case My.Settings.PerferCardExt
+                    Case "CRD"
+                        RunGame(id8CardDir, id8CardPath, 8, id8GameDir, My.Settings.Id8Path, "--profile=ID8.xml")
+                    Case "BIN"
+                        RunGame(id8CardDir, id8CardPath, 8, id8AppData, My.Settings.Id8Path, "--profile=ID8.xml")
+                End Select
+        End Select
+    End Sub
+
     Private Sub lblSetting_Click(sender As Object, e As EventArgs) Handles lblSetting.Click
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         frmSettings.Show()
@@ -312,7 +356,7 @@ Public Class frmLauncher
 
     Private Sub lblDebug_Click(sender As Object, e As EventArgs) Handles lblDebug.Click
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        MsgBox(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID))
+        MsgBox(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}ID8 AppData Path: {12}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}ID8 GameDir Path: {13}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}ID8 Card File Path: {14}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}ID8 Game Path: {15}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}ID8 Selected Card: {16}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID, id8AppData, id8GameDir, id8CardPath, My.Settings.Id8Path, My.Settings.Id8CardName))
     End Sub
 
     Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click
@@ -355,6 +399,9 @@ Public Class frmLauncher
                         'End Select
                         selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                         If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
+                    Case 8
+                        selPath = String.Format("{0}\ID8_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                        If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
                 End Select
             Else
                 Select Case lastGame
@@ -364,6 +411,9 @@ Public Class frmLauncher
                     Case 7
                         If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
                         If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
+                    Case 8
+                        If File.Exists(id8AppData) Then File.Move(id8AppData, selPath)
+                        If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
                 End Select
             End If
 
@@ -470,6 +520,8 @@ Public Class frmLauncher
         If File.Exists(id6GameDir) Then If Not File.Exists(Path.Combine(id6CardDir, "InidCrd000.crd")) Then File.Move(id6GameDir, id6CardDir)
         If File.Exists(id7AppData) Then If Not File.Exists(Path.Combine(id7CardDir, "SBYD_card.bin")) Then File.Move(id7AppData, id7CardDir)
         If File.Exists(id7GameDir) Then If Not File.Exists(Path.Combine(id7CardDir, "InidCrd000.crd")) Then File.Move(id7GameDir, id7CardDir)
+        If File.Exists(id8AppData) Then If Not File.Exists(Path.Combine(id8CardDir, "SBZZ_card.bin")) Then File.Move(id8AppData, id8CardDir)
+        If File.Exists(id8GameDir) Then If Not File.Exists(Path.Combine(id8CardDir, "InidCrd000.crd")) Then File.Move(id8GameDir, id8CardDir)
     End Sub
 
     Private Sub CheckUpdate()
@@ -496,8 +548,9 @@ Public Class frmLauncher
     Public Sub Translate()
         Select Case My.Settings.Language
             Case "English"
-                lblStart6.Text = "Play Initial D 6 AA"
-                lblStart7.Text = "Play Initial D 7 AAX"
+                lblStart6.Text = "Play InitialD 6 AA"
+                lblStart7.Text = "Play InitialD 7 AAX"
+                lblStart8.Text = "Play InitialD 8 ∞"
                 lblLeaderboard.Text = "Time Attack Ranking"
                 lblCardMan.Text = "Card Selection"
                 lblSetting.Text = "Settings"
@@ -510,6 +563,7 @@ Public Class frmLauncher
             Case "Chinese"
                 lblStart6.Text = "玩頭文字D6AA"
                 lblStart7.Text = "玩頭文字D7AAX"
+                lblStart8.Text = "玩頭文字D8∞"
                 lblLeaderboard.Text = "時間挑戰排行榜"
                 lblCardMan.Text = "選擇卡"
                 lblSetting.Text = "設定"
@@ -520,8 +574,9 @@ Public Class frmLauncher
                 no_card_selected = "没有选择卡！ 你想繼續嗎？"
                 If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("用戶名: {0} | 登出", My.Settings.UserName) Else lblLogout.Text = "登錄"
             Case "French"
-                lblStart6.Text = "Jouer Initial D 6 AA"
-                lblStart7.Text = "Jouer Initial D 7 AAX"
+                lblStart6.Text = "Jouer InitialD 6 AA"
+                lblStart7.Text = "Jouer InitialD 7 AAX"
+                lblStart8.Text = "Jouer InitialD 8 ∞"
                 lblLeaderboard.Text = "TA Classement"
                 lblCardMan.Text = "Choisir Carte"
                 lblSetting.Text = "Réglages"

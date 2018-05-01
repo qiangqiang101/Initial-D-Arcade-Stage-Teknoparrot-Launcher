@@ -10,12 +10,15 @@ Public Class frmLeaderboard
 
     Dim trackname6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackname7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim trackname8 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim tracktype6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim tracktype7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim tracktype8 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackweather6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackweather7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim trackweather8 As Dictionary(Of String, String) = New Dictionary(Of String, String)
 
-    Dim thread6, thread7 As Thread
+    Dim thread6, thread7, thread8 As Thread
 
     'Translate
     Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow As String
@@ -25,6 +28,10 @@ Public Class frmLeaderboard
     End Sub
 
     Private Sub btnReport7_Click(sender As Object, e As EventArgs) Handles btnReport7.Click
+
+    End Sub
+
+    Private Sub btnReport8_Click(sender As Object, e As EventArgs) Handles btnReport8.Click
 
     End Sub
 
@@ -43,6 +50,57 @@ Public Class frmLeaderboard
             btnReport6.Enabled = False
         End If
     End Sub
+
+    Private Sub lv8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv8.SelectedIndexChanged
+        If lv8.SelectedItems.Count >= 1 Then
+            btnReport8.Enabled = True
+        Else
+            btnReport8.Enabled = False
+        End If
+    End Sub
+
+    Private Sub cmbCourse8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse8.SelectedIndexChanged
+        cmbType8.DataSource = Nothing
+        cmbType8.Items.Clear()
+        cmbType8.DisplayMember = "Key"
+        cmbType8.ValueMember = "Value"
+        tracktype8.Clear()
+
+        cmbWeather8.DataSource = Nothing
+        cmbWeather8.Items.Clear()
+        cmbWeather8.DisplayMember = "Key"
+        cmbWeather8.ValueMember = "Value"
+        trackweather8.Clear()
+
+        Select Case cmbCourse8.SelectedValue.ToString
+            Case "LakeAkina", "Usui"
+                tracktype8.Add(Counterclockwise, "Counterclockwise")
+                tracktype8.Add(Clockwise, "Clockwise")
+                trackweather8.Add(Dry, "Dry")
+            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine", "Nanamagari", "Sadamine"
+                tracktype8.Add(Uphill, "Uphill")
+                tracktype8.Add(Downhill, "Downhill")
+                trackweather8.Add(Dry, "Dry")
+            Case "Irohazka"
+                tracktype8.Add(Downhill, "Downhill")
+                tracktype8.Add(Reversed, "Reversed")
+                trackweather8.Add(Dry, "Dry")
+            Case "Happogahara", "Tsukuba", "Tsuchisaka"
+                tracktype8.Add(Inbound, "Inbound")
+                tracktype8.Add(Outbound, "Outbound")
+                trackweather8.Add(Dry, "Dry")
+            Case "AkinaSnow"
+                tracktype8.Add(Uphill, "Uphill")
+                tracktype8.Add(Downhill, "Downhill")
+                trackweather8.Add(Snow, "Snow")
+        End Select
+
+        cmbType8.DataSource = New BindingSource(tracktype8, Nothing)
+        cmbType8.SelectedIndex = 0
+        cmbWeather8.DataSource = New BindingSource(trackweather8, Nothing)
+        cmbWeather8.SelectedIndex = 0
+    End Sub
+
 
     Private Sub cmbCourse7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse7.SelectedIndexChanged
         cmbType7.DataSource = Nothing
@@ -228,6 +286,47 @@ Public Class frmLeaderboard
         End Try
     End Sub
 
+    Private Sub RefreshLeaderboard8(course As String, type As String, weather As String)
+        lv8.Items.Clear()
+        Dim number As Integer = 1
+
+        Try
+            Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
+
+            Dim reader As StreamReader
+            If My.Settings.Server = "World" Then
+                reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURL + "gameversion=8&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            Else
+                reader = New StreamReader(Client.OpenRead(Convert.ToString(TopScoresURLCN + "gameversion=8&track=" & course & "&coursetype=" & type & "&weather=" & weather)))
+            End If
+            Dim Source As String = reader.ReadToEnd
+            If Not Source = Nothing Then
+                Dim Source2 As String = Source.Remove(Source.Length - 1)
+                Dim Lines() As String = Source2.Split("#"c)
+                For Each s As String In Lines
+                    Dim result() As String = s.Split(","c)
+                    Dim name As String = result(0)
+                    Dim score As String = result(1)
+                    Dim car As String = result(2)
+                    Dim id As String = result(3)
+                    Dim cpuid As String = result(4)
+                    Dim ts As String = result(5)
+                    items = lv8.Items.Add(number)
+                    With items
+                        .SubItems.Add(name)
+                        .SubItems.Add(car)
+                        .SubItems.Add(ScoreToTime(score))
+                        .SubItems.Add(ts)
+                        .Tag = id
+                    End With
+                    number += 1
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
     Private Sub btnRefresh6_Click(sender As Object, e As EventArgs) Handles btnRefresh6.Click
         'RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
 
@@ -240,6 +339,11 @@ Public Class frmLeaderboard
 
         thread7 = New Thread(Sub() RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString))
         thread7.Start()
+    End Sub
+
+    Private Sub btnRefresh8_Click(sender As Object, e As EventArgs) Handles btnRefresh8.Click
+        thread8 = New Thread(Sub() RefreshLeaderboard8(cmbCourse8.SelectedValue.ToString, cmbType8.SelectedValue.ToString, cmbWeather8.SelectedValue.ToString))
+        thread8.Start()
     End Sub
 
     Private Sub frmLeaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -286,14 +390,34 @@ Public Class frmLeaderboard
         cmbCourse7.ValueMember = "Value"
         cmbCourse7.DataSource = New BindingSource(trackname7, Nothing)
 
+        trackname8.Add(LakeAkina, "LakeAkina")
+        trackname8.Add(Myogi, "Myogi")
+        trackname8.Add(Usui, "Usui")
+        trackname8.Add(Akagi, "Akagi")
+        trackname8.Add(Akina, "Akina")
+        trackname8.Add(Irohazka, "Irohazka")
+        trackname8.Add(Happogahara, "Happogahara")
+        trackname8.Add(Nagao, "Nagao")
+        trackname8.Add(Tsukuba, "Tsukuba")
+        trackname8.Add(TsubakiLine, "TsubakiLine")
+        trackname8.Add(Nanamagari, "Nanamagari")
+        trackname8.Add(Sadamine, "Sadamine")
+        trackname8.Add(Tsuchisaka, "Tsuchisaka")
+        trackname8.Add(AkinaSnow, "AkinaSnow")
+        cmbCourse8.DisplayMember = "Key"
+        cmbCourse8.ValueMember = "Value"
+        cmbCourse8.DataSource = New BindingSource(trackname8, Nothing)
+
         cmbCourse6.SelectedIndex = 0
         cmbCourse7.SelectedIndex = 0
-
+        cmbCourse8.SelectedIndex = 0
 
         thread6 = New Thread(Sub() RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString))
         thread6.Start()
         thread7 = New Thread(Sub() RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString))
         thread7.Start()
+        thread8 = New Thread(Sub() RefreshLeaderboard8(cmbCourse8.SelectedValue.ToString, cmbType8.SelectedValue.ToString, cmbWeather8.SelectedValue.ToString))
+        thread8.Start()
 
         'RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
         'RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
@@ -304,16 +428,21 @@ Public Class frmLeaderboard
             Case "English"
                 Me.Text = "Time Attack Ranking"
                 NsTheme1.Text = Me.Text
-                tp6.Text = "Initial D 6 AA"
-                tp7.Text = "Initial D 7 AAX"
+                tp6.Text = "InitialD 6 AA"
+                tp7.Text = "InitialD 7 AAX"
+                tp8.Text = "InitialD 8 ∞"
                 Label3.Text = "Course"
                 Label6.Text = Label3.Text
+                Label9.Text = Label3.Text
                 Label1.Text = "Type"
                 Label5.Text = Label1.Text
+                Label8.Text = Label1.Text
                 Label2.Text = "Weather"
                 Label4.Text = Label2.Text
+                Label7.Text = Label2.Text
                 btnRefresh6.Text = "Refresh"
                 btnRefresh7.Text = btnRefresh6.Text
+                btnRefresh8.Text = btnRefresh6.Text
                 chNo6.Text = "No."
                 chNo7.Text = chNo6.Text
                 chName6.Text = "Name"
@@ -324,6 +453,11 @@ Public Class frmLeaderboard
                 chTime7.Text = chTime6.Text
                 chDate6.Text = "Date"
                 chDate7.Text = chDate6.Text
+                chNo8.Text = chNo6.Text
+                chName8.Text = chName6.Text
+                chCar8.Text = chCar6.Text
+                chTime8.Text = chTime6.Text
+                chDate8.Text = chDate6.Text
                 LakeAkina = "Lake Akina"
                 Myogi = "Myogi"
                 Usui = "Usui"
@@ -352,19 +486,25 @@ Public Class frmLeaderboard
                 Snow = "Snow"
                 btnReport6.Text = "Report"
                 btnReport7.Text = btnReport6.Text
+                btnReport8.Text = btnReport6.Text
             Case "Chinese"
                 Me.Text = "時間挑戰排行榜"
                 NsTheme1.Text = Me.Text
                 tp6.Text = "頭文字D6AA"
                 tp7.Text = "頭文字D7AAX"
+                tp8.Text = "頭文字D7∞"
                 Label3.Text = "地圖"
                 Label6.Text = Label3.Text
+                Label9.Text = Label3.Text
                 Label1.Text = "類別"
                 Label5.Text = Label1.Text
+                Label8.Text = Label1.Text
                 Label2.Text = "天氣"
                 Label4.Text = Label2.Text
+                Label7.Text = Label2.Text
                 btnRefresh6.Text = "刷新"
                 btnRefresh7.Text = btnRefresh6.Text
+                btnRefresh8.Text = btnRefresh6.Text
                 chNo6.Text = "名次"
                 chNo7.Text = chNo6.Text
                 chName6.Text = "名字"
@@ -375,6 +515,11 @@ Public Class frmLeaderboard
                 chTime7.Text = chTime6.Text
                 chDate6.Text = "日期"
                 chDate7.Text = chDate6.Text
+                chNo8.Text = chNo6.Text
+                chName8.Text = chName6.Text
+                chCar8.Text = chCar6.Text
+                chTime8.Text = chTime6.Text
+                chDate8.Text = chDate6.Text
                 LakeAkina = "秋明湖"
                 Myogi = "妙義"
                 Usui = "碓冰"
@@ -403,19 +548,25 @@ Public Class frmLeaderboard
                 Snow = "雪"
                 btnReport6.Text = "舉報"
                 btnReport7.Text = btnReport6.Text
+                btnReport8.Text = btnReport6.Text
             Case "French"
                 Me.Text = "Classement des attaques de temps"
                 NsTheme1.Text = Me.Text
-                tp6.Text = "Initial D 6 AA"
-                tp7.Text = "Initial D 7 AAX"
+                tp6.Text = "InitialD 6 AA"
+                tp7.Text = "InitialD 7 AAX"
+                tp8.Text = "InitialD 8 ∞"
                 Label3.Text = "Piste"
                 Label6.Text = Label3.Text
+                Label9.Text = Label3.Text
                 Label1.Text = "Type"
                 Label5.Text = Label1.Text
+                Label8.Text = Label1.Text
                 Label2.Text = "Météo"
                 Label4.Text = Label2.Text
+                Label7.Text = Label2.Text
                 btnRefresh6.Text = "Rafraîchir"
                 btnRefresh7.Text = btnRefresh6.Text
+                btnRefresh8.Text = btnRefresh6.Text
                 chNo6.Text = "No."
                 chNo7.Text = chNo6.Text
                 chName6.Text = "Nom"
@@ -426,6 +577,11 @@ Public Class frmLeaderboard
                 chTime7.Text = chTime6.Text
                 chDate6.Text = "Dater"
                 chDate7.Text = chDate6.Text
+                chNo8.Text = chNo6.Text
+                chName8.Text = chName6.Text
+                chCar8.Text = chCar6.Text
+                chTime8.Text = chTime6.Text
+                chDate8.Text = chDate6.Text
                 LakeAkina = "Lake Akina"
                 Myogi = "Myogi"
                 Usui = "Usui"
@@ -454,6 +610,7 @@ Public Class frmLeaderboard
                 Snow = "Neige"
                 btnReport6.Text = "Rapport"
                 btnReport7.Text = btnReport6.Text
+                btnReport8.Text = btnReport6.Text
         End Select
     End Sub
 

@@ -86,6 +86,17 @@ Module Helper
                     Next
                 End Using
             End If
+            If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml") Then
+                Dim xd As New XmlDocument()
+                xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml")
+                Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
+                    For Each item As XmlNode In items
+                        Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
+                        My.Settings.Id8Path = Path.GetDirectoryName(GamePath)
+                        My.Settings.Save()
+                    Next
+                End Using
+            End If
         End If
     End Sub
 
@@ -227,7 +238,7 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("3354", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "FAIRLADY Z (Z33)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222C", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
-            Case "GT-R (R35)"
+            Case "GT-R (R35)", "GT-R NISMO (R35)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222E", New List(Of String)(New String() {"00"}), New List(Of String)(New String() {"None"}), New List(Of String)(New String() {none}), New List(Of String)(New String() {"None"}))
                 'HONDA
             Case "Civic SiR・II (EG6)"
@@ -319,6 +330,8 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "SUPER RED Ⅳ", "DEEP TEAL METALLIC", "SUPER BRIGHT YELLOW", "BLUE MICA", "ORANGE MICA METALLIC", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
             Case "PRIUS (ZVW30)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "RED MICA METALLIC", "AQUA BLUE METALLIC", "DARK BLUE METALLIC", "ICEBERG SILVER MICA METALLIC", "ORANGE MICA METALLIC", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+            Case "CELICA GT-FOUR (ST205)"
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BLACK", "SUPER WHITE �U", "SILVER METALLIC", "SUPER RED �W", "LIGHT GREEN METALLIC", "BLUE MICA METALLIC", "YELLOW", "DARK PURPLE MICA", "ORANGE MICA METALLIC", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
                 'NISSAN
             Case "SKYLINE GT-R (BNR32)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BLACK PEARL METALLIC", "GUN GREY METALLIC", "CRYSTAL WHITE", "SPARKLE SILVER METALLIC", "RED PEARL", "BLUE", "ACTIVE RED", "LIGHTNING YELLOW", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
@@ -334,8 +347,10 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WARM WHITE", "YELLOWISH SILVER", "SUPER BLACK", "DARK GREY", "SUPER RED", "VELVET BLUE", "PURPLISH GREY", "RED PEARL METALLIC", "LIGHTNING YELLOW", "ORANGE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
             Case "FAIRLADY Z (Z33)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BURNING RED", "MONTEREY BLUE", "SUNSET ORANGE", "WHITE PEARL", "DIAMOND SILVER", "SPARKLING SILVER", "SUPER BLACK", "PINK", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
-            Case "GT-R (R35)"
+            Case "GT-R (R35)", "GT-R NISMO (R35)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"ULTIMATE METAL SILVER", "TITANIUM GRAY", "WHITE PEARL", "VIBRANT RED", "DARK METAL GRAY", "SUPER BLACK", "SILICA BRASS", "LIGHTNING YELLOW", "MIDNIGHT PURPLE Ⅱ", "BAYSIDE BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+            Case "SKYLINE 25GT TURBO (ER34)"
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"DARK BLUE PEARL", "BLACK PEARL", "LIGHTNING YELLOW", "ATHLETE SILVER", "SONIC SILVER", "ACTIVE RED", "WHITE", "PINK", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
                 'HONDA
             Case "Civic SiR・II (EG6)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"MILANO RED", "CAPTIVA BLUE PEARL", "FROST WHITE", "PEWTER GREY METALLIC", "CARNIVAL YELLOW", "BRILLIANT BLACK", "VOGUE SILVER METALLIC", "BLUE", "NEW IMOLA ORANGE PEARL", "SAMBA GREEN PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
@@ -367,6 +382,8 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WR BLUE MICA", "MIDNIGHT BLACK MICA", "PREMIUM SILVER METALLIC", "PURE WHITE", "URBAN GREY METALLIC", "SOLID RED", "YELLOW", "ASTRAL YELLOW", "ORANGE METALLIC", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
             Case "IMPREZA STI (GDBF)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WR BLUE MICA", "OBSIDIAN BLACK PEARL", "PREMIUM SILVER METALLIC", "PURE WHITE", "URBAN GREY METALLIC", "SOLID RED", "YELLOW", "ASTRAL YELLOW", "ORANGE METALLIC", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+            Case "BRZ S (ZC6)"
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C"}), New List(Of String)(New String() {"WR BLUE MICA", "SATIN WHITE PEARL", "STERLING SILVER METALLIC", "DARK GREY METALLIC", "CRYSTAL BLACK SILICA", "LIGHTNING RED", "GALAXY BLUE SILICA", "SPORTS YELLOW", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
                 'MITSUBISHI
             Case "LANCER Evolution III (CE9A)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"PYRENEES BLACK", "SCOTIA WHITE", "QUEEN'S SILVER", "DANDELION YELLOW", "MONACO RED", "MOON LIGHT BLUE", "ORANGE", "DEEP PURPLE METALLIC", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
@@ -378,6 +395,10 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"COOL SILVER METALLIC", "BLACK MICA", "BLUE MICA", "SOLID YELLOW", "SOLID RED", "SOLID WHITE", "MEDIUM PURPLISH GREY MICA", "LEMON YELLOW", "WINE RED", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
             Case "LANCER EVOLUTION X (CZ4A)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"RED METALLIC", "LIGHTNING BLUE MICA", "COOL SILVER METALLIC", "PHANTOM BLACK PEARL", "WHITE PEARL", "SOLID RED", "MEDIUM PURPLISH GREY MICA", "LEMON YELLOW", "GREEN", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+            Case "LANCER RS EVOLUTION V (CP9A)"
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SCOTIA WHITE", "SATELLITE SILVER", "PYRENEES BLACK", "PALMA RED", "DANDELION YELLOW", "DEEP BLUE MICA", "ORANGE", "LEMON YELLOW", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
+            Case "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SCOTIA WHITE", "SATELLITE SILVER", "PYRENEES BLACK", "CANAL BLUE", "PASSION RED", "MOON LIGHT BLUE", "ORANGE", "LEMON YELLOW", "WINE RED", "GREEN", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
                 'SUZUKI
             Case "Cappuccino (EA11R)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CORDOVA RED", "SATELLITE SILVER METALLIC", "DARK CLASSIC JADE PEARL", "DEEP BLUE PEARL", "SATURN BLACK METALLIC", "BRITISH GREEN PEARL", "YELLOW", "BLUE MICA", "WHITE", "ORANGE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
@@ -422,10 +443,10 @@ Module Helper
                 Case "0200"
                     result = "LEVIN SR (AE85)"
                 Case "0700"
-                    If ver = 7 Then
-                        result = "86 GT (ZN6)"
-                    Else
+                    If ver = 6 Then
                         result = "FT-86 G Sports Concept"
+                    Else
+                        result = "86 GT (ZN6)"
                     End If
                 Case "0300"
                     result = "MR2 G-Limited (SW20)"
@@ -437,6 +458,8 @@ Module Helper
                     result = "SUPRA RZ (JZA80)"
                 Case "0800"
                     result = "PRIUS (ZVW30)"
+                Case "0A00"
+                    result = "CELICA GT-FOUR (ST205)"
                 'NISSAN
                 Case "0001"
                     result = "SKYLINE GT-R (BNR32)"
@@ -453,7 +476,14 @@ Module Helper
                 Case "0601"
                     result = "FAIRLADY Z (Z33)"
                 Case "0701"
-                    result = "GT-R (R35)"
+                    If ver = 8 Then
+                        result = "GT-R NISMO (R35)"
+                    Else
+                        result = "GT-R (R35)"
+                    End If
+                Case "0801"
+                    result = "SKYLINE 25GT TURBO (ER34)"
+               'HONDA
                 Case "0002"
                     result = "Civic SiR・II (EG6)"
                 Case "0102"
@@ -484,6 +514,8 @@ Module Helper
                     result = "IMPREZA STi (GDBA)"
                 Case "0104"
                     result = "IMPREZA STI (GDBF)"
+                Case "0304"
+                    result = "BRZ S (ZC6)"
                 'MITSUBISHI
                 Case "0005"
                     result = "LANCER Evolution III (CE9A)"
@@ -495,6 +527,10 @@ Module Helper
                     result = "LANCER Evolution IX (CT9A)"
                 Case "0405"
                     result = "LANCER EVOLUTION X (CZ4A)"
+                Case "0605"
+                    result = "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
+                Case "0505"
+                    result = "LANCER RS EVOLUTION V (CP9A)"
                 'SUZUKI
                 Case "0006"
                     result = "Cappuccino (EA11R)"
@@ -547,6 +583,8 @@ Module Helper
                 result = "0600"
             Case "PRIUS (ZVW30)"
                 result = "0800"
+            Case "CELICA GT-FOUR (ST205)"
+                result = "0A00"
                 'NISSAN
             Case "SKYLINE GT-R (BNR32)"
                 result = "0001"
@@ -562,8 +600,10 @@ Module Helper
                 result = "0501"
             Case "FAIRLADY Z (Z33)"
                 result = "0601"
-            Case "GT-R (R35)"
+            Case "GT-R (R35)", "GT-R NISMO (R35)"
                 result = "0701"
+            Case "SKYLINE 25GT TURBO (ER34)"
+                result = "0801"
                 'HONDA
             Case "Civic SiR・II (EG6)"
                 result = "0002"
@@ -595,6 +635,8 @@ Module Helper
                 result = "0204"
             Case "IMPREZA STI (GDBF)"
                 result = "0104"
+            Case "BRZ S (ZC6)"
+                result = "0304"
                 'MITSUBISHI
             Case "LANCER Evolution III (CE9A)"
                 result = "0005"
@@ -606,6 +648,10 @@ Module Helper
                 result = "0205"
             Case "LANCER EVOLUTION X (CZ4A)"
                 result = "0405"
+            Case "LANCER RS EVOLUTION V (CP9A)"
+                result = "0505"
+            Case "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
+                result = "0605"
                 'SUZUKI
             Case "Cappuccino (EA11R)"
                 result = "0006"
@@ -678,67 +724,119 @@ Module Helper
         Return L4 & L2 & F2
     End Function
 
-    Function GetLevel(hex As Byte(), Optional num As Boolean = False) As String
+    Function GetLevel(hex As Byte(), Optional num As Boolean = False, Optional d8 As Boolean = False) As String
         Dim result As String = Nothing
         If num Then
             result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
         Else
-            Select Case Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
-                Case 1
-                    result = "E3"
-                Case 2
-                    result = "E2"
-                Case 3
-                    result = "E1"
-                Case 4
-                    result = "D3"
-                Case 5
-                    result = "D2"
-                Case 6
-                    result = "D1"
-                Case 7
-                    result = "C3"
-                Case 8
-                    result = "C2"
-                Case 9
-                    result = "C1"
-                Case 10
-                    result = "B3"
-                Case 11
-                    result = "B2"
-                Case 12
-                    result = "B1"
-                Case 13
-                    result = "A3"
-                Case 14
-                    result = "A2"
-                Case 15
-                    result = "A1"
-                Case 16
-                    result = "S3"
-                Case 17
-                    result = "S2"
-                Case 18
-                    result = "S1"
-                Case 19
-                    result = "SS3"
-                Case 20
-                    result = "SS2"
-                Case 21
-                    result = "SS1"
-                Case 22
-                    result = "SSS"
-                Case 23
-                    result = "X3"
-                Case 24
-                    result = "X2"
-                Case 25
-                    result = "X1"
-                Case 26
-                    result = "X"
-                Case Else
-                    result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
-            End Select
+            If d8 Then
+                Select Case Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+                    Case 1
+                        result = "E3"
+                    Case 2
+                        result = "E2"
+                    Case 3
+                        result = "E1"
+                    Case 4
+                        result = "D3"
+                    Case 5
+                        result = "D2"
+                    Case 6
+                        result = "D1"
+                    Case 7
+                        result = "C3"
+                    Case 8
+                        result = "C2"
+                    Case 9
+                        result = "C1"
+                    Case 10
+                        result = "B3"
+                    Case 11
+                        result = "B2"
+                    Case 12
+                        result = "B1"
+                    Case 13
+                        result = "A3"
+                    Case 14
+                        result = "A2"
+                    Case 15
+                        result = "A1"
+                    Case 16
+                        result = "S3"
+                    Case 17
+                        result = "S2"
+                    Case 18
+                        result = "S1"
+                    Case 19
+                        result = "SS3"
+                    Case 20
+                        result = "SS2"
+                    Case 21
+                        result = "SS1"
+                    Case 22
+                        result = "∞"
+                    Case Else
+                        result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+                End Select
+            Else
+                Select Case Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+                    Case 1
+                        result = "E3"
+                    Case 2
+                        result = "E2"
+                    Case 3
+                        result = "E1"
+                    Case 4
+                        result = "D3"
+                    Case 5
+                        result = "D2"
+                    Case 6
+                        result = "D1"
+                    Case 7
+                        result = "C3"
+                    Case 8
+                        result = "C2"
+                    Case 9
+                        result = "C1"
+                    Case 10
+                        result = "B3"
+                    Case 11
+                        result = "B2"
+                    Case 12
+                        result = "B1"
+                    Case 13
+                        result = "A3"
+                    Case 14
+                        result = "A2"
+                    Case 15
+                        result = "A1"
+                    Case 16
+                        result = "S3"
+                    Case 17
+                        result = "S2"
+                    Case 18
+                        result = "S1"
+                    Case 19
+                        result = "SS3"
+                    Case 20
+                        result = "SS2"
+                    Case 21
+                        result = "SS1"
+                    Case 22
+                        result = "SSS"
+                    Case 23
+                        result = "X3"
+                    Case 24
+                        result = "X2"
+                    Case 25
+                        result = "X1"
+                    Case 26
+                        result = "X"
+                    Case Else
+                        result = Convert.ToInt64(BitConverter.ToString(hex).Replace("-", ""), 16)
+                End Select
+            End If
+
         End If
         Return result
     End Function
@@ -1571,6 +1669,8 @@ Module Helper
                 result = 7
             Case "1360"
                 result = 6
+            Case "1580"
+                result = 8
         End Select
         Return result
     End Function

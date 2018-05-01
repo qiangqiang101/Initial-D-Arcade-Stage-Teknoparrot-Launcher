@@ -47,5 +47,14 @@
     <Setting Name="PerferCardExt" Type="System.String" Scope="User">
       <Value Profile="(Default)">CRD</Value>
     </Setting>
+    <Setting Name="Id8Path" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Id8CardName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RunCardReader" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

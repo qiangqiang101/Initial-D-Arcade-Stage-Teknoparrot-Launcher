@@ -48,6 +48,7 @@ Partial Class frmEditCar
         Me.Label4 = New System.Windows.Forms.Label()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
+        Me.cbEngineRollbar = New InitialDLauncher.NSCheckBox()
         Me.cmbRollbar = New InitialDLauncher.NSComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbEngine = New InitialDLauncher.NSComboBox()
@@ -56,7 +57,6 @@ Partial Class frmEditCar
         Me.cmbCarList = New InitialDLauncher.NSComboBox()
         Me.btnApply = New InitialDLauncher.NSButton()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cbEngineRollbar = New InitialDLauncher.NSCheckBox()
         Me.NsTheme1.SuspendLayout()
         Me.NsGroupBox3.SuspendLayout()
         Me.NsGroupBox2.SuspendLayout()
@@ -388,6 +388,16 @@ Partial Class frmEditCar
         Me.NsGroupBox1.Text = "NsGroupBox1"
         Me.NsGroupBox1.Title = "Performance Parts"
         '
+        'cbEngineRollbar
+        '
+        Me.cbEngineRollbar.Checked = False
+        Me.cbEngineRollbar.Enabled = False
+        Me.cbEngineRollbar.Location = New System.Drawing.Point(173, 36)
+        Me.cbEngineRollbar.Name = "cbEngineRollbar"
+        Me.cbEngineRollbar.Size = New System.Drawing.Size(161, 24)
+        Me.cbEngineRollbar.TabIndex = 54
+        Me.cbEngineRollbar.Text = "Save Engine & Rollbar"
+        '
         'cmbRollbar
         '
         Me.cmbRollbar.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
@@ -452,7 +462,7 @@ Partial Class frmEditCar
         Me.cmbCarList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCarList.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbCarList.FormattingEnabled = True
-        Me.cmbCarList.Items.AddRange(New Object() {"", "TRUENO GT-APEX (AE86)", "LEVIN GT-APEX (AE86)", "LEVIN SR (AE85)", "86 GT (ZN6)", "MR2 G-Limited (SW20)", "MR-S (ZZW30)", "ALTEZZA RS200 (SXE10)", "SUPRA RZ (JZA80)", "PRIUS (ZVW30)", "SKYLINE GT-R (BNR32)", "SKYLINE GT-R (BNR34)", "SILVIA K's (S13)", "Silvia Q's (S14)", "Silvia spec-R (S15)", "180SX TYPE II (RPS13)", "FAIRLADY Z (Z33)", "GT-R (R35)", "Civic SiR・II (EG6)", "CIVIC TYPE R (EK9)", "INTEGRA TYPE R (DC2)", "S2000 (AP1)", "NSX (NA1)", "RX-7 ∞III (FC3S)", "RX-7 Type R (FD3S)", "RX-7 Type RS (FD3S)", "RX-8 Type S (SE3P)", "ROADSTER (NA6CE)", "ROADSTER RS (NB8C)", "IMPREZA STi Ver.V (GC8)", "IMPREZA STi (GDBA)", "IMPREZA STI (GDBF)", "LANCER Evolution III (CE9A)", "LANCER EVOLUTION IV (CN9A)", "LANCER Evolution VII (CT9A)", "LANCER Evolution IX (CT9A)", "LANCER EVOLUTION X (CZ4A)", "Cappuccino (EA11R)", "SILEIGHTY", "TRUENO 2door GT-APEX (AE86)", "G-FORCE SUPRA (JZA80-kai)", "MONSTER CIVIC R (EK9)", "NSX-R GT (NA2)", "RE Amemiya Genki-7 (FD3S)", "S2000 GT1 (AP1)", "ROADSTER C-SPEC (NA8C Kai)"})
+        Me.cmbCarList.Items.AddRange(New Object() {"", "TRUENO GT-APEX (AE86)", "LEVIN GT-APEX (AE86)", "LEVIN SR (AE85)", "86 GT (ZN6)", "MR2 G-Limited (SW20)", "MR-S (ZZW30)", "ALTEZZA RS200 (SXE10)", "SUPRA RZ (JZA80)", "PRIUS (ZVW30)", "CELICA GT-FOUR (ST205)", "SKYLINE GT-R (BNR32)", "SKYLINE GT-R (BNR34)", "SILVIA K's (S13)", "Silvia Q's (S14)", "Silvia spec-R (S15)", "180SX TYPE II (RPS13)", "FAIRLADY Z (Z33)", "GT-R (R35)", "SKYLINE 25GT TURBO (ER34)", "Civic SiR・II (EG6)", "CIVIC TYPE R (EK9)", "INTEGRA TYPE R (DC2)", "S2000 (AP1)", "NSX (NA1)", "RX-7 ∞III (FC3S)", "RX-7 Type R (FD3S)", "RX-7 Type RS (FD3S)", "RX-8 Type S (SE3P)", "ROADSTER (NA6CE)", "ROADSTER RS (NB8C)", "IMPREZA STi Ver.V (GC8)", "IMPREZA STi (GDBA)", "IMPREZA STI (GDBF)", "BRZ S (ZC6)", "LANCER Evolution III (CE9A)", "LANCER EVOLUTION IV (CN9A)", "LANCER Evolution VII (CT9A)", "LANCER Evolution IX (CT9A)", "LANCER EVOLUTION X (CZ4A)", "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)", "LANCER RS EVOLUTION V (CP9A)", "Cappuccino (EA11R)", "SILEIGHTY", "TRUENO 2door GT-APEX (AE86)", "G-FORCE SUPRA (JZA80-kai)", "MONSTER CIVIC R (EK9)", "NSX-R GT (NA2)", "RE Amemiya Genki-7 (FD3S)", "S2000 GT1 (AP1)", "ROADSTER C-SPEC (NA8C Kai)"})
         Me.cmbCarList.Location = New System.Drawing.Point(81, 39)
         Me.cmbCarList.Name = "cmbCarList"
         Me.cmbCarList.Size = New System.Drawing.Size(269, 24)
@@ -476,16 +486,6 @@ Partial Class frmEditCar
         Me.Label3.Size = New System.Drawing.Size(62, 15)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Change to"
-        '
-        'cbEngineRollbar
-        '
-        Me.cbEngineRollbar.Checked = False
-        Me.cbEngineRollbar.Enabled = False
-        Me.cbEngineRollbar.Location = New System.Drawing.Point(173, 36)
-        Me.cbEngineRollbar.Name = "cbEngineRollbar"
-        Me.cbEngineRollbar.Size = New System.Drawing.Size(161, 24)
-        Me.cbEngineRollbar.TabIndex = 54
-        Me.cbEngineRollbar.Text = "Save Engine & Rollbar"
         '
         'frmEditCar
         '

@@ -54,6 +54,21 @@ Partial Class frmLeaderboard
         Me.cmbCourse7 = New InitialDLauncher.NSComboBox()
         Me.cmbWeather7 = New InitialDLauncher.NSComboBox()
         Me.cmbType7 = New InitialDLauncher.NSComboBox()
+        Me.tp8 = New System.Windows.Forms.TabPage()
+        Me.btnReport8 = New InitialDLauncher.NSButton()
+        Me.btnRefresh8 = New InitialDLauncher.NSButton()
+        Me.lv8 = New System.Windows.Forms.ListView()
+        Me.chNo8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chName8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chCar8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chTime8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chDate8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmbCourse8 = New InitialDLauncher.NSComboBox()
+        Me.cmbWeather8 = New InitialDLauncher.NSComboBox()
+        Me.cmbType8 = New InitialDLauncher.NSComboBox()
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.NsControlButton3 = New InitialDLauncher.NSControlButton()
         Me.NsControlButton2 = New InitialDLauncher.NSControlButton()
@@ -61,6 +76,7 @@ Partial Class frmLeaderboard
         Me.tcGames.SuspendLayout()
         Me.tp6.SuspendLayout()
         Me.tp7.SuspendLayout()
+        Me.tp8.SuspendLayout()
         Me.NsTheme1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -72,6 +88,7 @@ Partial Class frmLeaderboard
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tcGames.Controls.Add(Me.tp6)
         Me.tcGames.Controls.Add(Me.tp7)
+        Me.tcGames.Controls.Add(Me.tp8)
         Me.tcGames.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.tcGames.ItemSize = New System.Drawing.Size(50, 130)
         Me.tcGames.Location = New System.Drawing.Point(12, 39)
@@ -238,10 +255,10 @@ Partial Class frmLeaderboard
         Me.tp7.Controls.Add(Me.cmbCourse7)
         Me.tp7.Controls.Add(Me.cmbWeather7)
         Me.tp7.Controls.Add(Me.cmbType7)
-        Me.tp7.Location = New System.Drawing.Point(119, 4)
+        Me.tp7.Location = New System.Drawing.Point(134, 4)
         Me.tp7.Name = "tp7"
         Me.tp7.Padding = New System.Windows.Forms.Padding(3)
-        Me.tp7.Size = New System.Drawing.Size(844, 503)
+        Me.tp7.Size = New System.Drawing.Size(829, 503)
         Me.tp7.TabIndex = 1
         Me.tp7.Text = "Initial D 7 AAX"
         '
@@ -275,7 +292,7 @@ Partial Class frmLeaderboard
         Me.lv7.Location = New System.Drawing.Point(6, 35)
         Me.lv7.MultiSelect = False
         Me.lv7.Name = "lv7"
-        Me.lv7.Size = New System.Drawing.Size(832, 462)
+        Me.lv7.Size = New System.Drawing.Size(816, 462)
         Me.lv7.TabIndex = 16
         Me.lv7.UseCompatibleStateImageBehavior = False
         Me.lv7.View = System.Windows.Forms.View.Details
@@ -370,6 +387,150 @@ Partial Class frmLeaderboard
         Me.cmbType7.Size = New System.Drawing.Size(120, 24)
         Me.cmbType7.TabIndex = 12
         '
+        'tp8
+        '
+        Me.tp8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tp8.Controls.Add(Me.btnReport8)
+        Me.tp8.Controls.Add(Me.btnRefresh8)
+        Me.tp8.Controls.Add(Me.lv8)
+        Me.tp8.Controls.Add(Me.Label7)
+        Me.tp8.Controls.Add(Me.Label8)
+        Me.tp8.Controls.Add(Me.Label9)
+        Me.tp8.Controls.Add(Me.cmbCourse8)
+        Me.tp8.Controls.Add(Me.cmbWeather8)
+        Me.tp8.Controls.Add(Me.cmbType8)
+        Me.tp8.Location = New System.Drawing.Point(134, 4)
+        Me.tp8.Name = "tp8"
+        Me.tp8.Padding = New System.Windows.Forms.Padding(3)
+        Me.tp8.Size = New System.Drawing.Size(829, 503)
+        Me.tp8.TabIndex = 2
+        Me.tp8.Text = "Initial D 8 ∞"
+        '
+        'btnReport8
+        '
+        Me.btnReport8.Enabled = False
+        Me.btnReport8.Location = New System.Drawing.Point(696, 6)
+        Me.btnReport8.Name = "btnReport8"
+        Me.btnReport8.Size = New System.Drawing.Size(75, 24)
+        Me.btnReport8.TabIndex = 23
+        Me.btnReport8.Text = "Report"
+        Me.btnReport8.Visible = False
+        '
+        'btnRefresh8
+        '
+        Me.btnRefresh8.Location = New System.Drawing.Point(615, 6)
+        Me.btnRefresh8.Name = "btnRefresh8"
+        Me.btnRefresh8.Size = New System.Drawing.Size(75, 24)
+        Me.btnRefresh8.TabIndex = 21
+        Me.btnRefresh8.Text = "Refresh"
+        '
+        'lv8
+        '
+        Me.lv8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lv8.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo8, Me.chName8, Me.chCar8, Me.chTime8, Me.chDate8})
+        Me.lv8.FullRowSelect = True
+        Me.lv8.GridLines = True
+        Me.lv8.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.lv8.Location = New System.Drawing.Point(6, 35)
+        Me.lv8.MultiSelect = False
+        Me.lv8.Name = "lv8"
+        Me.lv8.Size = New System.Drawing.Size(816, 462)
+        Me.lv8.TabIndex = 25
+        Me.lv8.UseCompatibleStateImageBehavior = False
+        Me.lv8.View = System.Windows.Forms.View.Details
+        '
+        'chNo8
+        '
+        Me.chNo8.Text = "No."
+        '
+        'chName8
+        '
+        Me.chName8.Text = "Name"
+        Me.chName8.Width = 150
+        '
+        'chCar8
+        '
+        Me.chCar8.Text = "Car"
+        Me.chCar8.Width = 200
+        '
+        'chTime8
+        '
+        Me.chTime8.Text = "Time"
+        Me.chTime8.Width = 100
+        '
+        'chDate8
+        '
+        Me.chDate8.Text = "Date"
+        Me.chDate8.Width = 200
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(412, 9)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(51, 15)
+        Me.Label7.TabIndex = 24
+        Me.Label7.Text = "Weather"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(209, 9)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(33, 15)
+        Me.Label8.TabIndex = 22
+        Me.Label8.Text = "Type"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(6, 9)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 15)
+        Me.Label9.TabIndex = 19
+        Me.Label9.Text = "Course"
+        '
+        'cmbCourse8
+        '
+        Me.cmbCourse8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbCourse8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbCourse8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCourse8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbCourse8.FormattingEnabled = True
+        Me.cmbCourse8.Location = New System.Drawing.Point(83, 6)
+        Me.cmbCourse8.Name = "cmbCourse8"
+        Me.cmbCourse8.Size = New System.Drawing.Size(120, 24)
+        Me.cmbCourse8.TabIndex = 17
+        '
+        'cmbWeather8
+        '
+        Me.cmbWeather8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbWeather8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbWeather8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbWeather8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbWeather8.FormattingEnabled = True
+        Me.cmbWeather8.Location = New System.Drawing.Point(489, 6)
+        Me.cmbWeather8.Name = "cmbWeather8"
+        Me.cmbWeather8.Size = New System.Drawing.Size(120, 24)
+        Me.cmbWeather8.TabIndex = 20
+        '
+        'cmbType8
+        '
+        Me.cmbType8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbType8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbType8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbType8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbType8.FormattingEnabled = True
+        Me.cmbType8.Location = New System.Drawing.Point(286, 6)
+        Me.cmbType8.Name = "cmbType8"
+        Me.cmbType8.Size = New System.Drawing.Size(120, 24)
+        Me.cmbType8.TabIndex = 18
+        '
         'NsTheme1
         '
         Me.NsTheme1.AccentOffset = 42
@@ -455,6 +616,8 @@ Partial Class frmLeaderboard
         Me.tp6.PerformLayout()
         Me.tp7.ResumeLayout(False)
         Me.tp7.PerformLayout()
+        Me.tp8.ResumeLayout(False)
+        Me.tp8.PerformLayout()
         Me.NsTheme1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -495,4 +658,19 @@ Partial Class frmLeaderboard
     Friend WithEvents NsControlButton3 As NSControlButton
     Friend WithEvents NsControlButton2 As NSControlButton
     Friend WithEvents NsControlButton1 As NSControlButton
+    Friend WithEvents tp8 As TabPage
+    Friend WithEvents btnReport8 As NSButton
+    Friend WithEvents btnRefresh8 As NSButton
+    Friend WithEvents lv8 As ListView
+    Friend WithEvents chNo8 As ColumnHeader
+    Friend WithEvents chName8 As ColumnHeader
+    Friend WithEvents chCar8 As ColumnHeader
+    Friend WithEvents chTime8 As ColumnHeader
+    Friend WithEvents chDate8 As ColumnHeader
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents cmbCourse8 As NSComboBox
+    Friend WithEvents cmbWeather8 As NSComboBox
+    Friend WithEvents cmbType8 As NSComboBox
 End Class

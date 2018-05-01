@@ -250,43 +250,49 @@ Public Class frmEditCar
     Private Sub frmEditCar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Translate()
-
-            tuple = GetCarPerformancePart(_carname)
+            If _version = 8 Then NsGroupBox1.Enabled = False
+            If Not _version = 8 Then tuple = GetCarPerformancePart(_carname)
             colTuple = GetCarColor(_carname)
             If _version = 7 Then
                 stkTuple = GetEventSticker()
-            Else
+            ElseIf _version = 6 Then
                 stkTuple = GetEventSticker(6)
+            ElseIf _version = 8 Then
+                stkTuple = GetEventSticker(8)
             End If
-            parameter = tuple.Item1
-            engine = tuple.Item2
-            engineName = tuple.Item3
-            rollbar = tuple.Item4
-            rollbarName = tuple.Item5
+            If Not _version = 8 Then
+                parameter = tuple.Item1
+                engine = tuple.Item2
+                engineName = tuple.Item3
+                rollbar = tuple.Item4
+                rollbarName = tuple.Item5
+            End If
             carColor = colTuple.Item2
             carColorName = colTuple.Item3
             sticker = stkTuple.Item2
             stickerName = stkTuple.Item3
 
-            Dim engineDic As Dictionary(Of String, String) = New Dictionary(Of String, String)
-            For Each item In engine
-                Dim i As Integer = engine.IndexOf(item)
-                engineDic.Add(item, engineName(i))
-            Next
-            cmbEngine.DisplayMember = "Value"
-            cmbEngine.ValueMember = "Key"
-            cmbEngine.DataSource = New BindingSource(engineDic, Nothing)
-            cmbEngine.SelectedIndex = 0
+            If Not _version = 8 Then
+                Dim engineDic As Dictionary(Of String, String) = New Dictionary(Of String, String)
+                For Each item In engine
+                    Dim i As Integer = engine.IndexOf(item)
+                    engineDic.Add(item, engineName(i))
+                Next
+                cmbEngine.DisplayMember = "Value"
+                cmbEngine.ValueMember = "Key"
+                cmbEngine.DataSource = New BindingSource(engineDic, Nothing)
+                cmbEngine.SelectedIndex = 0
 
-            Dim rollbarDic As Dictionary(Of String, String) = New Dictionary(Of String, String)
-            For Each item In rollbar
-                Dim i As Integer = rollbar.IndexOf(item)
-                rollbarDic.Add(item, rollbarName(i))
-            Next
-            cmbRollbar.DisplayMember = "Value"
-            cmbRollbar.ValueMember = "Key"
-            cmbRollbar.DataSource = New BindingSource(rollbarDic, Nothing)
-            cmbRollbar.SelectedIndex = 0
+                Dim rollbarDic As Dictionary(Of String, String) = New Dictionary(Of String, String)
+                For Each item In rollbar
+                    Dim i As Integer = rollbar.IndexOf(item)
+                    rollbarDic.Add(item, rollbarName(i))
+                Next
+                cmbRollbar.DisplayMember = "Value"
+                cmbRollbar.ValueMember = "Key"
+                cmbRollbar.DataSource = New BindingSource(rollbarDic, Nothing)
+                cmbRollbar.SelectedIndex = 0
+            End If
 
             Dim colorDic As Dictionary(Of String, String) = New Dictionary(Of String, String)
             For Each item In carColor
@@ -430,9 +436,11 @@ Public Class frmEditCar
             tCar.Sticker4 = cmbSticker4.SelectedValue.ToString
             tCar.FullSpec = cbFullSpec.Checked
             tCar.SaveEngineRollbar = cbEngineRollbar.Checked
-            tCar.Engine = cmbEngine.SelectedValue.ToString
-            tCar.Rollbar = cmbRollbar.SelectedValue.ToString
-            tCar.Param = parameter
+            If Not _version = 8 Then
+                tCar.Engine = cmbEngine.SelectedValue.ToString
+                tCar.Rollbar = cmbRollbar.SelectedValue.ToString
+                tCar.Param = parameter
+            End If
             tCar.Edited = True
 
             'If _extension = "bin" Then

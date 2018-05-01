@@ -159,7 +159,7 @@ Partial Class Card
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.card7m
+        Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.card8m
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnGo)

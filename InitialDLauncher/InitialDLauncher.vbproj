@@ -266,6 +266,8 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\card8m.png" />
+    <None Include="Resources\id_logo1.png" />
     <None Include="Resources\usui.jpg" />
     <None Include="Resources\tsukubaSnow.jpg" />
     <None Include="Resources\tsukuba.jpg" />

@@ -40,37 +40,6 @@ Public Class Form2
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'If TextBox1.Lines.Count > 1 Then
-        '    Dim newList As List(Of String) = TextBox1.Lines.ToList
-        '    ' Remove the first line.  
-        '    newList.RemoveAt(0)
-        '    TextBox1.Lines = newList.ToArray
-        'End If
-
-        'If TextBox1.Lines.Count > 1 Then
-        '    Dim newList As List(Of String) = TextBox1.Lines.ToList
-        '    ' Remove the first line.  
-        '    newList.RemoveAt(0)
-        '    TextBox1.Lines = newList.ToArray
-        'End If
-
-        'If TextBox1.Lines.Count > 1 Then
-        '    Dim newList As List(Of String) = TextBox1.Lines.ToList
-        '    ' Remove the first line.  
-        '    newList.RemoveAt(0)
-        '    TextBox1.Lines = newList.ToArray
-        'End If
-
-        'For Each line In TextBox1.Lines
-        '    Dim parts As String() = line.Split(New Char() {","c})
-        '    result = result & """" & parts(19) & """" & ", "
-        'Next
-
-        'result = result.Remove(result.Length - 2)
-
-        'TextBox2.Text = String.Format("                result = New Tuple(Of String, List(Of String), List(Of String))(nothing, New List(Of String)(New String() {1}{0}00{0}, {0}01{0}, {0}02{0}, {0}03{0}, {0}04{0}, {0}05{0}, {0}06{0}, {0}07{0}, {0}08{0}, {0}09{0}, {0}0A{0}, {0}0B{0}, {0}0C{0}, {0}0D{0}{2}), New List(Of String)(New String() {1}{3}{2}))", """", "{", "}", result)
-        'My.Computer.Clipboard.SetText(TextBox2.Text)
-
         If TextBox1.Lines.Count > 1 Then
             Dim newList As List(Of String) = TextBox1.Lines.ToList
             ' Remove the first line.  
@@ -94,14 +63,45 @@ Public Class Form2
 
         For Each line In TextBox1.Lines
             Dim parts As String() = line.Split(New Char() {","c})
-            result = result & """" & parts(1) & """" & ", "
-            resultT = resultT & """" & CInt(parts(4)).ToString("X2") & """" & ", "
+            result = result & """" & parts(19) & """" & ", "
         Next
 
         result = result.Remove(result.Length - 2)
 
-        TextBox2.Text = String.Format("                result = New Tuple(Of String, List(Of String), List(Of String))(nothing, New List(Of String)(New String() {1}{4}{2}), New List(Of String)(New String() {1}{3}{2}))", """", "{", "}", result, resultT)
+        TextBox2.Text = String.Format("                result = New Tuple(Of String, List(Of String), List(Of String))(nothing, New List(Of String)(New String() {1}{0}00{0}, {0}01{0}, {0}02{0}, {0}03{0}, {0}04{0}, {0}05{0}, {0}06{0}, {0}07{0}, {0}08{0}, {0}09{0}, {0}0A{0}, {0}0B{0}, {0}0C{0}, {0}0D{0}{2}), New List(Of String)(New String() {1}{3}{2}))", """", "{", "}", result)
         My.Computer.Clipboard.SetText(TextBox2.Text)
+
+        'If TextBox1.Lines.Count > 1 Then
+        '    Dim newList As List(Of String) = TextBox1.Lines.ToList
+        '    ' Remove the first line.  
+        '    newList.RemoveAt(0)
+        '    TextBox1.Lines = newList.ToArray
+        'End If
+
+        'If TextBox1.Lines.Count > 1 Then
+        '    Dim newList As List(Of String) = TextBox1.Lines.ToList
+        '    ' Remove the first line.  
+        '    newList.RemoveAt(0)
+        '    TextBox1.Lines = newList.ToArray
+        'End If
+
+        'If TextBox1.Lines.Count > 1 Then
+        '    Dim newList As List(Of String) = TextBox1.Lines.ToList
+        '    ' Remove the first line.  
+        '    newList.RemoveAt(0)
+        '    TextBox1.Lines = newList.ToArray
+        'End If
+
+        'For Each line In TextBox1.Lines
+        '    Dim parts As String() = line.Split(New Char() {","c})
+        '    result = result & """" & parts(1) & """" & ", "
+        '    resultT = resultT & """" & CInt(parts(4)).ToString("X2") & """" & ", "
+        'Next
+
+        'result = result.Remove(result.Length - 2)
+
+        'TextBox2.Text = String.Format("                result = New Tuple(Of String, List(Of String), List(Of String))(nothing, New List(Of String)(New String() {1}{4}{2}), New List(Of String)(New String() {1}{3}{2}))", """", "{", "}", result, resultT)
+        'My.Computer.Clipboard.SetText(TextBox2.Text)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
