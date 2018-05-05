@@ -7,7 +7,7 @@
         TsuchisakaDryOB, TsuchisakaWetOB, TsuchisakaDryIB, TsuchisakaWetIB, TsuchisakaSnowOB, TsuchisakaSnowIB As String
     Dim LakeAkinaCC, LakeAkinaC, MyogiDH, MyogiUH, AkagiDH, AkagiUH, AkinaDH, AkinaUH, IrohazkaDH, IrohazkaR, TsukubaIB, TsukubaOB, HappogaharaIB, HappogaharaOB,
         NagaoDH, NagaoUH, TsubakiLineDH, TsubakiLineUH, UsuiCC, UsuiC, SadamineDH, SadamineUH, TsuchisakaIB, TsuchisakaOB, AkinaSnowDH, AkinaSnowUH, NanamagariDH, NanamagariUH,
-        _AkinaSnowDH, _AkinaSnowUH, _TsukubaSnowOB, _TsukubaSnowIB, _TsuchisakaSnowOB, _TsuchisakaSnowIB As String
+        _AkinaSnowDH, _AkinaSnowUH, _TsukubaSnowOB, _TsukubaSnowIB, _TsuchisakaSnowOB, _TsuchisakaSnowIB, HakoneDH, HakoneUH, MomijiLineDH, MomijiLineUH As String
 
     Dim NoRecord As String = "0'00""000"
     Dim item As TimeAttack
@@ -794,7 +794,7 @@
                     End With
                     flPanel.Controls.Add(item)
                 End If
-            Else
+            ElseIf _version = 7 Then
                 LakeAkinaCC = Helper.GetTimeResult(_filename, 596, False)
                 LakeAkinaC = Helper.GetTimeResult(_filename, 600, False)
                 If Not LakeAkinaCC = NoRecord Then
@@ -1225,6 +1225,451 @@
                             Case "English", "French"
                                 .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
                         End Select
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                NanamagariDH = Helper.GetTimeResult(_filename, 716, False)
+                NanamagariUH = Helper.GetTimeResult(_filename, 720, False)
+                If Not NanamagariDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 716, True), .BackgroundImage = My.Resources.namagari}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nanamagari
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NanamagariDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not NanamagariUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 720, True), .BackgroundImage = My.Resources.namagari}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nanamagari
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NanamagariUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+            ElseIf _version = 8 Then
+                LakeAkinaCC = Helper.GetTimeResult(_filename, 596, False)
+                LakeAkinaC = Helper.GetTimeResult(_filename, 600, False)
+                If Not LakeAkinaCC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 596, True), .BackgroundImage = My.Resources.lakeAkina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .LakeAkina
+                        .lblType.Text = .Counterclockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = LakeAkinaCC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not LakeAkinaC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 600, True), .BackgroundImage = My.Resources.lakeAkina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .LakeAkina
+                        .lblType.Text = .Clockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = LakeAkinaC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                MyogiDH = Helper.GetTimeResult(_filename, 604, False)
+                MyogiUH = Helper.GetTimeResult(_filename, 608, False)
+                If Not MyogiDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 604, True), .BackgroundImage = My.Resources.myogi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Myogi
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MyogiDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not MyogiUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 608, True), .BackgroundImage = My.Resources.myogi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Myogi
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MyogiUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                AkagiDH = Helper.GetTimeResult(_filename, 612, False)
+                AkagiUH = Helper.GetTimeResult(_filename, 616, False)
+                If Not AkagiDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 612, True), .BackgroundImage = My.Resources.akagi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akagi
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkagiDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not AkagiUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 616, True), .BackgroundImage = My.Resources.akagi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akagi
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkagiUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                AkinaDH = Helper.GetTimeResult(_filename, 620, False)
+                AkinaUH = Helper.GetTimeResult(_filename, 624, False)
+                If Not AkinaDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 620, True), .BackgroundImage = My.Resources.akina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akina
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkinaDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not AkinaUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 624, True), .BackgroundImage = My.Resources.akina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akina
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkinaUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                IrohazkaDH = Helper.GetTimeResult(_filename, 628, False)
+                IrohazkaR = Helper.GetTimeResult(_filename, 632, False)
+                If Not IrohazkaDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 628, True), .BackgroundImage = My.Resources.irohazaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Irohazka
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = IrohazkaDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not IrohazkaR = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 632, True), .BackgroundImage = My.Resources.irohazaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Irohazka
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = IrohazkaR
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                TsukubaOB = Helper.GetTimeResult(_filename, 636, False)
+                TsukubaIB = Helper.GetTimeResult(_filename, 640, False)
+                If Not TsukubaOB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 636, True), .BackgroundImage = My.Resources.tsukuba}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsukuba
+                        .lblType.Text = .Outbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsukubaOB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not TsukubaIB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 640, True), .BackgroundImage = My.Resources.tsukuba}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsukuba
+                        .lblType.Text = .Inbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsukubaIB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                HappogaharaOB = Helper.GetTimeResult(_filename, 644, False)
+                HappogaharaIB = Helper.GetTimeResult(_filename, 648, False)
+                If Not HappogaharaOB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 644, True), .BackgroundImage = My.Resources.happogahara}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Happogahara
+                        .lblType.Text = .Outbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HappogaharaOB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                        Select Case My.Settings.Language
+                            Case "English", "French"
+                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+                        End Select
+
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not HappogaharaIB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 648, True), .BackgroundImage = My.Resources.happogahara}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Happogahara
+                        .lblType.Text = .Inbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HappogaharaIB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                        Select Case My.Settings.Language
+                            Case "English", "French"
+                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+                        End Select
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                NagaoDH = Helper.GetTimeResult(_filename, 652, False)
+                NagaoUH = Helper.GetTimeResult(_filename, 656, False)
+                If Not NagaoDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 652, True), .BackgroundImage = My.Resources.nagao}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nagao
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NagaoDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                        Select Case My.Settings.Language
+                            Case "English", "French"
+                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+                        End Select
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not NagaoUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 656, True), .BackgroundImage = My.Resources.nagao}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nagao
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NagaoUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                TsubakiLineDH = Helper.GetTimeResult(_filename, 660, False)
+                TsubakiLineUH = Helper.GetTimeResult(_filename, 664, False)
+                If Not TsubakiLineDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 660, True), .BackgroundImage = My.Resources.tsubakiLine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .TsubakiLine
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsubakiLineDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not TsubakiLineUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 664, True), .BackgroundImage = My.Resources.tsubakiLine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .TsubakiLine
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsubakiLineUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                UsuiCC = Helper.GetTimeResult(_filename, 668, False)
+                UsuiC = Helper.GetTimeResult(_filename, 672, False)
+                If Not UsuiCC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 668, True), .BackgroundImage = My.Resources.usui}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Usui
+                        .lblType.Text = .Counterclockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = UsuiCC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not UsuiC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 672, True), .BackgroundImage = My.Resources.usui}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Usui
+                        .lblType.Text = .Clockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = UsuiC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                SadamineDH = Helper.GetTimeResult(_filename, 676, False)
+                SadamineUH = Helper.GetTimeResult(_filename, 680, False)
+                If Not SadamineDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 676, True), .BackgroundImage = My.Resources.sadamine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Sadamine
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = SadamineDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not SadamineUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 680, True), .BackgroundImage = My.Resources.sadamine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Sadamine
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = SadamineUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                TsuchisakaOB = Helper.GetTimeResult(_filename, 684, False)
+                TsuchisakaIB = Helper.GetTimeResult(_filename, 688, False)
+                If Not TsuchisakaOB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 684, True), .BackgroundImage = My.Resources.tsuchisaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsuchisaka
+                        .lblType.Text = .Outbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsuchisakaOB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not TsuchisakaIB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 688, True), .BackgroundImage = My.Resources.tsuchisaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsuchisaka
+                        .lblType.Text = .Inbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsuchisakaIB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                _AkinaSnowDH = Helper.GetTimeResult(_filename, 692, False)
+                _AkinaSnowUH = Helper.GetTimeResult(_filename, 696, False)
+                If Not _AkinaSnowDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 692, True), .BackgroundImage = My.Resources.akinaSnow}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .AkinaSnow
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Snow
+                        .lblTime.Text = _AkinaSnowDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not _AkinaSnowUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 696, True), .BackgroundImage = My.Resources.akinaSnow}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .AkinaSnow
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Snow
+                        .lblTime.Text = _AkinaSnowUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                HakoneDH = Helper.GetTimeResult(_filename, 700, False) '_TsukubaSnowOB
+                HakoneUH = Helper.GetTimeResult(_filename, 704, False) '_TsukubaSnowIB
+                If Not HakoneDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.hakone}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Hakone
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HakoneDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not HakoneUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.hakone}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Hakone
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HakoneUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                MomijiLineDH = Helper.GetTimeResult(_filename, 708, False) '_TsuchisakaSnowOB
+                MomijiLineUH = Helper.GetTimeResult(_filename, 712, False) '_TsuchisakaSnowIB
+                If Not MomijiLineDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 700, True), .BackgroundImage = My.Resources.momijiline}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .MomijiLine
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MomijiLineDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not MomijiLineUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 704, True), .BackgroundImage = My.Resources.momijiline}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .MomijiLine
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MomijiLineUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2006,7 +2451,7 @@
                     End With
                     flPanel.Controls.Add(item)
                 End If
-            Else
+            ElseIf _version = 7 Then
                 LakeAkinaCC = Helper.GetTimeResult(_filename, Neg60(596), False)
                 LakeAkinaC = Helper.GetTimeResult(_filename, Neg60(600), False)
                 If Not LakeAkinaCC = NoRecord Then
@@ -2437,6 +2882,451 @@
                             Case "English", "French"
                                 .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
                         End Select
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                NanamagariDH = Helper.GetTimeResult(_filename, Neg60(716), False)
+                NanamagariUH = Helper.GetTimeResult(_filename, Neg60(720), False)
+                If Not NanamagariDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(716), True), .BackgroundImage = My.Resources.namagari}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nanamagari
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NanamagariDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not NanamagariUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(720), True), .BackgroundImage = My.Resources.namagari}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nanamagari
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NanamagariUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+            ElseIf _version = 8 Then
+                LakeAkinaCC = Helper.GetTimeResult(_filename, Neg60(596), False)
+                LakeAkinaC = Helper.GetTimeResult(_filename, Neg60(600), False)
+                If Not LakeAkinaCC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(596), True), .BackgroundImage = My.Resources.lakeAkina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .LakeAkina
+                        .lblType.Text = .Counterclockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = LakeAkinaCC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not LakeAkinaC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(600), True), .BackgroundImage = My.Resources.lakeAkina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .LakeAkina
+                        .lblType.Text = .Clockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = LakeAkinaC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                MyogiDH = Helper.GetTimeResult(_filename, Neg60(604), False)
+                MyogiUH = Helper.GetTimeResult(_filename, Neg60(608), False)
+                If Not MyogiDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(604), True), .BackgroundImage = My.Resources.myogi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Myogi
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MyogiDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not MyogiUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(608), True), .BackgroundImage = My.Resources.myogi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Myogi
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MyogiUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                AkagiDH = Helper.GetTimeResult(_filename, Neg60(612), False)
+                AkagiUH = Helper.GetTimeResult(_filename, Neg60(616), False)
+                If Not AkagiDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(612), True), .BackgroundImage = My.Resources.akagi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akagi
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkagiDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not AkagiUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(616), True), .BackgroundImage = My.Resources.akagi}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akagi
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkagiUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                AkinaDH = Helper.GetTimeResult(_filename, Neg60(620), False)
+                AkinaUH = Helper.GetTimeResult(_filename, Neg60(624), False)
+                If Not AkinaDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(620), True), .BackgroundImage = My.Resources.akina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akina
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkinaDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not AkinaUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(624), True), .BackgroundImage = My.Resources.akina}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Akina
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = AkinaUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                IrohazkaDH = Helper.GetTimeResult(_filename, Neg60(628), False)
+                IrohazkaR = Helper.GetTimeResult(_filename, Neg60(632), False)
+                If Not IrohazkaDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(628), True), .BackgroundImage = My.Resources.irohazaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Irohazka
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = IrohazkaDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not IrohazkaR = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(632), True), .BackgroundImage = My.Resources.irohazaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Irohazka
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = IrohazkaR
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                TsukubaOB = Helper.GetTimeResult(_filename, Neg60(636), False)
+                TsukubaIB = Helper.GetTimeResult(_filename, Neg60(640), False)
+                If Not TsukubaOB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(636), True), .BackgroundImage = My.Resources.tsukuba}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsukuba
+                        .lblType.Text = .Outbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsukubaOB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not TsukubaIB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(640), True), .BackgroundImage = My.Resources.tsukuba}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsukuba
+                        .lblType.Text = .Inbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsukubaIB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                HappogaharaOB = Helper.GetTimeResult(_filename, Neg60(644), False)
+                HappogaharaIB = Helper.GetTimeResult(_filename, Neg60(648), False)
+                If Not HappogaharaOB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(644), True), .BackgroundImage = My.Resources.happogahara}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Happogahara
+                        .lblType.Text = .Outbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HappogaharaOB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                        Select Case My.Settings.Language
+                            Case "English", "French"
+                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+                        End Select
+
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not HappogaharaIB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(648), True), .BackgroundImage = My.Resources.happogahara}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Happogahara
+                        .lblType.Text = .Inbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HappogaharaIB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                        Select Case My.Settings.Language
+                            Case "English", "French"
+                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+                        End Select
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                NagaoDH = Helper.GetTimeResult(_filename, Neg60(652), False)
+                NagaoUH = Helper.GetTimeResult(_filename, Neg60(656), False)
+                If Not NagaoDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(652), True), .BackgroundImage = My.Resources.nagao}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nagao
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NagaoDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                        Select Case My.Settings.Language
+                            Case "English", "French"
+                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+                        End Select
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not NagaoUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(656), True), .BackgroundImage = My.Resources.nagao}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Nagao
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = NagaoUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                TsubakiLineDH = Helper.GetTimeResult(_filename, Neg60(660), False)
+                TsubakiLineUH = Helper.GetTimeResult(_filename, Neg60(664), False)
+                If Not TsubakiLineDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(660), True), .BackgroundImage = My.Resources.tsubakiLine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .TsubakiLine
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsubakiLineDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not TsubakiLineUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(664), True), .BackgroundImage = My.Resources.tsubakiLine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .TsubakiLine
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsubakiLineUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                UsuiCC = Helper.GetTimeResult(_filename, Neg60(668), False)
+                UsuiC = Helper.GetTimeResult(_filename, Neg60(672), False)
+                If Not UsuiCC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(668), True), .BackgroundImage = My.Resources.usui}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Usui
+                        .lblType.Text = .Counterclockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = UsuiCC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not UsuiC = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(672), True), .BackgroundImage = My.Resources.usui}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Usui
+                        .lblType.Text = .Clockwise
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = UsuiC
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                SadamineDH = Helper.GetTimeResult(_filename, Neg60(676), False)
+                SadamineUH = Helper.GetTimeResult(_filename, Neg60(680), False)
+                If Not SadamineDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(676), True), .BackgroundImage = My.Resources.sadamine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Sadamine
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = SadamineDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not SadamineUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(680), True), .BackgroundImage = My.Resources.sadamine}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Sadamine
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = SadamineUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                TsuchisakaOB = Helper.GetTimeResult(_filename, Neg60(684), False)
+                TsuchisakaIB = Helper.GetTimeResult(_filename, Neg60(688), False)
+                If Not TsuchisakaOB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(684), True), .BackgroundImage = My.Resources.tsuchisaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsuchisaka
+                        .lblType.Text = .Outbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsuchisakaOB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not TsuchisakaIB = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(688), True), .BackgroundImage = My.Resources.tsuchisaka}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Tsuchisaka
+                        .lblType.Text = .Inbound
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = TsuchisakaIB
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                _AkinaSnowDH = Helper.GetTimeResult(_filename, Neg60(692), False)
+                _AkinaSnowUH = Helper.GetTimeResult(_filename, Neg60(696), False)
+                If Not _AkinaSnowDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(692), True), .BackgroundImage = My.Resources.akinaSnow}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .AkinaSnow
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Snow
+                        .lblTime.Text = _AkinaSnowDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not _AkinaSnowUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(696), True), .BackgroundImage = My.Resources.akinaSnow}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .AkinaSnow
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Snow
+                        .lblTime.Text = _AkinaSnowUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                HakoneDH = Helper.GetTimeResult(_filename, Neg60(700), False) '_TsukubaSnowOB
+                HakoneUH = Helper.GetTimeResult(_filename, Neg60(704), False) '_TsukubaSnowIB
+                If Not HakoneDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(700), True), .BackgroundImage = My.Resources.hakone}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Hakone
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HakoneDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not HakoneUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(704), True), .BackgroundImage = My.Resources.hakone}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .Hakone
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = HakoneUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+
+                MomijiLineDH = Helper.GetTimeResult(_filename, Neg60(708), False) '_TsuchisakaSnowOB
+                MomijiLineUH = Helper.GetTimeResult(_filename, Neg60(712), False) '_TsuchisakaSnowIB
+                If Not MomijiLineDH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(700), True), .BackgroundImage = My.Resources.momijiline}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .MomijiLine
+                        .lblType.Text = .Downhill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MomijiLineDH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
+                    End With
+                    flPanel.Controls.Add(item)
+                End If
+                If Not MomijiLineUH = NoRecord Then
+                    item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(704), True), .BackgroundImage = My.Resources.momijiline}
+                    With item
+                        .Translate()
+                        .lblCourse.Text = .MomijiLine
+                        .lblType.Text = .Uphill
+                        .lblWeather.Text = .Dry
+                        .lblTime.Text = MomijiLineUH
+                        .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
                     End With
                     flPanel.Controls.Add(item)
                 End If

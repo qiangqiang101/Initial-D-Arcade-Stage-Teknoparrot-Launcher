@@ -81,11 +81,18 @@
   <ItemGroup>
     <Compile Include="Class\Car.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />
+    <Compile Include="Class\GifImage.vb" />
     <Compile Include="Class\PluginLoader.vb" />
     <Compile Include="Form\Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
     <Compile Include="Form\Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPicture.Designer.vb">
+      <DependentUpon>frmPicture.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPicture.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\User Control\Card.Designer.vb">
@@ -204,6 +211,9 @@
     <EmbeddedResource Include="Form\Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPicture.resx">
+      <DependentUpon>frmPicture.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\User Control\Card.resx">
       <DependentUpon>Card.vb</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +276,49 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\E00.jpg" />
+    <None Include="Resources\E04.gif" />
+    <None Include="Resources\E03.gif" />
+    <None Include="Resources\E02.gif" />
+    <None Include="Resources\E01.gif" />
+    <None Include="Resources\E1E.gif" />
+    <None Include="Resources\E1D.gif" />
+    <None Include="Resources\E1C.gif" />
+    <None Include="Resources\E1B.gif" />
+    <None Include="Resources\E1A.gif" />
+    <None Include="Resources\E19.gif" />
+    <None Include="Resources\E18.gif" />
+    <None Include="Resources\E17.gif" />
+    <None Include="Resources\E16.gif" />
+    <None Include="Resources\E15.gif" />
+    <None Include="Resources\E14.gif" />
+    <None Include="Resources\E13.gif" />
+    <None Include="Resources\E12.gif" />
+    <None Include="Resources\E11.gif" />
+    <None Include="Resources\E10.gif" />
+    <None Include="Resources\E0F.gif" />
+    <None Include="Resources\E0E.gif" />
+    <None Include="Resources\E0D.gif" />
+    <None Include="Resources\E0C.gif" />
+    <None Include="Resources\E0B.gif" />
+    <None Include="Resources\E0A.gif" />
+    <None Include="Resources\E09.gif" />
+    <None Include="Resources\E08.gif" />
+    <None Include="Resources\E07.gif" />
+    <None Include="Resources\E06.gif" />
+    <None Include="Resources\E05.gif" />
+    <None Include="Resources\T6.jpg" />
+    <None Include="Resources\T5.jpg" />
+    <None Include="Resources\T9.jpg" />
+    <None Include="Resources\T8.jpg" />
+    <None Include="Resources\T7.jpg" />
+    <None Include="Resources\T4.jpg" />
+    <None Include="Resources\T3.jpg" />
+    <None Include="Resources\T2.jpg" />
+    <None Include="Resources\T0.jpg" />
+    <None Include="Resources\T1.jpg" />
+    <None Include="Resources\hakone.png" />
+    <None Include="Resources\momijiline.png" />
     <None Include="Resources\card8m.png" />
     <None Include="Resources\id_logo1.png" />
     <None Include="Resources\usui.jpg" />

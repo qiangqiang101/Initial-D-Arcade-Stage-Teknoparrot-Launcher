@@ -118,6 +118,7 @@ Partial Class Form1
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(182, 20)
         Me.TextBox5.TabIndex = 9
+        Me.TextBox5.Text = "Hair"
         '
         'TextBox6
         '

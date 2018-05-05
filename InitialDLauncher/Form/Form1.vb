@@ -12,29 +12,40 @@
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim num As Integer = 1
-        For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\Avatar D7\Background", "*.jpg")
-            TextBox4.Text = String.Format("{0}{1}frame.Add({2}{3}{2}, fm.FM_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file))
+        For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\id8\frame", "*.png")
+            TextBox4.Text = String.Format("{0}{1}frame.Add({2}{3}{2}, fm.FM_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file).Replace("T", "X"))
             num += 1
         Next
 
-        'For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\Avatar D7\Background", "*.jpg")
+        'For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\id8\frame", "*.png")
         '    Dim fname As String = IO.Path.GetFileNameWithoutExtension(file)
         '    Dim fname1 As Char = fname.Substring(0, 1)
         '    Dim fname2 As String = fname
+        '    Dim fname3 As String = fname.Replace("U", "X")
         '    If IsNumeric(fname1) Then fname2 = "_" & fname
         '    TextBox4.Text = String.Format("{0}{1}Public FM_{3} As New Bitmap(My.Resources.{4}) With {5}.Tag = {2}{3}{2}{6}", TextBox4.Text, vbNewLine, """", fname, fname2, "{", "}")
         'Next
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim p As String = "F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\LAUNCHER\MALE\SKIN\LTK"
-        Dim np As String = "F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\bin\Release\LAUNCHER\MALE\SKIN\"
+        Dim p As String = "C:\Users\Barry\Desktop\id8\wmn\" & TextBox5.Text
+        Dim np As String = "C:\Users\Barry\Desktop\id8\wmn\" & TextBox5.Text & "\naz\"
         For Each file As String In IO.Directory.GetFiles(p, "*.png")
             Dim oldf As String = IO.Path.GetFileNameWithoutExtension(file)
-            Dim newf As String = oldf.Replace("x", "Y")
+            Dim newf As String = oldf.Replace("T", "U")
             'My.Computer.FileSystem.RenameFile(file, newf & ".png")
             IO.File.Move(file, np & newf & ".png")
         Next
+
+        'Dim s As String = "C:\Users\Barry\Desktop\id8\frame"
+        'For Each file As String In IO.Directory.GetFiles(s, "*.png")
+        '    Dim oldf As String = IO.Path.GetFileNameWithoutExtension(file)
+        '    Dim parts As String() = oldf.Split(New Char() {")"c})
+        '    Dim newf As String = s & "\naz\" & CInt(parts(0)).ToString("X2") & ".png"
+        '    If Not IO.File.Exists(newf) Then
+        '        IO.File.Move(file, newf)
+        '    End If
+        'Next
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click

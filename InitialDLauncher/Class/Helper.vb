@@ -192,6 +192,11 @@ Module Helper
         Return result
     End Function
 
+    Function GetTachometer(hex As Byte()) As Integer
+        Dim result As Integer = CInt("&H" & BitConverter.ToString(hex).Replace("-", ""))
+        Return result
+    End Function
+
     Function GetName(hex As Byte()) As String
         Dim enc = Encoding.GetEncoding("shift-jis")
         Dim value = enc.GetString(hex)

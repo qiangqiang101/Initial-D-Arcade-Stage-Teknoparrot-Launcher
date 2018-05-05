@@ -22,6 +22,7 @@ Partial Class frmEdit
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEdit))
         Me.lblAvatarOffset = New System.Windows.Forms.Label()
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
@@ -57,6 +58,16 @@ Partial Class frmEdit
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtTPride = New InitialDLauncher.NSTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.pbEffect = New System.Windows.Forms.PictureBox()
+        Me.cmbTitleEffect = New InitialDLauncher.NSComboBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.btnTachometer = New InitialDLauncher.NSButton()
+        Me.cmbTachometer = New InitialDLauncher.NSComboBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtInfRank = New InitialDLauncher.NSTextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.cmbAura8 = New InitialDLauncher.NSComboBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.btnEditCar3 = New InitialDLauncher.NSButton()
         Me.txtLevel = New InitialDLauncher.NSTextBox()
         Me.btnEditCar2 = New InitialDLauncher.NSButton()
@@ -113,12 +124,15 @@ Partial Class frmEdit
         Me.cmbAvatar = New InitialDLauncher.NSComboBox()
         Me.btnSet = New InitialDLauncher.NSButton()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.NsGroupBox1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.gbFrame.SuspendLayout()
@@ -579,11 +593,131 @@ Partial Class frmEdit
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.pbEffect)
+        Me.TabPage3.Controls.Add(Me.cmbTitleEffect)
+        Me.TabPage3.Controls.Add(Me.Label27)
+        Me.TabPage3.Controls.Add(Me.btnTachometer)
+        Me.TabPage3.Controls.Add(Me.cmbTachometer)
+        Me.TabPage3.Controls.Add(Me.Label26)
+        Me.TabPage3.Controls.Add(Me.txtInfRank)
+        Me.TabPage3.Controls.Add(Me.Label25)
+        Me.TabPage3.Controls.Add(Me.cmbAura8)
+        Me.TabPage3.Controls.Add(Me.Label24)
         Me.TabPage3.Location = New System.Drawing.Point(114, 4)
         Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(357, 349)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Initial D8 ∞"
+        '
+        'pbEffect
+        '
+        Me.pbEffect.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.E00
+        Me.pbEffect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbEffect.Location = New System.Drawing.Point(189, 69)
+        Me.pbEffect.Name = "pbEffect"
+        Me.pbEffect.Size = New System.Drawing.Size(161, 24)
+        Me.pbEffect.TabIndex = 69
+        Me.pbEffect.TabStop = False
+        '
+        'cmbTitleEffect
+        '
+        Me.cmbTitleEffect.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbTitleEffect.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbTitleEffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTitleEffect.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbTitleEffect.FormattingEnabled = True
+        Me.cmbTitleEffect.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"})
+        Me.cmbTitleEffect.Location = New System.Drawing.Point(83, 69)
+        Me.cmbTitleEffect.Name = "cmbTitleEffect"
+        Me.cmbTitleEffect.Size = New System.Drawing.Size(100, 24)
+        Me.cmbTitleEffect.TabIndex = 67
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(6, 72)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(63, 15)
+        Me.Label27.TabIndex = 68
+        Me.Label27.Text = "Title Effect"
+        '
+        'btnTachometer
+        '
+        Me.btnTachometer.Location = New System.Drawing.Point(189, 39)
+        Me.btnTachometer.Name = "btnTachometer"
+        Me.btnTachometer.Size = New System.Drawing.Size(54, 24)
+        Me.btnTachometer.TabIndex = 66
+        Me.btnTachometer.Text = "Preview"
+        '
+        'cmbTachometer
+        '
+        Me.cmbTachometer.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbTachometer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbTachometer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTachometer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbTachometer.FormattingEnabled = True
+        Me.cmbTachometer.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+        Me.cmbTachometer.Location = New System.Drawing.Point(83, 39)
+        Me.cmbTachometer.Name = "cmbTachometer"
+        Me.cmbTachometer.Size = New System.Drawing.Size(100, 24)
+        Me.cmbTachometer.TabIndex = 64
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.ForeColor = System.Drawing.Color.White
+        Me.Label26.Location = New System.Drawing.Point(6, 42)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(71, 15)
+        Me.Label26.TabIndex = 65
+        Me.Label26.Text = "Tachometer"
+        '
+        'txtInfRank
+        '
+        Me.txtInfRank.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtInfRank.Location = New System.Drawing.Point(250, 9)
+        Me.txtInfRank.MaxLength = 3
+        Me.txtInfRank.Multiline = False
+        Me.txtInfRank.Name = "txtInfRank"
+        Me.txtInfRank.ReadOnly = False
+        Me.txtInfRank.Size = New System.Drawing.Size(100, 24)
+        Me.txtInfRank.TabIndex = 63
+        Me.txtInfRank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtInfRank.UseSystemPasswordChar = False
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.ForeColor = System.Drawing.Color.White
+        Me.Label25.Location = New System.Drawing.Point(189, 12)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(46, 15)
+        Me.Label25.TabIndex = 62
+        Me.Label25.Text = "∞ Rank"
+        '
+        'cmbAura8
+        '
+        Me.cmbAura8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbAura8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbAura8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAura8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbAura8.FormattingEnabled = True
+        Me.cmbAura8.Location = New System.Drawing.Point(83, 9)
+        Me.cmbAura8.Name = "cmbAura8"
+        Me.cmbAura8.Size = New System.Drawing.Size(100, 24)
+        Me.cmbAura8.TabIndex = 60
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.ForeColor = System.Drawing.Color.White
+        Me.Label24.Location = New System.Drawing.Point(6, 12)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(32, 15)
+        Me.Label24.TabIndex = 61
+        Me.Label24.Text = "Aura"
         '
         'btnEditCar3
         '
@@ -898,7 +1032,7 @@ Partial Class frmEdit
         'pbFrame
         '
         Me.pbFrame.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbFrame.Location = New System.Drawing.Point(6, 36)
         Me.pbFrame.Name = "pbFrame"
         Me.pbFrame.Size = New System.Drawing.Size(100, 100)
@@ -944,7 +1078,7 @@ Partial Class frmEdit
         'pbHair
         '
         Me.pbHair.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbHair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbHair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbHair.Location = New System.Drawing.Point(7, 36)
         Me.pbHair.Name = "pbHair"
         Me.pbHair.Size = New System.Drawing.Size(100, 100)
@@ -980,7 +1114,7 @@ Partial Class frmEdit
         'pbShades
         '
         Me.pbShades.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbShades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbShades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbShades.Location = New System.Drawing.Point(6, 36)
         Me.pbShades.Name = "pbShades"
         Me.pbShades.Size = New System.Drawing.Size(100, 100)
@@ -990,7 +1124,7 @@ Partial Class frmEdit
         'pbPreview
         '
         Me.pbPreview.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbPreview.Location = New System.Drawing.Point(377, 37)
         Me.pbPreview.Name = "pbPreview"
         Me.pbPreview.Size = New System.Drawing.Size(100, 100)
@@ -1026,7 +1160,7 @@ Partial Class frmEdit
         'pbAccessories
         '
         Me.pbAccessories.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbAccessories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbAccessories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbAccessories.Location = New System.Drawing.Point(6, 36)
         Me.pbAccessories.Name = "pbAccessories"
         Me.pbAccessories.Size = New System.Drawing.Size(100, 100)
@@ -1074,7 +1208,7 @@ Partial Class frmEdit
         'pbMouth
         '
         Me.pbMouth.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbMouth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbMouth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbMouth.Location = New System.Drawing.Point(6, 36)
         Me.pbMouth.Name = "pbMouth"
         Me.pbMouth.Size = New System.Drawing.Size(100, 100)
@@ -1110,7 +1244,7 @@ Partial Class frmEdit
         'pbEyes
         '
         Me.pbEyes.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbEyes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbEyes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbEyes.Location = New System.Drawing.Point(7, 36)
         Me.pbEyes.Name = "pbEyes"
         Me.pbEyes.Size = New System.Drawing.Size(100, 100)
@@ -1156,7 +1290,7 @@ Partial Class frmEdit
         'pbShirt
         '
         Me.pbShirt.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbShirt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbShirt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbShirt.Location = New System.Drawing.Point(6, 36)
         Me.pbShirt.Name = "pbShirt"
         Me.pbShirt.Size = New System.Drawing.Size(100, 100)
@@ -1202,7 +1336,7 @@ Partial Class frmEdit
         'pbSkin
         '
         Me.pbSkin.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
-        Me.pbSkin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbSkin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pbSkin.Location = New System.Drawing.Point(6, 36)
         Me.pbSkin.Name = "pbSkin"
         Me.pbSkin.Size = New System.Drawing.Size(100, 100)
@@ -1242,6 +1376,10 @@ Partial Class frmEdit
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
         'frmEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1266,6 +1404,9 @@ Partial Class frmEdit
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.NsGroupBox1.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -1389,4 +1530,15 @@ Partial Class frmEdit
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents cmbAura8 As NSComboBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents txtInfRank As NSTextBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents btnTachometer As NSButton
+    Friend WithEvents cmbTachometer As NSComboBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents pbEffect As PictureBox
+    Friend WithEvents cmbTitleEffect As NSComboBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Timer1 As Timer
 End Class

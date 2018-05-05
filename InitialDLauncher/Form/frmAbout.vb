@@ -13,10 +13,11 @@ PlayFile © Blake Pell, <br />
 PHP/SQL Leaderboard © Alex Rose, <br />
 ExtendedWebClient © ChrisD, <br />
 GameSpot Theme © w3layouts, <br />
-Translucent Control using GDI+ © a_pess<br />
-SplitButton Control © bergerkiller<br />
-Net Seal Theme © aeonhack<br />
-simple plugin mechanism © chriga<br />
+Translucent Control using GDI+ © a_pess, <br />
+SplitButton Control © bergerkiller, <br />
+Net Seal Theme © aeonhack, <br />
+simple plugin mechanism © chriga, <br />
+GifImage © Jeremy Thompson<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL<br />
@@ -27,10 +28,14 @@ French - nucleaireland<br />
 BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset,<br />
 Lemon The Kid - Avatar Offset, Avatar Preview Pictures, Car Color, Car Engine/Rollbar Parts, Car Fullspec, Car Number Plate, Aura & etc, <br />
 AkiiHoshi - Avatar Preview Pictures for InitialD 7, <br />
+Nezarn - Avatar Preview Pictures for InitialD 8, <br />
 oPTToXenMe - Level Offset,<br />
 Gammaガァマ - Car Name Offset,<br />
 DSThanatos - Time Attack ID6 Offset,<br />
 Turtle - Mileage Offset,<br />
+AsukaXVB - InitialD 8 Offsets,<br />
+TheKrzysiek - InitialD 8 Aura,<br />
+小默 - InitialD 8 Title Effects,<br />
 I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
 <h2>Thanks to</h2>

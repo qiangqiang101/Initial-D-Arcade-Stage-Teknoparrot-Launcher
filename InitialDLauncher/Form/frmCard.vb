@@ -172,33 +172,31 @@ Public Class frmCard
                     flp8.Controls.Add(item)
                 End If
             Next
-            'For Each file As String In IO.Directory.GetFiles(id8CardPath, "*.crd")
-            '    item = New Card()
-            '    With item
-            '        .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
-            '        .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
-            '        .lblLevel.Text = GetLevel(GetHex(file, Neg60(163), 1))
-            '        .FileName = file
-            '        .Extension = "crd"
-            '        If GetGender(GetHex(file, Neg60(90), 1)) = Gender.female Then
-            '            .BackgroundImage = My.Resources.card7f
-            '        Else
-            '            .BackgroundImage = My.Resources.card7m
-            '        End If
-            '        .CardVersion = 8
-            '        If My.Settings.Id8CardName = file Then
-            '            .BackColor = Color.LightBlue
-            '            .btnSelect.Text = deselect_card
-            '            .Selected = True
-            '        Else
-            '            .btnSelect.Text = select_card
-            '            .Selected = False
-            '        End If
-            '    End With
-            '    If GetCardVersion(GetHex(file, &H14, 2)) = 8 Then
-            '        flp7.Controls.Add(item)
-            '    End If
-            'Next
+            For Each file As String In IO.Directory.GetFiles(id8CardPath, "*.crd")
+                item = New Card()
+                With item
+                    .lblName.Location = New Point(85, 14)
+                    .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
+                    .lblCar.Visible = False
+                    .lblLevel.Location = New Point(266, 18)
+                    .lblLevel.Text = GetLevel(GetHex(file, Neg60(163), 1), False, True)
+                    .FileName = file
+                    .Extension = "bin"
+                    .BackgroundImage = My.Resources.card8m
+                    .CardVersion = 8
+                    If My.Settings.Id8CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H14, 2)) = 8 Then
+                    flp8.Controls.Add(item)
+                End If
+            Next
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try

@@ -5,7 +5,7 @@
     Dim trackweather As Dictionary(Of String, String) = New Dictionary(Of String, String)
 
     'Translate
-    Public LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow As String
+    Public LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow, Hakone, MomijiLine As String
     Dim id6, id7, id8 As String
 
     Private _version As Integer
@@ -117,6 +117,8 @@
         trackname.Add(AkinaSnow, "AkinaSnow")
         trackname.Add(TsukubaSnow, "TsukubaSnow")
         trackname.Add(TsuchisakaSnow, "TsuchisakaSnow")
+        trackname.Add(Hakone, "Hakone")
+        trackname.Add(MomijiLine, "MomijiLine")
         tracktype.Add(Uphill, "Uphill")
         tracktype.Add(Downhill, "Downhill")
         tracktype.Add(Counterclockwise, "Counterclockwise")
@@ -148,6 +150,8 @@
                 AkinaSnow = "Akina Snow"
                 TsukubaSnow = "Tsukuba Snow"
                 TsuchisakaSnow = "Tsuchisaka Snow"
+                Hakone = "Hakone"
+                MomijiLine = "Momiji Line"
                 Uphill = "Uphill"
                 Downhill = "Downhill"
                 Counterclockwise = "Counterclockwise"
@@ -179,6 +183,8 @@
                 AkinaSnow = "秋明(雪)"
                 TsukubaSnow = "筑波(雪)"
                 TsuchisakaSnow = "土坂(雪)"
+                Hakone = "箱根"
+                MomijiLine = "紅葉"
                 Uphill = "上坡"
                 Downhill = "下坡"
                 Counterclockwise = "左週"
@@ -210,6 +216,8 @@
                 AkinaSnow = "Akina Snow"
                 TsukubaSnow = "Tsukuba Snow"
                 TsuchisakaSnow = "Tsuchisaka Snow"
+                Hakone = "Hakone"
+                MomijiLine = "Momiji Line"
                 Uphill = "Montée"
                 Downhill = "Une descente"
                 Counterclockwise = "Dans le sens antihoraire"

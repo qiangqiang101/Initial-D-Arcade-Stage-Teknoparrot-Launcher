@@ -21,7 +21,7 @@ Public Class frmLeaderboard
     Dim thread6, thread7, thread8 As Thread
 
     'Translate
-    Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow As String
+    Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow, Hakone, MomijiLine As String
 
     Private Sub btnReport6_Click(sender As Object, e As EventArgs) Handles btnReport6.Click
 
@@ -77,7 +77,7 @@ Public Class frmLeaderboard
                 tracktype8.Add(Counterclockwise, "Counterclockwise")
                 tracktype8.Add(Clockwise, "Clockwise")
                 trackweather8.Add(Dry, "Dry")
-            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine", "Nanamagari", "Sadamine"
+            Case "Myogi", "Akagi", "Akina", "Nagao", "TsubakiLine", "Nanamagari", "Sadamine", "Hakone", "MomijiLine"
                 tracktype8.Add(Uphill, "Uphill")
                 tracktype8.Add(Downhill, "Downhill")
                 trackweather8.Add(Dry, "Dry")
@@ -404,6 +404,8 @@ Public Class frmLeaderboard
         trackname8.Add(Sadamine, "Sadamine")
         trackname8.Add(Tsuchisaka, "Tsuchisaka")
         trackname8.Add(AkinaSnow, "AkinaSnow")
+        trackname8.Add(Hakone, "Hakone")
+        trackname8.Add(MomijiLine, "MomijiLine")
         cmbCourse8.DisplayMember = "Key"
         cmbCourse8.ValueMember = "Value"
         cmbCourse8.DataSource = New BindingSource(trackname8, Nothing)
@@ -474,6 +476,8 @@ Public Class frmLeaderboard
                 AkinaSnow = "Akina Snow"
                 TsukubaSnow = "Tsukuba Snow"
                 TsuchisakaSnow = "Tsuchisaka Snow"
+                Hakone = "Hakone"
+                MomijiLine = "Momiji Line"
                 Uphill = "Uphill"
                 Downhill = "Downhill"
                 Counterclockwise = "Counterclockwise"
@@ -536,6 +540,8 @@ Public Class frmLeaderboard
                 AkinaSnow = "秋明(雪)"
                 TsukubaSnow = "筑波(雪)"
                 TsuchisakaSnow = "土坂(雪)"
+                Hakone = "箱根"
+                MomijiLine = "紅葉"
                 Uphill = "上坡"
                 Downhill = "下坡"
                 Counterclockwise = "左週"
@@ -598,6 +604,8 @@ Public Class frmLeaderboard
                 AkinaSnow = "Akina Snow"
                 TsukubaSnow = "Tsukuba Snow"
                 TsuchisakaSnow = "Tsuchisaka Snow"
+                Hakone = "Hakone"
+                MomijiLine = "Momiji Line"
                 Uphill = "Montée"
                 Downhill = "Une descente"
                 Counterclockwise = "Dans le sens antihoraire"
