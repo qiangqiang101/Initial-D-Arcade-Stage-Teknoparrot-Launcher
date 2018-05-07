@@ -20,8 +20,11 @@ simple plugin mechanism © chriga, <br />
 GifImage © Jeremy Thompson<br />
 
 <h2>Localization contributors</h2>
-English - I'm Not MentaL<br />
-中文 - I'm Not MentaL<br />
+English - I'm Not MentaL, <br />
+繁體中文 - 奥巴鸡, <br />
+简体中文 - 奥巴鸡, <br />
+日本语 - 雪熊霸, <br />
+Bahasa Malaysia - Kurisuchan, <br />
 French - nucleaireland<br />
 
 <h2>Community contributors</h2>
@@ -40,7 +43,7 @@ I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
 <h2>Thanks to</h2>
 (alphabetically)<br />
-Adrian Bloeß, Alexander Pfitzner (GTAInside), Black Tree Gaming Limited (Nexus Mods), Chanchai Boonsiri, Christine Guillory, Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, John Yang, Juiced Box Computers, Kenny, Kira Manell, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), obataku7, Paul Cybulska, Rob Campbell, Tan Hock, teknoparrot7, Timo Düsterhöft, William Argoud, Zhenjie Zou, Zigeng Ma, 鍇鍄 楊, 辰斐 丁, דור צרפתי
+Adrian Bloeß, Alexander Pfitzner (GTAInside), Black Tree Gaming Limited (Nexus Mods), Chanchai Boonsiri, Christine Guillory, Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, John Yang, Juiced Box Computers, Kenny, Kira Manell, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), obataku7, Paul Cybulska, Rob Campbell, Tan Hock, teknoparrot7, Timo Düsterhöft, William Argoud, Zhenjie Zou, Zigeng Ma, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
 <br />
 <h2>Special Thanks to</h2>
 Reaver, Keb, Avail, NTAuthority<br />
@@ -66,38 +69,20 @@ SEGA</center>"
     End Sub
 
     Private Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
-                lblTitle.Text = "Initial D Arcade Stage Launcher"
-                Me.Text = "About"
-                NsTheme1.Text = Me.Text
-                NsGroupBox1.Title = "Plugins"
-                btnDonate.Text = "Donate"
-                lvPlugins.Columns(0).Text = "Plugin Name"
-                lvPlugins.Columns(1).Text = "Version"
-                lvPlugins.Columns(2).Text = "Author"
-            Case "Chinese"
-                lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, frmLauncher.buildDate)
-                lblTitle.Text = "頭文字D Arcade Stage 登陸器"
-                Me.Text = "關於"
-                NsTheme1.Text = Me.Text
-                NsGroupBox1.Title = "插件"
-                btnDonate.Text = "贊助"
-                lvPlugins.Columns(0).Text = "插件名"
-                lvPlugins.Columns(1).Text = "版本"
-                lvPlugins.Columns(2).Text = "作者"
-            Case "French"
-                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, frmLauncher.buildDate)
-                lblTitle.Text = "Initial D Arcade Stage Launcher"
-                Me.Text = "About"
-                NsTheme1.Text = Me.Text
-                NsGroupBox1.Title = "Plugins"
-                btnDonate.Text = "Donate"
-                lvPlugins.Columns(0).Text = "Plugin Name"
-                lvPlugins.Columns(1).Text = "Version"
-                lvPlugins.Columns(2).Text = "Author"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), My.Application.Info.Version, frmLauncher.buildDate)
+            lblTitle.Text = ReadCfgValue("LauncherTitle", langFile)
+            Me.Text = ReadCfgValue("AboutMeText", langFile)
+            NsTheme1.Text = Me.Text
+            NsGroupBox1.Title = ReadCfgValue("Plugins", langFile)
+            btnDonate.Text = ReadCfgValue("Donate", langFile)
+            lvPlugins.Columns(0).Text = ReadCfgValue("PluginName", langFile)
+            lvPlugins.Columns(1).Text = ReadCfgValue("VersionText", langFile)
+            lvPlugins.Columns(2).Text = ReadCfgValue("Author", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub btnDonate_Click(sender As Object, e As EventArgs) Handles btnDonate.Click
@@ -108,5 +93,9 @@ SEGA</center>"
         If Me.Location.Y <= -1 Then
             Me.Location = New Point(Me.Location.X, 0)
         End If
+    End Sub
+
+    Private Sub frmAbout_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        frmLauncher.Enabled = True
     End Sub
 End Class

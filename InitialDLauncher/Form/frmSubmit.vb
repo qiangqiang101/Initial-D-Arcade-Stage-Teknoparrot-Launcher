@@ -103,56 +103,27 @@ Public Class frmSubmit
     End Sub
 
     Public Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Confirm Submit"
-                NsTheme1.Text = Me.Text
-                Label5.Text = "User Name"
-                Label7.Text = "Game Version"
-                Label3.Text = "Course"
-                Label1.Text = "Type"
-                Label2.Text = "Weather"
-                Label4.Text = "Time"
-                Label6.Text = "Car"
-                btnSubmit.Text = "Submit"
-                no_name = "Could not proceed with Blank Name."
-                no_car = "Please select a car."
-                u_r_banned = "You are not allow to Upload Time Attack results."
-                record_exist = "Record already exist on server, please submit another."
-                Label8.Text = "Server"
-            Case "Chinese"
-                Me.Text = "確認提交"
-                NsTheme1.Text = Me.Text
-                Label5.Text = "用戶名"
-                Label7.Text = "遊戲"
-                Label3.Text = "地圖"
-                Label1.Text = "類別"
-                Label2.Text = "天氣"
-                Label4.Text = "時間"
-                Label6.Text = "車型"
-                btnSubmit.Text = "提交"
-                no_name = "用戶名為空。"
-                no_car = "請選擇一台車。"
-                u_r_banned = "您不允許上傳時間挑戰結果。"
-                record_exist = "記錄已經存在於服務器上，請提交另一個。"
-                Label8.Text = "服務器"
-            Case "French"
-                Me.Text = "Confirmer Envoyer"
-                NsTheme1.Text = Me.Text
-                Label5.Text = "Nom d'utilisateur"
-                Label7.Text = "Jeu"
-                Label3.Text = "Piste"
-                Label1.Text = "Type"
-                Label2.Text = "Météo"
-                Label4.Text = "Temps"
-                Label6.Text = "Voiture"
-                btnSubmit.Text = "Soumettre"
-                no_name = "Impossible de continuer avec le nom vide."
-                no_car = "S'il vous plaît sélectionner une voiture."
-                u_r_banned = "Vous n'êtes pas autorisé à télécharger les résultats Time Attack."
-                record_exist = "L'enregistrement existe déjà sur le serveur, veuillez en soumettre un autre."
-                Label8.Text = "Server"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            Me.Text = ReadCfgValue("SubmitMeText", langFile)
+            NsTheme1.Text = Me.Text
+            Label5.Text = ReadCfgValue("UserName", langFile)
+            Label7.Text = ReadCfgValue("GameVersion", langFile)
+            Label3.Text = ReadCfgValue("Course", langFile)
+            Label1.Text = ReadCfgValue("Type", langFile)
+            Label2.Text = ReadCfgValue("Weather", langFile)
+            Label4.Text = ReadCfgValue("RankTime", langFile)
+            Label6.Text = ReadCfgValue("CarSelect", langFile)
+            btnSubmit.Text = ReadCfgValue("SubmitBtn", langFile)
+            no_name = ReadCfgValue("BlankName", langFile)
+            no_car = ReadCfgValue("NoCarSelected", langFile)
+            u_r_banned = ReadCfgValue("URBanned", langFile)
+            record_exist = ReadCfgValue("RecordExist", langFile)
+            Label8.Text = ReadCfgValue("Server", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub frmSubmit_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged

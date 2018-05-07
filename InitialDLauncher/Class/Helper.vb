@@ -293,7 +293,7 @@ Module Helper
                 'INITIAL D
             Case "SILEIGHTY"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("3354", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
-            Case "TRUENO 2door GT-APEX (AE86)"
+            Case "TRUENO 2door GT-APEX (AE86)", "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("1154", New List(Of String)(New String() {"21", "22", "20"}), New List(Of String)(New String() {"Turbo", "Supercharger", "Stock"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
                 'COMPLETE
             Case "G-FORCE SUPRA (JZA80-kai)"
@@ -410,7 +410,7 @@ Module Helper
                 'INITIAL D
             Case "SILEIGHTY"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"IMPACT BLUE", "YELLOWISH SILVER", "SUPER BLACK", "DARK GREY", "SUPER RED", "VELVET BLUE", "PURPLISH GREY", "WARM WHITE", "LIGHTNING YELLOW", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
-            Case "TRUENO 2door GT-APEX (AE86)"
+            Case "TRUENO 2door GT-APEX (AE86)", "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
                 'COMPLETE
             Case "G-FORCE SUPRA (JZA80-kai)"
@@ -463,6 +463,8 @@ Module Helper
                     result = "SUPRA RZ (JZA80)"
                 Case "0800"
                     result = "PRIUS (ZVW30)"
+                Case "0900"
+                    result = "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 Case "0A00"
                     result = "CELICA GT-FOUR (ST205)"
                 'NISSAN
@@ -590,6 +592,8 @@ Module Helper
                 result = "0800"
             Case "CELICA GT-FOUR (ST205)"
                 result = "0A00"
+            Case "SPRINTER TRUENO 2door GT-APEX (AE86)"
+                result = "0900"
                 'NISSAN
             Case "SKYLINE GT-R (BNR32)"
                 result = "0001"

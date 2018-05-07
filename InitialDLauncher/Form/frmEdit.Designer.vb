@@ -58,6 +58,8 @@ Partial Class frmEdit
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtTPride = New InitialDLauncher.NSTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.cmbCup = New InitialDLauncher.NSComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
         Me.pbEffect = New System.Windows.Forms.PictureBox()
         Me.cmbTitleEffect = New InitialDLauncher.NSComboBox()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -212,12 +214,12 @@ Partial Class frmEdit
         Me.GroupBox1.Controls.Add(Me.txtMileage)
         Me.GroupBox1.Controls.Add(Me.cmbCar1)
         Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.DrawSeperator = False
+        Me.GroupBox1.DrawSeperator = True
         Me.GroupBox1.Location = New System.Drawing.Point(505, 36)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.GroupBox1.Size = New System.Drawing.Size(487, 545)
-        Me.GroupBox1.SubTitle = "Not recommended for using Online."
+        Me.GroupBox1.SubTitle = ""
         Me.GroupBox1.TabIndex = 58
         Me.GroupBox1.Text = "NsGroupBox1"
         Me.GroupBox1.Title = "Cheat"
@@ -342,12 +344,12 @@ Partial Class frmEdit
         Me.NsGroupBox1.Controls.Add(Me.txtTAttack)
         Me.NsGroupBox1.Controls.Add(Me.Label19)
         Me.NsGroupBox1.Controls.Add(Me.txtLegend)
-        Me.NsGroupBox1.DrawSeperator = False
+        Me.NsGroupBox1.DrawSeperator = True
         Me.NsGroupBox1.Location = New System.Drawing.Point(6, 96)
         Me.NsGroupBox1.Name = "NsGroupBox1"
         Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox1.Size = New System.Drawing.Size(345, 247)
-        Me.NsGroupBox1.SubTitle = "Edit the X marks on your card."
+        Me.NsGroupBox1.SubTitle = ""
         Me.NsGroupBox1.TabIndex = 61
         Me.NsGroupBox1.Text = "NsGroupBox1"
         Me.NsGroupBox1.Title = "X Mark"
@@ -371,7 +373,7 @@ Partial Class frmEdit
         Me.txtEvent.Name = "txtEvent"
         Me.txtEvent.ReadOnly = False
         Me.txtEvent.Size = New System.Drawing.Size(100, 24)
-        Me.txtEvent.TabIndex = 56
+        Me.txtEvent.TabIndex = 48
         Me.txtEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtEvent.UseSystemPasswordChar = False
         '
@@ -404,7 +406,7 @@ Partial Class frmEdit
         Me.txtKanto.Name = "txtKanto"
         Me.txtKanto.ReadOnly = False
         Me.txtKanto.Size = New System.Drawing.Size(100, 24)
-        Me.txtKanto.TabIndex = 55
+        Me.txtKanto.TabIndex = 51
         Me.txtKanto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtKanto.UseSystemPasswordChar = False
         '
@@ -417,7 +419,7 @@ Partial Class frmEdit
         Me.txtTag.Name = "txtTag"
         Me.txtTag.ReadOnly = False
         Me.txtTag.Size = New System.Drawing.Size(100, 24)
-        Me.txtTag.TabIndex = 54
+        Me.txtTag.TabIndex = 47
         Me.txtTag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTag.UseSystemPasswordChar = False
         '
@@ -460,7 +462,7 @@ Partial Class frmEdit
         Me.txtStore.Name = "txtStore"
         Me.txtStore.ReadOnly = False
         Me.txtStore.Size = New System.Drawing.Size(100, 24)
-        Me.txtStore.TabIndex = 53
+        Me.txtStore.TabIndex = 50
         Me.txtStore.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtStore.UseSystemPasswordChar = False
         '
@@ -473,7 +475,7 @@ Partial Class frmEdit
         Me.txtNational.Name = "txtNational"
         Me.txtNational.ReadOnly = False
         Me.txtNational.Size = New System.Drawing.Size(100, 24)
-        Me.txtNational.TabIndex = 52
+        Me.txtNational.TabIndex = 46
         Me.txtNational.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtNational.UseSystemPasswordChar = False
         '
@@ -486,7 +488,7 @@ Partial Class frmEdit
         Me.txtTAttack.Name = "txtTAttack"
         Me.txtTAttack.ReadOnly = False
         Me.txtTAttack.Size = New System.Drawing.Size(100, 24)
-        Me.txtTAttack.TabIndex = 51
+        Me.txtTAttack.TabIndex = 49
         Me.txtTAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTAttack.UseSystemPasswordChar = False
         '
@@ -509,7 +511,7 @@ Partial Class frmEdit
         Me.txtLegend.Name = "txtLegend"
         Me.txtLegend.ReadOnly = False
         Me.txtLegend.Size = New System.Drawing.Size(100, 24)
-        Me.txtLegend.TabIndex = 50
+        Me.txtLegend.TabIndex = 45
         Me.txtLegend.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtLegend.UseSystemPasswordChar = False
         '
@@ -593,6 +595,8 @@ Partial Class frmEdit
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.cmbCup)
+        Me.TabPage3.Controls.Add(Me.Label28)
         Me.TabPage3.Controls.Add(Me.pbEffect)
         Me.TabPage3.Controls.Add(Me.cmbTitleEffect)
         Me.TabPage3.Controls.Add(Me.Label27)
@@ -609,6 +613,28 @@ Partial Class frmEdit
         Me.TabPage3.Size = New System.Drawing.Size(357, 349)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Initial D8 ∞"
+        '
+        'cmbCup
+        '
+        Me.cmbCup.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbCup.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbCup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCup.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbCup.FormattingEnabled = True
+        Me.cmbCup.Location = New System.Drawing.Point(83, 99)
+        Me.cmbCup.Name = "cmbCup"
+        Me.cmbCup.Size = New System.Drawing.Size(100, 24)
+        Me.cmbCup.TabIndex = 66
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.ForeColor = System.Drawing.Color.White
+        Me.Label28.Location = New System.Drawing.Point(6, 102)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(29, 15)
+        Me.Label28.TabIndex = 71
+        Me.Label28.Text = "Cup"
         '
         'pbEffect
         '
@@ -631,7 +657,7 @@ Partial Class frmEdit
         Me.cmbTitleEffect.Location = New System.Drawing.Point(83, 69)
         Me.cmbTitleEffect.Name = "cmbTitleEffect"
         Me.cmbTitleEffect.Size = New System.Drawing.Size(100, 24)
-        Me.cmbTitleEffect.TabIndex = 67
+        Me.cmbTitleEffect.TabIndex = 65
         '
         'Label27
         '
@@ -648,7 +674,7 @@ Partial Class frmEdit
         Me.btnTachometer.Location = New System.Drawing.Point(189, 39)
         Me.btnTachometer.Name = "btnTachometer"
         Me.btnTachometer.Size = New System.Drawing.Size(54, 24)
-        Me.btnTachometer.TabIndex = 66
+        Me.btnTachometer.TabIndex = 64
         Me.btnTachometer.Text = "Preview"
         '
         'cmbTachometer
@@ -662,7 +688,7 @@ Partial Class frmEdit
         Me.cmbTachometer.Location = New System.Drawing.Point(83, 39)
         Me.cmbTachometer.Name = "cmbTachometer"
         Me.cmbTachometer.Size = New System.Drawing.Size(100, 24)
-        Me.cmbTachometer.TabIndex = 64
+        Me.cmbTachometer.TabIndex = 63
         '
         'Label26
         '
@@ -683,7 +709,7 @@ Partial Class frmEdit
         Me.txtInfRank.Name = "txtInfRank"
         Me.txtInfRank.ReadOnly = False
         Me.txtInfRank.Size = New System.Drawing.Size(100, 24)
-        Me.txtInfRank.TabIndex = 63
+        Me.txtInfRank.TabIndex = 62
         Me.txtInfRank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtInfRank.UseSystemPasswordChar = False
         '
@@ -707,7 +733,7 @@ Partial Class frmEdit
         Me.cmbAura8.Location = New System.Drawing.Point(83, 9)
         Me.cmbAura8.Name = "cmbAura8"
         Me.cmbAura8.Size = New System.Drawing.Size(100, 24)
-        Me.cmbAura8.TabIndex = 60
+        Me.cmbAura8.TabIndex = 61
         '
         'Label24
         '
@@ -785,7 +811,7 @@ Partial Class frmEdit
         Me.txtGamePoint.Name = "txtGamePoint"
         Me.txtGamePoint.ReadOnly = False
         Me.txtGamePoint.Size = New System.Drawing.Size(166, 24)
-        Me.txtGamePoint.TabIndex = 23
+        Me.txtGamePoint.TabIndex = 22
         Me.txtGamePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtGamePoint.UseSystemPasswordChar = False
         '
@@ -854,7 +880,7 @@ Partial Class frmEdit
         Me.txtMileage.Name = "txtMileage"
         Me.txtMileage.ReadOnly = False
         Me.txtMileage.Size = New System.Drawing.Size(166, 24)
-        Me.txtMileage.TabIndex = 22
+        Me.txtMileage.TabIndex = 23
         Me.txtMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtMileage.UseSystemPasswordChar = False
         '
@@ -887,7 +913,7 @@ Partial Class frmEdit
         Me.btnSave.Location = New System.Drawing.Point(918, 588)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 60
+        Me.btnSave.TabIndex = 70
         Me.btnSave.Text = "Save"
         '
         'GroupBox5
@@ -898,12 +924,12 @@ Partial Class frmEdit
         Me.GroupBox5.Controls.Add(Me.cmbGender)
         Me.GroupBox5.Controls.Add(Me.txtName)
         Me.GroupBox5.Controls.Add(Me.Label2)
-        Me.GroupBox5.DrawSeperator = False
+        Me.GroupBox5.DrawSeperator = True
         Me.GroupBox5.Location = New System.Drawing.Point(12, 483)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.GroupBox5.Size = New System.Drawing.Size(487, 98)
-        Me.GroupBox5.SubTitle = "Edit your name and gender."
+        Me.GroupBox5.SubTitle = ""
         Me.GroupBox5.TabIndex = 57
         Me.GroupBox5.Text = "NsGroupBox1"
         Me.GroupBox5.Title = "Basic"
@@ -993,12 +1019,12 @@ Partial Class frmEdit
         Me.GroupBox4.Controls.Add(Me.gbSkin)
         Me.GroupBox4.Controls.Add(Me.cmbAvatar)
         Me.GroupBox4.Controls.Add(Me.btnSet)
-        Me.GroupBox4.DrawSeperator = False
+        Me.GroupBox4.DrawSeperator = True
         Me.GroupBox4.Location = New System.Drawing.Point(12, 36)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.GroupBox4.Size = New System.Drawing.Size(487, 441)
-        Me.GroupBox4.SubTitle = "Edit the Avatar of your card."
+        Me.GroupBox4.SubTitle = ""
         Me.GroupBox4.TabIndex = 56
         Me.GroupBox4.Text = "Avatar"
         Me.GroupBox4.Title = "Avatar"
@@ -1007,12 +1033,12 @@ Partial Class frmEdit
         '
         Me.gbFrame.Controls.Add(Me.lbl221)
         Me.gbFrame.Controls.Add(Me.pbFrame)
-        Me.gbFrame.DrawSeperator = False
+        Me.gbFrame.DrawSeperator = True
         Me.gbFrame.Location = New System.Drawing.Point(365, 291)
         Me.gbFrame.Name = "gbFrame"
         Me.gbFrame.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbFrame.Size = New System.Drawing.Size(112, 142)
-        Me.gbFrame.SubTitle = "Background"
+        Me.gbFrame.SubTitle = ""
         Me.gbFrame.TabIndex = 64
         Me.gbFrame.Text = "NsGroupBox5"
         Me.gbFrame.Title = "Frame"
@@ -1053,12 +1079,12 @@ Partial Class frmEdit
         '
         Me.gbHair.Controls.Add(Me.lblcdce)
         Me.gbHair.Controls.Add(Me.pbHair)
-        Me.gbHair.DrawSeperator = False
+        Me.gbHair.DrawSeperator = True
         Me.gbHair.Location = New System.Drawing.Point(246, 291)
         Me.gbHair.Name = "gbHair"
         Me.gbHair.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbHair.Size = New System.Drawing.Size(112, 142)
-        Me.gbHair.SubTitle = "Headgear & Hairstyle"
+        Me.gbHair.SubTitle = ""
         Me.gbHair.TabIndex = 63
         Me.gbHair.Text = "NsGroupBox6"
         Me.gbHair.Title = "Hair"
@@ -1089,12 +1115,12 @@ Partial Class frmEdit
         '
         Me.gbSpec.Controls.Add(Me.lblcbcc)
         Me.gbSpec.Controls.Add(Me.pbShades)
-        Me.gbSpec.DrawSeperator = False
+        Me.gbSpec.DrawSeperator = True
         Me.gbSpec.Location = New System.Drawing.Point(128, 291)
         Me.gbSpec.Name = "gbSpec"
         Me.gbSpec.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbSpec.Size = New System.Drawing.Size(112, 142)
-        Me.gbSpec.SubTitle = "Glasses & Sunglasses"
+        Me.gbSpec.SubTitle = ""
         Me.gbSpec.TabIndex = 62
         Me.gbSpec.Text = "NsGroupBox7"
         Me.gbSpec.Title = "Shades"
@@ -1135,12 +1161,12 @@ Partial Class frmEdit
         '
         Me.gbAccessories.Controls.Add(Me.lblcacb)
         Me.gbAccessories.Controls.Add(Me.pbAccessories)
-        Me.gbAccessories.DrawSeperator = False
+        Me.gbAccessories.DrawSeperator = True
         Me.gbAccessories.Location = New System.Drawing.Point(10, 291)
         Me.gbAccessories.Name = "gbAccessories"
         Me.gbAccessories.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbAccessories.Size = New System.Drawing.Size(112, 142)
-        Me.gbAccessories.SubTitle = "Necklace, Speech, Etc"
+        Me.gbAccessories.SubTitle = ""
         Me.gbAccessories.TabIndex = 61
         Me.gbAccessories.Text = "NsGroupBox8"
         Me.gbAccessories.Title = "Accessories"
@@ -1183,12 +1209,12 @@ Partial Class frmEdit
         '
         Me.gbMouth.Controls.Add(Me.lblc8c9)
         Me.gbMouth.Controls.Add(Me.pbMouth)
-        Me.gbMouth.DrawSeperator = False
+        Me.gbMouth.DrawSeperator = True
         Me.gbMouth.Location = New System.Drawing.Point(365, 143)
         Me.gbMouth.Name = "gbMouth"
         Me.gbMouth.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbMouth.Size = New System.Drawing.Size(112, 142)
-        Me.gbMouth.SubTitle = "Mouth"
+        Me.gbMouth.SubTitle = ""
         Me.gbMouth.TabIndex = 60
         Me.gbMouth.Text = "NsGroupBox4"
         Me.gbMouth.Title = "Mouth"
@@ -1219,12 +1245,12 @@ Partial Class frmEdit
         '
         Me.gbEyes.Controls.Add(Me.lblc7c8)
         Me.gbEyes.Controls.Add(Me.pbEyes)
-        Me.gbEyes.DrawSeperator = False
+        Me.gbEyes.DrawSeperator = True
         Me.gbEyes.Location = New System.Drawing.Point(246, 143)
         Me.gbEyes.Name = "gbEyes"
         Me.gbEyes.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbEyes.Size = New System.Drawing.Size(112, 142)
-        Me.gbEyes.SubTitle = "Eyes"
+        Me.gbEyes.SubTitle = ""
         Me.gbEyes.TabIndex = 59
         Me.gbEyes.Text = "NsGroupBox3"
         Me.gbEyes.Title = "Eyes"
@@ -1265,12 +1291,12 @@ Partial Class frmEdit
         '
         Me.gbShirt.Controls.Add(Me.lblc5c6)
         Me.gbShirt.Controls.Add(Me.pbShirt)
-        Me.gbShirt.DrawSeperator = False
+        Me.gbShirt.DrawSeperator = True
         Me.gbShirt.Location = New System.Drawing.Point(128, 143)
         Me.gbShirt.Name = "gbShirt"
         Me.gbShirt.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbShirt.Size = New System.Drawing.Size(112, 142)
-        Me.gbShirt.SubTitle = "Shirt"
+        Me.gbShirt.SubTitle = ""
         Me.gbShirt.TabIndex = 58
         Me.gbShirt.Text = "NsGroupBox2"
         Me.gbShirt.Title = "Coat"
@@ -1311,12 +1337,12 @@ Partial Class frmEdit
         '
         Me.gbSkin.Controls.Add(Me.lblc4c5)
         Me.gbSkin.Controls.Add(Me.pbSkin)
-        Me.gbSkin.DrawSeperator = False
+        Me.gbSkin.DrawSeperator = True
         Me.gbSkin.Location = New System.Drawing.Point(10, 143)
         Me.gbSkin.Name = "gbSkin"
         Me.gbSkin.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.gbSkin.Size = New System.Drawing.Size(112, 142)
-        Me.gbSkin.SubTitle = "Face & Skin Color"
+        Me.gbSkin.SubTitle = ""
         Me.gbSkin.TabIndex = 57
         Me.gbSkin.Text = "NsGroupBox1"
         Me.gbSkin.Title = "Head"
@@ -1541,4 +1567,6 @@ Partial Class frmEdit
     Friend WithEvents cmbTitleEffect As NSComboBox
     Friend WithEvents Label27 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents cmbCup As NSComboBox
+    Friend WithEvents Label28 As Label
 End Class

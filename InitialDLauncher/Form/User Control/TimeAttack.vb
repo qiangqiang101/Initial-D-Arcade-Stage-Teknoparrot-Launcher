@@ -129,110 +129,71 @@
         trackweather.Add(Dry, "Dry")
         trackweather.Add(Wet, "Wet")
         trackweather.Add(Snow, "Snow")
+
+        Select Case lblCourse.Text.Length
+            Case 0 To 10
+                lblCourse.Font = New Font("Segoe UI", 18.0, FontStyle.Bold)
+            Case 11
+                lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+            Case 12
+                lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
+            Case 13 To 999999
+                lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
+        End Select
+
     End Sub
 
     Public Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                LakeAkina = "Lake Akina"
-                Myogi = "Myogi"
-                Usui = "Usui"
-                Akagi = "Akagi"
-                Akina = "Akina"
-                Irohazka = "Irohazka"
-                Happogahara = "Happogahara"
-                Nagao = "Nagao"
-                Tsukuba = "Tsukuba"
-                TsubakiLine = "Tsubaki Line"
-                Nanamagari = "Nanamagari"
-                Sadamine = "Sadamine"
-                Tsuchisaka = "Tsuchisaka"
-                AkinaSnow = "Akina Snow"
-                TsukubaSnow = "Tsukuba Snow"
-                TsuchisakaSnow = "Tsuchisaka Snow"
-                Hakone = "Hakone"
-                MomijiLine = "Momiji Line"
-                Uphill = "Uphill"
-                Downhill = "Downhill"
-                Counterclockwise = "Counterclockwise"
-                Clockwise = "Clockwise"
-                Inbound = "Inbound"
-                Outbound = "Outbound"
-                Reversed = "Reversed"
-                Dry = "Dry"
-                Wet = "Wet"
-                Snow = "Snow"
-                btnTimeAttack.Text = "Submit"
-                id6 = "InitialD 6 AA"
-                id7 = "InitialD 7 AAX"
-                id8 = "InitialD 8 ∞"
-            Case "Chinese"
-                LakeAkina = "秋明湖"
-                Myogi = "妙義"
-                Usui = "碓冰"
-                Akagi = "赤城"
-                Akina = "秋明"
-                Irohazka = "伊呂波"
-                Happogahara = "八方原"
-                Nagao = "長尾"
-                Tsukuba = "筑波"
-                TsubakiLine = "椿线"
-                Nanamagari = "七曲"
-                Sadamine = "定峰"
-                Tsuchisaka = "土坂"
-                AkinaSnow = "秋明(雪)"
-                TsukubaSnow = "筑波(雪)"
-                TsuchisakaSnow = "土坂(雪)"
-                Hakone = "箱根"
-                MomijiLine = "紅葉"
-                Uphill = "上坡"
-                Downhill = "下坡"
-                Counterclockwise = "左週"
-                Clockwise = "右週"
-                Inbound = "復路"
-                Outbound = "往路"
-                Reversed = "逆走"
-                Dry = "晴"
-                Wet = "雨"
-                Snow = "雪"
-                btnTimeAttack.Text = "提交"
-                id6 = "頭文字D6AA"
-                id7 = "頭文字D7AAX"
-                id8 = "頭文字D8∞"
-            Case "French"
-                LakeAkina = "Lake Akina"
-                Myogi = "Myogi"
-                Usui = "Usui"
-                Akagi = "Akagi"
-                Akina = "Akina"
-                Irohazka = "Irohazka"
-                Happogahara = "Happogahara"
-                Nagao = "Nagao"
-                Tsukuba = "Tsukuba"
-                TsubakiLine = "Tsubaki Line"
-                Nanamagari = "Nanamagari"
-                Sadamine = "Sadamine"
-                Tsuchisaka = "Tsuchisaka"
-                AkinaSnow = "Akina Snow"
-                TsukubaSnow = "Tsukuba Snow"
-                TsuchisakaSnow = "Tsuchisaka Snow"
-                Hakone = "Hakone"
-                MomijiLine = "Momiji Line"
-                Uphill = "Montée"
-                Downhill = "Une descente"
-                Counterclockwise = "Dans le sens antihoraire"
-                Clockwise = "Sens horaire"
-                Inbound = "Entrant"
-                Outbound = "Sortant"
-                Reversed = "Renversé"
-                Dry = "Sec"
-                Wet = "Humide"
-                Snow = "Neige"
-                btnTimeAttack.Text = "Soumettre"
-                id6 = "InitialD 6 AA"
-                id7 = "InitialD 7 AAX"
-                id8 = "InitialD 8 ∞"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            LakeAkina = ReadCfgValue("LakeAkina", langFile)
+            Myogi = ReadCfgValue("Myogi", langFile)
+            Usui = ReadCfgValue("Usui", langFile)
+            Akagi = ReadCfgValue("Akagi", langFile)
+            Akina = ReadCfgValue("Akina", langFile)
+            Irohazka = ReadCfgValue("Irohazaka", langFile)
+            Happogahara = ReadCfgValue("Happogahara", langFile)
+            Nagao = ReadCfgValue("Nagao", langFile)
+            Tsukuba = ReadCfgValue("Tsukuba", langFile)
+            TsubakiLine = ReadCfgValue("TsubakiLine", langFile)
+            Nanamagari = ReadCfgValue("Namagari", langFile)
+            Sadamine = ReadCfgValue("Sadamine", langFile)
+            Tsuchisaka = ReadCfgValue("Tsuchisaka", langFile)
+            AkinaSnow = ReadCfgValue("SnowAkina", langFile)
+            TsukubaSnow = ReadCfgValue("SnowTsukuba", langFile)
+            TsuchisakaSnow = ReadCfgValue("SnowTsuchisaka", langFile)
+            Hakone = ReadCfgValue("Hakone", langFile)
+            MomijiLine = ReadCfgValue("MomijiLine", langFile)
+            Uphill = ReadCfgValue("Uphill", langFile)
+            Downhill = ReadCfgValue("Downhill", langFile)
+            Counterclockwise = ReadCfgValue("Counterclockwise", langFile)
+            Clockwise = ReadCfgValue("Clockwise", langFile)
+            Inbound = ReadCfgValue("Inbound", langFile)
+            Outbound = ReadCfgValue("Outbound", langFile)
+            Reversed = ReadCfgValue("Reversed", langFile)
+            Dry = ReadCfgValue("Dry", langFile)
+            Wet = ReadCfgValue("Wet", langFile)
+            Snow = ReadCfgValue("_Snow", langFile)
+            btnTimeAttack.Text = ReadCfgValue("SubmitBtn", langFile)
+            id6 = ReadCfgValue("EditTab6", langFile)
+            id7 = ReadCfgValue("EditTab7", langFile)
+            id8 = ReadCfgValue("EditTab8", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
+    Private Sub lblCourse_TextChanged(sender As Object, e As EventArgs) Handles lblCourse.TextChanged
+        Select Case lblCourse.Text.Length
+            Case 0 To 10
+                lblCourse.Font = New Font("Segoe UI", 18.0, FontStyle.Bold)
+            Case 11
+                lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
+            Case 12
+                lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
+            Case 13 To 999999
+                lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
+        End Select
+    End Sub
 End Class

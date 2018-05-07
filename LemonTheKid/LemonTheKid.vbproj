@@ -6023,6 +6023,9 @@
   <ItemGroup>
     <None Include="Resources\1A.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BLANK.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY "$(TargetPath)" "E:\TeknoParrotLatest"</PostBuildEvent>

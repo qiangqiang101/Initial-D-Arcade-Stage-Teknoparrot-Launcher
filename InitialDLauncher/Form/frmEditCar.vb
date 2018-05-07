@@ -162,94 +162,205 @@ Public Class frmEditCar
     End Sub
 
     Private Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Edit Car: " & _carname & "[" & _slot & "]"
-                NsTheme1.Text = Me.Text
-                Label3.Text = "Replace to"
-                cbFullSpec.Text = "Unlock FullSpec"
-                cbEngineRollbar.Text = "Save Engine & Rollbar"
-                NsGroupBox1.Title = "Performance Parts"
-                NsGroupBox1.SubTitle = "Edit this might overwrite your Visual Parts."
-                Label1.Text = "Select Engine"
-                Label2.Text = "Select Rollbar"
-                Label4.Text = "Color"
-                btnApply.Text = "Apply"
-                Label6.Text = "Plate Number"
-                Label5.Text = "Hiragana"
-                Label7.Text = "Place Name"
-                NsGroupBox2.Title = "Number Plate Design"
-                NsGroupBox2.SubTitle = "Edit the Number Plate of this car."
-                NsGroupBox3.Title = "Event Stickers"
-                NsGroupBox3.SubTitle = "Edit the Hidden Event Stickers of this car."
-                Label9.Text = "Sticker 1"
-                Label8.Text = "Sticker 2"
-                Label11.Text = "Sticker 3"
-                Label10.Text = "Sticker 4"
-                Label12.Text = "Class Code"
-                btnSave.Text = "Export"
-                btnLoad.Text = "Import"
-                import_complete = "Car Import completed, Restart Card Editor to take effect."
-            Case "Chinese"
-                Me.Text = "改车: " & _carname & "[" & _slot & "]"
-                NsTheme1.Text = Me.Text
-                Label3.Text = "换成"
-                cbFullSpec.Text = "解鎖 FullSpec"
-                cbEngineRollbar.Text = "保存引擎以及滾動條"
-                NsGroupBox1.Title = "性能零件"
-                NsGroupBox1.SubTitle = "修改這個可能會導致外改裝件消失噢。"
-                Label1.Text = "選擇引擎"
-                Label2.Text = "選擇滾動條"
-                Label4.Text = "顏色"
-                btnApply.Text = "應用"
-                Label6.Text = "車牌號碼"
-                Label5.Text = "平假名"
-                Label7.Text = "地名"
-                NsGroupBox2.Title = "車牌設計"
-                NsGroupBox2.SubTitle = "修改這輛車的車牌。"
-                NsGroupBox3.Title = "活動貼紙"
-                NsGroupBox3.SubTitle = "修改這輛車的活動貼紙。"
-                Label9.Text = "貼紙1"
-                Label8.Text = "貼紙2"
-                Label11.Text = "貼紙3"
-                Label10.Text = "貼紙4"
-                Label12.Text = "分類編號"
-                btnSave.Text = "導出"
-                btnLoad.Text = "導入"
-                import_complete = "導入完成，請重啟改卡視窗。"
-            Case "French"
-                Me.Text = "Edit Car: " & _carname & "[" & _slot & "]"
-                NsTheme1.Text = Me.Text
-                Label3.Text = "Replace to"
-                cbFullSpec.Text = "déverrouiller les FullSpec"
-                cbEngineRollbar.Text = "Save Engine & Rollbar"
-                NsGroupBox1.Title = "Performance Parts"
-                NsGroupBox1.SubTitle = "Edit this might overwrite your Visual Parts."
-                Label1.Text = "Select Engine"
-                Label2.Text = "Select Rollbar"
-                Label4.Text = "Color"
-                btnApply.Text = "Apply"
-                Label6.Text = "Plate Number"
-                Label5.Text = "Hiragana"
-                Label7.Text = "Place Name"
-                NsGroupBox2.Title = "Number Plate Design"
-                NsGroupBox2.SubTitle = "Edit the Number Plate of this car."
-                NsGroupBox3.Title = "Event Stickers"
-                NsGroupBox3.SubTitle = "Edit the Hidden Event Stickers of this car."
-                Label9.Text = "Sticker 1"
-                Label8.Text = "Sticker 2"
-                Label11.Text = "Sticker 3"
-                Label10.Text = "Sticker 4"
-                Label12.Text = "Class Code"
-                btnSave.Text = "Export"
-                btnLoad.Text = "Import"
-                import_complete = "Car Import completed, Restart Card Editor to take effect."
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            Me.Text = ReadCfgValue("EditCarMeText", langFile) & _carname & "[" & _slot & "]"
+            NsTheme1.Text = Me.Text
+            Label3.Text = ReadCfgValue("ReplaceTo", langFile)
+            cbFullSpec.Text = ReadCfgValue("UnlockFullspec", langFile)
+            cbEngineRollbar.Text = ReadCfgValue("EngineRollbar", langFile)
+            NsGroupBox1.Title = ReadCfgValue("PerformancePart", langFile)
+            Label1.Text = ReadCfgValue("SelectEngine", langFile)
+            Label2.Text = ReadCfgValue("SelectRollbar", langFile)
+            Label4.Text = ReadCfgValue("Color", langFile)
+            btnApply.Text = ReadCfgValue("Apply", langFile)
+            Label6.Text = ReadCfgValue("PlateNum", langFile)
+            Label5.Text = ReadCfgValue("Hiragana", langFile)
+            Label7.Text = ReadCfgValue("PlaceName", langFile)
+            NsGroupBox2.Title = ReadCfgValue("NumPlate", langFile)
+            NsGroupBox3.Title = ReadCfgValue("EventSticker", langFile)
+            Label9.Text = ReadCfgValue("Sticker1", langFile)
+            Label8.Text = ReadCfgValue("Sticker2", langFile)
+            Label11.Text = ReadCfgValue("Sticker3", langFile)
+            Label10.Text = ReadCfgValue("Sticker4", langFile)
+            Label12.Text = ReadCfgValue("ClassCode", langFile)
+            btnSave.Text = ReadCfgValue("ExportBtn", langFile)
+            btnLoad.Text = ReadCfgValue("ImportBtn", langFile)
+            import_complete = ReadCfgValue("ImportComplete", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub frmEditCar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Translate()
+
+            Select Case _version
+                Case 6
+                    'TOYOTA
+                    cmbCarList.Items.Add("TRUENO GT-APEX (AE86)")
+                    cmbCarList.Items.Add("LEVIN GT-APEX (AE86)")
+                    cmbCarList.Items.Add("LEVIN SR (AE85)")
+                    cmbCarList.Items.Add("FT-86 G Sports Concept")
+                    cmbCarList.Items.Add("MR2 G-Limited (SW20)")
+                    cmbCarList.Items.Add("MR-S (ZZW30)")
+                    cmbCarList.Items.Add("ALTEZZA RS200 (SXE10)")
+                    cmbCarList.Items.Add("SUPRA RZ (JZA80)")
+                    cmbCarList.Items.Add("PRIUS (ZVW30)")
+                    'NISSAN
+                    cmbCarList.Items.Add("SKYLINE GT-R (BNR32)")
+                    cmbCarList.Items.Add("SKYLINE GT-R (BNR34)")
+                    cmbCarList.Items.Add("SILVIA K's (S13)")
+                    cmbCarList.Items.Add("Silvia Q's (S14)")
+                    cmbCarList.Items.Add("Silvia spec-R (S15)")
+                    cmbCarList.Items.Add("180SX TYPE II (RPS13)")
+                    cmbCarList.Items.Add("FAIRLADY Z (Z33)")
+                    cmbCarList.Items.Add("GT-R (R35)")
+                    'HONDA
+                    cmbCarList.Items.Add("Civic SiR・II (EG6)")
+                    cmbCarList.Items.Add("CIVIC TYPE R (EK9)")
+                    cmbCarList.Items.Add("INTEGRA TYPE R (DC2)")
+                    cmbCarList.Items.Add("S2000 (AP1)")
+                    cmbCarList.Items.Add("NSX (NA1)")
+                    'MAZDA
+                    cmbCarList.Items.Add("RX-7 ∞III (FC3S)")
+                    cmbCarList.Items.Add("RX-7 Type R (FD3S)")
+                    cmbCarList.Items.Add("RX-7 Type RS (FD3S)")
+                    cmbCarList.Items.Add("RX-8 Type S (SE3P)")
+                    cmbCarList.Items.Add("ROADSTER (NA6CE)")
+                    cmbCarList.Items.Add("ROADSTER RS (NB8C)")
+                    'SUBARU
+                    cmbCarList.Items.Add("IMPREZA STi Ver.V (GC8)")
+                    cmbCarList.Items.Add("IMPREZA STI (GDBF)")
+                    'MITSUBISHI
+                    cmbCarList.Items.Add("LANCER Evolution III (CE9A)")
+                    cmbCarList.Items.Add("LANCER EVOLUTION IV (CN9A)")
+                    cmbCarList.Items.Add("LANCER Evolution VII (CT9A)")
+                    cmbCarList.Items.Add("LANCER Evolution IX (CT9A)")
+                    cmbCarList.Items.Add("LANCER EVOLUTION X (CZ4A)")
+                    'SUZUKI
+                    cmbCarList.Items.Add("Cappuccino (EA11R)")
+                    'INITIALD
+                    cmbCarList.Items.Add("SILEIGHTY")
+                Case 7
+                    'TOYOTA
+                    cmbCarList.Items.Add("TRUENO GT-APEX (AE86)")
+                    cmbCarList.Items.Add("LEVIN GT-APEX (AE86)")
+                    cmbCarList.Items.Add("LEVIN SR (AE85)")
+                    cmbCarList.Items.Add("86 GT (ZN6)")
+                    cmbCarList.Items.Add("MR2 G-Limited (SW20)")
+                    cmbCarList.Items.Add("MR-S (ZZW30)")
+                    cmbCarList.Items.Add("ALTEZZA RS200 (SXE10)")
+                    cmbCarList.Items.Add("SUPRA RZ (JZA80)")
+                    cmbCarList.Items.Add("PRIUS (ZVW30)")
+                    cmbCarList.Items.Add("TRUENO 2door GT-APEX (AE86)")
+                    'NISSAN
+                    cmbCarList.Items.Add("SKYLINE GT-R (BNR32)")
+                    cmbCarList.Items.Add("SKYLINE GT-R (BNR34)")
+                    cmbCarList.Items.Add("SILVIA K's (S13)")
+                    cmbCarList.Items.Add("Silvia Q's (S14)")
+                    cmbCarList.Items.Add("Silvia spec-R (S15)")
+                    cmbCarList.Items.Add("180SX TYPE II (RPS13)")
+                    cmbCarList.Items.Add("FAIRLADY Z (Z33)")
+                    cmbCarList.Items.Add("GT-R (R35)")
+                    'HONDA
+                    cmbCarList.Items.Add("Civic SiR・II (EG6)")
+                    cmbCarList.Items.Add("CIVIC TYPE R (EK9)")
+                    cmbCarList.Items.Add("INTEGRA TYPE R (DC2)")
+                    cmbCarList.Items.Add("S2000 (AP1)")
+                    cmbCarList.Items.Add("NSX (NA1)")
+                    'MAZDA
+                    cmbCarList.Items.Add("RX-7 ∞III (FC3S)")
+                    cmbCarList.Items.Add("RX-7 Type R (FD3S)")
+                    cmbCarList.Items.Add("RX-7 Type RS (FD3S)")
+                    cmbCarList.Items.Add("RX-8 Type S (SE3P)")
+                    cmbCarList.Items.Add("ROADSTER (NA6CE)")
+                    cmbCarList.Items.Add("ROADSTER RS (NB8C)")
+                    'SUBARU
+                    cmbCarList.Items.Add("IMPREZA STi Ver.V (GC8)")
+                    cmbCarList.Items.Add("IMPREZA STi (GDBA)")
+                    cmbCarList.Items.Add("IMPREZA STI (GDBF)")
+                    'MITSUBISHI
+                    cmbCarList.Items.Add("LANCER Evolution III (CE9A)")
+                    cmbCarList.Items.Add("LANCER EVOLUTION IV (CN9A)")
+                    cmbCarList.Items.Add("LANCER Evolution VII (CT9A)")
+                    cmbCarList.Items.Add("LANCER Evolution IX (CT9A)")
+                    cmbCarList.Items.Add("LANCER EVOLUTION X (CZ4A)")
+                    'SUZUKI
+                    cmbCarList.Items.Add("Cappuccino (EA11R)")
+                    'INITIALD
+                    cmbCarList.Items.Add("SILEIGHTY")
+                    'COMPLETE CAR
+                    cmbCarList.Items.Add("G-FORCE SUPRA (JZA80-kai)")
+                    cmbCarList.Items.Add("MONSTER CIVIC R (EK9)")
+                    cmbCarList.Items.Add("NSX-R GT (NA2)")
+                    cmbCarList.Items.Add("RE Amemiya Genki-7 (FD3S)")
+                    cmbCarList.Items.Add("S2000 GT1 (AP1)")
+                    cmbCarList.Items.Add("ROADSTER C-SPEC (NA8C Kai)")
+                Case 8
+                    'TOYOTA
+                    cmbCarList.Items.Add("TRUENO GT-APEX (AE86)")
+                    cmbCarList.Items.Add("LEVIN GT-APEX (AE86)")
+                    cmbCarList.Items.Add("LEVIN SR (AE85)")
+                    cmbCarList.Items.Add("86 GT (ZN6)")
+                    cmbCarList.Items.Add("MR2 G-Limited (SW20)")
+                    cmbCarList.Items.Add("MR-S (ZZW30)")
+                    cmbCarList.Items.Add("ALTEZZA RS200 (SXE10)")
+                    cmbCarList.Items.Add("SUPRA RZ (JZA80)")
+                    cmbCarList.Items.Add("PRIUS (ZVW30)")
+                    cmbCarList.Items.Add("SPRINTER TRUENO 2door GT-APEX (AE86)")
+                    cmbCarList.Items.Add("CELICA GT-FOUR (ST205)")
+                    'NISSAN
+                    cmbCarList.Items.Add("SKYLINE GT-R (BNR32)")
+                    cmbCarList.Items.Add("SKYLINE GT-R (BNR34)")
+                    cmbCarList.Items.Add("SILVIA K's (S13)")
+                    cmbCarList.Items.Add("Silvia Q's (S14)")
+                    cmbCarList.Items.Add("Silvia spec-R (S15)")
+                    cmbCarList.Items.Add("180SX TYPE II (RPS13)")
+                    cmbCarList.Items.Add("FAIRLADY Z (Z33)")
+                    cmbCarList.Items.Add("GT-R NISMO (R35)")
+                    cmbCarList.Items.Add("SKYLINE 25GT TURBO (ER34)")
+                    'HONDA
+                    cmbCarList.Items.Add("Civic SiR・II (EG6)")
+                    cmbCarList.Items.Add("CIVIC TYPE R (EK9)")
+                    cmbCarList.Items.Add("INTEGRA TYPE R (DC2)")
+                    cmbCarList.Items.Add("S2000 (AP1)")
+                    cmbCarList.Items.Add("NSX (NA1)")
+                    'MAZDA
+                    cmbCarList.Items.Add("RX-7 ∞III (FC3S)")
+                    cmbCarList.Items.Add("RX-7 Type R (FD3S)")
+                    cmbCarList.Items.Add("RX-7 Type RS (FD3S)")
+                    cmbCarList.Items.Add("RX-8 Type S (SE3P)")
+                    cmbCarList.Items.Add("ROADSTER (NA6CE)")
+                    cmbCarList.Items.Add("ROADSTER RS (NB8C)")
+                    'SUBARU
+                    cmbCarList.Items.Add("IMPREZA STi Ver.V (GC8)")
+                    cmbCarList.Items.Add("IMPREZA STi (GDBA)")
+                    cmbCarList.Items.Add("IMPREZA STI (GDBF)")
+                    cmbCarList.Items.Add("BRZ S (ZC6)")
+                    'MITSUBISHI
+                    cmbCarList.Items.Add("LANCER Evolution III (CE9A)")
+                    cmbCarList.Items.Add("LANCER EVOLUTION IV (CN9A)")
+                    cmbCarList.Items.Add("LANCER Evolution VII (CT9A)")
+                    cmbCarList.Items.Add("LANCER Evolution IX (CT9A)")
+                    cmbCarList.Items.Add("LANCER EVOLUTION X (CZ4A)")
+                    cmbCarList.Items.Add("LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)")
+                    cmbCarList.Items.Add("LANCER RS EVOLUTION V (CP9A)")
+                    'SUZUKI
+                    cmbCarList.Items.Add("Cappuccino (EA11R)")
+                    'INITIALD
+                    cmbCarList.Items.Add("SILEIGHTY")
+                    'COMPLETE CAR
+                    cmbCarList.Items.Add("G-FORCE SUPRA (JZA80-kai)")
+                    cmbCarList.Items.Add("MONSTER CIVIC R (EK9)")
+                    cmbCarList.Items.Add("NSX-R GT (NA2)")
+                    cmbCarList.Items.Add("RE Amemiya Genki-7 (FD3S)")
+                    cmbCarList.Items.Add("S2000 GT1 (AP1)")
+                    cmbCarList.Items.Add("ROADSTER C-SPEC (NA8C Kai)")
+            End Select
+
             If _version = 8 Then NsGroupBox1.Enabled = False
             If Not _version = 8 Then tuple = GetCarPerformancePart(_carname)
             colTuple = GetCarColor(_carname)

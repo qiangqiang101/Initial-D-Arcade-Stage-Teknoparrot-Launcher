@@ -19,11 +19,12 @@ Public Class frmEdit
     Dim _221 As String = "00"
 
     'Translation
-    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar, a7_none, a7_hot, a7_wind, a7_light, a7_sprit, a7_overlord, a7_fly, import_complete As String
+    Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar, a7_none, a7_hot, a7_wind, a7_light, a7_sprit, a7_overlord, a7_fly, import_complete, c8_paper, c8_orange, c8_tea As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim aura As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Dim cup As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim category As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim mouth_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
     Dim eyes_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
@@ -380,6 +381,7 @@ Public Class frmEdit
                             SetHex(_filename, CLng(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
                             SetHex(_filename, CLng(&H223), SetValue(cmbTachometer.SelectedIndex))
                             SetHex(_filename, CLng(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
+                            SetHex(_filename, CLng(&H222), SetValue(cmbCup.SelectedIndex))
                     End Select
                 End If
 
@@ -543,6 +545,7 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
                             SetHex(_filename, Neg3C(&H223), SetValue(cmbTachometer.SelectedIndex))
                             SetHex(_filename, Neg3C(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
+                            SetHex(_filename, Neg3C(&H222), SetValue(cmbCup.SelectedIndex))
                     End Select
                 End If
 
@@ -702,6 +705,15 @@ Public Class frmEdit
             cmbAura8.DisplayMember = "Key"
             cmbAura8.ValueMember = "Value"
             cmbAura8.DataSource = New BindingSource(aura, Nothing)
+
+            'Add Cup
+            cup.Add(a7_none, "NONE")
+            cup.Add(c8_paper, "PAPER")
+            cup.Add(c8_orange, "ORANGE")
+            cup.Add(c8_tea, "TEA")
+            cmbCup.DisplayMember = "Key"
+            cmbCup.ValueMember = "Value"
+            cmbCup.DataSource = New BindingSource(cup, Nothing)
         End If
 
         lblAvatarOffset.Visible = My.Settings.DebugMode
@@ -756,6 +768,7 @@ Public Class frmEdit
                     txtInfRank.Text = GetPridePoint(GetHex(_filename, &H236, 1), GetHex(_filename, &H237, 1))
                     cmbTachometer.SelectedIndex = GetTachometer(GetHex(_filename, &H223, 1))
                     cmbTitleEffect.SelectedIndex = GetTachometer(GetHex(_filename, &H3B5, 1))
+                    cmbCup.SelectedIndex = GetTachometer(GetHex(_filename, &H222, 1))
                 Else
 
                 End If
@@ -856,6 +869,7 @@ Public Class frmEdit
                     txtInfRank.Text = GetPridePoint(GetHex(_filename, Neg60(&H236), 1), GetHex(_filename, Neg60(&H237), 1))
                     cmbTachometer.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H223), 1))
                     cmbTitleEffect.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H3B5), 1))
+                    cmbCup.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H222), 1))
                 End If
 
                 'Read Car
@@ -922,287 +936,100 @@ Public Class frmEdit
     End Sub
 
     Private Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Edit Card: " & Path.GetFileName(_filename)
-                NsTheme1.Text = Me.Text
-                Label1.Text = "Name"
-                Label2.Text = "Gender"
-                Label6.Text = "Level"
-                Label7.Text = "Pride Point"
-                Label8.Text = "Chapter Level"
-                Label3.Text = "Car 1"
-                Label4.Text = "Car 2"
-                Label5.Text = "Car 3"
-                Label13.Text = "Mileage"
-                Label14.Text = "Game Point"
-                Label9.Text = "Single Pride"
-                Label11.Text = "Tag Pride"
-                cbLegend.Text = "Unlock Legend Chapter"
-                btnSave.Text = "Save"
-                tool_tip = "Change car might lose ability to tune your car!"
-                GroupBox1.Title = "Cheat"
-                TabPage1.Text = "InitialD 6 AA"
-                TabPage2.Text = "InitialD 7 AAX"
-                TabPage3.Text = "InitialD 8 ∞"
-                GroupBox4.Text = "Avatar"
-                GroupBox4.Title = GroupBox4.Text
-                Label10.Text = "Category"
-                Label12.Text = "Selection"
-                mouth_t = "Mouth"
-                eyes_t = "Eyes"
-                face_skin_t = "Face and Skin"
-                accessories_t = "Accessories"
-                shades_t = "Specs"
-                hair_t = "Hair"
-                shirt_t = "Shirt"
-                gbMouth.Title = mouth_t
-                gbEyes.Title = eyes_t
-                gbSkin.Title = face_skin_t
-                gbAccessories.Title = accessories_t
-                gbSpec.Title = shades_t
-                gbHair.Title = hair_t
-                gbShirt.Title = shirt_t
-                frame_t = "Frame"
-                gbFrame.Title = frame_t
-                male = "Male"
-                female = "Female"
-                btnSet.Text = "Apply"
-                GroupBox5.Title = "Basic"
-                cbSaveAvatar.Text = "Save Avatar"
-                coming_soon = "Coming Soon"
-                must_select_avatar = "Avatar cannot be blank."
-                btnEditCar1.Text = "Edit"
-                btnEditCar2.Text = btnEditCar1.Text
-                btnEditCar3.Text = btnEditCar1.Text
-                GroupBox4.SubTitle = "Edit the Avatar of your card."
-                gbSkin.SubTitle = "Face & Skin Color"
-                gbShirt.SubTitle = "Shirt"
-                gbEyes.SubTitle = "Eyes"
-                gbMouth.SubTitle = "Mouth"
-                gbAccessories.SubTitle = "Necklace, Speech, Etc"
-                gbSpec.SubTitle = "Glasses & Sunglasses"
-                gbHair.SubTitle = "Headgear & Hairstyle"
-                gbFrame.SubTitle = "Background"
-                GroupBox1.SubTitle = "Not recommended for using Online."
-                GroupBox5.SubTitle = "Edit your name and gender."
-                Label15.Text = "Aura"
-                Label24.Text = Label15.Text
-                a7_none = "None"
-                a7_hot = "Scorching Hot"
-                a7_wind = "Whirlwind"
-                a7_light = "Lightning"
-                a7_sprit = "Evil Spirit"
-                a7_overlord = "Overlord"
-                a7_fly = "Wings"
-                cbGRumble.Text = "Unlock Gamble Rumble BGM"
-                Label16.Text = "Region"
-                Label19.Text = "Street Legend"
-                Label17.Text = "Time Attack"
-                Label20.Text = "National Battle"
-                Label18.Text = "In-Store Battle"
-                Label22.Text = "TAG Battle"
-                Label21.Text = "Operation Kanto"
-                Label23.Text = "Event Battle"
-                NsGroupBox1.Title = "X Marks"
-                NsGroupBox1.SubTitle = "Edit the X marks on your card."
-                import_complete = "Car Import completed, Restart Card Editor to take effect."
-                Label25.Text = "∞ Rank"
-                Label26.Text = "Tachometer"
-                btnTachometer.Text = "Preview"
-                Label27.Text = "Title Effect"
-            Case "Chinese"
-                Me.Text = "改卡: " & Path.GetFileName(_filename)
-                NsTheme1.Text = Me.Text
-                Label1.Text = "名字"
-                Label2.Text = "性別"
-                Label6.Text = "等級"
-                Label7.Text = "自豪感點"
-                Label8.Text = "章節等級"
-                Label3.Text = "車1"
-                Label4.Text = "車2"
-                Label5.Text = "車3"
-                Label13.Text = "里程"
-                Label14.Text = "点数"
-                Label9.Text = "全国自豪点"
-                Label11.Text = "2v2自豪点"
-                cbLegend.Text = "解鎖傳說章節"
-                btnSave.Text = "保存"
-                tool_tip = "更換車可能會失去改車功能！"
-                GroupBox1.Title = "作弊"
-                TabPage1.Text = "頭文字D6AA"
-                TabPage2.Text = "頭文字D7AAX"
-                TabPage3.Text = "頭文字D8∞"
-                GroupBox4.Title = "頭像"
-                Label10.Text = "類型"
-                Label12.Text = "選項"
-                mouth_t = "嘴巴"
-                eyes_t = "眼睛"
-                face_skin_t = "臉與膚色"
-                accessories_t = "配飾"
-                shades_t = "眼鏡"
-                hair_t = "頭髮"
-                shirt_t = "上衣"
-                gbMouth.Title = mouth_t
-                gbEyes.Title = eyes_t
-                gbSkin.Title = face_skin_t
-                gbAccessories.Title = accessories_t
-                gbSpec.Title = shades_t
-                gbHair.Title = hair_t
-                gbShirt.Title = shirt_t
-                frame_t = "背景"
-                gbFrame.Title = frame_t
-                male = "帥哥"
-                female = "美女"
-                btnSet.Text = "應用"
-                GroupBox5.Title = "一般"
-                cbSaveAvatar.Text = "保存頭像"
-                coming_soon = "即將登場"
-                must_select_avatar = "頭像不能為空。"
-                btnEditCar1.Text = "修改"
-                btnEditCar2.Text = btnEditCar1.Text
-                btnEditCar3.Text = btnEditCar1.Text
-                GroupBox4.SubTitle = "設置您卡的頭像。"
-                gbSkin.SubTitle = "臉型與膚色"
-                gbShirt.SubTitle = "上衣"
-                gbEyes.SubTitle = "眼睛"
-                gbMouth.SubTitle = "嘴巴"
-                gbAccessories.SubTitle = "項鍊、對話、等等"
-                gbSpec.SubTitle = "眼鏡與太陽眼鏡"
-                gbHair.SubTitle = "髮型與帽子"
-                gbFrame.SubTitle = "背景"
-                GroupBox1.SubTitle = "不推薦使用與在線模式。"
-                GroupBox5.SubTitle = "設置您的名字與性別。"
-                Label15.Text = "靈氣"
-                Label24.Text = Label15.Text
-                a7_none = "無"
-                a7_hot = "灼熱"
-                a7_wind = "旋風"
-                a7_light = "雷光"
-                a7_sprit = "邪気"
-                a7_overlord = "覇王"
-                a7_fly = "飛翔"
-                cbGRumble.Text = "解鎖Gamble Rumble BGM"
-                Label16.Text = "地區"
-                Label19.Text = "公道最速伝說"
-                Label17.Text = "計時賽"
-                Label20.Text = "全國對戰"
-                Label18.Text = "店內對戰"
-                Label22.Text = "TAG對戰"
-                Label21.Text = "關東最速計畫"
-                Label23.Text = "活動對戰"
-                NsGroupBox1.Title = "X標記"
-                NsGroupBox1.SubTitle = "修改卡內的ㄨ標記。"
-                import_complete = "導入完成，請重啟改卡視窗。"
-                Label25.Text = "∞ 等級"
-                Label26.Text = "轉速表"
-                btnTachometer.Text = "圖"
-                Label27.Text = "稱號特效"
-            Case "French"
-                Me.Text = "Edit Card: " & Path.GetFileName(_filename)
-                NsTheme1.Text = Me.Text
-                Label1.Text = "Nom"
-                Label2.Text = "Genre"
-                Label6.Text = "Niveau"
-                Label7.Text = "Pride Point"
-                Label8.Text = "Niveau du chapitre"
-                Label3.Text = "Car 1"
-                Label4.Text = "Car 2"
-                Label5.Text = "Car 3"
-                Label13.Text = "Kilométrage"
-                Label14.Text = "Point de jeu"
-                Label9.Text = "Single Pride"
-                Label11.Text = "Tag Pride"
-                cbLegend.Text = "Unlock Legend Chapter"
-                btnSave.Text = "Sauv"
-                tool_tip = "Change car might lose ability to tune your car!"
-                GroupBox1.Title = "Tricher"
-                TabPage1.Text = "InitialD 6 AA"
-                TabPage2.Text = "InitialD 7 AAX"
-                TabPage3.Text = "InitialD 8 ∞"
-                GroupBox4.Title = "Avatar"
-                Label10.Text = "Catégorie"
-                Label12.Text = "Sélection"
-                mouth_t = "Bouche"
-                eyes_t = "Les yeux"
-                face_skin_t = "Visage et couleur de la peau"
-                accessories_t = "Accessoire"
-                shades_t = "Des lunettes"
-                hair_t = "Cheveux"
-                shirt_t = "Chemise"
-                gbMouth.Title = mouth_t
-                gbEyes.Title = eyes_t
-                gbSkin.Title = face_skin_t
-                gbAccessories.Title = accessories_t
-                gbSpec.Title = shades_t
-                gbHair.Title = hair_t
-                gbShirt.Title = shirt_t
-                frame_t = "Frame"
-                gbFrame.Title = frame_t
-                male = "Mâle"
-                female = "Femelle"
-                btnSet.Text = "Appliquer"
-                GroupBox5.Title = "De base"
-                cbSaveAvatar.Text = "Enregistrer Avatar"
-                coming_soon = "Arrive bientôt"
-                must_select_avatar = "Avatar ne peut pas être vide."
-                btnEditCar1.Text = "Edit"
-                btnEditCar2.Text = btnEditCar1.Text
-                btnEditCar3.Text = btnEditCar1.Text
-                GroupBox4.SubTitle = "Edit the Avatar of your card."
-                gbSkin.SubTitle = "Face & Skin Color"
-                gbShirt.SubTitle = "Shirt"
-                gbEyes.SubTitle = "Eyes"
-                gbMouth.SubTitle = "Mouth"
-                gbAccessories.SubTitle = "Necklace, Speech, Etc"
-                gbSpec.SubTitle = "Glasses & Sunglasses"
-                gbHair.SubTitle = "Headgear & Hairstyle"
-                gbFrame.SubTitle = "Background"
-                GroupBox1.SubTitle = "Not recommended for using Online."
-                GroupBox5.SubTitle = "Edit your name and gender."
-                Label15.Text = "Aura"
-                Label24.Text = Label15.Text
-                a7_none = "None"
-                a7_hot = "Scorching Hot"
-                a7_wind = "Whirlwind"
-                a7_light = "Lightning"
-                a7_sprit = "Evil Spirit"
-                a7_overlord = "Overlord"
-                a7_fly = "Wing"
-                cbGRumble.Text = "Unlock Gamble Rumble BGM"
-                Label16.Text = "Region"
-                Label19.Text = "Street Legend"
-                Label17.Text = "Time Attack"
-                Label20.Text = "National Battle"
-                Label18.Text = "In-Store Battle"
-                Label22.Text = "TAG Battle"
-                Label21.Text = "Operation Kanto"
-                Label23.Text = "Event Battle"
-                NsGroupBox1.Title = "X Marks"
-                NsGroupBox1.SubTitle = "Edit the X marks on your card."
-                import_complete = "Card Import completed, Restart Card Editor to take effect."
-                Label25.Text = "∞ Rank"
-                Label26.Text = "Tachometer"
-                btnTachometer.Text = "Preview"
-                Label27.Text = "Title Effect"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Me.Text = ReadCfgValue("EditMeText", langFile)
+            NsTheme1.Text = Me.Text
+            Label1.Text = ReadCfgValue("Name", langFile)
+            Label2.Text = ReadCfgValue("Gender", langFile)
+            Label6.Text = ReadCfgValue("Level", langFile)
+            Label7.Text = ReadCfgValue("PridePoint", langFile)
+            Label8.Text = ReadCfgValue("ChapterLevel", langFile)
+            Label3.Text = ReadCfgValue("Car1", langFile)
+            Label4.Text = ReadCfgValue("Car2", langFile)
+            Label5.Text = ReadCfgValue("Car3", langFile)
+            Label13.Text = ReadCfgValue("Mileage", langFile)
+            Label14.Text = ReadCfgValue("GamePoint", langFile)
+            Label9.Text = ReadCfgValue("SinglePride", langFile)
+            Label11.Text = ReadCfgValue("TagPride", langFile)
+            cbLegend.Text = ReadCfgValue("Legend", langFile)
+            btnSave.Text = ReadCfgValue("Save", langFile)
+            GroupBox1.Title = ReadCfgValue("Cheat", langFile)
+            TabPage1.Text = ReadCfgValue("EditTab6", langFile)
+            TabPage2.Text = ReadCfgValue("EditTab7", langFile)
+            TabPage3.Text = ReadCfgValue("EditTab8", langFile)
+            GroupBox4.Text = ReadCfgValue("Avatar", langFile)
+            GroupBox4.Title = GroupBox4.Text
+            Label10.Text = ReadCfgValue("Category", langFile)
+            Label12.Text = ReadCfgValue("Selection", langFile)
+            mouth_t = ReadCfgValue("Mouth", langFile)
+            eyes_t = ReadCfgValue("Eyes", langFile)
+            face_skin_t = ReadCfgValue("Skin", langFile)
+            accessories_t = ReadCfgValue("Misc", langFile)
+            shades_t = ReadCfgValue("Specs", langFile)
+            hair_t = ReadCfgValue("Hair", langFile)
+            shirt_t = ReadCfgValue("Shirt", langFile)
+            gbMouth.Title = mouth_t
+            gbEyes.Title = eyes_t
+            gbSkin.Title = face_skin_t
+            gbAccessories.Title = accessories_t
+            gbSpec.Title = shades_t
+            gbHair.Title = hair_t
+            gbShirt.Title = shirt_t
+            frame_t = ReadCfgValue("Frame", langFile)
+            gbFrame.Title = frame_t
+            male = ReadCfgValue("Male", langFile)
+            female = ReadCfgValue("Female", langFile)
+            btnSet.Text = ReadCfgValue("Apply", langFile)
+            GroupBox5.Title = ReadCfgValue("Basic", langFile)
+            cbSaveAvatar.Text = ReadCfgValue("SaveAvatar", langFile)
+            coming_soon = ReadCfgValue("ComingSoon", langFile)
+            must_select_avatar = ReadCfgValue("MustSelectAvatar", langFile)
+            btnEditCar1.Text = ReadCfgValue("EditBtn", langFile)
+            btnEditCar2.Text = btnEditCar1.Text
+            btnEditCar3.Text = btnEditCar1.Text
+            Label15.Text = ReadCfgValue("Aura", langFile)
+            Label24.Text = Label15.Text
+            a7_none = ReadCfgValue("None", langFile)
+            a7_hot = ReadCfgValue("ScorchingHot", langFile)
+            a7_wind = ReadCfgValue("Whirlwind", langFile)
+            a7_light = ReadCfgValue("Lightning", langFile)
+            a7_sprit = ReadCfgValue("EvilSpirit", langFile)
+            a7_overlord = ReadCfgValue("Overlord", langFile)
+            a7_fly = ReadCfgValue("Wings", langFile)
+            cbGRumble.Text = ReadCfgValue("GRumble", langFile)
+            Label16.Text = ReadCfgValue("Region", langFile)
+            Label19.Text = ReadCfgValue("StreetLegend", langFile)
+            Label17.Text = ReadCfgValue("TimeAttack", langFile)
+            Label20.Text = ReadCfgValue("NationalBattle", langFile)
+            Label18.Text = ReadCfgValue("InStoreBattle", langFile)
+            Label22.Text = ReadCfgValue("TAGBattle", langFile)
+            Label21.Text = ReadCfgValue("OperationKanto", langFile)
+            Label23.Text = ReadCfgValue("EventBattle", langFile)
+            NsGroupBox1.Title = ReadCfgValue("XMarks", langFile)
+            import_complete = ReadCfgValue("ImportComplete", langFile)
+            Label25.Text = ReadCfgValue("InfRank", langFile)
+            Label26.Text = ReadCfgValue("Tachometer", langFile)
+            btnTachometer.Text = ReadCfgValue("Preview", langFile)
+            Label27.Text = ReadCfgValue("TitleEffect", langFile)
+            c8_paper = ReadCfgValue("PaperCup", langFile)
+            c8_orange = ReadCfgValue("OrangeJuice", langFile)
+            c8_tea = ReadCfgValue("GreenTea", langFile)
+            Label28.Text = ReadCfgValue("Cup", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub Translate2()
-        Select Case My.Settings.Language
-            Case "English"
-                If cmbCar1.Text = "" Then btnEditCar1.Text = "Import"
-                If cmbCar2.Text = "" Then btnEditCar2.Text = "Import"
-                If cmbCar3.Text = "" Then btnEditCar3.Text = "Import"
-            Case "Chinese"
-                If cmbCar1.Text = "" Then btnEditCar1.Text = "導入"
-                If cmbCar2.Text = "" Then btnEditCar2.Text = "導入"
-                If cmbCar3.Text = "" Then btnEditCar3.Text = "導入"
-            Case "French"
-                If cmbCar1.Text = "" Then btnEditCar1.Text = "Import"
-                If cmbCar2.Text = "" Then btnEditCar2.Text = "Import"
-                If cmbCar3.Text = "" Then btnEditCar3.Text = "Import"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            If cmbCar1.Text = "" Then btnEditCar1.Text = ReadCfgValue("ImportBtn", langFile)
+            If cmbCar2.Text = "" Then btnEditCar2.Text = ReadCfgValue("ImportBtn", langFile)
+            If cmbCar3.Text = "" Then btnEditCar3.Text = ReadCfgValue("ImportBtn", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtChapLevel.KeyPress, txtLevel.KeyPress, txtPridePoint.KeyPress, txtSPride.KeyPress, txtTPride.KeyPress, txtEvent.KeyPress, txtKanto.KeyPress, txtLegend.KeyPress, txtNational.KeyPress, txtStore.KeyPress, txtTag.KeyPress, txtTAttack.KeyPress
@@ -2269,7 +2096,6 @@ Public Class frmEdit
         cmbAvatarCat.DataSource = New BindingSource(category, Nothing)
         cmbAvatarCat.SelectedIndex = 0
     End Sub
-
 
     Private Sub DictionaryAdd7()
         'Female
@@ -3524,6 +3350,7 @@ Public Class frmEdit
 
         'Add Accessories
         Dim accessories As New InitialD8.Female.Accessories
+        accessories_f.Add("0", accessories.AC_00X0)
         accessories_f.Add("1", accessories.AC_03X1)
         accessories_f.Add("2", accessories.AC_04X1)
         accessories_f.Add("3", accessories.AC_05X1)
@@ -3570,6 +3397,7 @@ Public Class frmEdit
 
         'Add Shades
         Dim shades As New InitialD8.Female.Shades
+        shades_f.Add("0", shades.SP_0X00)
         shades_f.Add("1", shades.SP_0X13)
         shades_f.Add("2", shades.SP_1X13)
         shades_f.Add("3", shades.SP_28X1)
@@ -4029,6 +3857,7 @@ Public Class frmEdit
 
         'Add Accessories
         Dim accessories2 As New InitialD8.Male.Accessories
+        accessories_m.Add("0", accessories2.AC_00X0)
         accessories_m.Add("1", accessories2.AC_03X1)
         accessories_m.Add("2", accessories2.AC_04X1)
         accessories_m.Add("3", accessories2.AC_05X1)
@@ -4071,6 +3900,7 @@ Public Class frmEdit
 
         'Add Shades
         Dim shades2 As New InitialD8.Male.Shades
+        shades_m.Add("0", shades2.SP_0X00)
         shades_m.Add("1", shades2.SP_0X13)
         shades_m.Add("2", shades2.SP_0X14)
         shades_m.Add("3", shades2.SP_1X13)

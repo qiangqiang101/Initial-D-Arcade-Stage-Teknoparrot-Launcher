@@ -377,10 +377,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaDryOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -393,10 +389,6 @@
                         .lblWeather.Text = .Wet
                         .lblTime.Text = HappogaharaWetOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -409,10 +401,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaDryIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -425,10 +413,6 @@
                         .lblWeather.Text = .Wet
                         .lblTime.Text = HappogaharaWetIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -736,10 +720,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsukubaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -752,10 +732,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsukubaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -771,10 +747,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsuchisakaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -787,10 +759,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsuchisakaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -968,11 +936,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
-
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -985,10 +948,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1004,10 +963,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = NagaoDH
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1170,10 +1125,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsukubaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1186,10 +1137,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsukubaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1205,10 +1152,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsuchisakaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1221,10 +1164,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsuchisakaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1429,11 +1368,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
-
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1446,10 +1380,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -1465,10 +1395,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = NagaoDH
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2034,10 +1960,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaDryOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2050,10 +1972,6 @@
                         .lblWeather.Text = .Wet
                         .lblTime.Text = HappogaharaWetOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2066,10 +1984,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaDryIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2082,10 +1996,6 @@
                         .lblWeather.Text = .Wet
                         .lblTime.Text = HappogaharaWetIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2393,10 +2303,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsukubaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2409,10 +2315,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsukubaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2428,10 +2330,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsuchisakaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2444,10 +2342,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = TsuchisakaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2625,11 +2519,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
-
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2642,10 +2531,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2661,10 +2546,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = NagaoDH
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2827,10 +2708,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsukubaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2843,10 +2720,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsukubaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 16.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2862,10 +2735,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsuchisakaSnowOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -2878,10 +2747,6 @@
                         .lblWeather.Text = .Snow
                         .lblTime.Text = _TsuchisakaSnowIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 14.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -3086,11 +2951,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaOB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
-
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -3103,10 +2963,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = HappogaharaIB
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -3122,10 +2978,6 @@
                         .lblWeather.Text = .Dry
                         .lblTime.Text = NagaoDH
                         .lblTypeWeather.Text = String.Format("{0} / {1}", .lblType.Text, .lblWeather.Text)
-                        Select Case My.Settings.Language
-                            Case "English", "French"
-                                .lblCourse.Font = New Font("Segoe UI", 17.0, FontStyle.Bold)
-                        End Select
                     End With
                     flPanel.Controls.Add(item)
                 End If
@@ -3362,17 +3214,14 @@
     End Sub
 
     Private Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Time Attack Result"
-                NsTheme1.Text = Me.Text
-            Case "Chinese"
-                Me.Text = "時間挑戰成就"
-                NsTheme1.Text = Me.Text
-            Case "French"
-                Me.Text = "Résultat Time Attack"
-                NsTheme1.Text = Me.Text
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            Me.Text = ReadCfgValue("TAMeText", langFile)
+            NsTheme1.Text = Me.Text
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub frmTimeAttack_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged

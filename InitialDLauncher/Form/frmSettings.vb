@@ -11,6 +11,10 @@ Public Class frmSettings
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            For Each file As String In IO.Directory.GetFiles(String.Format("{0}\Languages", My.Application.Info.DirectoryPath), "*.ini")
+                cmbLang.Items.Add(IO.Path.GetFileNameWithoutExtension(file))
+            Next
+
             txt6.Text = My.Settings.Id6Path
             txt7.Text = My.Settings.Id7Path
             txt8.Text = My.Settings.Id8Path
@@ -21,7 +25,9 @@ Public Class frmSettings
             cmbLang.SelectedItem = My.Settings.Language
             cmbCountry.SelectedItem = My.Settings.UserCountry
             cmbPrefer.SelectedItem = My.Settings.PerferCardExt
-
+            cbVideo.Checked = My.Settings.VideoBackground
+            cbPicodaemon.Checked = My.Settings.RunCardReader
+            cbFullScreen.Checked = My.Settings.FullScreen
             Translate()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -55,6 +61,9 @@ Public Class frmSettings
                 My.Settings.Language = cmbLang.SelectedItem
                 My.Settings.UserCountry = cmbCountry.SelectedItem
                 My.Settings.PerferCardExt = cmbPrefer.SelectedItem
+                My.Settings.VideoBackground = cbVideo.Checked
+                My.Settings.RunCardReader = cbPicodaemon.Checked
+                My.Settings.FullScreen = cbFullScreen.Checked
                 My.Settings.Save()
 
                 frmLauncher.id6GameDir = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
@@ -64,6 +73,13 @@ Public Class frmSettings
                 frmLauncher.lblDebug.Visible = cbDebug.Checked
                 frmLauncher.Translate()
                 If Not gotError Then Me.Close()
+
+                If Not My.Settings.VideoBackground Then
+                    frmLauncher.Timer3.Stop()
+                    frmLauncher.BackgroundImage = My.Resources.launcher_bg
+                Else
+                    frmLauncher.Timer3.Start()
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
@@ -103,65 +119,32 @@ Public Class frmSettings
     End Sub
 
     Public Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Settings"
-                NsTheme1.Text = Me.Text
-                Label1.Text = "Initial D 6AA Path"
-                Label2.Text = "Initial D 7AAX Path"
-                Label4.Text = "Initial D 8 Path"
-                cbTest.Text = "Test Menu"
-                cbDebug.Text = "Debug Mode"
-                Label21.Text = "Launcher Language"
-                btnSave.Text = "Save"
-                no_exe = "Please Enter Path without file name."
-                no_name = "Please Enter your User Name."
-                name_is_taken = "This name is already taken."
-                name_is_available = "This name is available."
-                Label22.Text = "User Name"
-                Label23.Text = "Country"
-                cbMP.Text = "Multiplayer"
-                Label3.Text = "Card Prefer"
-                cbPicodaemon.Text = "Run Card Reader"
-            Case "Chinese"
-                Me.Text = "設定"
-                NsTheme1.Text = Me.Text
-                Label1.Text = "頭文字D6AA路徑"
-                Label2.Text = "頭文字D7AAX路徑"
-                Label4.Text = "頭文字D8路徑"
-                cbTest.Text = "測試菜單"
-                cbDebug.Text = "調試模式"
-                Label21.Text = "登陸器語言"
-                btnSave.Text = "保存"
-                no_exe = "請輸入沒有文件名的路徑。"
-                no_name = "請輸入您的用戶名。"
-                name_is_taken = "這個名字已有人使用。"
-                name_is_available = "這個名字可使用."
-                Label22.Text = "用戶名"
-                Label23.Text = "國家"
-                cbMP.Text = "線上模式"
-                Label3.Text = "默認選擇卡"
-                cbPicodaemon.Text = "運行讀卡器"
-            Case "French"
-                Me.Text = "Réglages"
-                NsTheme1.Text = Me.Text
-                Label1.Text = "Initial D 6AA Chemin"
-                Label2.Text = "Initial D 7AAX Chemin"
-                Label4.Text = "Initial D 8 Chemin"
-                cbTest.Text = "Test Menu"
-                cbDebug.Text = "Mode Debug"
-                Label21.Text = "Langue"
-                btnSave.Text = "Sauv"
-                no_exe = "Veuillez entrer le chemin sans nom de fichier."
-                no_name = "S'il vous plaît entrez votre nom d'utilisateur."
-                name_is_taken = "Ce nom est déjà pris."
-                name_is_available = "Ce nom est disponible."
-                Label22.Text = "Nom d'utilisateur"
-                Label23.Text = "Pays"
-                cbMP.Text = "Multijoueur"
-                Label3.Text = "Card Prefer"
-                cbPicodaemon.Text = "Run Card Reader"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            Me.Text = ReadCfgValue("SettingsMeText", langFile)
+            NsTheme1.Text = Me.Text
+            Label1.Text = ReadCfgValue("Path6", langFile)
+            Label2.Text = ReadCfgValue("Path7", langFile)
+            Label4.Text = ReadCfgValue("Path8", langFile)
+            cbTest.Text = ReadCfgValue("TestMenu", langFile)
+            cbDebug.Text = ReadCfgValue("DebugMode", langFile)
+            Label21.Text = ReadCfgValue("Language", langFile)
+            btnSave.Text = ReadCfgValue("Save", langFile)
+            no_exe = ReadCfgValue("NoExe", langFile)
+            no_name = ReadCfgValue("NoName", langFile)
+            name_is_taken = ReadCfgValue("NameIsTaken", langFile)
+            name_is_available = ReadCfgValue("NameIsAvail", langFile)
+            Label22.Text = ReadCfgValue("UserName", langFile)
+            Label23.Text = ReadCfgValue("Country", langFile)
+            cbMP.Text = ReadCfgValue("Multiplayer", langFile)
+            Label3.Text = ReadCfgValue("CardPrefer", langFile)
+            cbPicodaemon.Text = ReadCfgValue("Picodaemon", langFile)
+            cbVideo.Text = ReadCfgValue("Video", langFile)
+            cbFullScreen.Text = ReadCfgValue("FullScreen", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
 

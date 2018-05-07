@@ -102,6 +102,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property background_video() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("background_video", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property card6f() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("card6f", resourceCulture)
@@ -585,6 +595,240 @@ Namespace My.Resources
         Friend ReadOnly Property play() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("play", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play1() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play1", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play10() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play10", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play11() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play11", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play12() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play12", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play13() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play13", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play14() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play14", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play15() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play15", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play16() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play16", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play17() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play17", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play18() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play18", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play19() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play19", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play2() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play20() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play20", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play21() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play21", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play22() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play22", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play23() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play23", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play24() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play24", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play25() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play25", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play26() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play26", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play3() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play3", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play4() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play4", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play5() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play5", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play6() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play6", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play7() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play7", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play8() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play8", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Play9() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Play9", resourceCulture)
             End Get
         End Property
         

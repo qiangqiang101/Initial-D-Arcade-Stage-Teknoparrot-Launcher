@@ -328,4 +328,85 @@
   <data name="T9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\T9.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="background_video" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background_video.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play10.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play11.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play12.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play13.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play14.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play15.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play16.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play17.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play18.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play19.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play20.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play21.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play22.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play23.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play24.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play25.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play26.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play5.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play6.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play7.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play8.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Play9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Play9.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

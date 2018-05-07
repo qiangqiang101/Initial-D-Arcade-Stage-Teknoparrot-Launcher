@@ -23,6 +23,7 @@ Partial Class frmLeaderboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLeaderboard))
+        Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.tcGames = New InitialDLauncher.NSTabControl()
         Me.tp6 = New System.Windows.Forms.TabPage()
         Me.btnReport6 = New InitialDLauncher.NSButton()
@@ -69,16 +70,42 @@ Partial Class frmLeaderboard
         Me.cmbCourse8 = New InitialDLauncher.NSComboBox()
         Me.cmbWeather8 = New InitialDLauncher.NSComboBox()
         Me.cmbType8 = New InitialDLauncher.NSComboBox()
-        Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.NsControlButton3 = New InitialDLauncher.NSControlButton()
         Me.NsControlButton2 = New InitialDLauncher.NSControlButton()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.NsTheme1.SuspendLayout()
         Me.tcGames.SuspendLayout()
         Me.tp6.SuspendLayout()
         Me.tp7.SuspendLayout()
         Me.tp8.SuspendLayout()
-        Me.NsTheme1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'NsTheme1
+        '
+        Me.NsTheme1.AccentOffset = 42
+        Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.tcGames)
+        Me.NsTheme1.Controls.Add(Me.NsControlButton3)
+        Me.NsTheme1.Controls.Add(Me.NsControlButton2)
+        Me.NsTheme1.Controls.Add(Me.NsControlButton1)
+        Me.NsTheme1.Customization = ""
+        Me.NsTheme1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NsTheme1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.NsTheme1.Image = Nothing
+        Me.NsTheme1.Location = New System.Drawing.Point(0, 0)
+        Me.NsTheme1.Movable = True
+        Me.NsTheme1.Name = "NsTheme1"
+        Me.NsTheme1.NoRounding = False
+        Me.NsTheme1.Sizable = True
+        Me.NsTheme1.Size = New System.Drawing.Size(991, 562)
+        Me.NsTheme1.SmartBounds = True
+        Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.NsTheme1.TabIndex = 1
+        Me.NsTheme1.Text = "Time Attack Leaderboard"
+        Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
+        Me.NsTheme1.Transparent = False
         '
         'tcGames
         '
@@ -531,33 +558,6 @@ Partial Class frmLeaderboard
         Me.cmbType8.Size = New System.Drawing.Size(120, 24)
         Me.cmbType8.TabIndex = 18
         '
-        'NsTheme1
-        '
-        Me.NsTheme1.AccentOffset = 42
-        Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
-        Me.NsTheme1.Controls.Add(Me.tcGames)
-        Me.NsTheme1.Controls.Add(Me.NsControlButton3)
-        Me.NsTheme1.Controls.Add(Me.NsControlButton2)
-        Me.NsTheme1.Controls.Add(Me.NsControlButton1)
-        Me.NsTheme1.Customization = ""
-        Me.NsTheme1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NsTheme1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.NsTheme1.Image = Nothing
-        Me.NsTheme1.Location = New System.Drawing.Point(0, 0)
-        Me.NsTheme1.Movable = True
-        Me.NsTheme1.Name = "NsTheme1"
-        Me.NsTheme1.NoRounding = False
-        Me.NsTheme1.Sizable = True
-        Me.NsTheme1.Size = New System.Drawing.Size(991, 562)
-        Me.NsTheme1.SmartBounds = True
-        Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.NsTheme1.TabIndex = 1
-        Me.NsTheme1.Text = "Time Attack Leaderboard"
-        Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
-        Me.NsTheme1.Transparent = False
-        '
         'NsControlButton3
         '
         Me.NsControlButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -611,6 +611,7 @@ Partial Class frmLeaderboard
         Me.Name = "frmLeaderboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Time Attack Leaderboard"
+        Me.NsTheme1.ResumeLayout(False)
         Me.tcGames.ResumeLayout(False)
         Me.tp6.ResumeLayout(False)
         Me.tp6.PerformLayout()
@@ -618,7 +619,6 @@ Partial Class frmLeaderboard
         Me.tp7.PerformLayout()
         Me.tp8.ResumeLayout(False)
         Me.tp8.PerformLayout()
-        Me.NsTheme1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

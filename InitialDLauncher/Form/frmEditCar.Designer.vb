@@ -125,12 +125,12 @@ Partial Class frmEditCar
         Me.NsGroupBox3.Controls.Add(Me.cmbSticker2)
         Me.NsGroupBox3.Controls.Add(Me.cmbSticker1)
         Me.NsGroupBox3.Controls.Add(Me.Label9)
-        Me.NsGroupBox3.DrawSeperator = False
+        Me.NsGroupBox3.DrawSeperator = True
         Me.NsGroupBox3.Location = New System.Drawing.Point(12, 99)
         Me.NsGroupBox3.Name = "NsGroupBox3"
         Me.NsGroupBox3.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox3.Size = New System.Drawing.Size(350, 162)
-        Me.NsGroupBox3.SubTitle = "Edit the Hidden Event Stickers of this car."
+        Me.NsGroupBox3.SubTitle = ""
         Me.NsGroupBox3.TabIndex = 60
         Me.NsGroupBox3.Text = "NsGroupBox3"
         Me.NsGroupBox3.Title = "Event Stickers"
@@ -233,12 +233,12 @@ Partial Class frmEditCar
         Me.NsGroupBox2.Controls.Add(Me.txtNumberPlate)
         Me.NsGroupBox2.Controls.Add(Me.Label5)
         Me.NsGroupBox2.Controls.Add(Me.Label6)
-        Me.NsGroupBox2.DrawSeperator = False
+        Me.NsGroupBox2.DrawSeperator = True
         Me.NsGroupBox2.Location = New System.Drawing.Point(12, 267)
         Me.NsGroupBox2.Name = "NsGroupBox2"
         Me.NsGroupBox2.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox2.Size = New System.Drawing.Size(350, 160)
-        Me.NsGroupBox2.SubTitle = "Edit the Number Plate of this car."
+        Me.NsGroupBox2.SubTitle = ""
         Me.NsGroupBox2.TabIndex = 59
         Me.NsGroupBox2.Text = "NsGroupBox2"
         Me.NsGroupBox2.Title = "Number Plate"
@@ -378,12 +378,12 @@ Partial Class frmEditCar
         Me.NsGroupBox1.Controls.Add(Me.cmbEngine)
         Me.NsGroupBox1.Controls.Add(Me.cbFullSpec)
         Me.NsGroupBox1.Controls.Add(Me.Label1)
-        Me.NsGroupBox1.DrawSeperator = False
+        Me.NsGroupBox1.DrawSeperator = True
         Me.NsGroupBox1.Location = New System.Drawing.Point(12, 433)
         Me.NsGroupBox1.Name = "NsGroupBox1"
         Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox1.Size = New System.Drawing.Size(350, 129)
-        Me.NsGroupBox1.SubTitle = "Edit this might overwrite your Visual Parts"
+        Me.NsGroupBox1.SubTitle = ""
         Me.NsGroupBox1.TabIndex = 53
         Me.NsGroupBox1.Text = "NsGroupBox1"
         Me.NsGroupBox1.Title = "Performance Parts"
@@ -462,7 +462,6 @@ Partial Class frmEditCar
         Me.cmbCarList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCarList.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbCarList.FormattingEnabled = True
-        Me.cmbCarList.Items.AddRange(New Object() {"", "TRUENO GT-APEX (AE86)", "LEVIN GT-APEX (AE86)", "LEVIN SR (AE85)", "86 GT (ZN6)", "MR2 G-Limited (SW20)", "MR-S (ZZW30)", "ALTEZZA RS200 (SXE10)", "SUPRA RZ (JZA80)", "PRIUS (ZVW30)", "CELICA GT-FOUR (ST205)", "SKYLINE GT-R (BNR32)", "SKYLINE GT-R (BNR34)", "SILVIA K's (S13)", "Silvia Q's (S14)", "Silvia spec-R (S15)", "180SX TYPE II (RPS13)", "FAIRLADY Z (Z33)", "GT-R (R35)", "SKYLINE 25GT TURBO (ER34)", "Civic SiR・II (EG6)", "CIVIC TYPE R (EK9)", "INTEGRA TYPE R (DC2)", "S2000 (AP1)", "NSX (NA1)", "RX-7 ∞III (FC3S)", "RX-7 Type R (FD3S)", "RX-7 Type RS (FD3S)", "RX-8 Type S (SE3P)", "ROADSTER (NA6CE)", "ROADSTER RS (NB8C)", "IMPREZA STi Ver.V (GC8)", "IMPREZA STi (GDBA)", "IMPREZA STI (GDBF)", "BRZ S (ZC6)", "LANCER Evolution III (CE9A)", "LANCER EVOLUTION IV (CN9A)", "LANCER Evolution VII (CT9A)", "LANCER Evolution IX (CT9A)", "LANCER EVOLUTION X (CZ4A)", "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)", "LANCER RS EVOLUTION V (CP9A)", "Cappuccino (EA11R)", "SILEIGHTY", "TRUENO 2door GT-APEX (AE86)", "G-FORCE SUPRA (JZA80-kai)", "MONSTER CIVIC R (EK9)", "NSX-R GT (NA2)", "RE Amemiya Genki-7 (FD3S)", "S2000 GT1 (AP1)", "ROADSTER C-SPEC (NA8C Kai)"})
         Me.cmbCarList.Location = New System.Drawing.Point(81, 39)
         Me.cmbCarList.Name = "cmbCarList"
         Me.cmbCarList.Size = New System.Drawing.Size(269, 24)

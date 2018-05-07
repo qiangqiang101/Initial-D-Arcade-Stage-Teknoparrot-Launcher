@@ -133,7 +133,6 @@ Public Class Card
                     If Not My.Settings.LoggedIn Then
                         frmLogin.Show()
                         frmCard.Close()
-                        frmLauncher.WindowState = FormWindowState.Minimized
                         frmLauncher.Enabled = False
                     Else
                         Dim ta As frmTimeAttack = New frmTimeAttack()
@@ -225,56 +224,27 @@ Public Class Card
     End Sub
 
     Private Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                error_5108_fixed = "Error fixed."
-                opt_fix5108 = "Fix Error 5108"
-                opt_edit = "Edit Card"
-                opt_rename = "Rename Card"
-                Label1.Text = "Options"
-                btnGo.Text = "GO"
-                btnRenameOK.Text = "OK"
-                btnRenameCancel.Text = "Cancel"
-                select_card = "Select Card"
-                deselect_card = "Deselect Card"
-                If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
-                opt_ta = "Time Attack"
-                GroupBox1.Title = "Rename Card"
-                file_already_exist = "{0}\{1} already exist."
-                rules = "Please backup your card file before making changes, I will accept no responsibility for game progress lost or data corrupt. Click Yes if you agreed and continue, click No to cancel."
-            Case "Chinese"
-                error_5108_fixed = "修復完成。"
-                opt_fix5108 = "修復錯誤5108"
-                opt_edit = "改卡"
-                opt_rename = "文件重命名"
-                Label1.Text = "選項"
-                btnGo.Text = "前往"
-                btnRenameOK.Text = "OK"
-                btnRenameCancel.Text = "取消"
-                select_card = "選擇卡"
-                deselect_card = "取消選擇"
-                If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
-                opt_ta = "時間挑戰"
-                GroupBox1.Title = "重命名"
-                file_already_exist = "{0}\{1} 已存在。"
-                rules = "請在修改任何東西之前先備份你的記憶卡，我將不會負責任何帶給你的損失。如果你同意點擊是，如果你不同意點擊否。"
-            Case "French"
-                error_5108_fixed = "Erreur corrigée."
-                opt_fix5108 = "Correction d'erreur 5108"
-                opt_edit = "Edit Cartes"
-                opt_rename = "Renomer"
-                Label1.Text = "Options"
-                btnGo.Text = "GO"
-                btnRenameOK.Text = "OK"
-                btnRenameCancel.Text = "Retour"
-                select_card = "Activer"
-                deselect_card = "Desactiver"
-                If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
-                opt_ta = "Time Attack"
-                GroupBox1.Title = "Changer Nom"
-                file_already_exist = "{0}\{1} already exist."
-                rules = "S'il vous plaît sauvegarder votre fichier de carte avant d'apporter des modifications, je n'accepterai aucune responsabilité pour la progression du jeu perdu ou des données corrompues. Cliquez sur Oui si vous avez accepté et continuez, cliquez sur Non pour annuler."
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            error_5108_fixed = ReadCfgValue("E5108Fixed", langFile)
+            opt_fix5108 = ReadCfgValue("OptFix5108", langFile)
+            opt_edit = ReadCfgValue("OptEdit", langFile)
+            opt_rename = ReadCfgValue("OptRename", langFile)
+            Label1.Text = ReadCfgValue("Options", langFile)
+            btnGo.Text = ReadCfgValue("GoBtn", langFile)
+            btnRenameOK.Text = ReadCfgValue("OKBtn", langFile)
+            btnRenameCancel.Text = ReadCfgValue("CancelBtn", langFile)
+            select_card = ReadCfgValue("Select", langFile)
+            deselect_card = ReadCfgValue("Deselect", langFile)
+            If _selected Then btnSelect.Text = deselect_card Else btnSelect.Text = select_card
+            opt_ta = ReadCfgValue("OptTA", langFile)
+            GroupBox1.Title = ReadCfgValue("OptRename", langFile)
+            file_already_exist = ReadCfgValue("FileAlreadyExist", langFile)
+            rules = ReadCfgValue("Rules", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub Card_Load(sender As Object, e As EventArgs) Handles MyBase.Load

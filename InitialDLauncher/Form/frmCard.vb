@@ -213,41 +213,22 @@ Public Class frmCard
     End Sub
 
     Public Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Card Management"
-                NsTheme1.Text = Me.Text
-                TabPage3.Text = "InitialD 6 AA Cards"
-                TabPage4.Text = "InitialD 7 AAX Cards"
-                TabPage1.Text = "InitialD 8 ∞ Cards"
-                txt6.Text = String.Format("Selected ID6 Card: {0}", Path.GetFileName(My.Settings.Id6CardName))
-                txt7.Text = String.Format("Selected ID7 Card: {0}", Path.GetFileName(My.Settings.Id7CardName))
-                txt8.Text = String.Format("Selected ID8 Card: {0}", Path.GetFileName(My.Settings.Id8CardName))
-                select_card = "Select Card"
-                deselect_card = "Deselect Card"
-            Case "Chinese"
-                Me.Text = "卡管理"
-                NsTheme1.Text = Me.Text
-                TabPage3.Text = "頭文字D6AA卡"
-                TabPage4.Text = "頭文字D7AAX卡"
-                TabPage1.Text = "頭文字D8∞卡"
-                txt6.Text = String.Format("已經選擇的ID6卡: {0}", Path.GetFileName(My.Settings.Id6CardName))
-                txt7.Text = String.Format("已經選擇的ID7卡: {0}", Path.GetFileName(My.Settings.Id7CardName))
-                txt8.Text = String.Format("已經選擇的ID8卡: {0}", Path.GetFileName(My.Settings.Id8CardName))
-                select_card = "選擇卡"
-                deselect_card = "取消選擇"
-            Case "French"
-                NsTheme1.Text = Me.Text
-                Me.Text = "Gestion Cartes"
-                TabPage3.Text = "InitialD 6 AA Cards"
-                TabPage4.Text = "InitialD 7 AAX Cards"
-                TabPage1.Text = "InitialD 8 ∞ Cards"
-                txt6.Text = String.Format("Choix Carte ID6: {0}", Path.GetFileName(My.Settings.Id6CardName))
-                txt7.Text = String.Format("Choix Carte ID7: {0}", Path.GetFileName(My.Settings.Id7CardName))
-                txt8.Text = String.Format("Choix Carte ID8: {0}", Path.GetFileName(My.Settings.Id8CardName))
-                select_card = "Activer"
-                deselect_card = "Desactiver"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            Me.Text = ReadCfgValue("CardMeText", langFile)
+            NsTheme1.Text = Me.Text
+            TabPage3.Text = ReadCfgValue("CardTab6", langFile)
+            TabPage4.Text = ReadCfgValue("CardTab7", langFile)
+            TabPage1.Text = ReadCfgValue("CardTab8", langFile)
+            txt6.Text = String.Format(ReadCfgValue("Text6", langFile), Path.GetFileName(My.Settings.Id6CardName))
+            txt7.Text = String.Format(ReadCfgValue("Text7", langFile), Path.GetFileName(My.Settings.Id7CardName))
+            txt8.Text = String.Format(ReadCfgValue("Text8", langFile), Path.GetFileName(My.Settings.Id8CardName))
+            select_card = ReadCfgValue("Select", langFile)
+            deselect_card = ReadCfgValue("Deselect", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
 End Class

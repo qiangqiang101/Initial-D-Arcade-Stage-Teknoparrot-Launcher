@@ -12,9 +12,9 @@ Public Class frmLauncher
     Public WithEvents proc As Process
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
-    Dim shadow As Dropshadow
-    Dim curVer As Integer = 31
-    Public buildDate As String = "06/05/2018"
+    Public shadow As Dropshadow
+    Dim curVer As Integer = 32
+    Public buildDate As String = "08/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -42,6 +42,8 @@ Public Class frmLauncher
 
     'Translation
     Dim new_version, no_card_selected As String
+
+    Private gifImage As GifImage = New GifImage(My.Resources.background_video) With {.ReverseAtEnd = False}
 
     Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown, pbLogo.MouseDown
         drag = True
@@ -186,9 +188,22 @@ Public Class frmLauncher
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
             Me.SetStyle(ControlStyles.UserPaint, True)
 
+            If Not My.Settings.VideoBackground Then
+                Timer3.Stop()
+                BackgroundImage = My.Resources.launcher_bg
+            Else
+                Timer3.Start()
+            End If
+
             If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
             If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
             If Not Directory.Exists(id8CardDir) Then Directory.CreateDirectory(id8CardDir)
+
+            If My.Settings.FullScreen Then
+                WindowState = FormWindowState.Maximized
+            Else
+                WindowState = FormWindowState.Normal
+            End If
 
             shadow = New Dropshadow(Me) With {.ShadowBlur = 30, .ShadowSpread = 1, .ShadowColor = Color.Black}
             shadow.RefreshShadow()
@@ -245,7 +260,9 @@ Public Class frmLauncher
 
     Private Sub RunGame(CardDir As String, CardPath As String, GameID As Integer, AppData As String, MySettingGameDir As String, Profile As String)
         Try
-            My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+            Dim rd As Random = New Random
+            Dim x As Integer = rd.Next(1, 27)
+            My.Computer.Audio.Play(My.Resources.ResourceManager.GetObject("Play" & x), AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(CardDir) AndAlso CardPath = Nothing Then
                 Dim result As Integer = MessageBox.Show(no_card_selected, "Initial D Launcher", MessageBoxButtons.YesNo)
@@ -284,6 +301,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
+        If My.Settings.VideoBackground Then Timer3.Stop()
         isGameRunning = True
         wait(500)
 
@@ -303,6 +321,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click
+        If My.Settings.VideoBackground Then Timer3.Stop()
         isGameRunning = True
         wait(500)
 
@@ -322,6 +341,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click
+        If My.Settings.VideoBackground Then Timer3.Stop()
         isGameRunning = True
         wait(500)
 
@@ -417,14 +437,20 @@ Public Class frmLauncher
                 End Select
             End If
 
-            Me.WindowState = FormWindowState.Normal
+            If My.Settings.FullScreen Then
+                WindowState = FormWindowState.Maximized
+            Else
+                WindowState = FormWindowState.Normal
+            End If
             isGameRunning = False
+            If My.Settings.VideoBackground Then Timer3.Start()
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
     Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click
+        Me.Enabled = False
         frmAbout.Show()
     End Sub
 
@@ -545,47 +571,29 @@ Public Class frmLauncher
         End Try
     End Sub
 
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+        If Me.Enabled Then
+            BackgroundImage = gifImage.GetNextFrame()
+        End If
+    End Sub
+
     Public Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                lblStart6.Text = "Play InitialD 6 AA"
-                lblStart7.Text = "Play InitialD 7 AAX"
-                lblStart8.Text = "Play InitialD 8 ∞"
-                lblLeaderboard.Text = "Time Attack Ranking"
-                lblCardMan.Text = "Card Selection"
-                lblSetting.Text = "Settings"
-                lblExit.Text = "Quit Game"
-                lblDebug.Text = "Debug"
-                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
-                new_version = "New version detected, do you want to update?"
-                no_card_selected = "No card selected! Are you sure you want to play without a card?"
-                If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("User: {0} | Logout", My.Settings.UserName) Else lblLogout.Text = "Login"
-            Case "Chinese"
-                lblStart6.Text = "玩頭文字D6AA"
-                lblStart7.Text = "玩頭文字D7AAX"
-                lblStart8.Text = "玩頭文字D8∞"
-                lblLeaderboard.Text = "時間挑戰排行榜"
-                lblCardMan.Text = "選擇卡"
-                lblSetting.Text = "設定"
-                lblExit.Text = "離開遊戲"
-                lblDebug.Text = "调试"
-                lblVersion.Text = String.Format("版本: {0} 創建: {1}", My.Application.Info.Version, buildDate)
-                new_version = "發現新版本，你想更新吗？"
-                no_card_selected = "没有选择卡！ 你想繼續嗎？"
-                If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("用戶名: {0} | 登出", My.Settings.UserName) Else lblLogout.Text = "登錄"
-            Case "French"
-                lblStart6.Text = "Jouer InitialD 6 AA"
-                lblStart7.Text = "Jouer InitialD 7 AAX"
-                lblStart8.Text = "Jouer InitialD 8 ∞"
-                lblLeaderboard.Text = "TA Classement"
-                lblCardMan.Text = "Choisir Carte"
-                lblSetting.Text = "Réglages"
-                lblExit.Text = "Quitter"
-                lblDebug.Text = "Déboguer"
-                lblVersion.Text = String.Format("Version: {0} Build: {1}", My.Application.Info.Version, buildDate)
-                new_version = "New version detected, do you want to update?"
-                no_card_selected = "No card selected! Are you sure you want to play without a card?"
-                If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format("Utilisateur: {0} | Connectez - Out", My.Settings.UserName) Else lblLogout.Text = "S'identifier"
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            lblStart6.Text = ReadCfgValue("Start6", langFile)
+            lblStart7.Text = ReadCfgValue("Start7", langFile)
+            lblStart8.Text = ReadCfgValue("Start8", langFile)
+            lblLeaderboard.Text = ReadCfgValue("Leaderboard", langFile)
+            lblCardMan.Text = ReadCfgValue("CardSelection", langFile)
+            lblSetting.Text = ReadCfgValue("Settings", langFile)
+            lblExit.Text = ReadCfgValue("QuitGame", langFile)
+            lblDebug.Text = ReadCfgValue("Debug", langFile)
+            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), My.Application.Info.Version, buildDate)
+            new_version = ReadCfgValue("NewVersion", langFile)
+            no_card_selected = ReadCfgValue("NoCardSelected", langFile)
+            If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format(ReadCfgValue("Logout", langFile), My.Settings.UserName) Else lblLogout.Text = ReadCfgValue("Login", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 End Class

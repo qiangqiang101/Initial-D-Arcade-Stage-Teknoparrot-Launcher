@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Car.vb" />
+    <Compile Include="Class\CFGRead.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />
     <Compile Include="Class\GifImage.vb" />
     <Compile Include="Class\PluginLoader.vb" />
@@ -276,6 +277,33 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Play13.wav" />
+    <None Include="Resources\Play12.wav" />
+    <None Include="Resources\Play11.wav" />
+    <None Include="Resources\Play10.wav" />
+    <None Include="Resources\Play9.wav" />
+    <None Include="Resources\Play8.wav" />
+    <None Include="Resources\Play7.wav" />
+    <None Include="Resources\Play6.wav" />
+    <None Include="Resources\Play5.wav" />
+    <None Include="Resources\Play4.wav" />
+    <None Include="Resources\Play3.wav" />
+    <None Include="Resources\Play2.wav" />
+    <None Include="Resources\Play1.wav" />
+    <None Include="Resources\Play26.wav" />
+    <None Include="Resources\Play25.wav" />
+    <None Include="Resources\Play24.wav" />
+    <None Include="Resources\Play23.wav" />
+    <None Include="Resources\Play22.wav" />
+    <None Include="Resources\Play21.wav" />
+    <None Include="Resources\Play20.wav" />
+    <None Include="Resources\Play19.wav" />
+    <None Include="Resources\Play18.wav" />
+    <None Include="Resources\Play17.wav" />
+    <None Include="Resources\Play16.wav" />
+    <None Include="Resources\Play15.wav" />
+    <None Include="Resources\Play14.wav" />
+    <None Include="Resources\background_video.gif" />
     <None Include="Resources\E00.jpg" />
     <None Include="Resources\E04.gif" />
     <None Include="Resources\E03.gif" />

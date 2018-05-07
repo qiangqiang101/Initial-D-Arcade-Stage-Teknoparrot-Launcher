@@ -19,7 +19,6 @@ Public Class frmLogin
     End Sub
 
     Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        frmLauncher.WindowState = FormWindowState.Normal
         frmLauncher.Enabled = True
     End Sub
 
@@ -53,47 +52,24 @@ Public Class frmLogin
     End Sub
 
     Private Sub Translate()
-        Select Case My.Settings.Language
-            Case "English"
-                Me.Text = "Login"
-                NsTheme1.Text = Me.Text
-                Label23.Text = "Server"
-                Label2.Text = "Email"
-                Label1.Text = "Password"
-                cbRemember.Text = "Remember me"
-                btnLogin.Text = "Login"
-                llblRegister.Text = "Click here to Register"
-                got_error = "Invalid Email or Password."
-                no_email = "Please Enter your Email Address."
-                no_password = "Please Enter your Password."
-                welcome_user = "Welcome back {0}, Login Successful."
-            Case "Chinese"
-                Me.Text = "登錄"
-                NsTheme1.Text = Me.Text
-                Label23.Text = "服務器"
-                Label2.Text = "電郵"
-                Label1.Text = "密碼"
-                cbRemember.Text = "記住我"
-                btnLogin.Text = "登錄"
-                llblRegister.Text = "點這裡註冊帳號"
-                got_error = "無效的郵件或密碼。"
-                no_email = "請輸入你的電子郵件。"
-                no_password = "請輸入你的密碼。"
-                welcome_user = "熱烈歡迎 {0}，登錄成功。"
-            Case "French"
-                Me.Text = "S'identifier"
-                NsTheme1.Text = Me.Text
-                Label23.Text = "Serveur"
-                Label2.Text = "Email"
-                Label1.Text = "Mot de passe"
-                cbRemember.Text = "Souviens-toi de moi"
-                btnLogin.Text = "Login"
-                llblRegister.Text = "Cliquez ici pour vous inscrire"
-                got_error = "Email ou mot de passe invalide."
-                no_email = "S'il vous plaît entrez votre adresse e-mail."
-                no_password = "S'il vous plait entrez votre mot de passe."
-                welcome_user = "Bienvenue, {0}, Connexion réussie."
-        End Select
+        Try
+            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            'ReadCfgValue("", langFile)
+            Me.Text = ReadCfgValue("LoginMeText", langFile)
+            NsTheme1.Text = Me.Text
+            Label23.Text = ReadCfgValue("Server", langFile)
+            Label2.Text = ReadCfgValue("Email", langFile)
+            Label1.Text = ReadCfgValue("Password", langFile)
+            cbRemember.Text = ReadCfgValue("Remember", langFile)
+            btnLogin.Text = ReadCfgValue("Login", langFile)
+            llblRegister.Text = ReadCfgValue("Register", langFile)
+            got_error = ReadCfgValue("GotError", langFile)
+            no_email = ReadCfgValue("NoEmail", langFile)
+            no_password = ReadCfgValue("NoPassword", langFile)
+            welcome_user = ReadCfgValue("WelcomeUser", langFile)
+        Catch ex As Exception
+            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub llblRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblRegister.LinkClicked

@@ -26,6 +26,9 @@ Partial Class frmSettings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.cbFullScreen = New InitialDLauncher.NSCheckBox()
+        Me.cbVideo = New InitialDLauncher.NSCheckBox()
+        Me.cbPicodaemon = New InitialDLauncher.NSCheckBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txt8 = New InitialDLauncher.NSTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -45,7 +48,6 @@ Partial Class frmSettings
         Me.Label21 = New System.Windows.Forms.Label()
         Me.cbDebug = New InitialDLauncher.NSCheckBox()
         Me.cmbLang = New InitialDLauncher.NSComboBox()
-        Me.cbPicodaemon = New InitialDLauncher.NSCheckBox()
         Me.NsTheme1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,6 +61,8 @@ Partial Class frmSettings
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.cbFullScreen)
+        Me.NsTheme1.Controls.Add(Me.cbVideo)
         Me.NsTheme1.Controls.Add(Me.cbPicodaemon)
         Me.NsTheme1.Controls.Add(Me.Label4)
         Me.NsTheme1.Controls.Add(Me.txt8)
@@ -88,13 +92,40 @@ Partial Class frmSettings
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(562, 329)
+        Me.NsTheme1.Size = New System.Drawing.Size(562, 341)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 61
         Me.NsTheme1.Text = "Settings"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
+        '
+        'cbFullScreen
+        '
+        Me.cbFullScreen.Checked = False
+        Me.cbFullScreen.Location = New System.Drawing.Point(350, 274)
+        Me.cbFullScreen.Name = "cbFullScreen"
+        Me.cbFullScreen.Size = New System.Drawing.Size(130, 24)
+        Me.cbFullScreen.TabIndex = 13
+        Me.cbFullScreen.Text = "Full Screen"
+        '
+        'cbVideo
+        '
+        Me.cbVideo.Checked = False
+        Me.cbVideo.Location = New System.Drawing.Point(214, 274)
+        Me.cbVideo.Name = "cbVideo"
+        Me.cbVideo.Size = New System.Drawing.Size(130, 24)
+        Me.cbVideo.TabIndex = 12
+        Me.cbVideo.Text = "Video Background"
+        '
+        'cbPicodaemon
+        '
+        Me.cbPicodaemon.Checked = False
+        Me.cbPicodaemon.Location = New System.Drawing.Point(78, 274)
+        Me.cbPicodaemon.Name = "cbPicodaemon"
+        Me.cbPicodaemon.Size = New System.Drawing.Size(130, 24)
+        Me.cbPicodaemon.TabIndex = 11
+        Me.cbPicodaemon.Text = "Run Card Reader"
         '
         'Label4
         '
@@ -115,7 +146,7 @@ Partial Class frmSettings
         Me.txt8.Name = "txt8"
         Me.txt8.ReadOnly = False
         Me.txt8.Size = New System.Drawing.Size(413, 24)
-        Me.txt8.TabIndex = 73
+        Me.txt8.TabIndex = 3
         Me.txt8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txt8.UseSystemPasswordChar = False
         '
@@ -140,7 +171,7 @@ Partial Class frmSettings
         Me.cmbPrefer.Location = New System.Drawing.Point(137, 214)
         Me.cmbPrefer.Name = "cmbPrefer"
         Me.cmbPrefer.Size = New System.Drawing.Size(170, 24)
-        Me.cmbPrefer.TabIndex = 6
+        Me.cmbPrefer.TabIndex = 7
         '
         'NsControlButton1
         '
@@ -158,10 +189,10 @@ Partial Class frmSettings
         'cbMP
         '
         Me.cbMP.Checked = False
-        Me.cbMP.Location = New System.Drawing.Point(326, 244)
+        Me.cbMP.Location = New System.Drawing.Point(350, 244)
         Me.cbMP.Name = "cbMP"
-        Me.cbMP.Size = New System.Drawing.Size(88, 24)
-        Me.cbMP.TabIndex = 9
+        Me.cbMP.Size = New System.Drawing.Size(130, 24)
+        Me.cbMP.TabIndex = 10
         Me.cbMP.Text = "Multiplayer"
         '
         'txt6
@@ -218,7 +249,7 @@ Partial Class frmSettings
         Me.cmbCountry.Location = New System.Drawing.Point(137, 155)
         Me.cmbCountry.Name = "cmbCountry"
         Me.cmbCountry.Size = New System.Drawing.Size(170, 24)
-        Me.cmbCountry.TabIndex = 4
+        Me.cmbCountry.TabIndex = 5
         '
         'txt7
         '
@@ -242,17 +273,17 @@ Partial Class frmSettings
         Me.txtPlayerName.Name = "txtPlayerName"
         Me.txtPlayerName.ReadOnly = True
         Me.txtPlayerName.Size = New System.Drawing.Size(170, 24)
-        Me.txtPlayerName.TabIndex = 3
+        Me.txtPlayerName.TabIndex = 4
         Me.txtPlayerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPlayerName.UseSystemPasswordChar = False
         '
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(475, 294)
+        Me.btnSave.Location = New System.Drawing.Point(475, 306)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 12
+        Me.btnSave.TabIndex = 20
         Me.btnSave.Text = "Save"
         '
         'Label22
@@ -268,10 +299,10 @@ Partial Class frmSettings
         'cbTest
         '
         Me.cbTest.Checked = False
-        Me.cbTest.Location = New System.Drawing.Point(137, 244)
+        Me.cbTest.Location = New System.Drawing.Point(78, 244)
         Me.cbTest.Name = "cbTest"
-        Me.cbTest.Size = New System.Drawing.Size(84, 24)
-        Me.cbTest.TabIndex = 7
+        Me.cbTest.Size = New System.Drawing.Size(130, 24)
+        Me.cbTest.TabIndex = 8
         Me.cbTest.Text = "Test Menu"
         '
         'Label21
@@ -288,10 +319,10 @@ Partial Class frmSettings
         '
         Me.cbDebug.Checked = False
         Me.cbDebug.Enabled = False
-        Me.cbDebug.Location = New System.Drawing.Point(225, 244)
+        Me.cbDebug.Location = New System.Drawing.Point(214, 244)
         Me.cbDebug.Name = "cbDebug"
-        Me.cbDebug.Size = New System.Drawing.Size(97, 24)
-        Me.cbDebug.TabIndex = 8
+        Me.cbDebug.Size = New System.Drawing.Size(130, 24)
+        Me.cbDebug.TabIndex = 9
         Me.cbDebug.Text = "Debug Mode"
         '
         'cmbLang
@@ -301,26 +332,16 @@ Partial Class frmSettings
         Me.cmbLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbLang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbLang.FormattingEnabled = True
-        Me.cmbLang.Items.AddRange(New Object() {"English", "Chinese", "French"})
         Me.cmbLang.Location = New System.Drawing.Point(137, 184)
         Me.cmbLang.Name = "cmbLang"
         Me.cmbLang.Size = New System.Drawing.Size(170, 24)
-        Me.cmbLang.TabIndex = 5
-        '
-        'cbPicodaemon
-        '
-        Me.cbPicodaemon.Checked = False
-        Me.cbPicodaemon.Location = New System.Drawing.Point(420, 244)
-        Me.cbPicodaemon.Name = "cbPicodaemon"
-        Me.cbPicodaemon.Size = New System.Drawing.Size(130, 24)
-        Me.cbPicodaemon.TabIndex = 74
-        Me.cbPicodaemon.Text = "Run Card Reader"
+        Me.cmbLang.TabIndex = 6
         '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 329)
+        Me.ClientSize = New System.Drawing.Size(562, 341)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -356,4 +377,6 @@ Partial Class frmSettings
     Friend WithEvents Label4 As Label
     Friend WithEvents txt8 As NSTextBox
     Friend WithEvents cbPicodaemon As NSCheckBox
+    Friend WithEvents cbVideo As NSCheckBox
+    Friend WithEvents cbFullScreen As NSCheckBox
 End Class
