@@ -13,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 32
-    Public buildDate As String = "08/05/2018"
+    Dim curVer As Integer = 33
+    Public buildDate As String = "09/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -536,6 +536,9 @@ Public Class frmLauncher
             Timer1.Stop()
             threadU = New Thread(AddressOf CheckUpdate)
             threadU.Start()
+            If Today.Month = 4 AndAlso Today.Day = 1 Then
+                MessageBox.Show("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", "Initial D Launcher", MessageBoxButtons.YesNo)
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try

@@ -19,7 +19,7 @@ Namespace InitialD8
             Public AC_0DX1 As New Bitmap(My.Resources._0DU1) With {.Tag = "0DX1"}
             Public AC_0EX1 As New Bitmap(My.Resources._0EU1) With {.Tag = "0EX1"}
             Public AC_0FX1 As New Bitmap(My.Resources._0FU1) With {.Tag = "0FX1"}
-            Public AC_0X10 As New Bitmap(My.Resources._0U10) With {.Tag = "0X10"}
+            'Public AC_0X10 As New Bitmap(My.Resources._0U10) With {.Tag = "0X10"}
             Public AC_10X1 As New Bitmap(My.Resources._10U1) With {.Tag = "10X1"}
             Public AC_11X1 As New Bitmap(My.Resources._11U1) With {.Tag = "11X1"}
             Public AC_12X1 As New Bitmap(My.Resources._12U1) With {.Tag = "12X1"}
@@ -36,7 +36,7 @@ Namespace InitialD8
             Public AC_1DX1 As New Bitmap(My.Resources._1DU1) With {.Tag = "1DX1"}
             Public AC_1EX1 As New Bitmap(My.Resources._1EU1) With {.Tag = "1EX1"}
             Public AC_1FX1 As New Bitmap(My.Resources._1FU1) With {.Tag = "1FX1"}
-            Public AC_1X10 As New Bitmap(My.Resources._1U10) With {.Tag = "1X10"}
+            'Public AC_1X10 As New Bitmap(My.Resources._1U10) With {.Tag = "1X10"}
             Public AC_20X1 As New Bitmap(My.Resources._20U1) With {.Tag = "20X1"}
             Public AC_21X1 As New Bitmap(My.Resources._21U1) With {.Tag = "21X1"}
             Public AC_22X1 As New Bitmap(My.Resources._22U1) With {.Tag = "22X1"}
@@ -45,18 +45,18 @@ Namespace InitialD8
             Public AC_25X1 As New Bitmap(My.Resources._25U1) With {.Tag = "25X1"}
             Public AC_26X1 As New Bitmap(My.Resources._26U1) With {.Tag = "26X1"}
             Public AC_27X1 As New Bitmap(My.Resources._27U1) With {.Tag = "27X1"}
-            Public AC_2X10 As New Bitmap(My.Resources._2U10) With {.Tag = "2X10"}
-            Public AC_DX0F As New Bitmap(My.Resources.DU0F) With {.Tag = "DX0F"}
-            Public AC_EX0F As New Bitmap(My.Resources.EU0F) With {.Tag = "EX0F"}
-            Public AC_FX0F As New Bitmap(My.Resources.FU0F) With {.Tag = "FX0F"}
+            'Public AC_2X10 As New Bitmap(My.Resources._2U10) With {.Tag = "2X10"}
+            'Public AC_DX0F As New Bitmap(My.Resources.DU0F) With {.Tag = "DX0F"}
+            'Public AC_EX0F As New Bitmap(My.Resources.EU0F) With {.Tag = "EX0F"}
+            'Public AC_FX0F As New Bitmap(My.Resources.FU0F) With {.Tag = "FX0F"}
         End Class
 
         Public Class Eyes
-            Public EY_8X0D As New Bitmap(My.Resources._8U0D) With {.Tag = "8X0D"}
-            Public EY_9X0D As New Bitmap(My.Resources._9U0D) With {.Tag = "9X0D"}
+            'Public EY_8X0D As New Bitmap(My.Resources._8U0D) With {.Tag = "8X0D"}
+            'Public EY_9X0D As New Bitmap(My.Resources._9U0D) With {.Tag = "9X0D"}
             Public EY_AEX0 As New Bitmap(My.Resources.AEU0) With {.Tag = "AEX0"}
             Public EY_AFX0 As New Bitmap(My.Resources.AFU0) With {.Tag = "AFX0"}
-            Public EY_AX0D As New Bitmap(My.Resources.AU0D) With {.Tag = "AX0D"}
+            'Public EY_AX0D As New Bitmap(My.Resources.AU0D) With {.Tag = "AX0D"}
             Public EY_B0X0 As New Bitmap(My.Resources.B0U0) With {.Tag = "B0X0"}
             Public EY_B1X0 As New Bitmap(My.Resources.B1U0) With {.Tag = "B1X0"}
             Public EY_B2X0 As New Bitmap(My.Resources.B2U0) With {.Tag = "B2X0"}
@@ -73,7 +73,7 @@ Namespace InitialD8
             Public EY_BDX0 As New Bitmap(My.Resources.BDU0) With {.Tag = "BDX0"}
             Public EY_BEX0 As New Bitmap(My.Resources.BEU0) With {.Tag = "BEX0"}
             Public EY_BFX0 As New Bitmap(My.Resources.BFU0) With {.Tag = "BFX0"}
-            Public EY_BX0D As New Bitmap(My.Resources.BU0D) With {.Tag = "BX0D"}
+            'Public EY_BX0D As New Bitmap(My.Resources.BU0D) With {.Tag = "BX0D"}
             Public EY_C0X0 As New Bitmap(My.Resources.C0U0) With {.Tag = "C0X0"}
             Public EY_C1X0 As New Bitmap(My.Resources.C1U0) With {.Tag = "C1X0"}
             Public EY_C2X0 As New Bitmap(My.Resources.C2U0) With {.Tag = "C2X0"}
@@ -90,7 +90,7 @@ Namespace InitialD8
             Public EY_CDX0 As New Bitmap(My.Resources.CDU0) With {.Tag = "CDX0"}
             Public EY_CEX0 As New Bitmap(My.Resources.CEU0) With {.Tag = "CEX0"}
             Public EY_CFX0 As New Bitmap(My.Resources.CFU0) With {.Tag = "CFX0"}
-            Public EY_CX0D As New Bitmap(My.Resources.CU0D) With {.Tag = "CX0D"}
+            'Public EY_CX0D As New Bitmap(My.Resources.CU0D) With {.Tag = "CX0D"}
             Public EY_D0X0 As New Bitmap(My.Resources.D0U0) With {.Tag = "D0X0"}
             Public EY_D1X0 As New Bitmap(My.Resources.D1U0) With {.Tag = "D1X0"}
             Public EY_D2X0 As New Bitmap(My.Resources.D2U0) With {.Tag = "D2X0"}
@@ -99,11 +99,11 @@ Namespace InitialD8
             Public EY_D5X0 As New Bitmap(My.Resources.D5U0) With {.Tag = "D5X0"}
             Public EY_D6X0 As New Bitmap(My.Resources.D6U0) With {.Tag = "D6X0"}
             Public EY_D7X0 As New Bitmap(My.Resources.D7U0) With {.Tag = "D7X0"}
-            Public EY_DX0D As New Bitmap(My.Resources.DU0D) With {.Tag = "DX0D"}
+            'Public EY_DX0D As New Bitmap(My.Resources.DU0D) With {.Tag = "DX0D"}
         End Class
 
         Public Class Hair
-            Public HA_0X14 As New Bitmap(My.Resources._0U14) With {.Tag = "0X14"}
+            'Public HA_0X14 As New Bitmap(My.Resources._0U14) With {.Tag = "0X14"}
             Public HA_41X1 As New Bitmap(My.Resources._41U1) With {.Tag = "41X1"}
             Public HA_42X1 As New Bitmap(My.Resources._42U1) With {.Tag = "42X1"}
             Public HA_43X1 As New Bitmap(My.Resources._43U1) With {.Tag = "43X1"}
@@ -231,7 +231,7 @@ Namespace InitialD8
             Public HA_BDX1 As New Bitmap(My.Resources.BDU1) With {.Tag = "BDX1"}
             Public HA_BEX1 As New Bitmap(My.Resources.BEU1) With {.Tag = "BEX1"}
             Public HA_BFX1 As New Bitmap(My.Resources.BFU1) With {.Tag = "BFX1"}
-            Public HA_BX13 As New Bitmap(My.Resources.BU13) With {.Tag = "BX13"}
+            'Public HA_BX13 As New Bitmap(My.Resources.BU13) With {.Tag = "BX13"}
             Public HA_C0X1 As New Bitmap(My.Resources.C0U1) With {.Tag = "C0X1"}
             Public HA_C1X1 As New Bitmap(My.Resources.C1U1) With {.Tag = "C1X1"}
             Public HA_C2X1 As New Bitmap(My.Resources.C2U1) With {.Tag = "C2X1"}
@@ -248,7 +248,7 @@ Namespace InitialD8
             Public HA_CDX1 As New Bitmap(My.Resources.CDU1) With {.Tag = "CDX1"}
             Public HA_CEX1 As New Bitmap(My.Resources.CEU1) With {.Tag = "CEX1"}
             Public HA_CFX1 As New Bitmap(My.Resources.CFU1) With {.Tag = "CFX1"}
-            Public HA_CX13 As New Bitmap(My.Resources.CU13) With {.Tag = "CX13"}
+            'Public HA_CX13 As New Bitmap(My.Resources.CU13) With {.Tag = "CX13"}
             Public HA_D0X1 As New Bitmap(My.Resources.D0U1) With {.Tag = "D0X1"}
             Public HA_D1X1 As New Bitmap(My.Resources.D1U1) With {.Tag = "D1X1"}
             Public HA_D2X1 As New Bitmap(My.Resources.D2U1) With {.Tag = "D2X1"}
@@ -263,9 +263,9 @@ Namespace InitialD8
             Public HA_DBX1 As New Bitmap(My.Resources.DBU1) With {.Tag = "DBX1"}
             Public HA_DCX1 As New Bitmap(My.Resources.DCU1) With {.Tag = "DCX1"}
             Public HA_DDX1 As New Bitmap(My.Resources.DDU1) With {.Tag = "DDX1"}
-            Public HA_DX13 As New Bitmap(My.Resources.DU13) With {.Tag = "DX13"}
-            Public HA_EX13 As New Bitmap(My.Resources.EU13) With {.Tag = "EX13"}
-            Public HA_FX13 As New Bitmap(My.Resources.FU13) With {.Tag = "FX13"}
+            'Public HA_DX13 As New Bitmap(My.Resources.DU13) With {.Tag = "DX13"}
+            'Public HA_EX13 As New Bitmap(My.Resources.EU13) With {.Tag = "EX13"}
+            'Public HA_FX13 As New Bitmap(My.Resources.FU13) With {.Tag = "FX13"}
         End Class
 
         Public Class Mouth
@@ -303,11 +303,11 @@ Namespace InitialD8
         End Class
 
         Public Class Shades
-            Public SP_0X00 As New Bitmap(My.Resources._0Y00) With {.Tag = "0X00"}
+            Public SP_0X00 As New Bitmap(My.Resources.BLANK) With {.Tag = "0X00"}
             Public SP_0X13 As New Bitmap(My.Resources._0U13) With {.Tag = "0X13"}
             Public SP_1X13 As New Bitmap(My.Resources._1U13) With {.Tag = "1X13"}
-            Public SP_28X1 As New Bitmap(My.Resources._28U1) With {.Tag = "28X1"}
-            Public SP_29X1 As New Bitmap(My.Resources._29U1) With {.Tag = "29X1"}
+            'Public SP_28X1 As New Bitmap(My.Resources._28U1) With {.Tag = "28X1"}
+            'Public SP_29X1 As New Bitmap(My.Resources._29U1) With {.Tag = "29X1"}
             Public SP_2X13 As New Bitmap(My.Resources._2U13) With {.Tag = "2X13"}
             Public SP_3X13 As New Bitmap(My.Resources._3U13) With {.Tag = "3X13"}
             Public SP_4X13 As New Bitmap(My.Resources._4U13) With {.Tag = "4X13"}
@@ -335,9 +335,9 @@ Namespace InitialD8
             Public SH_0X08 As New Bitmap(My.Resources._0U08) With {.Tag = "0X08"}
             Public SH_0X09 As New Bitmap(My.Resources._0U09) With {.Tag = "0X09"}
             Public SH_0X0A As New Bitmap(My.Resources._0U0A) With {.Tag = "0X0A"}
-            Public SH_13X0 As New Bitmap(My.Resources._13U0) With {.Tag = "13X0"}
-            Public SH_14X0 As New Bitmap(My.Resources._14U0) With {.Tag = "14X0"}
-            Public SH_15X0 As New Bitmap(My.Resources._15U0) With {.Tag = "15X0"}
+            'Public SH_13X0 As New Bitmap(My.Resources._13U0) With {.Tag = "13X0"}
+            'Public SH_14X0 As New Bitmap(My.Resources._14U0) With {.Tag = "14X0"}
+            'Public SH_15X0 As New Bitmap(My.Resources._15U0) With {.Tag = "15X0"}
             Public SH_1X02 As New Bitmap(My.Resources._1U02) With {.Tag = "1X02"}
             Public SH_1X03 As New Bitmap(My.Resources._1U03) With {.Tag = "1X03"}
             Public SH_1X04 As New Bitmap(My.Resources._1U04) With {.Tag = "1X04"}
@@ -421,12 +421,12 @@ Namespace InitialD8
             Public SH_9X07 As New Bitmap(My.Resources._9U07) With {.Tag = "9X07"}
             Public SH_9X08 As New Bitmap(My.Resources._9U08) With {.Tag = "9X08"}
             Public SH_9X09 As New Bitmap(My.Resources._9U09) With {.Tag = "9X09"}
-            Public SH_A8X0 As New Bitmap(My.Resources.A8U0) With {.Tag = "A8X0"}
-            Public SH_A9X0 As New Bitmap(My.Resources.A9U0) With {.Tag = "A9X0"}
-            Public SH_AAX0 As New Bitmap(My.Resources.AAU0) With {.Tag = "AAX0"}
-            Public SH_ABX0 As New Bitmap(My.Resources.ABU0) With {.Tag = "ABX0"}
-            Public SH_ACX0 As New Bitmap(My.Resources.ACU0) With {.Tag = "ACX0"}
-            Public SH_ADX0 As New Bitmap(My.Resources.ADU0) With {.Tag = "ADX0"}
+            'Public SH_A8X0 As New Bitmap(My.Resources.A8U0) With {.Tag = "A8X0"}
+            'Public SH_A9X0 As New Bitmap(My.Resources.A9U0) With {.Tag = "A9X0"}
+            'Public SH_AAX0 As New Bitmap(My.Resources.AAU0) With {.Tag = "AAX0"}
+            'Public SH_ABX0 As New Bitmap(My.Resources.ABU0) With {.Tag = "ABX0"}
+            'Public SH_ACX0 As New Bitmap(My.Resources.ACU0) With {.Tag = "ACX0"}
+            'Public SH_ADX0 As New Bitmap(My.Resources.ADU0) With {.Tag = "ADX0"}
             Public SH_AX01 As New Bitmap(My.Resources.AU01) With {.Tag = "AX01"}
             Public SH_AX02 As New Bitmap(My.Resources.AU02) With {.Tag = "AX02"}
             Public SH_AX03 As New Bitmap(My.Resources.AU03) With {.Tag = "AX03"}
