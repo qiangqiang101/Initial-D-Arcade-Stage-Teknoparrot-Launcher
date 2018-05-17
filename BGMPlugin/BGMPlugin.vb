@@ -53,7 +53,8 @@ Public Class BGMPlugin
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 End Class

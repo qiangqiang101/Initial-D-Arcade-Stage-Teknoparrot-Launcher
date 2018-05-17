@@ -95,7 +95,8 @@ Public Class Card
                     End If
             End Select
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -142,7 +143,8 @@ Public Class Card
                         ta.Show()
                     End If
                 Catch ex As Exception
-                    MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                    Logger.Log(ex.Message & ex.StackTrace)
                 End Try
         End Select
     End Sub
@@ -219,7 +221,8 @@ Public Class Card
             'End If
             fe.Show()
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -243,7 +246,8 @@ Public Class Card
             file_already_exist = ReadCfgValue("FileAlreadyExist", langFile)
             rules = ReadCfgValue("Rules", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

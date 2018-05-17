@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSettings
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmSettings
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
@@ -103,28 +103,28 @@ Partial Class frmSettings
         'cbFullScreen
         '
         Me.cbFullScreen.Checked = False
-        Me.cbFullScreen.Location = New System.Drawing.Point(350, 274)
+        Me.cbFullScreen.Location = New System.Drawing.Point(351, 274)
         Me.cbFullScreen.Name = "cbFullScreen"
         Me.cbFullScreen.Size = New System.Drawing.Size(130, 24)
-        Me.cbFullScreen.TabIndex = 13
+        Me.cbFullScreen.TabIndex = 14
         Me.cbFullScreen.Text = "Full Screen"
         '
         'cbVideo
         '
         Me.cbVideo.Checked = False
-        Me.cbVideo.Location = New System.Drawing.Point(214, 274)
+        Me.cbVideo.Location = New System.Drawing.Point(215, 274)
         Me.cbVideo.Name = "cbVideo"
         Me.cbVideo.Size = New System.Drawing.Size(130, 24)
-        Me.cbVideo.TabIndex = 12
+        Me.cbVideo.TabIndex = 13
         Me.cbVideo.Text = "Video Background"
         '
         'cbPicodaemon
         '
         Me.cbPicodaemon.Checked = False
-        Me.cbPicodaemon.Location = New System.Drawing.Point(78, 274)
+        Me.cbPicodaemon.Location = New System.Drawing.Point(79, 274)
         Me.cbPicodaemon.Name = "cbPicodaemon"
         Me.cbPicodaemon.Size = New System.Drawing.Size(130, 24)
-        Me.cbPicodaemon.TabIndex = 11
+        Me.cbPicodaemon.TabIndex = 12
         Me.cbPicodaemon.Text = "Run Card Reader"
         '
         'Label4
@@ -189,7 +189,7 @@ Partial Class frmSettings
         'cbMP
         '
         Me.cbMP.Checked = False
-        Me.cbMP.Location = New System.Drawing.Point(350, 244)
+        Me.cbMP.Location = New System.Drawing.Point(351, 244)
         Me.cbMP.Name = "cbMP"
         Me.cbMP.Size = New System.Drawing.Size(130, 24)
         Me.cbMP.TabIndex = 10
@@ -299,7 +299,7 @@ Partial Class frmSettings
         'cbTest
         '
         Me.cbTest.Checked = False
-        Me.cbTest.Location = New System.Drawing.Point(78, 244)
+        Me.cbTest.Location = New System.Drawing.Point(79, 244)
         Me.cbTest.Name = "cbTest"
         Me.cbTest.Size = New System.Drawing.Size(130, 24)
         Me.cbTest.TabIndex = 8
@@ -319,7 +319,7 @@ Partial Class frmSettings
         '
         Me.cbDebug.Checked = False
         Me.cbDebug.Enabled = False
-        Me.cbDebug.Location = New System.Drawing.Point(214, 244)
+        Me.cbDebug.Location = New System.Drawing.Point(215, 244)
         Me.cbDebug.Name = "cbDebug"
         Me.cbDebug.Size = New System.Drawing.Size(130, 24)
         Me.cbDebug.TabIndex = 9

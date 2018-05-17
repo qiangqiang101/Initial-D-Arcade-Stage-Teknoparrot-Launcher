@@ -70,8 +70,10 @@ Module Helper
                 Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
                     For Each item As XmlNode In items
                         Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-                        My.Settings.Id6Path = Path.GetDirectoryName(GamePath)
-                        My.Settings.Save()
+                        If Not GamePath = "" Then
+                            My.Settings.Id6Path = Path.GetDirectoryName(GamePath)
+                            My.Settings.Save()
+                        End If
                     Next
                 End Using
             End If
@@ -81,8 +83,10 @@ Module Helper
                 Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
                     For Each item As XmlNode In items
                         Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-                        My.Settings.Id7Path = Path.GetDirectoryName(GamePath)
-                        My.Settings.Save()
+                        If Not GamePath = "" Then
+                            My.Settings.Id7Path = Path.GetDirectoryName(GamePath)
+                            My.Settings.Save()
+                        End If
                     Next
                 End Using
             End If
@@ -92,8 +96,10 @@ Module Helper
                 Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
                     For Each item As XmlNode In items
                         Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-                        My.Settings.Id8Path = Path.GetDirectoryName(GamePath)
-                        My.Settings.Save()
+                        If Not GamePath = "" Then
+                            My.Settings.Id8Path = Path.GetDirectoryName(GamePath)
+                            My.Settings.Save()
+                        End If
                     Next
                 End Using
             End If
@@ -138,7 +144,8 @@ Module Helper
             Next
             reader.Close()
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

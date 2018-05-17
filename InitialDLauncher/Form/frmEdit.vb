@@ -110,7 +110,8 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -148,7 +149,8 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -186,7 +188,8 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -283,7 +286,8 @@ Public Class frmEdit
 
             lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -638,7 +642,8 @@ Public Class frmEdit
                 Me.Close()
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -931,7 +936,8 @@ Public Class frmEdit
 
             Translate2()
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -1017,7 +1023,8 @@ Public Class frmEdit
             c8_tea = ReadCfgValue("GreenTea", langFile)
             Label28.Text = ReadCfgValue("Cup", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -1028,7 +1035,8 @@ Public Class frmEdit
             If cmbCar2.Text = "" Then btnEditCar2.Text = ReadCfgValue("ImportBtn", langFile)
             If cmbCar3.Text = "" Then btnEditCar3.Text = ReadCfgValue("ImportBtn", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -1040,7 +1048,8 @@ Public Class frmEdit
             End If
             e.Handled = True
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -1091,7 +1100,8 @@ Public Class frmEdit
                 End Select
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -1101,7 +1111,8 @@ Public Class frmEdit
                 pbPreview.BackgroundImage = cmbAvatar.SelectedValue
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

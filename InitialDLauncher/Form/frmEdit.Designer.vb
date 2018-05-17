@@ -951,7 +951,7 @@ Partial Class frmEdit
         Me.cmbPlace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPlace.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbPlace.FormattingEnabled = True
-        Me.cmbPlace.Items.AddRange(New Object() {"北海道", "青森県", "岩手県", "宮城県", "福島県", "山形県", "秋田県", "茨城県", "栃木県", "群馬県", "千葉県", "埼玉県", "東京都", "神奈川県", "山梨県", "新潟県", "長野県", "富山県", "石川県", "愛知県", "静岡県", "岐阜県", "三重県", "福井県", "大阪府", "京都府", "奈良県", "滋賀県", "和歌山県", "兵庫県", "広島県", "鳥取県", "島根県", "岡山県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県", "中國/上海 China", "香港 Hong Kong", "韓國 South Korea", "馬來西亞 Malaysia", "新加坡 Singapore", "台灣 Taiwan"})
+        Me.cmbPlace.Items.AddRange(New Object() {"北海道", "青森県", "岩手県", "宮城県", "福島県", "山形県", "秋田県", "茨城県", "栃木県", "群馬県", "千葉県", "埼玉県", "東京都", "神奈川県", "山梨県", "新潟県", "長野県", "富山県", "石川県", "愛知県", "静岡県", "岐阜県", "三重県", "福井県", "大阪府", "京都府", "奈良県", "滋賀県", "和歌山県", "兵庫県", "広島県", "鳥取県", "島根県", "岡山県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県", "中国/上海 CHN", "香港 HKG", "韓国 SKR", "マレーシア MYS", "シンガポール SGP", "台湾 TWN", "インドネシア IDN", "フィリピン PHL", "タイ THAI", "アメリカ合衆国 USA"})
         Me.cmbPlace.Location = New System.Drawing.Point(76, 66)
         Me.cmbPlace.Name = "cmbPlace"
         Me.cmbPlace.Size = New System.Drawing.Size(166, 24)

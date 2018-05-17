@@ -24,6 +24,7 @@ Partial Class frmCard
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCard))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.txt8 = New InitialDLauncher.NSTextBox()
         Me.txt7 = New InitialDLauncher.NSTextBox()
         Me.txt6 = New InitialDLauncher.NSTextBox()
         Me.NsControlButton3 = New InitialDLauncher.NSControlButton()
@@ -33,10 +34,9 @@ Partial Class frmCard
         Me.flp6 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.flp7 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.flp8 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.txt8 = New InitialDLauncher.NSTextBox()
+        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.NsTheme1.SuspendLayout()
         Me.nstcTab.SuspendLayout()
         Me.TabPage3.SuspendLayout()
@@ -75,16 +75,31 @@ Partial Class frmCard
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
         '
+        'txt8
+        '
+        Me.txt8.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.txt8.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt8.Location = New System.Drawing.Point(646, 613)
+        Me.txt8.MaxLength = 32767
+        Me.txt8.Multiline = False
+        Me.txt8.Name = "txt8"
+        Me.txt8.ReadOnly = True
+        Me.txt8.Size = New System.Drawing.Size(311, 23)
+        Me.txt8.TabIndex = 60
+        Me.txt8.Text = "ID8 Card:"
+        Me.txt8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt8.UseSystemPasswordChar = False
+        '
         'txt7
         '
-        Me.txt7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txt7.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.txt7.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txt7.Location = New System.Drawing.Point(318, 613)
+        Me.txt7.Location = New System.Drawing.Point(329, 613)
         Me.txt7.MaxLength = 32767
         Me.txt7.Multiline = False
         Me.txt7.Name = "txt7"
         Me.txt7.ReadOnly = True
-        Me.txt7.Size = New System.Drawing.Size(300, 23)
+        Me.txt7.Size = New System.Drawing.Size(311, 23)
         Me.txt7.TabIndex = 59
         Me.txt7.Text = "ID7 Card:"
         Me.txt7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -92,14 +107,14 @@ Partial Class frmCard
         '
         'txt6
         '
-        Me.txt6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txt6.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.txt6.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txt6.Location = New System.Drawing.Point(12, 613)
         Me.txt6.MaxLength = 32767
         Me.txt6.Multiline = False
         Me.txt6.Name = "txt6"
         Me.txt6.ReadOnly = True
-        Me.txt6.Size = New System.Drawing.Size(300, 23)
+        Me.txt6.Size = New System.Drawing.Size(311, 23)
         Me.txt6.TabIndex = 58
         Me.txt6.Text = "ID6 Card:"
         Me.txt6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
@@ -146,7 +161,7 @@ Partial Class frmCard
         Me.nstcTab.Multiline = True
         Me.nstcTab.Name = "nstcTab"
         Me.nstcTab.SelectedIndex = 0
-        Me.nstcTab.Size = New System.Drawing.Size(944, 571)
+        Me.nstcTab.Size = New System.Drawing.Size(945, 571)
         Me.nstcTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.nstcTab.TabIndex = 1
         '
@@ -157,7 +172,7 @@ Partial Class frmCard
         Me.TabPage3.Location = New System.Drawing.Point(134, 4)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(806, 563)
+        Me.TabPage3.Size = New System.Drawing.Size(807, 563)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "InitialD 6AA Cards"
         '
@@ -167,7 +182,7 @@ Partial Class frmCard
         Me.flp6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flp6.Location = New System.Drawing.Point(3, 3)
         Me.flp6.Name = "flp6"
-        Me.flp6.Size = New System.Drawing.Size(800, 557)
+        Me.flp6.Size = New System.Drawing.Size(801, 557)
         Me.flp6.TabIndex = 0
         '
         'TabPage4
@@ -177,7 +192,7 @@ Partial Class frmCard
         Me.TabPage4.Location = New System.Drawing.Point(134, 4)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(806, 563)
+        Me.TabPage4.Size = New System.Drawing.Size(807, 563)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "InitialD 7AAX Cards"
         '
@@ -187,8 +202,28 @@ Partial Class frmCard
         Me.flp7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flp7.Location = New System.Drawing.Point(3, 3)
         Me.flp7.Name = "flp7"
-        Me.flp7.Size = New System.Drawing.Size(800, 557)
+        Me.flp7.Size = New System.Drawing.Size(801, 557)
         Me.flp7.TabIndex = 1
+        '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage1.Controls.Add(Me.flp8)
+        Me.TabPage1.Location = New System.Drawing.Point(134, 4)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(807, 563)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "InitialD 8 Infinity Cards"
+        '
+        'flp8
+        '
+        Me.flp8.AutoScroll = True
+        Me.flp8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flp8.Location = New System.Drawing.Point(3, 3)
+        Me.flp8.Name = "flp8"
+        Me.flp8.Size = New System.Drawing.Size(801, 557)
+        Me.flp8.TabIndex = 2
         '
         'NsControlButton1
         '
@@ -202,40 +237,6 @@ Partial Class frmCard
         Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.TabPage1.Controls.Add(Me.flp8)
-        Me.TabPage1.Location = New System.Drawing.Point(134, 4)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(806, 563)
-        Me.TabPage1.TabIndex = 2
-        Me.TabPage1.Text = "InitialD 8 Infinity Cards"
-        '
-        'flp8
-        '
-        Me.flp8.AutoScroll = True
-        Me.flp8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.flp8.Location = New System.Drawing.Point(0, 0)
-        Me.flp8.Name = "flp8"
-        Me.flp8.Size = New System.Drawing.Size(806, 563)
-        Me.flp8.TabIndex = 2
-        '
-        'txt8
-        '
-        Me.txt8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txt8.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txt8.Location = New System.Drawing.Point(624, 613)
-        Me.txt8.MaxLength = 32767
-        Me.txt8.Multiline = False
-        Me.txt8.Name = "txt8"
-        Me.txt8.ReadOnly = True
-        Me.txt8.Size = New System.Drawing.Size(300, 23)
-        Me.txt8.TabIndex = 60
-        Me.txt8.Text = "ID8 Card:"
-        Me.txt8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.txt8.UseSystemPasswordChar = False
         '
         'frmCard
         '

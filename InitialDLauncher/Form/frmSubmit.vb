@@ -75,7 +75,8 @@ Public Class frmSubmit
                 client.DownloadString(Convert.ToString(AddScoreURLCN + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -94,7 +95,8 @@ Public Class frmSubmit
                 Me.Close()
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -122,7 +124,8 @@ Public Class frmSubmit
             record_exist = ReadCfgValue("RecordExist", langFile)
             Label8.Text = ReadCfgValue("Server", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

@@ -30,7 +30,8 @@ Public Class frmSettings
             cbFullScreen.Checked = My.Settings.FullScreen
             Translate()
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -82,7 +83,8 @@ Public Class frmSettings
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
             Exit Sub
         End Try
     End Sub
@@ -143,7 +145,8 @@ Public Class frmSettings
             cbVideo.Text = ReadCfgValue("Video", langFile)
             cbFullScreen.Text = ReadCfgValue("FullScreen", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -160,7 +163,8 @@ Public Class frmSettings
                 client.DownloadString(Convert.ToString(UpdateUserCountryURLCN + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

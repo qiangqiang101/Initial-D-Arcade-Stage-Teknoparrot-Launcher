@@ -13,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 33
-    Public buildDate As String = "09/05/2018"
+    Dim curVer As Integer = 35
+    Public buildDate As String = "18/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -239,7 +239,8 @@ Public Class frmLauncher
 
             'AutoCardMove()
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
             Exit Sub
         End Try
     End Sub
@@ -295,7 +296,8 @@ Public Class frmLauncher
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
             Exit Sub
         End Try
     End Sub
@@ -394,35 +396,31 @@ Public Class frmLauncher
     Private Sub Proc_Exited() Handles proc.Exited
         Try
             If selPath = Nothing Then
-                Select Case lastGame
-                    Case 6
-                        'Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
-                        '    Case ".bin"
-                        '        selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        '        If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
-                        '    Case ".crd"
-                        '        selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        '        If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
-                        '    Case Else
-                        'End Select
-                        selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
-                    Case 7
-                        'Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
-                        '    Case ".bin"
-                        '        selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        '        If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
-                        '    Case ".crd"
-                        '        selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        '        If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
-                        '    Case Else
-                        'End Select
-                        selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
-                    Case 8
-                        selPath = String.Format("{0}\ID8_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                        If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
-                End Select
+                If My.Settings.PerferCardExt = "CRD" Then
+                    Select Case lastGame
+                        Case 6
+                            selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
+                        Case 7
+                            selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
+                        Case 8
+                            selPath = String.Format("{0}\ID8_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
+                    End Select
+                ElseIf My.Settings.PerferCardExt = "BIN" Then
+                    Select Case lastGame
+                        Case 6
+                            selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
+                        Case 7
+                            selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
+                        Case 8
+                            selPath = String.Format("{0}\ID8_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id8AppData) Then File.Move(id8AppData, selPath)
+                    End Select
+                End If
             Else
                 Select Case lastGame
                     Case 6
@@ -445,7 +443,8 @@ Public Class frmLauncher
             isGameRunning = False
             If My.Settings.VideoBackground Then Timer3.Start()
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -540,7 +539,8 @@ Public Class frmLauncher
                 MessageBox.Show("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", "Initial D Launcher", MessageBoxButtons.YesNo)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -570,7 +570,8 @@ Public Class frmLauncher
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -596,7 +597,8 @@ Public Class frmLauncher
             no_card_selected = ReadCfgValue("NoCardSelected", langFile)
             If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format(ReadCfgValue("Logout", langFile), My.Settings.UserName) Else lblLogout.Text = ReadCfgValue("Login", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 End Class

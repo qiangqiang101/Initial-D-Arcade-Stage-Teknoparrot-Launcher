@@ -371,7 +371,7 @@
                 If Not HappogaharaDryOB = NoRecord Then
                     item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, 684, True), .BackgroundImage = My.Resources.happogahara}
                     With item
-                        Translate()
+                        .Translate()
                         .lblCourse.Text = .Happogahara
                         .lblType.Text = .Outbound
                         .lblWeather.Text = .Dry
@@ -1954,7 +1954,7 @@
                 If Not HappogaharaDryOB = NoRecord Then
                     item = New TimeAttack With {.Version = _version, .Extension = _extension, .FileName = _filename, .Score = Helper.GetTimeResult(_filename, Neg60(684), True), .BackgroundImage = My.Resources.happogahara}
                     With item
-                        Translate()
+                        .Translate()
                         .lblCourse.Text = .Happogahara
                         .lblType.Text = .Outbound
                         .lblWeather.Text = .Dry
@@ -3220,7 +3220,8 @@
             Me.Text = ReadCfgValue("TAMeText", langFile)
             NsTheme1.Text = Me.Text
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

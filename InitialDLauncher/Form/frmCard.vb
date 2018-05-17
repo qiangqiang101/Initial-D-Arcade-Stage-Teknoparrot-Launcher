@@ -8,7 +8,7 @@ Public Class frmCard
     Dim id6CardPath As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardPath As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
     Dim id8CardPath As String = String.Format("{0}\ID8_CARD\", My.Application.Info.DirectoryPath)
-    Dim item As Card
+    Dim item As Card, itemBlank As CardEmpty
 
     Private Sub frmCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RefreshID6Cards()
@@ -77,8 +77,17 @@ Public Class frmCard
                     flp6.Controls.Add(item)
                 End If
             Next
+            If flp6.Controls.Count = 0 Then
+                itemBlank = New CardEmpty() With {.CardVersion = 6}
+                With itemBlank
+                    .Translate()
+                End With
+                flp6.Controls.Add(itemBlank)
+                itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
+            End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -139,8 +148,17 @@ Public Class frmCard
                     flp7.Controls.Add(item)
                 End If
             Next
+            If flp7.Controls.Count = 0 Then
+                itemBlank = New CardEmpty() With {.CardVersion = 7}
+                With itemBlank
+                    .Translate()
+                End With
+                flp7.Controls.Add(itemBlank)
+                itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
+            End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -197,8 +215,17 @@ Public Class frmCard
                     flp8.Controls.Add(item)
                 End If
             Next
+            If flp8.Controls.Count = 0 Then
+                itemBlank = New CardEmpty() With {.CardVersion = 8}
+                With itemBlank
+                    .Translate()
+                End With
+                flp8.Controls.Add(itemBlank)
+                itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
+            End If
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
@@ -227,7 +254,8 @@ Public Class frmCard
             select_card = ReadCfgValue("Select", langFile)
             deselect_card = ReadCfgValue("Deselect", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

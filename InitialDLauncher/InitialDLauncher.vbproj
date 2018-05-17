@@ -83,6 +83,7 @@
     <Compile Include="Class\CFGRead.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />
     <Compile Include="Class\GifImage.vb" />
+    <Compile Include="Class\Logger.vb" />
     <Compile Include="Class\PluginLoader.vb" />
     <Compile Include="Form\Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
@@ -168,6 +169,12 @@
     </Compile>
     <Compile Include="Class\Helper.vb" />
     <Compile Include="Class\iniRead.vb" />
+    <Compile Include="Form\User Control\CardEmpty.Designer.vb">
+      <DependentUpon>CardEmpty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User Control\CardEmpty.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -247,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmTimeAttack.resx">
       <DependentUpon>frmTimeAttack.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User Control\CardEmpty.resx">
+      <DependentUpon>CardEmpty.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
