@@ -24,102 +24,23 @@ Partial Class frmLauncher
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLauncher))
-        Me.lblStart6 = New System.Windows.Forms.Label()
-        Me.lblStart7 = New System.Windows.Forms.Label()
-        Me.lblExit = New System.Windows.Forms.Label()
-        Me.lblSetting = New System.Windows.Forms.Label()
-        Me.lblDebug = New System.Windows.Forms.Label()
-        Me.lblVersion = New System.Windows.Forms.Label()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
-        Me.lblCardMan = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.lblLeaderboard = New System.Windows.Forms.Label()
-        Me.lblLogout = New System.Windows.Forms.Label()
-        Me.lblStart8 = New System.Windows.Forms.Label()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.lblStart6 = New InitialDLauncher.TextButton()
+        Me.lblStart8 = New InitialDLauncher.TextButton()
+        Me.lblStart7 = New InitialDLauncher.TextButton()
+        Me.lblLogout = New InitialDLauncher.TextButton()
+        Me.lblSetting = New InitialDLauncher.TextButton()
+        Me.lblVersion = New InitialDLauncher.TextButton()
+        Me.lblLeaderboard = New InitialDLauncher.TextButton()
+        Me.lblExit = New InitialDLauncher.TextButton()
+        Me.lblDebug = New InitialDLauncher.TextButton()
+        Me.lblCardMan = New InitialDLauncher.TextButton()
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lblStart6
-        '
-        Me.lblStart6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblStart6.BackColor = System.Drawing.Color.Transparent
-        Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblStart6.ForeColor = System.Drawing.Color.White
-        Me.lblStart6.Location = New System.Drawing.Point(386, 184)
-        Me.lblStart6.Name = "lblStart6"
-        Me.lblStart6.Size = New System.Drawing.Size(488, 38)
-        Me.lblStart6.TabIndex = 1
-        Me.lblStart6.Text = "Play Initial D 6 AA"
-        Me.lblStart6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblStart7
-        '
-        Me.lblStart7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblStart7.BackColor = System.Drawing.Color.Transparent
-        Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblStart7.ForeColor = System.Drawing.Color.White
-        Me.lblStart7.Location = New System.Drawing.Point(386, 222)
-        Me.lblStart7.Name = "lblStart7"
-        Me.lblStart7.Size = New System.Drawing.Size(488, 38)
-        Me.lblStart7.TabIndex = 2
-        Me.lblStart7.Text = "Play Initial D 7 AAX"
-        Me.lblStart7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblExit
-        '
-        Me.lblExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblExit.BackColor = System.Drawing.Color.Transparent
-        Me.lblExit.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblExit.ForeColor = System.Drawing.Color.White
-        Me.lblExit.Location = New System.Drawing.Point(386, 432)
-        Me.lblExit.Name = "lblExit"
-        Me.lblExit.Size = New System.Drawing.Size(488, 38)
-        Me.lblExit.TabIndex = 4
-        Me.lblExit.Text = "Quit Game"
-        Me.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblSetting
-        '
-        Me.lblSetting.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblSetting.BackColor = System.Drawing.Color.Transparent
-        Me.lblSetting.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblSetting.ForeColor = System.Drawing.Color.White
-        Me.lblSetting.Location = New System.Drawing.Point(386, 394)
-        Me.lblSetting.Name = "lblSetting"
-        Me.lblSetting.Size = New System.Drawing.Size(488, 38)
-        Me.lblSetting.TabIndex = 3
-        Me.lblSetting.Text = "Settings"
-        Me.lblSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblDebug
-        '
-        Me.lblDebug.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblDebug.BackColor = System.Drawing.Color.Transparent
-        Me.lblDebug.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblDebug.ForeColor = System.Drawing.Color.White
-        Me.lblDebug.Location = New System.Drawing.Point(386, 470)
-        Me.lblDebug.Name = "lblDebug"
-        Me.lblDebug.Size = New System.Drawing.Size(488, 38)
-        Me.lblDebug.TabIndex = 5
-        Me.lblDebug.Text = "Debug"
-        Me.lblDebug.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblDebug.Visible = False
-        '
-        'lblVersion
-        '
-        Me.lblVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblVersion.AutoSize = True
-        Me.lblVersion.BackColor = System.Drawing.Color.Transparent
-        Me.lblVersion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblVersion.ForeColor = System.Drawing.Color.White
-        Me.lblVersion.Location = New System.Drawing.Point(12, 510)
-        Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(81, 19)
-        Me.lblVersion.TabIndex = 6
-        Me.lblVersion.Text = "Version: 1.0"
-        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'pbLogo
         '
@@ -135,19 +56,6 @@ Partial Class frmLauncher
         Me.pbLogo.TabIndex = 0
         Me.pbLogo.TabStop = False
         '
-        'lblCardMan
-        '
-        Me.lblCardMan.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblCardMan.BackColor = System.Drawing.Color.Transparent
-        Me.lblCardMan.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblCardMan.ForeColor = System.Drawing.Color.White
-        Me.lblCardMan.Location = New System.Drawing.Point(386, 356)
-        Me.lblCardMan.Name = "lblCardMan"
-        Me.lblCardMan.Size = New System.Drawing.Size(488, 38)
-        Me.lblCardMan.TabIndex = 7
-        Me.lblCardMan.Text = "Card Selection"
-        Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'Timer1
         '
         Me.Timer1.Enabled = True
@@ -157,49 +65,227 @@ Partial Class frmLauncher
         '
         Me.Timer2.Enabled = True
         '
-        'lblLeaderboard
-        '
-        Me.lblLeaderboard.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblLeaderboard.BackColor = System.Drawing.Color.Transparent
-        Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblLeaderboard.ForeColor = System.Drawing.Color.White
-        Me.lblLeaderboard.Location = New System.Drawing.Point(386, 318)
-        Me.lblLeaderboard.Name = "lblLeaderboard"
-        Me.lblLeaderboard.Size = New System.Drawing.Size(488, 38)
-        Me.lblLeaderboard.TabIndex = 8
-        Me.lblLeaderboard.Text = "TA Leaderboard"
-        Me.lblLeaderboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblLogout
-        '
-        Me.lblLogout.AutoSize = True
-        Me.lblLogout.BackColor = System.Drawing.Color.Transparent
-        Me.lblLogout.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.lblLogout.ForeColor = System.Drawing.Color.White
-        Me.lblLogout.Location = New System.Drawing.Point(12, 9)
-        Me.lblLogout.Name = "lblLogout"
-        Me.lblLogout.Size = New System.Drawing.Size(60, 19)
-        Me.lblLogout.TabIndex = 9
-        Me.lblLogout.Text = "User: {0}"
-        Me.lblLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblStart8
-        '
-        Me.lblStart8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblStart8.BackColor = System.Drawing.Color.Transparent
-        Me.lblStart8.Font = New System.Drawing.Font("Segoe UI", 20.0!)
-        Me.lblStart8.ForeColor = System.Drawing.Color.White
-        Me.lblStart8.Location = New System.Drawing.Point(386, 260)
-        Me.lblStart8.Name = "lblStart8"
-        Me.lblStart8.Size = New System.Drawing.Size(488, 38)
-        Me.lblStart8.TabIndex = 10
-        Me.lblStart8.Text = "Play Initial D 8 Infinity"
-        Me.lblStart8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'Timer3
         '
         Me.Timer3.Enabled = True
         Me.Timer3.Interval = 1
+        '
+        'lblStart6
+        '
+        Me.lblStart6.AddEffect = True
+        Me.lblStart6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblStart6.BackColor = System.Drawing.Color.Transparent
+        Me.lblStart6.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblStart6.EffectAfter = " <<"
+        Me.lblStart6.EffectBefore = Nothing
+        Me.lblStart6.EffectWidth = 43
+        Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart6.ForeColor = System.Drawing.Color.Silver
+        Me.lblStart6.Location = New System.Drawing.Point(610, 184)
+        Me.lblStart6.MouseHoverColor = System.Drawing.Color.White
+        Me.lblStart6.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblStart6.Name = "lblStart6"
+        Me.lblStart6.NormalColor = System.Drawing.Color.Silver
+        Me.lblStart6.Size = New System.Drawing.Size(266, 38)
+        Me.lblStart6.TabIndex = 2
+        Me.lblStart6.Text = "Play Initial D 6 AA"
+        Me.lblStart6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblStart8
+        '
+        Me.lblStart8.AddEffect = True
+        Me.lblStart8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblStart8.BackColor = System.Drawing.Color.Transparent
+        Me.lblStart8.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblStart8.EffectAfter = " <<"
+        Me.lblStart8.EffectBefore = Nothing
+        Me.lblStart8.EffectWidth = 43
+        Me.lblStart8.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart8.ForeColor = System.Drawing.Color.Silver
+        Me.lblStart8.Location = New System.Drawing.Point(517, 260)
+        Me.lblStart8.MouseHoverColor = System.Drawing.Color.White
+        Me.lblStart8.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblStart8.Name = "lblStart8"
+        Me.lblStart8.NormalColor = System.Drawing.Color.Silver
+        Me.lblStart8.Size = New System.Drawing.Size(359, 38)
+        Me.lblStart8.TabIndex = 4
+        Me.lblStart8.Text = "Play Initial D 8 Infinity"
+        Me.lblStart8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblStart7
+        '
+        Me.lblStart7.AddEffect = True
+        Me.lblStart7.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblStart7.BackColor = System.Drawing.Color.Transparent
+        Me.lblStart7.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblStart7.EffectAfter = " <<"
+        Me.lblStart7.EffectBefore = Nothing
+        Me.lblStart7.EffectWidth = 43
+        Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart7.ForeColor = System.Drawing.Color.Silver
+        Me.lblStart7.Location = New System.Drawing.Point(517, 222)
+        Me.lblStart7.MouseHoverColor = System.Drawing.Color.White
+        Me.lblStart7.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblStart7.Name = "lblStart7"
+        Me.lblStart7.NormalColor = System.Drawing.Color.Silver
+        Me.lblStart7.Size = New System.Drawing.Size(359, 38)
+        Me.lblStart7.TabIndex = 3
+        Me.lblStart7.Text = "Play Initial D 7 AAX"
+        Me.lblStart7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblLogout
+        '
+        Me.lblLogout.AddEffect = False
+        Me.lblLogout.AutoSize = True
+        Me.lblLogout.BackColor = System.Drawing.Color.Transparent
+        Me.lblLogout.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblLogout.EffectAfter = " <<"
+        Me.lblLogout.EffectBefore = Nothing
+        Me.lblLogout.EffectWidth = 43
+        Me.lblLogout.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblLogout.ForeColor = System.Drawing.Color.Silver
+        Me.lblLogout.Location = New System.Drawing.Point(12, 9)
+        Me.lblLogout.MouseHoverColor = System.Drawing.Color.White
+        Me.lblLogout.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblLogout.Name = "lblLogout"
+        Me.lblLogout.NormalColor = System.Drawing.Color.Silver
+        Me.lblLogout.Size = New System.Drawing.Size(60, 19)
+        Me.lblLogout.TabIndex = 1
+        Me.lblLogout.Text = "User: {0}"
+        Me.lblLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblSetting
+        '
+        Me.lblSetting.AddEffect = True
+        Me.lblSetting.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblSetting.BackColor = System.Drawing.Color.Transparent
+        Me.lblSetting.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblSetting.EffectAfter = " <<"
+        Me.lblSetting.EffectBefore = Nothing
+        Me.lblSetting.EffectWidth = 43
+        Me.lblSetting.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblSetting.ForeColor = System.Drawing.Color.Silver
+        Me.lblSetting.Location = New System.Drawing.Point(517, 394)
+        Me.lblSetting.MouseHoverColor = System.Drawing.Color.White
+        Me.lblSetting.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblSetting.Name = "lblSetting"
+        Me.lblSetting.NormalColor = System.Drawing.Color.Silver
+        Me.lblSetting.Size = New System.Drawing.Size(359, 38)
+        Me.lblSetting.TabIndex = 7
+        Me.lblSetting.Text = "Settings"
+        Me.lblSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblVersion
+        '
+        Me.lblVersion.AddEffect = False
+        Me.lblVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblVersion.AutoSize = True
+        Me.lblVersion.BackColor = System.Drawing.Color.Transparent
+        Me.lblVersion.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblVersion.EffectAfter = " <<"
+        Me.lblVersion.EffectBefore = Nothing
+        Me.lblVersion.EffectWidth = 43
+        Me.lblVersion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.lblVersion.ForeColor = System.Drawing.Color.Silver
+        Me.lblVersion.Location = New System.Drawing.Point(12, 510)
+        Me.lblVersion.MouseHoverColor = System.Drawing.Color.White
+        Me.lblVersion.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.NormalColor = System.Drawing.Color.Silver
+        Me.lblVersion.Size = New System.Drawing.Size(80, 19)
+        Me.lblVersion.TabIndex = 10
+        Me.lblVersion.Text = "Version: 1.0"
+        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblLeaderboard
+        '
+        Me.lblLeaderboard.AddEffect = True
+        Me.lblLeaderboard.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblLeaderboard.BackColor = System.Drawing.Color.Transparent
+        Me.lblLeaderboard.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblLeaderboard.EffectAfter = " <<"
+        Me.lblLeaderboard.EffectBefore = Nothing
+        Me.lblLeaderboard.EffectWidth = 43
+        Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblLeaderboard.ForeColor = System.Drawing.Color.Silver
+        Me.lblLeaderboard.Location = New System.Drawing.Point(517, 318)
+        Me.lblLeaderboard.MouseHoverColor = System.Drawing.Color.White
+        Me.lblLeaderboard.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblLeaderboard.Name = "lblLeaderboard"
+        Me.lblLeaderboard.NormalColor = System.Drawing.Color.Silver
+        Me.lblLeaderboard.Size = New System.Drawing.Size(359, 38)
+        Me.lblLeaderboard.TabIndex = 5
+        Me.lblLeaderboard.Text = "TA Leaderboard"
+        Me.lblLeaderboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblExit
+        '
+        Me.lblExit.AddEffect = True
+        Me.lblExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblExit.BackColor = System.Drawing.Color.Transparent
+        Me.lblExit.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblExit.EffectAfter = " <<"
+        Me.lblExit.EffectBefore = Nothing
+        Me.lblExit.EffectWidth = 43
+        Me.lblExit.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblExit.ForeColor = System.Drawing.Color.Silver
+        Me.lblExit.Location = New System.Drawing.Point(517, 432)
+        Me.lblExit.MouseHoverColor = System.Drawing.Color.White
+        Me.lblExit.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblExit.Name = "lblExit"
+        Me.lblExit.NormalColor = System.Drawing.Color.Silver
+        Me.lblExit.Size = New System.Drawing.Size(359, 38)
+        Me.lblExit.TabIndex = 8
+        Me.lblExit.Text = "Quit Game"
+        Me.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblDebug
+        '
+        Me.lblDebug.AddEffect = True
+        Me.lblDebug.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDebug.BackColor = System.Drawing.Color.Transparent
+        Me.lblDebug.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblDebug.EffectAfter = " <<"
+        Me.lblDebug.EffectBefore = Nothing
+        Me.lblDebug.EffectWidth = 43
+        Me.lblDebug.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblDebug.ForeColor = System.Drawing.Color.Silver
+        Me.lblDebug.Location = New System.Drawing.Point(517, 470)
+        Me.lblDebug.MouseHoverColor = System.Drawing.Color.White
+        Me.lblDebug.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblDebug.Name = "lblDebug"
+        Me.lblDebug.NormalColor = System.Drawing.Color.Silver
+        Me.lblDebug.Size = New System.Drawing.Size(359, 38)
+        Me.lblDebug.TabIndex = 9
+        Me.lblDebug.Text = "Debug"
+        Me.lblDebug.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblDebug.Visible = False
+        '
+        'lblCardMan
+        '
+        Me.lblCardMan.AddEffect = True
+        Me.lblCardMan.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCardMan.BackColor = System.Drawing.Color.Transparent
+        Me.lblCardMan.DisabledColor = System.Drawing.Color.DarkGray
+        Me.lblCardMan.EffectAfter = " <<"
+        Me.lblCardMan.EffectBefore = Nothing
+        Me.lblCardMan.EffectWidth = 43
+        Me.lblCardMan.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblCardMan.ForeColor = System.Drawing.Color.Silver
+        Me.lblCardMan.Location = New System.Drawing.Point(517, 356)
+        Me.lblCardMan.MouseHoverColor = System.Drawing.Color.White
+        Me.lblCardMan.MousePressedColor = System.Drawing.Color.Gold
+        Me.lblCardMan.Name = "lblCardMan"
+        Me.lblCardMan.NormalColor = System.Drawing.Color.Silver
+        Me.lblCardMan.Size = New System.Drawing.Size(359, 38)
+        Me.lblCardMan.TabIndex = 6
+        Me.lblCardMan.Text = "Card Selection"
+        Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Timer4
+        '
+        Me.Timer4.Enabled = True
+        Me.Timer4.Interval = 1
         '
         'frmLauncher
         '
@@ -235,17 +321,18 @@ Partial Class frmLauncher
     End Sub
 
     Friend WithEvents pbLogo As PictureBox
-    Friend WithEvents lblStart6 As Label
-    Friend WithEvents lblStart7 As Label
-    Friend WithEvents lblExit As Label
-    Friend WithEvents lblSetting As Label
-    Friend WithEvents lblDebug As Label
-    Friend WithEvents lblVersion As Label
-    Friend WithEvents lblCardMan As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
-    Friend WithEvents lblLeaderboard As Label
-    Friend WithEvents lblLogout As Label
-    Friend WithEvents lblStart8 As Label
     Friend WithEvents Timer3 As Timer
+    Friend WithEvents lblStart6 As TextButton
+    Friend WithEvents lblStart7 As TextButton
+    Friend WithEvents lblExit As TextButton
+    Friend WithEvents lblSetting As TextButton
+    Friend WithEvents lblDebug As TextButton
+    Friend WithEvents lblVersion As TextButton
+    Friend WithEvents lblCardMan As TextButton
+    Friend WithEvents lblLeaderboard As TextButton
+    Friend WithEvents lblLogout As TextButton
+    Friend WithEvents lblStart8 As TextButton
+    Friend WithEvents Timer4 As Timer
 End Class

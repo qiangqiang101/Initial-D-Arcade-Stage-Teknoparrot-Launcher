@@ -85,6 +85,9 @@
     <Compile Include="Class\GifImage.vb" />
     <Compile Include="Class\Logger.vb" />
     <Compile Include="Class\PluginLoader.vb" />
+    <Compile Include="Class\TextButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form\Form2.Designer.vb">
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>

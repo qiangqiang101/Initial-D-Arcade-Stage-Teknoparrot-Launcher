@@ -62,126 +62,6 @@ Public Class frmLauncher
         drag = False
     End Sub
 
-    Private Sub lblStart6_MouseEnter(sender As Object, e As EventArgs) Handles lblStart6.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblStart6.ForeColor = Color.Gold
-        lblStart6.Size = New Size(lblStart6.Size.Width + widthx, lblStart6.Size.Height)
-        lblStart6.Text = lblStart6.Text & " <<"
-    End Sub
-
-    Private Sub lblStart6_MouseLeave(sender As Object, e As EventArgs) Handles lblStart6.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblStart6.ForeColor = Color.White
-        lblStart6.Size = New Size(lblStart6.Size.Width - widthx, lblStart6.Size.Height)
-        lblStart6.Text = lblStart6.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblStart7_MouseEnter(sender As Object, e As EventArgs) Handles lblStart7.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblStart7.ForeColor = Color.Gold
-        lblStart7.Size = New Size(lblStart7.Size.Width + widthx, lblStart7.Size.Height)
-        lblStart7.Text = lblStart7.Text & " <<"
-    End Sub
-
-    Private Sub lblStart7_MouseLeave(sender As Object, e As EventArgs) Handles lblStart7.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblStart7.ForeColor = Color.White
-        lblStart7.Size = New Size(lblStart7.Size.Width - widthx, lblStart7.Size.Height)
-        lblStart7.Text = lblStart7.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblStart8_MouseEnter(sender As Object, e As EventArgs) Handles lblStart8.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblStart8.ForeColor = Color.Gold
-        lblStart8.Size = New Size(lblStart8.Size.Width + widthx, lblStart8.Size.Height)
-        lblStart8.Text = lblStart8.Text & " <<"
-    End Sub
-
-    Private Sub lblStart8_MouseLeave(sender As Object, e As EventArgs) Handles lblStart8.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblStart8.ForeColor = Color.White
-        lblStart8.Size = New Size(lblStart8.Size.Width - widthx, lblStart8.Size.Height)
-        lblStart8.Text = lblStart8.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblSetting_MouseEnter(sender As Object, e As EventArgs) Handles lblSetting.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblSetting.ForeColor = Color.Gold
-        lblSetting.Size = New Size(lblSetting.Size.Width + widthx, lblSetting.Size.Height)
-        lblSetting.Text = lblSetting.Text & " <<"
-    End Sub
-
-    Private Sub lblSetting_MouseLeave(sender As Object, e As EventArgs) Handles lblSetting.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblSetting.ForeColor = Color.White
-        lblSetting.Size = New Size(lblSetting.Size.Width - widthx, lblSetting.Size.Height)
-        lblSetting.Text = lblSetting.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblExit_MouseEnter(sender As Object, e As EventArgs) Handles lblExit.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblExit.ForeColor = Color.Gold
-        lblExit.Size = New Size(lblExit.Size.Width + widthx, lblExit.Size.Height)
-        lblExit.Text = lblExit.Text & " <<"
-    End Sub
-
-    Private Sub lblExit_MouseLeave(sender As Object, e As EventArgs) Handles lblExit.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblExit.ForeColor = Color.White
-        lblExit.Size = New Size(lblExit.Size.Width - widthx, lblExit.Size.Height)
-        lblExit.Text = lblExit.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblDebug_MouseEnter(sender As Object, e As EventArgs) Handles lblDebug.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblDebug.ForeColor = Color.Gold
-        lblDebug.Size = New Size(lblDebug.Size.Width + widthx, lblDebug.Size.Height)
-        lblDebug.Text = lblDebug.Text & " <<"
-    End Sub
-
-    Private Sub lblDebug_MouseLeave(sender As Object, e As EventArgs) Handles lblDebug.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblDebug.ForeColor = Color.White
-        lblDebug.Size = New Size(lblDebug.Size.Width - widthx, lblDebug.Size.Height)
-        lblDebug.Text = lblDebug.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblCardMan_MouseEnter(sender As Object, e As EventArgs) Handles lblCardMan.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblCardMan.ForeColor = Color.Gold
-        lblCardMan.Size = New Size(lblCardMan.Size.Width + widthx, lblCardMan.Size.Height)
-        lblCardMan.Text = lblCardMan.Text & " <<"
-    End Sub
-
-    Private Sub lblCardMan_MouseLeave(sender As Object, e As EventArgs) Handles lblCardMan.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblCardMan.ForeColor = Color.White
-        lblCardMan.Size = New Size(lblCardMan.Size.Width - widthx, lblCardMan.Size.Height)
-        lblCardMan.Text = lblCardMan.Text.Replace(" <<", String.Empty)
-    End Sub
-
-    Private Sub lblLeaderboard_MouseEnter(sender As Object, e As EventArgs) Handles lblLeaderboard.MouseEnter
-        My.Computer.Audio.Play(My.Resources._select, AudioPlayMode.Background)
-        Me.Cursor = Cursors.Hand
-        lblLeaderboard.ForeColor = Color.Gold
-        lblLeaderboard.Size = New Size(lblLeaderboard.Size.Width + widthx, lblLeaderboard.Size.Height)
-        lblLeaderboard.Text = lblLeaderboard.Text & " <<"
-    End Sub
-
-    Private Sub lblLeaderboard_MouseLeave(sender As Object, e As EventArgs) Handles lblLeaderboard.MouseLeave
-        Me.Cursor = Cursors.Default
-        lblLeaderboard.ForeColor = Color.White
-        lblLeaderboard.Size = New Size(lblLeaderboard.Size.Width - widthx, lblLeaderboard.Size.Height)
-        lblLeaderboard.Text = lblLeaderboard.Text.Replace(" <<", String.Empty)
-    End Sub
-
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
@@ -190,9 +70,11 @@ Public Class frmLauncher
 
             If Not My.Settings.VideoBackground Then
                 Timer3.Stop()
+                Timer4.Stop()
                 BackgroundImage = My.Resources.launcher_bg
             Else
                 Timer3.Start()
+                Timer4.Start()
             End If
 
             If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
@@ -237,6 +119,20 @@ Public Class frmLauncher
                 AddHandler timer.Tick, AddressOf item.TimerTick
             Next
 
+            If lblStart6.Enabled Then
+                lblStart6.Focus()
+            Else
+                If lblStart7.Enabled Then
+                    lblStart7.Focus()
+                Else
+                    If lblStart8.Enabled Then
+                        lblStart8.Focus()
+                    Else
+                        If lblLeaderboard.Enabled Then lblLeaderboard.Focus()
+                    End If
+                End If
+            End If
+
             'AutoCardMove()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -252,7 +148,7 @@ Public Class frmLauncher
         Return reader.ReadToEnd
     End Function
 
-    Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click
+    Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click, lblExit.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         Me.Enabled = False
         Thread.Sleep(2000)
@@ -302,8 +198,11 @@ Public Class frmLauncher
         End Try
     End Sub
 
-    Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click
-        If My.Settings.VideoBackground Then Timer3.Stop()
+    Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click, lblStart6.EnterPressed
+        If My.Settings.VideoBackground Then
+            Timer3.Stop()
+            Timer4.Stop()
+        End If
         isGameRunning = True
         wait(500)
 
@@ -322,8 +221,11 @@ Public Class frmLauncher
         End Select
     End Sub
 
-    Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click
-        If My.Settings.VideoBackground Then Timer3.Stop()
+    Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click, lblStart7.EnterPressed
+        If My.Settings.VideoBackground Then
+            Timer3.Stop()
+            Timer4.Stop()
+        End If
         isGameRunning = True
         wait(500)
 
@@ -342,8 +244,11 @@ Public Class frmLauncher
         End Select
     End Sub
 
-    Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click
-        If My.Settings.VideoBackground Then Timer3.Stop()
+    Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click, lblStart8.EnterPressed
+        If My.Settings.VideoBackground Then
+            Timer3.Stop()
+            Timer4.Stop()
+        End If
         isGameRunning = True
         wait(500)
 
@@ -362,7 +267,7 @@ Public Class frmLauncher
         End Select
     End Sub
 
-    Private Sub lblSetting_Click(sender As Object, e As EventArgs) Handles lblSetting.Click
+    Private Sub lblSetting_Click(sender As Object, e As EventArgs) Handles lblSetting.Click, lblSetting.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         frmSettings.Show()
         Me.Enabled = False
@@ -376,18 +281,18 @@ Public Class frmLauncher
         End If
     End Sub
 
-    Private Sub lblDebug_Click(sender As Object, e As EventArgs) Handles lblDebug.Click
+    Private Sub lblDebug_Click(sender As Object, e As EventArgs) Handles lblDebug.Click, lblDebug.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         MsgBox(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}ID8 AppData Path: {12}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}ID8 GameDir Path: {13}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}ID8 Card File Path: {14}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}ID8 Game Path: {15}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}ID8 Selected Card: {16}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID, id8AppData, id8GameDir, id8CardPath, My.Settings.Id8Path, My.Settings.Id8CardName))
     End Sub
 
-    Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click
+    Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click, lblCardMan.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         frmCard.Show()
         Me.Enabled = False
     End Sub
 
-    Private Sub lblLeaderboard_Click(sender As Object, e As EventArgs) Handles lblLeaderboard.Click
+    Private Sub lblLeaderboard_Click(sender As Object, e As EventArgs) Handles lblLeaderboard.Click, lblLeaderboard.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         frmLeaderboard.Show()
         Me.Enabled = False
@@ -441,14 +346,17 @@ Public Class frmLauncher
                 WindowState = FormWindowState.Normal
             End If
             isGameRunning = False
-            If My.Settings.VideoBackground Then Timer3.Start()
+            If My.Settings.VideoBackground Then
+                Timer3.Start()
+                Timer4.Start()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 
-    Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click
+    Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click, lblVersion.EnterPressed
         Me.Enabled = False
         frmAbout.Show()
     End Sub
@@ -464,7 +372,7 @@ Public Class frmLauncher
         lblVersion.ForeColor = Color.White
     End Sub
 
-    Private Sub lblLogout_Click(sender As Object, e As EventArgs) Handles lblLogout.Click
+    Private Sub lblLogout_Click(sender As Object, e As EventArgs) Handles lblLogout.Click, lblLogout.EnterPressed
         My.Settings.LoggedIn = False
         My.Settings.UserEmail = Nothing
         My.Settings.UserName = Nothing
@@ -575,7 +483,7 @@ Public Class frmLauncher
         End Try
     End Sub
 
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick, Timer4.Tick
         If Me.Enabled Then
             BackgroundImage = gifImage.GetNextFrame()
         End If
