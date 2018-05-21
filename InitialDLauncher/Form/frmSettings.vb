@@ -49,6 +49,8 @@ Public Class frmSettings
             ElseIf txt8.Text.Contains(".exe") Then
                 MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
                 txt8.Focus()
+            ElseIf cmbLang.SelectedItem = Nothing Then
+                MsgBox("Please select language!", MsgBoxStyle.Critical, "Error")
             Else
                 If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
 

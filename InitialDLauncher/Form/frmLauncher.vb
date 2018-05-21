@@ -14,7 +14,7 @@ Public Class frmLauncher
     Dim threadU As Thread
     Public shadow As Dropshadow
     Dim curVer As Integer = 35
-    Public buildDate As String = "18/05/2018"
+    Public buildDate As String = "19/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
