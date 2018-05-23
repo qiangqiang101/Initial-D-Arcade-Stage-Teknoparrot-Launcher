@@ -79,6 +79,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Avatar.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Class\Car.vb" />
     <Compile Include="Class\CFGRead.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />

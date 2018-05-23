@@ -218,6 +218,7 @@ Public Class frmEdit
                 Case "SKIN"
                     lblc4c5.Text = cmbAvatar.SelectedValue.Tag
                     pbSkin.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Face = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim C5A = C5.Substring(0, 1)
@@ -227,6 +228,7 @@ Public Class frmEdit
                 Case "SHIRT"
                     lblc5c6.Text = cmbAvatar.SelectedValue.Tag
                     pbShirt.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Coat = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim C5B = C5.Substring(C5.Length - 1)
@@ -236,6 +238,7 @@ Public Class frmEdit
                 Case "EYES"
                     lblc7c8.Text = cmbAvatar.SelectedValue.Tag
                     pbEyes.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Eyes = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim C8A = C8.Substring(0, 1)
@@ -245,6 +248,7 @@ Public Class frmEdit
                 Case "MOUTH"
                     lblc8c9.Text = cmbAvatar.SelectedValue.Tag
                     pbMouth.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Mouth = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim C8B = C8.Substring(C8.Length - 1)
@@ -254,6 +258,7 @@ Public Class frmEdit
                 Case "ACCESSORIES"
                     lblcacb.Text = cmbAvatar.SelectedValue.Tag
                     pbAccessories.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Accessory = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim CBA = CB.Substring(0, 1)
@@ -263,6 +268,7 @@ Public Class frmEdit
                 Case "SHADES"
                     lblcbcc.Text = cmbAvatar.SelectedValue.Tag
                     pbShades.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Shades = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim CBB = CB.Substring(CB.Length - 1)
@@ -272,6 +278,7 @@ Public Class frmEdit
                 Case "HAIR"
                     lblcdce.Text = cmbAvatar.SelectedValue.Tag
                     pbHair.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Hair = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     SV = SV.Replace("X", "0")
@@ -280,11 +287,13 @@ Public Class frmEdit
                 Case "FRAME"
                     lbl221.Text = cmbAvatar.SelectedValue.tag
                     pbFrame.BackgroundImage = cmbAvatar.SelectedValue
+                    If _version = 8 Then Avatar1.Frame = cmbAvatar.SelectedValue
                     Dim FV = cmbAvatar.SelectedValue.tag
                     _221 = FV
             End Select
 
             lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+            If _version = 8 Then Avatar1.RefreshImage()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -674,6 +683,25 @@ Public Class frmEdit
             End If
         End If
 
+        Select Case cmbGender.SelectedIndex
+            Case 0 'male
+                Avatar1.Frame = (New InitialD8.Share.Frame).FM_00
+                Avatar1.Face = (New InitialD8.Male.Skin).SK_01X0
+                Avatar1.Eyes = (New InitialD8.Male.Eyes).EY_A8X0
+                Avatar1.Mouth = (New InitialD8.Male.Mouth).MO_0X0E
+                Avatar1.Coat = (New InitialD8.Male.Shirt).SH_0X02
+                Avatar1.Hair = (New InitialD8.Male.Hair).HA_41X1
+                Avatar1.RefreshImage()
+            Case 1 'female
+                Avatar1.Frame = (New InitialD8.Share.Frame).FM_00
+                Avatar1.Face = (New InitialD8.Female.Skin).SK_01X0
+                Avatar1.Eyes = (New InitialD8.Female.Eyes).EY_AEX0
+                Avatar1.Mouth = (New InitialD8.Female.Mouth).MO_0X0E
+                Avatar1.Coat = (New InitialD8.Female.Shirt).SH_0X02
+                Avatar1.Hair = (New InitialD8.Female.Hair).HA_41X1
+                Avatar1.RefreshImage()
+        End Select
+
         GroupBox1.Enabled = frmLauncher.cheat
 
         If _version = 6 Then
@@ -975,15 +1003,15 @@ Public Class frmEdit
             shades_t = ReadCfgValue("Specs", langFile)
             hair_t = ReadCfgValue("Hair", langFile)
             shirt_t = ReadCfgValue("Shirt", langFile)
-            gbMouth.Title = mouth_t
-            gbEyes.Title = eyes_t
-            gbSkin.Title = face_skin_t
-            gbAccessories.Title = accessories_t
-            gbSpec.Title = shades_t
-            gbHair.Title = hair_t
-            gbShirt.Title = shirt_t
+            'gbMouth.Title = mouth_t
+            'gbEyes.Title = eyes_t
+            'gbSkin.Title = face_skin_t
+            'gbAccessories.Title = accessories_t
+            'gbSpec.Title = shades_t
+            'gbHair.Title = hair_t
+            'gbShirt.Title = shirt_t
             frame_t = ReadCfgValue("Frame", langFile)
-            gbFrame.Title = frame_t
+            'gbFrame.Title = frame_t
             male = ReadCfgValue("Male", langFile)
             female = ReadCfgValue("Female", langFile)
             btnSet.Text = ReadCfgValue("Apply", langFile)

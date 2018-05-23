@@ -52,6 +52,14 @@
         TextBox6.Text = ScoreToTime(TextBox5.Text)
     End Sub
 
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Avatar1.RefreshImage()
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Avatar1.RefreshImage()
+    End Sub
+
     'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
     '    TextBox3.Text = HexStringToBinary(TextBox1.Text)
     'End Sub

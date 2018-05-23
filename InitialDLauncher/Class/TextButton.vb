@@ -100,7 +100,7 @@
         Font = New Font("Segoe UI", 20)
         Size = New Size(488, 38)
         SetStyle(ControlStyles.Selectable, True)
-        AddKeyDownEvent(Me)
+        'AddKeyDownEvent(Me)
     End Sub
 
     Protected Overrides Sub OnMouseEnter(e As EventArgs)

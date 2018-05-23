@@ -318,7 +318,6 @@ Partial Class frmSettings
         'cbDebug
         '
         Me.cbDebug.Checked = False
-        Me.cbDebug.Enabled = False
         Me.cbDebug.Location = New System.Drawing.Point(215, 244)
         Me.cbDebug.Name = "cbDebug"
         Me.cbDebug.Size = New System.Drawing.Size(130, 24)

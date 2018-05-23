@@ -28,6 +28,7 @@ Partial Class frmLauncher
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.lblStart6 = New InitialDLauncher.TextButton()
         Me.lblStart8 = New InitialDLauncher.TextButton()
         Me.lblStart7 = New InitialDLauncher.TextButton()
@@ -38,7 +39,6 @@ Partial Class frmLauncher
         Me.lblExit = New InitialDLauncher.TextButton()
         Me.lblDebug = New InitialDLauncher.TextButton()
         Me.lblCardMan = New InitialDLauncher.TextButton()
-        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -63,12 +63,16 @@ Partial Class frmLauncher
         '
         'Timer2
         '
-        Me.Timer2.Enabled = True
         '
         'Timer3
         '
         Me.Timer3.Enabled = True
         Me.Timer3.Interval = 1
+        '
+        'Timer4
+        '
+        Me.Timer4.Enabled = True
+        Me.Timer4.Interval = 1
         '
         'lblStart6
         '
@@ -192,7 +196,7 @@ Partial Class frmLauncher
         Me.lblVersion.MousePressedColor = System.Drawing.Color.Gold
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.NormalColor = System.Drawing.Color.Silver
-        Me.lblVersion.Size = New System.Drawing.Size(80, 19)
+        Me.lblVersion.Size = New System.Drawing.Size(81, 19)
         Me.lblVersion.TabIndex = 10
         Me.lblVersion.Text = "Version: 1.0"
         Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -281,11 +285,6 @@ Partial Class frmLauncher
         Me.lblCardMan.TabIndex = 6
         Me.lblCardMan.Text = "Card Selection"
         Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Timer4
-        '
-        Me.Timer4.Enabled = True
-        Me.Timer4.Interval = 1
         '
         'frmLauncher
         '

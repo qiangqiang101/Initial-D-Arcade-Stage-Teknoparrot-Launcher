@@ -13,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 35
-    Public buildDate As String = "19/05/2018"
+    Dim curVer As Integer = 36
+    Public buildDate As String = "23/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -35,7 +35,7 @@ Public Class frmLauncher
     Public Shared hideMe As Boolean = False
     Public Shared endMe As Boolean = False
 
-    Public Shared cheat As Boolean = False
+    Public Shared cheat As Boolean = True
     Dim pattern As String = Nothing
 
     Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins")
@@ -398,45 +398,45 @@ Public Class frmLauncher
         pattern = pattern & e.KeyChar
     End Sub
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        Try
-            If Not cheat Then
-                If pattern.Substring(pattern.Length - 13) = "imnoobcheater" Then
-                    My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-                    cheat = True
-                End If
-            End If
+    'Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+    '    Try
+    '        If Not cheat Then
+    '            If pattern.Substring(pattern.Length - 13) = "imnoobcheater" Then
+    '                My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+    '                cheat = True
+    '            End If
+    '        End If
 
-            If Not debug Then
-                If pattern.Substring(pattern.Length - 7) = "debugon" Then
-                    My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-                    My.Settings.DebugMode = True
-                    My.Settings.Save()
-                    debug = True
-                    lblDebug.Visible = debug
-                End If
-            End If
+    '        If Not debug Then
+    '            If pattern.Substring(pattern.Length - 7) = "debugon" Then
+    '                My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+    '                My.Settings.DebugMode = True
+    '                My.Settings.Save()
+    '                debug = True
+    '                lblDebug.Visible = debug
+    '            End If
+    '        End If
 
-            If debug Then
-                If pattern.Substring(pattern.Length - 8) = "debugoff" Then
-                    My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-                    My.Settings.DebugMode = False
-                    My.Settings.Save()
-                    debug = False
-                    lblDebug.Visible = debug
-                End If
-            End If
+    '        If debug Then
+    '            If pattern.Substring(pattern.Length - 8) = "debugoff" Then
+    '                My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
+    '                My.Settings.DebugMode = False
+    '                My.Settings.Save()
+    '                debug = False
+    '                lblDebug.Visible = debug
+    '            End If
+    '        End If
 
-            If hideMe Then
-                Me.Hide()
-            Else
-                Me.Show()
-            End If
+    '        If hideMe Then
+    '            Me.Hide()
+    '        Else
+    '            Me.Show()
+    '        End If
 
-            If endMe Then Me.Close()
-        Catch ex As Exception
-        End Try
-    End Sub
+    '        If endMe Then Me.Close()
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Try

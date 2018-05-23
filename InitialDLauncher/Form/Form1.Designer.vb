@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -34,6 +35,9 @@ Partial Class Form1
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Avatar1 = New InitialDLauncher.Avatar()
+        CType(Me.Avatar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -136,11 +140,39 @@ Partial Class Form1
         Me.Button6.Text = "Button6"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(367, 419)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 23)
+        Me.Button7.TabIndex = 75
+        Me.Button7.Text = "Button7"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Avatar1
+        '
+        Me.Avatar1.Accessory = CType(resources.GetObject("Avatar1.Accessory"), System.Drawing.Image)
+        Me.Avatar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Avatar1.Coat = CType(resources.GetObject("Avatar1.Coat"), System.Drawing.Image)
+        Me.Avatar1.Eyes = CType(resources.GetObject("Avatar1.Eyes"), System.Drawing.Image)
+        Me.Avatar1.Face = CType(resources.GetObject("Avatar1.Face"), System.Drawing.Image)
+        Me.Avatar1.Frame = CType(resources.GetObject("Avatar1.Frame"), System.Drawing.Image)
+        Me.Avatar1.Hair = CType(resources.GetObject("Avatar1.Hair"), System.Drawing.Image)
+        Me.Avatar1.Location = New System.Drawing.Point(108, 351)
+        Me.Avatar1.Mouth = CType(resources.GetObject("Avatar1.Mouth"), System.Drawing.Image)
+        Me.Avatar1.Name = "Avatar1"
+        Me.Avatar1.Shades = CType(resources.GetObject("Avatar1.Shades"), System.Drawing.Image)
+        Me.Avatar1.Size = New System.Drawing.Size(240, 240)
+        Me.Avatar1.TabIndex = 74
+        Me.Avatar1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 644)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.Avatar1)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.TextBox5)
@@ -155,6 +187,7 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.Avatar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -172,4 +205,6 @@ Partial Class Form1
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Avatar1 As Avatar
 End Class
