@@ -721,8 +721,6 @@ Public Class frmEdit
                 Avatar1.RefreshImage()
         End Select
 
-        GroupBox1.Enabled = frmLauncher.cheat
-
         If _version = 6 Then
             DictionaryAdd6()
         End If
@@ -889,13 +887,13 @@ Public Class frmEdit
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, Neg60(548), 1))
                     txtPridePoint.Text = GetPridePoint(GetHex(_filename, Neg60(173), 1), GetHex(_filename, Neg60(174), 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(1096), 1), GetHex(_filename, Neg60(1097), 1), GetHex(_filename, Neg60(1098), 1), GetHex(_filename, Neg60(1099), 1))
-                    TabPage1.Enabled = False
+                    TabPage1.Enabled = True
                     cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
                     cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
                     cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
                 ElseIf _version = 7 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True)
-                    TabPage2.Enabled = False
+                    TabPage2.Enabled = True
                     txtSPride.Text = GetPridePoint(GetHex(_filename, Neg60(170), 1), GetHex(_filename, Neg60(171), 1))
                     txtTPride.Text = GetPridePoint(GetHex(_filename, Neg60(172), 1), GetHex(_filename, Neg60(173), 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(896), 1), GetHex(_filename, Neg60(897), 1), GetHex(_filename, Neg60(898), 1), GetHex(_filename, Neg60(899), 1))
@@ -991,7 +989,7 @@ Public Class frmEdit
     Private Sub Translate()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
-            Me.Text = ReadCfgValue("EditMeText", langFile)
+            Me.Text = String.Format(ReadCfgValue("EditMeText", langFile), Path.GetFileName(_filename))
             NsTheme1.Text = Me.Text
             Label1.Text = ReadCfgValue("Name", langFile)
             Label2.Text = ReadCfgValue("Gender", langFile)

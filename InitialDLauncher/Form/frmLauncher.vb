@@ -13,7 +13,7 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 36
+    Dim curVer As Integer = 37
     Public buildDate As String = "24/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
@@ -35,7 +35,6 @@ Public Class frmLauncher
     'Public Shared hideMe As Boolean = False
     'Public Shared endMe As Boolean = False
 
-    Public Shared cheat As Boolean = True
     Dim pattern As String = Nothing
 
     Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins")

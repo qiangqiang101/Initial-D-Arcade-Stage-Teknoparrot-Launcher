@@ -555,7 +555,7 @@ Partial Class frmEdit
         Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(187, 9)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(56, 15)
+        Me.Label11.Size = New System.Drawing.Size(57, 15)
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Tag Pride"
         '
@@ -686,7 +686,7 @@ Partial Class frmEdit
         Me.Label26.ForeColor = System.Drawing.Color.White
         Me.Label26.Location = New System.Drawing.Point(6, 42)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(70, 15)
+        Me.Label26.Size = New System.Drawing.Size(71, 15)
         Me.Label26.TabIndex = 65
         Me.Label26.Text = "Tachometer"
         '

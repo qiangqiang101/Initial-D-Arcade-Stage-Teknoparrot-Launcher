@@ -11,8 +11,6 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AkiiHoshi", "AkiiHoshi\Akii
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PluginContract", "PluginContract\PluginContract.vbproj", "{413AA0E0-8BBB-4CD2-8A3D-F7904EE54F95}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CheatsAlwaysEnable", "CheatsAlwaysEnable\CheatsAlwaysEnable.vbproj", "{C14E878C-2575-4A85-9EB2-F5A9239DDF45}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BGMPlugin", "BGMPlugin\BGMPlugin.vbproj", "{8D4DCB38-CCA1-4B67-AC95-4C84C3DB266E}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{413AA0E0-8BBB-4CD2-8A3D-F7904EE54F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{413AA0E0-8BBB-4CD2-8A3D-F7904EE54F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{413AA0E0-8BBB-4CD2-8A3D-F7904EE54F95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C14E878C-2575-4A85-9EB2-F5A9239DDF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C14E878C-2575-4A85-9EB2-F5A9239DDF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C14E878C-2575-4A85-9EB2-F5A9239DDF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C14E878C-2575-4A85-9EB2-F5A9239DDF45}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D4DCB38-CCA1-4B67-AC95-4C84C3DB266E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D4DCB38-CCA1-4B67-AC95-4C84C3DB266E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D4DCB38-CCA1-4B67-AC95-4C84C3DB266E}.Release|Any CPU.ActiveCfg = Release|Any CPU
