@@ -58,20 +58,14 @@ Partial Class frmLauncher
         '
         'Timer1
         '
-        Me.Timer1.Enabled = True
         Me.Timer1.Interval = 5000
-        '
-        'Timer2
-        '
         '
         'Timer3
         '
-        Me.Timer3.Enabled = True
         Me.Timer3.Interval = 1
         '
         'Timer4
         '
-        Me.Timer4.Enabled = True
         Me.Timer4.Interval = 1
         '
         'lblStart6
@@ -196,7 +190,7 @@ Partial Class frmLauncher
         Me.lblVersion.MousePressedColor = System.Drawing.Color.Gold
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.NormalColor = System.Drawing.Color.Silver
-        Me.lblVersion.Size = New System.Drawing.Size(81, 19)
+        Me.lblVersion.Size = New System.Drawing.Size(80, 19)
         Me.lblVersion.TabIndex = 10
         Me.lblVersion.Text = "Version: 1.0"
         Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

@@ -14,7 +14,7 @@ Public Class frmLauncher
     Dim threadU As Thread
     Public shadow As Dropshadow
     Dim curVer As Integer = 36
-    Public buildDate As String = "23/05/2018"
+    Public buildDate As String = "24/05/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -32,8 +32,8 @@ Public Class frmLauncher
     Dim selPath As String = String.Empty
     Dim lastGame As Integer = 0
     Public Shared isGameRunning As Boolean = False
-    Public Shared hideMe As Boolean = False
-    Public Shared endMe As Boolean = False
+    'Public Shared hideMe As Boolean = False
+    'Public Shared endMe As Boolean = False
 
     Public Shared cheat As Boolean = True
     Dim pattern As String = Nothing
@@ -63,6 +63,81 @@ Public Class frmLauncher
     End Sub
 
     Private Sub frmLauncher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim args As String() = Environment.GetCommandLineArgs()
+            For Each arg As String In args
+                If arg.Contains("-cardeditor") Then
+                    CardEditorLoad()
+                    Opacity = 0
+                    Exit Sub
+                End If
+            Next
+            LauncherNormalLoad()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub CardEditorLoad()
+        Try
+            Dim ofd As New OpenFileDialog()
+            Dim fe As frmEdit = New frmEdit()
+            ofd.Filter = "New Card Code CRD file (*.crd)|*.crd|Picodaemon BIN file (*.bin)|*.bin"
+            ofd.FilterIndex = 1
+            ofd.RestoreDirectory = True
+            ofd.InitialDirectory = My.Application.Info.DirectoryPath
+            If ofd.ShowDialog() = DialogResult.OK Then
+                'Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(ofd.FileName), Path.GetFileName(ofd.FileName))
+                'File.Copy(ofd.FileName, newFileName, True)
+                Select Case Path.GetExtension(ofd.FileName)
+                    Case ".bin"
+                        If GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 7 Then
+                            fe.Version = 7
+                            fe.FileName = ofd.FileName
+                            fe.Extension = "bin"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 6 Then
+                            fe.Version = 6
+                            fe.FileName = ofd.FileName
+                            fe.Extension = "bin"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 8 Then
+                            fe.Version = 8
+                            fe.FileName = ofd.FileName
+                            fe.Extension = "bin"
+                            fe.CardEditOnly = True
+                        End If
+                    Case ".crd"
+                        If GetCardVersion(GetHex(ofd.FileName, &H14, 2)) = 7 Then
+                            fe.Version = 7
+                            fe.FileName = ofd.FileName
+                            fe.Extension = "crd"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 6 Then
+                            fe.Version = 6
+                            fe.FileName = ofd.FileName
+                            fe.Extension = "crd"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 8 Then
+                            fe.Version = 8
+                            fe.FileName = ofd.FileName
+                            fe.Extension = "crd"
+                            fe.CardEditOnly = True
+                        End If
+                End Select
+                fe.ShowDialog()
+            Else
+                End
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
+    Private Sub LauncherNormalLoad()
         Try
             Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
@@ -133,6 +208,9 @@ Public Class frmLauncher
                 End If
             End If
 
+            Timer1.Start()
+            Timer3.Start()
+            Timer4.Start()
             'AutoCardMove()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

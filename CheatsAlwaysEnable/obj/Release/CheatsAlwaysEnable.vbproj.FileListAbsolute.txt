@@ -1,0 +1,12 @@
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\bin\Release\CheatsAlwaysEnable.dll
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\bin\Release\CheatsAlwaysEnable.pdb
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\bin\Release\CheatsAlwaysEnable.xml
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\bin\Release\PluginContract.dll
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\bin\Release\PluginContract.pdb
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\bin\Release\PluginContract.xml
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\obj\Release\CheatsAlwaysEnable.vbprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\obj\Release\CheatsAlwaysEnable.Resources.resources
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\obj\Release\CheatsAlwaysEnable.vbproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\obj\Release\CheatsAlwaysEnable.dll
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\obj\Release\CheatsAlwaysEnable.xml
+C:\Users\User\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CheatsAlwaysEnable\obj\Release\CheatsAlwaysEnable.pdb

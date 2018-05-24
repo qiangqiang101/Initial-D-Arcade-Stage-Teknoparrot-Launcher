@@ -74,8 +74,6 @@ Public Class frmEdit
         End Set
     End Property
 
-    Private _filename As String
-
     Private Sub btnEditCar1_Click(sender As Object, e As EventArgs) Handles btnEditCar1.Click
         Try
             If Not cmbCar1.Text = "" Then
@@ -193,6 +191,7 @@ Public Class frmEdit
         End Try
     End Sub
 
+    Private _filename As String
     Public Property FileName() As String
         Get
             Return _filename
@@ -209,6 +208,16 @@ Public Class frmEdit
         End Get
         Set(value As String)
             _extension = value
+        End Set
+    End Property
+
+    Private _cardedit As Boolean
+    Public Property CardEditOnly() As Boolean
+        Get
+            Return _cardedit
+        End Get
+        Set(value As Boolean)
+            _cardedit = value
         End Set
     End Property
 
@@ -480,11 +489,14 @@ Public Class frmEdit
 
                 SetHex(_filename, CLng("&H759"), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
 
-                frmCard.RefreshID6Cards()
-                frmCard.RefreshID7Cards()
-                frmCard.RefreshID8Cards()
-
-                Me.Close()
+                If _cardedit Then
+                    End
+                Else
+                    frmCard.RefreshID6Cards()
+                    frmCard.RefreshID7Cards()
+                    frmCard.RefreshID8Cards()
+                    Me.Close()
+                End If
             Else 'crd
                 If txtName.Text.Length <= 5 Then
                     Dim amount As Integer = 6 - txtName.Text.Length
@@ -644,11 +656,14 @@ Public Class frmEdit
 
                 'SetHex(_filename, Neg3C(&H759), HexStringToBinary("6564697465647573696E67696461736C61756E63686572")) 'editedusingidaslauncher
 
-                frmCard.RefreshID6Cards()
-                frmCard.RefreshID7Cards()
-                frmCard.RefreshID8Cards()
-
-                Me.Close()
+                If _cardedit Then
+                    End
+                Else
+                    frmCard.RefreshID6Cards()
+                    frmCard.RefreshID7Cards()
+                    frmCard.RefreshID8Cards()
+                    Me.Close()
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -657,6 +672,10 @@ Public Class frmEdit
     End Sub
 
     Private Sub frmEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If _cardedit Then
+            frmLauncher.Hide()
+        End If
+
         TabPage1.Enabled = False
         TabPage2.Enabled = False
         TabPage3.Enabled = False
@@ -4385,6 +4404,12 @@ Public Class frmEdit
     Private Sub frmEdit_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
         If Me.Location.Y <= -1 Then
             Me.Location = New Point(Me.Location.X, 0)
+        End If
+    End Sub
+
+    Private Sub frmEdit_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If _cardedit Then
+            End
         End If
     End Sub
 End Class
