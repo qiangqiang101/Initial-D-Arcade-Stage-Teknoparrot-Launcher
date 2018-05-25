@@ -18,6 +18,7 @@ SplitButton Control © bergerkiller, <br />
 Net Seal Theme © aeonhack, <br />
 simple plugin mechanism © chriga, <br />
 GifImage © Jeremy Thompson<br />
+CheckJapaneseCharacterWidth © Gekka<br />
 
 <h2>Localization contributors</h2>
 English - I'm Not MentaL, <br />
@@ -26,6 +27,8 @@ English - I'm Not MentaL, <br />
 日本語 - 雪熊霸, <br />
 한국어 - Mellanitomo Gen, <br />
 Bahasa Malaysia - Kurisuchan, <br />
+Deutsche - Soul, <br />
+Español - Gixer, <br />
 French - nucleaireland<br />
 
 <h2>Community contributors</h2>

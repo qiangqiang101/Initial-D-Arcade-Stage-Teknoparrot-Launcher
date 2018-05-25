@@ -331,8 +331,16 @@ Public Class frmEdit
             End If
 
             If _extension = "bin" Then
-                If txtName.Text.Length <= 5 Then
-                    Dim amount As Integer = 6 - txtName.Text.Length
+                Dim charInt As Integer = 0
+                For Each c As Char In txtName.Text
+                    If c.IsWideEastAsianWidth_SJIS Then
+                        charInt += 2
+                    Else
+                        charInt += 1
+                    End If
+                Next
+                If charInt <= 11 Then
+                    Dim amount As Integer = 12 - charInt
                     Dim newName As Char = Nothing
                     Select Case amount
                         Case 1
@@ -347,11 +355,44 @@ Public Class frmEdit
                             newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
                         Case 6
                             newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 7
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 8
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 9
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 10
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 11
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 12
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
                     End Select
                     SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
                 Else
                     SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
                 End If
+                'If txtName.Text.Length <= 5 Then
+                '    Dim amount As Integer = 6 - txtName.Text.Length
+                '    Dim newName As Char = Nothing
+                '    Select Case amount
+                '        Case 1
+                '            newName = Chr(0)
+                '        Case 2
+                '            newName = Chr(0) & Chr(0)
+                '        Case 3
+                '            newName = Chr(0) & Chr(0) & Chr(0)
+                '        Case 4
+                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                '        Case 5
+                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                '        Case 6
+                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                '    End Select
+                '    SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
+                'Else
+                '    SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
+                'End If
 
                 If cmbGender.SelectedIndex = 1 Then
                     SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
@@ -404,6 +445,7 @@ Public Class frmEdit
                             SetHex(_filename, CLng(&H223), SetValue(cmbTachometer.SelectedIndex))
                             SetHex(_filename, CLng(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
                             SetHex(_filename, CLng(&H222), SetValue(cmbCup.SelectedIndex))
+                            If cbUnlockExSpec.Checked Then SetHex(_filename, CLng(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
                     End Select
                 End If
 
@@ -433,7 +475,7 @@ Public Class frmEdit
                             SetHex(_filename, Plus3C(&HE4), HexStringToBinary(car1.Rollbar))
                         End If
                     End If
-                    End If
+                End If
                 If car2.Edited Then
                     If Not car2.ReplaceTo = "" Then SetHex(_filename, &H160, HexStringToBinary(SetCar(car2.ReplaceTo)))
                     SetHex(_filename, Plus3C(&H126), HexStringToBinary(car2.CarColor))
@@ -459,7 +501,7 @@ Public Class frmEdit
                             SetHex(_filename, Plus3C(&H144), HexStringToBinary(car2.Rollbar))
                         End If
                     End If
-                    End If
+                End If
                 If car3.Edited Then
                     If Not car3.ReplaceTo = "" Then SetHex(_filename, &H1C0, HexStringToBinary(SetCar(car3.ReplaceTo)))
                     SetHex(_filename, Plus3C(&H186), HexStringToBinary(car3.CarColor))
@@ -498,8 +540,16 @@ Public Class frmEdit
                     Me.Close()
                 End If
             Else 'crd
-                If txtName.Text.Length <= 5 Then
-                    Dim amount As Integer = 6 - txtName.Text.Length
+                Dim charInt As Integer = 0
+                For Each c As Char In txtName.Text
+                    If c.IsWideEastAsianWidth_SJIS Then
+                        charInt += 2
+                    Else
+                        charInt += 1
+                    End If
+                Next
+                If charInt <= 11 Then
+                    Dim amount As Integer = 12 - charInt
                     Dim newName As Char = Nothing
                     Select Case amount
                         Case 1
@@ -514,11 +564,44 @@ Public Class frmEdit
                             newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
                         Case 6
                             newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 7
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 8
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 9
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 10
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 11
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                        Case 12
+                            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
                     End Select
-                    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text & newName))
+                    SetHex(_filename, Neg3C("&HF0"), SetName(txtName.Text & newName))
                 Else
-                    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text))
+                    SetHex(_filename, Neg3C("&HF0"), SetName(txtName.Text))
                 End If
+                'If txtName.Text.Length <= 5 Then
+                '    Dim amount As Integer = 6 - txtName.Text.Length
+                '    Dim newName As Char = Nothing
+                '    Select Case amount
+                '        Case 1
+                '            newName = Chr(0)
+                '        Case 2
+                '            newName = Chr(0) & Chr(0)
+                '        Case 3
+                '            newName = Chr(0) & Chr(0) & Chr(0)
+                '        Case 4
+                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                '        Case 5
+                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                '        Case 6
+                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
+                '    End Select
+                '    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text & newName))
+                'Else
+                '    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text))
+                'End If
 
                 If cmbGender.SelectedIndex = 1 Then
                     SetHex(_filename, Neg3C(&H5A), HexStringToBinary("01"))
@@ -571,6 +654,7 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H223), SetValue(cmbTachometer.SelectedIndex))
                             SetHex(_filename, Neg3C(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
                             SetHex(_filename, Neg3C(&H222), SetValue(cmbCup.SelectedIndex))
+                            If cbUnlockExSpec.Checked Then SetHex(_filename, Neg3C(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
                     End Select
                 End If
 
@@ -1067,6 +1151,7 @@ Public Class frmEdit
             c8_orange = ReadCfgValue("OrangeJuice", langFile)
             c8_tea = ReadCfgValue("GreenTea", langFile)
             Label28.Text = ReadCfgValue("Cup", langFile)
+            cbUnlockExSpec.Text = ReadCfgValue("ExFullAllCar", langFile)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

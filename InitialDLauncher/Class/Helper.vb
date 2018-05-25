@@ -1691,4 +1691,11 @@ Module Helper
         Return result
     End Function
 
+    Private sjis As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_JIS")
+    <System.Runtime.CompilerServices.Extension>
+    Public Function IsWideEastAsianWidth_SJIS(ByVal c As Char) As Boolean
+        Dim byteCount As Integer = sjis.GetByteCount(c.ToString())
+        Return byteCount = 2
+    End Function
+
 End Module

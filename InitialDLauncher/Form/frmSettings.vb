@@ -79,9 +79,11 @@ Public Class frmSettings
 
                 If Not My.Settings.VideoBackground Then
                     frmLauncher.Timer3.Stop()
+                    frmLauncher.Timer4.Stop()
                     frmLauncher.BackgroundImage = My.Resources.launcher_bg
                 Else
                     frmLauncher.Timer3.Start()
+                    frmLauncher.Timer4.Start()
                 End If
             End If
         Catch ex As Exception

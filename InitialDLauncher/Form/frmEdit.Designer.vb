@@ -59,6 +59,7 @@ Partial Class frmEdit
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtTPride = New InitialDLauncher.NSTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.cbUnlockExSpec = New InitialDLauncher.NSCheckBox()
         Me.cmbCup = New InitialDLauncher.NSComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.pbEffect = New System.Windows.Forms.PictureBox()
@@ -585,6 +586,7 @@ Partial Class frmEdit
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.cbUnlockExSpec)
         Me.TabPage3.Controls.Add(Me.cmbCup)
         Me.TabPage3.Controls.Add(Me.Label28)
         Me.TabPage3.Controls.Add(Me.pbEffect)
@@ -603,6 +605,15 @@ Partial Class frmEdit
         Me.TabPage3.Size = New System.Drawing.Size(357, 430)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Initial D8 ∞"
+        '
+        'cbUnlockExSpec
+        '
+        Me.cbUnlockExSpec.Checked = False
+        Me.cbUnlockExSpec.Location = New System.Drawing.Point(189, 99)
+        Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
+        Me.cbUnlockExSpec.Size = New System.Drawing.Size(150, 24)
+        Me.cbUnlockExSpec.TabIndex = 67
+        Me.cbUnlockExSpec.Text = "ExFull All Cars"
         '
         'cmbCup
         '
@@ -903,7 +914,7 @@ Partial Class frmEdit
         Me.btnSave.Location = New System.Drawing.Point(925, 667)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 70
+        Me.btnSave.TabIndex = 71
         Me.btnSave.Text = "Save"
         '
         'GroupBox5
@@ -1439,4 +1450,5 @@ Partial Class frmEdit
     Friend WithEvents cmbCup As NSComboBox
     Friend WithEvents Label28 As Label
     Friend WithEvents Avatar1 As Avatar
+    Friend WithEvents cbUnlockExSpec As NSCheckBox
 End Class
