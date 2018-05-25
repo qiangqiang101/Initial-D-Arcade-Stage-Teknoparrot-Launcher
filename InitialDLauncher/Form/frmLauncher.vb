@@ -209,8 +209,6 @@ Public Class frmLauncher
             End If
 
             Timer1.Start()
-            Timer3.Start()
-            Timer4.Start()
             'AutoCardMove()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
