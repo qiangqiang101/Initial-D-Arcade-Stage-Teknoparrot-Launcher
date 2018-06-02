@@ -284,6 +284,64 @@ Public Class frmLauncher
         End Try
     End Sub
 
+    Private Sub QuickScan(CardVersion As Integer)
+        Try
+            Dim AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot")
+
+            For Each file As String In IO.Directory.GetFiles(AppData, "*.bin")
+                Dim fileName As String = file
+                Dim fileNameOnly As String = Path.GetFileName(file)
+                Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID" & CardVersion & "_CARD\" & fileNameOnly)
+                If GetCardVersion(GetHex(fileName, &H50, 2)) = CardVersion Then
+                    IO.File.Move(fileName, destination)
+                End If
+            Next
+
+            Select Case CardVersion
+                Case 6
+                    If Directory.Exists(My.Settings.Id6Path) Then
+                        For Each file As String In IO.Directory.GetFiles(My.Settings.Id6Path, "*.crd")
+                            Dim fileName As String = file
+                            Dim fileNameOnly As String = Path.GetFileName(file)
+                            Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                            Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID" & CardVersion & "_CARD\" & fileNameOnly)
+                            If GetCardVersion(GetHex(fileName, &H14, 2)) = 6 Then
+                                IO.File.Move(fileName, destination)
+                            End If
+                        Next
+                    End If
+                Case 7
+                    If Directory.Exists(My.Settings.Id7Path) Then
+                        For Each file As String In IO.Directory.GetFiles(My.Settings.Id7Path, "*.crd")
+                            Dim fileName As String = file
+                            Dim fileNameOnly As String = Path.GetFileName(file)
+                            Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                            Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID" & CardVersion & "_CARD\" & fileNameOnly)
+                            If GetCardVersion(GetHex(fileName, &H14, 2)) = 7 Then
+                                IO.File.Move(fileName, destination)
+                            End If
+                        Next
+                    End If
+                Case 8
+                    If Directory.Exists(My.Settings.Id8Path) Then
+                        For Each file As String In IO.Directory.GetFiles(My.Settings.Id8Path, "*.crd")
+                            Dim fileName As String = file
+                            Dim fileNameOnly As String = Path.GetFileName(file)
+                            Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                            Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID" & CardVersion & "_CARD\" & fileNameOnly)
+                            If GetCardVersion(GetHex(fileName, &H14, 2)) = 8 Then
+                                IO.File.Move(fileName, destination)
+                            End If
+                        Next
+                    End If
+            End Select
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click, lblStart6.EnterPressed
         If My.Settings.VideoBackground Then
             Timer3.Stop()
@@ -292,6 +350,7 @@ Public Class frmLauncher
         isGameRunning = True
         wait(500)
 
+        QuickScan(6)
         Select Case IO.Path.GetExtension(My.Settings.Id6CardName)
             Case ".bin"
                 RunGame(id6CardDir, id6CardPath, 6, id6AppData, My.Settings.Id6Path, "--profile=ID6.xml")
@@ -315,6 +374,7 @@ Public Class frmLauncher
         isGameRunning = True
         wait(500)
 
+        QuickScan(7)
         Select Case IO.Path.GetExtension(My.Settings.Id7CardName)
             Case ".bin"
                 RunGame(id7CardDir, id7CardPath, 7, id7AppData, My.Settings.Id7Path, "--profile=ID7.xml")
@@ -338,6 +398,7 @@ Public Class frmLauncher
         isGameRunning = True
         wait(500)
 
+        QuickScan(8)
         Select Case IO.Path.GetExtension(My.Settings.Id8CardName)
             Case ".bin"
                 RunGame(id8CardDir, id8CardPath, 8, id8AppData, My.Settings.Id8Path, "--profile=ID8.xml")

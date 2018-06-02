@@ -146,7 +146,7 @@ Public Class frmEditCar
                                 _parentForm.cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
                         End Select
                 End Select
-                MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
                 Me.Close()
                 _parentForm.Close()
             End If
@@ -422,7 +422,7 @@ Public Class frmEditCar
             For Each item In sticker
                 Dim i As Integer = sticker.IndexOf(item)
                 If stickerDic.ContainsKey(item) Then
-                    MsgBox(item & "/" & stickerName(i) & " is duplicated!")
+                    NSMessageBox.ShowOk(item & "/" & stickerName(i) & " is duplicated!", "Error")
                 Else
                     stickerDic.Add(item, stickerName(i))
                 End If

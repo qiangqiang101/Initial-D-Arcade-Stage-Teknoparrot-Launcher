@@ -150,7 +150,7 @@ Partial Class frmAbout
         Me.lblVersion.ForeColor = System.Drawing.Color.White
         Me.lblVersion.Location = New System.Drawing.Point(13, 55)
         Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(78, 15)
+        Me.lblVersion.Size = New System.Drawing.Size(79, 15)
         Me.lblVersion.TabIndex = 1
         Me.lblVersion.Text = "Version: Build"
         '

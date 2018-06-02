@@ -48,20 +48,51 @@ Public Class frmEdit
 
     Private gifImage As GifImage = New GifImage(My.Resources.E00) With {.ReverseAtEnd = False}
 
-    Private Sub cmbTitleEffect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTitleEffect.SelectedIndexChanged
-        gifImage = New GifImage(My.Resources.ResourceManager.GetObject("E" & cmbTitleEffect.SelectedIndex.ToString("X2")))
-    End Sub
+    Private finishLoading As Boolean = False
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         pbEffect.BackgroundImage = gifImage.GetNextFrame()
     End Sub
 
-    Private Sub btnTachometer_Click(sender As Object, e As EventArgs) Handles btnTachometer.Click
-        Dim p As frmPicture = New frmPicture
-        p.pbImage.BackgroundImage = My.Resources.ResourceManager.GetObject("T" & cmbTachometer.SelectedIndex)
-        p.Text = btnTachometer.Text
-        p.NsTheme1.Text = p.Text
-        p.Show()
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        pbEffect2.BackgroundImage = gifImage.GetNextFrame()
+    End Sub
+
+    Private Sub cmbTachometer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTachometer.SelectedIndexChanged
+        If finishLoading Then
+            'gifImage = New GifImage(My.Resources.ResourceManager.GetObject("T" & cmbTachometer.SelectedIndex))
+            pbEffect.BackgroundImage = My.Resources.ResourceManager.GetObject("T" & cmbTachometer.SelectedIndex)
+            Timer1.Stop()
+        End If
+    End Sub
+
+    Private Sub cmbCup_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCup.SelectedIndexChanged
+        If finishLoading AndAlso Not cmbCup.SelectedIndex = 0 Then
+            'gifImage = New GifImage(My.Resources.ResourceManager.GetObject("C" & cmbCup.SelectedIndex))
+            pbEffect.BackgroundImage = My.Resources.ResourceManager.GetObject("C" & cmbCup.SelectedIndex)
+            Timer1.Stop()
+        End If
+    End Sub
+
+    Private Sub cmbAura8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAura8.SelectedIndexChanged
+        If finishLoading AndAlso Not cmbAura8.SelectedIndex = 0 Then
+            gifImage = New GifImage(My.Resources.ResourceManager.GetObject("A" & cmbAura8.SelectedIndex))
+            Timer1.Start()
+        End If
+    End Sub
+
+    Private Sub cmbAura7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAura7.SelectedIndexChanged
+        If finishLoading AndAlso Not cmbAura7.SelectedIndex = 0 Then
+            gifImage = New GifImage(My.Resources.ResourceManager.GetObject("A" & cmbAura7.SelectedIndex))
+            Timer2.Start()
+        End If
+    End Sub
+
+    Private Sub cmbTitleEffect_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTitleEffect.SelectedIndexChanged
+        If finishLoading Then
+            gifImage = New GifImage(My.Resources.ResourceManager.GetObject("E" & cmbTitleEffect.SelectedIndex.ToString("X2")))
+            Timer1.Start()
+        End If
     End Sub
 
     Private _version As Integer
@@ -104,7 +135,7 @@ Public Class frmEdit
                             SetHex(_filename, Plus3C(&HC4), GetHex(ofd.FileName, &H0, 96))
                             cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
                     End Select
-                    MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                    NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
                     Me.Close()
                 End If
             End If
@@ -143,7 +174,7 @@ Public Class frmEdit
                             SetHex(_filename, Plus3C(&H124), GetHex(ofd.FileName, &H0, 96))
                             cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
                     End Select
-                    MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                    NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
                     Me.Close()
                 End If
             End If
@@ -182,7 +213,7 @@ Public Class frmEdit
                             SetHex(_filename, Plus3C(&H184), GetHex(ofd.FileName, &H0, 96))
                             cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
                     End Select
-                    MsgBox(import_complete, MsgBoxStyle.Information, Me.Text)
+                    NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
                     Me.Close()
                 End If
             End If
@@ -385,7 +416,7 @@ Public Class frmEdit
                     SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
                     Select Case True
                         Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "0000"
-                            MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
+                            NSMessageBox.ShowOk(must_select_avatar, MsgBoxStyle.Critical, "Error")
                             Exit Sub
                     End Select
                 End If
@@ -573,7 +604,7 @@ Public Class frmEdit
                     SetHex(_filename, Neg3C(&H221), HexStringToBinary(_221)) 'Frame
                     Select Case True
                         Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "0000"
-                            MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
+                            NSMessageBox.ShowOk(must_select_avatar, MsgBoxStyle.Critical, "Error")
                             Exit Sub
                     End Select
                 End If
@@ -1023,6 +1054,8 @@ Public Class frmEdit
             End If
 
             Translate2()
+
+            finishLoading = True
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -1105,7 +1138,7 @@ Public Class frmEdit
             import_complete = ReadCfgValue("ImportComplete", langFile)
             Label25.Text = ReadCfgValue("InfRank", langFile)
             Label26.Text = ReadCfgValue("Tachometer", langFile)
-            btnTachometer.Text = ReadCfgValue("Preview", langFile)
+            NsGroupBox2.Title = ReadCfgValue("Preview", langFile)
             Label27.Text = ReadCfgValue("TitleEffect", langFile)
             c8_paper = ReadCfgValue("PaperCup", langFile)
             c8_orange = ReadCfgValue("OrangeJuice", langFile)

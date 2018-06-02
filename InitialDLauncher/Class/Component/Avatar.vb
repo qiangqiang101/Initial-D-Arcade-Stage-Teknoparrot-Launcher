@@ -83,7 +83,7 @@
             g.Dispose()
             BackgroundImage = i
         Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace)
+            Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
 

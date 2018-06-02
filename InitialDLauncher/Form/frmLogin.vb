@@ -25,13 +25,13 @@ Public Class frmLogin
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Try
             If txtEmail.Text = Nothing Then
-                MsgBox(no_email, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_email, MsgBoxStyle.Critical, "Error")
                 txtEmail.Focus()
             ElseIf txtPassword.Text = Nothing Then
-                MsgBox(no_password, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_password, MsgBoxStyle.Critical, "Error")
                 txtPassword.Focus()
             ElseIf Not IsUserEmailPasswordValid(txtEmail.Text, txtPassword.Text) Then
-                MsgBox(got_error, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(got_error, MsgBoxStyle.Critical, "Error")
                 txtEmail.Text = ""
                 txtPassword.Text = ""
                 txtEmail.Focus()
@@ -42,7 +42,7 @@ Public Class frmLogin
                 My.Settings.UserName = GetUserName(txtEmail.Text)
                 My.Settings.UserCountry = GetUserCountry(txtEmail.Text)
                 My.Settings.Save()
-                MsgBox(String.Format(welcome_user, My.Settings.UserName), MsgBoxStyle.Information, "Login")
+                NSMessageBox.ShowOk(String.Format(welcome_user, My.Settings.UserName), MsgBoxStyle.Information, "Login")
                 frmLauncher.Translate()
                 Me.Close()
             End If

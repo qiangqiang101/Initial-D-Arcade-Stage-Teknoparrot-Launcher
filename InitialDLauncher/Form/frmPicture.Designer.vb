@@ -24,8 +24,8 @@ Partial Class frmPicture
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPicture))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
-        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.pbImage = New System.Windows.Forms.PictureBox()
+        Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.NsTheme1.SuspendLayout()
         CType(Me.pbImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -55,6 +55,15 @@ Partial Class frmPicture
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
         '
+        'pbImage
+        '
+        Me.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbImage.Location = New System.Drawing.Point(12, 40)
+        Me.pbImage.Name = "pbImage"
+        Me.pbImage.Size = New System.Drawing.Size(676, 348)
+        Me.pbImage.TabIndex = 57
+        Me.pbImage.TabStop = False
+        '
         'NsControlButton1
         '
         Me.NsControlButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -67,15 +76,6 @@ Partial Class frmPicture
         Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.TabIndex = 56
         Me.NsControlButton1.Text = "NsControlButton1"
-        '
-        'pbImage
-        '
-        Me.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbImage.Location = New System.Drawing.Point(12, 40)
-        Me.pbImage.Name = "pbImage"
-        Me.pbImage.Size = New System.Drawing.Size(676, 348)
-        Me.pbImage.TabIndex = 57
-        Me.pbImage.TabStop = False
         '
         'frmPicture
         '

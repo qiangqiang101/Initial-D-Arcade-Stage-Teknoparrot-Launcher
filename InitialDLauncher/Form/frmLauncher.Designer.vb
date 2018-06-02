@@ -190,7 +190,7 @@ Partial Class frmLauncher
         Me.lblVersion.MousePressedColor = System.Drawing.Color.Gold
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.NormalColor = System.Drawing.Color.Silver
-        Me.lblVersion.Size = New System.Drawing.Size(80, 19)
+        Me.lblVersion.Size = New System.Drawing.Size(81, 19)
         Me.lblVersion.TabIndex = 10
         Me.lblVersion.Text = "Version: 1.0"
         Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

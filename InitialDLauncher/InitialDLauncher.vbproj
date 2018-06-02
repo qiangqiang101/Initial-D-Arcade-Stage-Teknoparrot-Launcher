@@ -47,7 +47,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ID7.ico</ApplicationIcon>
+    <ApplicationIcon>ID8_256_v2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -299,6 +299,28 @@
     <None Include="Resources\id_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ID8.ico" />
+    <Content Include="ID8_256.ico" />
+    <Content Include="ID8_256_v2.ico" />
+    <None Include="Resources\A6.gif" />
+    <None Include="Resources\A5.gif" />
+    <None Include="Resources\A4.gif" />
+    <None Include="Resources\A3.gif" />
+    <None Include="Resources\A2.gif" />
+    <None Include="Resources\A1.gif" />
+    <None Include="Resources\C1.png" />
+    <None Include="Resources\C3.png" />
+    <None Include="Resources\C2.png" />
+    <None Include="Resources\T3.png" />
+    <None Include="Resources\T2.png" />
+    <None Include="Resources\T1.png" />
+    <None Include="Resources\T0.png" />
+    <None Include="Resources\T9.png" />
+    <None Include="Resources\T8.png" />
+    <None Include="Resources\T7.png" />
+    <None Include="Resources\T6.png" />
+    <None Include="Resources\T5.png" />
+    <None Include="Resources\T4.png" />
     <None Include="Resources\Play13.wav" />
     <None Include="Resources\Play12.wav" />
     <None Include="Resources\Play11.wav" />

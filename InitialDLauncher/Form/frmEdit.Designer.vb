@@ -36,6 +36,8 @@ Partial Class frmEdit
         Me.txtPridePoint = New InitialDLauncher.NSTextBox()
         Me.cbLegend = New InitialDLauncher.NSCheckBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.NsGroupBox3 = New InitialDLauncher.NSGroupBox()
+        Me.pbEffect2 = New System.Windows.Forms.PictureBox()
         Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.txtEvent = New InitialDLauncher.NSTextBox()
@@ -59,13 +61,13 @@ Partial Class frmEdit
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtTPride = New InitialDLauncher.NSTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.NsGroupBox2 = New InitialDLauncher.NSGroupBox()
+        Me.pbEffect = New System.Windows.Forms.PictureBox()
         Me.cbUnlockExSpec = New InitialDLauncher.NSCheckBox()
         Me.cmbCup = New InitialDLauncher.NSComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.pbEffect = New System.Windows.Forms.PictureBox()
         Me.cmbTitleEffect = New InitialDLauncher.NSComboBox()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.btnTachometer = New InitialDLauncher.NSButton()
         Me.cmbTachometer = New InitialDLauncher.NSComboBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtInfRank = New InitialDLauncher.NSTextBox()
@@ -113,6 +115,7 @@ Partial Class frmEdit
         Me.pbAccessories = New System.Windows.Forms.PictureBox()
         Me.slblAccessories = New InitialDLauncher.SpecialLabel()
         Me.Avatar1 = New InitialDLauncher.Avatar()
+        Me.slblPreview = New InitialDLauncher.SpecialLabel()
         Me.pbFrame = New System.Windows.Forms.PictureBox()
         Me.slblFrame = New InitialDLauncher.SpecialLabel()
         Me.lblcbcc = New System.Windows.Forms.Label()
@@ -129,14 +132,17 @@ Partial Class frmEdit
         Me.pbEyes = New System.Windows.Forms.PictureBox()
         Me.slblEyes = New InitialDLauncher.SpecialLabel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
-        Me.slblPreview = New InitialDLauncher.SpecialLabel()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.NsGroupBox3.SuspendLayout()
+        CType(Me.pbEffect2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NsGroupBox1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.NsGroupBox2.SuspendLayout()
         CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -175,7 +181,7 @@ Partial Class frmEdit
         '
         'Timer1
         '
-        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 50
         '
         'NsTheme1
         '
@@ -197,7 +203,7 @@ Partial Class frmEdit
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(1010, 702)
+        Me.NsTheme1.Size = New System.Drawing.Size(1070, 702)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 53
@@ -227,7 +233,7 @@ Partial Class frmEdit
         Me.GroupBox1.Location = New System.Drawing.Point(513, 36)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(487, 626)
+        Me.GroupBox1.Size = New System.Drawing.Size(547, 626)
         Me.GroupBox1.SubTitle = ""
         Me.GroupBox1.TabIndex = 58
         Me.GroupBox1.Text = "NsGroupBox1"
@@ -241,11 +247,11 @@ Partial Class frmEdit
         Me.NsTabControl1.Controls.Add(Me.TabPage3)
         Me.NsTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.NsTabControl1.ItemSize = New System.Drawing.Size(50, 110)
-        Me.NsTabControl1.Location = New System.Drawing.Point(6, 182)
+        Me.NsTabControl1.Location = New System.Drawing.Point(6, 154)
         Me.NsTabControl1.Multiline = True
         Me.NsTabControl1.Name = "NsTabControl1"
         Me.NsTabControl1.SelectedIndex = 0
-        Me.NsTabControl1.Size = New System.Drawing.Size(475, 438)
+        Me.NsTabControl1.Size = New System.Drawing.Size(535, 466)
         Me.NsTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.NsTabControl1.TabIndex = 61
         '
@@ -260,7 +266,7 @@ Partial Class frmEdit
         Me.TabPage1.Location = New System.Drawing.Point(114, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(357, 430)
+        Me.TabPage1.Size = New System.Drawing.Size(417, 458)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "InitialD 6AA"
         '
@@ -272,7 +278,7 @@ Partial Class frmEdit
         Me.txtChapLevel.Multiline = False
         Me.txtChapLevel.Name = "txtChapLevel"
         Me.txtChapLevel.ReadOnly = False
-        Me.txtChapLevel.Size = New System.Drawing.Size(100, 24)
+        Me.txtChapLevel.Size = New System.Drawing.Size(130, 24)
         Me.txtChapLevel.TabIndex = 31
         Me.txtChapLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtChapLevel.UseSystemPasswordChar = False
@@ -305,7 +311,7 @@ Partial Class frmEdit
         Me.txtPridePoint.Multiline = False
         Me.txtPridePoint.Name = "txtPridePoint"
         Me.txtPridePoint.ReadOnly = False
-        Me.txtPridePoint.Size = New System.Drawing.Size(100, 24)
+        Me.txtPridePoint.Size = New System.Drawing.Size(130, 24)
         Me.txtPridePoint.TabIndex = 33
         Me.txtPridePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPridePoint.UseSystemPasswordChar = False
@@ -313,15 +319,16 @@ Partial Class frmEdit
         'cbLegend
         '
         Me.cbLegend.Checked = False
-        Me.cbLegend.Location = New System.Drawing.Point(199, 6)
+        Me.cbLegend.Location = New System.Drawing.Point(229, 3)
         Me.cbLegend.Name = "cbLegend"
-        Me.cbLegend.Size = New System.Drawing.Size(150, 24)
+        Me.cbLegend.Size = New System.Drawing.Size(182, 24)
         Me.cbLegend.TabIndex = 32
         Me.cbLegend.Text = "Unlock Legend Chapter"
         '
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage2.Controls.Add(Me.NsGroupBox3)
         Me.TabPage2.Controls.Add(Me.NsGroupBox1)
         Me.TabPage2.Controls.Add(Me.txtSPride)
         Me.TabPage2.Controls.Add(Me.cbGRumble)
@@ -333,9 +340,33 @@ Partial Class frmEdit
         Me.TabPage2.Location = New System.Drawing.Point(114, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(357, 430)
+        Me.TabPage2.Size = New System.Drawing.Size(417, 458)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "InitialD 7AAX"
+        '
+        'NsGroupBox3
+        '
+        Me.NsGroupBox3.Controls.Add(Me.pbEffect2)
+        Me.NsGroupBox3.DrawSeperator = True
+        Me.NsGroupBox3.Location = New System.Drawing.Point(6, 231)
+        Me.NsGroupBox3.Name = "NsGroupBox3"
+        Me.NsGroupBox3.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox3.Size = New System.Drawing.Size(404, 221)
+        Me.NsGroupBox3.SubTitle = ""
+        Me.NsGroupBox3.TabIndex = 73
+        Me.NsGroupBox3.Text = "NsGroupBox1"
+        Me.NsGroupBox3.Title = "Preview"
+        '
+        'pbEffect2
+        '
+        Me.pbEffect2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.A1
+        Me.pbEffect2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbEffect2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbEffect2.Location = New System.Drawing.Point(3, 33)
+        Me.pbEffect2.Name = "pbEffect2"
+        Me.pbEffect2.Size = New System.Drawing.Size(398, 185)
+        Me.pbEffect2.TabIndex = 69
+        Me.pbEffect2.TabStop = False
         '
         'NsGroupBox1
         '
@@ -354,10 +385,10 @@ Partial Class frmEdit
         Me.NsGroupBox1.Controls.Add(Me.Label19)
         Me.NsGroupBox1.Controls.Add(Me.txtLegend)
         Me.NsGroupBox1.DrawSeperator = True
-        Me.NsGroupBox1.Location = New System.Drawing.Point(6, 96)
+        Me.NsGroupBox1.Location = New System.Drawing.Point(6, 66)
         Me.NsGroupBox1.Name = "NsGroupBox1"
         Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.NsGroupBox1.Size = New System.Drawing.Size(345, 247)
+        Me.NsGroupBox1.Size = New System.Drawing.Size(404, 159)
         Me.NsGroupBox1.SubTitle = ""
         Me.NsGroupBox1.TabIndex = 61
         Me.NsGroupBox1.Text = "NsGroupBox1"
@@ -366,7 +397,7 @@ Partial Class frmEdit
         'Label23
         '
         Me.Label23.ForeColor = System.Drawing.Color.White
-        Me.Label23.Location = New System.Drawing.Point(6, 126)
+        Me.Label23.Location = New System.Drawing.Point(6, 96)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(85, 24)
         Me.Label23.TabIndex = 55
@@ -376,20 +407,20 @@ Partial Class frmEdit
         'txtEvent
         '
         Me.txtEvent.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtEvent.Location = New System.Drawing.Point(107, 126)
+        Me.txtEvent.Location = New System.Drawing.Point(91, 96)
         Me.txtEvent.MaxLength = 3
         Me.txtEvent.Multiline = False
         Me.txtEvent.Name = "txtEvent"
         Me.txtEvent.ReadOnly = False
         Me.txtEvent.Size = New System.Drawing.Size(100, 24)
-        Me.txtEvent.TabIndex = 48
+        Me.txtEvent.TabIndex = 49
         Me.txtEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtEvent.UseSystemPasswordChar = False
         '
         'Label21
         '
         Me.Label21.ForeColor = System.Drawing.Color.White
-        Me.Label21.Location = New System.Drawing.Point(6, 216)
+        Me.Label21.Location = New System.Drawing.Point(197, 96)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(95, 24)
         Me.Label21.TabIndex = 53
@@ -399,7 +430,7 @@ Partial Class frmEdit
         'Label22
         '
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(6, 96)
+        Me.Label22.Location = New System.Drawing.Point(6, 66)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(85, 24)
         Me.Label22.TabIndex = 52
@@ -409,20 +440,20 @@ Partial Class frmEdit
         'txtKanto
         '
         Me.txtKanto.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtKanto.Location = New System.Drawing.Point(107, 216)
+        Me.txtKanto.Location = New System.Drawing.Point(298, 96)
         Me.txtKanto.MaxLength = 3
         Me.txtKanto.Multiline = False
         Me.txtKanto.Name = "txtKanto"
         Me.txtKanto.ReadOnly = False
         Me.txtKanto.Size = New System.Drawing.Size(100, 24)
-        Me.txtKanto.TabIndex = 51
+        Me.txtKanto.TabIndex = 50
         Me.txtKanto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtKanto.UseSystemPasswordChar = False
         '
         'txtTag
         '
         Me.txtTag.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtTag.Location = New System.Drawing.Point(107, 96)
+        Me.txtTag.Location = New System.Drawing.Point(91, 66)
         Me.txtTag.MaxLength = 3
         Me.txtTag.Multiline = False
         Me.txtTag.Name = "txtTag"
@@ -435,7 +466,7 @@ Partial Class frmEdit
         'Label18
         '
         Me.Label18.ForeColor = System.Drawing.Color.White
-        Me.Label18.Location = New System.Drawing.Point(6, 186)
+        Me.Label18.Location = New System.Drawing.Point(197, 66)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(85, 24)
         Me.Label18.TabIndex = 49
@@ -445,7 +476,7 @@ Partial Class frmEdit
         'Label20
         '
         Me.Label20.ForeColor = System.Drawing.Color.White
-        Me.Label20.Location = New System.Drawing.Point(6, 66)
+        Me.Label20.Location = New System.Drawing.Point(197, 36)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(85, 24)
         Me.Label20.TabIndex = 48
@@ -455,7 +486,7 @@ Partial Class frmEdit
         'Label17
         '
         Me.Label17.ForeColor = System.Drawing.Color.White
-        Me.Label17.Location = New System.Drawing.Point(6, 156)
+        Me.Label17.Location = New System.Drawing.Point(6, 126)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(79, 24)
         Me.Label17.TabIndex = 47
@@ -465,20 +496,20 @@ Partial Class frmEdit
         'txtStore
         '
         Me.txtStore.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtStore.Location = New System.Drawing.Point(107, 186)
+        Me.txtStore.Location = New System.Drawing.Point(298, 66)
         Me.txtStore.MaxLength = 3
         Me.txtStore.Multiline = False
         Me.txtStore.Name = "txtStore"
         Me.txtStore.ReadOnly = False
         Me.txtStore.Size = New System.Drawing.Size(100, 24)
-        Me.txtStore.TabIndex = 50
+        Me.txtStore.TabIndex = 48
         Me.txtStore.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtStore.UseSystemPasswordChar = False
         '
         'txtNational
         '
         Me.txtNational.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtNational.Location = New System.Drawing.Point(107, 66)
+        Me.txtNational.Location = New System.Drawing.Point(298, 36)
         Me.txtNational.MaxLength = 3
         Me.txtNational.Multiline = False
         Me.txtNational.Name = "txtNational"
@@ -491,13 +522,13 @@ Partial Class frmEdit
         'txtTAttack
         '
         Me.txtTAttack.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtTAttack.Location = New System.Drawing.Point(107, 156)
+        Me.txtTAttack.Location = New System.Drawing.Point(91, 126)
         Me.txtTAttack.MaxLength = 3
         Me.txtTAttack.Multiline = False
         Me.txtTAttack.Name = "txtTAttack"
         Me.txtTAttack.ReadOnly = False
         Me.txtTAttack.Size = New System.Drawing.Size(100, 24)
-        Me.txtTAttack.TabIndex = 49
+        Me.txtTAttack.TabIndex = 51
         Me.txtTAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTAttack.UseSystemPasswordChar = False
         '
@@ -514,7 +545,7 @@ Partial Class frmEdit
         'txtLegend
         '
         Me.txtLegend.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtLegend.Location = New System.Drawing.Point(107, 36)
+        Me.txtLegend.Location = New System.Drawing.Point(91, 36)
         Me.txtLegend.MaxLength = 3
         Me.txtLegend.Multiline = False
         Me.txtLegend.Name = "txtLegend"
@@ -532,7 +563,7 @@ Partial Class frmEdit
         Me.txtSPride.Multiline = False
         Me.txtSPride.Name = "txtSPride"
         Me.txtSPride.ReadOnly = False
-        Me.txtSPride.Size = New System.Drawing.Size(100, 24)
+        Me.txtSPride.Size = New System.Drawing.Size(130, 24)
         Me.txtSPride.TabIndex = 41
         Me.txtSPride.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtSPride.UseSystemPasswordChar = False
@@ -540,9 +571,9 @@ Partial Class frmEdit
         'cbGRumble
         '
         Me.cbGRumble.Checked = False
-        Me.cbGRumble.Location = New System.Drawing.Point(9, 66)
+        Me.cbGRumble.Location = New System.Drawing.Point(220, 36)
         Me.cbGRumble.Name = "cbGRumble"
-        Me.cbGRumble.Size = New System.Drawing.Size(184, 24)
+        Me.cbGRumble.Size = New System.Drawing.Size(190, 24)
         Me.cbGRumble.TabIndex = 44
         Me.cbGRumble.Text = "Unlock Gamble Rumble"
         '
@@ -565,16 +596,16 @@ Partial Class frmEdit
         Me.cmbAura7.FormattingEnabled = True
         Me.cmbAura7.Location = New System.Drawing.Point(81, 36)
         Me.cmbAura7.Name = "cmbAura7"
-        Me.cmbAura7.Size = New System.Drawing.Size(100, 24)
+        Me.cmbAura7.Size = New System.Drawing.Size(130, 24)
         Me.cmbAura7.TabIndex = 43
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(187, 9)
+        Me.Label11.Location = New System.Drawing.Point(217, 9)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(56, 15)
+        Me.Label11.Size = New System.Drawing.Size(57, 15)
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Tag Pride"
         '
@@ -591,12 +622,12 @@ Partial Class frmEdit
         'txtTPride
         '
         Me.txtTPride.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtTPride.Location = New System.Drawing.Point(250, 6)
+        Me.txtTPride.Location = New System.Drawing.Point(280, 6)
         Me.txtTPride.MaxLength = 4
         Me.txtTPride.Multiline = False
         Me.txtTPride.Name = "txtTPride"
         Me.txtTPride.ReadOnly = False
-        Me.txtTPride.Size = New System.Drawing.Size(100, 24)
+        Me.txtTPride.Size = New System.Drawing.Size(130, 24)
         Me.txtTPride.TabIndex = 42
         Me.txtTPride.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTPride.UseSystemPasswordChar = False
@@ -604,13 +635,12 @@ Partial Class frmEdit
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.NsGroupBox2)
         Me.TabPage3.Controls.Add(Me.cbUnlockExSpec)
         Me.TabPage3.Controls.Add(Me.cmbCup)
         Me.TabPage3.Controls.Add(Me.Label28)
-        Me.TabPage3.Controls.Add(Me.pbEffect)
         Me.TabPage3.Controls.Add(Me.cmbTitleEffect)
         Me.TabPage3.Controls.Add(Me.Label27)
-        Me.TabPage3.Controls.Add(Me.btnTachometer)
         Me.TabPage3.Controls.Add(Me.cmbTachometer)
         Me.TabPage3.Controls.Add(Me.Label26)
         Me.TabPage3.Controls.Add(Me.txtInfRank)
@@ -620,16 +650,40 @@ Partial Class frmEdit
         Me.TabPage3.Location = New System.Drawing.Point(114, 4)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(357, 430)
+        Me.TabPage3.Size = New System.Drawing.Size(417, 458)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Initial D8 ∞"
+        '
+        'NsGroupBox2
+        '
+        Me.NsGroupBox2.Controls.Add(Me.pbEffect)
+        Me.NsGroupBox2.DrawSeperator = True
+        Me.NsGroupBox2.Location = New System.Drawing.Point(6, 99)
+        Me.NsGroupBox2.Name = "NsGroupBox2"
+        Me.NsGroupBox2.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox2.Size = New System.Drawing.Size(404, 221)
+        Me.NsGroupBox2.SubTitle = ""
+        Me.NsGroupBox2.TabIndex = 72
+        Me.NsGroupBox2.Text = "NsGroupBox1"
+        Me.NsGroupBox2.Title = "Preview"
+        '
+        'pbEffect
+        '
+        Me.pbEffect.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.E00
+        Me.pbEffect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbEffect.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbEffect.Location = New System.Drawing.Point(3, 33)
+        Me.pbEffect.Name = "pbEffect"
+        Me.pbEffect.Size = New System.Drawing.Size(398, 185)
+        Me.pbEffect.TabIndex = 69
+        Me.pbEffect.TabStop = False
         '
         'cbUnlockExSpec
         '
         Me.cbUnlockExSpec.Checked = False
-        Me.cbUnlockExSpec.Location = New System.Drawing.Point(189, 99)
+        Me.cbUnlockExSpec.Location = New System.Drawing.Point(222, 69)
         Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
-        Me.cbUnlockExSpec.Size = New System.Drawing.Size(150, 24)
+        Me.cbUnlockExSpec.Size = New System.Drawing.Size(188, 24)
         Me.cbUnlockExSpec.TabIndex = 67
         Me.cbUnlockExSpec.Text = "ExFull All Cars"
         '
@@ -640,30 +694,20 @@ Partial Class frmEdit
         Me.cmbCup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCup.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbCup.FormattingEnabled = True
-        Me.cmbCup.Location = New System.Drawing.Point(83, 99)
+        Me.cmbCup.Location = New System.Drawing.Point(280, 39)
         Me.cmbCup.Name = "cmbCup"
-        Me.cmbCup.Size = New System.Drawing.Size(100, 24)
+        Me.cmbCup.Size = New System.Drawing.Size(130, 24)
         Me.cmbCup.TabIndex = 66
         '
         'Label28
         '
         Me.Label28.AutoSize = True
         Me.Label28.ForeColor = System.Drawing.Color.White
-        Me.Label28.Location = New System.Drawing.Point(6, 102)
+        Me.Label28.Location = New System.Drawing.Point(219, 42)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(29, 15)
         Me.Label28.TabIndex = 71
         Me.Label28.Text = "Cup"
-        '
-        'pbEffect
-        '
-        Me.pbEffect.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.E00
-        Me.pbEffect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbEffect.Location = New System.Drawing.Point(189, 69)
-        Me.pbEffect.Name = "pbEffect"
-        Me.pbEffect.Size = New System.Drawing.Size(161, 24)
-        Me.pbEffect.TabIndex = 69
-        Me.pbEffect.TabStop = False
         '
         'cmbTitleEffect
         '
@@ -675,7 +719,7 @@ Partial Class frmEdit
         Me.cmbTitleEffect.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"})
         Me.cmbTitleEffect.Location = New System.Drawing.Point(83, 69)
         Me.cmbTitleEffect.Name = "cmbTitleEffect"
-        Me.cmbTitleEffect.Size = New System.Drawing.Size(100, 24)
+        Me.cmbTitleEffect.Size = New System.Drawing.Size(130, 24)
         Me.cmbTitleEffect.TabIndex = 65
         '
         'Label27
@@ -688,14 +732,6 @@ Partial Class frmEdit
         Me.Label27.TabIndex = 68
         Me.Label27.Text = "Title Effect"
         '
-        'btnTachometer
-        '
-        Me.btnTachometer.Location = New System.Drawing.Point(189, 39)
-        Me.btnTachometer.Name = "btnTachometer"
-        Me.btnTachometer.Size = New System.Drawing.Size(54, 24)
-        Me.btnTachometer.TabIndex = 64
-        Me.btnTachometer.Text = "Preview"
-        '
         'cmbTachometer
         '
         Me.cmbTachometer.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
@@ -706,7 +742,7 @@ Partial Class frmEdit
         Me.cmbTachometer.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
         Me.cmbTachometer.Location = New System.Drawing.Point(83, 39)
         Me.cmbTachometer.Name = "cmbTachometer"
-        Me.cmbTachometer.Size = New System.Drawing.Size(100, 24)
+        Me.cmbTachometer.Size = New System.Drawing.Size(130, 24)
         Me.cmbTachometer.TabIndex = 63
         '
         'Label26
@@ -715,19 +751,19 @@ Partial Class frmEdit
         Me.Label26.ForeColor = System.Drawing.Color.White
         Me.Label26.Location = New System.Drawing.Point(6, 42)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(70, 15)
+        Me.Label26.Size = New System.Drawing.Size(71, 15)
         Me.Label26.TabIndex = 65
         Me.Label26.Text = "Tachometer"
         '
         'txtInfRank
         '
         Me.txtInfRank.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtInfRank.Location = New System.Drawing.Point(250, 9)
+        Me.txtInfRank.Location = New System.Drawing.Point(280, 9)
         Me.txtInfRank.MaxLength = 3
         Me.txtInfRank.Multiline = False
         Me.txtInfRank.Name = "txtInfRank"
         Me.txtInfRank.ReadOnly = False
-        Me.txtInfRank.Size = New System.Drawing.Size(100, 24)
+        Me.txtInfRank.Size = New System.Drawing.Size(130, 24)
         Me.txtInfRank.TabIndex = 62
         Me.txtInfRank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtInfRank.UseSystemPasswordChar = False
@@ -736,7 +772,7 @@ Partial Class frmEdit
         '
         Me.Label25.AutoSize = True
         Me.Label25.ForeColor = System.Drawing.Color.White
-        Me.Label25.Location = New System.Drawing.Point(189, 12)
+        Me.Label25.Location = New System.Drawing.Point(219, 12)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(46, 15)
         Me.Label25.TabIndex = 62
@@ -751,7 +787,7 @@ Partial Class frmEdit
         Me.cmbAura8.FormattingEnabled = True
         Me.cmbAura8.Location = New System.Drawing.Point(83, 9)
         Me.cmbAura8.Name = "cmbAura8"
-        Me.cmbAura8.Size = New System.Drawing.Size(100, 24)
+        Me.cmbAura8.Size = New System.Drawing.Size(130, 24)
         Me.cmbAura8.TabIndex = 61
         '
         'Label24
@@ -766,7 +802,7 @@ Partial Class frmEdit
         '
         'btnEditCar3
         '
-        Me.btnEditCar3.Location = New System.Drawing.Point(426, 154)
+        Me.btnEditCar3.Location = New System.Drawing.Point(487, 124)
         Me.btnEditCar3.Name = "btnEditCar3"
         Me.btnEditCar3.Size = New System.Drawing.Size(54, 24)
         Me.btnEditCar3.TabIndex = 29
@@ -780,14 +816,14 @@ Partial Class frmEdit
         Me.txtLevel.Multiline = False
         Me.txtLevel.Name = "txtLevel"
         Me.txtLevel.ReadOnly = False
-        Me.txtLevel.Size = New System.Drawing.Size(166, 24)
+        Me.txtLevel.Size = New System.Drawing.Size(100, 24)
         Me.txtLevel.TabIndex = 21
         Me.txtLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtLevel.UseSystemPasswordChar = False
         '
         'btnEditCar2
         '
-        Me.btnEditCar2.Location = New System.Drawing.Point(426, 125)
+        Me.btnEditCar2.Location = New System.Drawing.Point(487, 95)
         Me.btnEditCar2.Name = "btnEditCar2"
         Me.btnEditCar2.Size = New System.Drawing.Size(54, 24)
         Me.btnEditCar2.TabIndex = 27
@@ -805,7 +841,7 @@ Partial Class frmEdit
         '
         'btnEditCar1
         '
-        Me.btnEditCar1.Location = New System.Drawing.Point(426, 96)
+        Me.btnEditCar1.Location = New System.Drawing.Point(487, 66)
         Me.btnEditCar1.Name = "btnEditCar1"
         Me.btnEditCar1.Size = New System.Drawing.Size(54, 24)
         Me.btnEditCar1.TabIndex = 25
@@ -815,7 +851,7 @@ Partial Class frmEdit
         '
         Me.Label5.AutoSize = True
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(9, 156)
+        Me.Label5.Location = New System.Drawing.Point(9, 126)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 15)
         Me.Label5.TabIndex = 14
@@ -824,12 +860,12 @@ Partial Class frmEdit
         'txtGamePoint
         '
         Me.txtGamePoint.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtGamePoint.Location = New System.Drawing.Point(87, 66)
+        Me.txtGamePoint.Location = New System.Drawing.Point(277, 37)
         Me.txtGamePoint.MaxLength = 9
         Me.txtGamePoint.Multiline = False
         Me.txtGamePoint.Name = "txtGamePoint"
         Me.txtGamePoint.ReadOnly = False
-        Me.txtGamePoint.Size = New System.Drawing.Size(166, 24)
+        Me.txtGamePoint.Size = New System.Drawing.Size(100, 24)
         Me.txtGamePoint.TabIndex = 22
         Me.txtGamePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtGamePoint.UseSystemPasswordChar = False
@@ -837,12 +873,12 @@ Partial Class frmEdit
         'cmbCar3
         '
         Me.cmbCar3.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.cmbCar3.Location = New System.Drawing.Point(87, 154)
+        Me.cmbCar3.Location = New System.Drawing.Point(87, 124)
         Me.cmbCar3.MaxLength = 32767
         Me.cmbCar3.Multiline = False
         Me.cmbCar3.Name = "cmbCar3"
         Me.cmbCar3.ReadOnly = True
-        Me.cmbCar3.Size = New System.Drawing.Size(333, 24)
+        Me.cmbCar3.Size = New System.Drawing.Size(394, 24)
         Me.cmbCar3.TabIndex = 28
         Me.cmbCar3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.cmbCar3.UseSystemPasswordChar = False
@@ -851,7 +887,7 @@ Partial Class frmEdit
         '
         Me.Label14.AutoSize = True
         Me.Label14.ForeColor = System.Drawing.Color.White
-        Me.Label14.Location = New System.Drawing.Point(9, 69)
+        Me.Label14.Location = New System.Drawing.Point(199, 40)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(69, 15)
         Me.Label14.TabIndex = 26
@@ -861,7 +897,7 @@ Partial Class frmEdit
         '
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(9, 127)
+        Me.Label4.Location = New System.Drawing.Point(9, 97)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(34, 15)
         Me.Label4.TabIndex = 12
@@ -870,12 +906,12 @@ Partial Class frmEdit
         'cmbCar2
         '
         Me.cmbCar2.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.cmbCar2.Location = New System.Drawing.Point(87, 125)
+        Me.cmbCar2.Location = New System.Drawing.Point(87, 95)
         Me.cmbCar2.MaxLength = 32767
         Me.cmbCar2.Multiline = False
         Me.cmbCar2.Name = "cmbCar2"
         Me.cmbCar2.ReadOnly = True
-        Me.cmbCar2.Size = New System.Drawing.Size(333, 24)
+        Me.cmbCar2.Size = New System.Drawing.Size(394, 24)
         Me.cmbCar2.TabIndex = 26
         Me.cmbCar2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.cmbCar2.UseSystemPasswordChar = False
@@ -884,7 +920,7 @@ Partial Class frmEdit
         '
         Me.Label3.AutoSize = True
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(9, 98)
+        Me.Label3.Location = New System.Drawing.Point(9, 68)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 15)
         Me.Label3.TabIndex = 10
@@ -893,12 +929,12 @@ Partial Class frmEdit
         'txtMileage
         '
         Me.txtMileage.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtMileage.Location = New System.Drawing.Point(314, 66)
+        Me.txtMileage.Location = New System.Drawing.Point(441, 36)
         Me.txtMileage.MaxLength = 9
         Me.txtMileage.Multiline = False
         Me.txtMileage.Name = "txtMileage"
         Me.txtMileage.ReadOnly = False
-        Me.txtMileage.Size = New System.Drawing.Size(166, 24)
+        Me.txtMileage.Size = New System.Drawing.Size(100, 24)
         Me.txtMileage.TabIndex = 23
         Me.txtMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtMileage.UseSystemPasswordChar = False
@@ -906,12 +942,12 @@ Partial Class frmEdit
         'cmbCar1
         '
         Me.cmbCar1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.cmbCar1.Location = New System.Drawing.Point(87, 96)
+        Me.cmbCar1.Location = New System.Drawing.Point(87, 66)
         Me.cmbCar1.MaxLength = 32767
         Me.cmbCar1.Multiline = False
         Me.cmbCar1.Name = "cmbCar1"
         Me.cmbCar1.ReadOnly = True
-        Me.cmbCar1.Size = New System.Drawing.Size(333, 24)
+        Me.cmbCar1.Size = New System.Drawing.Size(394, 24)
         Me.cmbCar1.TabIndex = 24
         Me.cmbCar1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.cmbCar1.UseSystemPasswordChar = False
@@ -920,7 +956,7 @@ Partial Class frmEdit
         '
         Me.Label13.AutoSize = True
         Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(259, 69)
+        Me.Label13.Location = New System.Drawing.Point(386, 39)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(49, 15)
         Me.Label13.TabIndex = 24
@@ -929,7 +965,7 @@ Partial Class frmEdit
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(925, 667)
+        Me.btnSave.Location = New System.Drawing.Point(985, 667)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
         Me.btnSave.TabIndex = 71
@@ -1248,6 +1284,19 @@ Partial Class frmEdit
         Me.Avatar1.TabIndex = 75
         Me.Avatar1.TabStop = False
         '
+        'slblPreview
+        '
+        Me.slblPreview.AutoSize = True
+        Me.slblPreview.BackColor = System.Drawing.Color.Transparent
+        Me.slblPreview.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.slblPreview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblPreview.Location = New System.Drawing.Point(0, 0)
+        Me.slblPreview.Name = "slblPreview"
+        Me.slblPreview.P = Me.Avatar1
+        Me.slblPreview.Size = New System.Drawing.Size(56, 19)
+        Me.slblPreview.TabIndex = 34
+        Me.slblPreview.Text = "Preview"
+        '
         'pbFrame
         '
         Me.pbFrame.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
@@ -1423,7 +1472,7 @@ Partial Class frmEdit
         '
         Me.NsControlButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NsControlButton1.ControlButton = InitialDLauncher.NSControlButton.Button.Close
-        Me.NsControlButton1.Location = New System.Drawing.Point(987, 3)
+        Me.NsControlButton1.Location = New System.Drawing.Point(1047, 3)
         Me.NsControlButton1.Margin = New System.Windows.Forms.Padding(0)
         Me.NsControlButton1.MaximumSize = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.MinimumSize = New System.Drawing.Size(18, 20)
@@ -1432,24 +1481,15 @@ Partial Class frmEdit
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
         '
-        'slblPreview
+        'Timer2
         '
-        Me.slblPreview.AutoSize = True
-        Me.slblPreview.BackColor = System.Drawing.Color.Transparent
-        Me.slblPreview.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.slblPreview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
-        Me.slblPreview.Location = New System.Drawing.Point(0, 0)
-        Me.slblPreview.Name = "slblPreview"
-        Me.slblPreview.P = Me.Avatar1
-        Me.slblPreview.Size = New System.Drawing.Size(56, 19)
-        Me.slblPreview.TabIndex = 34
-        Me.slblPreview.Text = "Preview"
+        Me.Timer2.Interval = 50
         '
         'frmEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1010, 702)
+        Me.ClientSize = New System.Drawing.Size(1070, 702)
         Me.Controls.Add(Me.lblAvatarOffset)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -1468,9 +1508,12 @@ Partial Class frmEdit
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.NsGroupBox3.ResumeLayout(False)
+        CType(Me.pbEffect2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NsGroupBox1.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.NsGroupBox2.ResumeLayout(False)
         CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
@@ -1594,7 +1637,6 @@ Partial Class frmEdit
     Friend WithEvents Label24 As Label
     Friend WithEvents txtInfRank As NSTextBox
     Friend WithEvents Label25 As Label
-    Friend WithEvents btnTachometer As NSButton
     Friend WithEvents cmbTachometer As NSComboBox
     Friend WithEvents Label26 As Label
     Friend WithEvents pbEffect As PictureBox
@@ -1614,4 +1656,8 @@ Partial Class frmEdit
     Friend WithEvents slblMouth As SpecialLabel
     Friend WithEvents slblEyes As SpecialLabel
     Friend WithEvents slblPreview As SpecialLabel
+    Friend WithEvents NsGroupBox2 As NSGroupBox
+    Friend WithEvents NsGroupBox3 As NSGroupBox
+    Friend WithEvents pbEffect2 As PictureBox
+    Friend WithEvents Timer2 As Timer
 End Class

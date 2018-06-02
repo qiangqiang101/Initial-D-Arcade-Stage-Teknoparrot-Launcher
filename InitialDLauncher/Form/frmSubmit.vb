@@ -83,13 +83,13 @@ Public Class frmSubmit
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         Try
             If lblName.Text = Nothing Then
-                MsgBox(no_name, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_name, MsgBoxStyle.Critical, "Error")
             ElseIf cmbCar.SelectedItem = Nothing Then
-                MsgBox(no_car, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_car, MsgBoxStyle.Critical, "Error")
             ElseIf IsMeBanned() Then
-                MsgBox(u_r_banned, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(u_r_banned, MsgBoxStyle.Critical, "Error")
             ElseIf DoesRecordExists(_score, _track, _coursetype, _weather, _version) Then
-                MsgBox(record_exist, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(record_exist, MsgBoxStyle.Critical, "Error")
             Else
                 AddScore(String.Format("[{0}]{1}", GetCountryCode(), lblName.Text), _score, cmbCar.SelectedItem.ToString, _weather, _track, _coursetype, _version)
                 Me.Close()

@@ -124,7 +124,7 @@ Public Class Card
                 SetHex(_filename, &HC, HexStringToBinary("00"))
                 SetHex(_filename, &HD, HexStringToBinary("00"))
                 SetHex(_filename, &HE, HexStringToBinary("00"))
-                MsgBox(error_5108_fixed, MsgBoxStyle.Information, "5108")
+                NSMessageBox.ShowOk(error_5108_fixed, MsgBoxStyle.Information, "5108")
             Case "RENAME"
                 rt = RenameType.RenameFile
                 GroupBox1.Show()
@@ -158,7 +158,7 @@ Public Class Card
             frmCard.RefreshID6Cards()
             frmCard.RefreshID7Cards()
         Else
-            MsgBox(String.Format(file_already_exist, fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(String.Format(file_already_exist, fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
         End If
     End Sub
 

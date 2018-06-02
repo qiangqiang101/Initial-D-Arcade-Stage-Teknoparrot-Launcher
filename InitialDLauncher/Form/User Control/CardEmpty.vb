@@ -37,7 +37,7 @@ Public Class CardEmpty
                             frmCard.RefreshID7Cards()
                             frmCard.RefreshID8Cards()
                         Else
-                            MsgBox(String.Format(not_valid_card, _cardVersion), MsgBoxStyle.Critical, "Error")
+                            NSMessageBox.ShowOk(String.Format(not_valid_card, _cardVersion), MsgBoxStyle.Critical, "Error")
                         End If
                     Case "bin"
                         If GetCardVersion(GetHex(fileName, &H50, 2)) = _cardVersion Then
@@ -47,7 +47,7 @@ Public Class CardEmpty
                             frmCard.RefreshID7Cards()
                             frmCard.RefreshID8Cards()
                         Else
-                            MsgBox(String.Format(not_valid_card, _cardVersion), MsgBoxStyle.Critical, "Error")
+                            NSMessageBox.ShowOk(String.Format(not_valid_card, _cardVersion), MsgBoxStyle.Critical, "Error")
                         End If
                 End Select
             End If

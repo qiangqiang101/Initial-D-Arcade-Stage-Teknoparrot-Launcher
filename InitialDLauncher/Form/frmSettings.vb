@@ -38,19 +38,19 @@ Public Class frmSettings
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             If txt6.Text.Contains(".exe") Then
-                MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_exe, MsgBoxStyle.Critical, "Error")
                 txt6.Focus()
             ElseIf txt7.Text.Contains(".exe") Then
-                MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_exe, MsgBoxStyle.Critical, "Error")
                 txt7.Focus()
                 'ElseIf txtPlayerName.Text = Nothing Then
-                '    MsgBox(no_name, MsgBoxStyle.Critical, "Error")
+                '    NSMessageBox.ShowOk(no_name, MsgBoxStyle.Critical, "Error")
                 '    txtPlayerName.Focus()
             ElseIf txt8.Text.Contains(".exe") Then
-                MsgBox(no_exe, MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk(no_exe, MsgBoxStyle.Critical, "Error")
                 txt8.Focus()
             ElseIf cmbLang.SelectedItem = Nothing Then
-                MsgBox("Please select language!", MsgBoxStyle.Critical, "Error")
+                NSMessageBox.ShowOk("Please select language!", MsgBoxStyle.Critical, "Error")
             Else
                 If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
 
