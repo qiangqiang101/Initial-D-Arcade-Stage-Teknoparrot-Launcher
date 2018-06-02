@@ -95,7 +95,7 @@ Public Class Card
                     End If
             End Select
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -109,7 +109,7 @@ Public Class Card
         Select Case cmbOptions.SelectedValue.ToString
             Case "EDIT"
                 If Not My.Settings.Warned Then
-                    Dim result As Integer = MessageBox.Show(rules, "Initial D Launcher", MessageBoxButtons.YesNo)
+                    Dim result As Integer = NSMessageBox.ShowYesNo(rules, Text)
                     If result = DialogResult.No Then
                         Exit Sub
                     ElseIf result = DialogResult.Yes Then
@@ -143,7 +143,7 @@ Public Class Card
                         ta.Show()
                     End If
                 Catch ex As Exception
-                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+                    NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
                     Logger.Log(ex.Message & ex.StackTrace)
                 End Try
         End Select
@@ -175,7 +175,7 @@ Public Class Card
             fe.Extension = _extension
             fe.Show()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -184,6 +184,7 @@ Public Class Card
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             'ReadCfgValue("", langFile)
+            Text = ReadCfgValue("LauncherTitle", langFile)
             error_5108_fixed = ReadCfgValue("E5108Fixed", langFile)
             opt_fix5108 = ReadCfgValue("OptFix5108", langFile)
             opt_edit = ReadCfgValue("OptEdit", langFile)
@@ -200,7 +201,7 @@ Public Class Card
             file_already_exist = ReadCfgValue("FileAlreadyExist", langFile)
             rules = ReadCfgValue("Rules", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

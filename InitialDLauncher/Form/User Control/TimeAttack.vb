@@ -92,7 +92,7 @@
             cs.cmbCar.SelectedIndex = 0
             cs.Show()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -181,7 +181,7 @@
             id7 = ReadCfgValue("EditTab7", langFile)
             id8 = ReadCfgValue("EditTab8", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

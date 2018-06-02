@@ -29,7 +29,7 @@ English - I'm Not MentaL, <br />
 Bahasa Malaysia - Kurisuchan, <br />
 Deutsche - Soul, <br />
 Español - Gixer, <br />
-French - nucleaireland<br />
+Français - nucleaireland<br />
 
 <h2>Community contributors</h2>
 BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset,<br />
@@ -47,7 +47,7 @@ I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
 <h2>Thanks to</h2>
 (alphabetically)<br />
-Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), Chanchai Boonsiri, Christine Guillory, Chris Wong, Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, John Yang, Juiced Box Computers, Kenny, Kira Manell, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Timo Düsterhöft, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
+Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), Chanchai Boonsiri, Christine Guillory, Chris Wong, Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juan, Juiced Box Computers, Kenny, Kira Manell, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Timo Düsterhöft, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
 <br />
 <h2>Special Thanks to</h2>
 Reaver, Keb, Avail, NTAuthority<br />
@@ -85,7 +85,7 @@ SEGA</center>"
             lvPlugins.Columns(1).Text = ReadCfgValue("VersionText", langFile)
             lvPlugins.Columns(2).Text = ReadCfgValue("Author", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

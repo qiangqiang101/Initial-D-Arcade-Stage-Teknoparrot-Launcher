@@ -1,6 +1,7 @@
 ﻿Imports PluginContract
 Imports InitialDLauncher
 Imports System.IO
+Imports System.Windows.Forms
 
 Public Class BGMPlugin
     Implements iPlugin
@@ -53,7 +54,7 @@ Public Class BGMPlugin
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

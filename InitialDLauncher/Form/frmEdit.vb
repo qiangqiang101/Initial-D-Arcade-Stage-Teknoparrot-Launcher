@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Drawing.Drawing2D
+Imports System.IO
 Imports Thumbs
 Imports Thumbs2
 
@@ -108,7 +109,7 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -147,7 +148,7 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -186,7 +187,7 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -304,7 +305,7 @@ Public Class frmEdit
             lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
             If _version = 8 Then Avatar1.RefreshImage()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -372,27 +373,6 @@ Public Class frmEdit
                 Else
                     SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
                 End If
-                'If txtName.Text.Length <= 5 Then
-                '    Dim amount As Integer = 6 - txtName.Text.Length
-                '    Dim newName As Char = Nothing
-                '    Select Case amount
-                '        Case 1
-                '            newName = Chr(0)
-                '        Case 2
-                '            newName = Chr(0) & Chr(0)
-                '        Case 3
-                '            newName = Chr(0) & Chr(0) & Chr(0)
-                '        Case 4
-                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                '        Case 5
-                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                '        Case 6
-                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                '    End Select
-                '    SetHex(_filename, CLng("&HF0"), SetName(txtName.Text & newName))
-                'Else
-                '    SetHex(_filename, CLng("&HF0"), SetName(txtName.Text))
-                'End If
 
                 If cmbGender.SelectedIndex = 1 Then
                     SetHex(_filename, CLng("&H5A"), HexStringToBinary("01"))
@@ -404,7 +384,7 @@ Public Class frmEdit
                     SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
                     SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
                     Select Case True
-                        Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "00"
+                        Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "0000"
                             MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
                             Exit Sub
                     End Select
@@ -581,27 +561,6 @@ Public Class frmEdit
                 Else
                     SetHex(_filename, Neg3C("&HF0"), SetName(txtName.Text))
                 End If
-                'If txtName.Text.Length <= 5 Then
-                '    Dim amount As Integer = 6 - txtName.Text.Length
-                '    Dim newName As Char = Nothing
-                '    Select Case amount
-                '        Case 1
-                '            newName = Chr(0)
-                '        Case 2
-                '            newName = Chr(0) & Chr(0)
-                '        Case 3
-                '            newName = Chr(0) & Chr(0) & Chr(0)
-                '        Case 4
-                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                '        Case 5
-                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                '        Case 6
-                '            newName = Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0) & Chr(0)
-                '    End Select
-                '    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text & newName))
-                'Else
-                '    SetHex(_filename, Neg3C(&HF0), SetName(txtName.Text))
-                'End If
 
                 If cmbGender.SelectedIndex = 1 Then
                     SetHex(_filename, Neg3C(&H5A), HexStringToBinary("01"))
@@ -613,7 +572,7 @@ Public Class frmEdit
                     SetHex(_filename, Neg3C(&HC4), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
                     SetHex(_filename, Neg3C(&H221), HexStringToBinary(_221)) 'Frame
                     Select Case True
-                        Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "00"
+                        Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "0000"
                             MsgBox(must_select_avatar, MsgBoxStyle.Critical, "Error")
                             Exit Sub
                     End Select
@@ -684,7 +643,7 @@ Public Class frmEdit
                             SetHex(_filename, &HE4, HexStringToBinary(car1.Rollbar))
                         End If
                     End If
-                    End If
+                End If
                 If car2.Edited Then
                     If Not car2.ReplaceTo = "" Then SetHex(_filename, Neg3C(&H160), HexStringToBinary(SetCar(car2.ReplaceTo)))
                     SetHex(_filename, &H126, HexStringToBinary(car2.CarColor))
@@ -750,7 +709,7 @@ Public Class frmEdit
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -1065,7 +1024,7 @@ Public Class frmEdit
 
             Translate2()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -1104,15 +1063,16 @@ Public Class frmEdit
             shades_t = ReadCfgValue("Specs", langFile)
             hair_t = ReadCfgValue("Hair", langFile)
             shirt_t = ReadCfgValue("Shirt", langFile)
-            'gbMouth.Title = mouth_t
-            'gbEyes.Title = eyes_t
-            'gbSkin.Title = face_skin_t
-            'gbAccessories.Title = accessories_t
-            'gbSpec.Title = shades_t
-            'gbHair.Title = hair_t
-            'gbShirt.Title = shirt_t
+            slblMouth.Text = mouth_t
+            slblEyes.Text = eyes_t
+            slblSkin.Text = face_skin_t
+            slblAccessories.Text = accessories_t
+            slblShades.Text = shades_t
+            slblHair.Text = hair_t
+            slblShirt.Text = shirt_t
             frame_t = ReadCfgValue("Frame", langFile)
-            'gbFrame.Title = frame_t
+            slblFrame.Text = frame_t
+            slblPreview.Text = ReadCfgValue("Preview", langFile)
             male = ReadCfgValue("Male", langFile)
             female = ReadCfgValue("Female", langFile)
             btnSet.Text = ReadCfgValue("Apply", langFile)
@@ -1153,7 +1113,7 @@ Public Class frmEdit
             Label28.Text = ReadCfgValue("Cup", langFile)
             cbUnlockExSpec.Text = ReadCfgValue("ExFullAllCar", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -1165,7 +1125,7 @@ Public Class frmEdit
             If cmbCar2.Text = "" Then btnEditCar2.Text = ReadCfgValue("ImportBtn", langFile)
             If cmbCar3.Text = "" Then btnEditCar3.Text = ReadCfgValue("ImportBtn", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -1178,7 +1138,7 @@ Public Class frmEdit
             End If
             e.Handled = True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -1230,7 +1190,7 @@ Public Class frmEdit
                 End Select
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -1241,7 +1201,7 @@ Public Class frmEdit
                 pbPreview.BackgroundImage = cmbAvatar.SelectedValue
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

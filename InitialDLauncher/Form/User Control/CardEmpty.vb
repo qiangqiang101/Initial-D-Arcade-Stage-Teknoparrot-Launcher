@@ -52,7 +52,7 @@ Public Class CardEmpty
                 End Select
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -115,7 +115,7 @@ Public Class CardEmpty
             frmCard.RefreshID7Cards()
             frmCard.RefreshID8Cards()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -129,7 +129,7 @@ Public Class CardEmpty
             btnScan.Text = ReadCfgValue("Scan", langFile)
             not_valid_card = ReadCfgValue("NotValidCard", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

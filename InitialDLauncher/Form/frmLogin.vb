@@ -47,7 +47,7 @@ Public Class frmLogin
                 Me.Close()
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -69,7 +69,7 @@ Public Class frmLogin
             no_password = ReadCfgValue("NoPassword", langFile)
             welcome_user = ReadCfgValue("WelcomeUser", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

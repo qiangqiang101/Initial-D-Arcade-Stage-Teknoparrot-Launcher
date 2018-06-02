@@ -107,20 +107,29 @@ Partial Class frmEdit
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lblc5c6 = New System.Windows.Forms.Label()
         Me.pbHair = New System.Windows.Forms.PictureBox()
+        Me.slblHair = New InitialDLauncher.SpecialLabel()
         Me.cmbAvatar = New InitialDLauncher.NSComboBox()
         Me.btnSet = New InitialDLauncher.NSButton()
         Me.pbAccessories = New System.Windows.Forms.PictureBox()
+        Me.slblAccessories = New InitialDLauncher.SpecialLabel()
         Me.Avatar1 = New InitialDLauncher.Avatar()
         Me.pbFrame = New System.Windows.Forms.PictureBox()
+        Me.slblFrame = New InitialDLauncher.SpecialLabel()
         Me.lblcbcc = New System.Windows.Forms.Label()
         Me.pbSkin = New System.Windows.Forms.PictureBox()
+        Me.slblSkin = New InitialDLauncher.SpecialLabel()
         Me.pbShades = New System.Windows.Forms.PictureBox()
+        Me.slblShades = New InitialDLauncher.SpecialLabel()
         Me.pbShirt = New System.Windows.Forms.PictureBox()
+        Me.slblShirt = New InitialDLauncher.SpecialLabel()
         Me.lblc8c9 = New System.Windows.Forms.Label()
         Me.pbMouth = New System.Windows.Forms.PictureBox()
+        Me.slblMouth = New InitialDLauncher.SpecialLabel()
         Me.lblc7c8 = New System.Windows.Forms.Label()
         Me.pbEyes = New System.Windows.Forms.PictureBox()
+        Me.slblEyes = New InitialDLauncher.SpecialLabel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.slblPreview = New InitialDLauncher.SpecialLabel()
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
@@ -133,14 +142,23 @@ Partial Class frmEdit
         Me.GroupBox4.SuspendLayout()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbHair, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbHair.SuspendLayout()
         CType(Me.pbAccessories, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbAccessories.SuspendLayout()
         CType(Me.Avatar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Avatar1.SuspendLayout()
         CType(Me.pbFrame, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbFrame.SuspendLayout()
         CType(Me.pbSkin, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbSkin.SuspendLayout()
         CType(Me.pbShades, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbShades.SuspendLayout()
         CType(Me.pbShirt, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbShirt.SuspendLayout()
         CType(Me.pbMouth, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbMouth.SuspendLayout()
         CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbEyes.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblAvatarOffset
@@ -556,7 +574,7 @@ Partial Class frmEdit
         Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(187, 9)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(57, 15)
+        Me.Label11.Size = New System.Drawing.Size(56, 15)
         Me.Label11.TabIndex = 24
         Me.Label11.Text = "Tag Pride"
         '
@@ -697,7 +715,7 @@ Partial Class frmEdit
         Me.Label26.ForeColor = System.Drawing.Color.White
         Me.Label26.Location = New System.Drawing.Point(6, 42)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(71, 15)
+        Me.Label26.Size = New System.Drawing.Size(70, 15)
         Me.Label26.TabIndex = 65
         Me.Label26.Text = "Tachometer"
         '
@@ -1150,11 +1168,24 @@ Partial Class frmEdit
         '
         Me.pbHair.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbHair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbHair.Controls.Add(Me.slblHair)
         Me.pbHair.Location = New System.Drawing.Point(248, 399)
         Me.pbHair.Name = "pbHair"
         Me.pbHair.Size = New System.Drawing.Size(115, 115)
         Me.pbHair.TabIndex = 30
         Me.pbHair.TabStop = False
+        '
+        'slblHair
+        '
+        Me.slblHair.AutoSize = True
+        Me.slblHair.BackColor = System.Drawing.Color.Transparent
+        Me.slblHair.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblHair.Location = New System.Drawing.Point(0, 0)
+        Me.slblHair.Name = "slblHair"
+        Me.slblHair.P = Me.pbHair
+        Me.slblHair.Size = New System.Drawing.Size(29, 15)
+        Me.slblHair.TabIndex = 34
+        Me.slblHair.Text = "Hair"
         '
         'cmbAvatar
         '
@@ -1180,17 +1211,31 @@ Partial Class frmEdit
         '
         Me.pbAccessories.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbAccessories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbAccessories.Controls.Add(Me.slblAccessories)
         Me.pbAccessories.Location = New System.Drawing.Point(6, 399)
         Me.pbAccessories.Name = "pbAccessories"
         Me.pbAccessories.Size = New System.Drawing.Size(115, 115)
         Me.pbAccessories.TabIndex = 30
         Me.pbAccessories.TabStop = False
         '
+        'slblAccessories
+        '
+        Me.slblAccessories.AutoSize = True
+        Me.slblAccessories.BackColor = System.Drawing.Color.Transparent
+        Me.slblAccessories.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblAccessories.Location = New System.Drawing.Point(0, 0)
+        Me.slblAccessories.Name = "slblAccessories"
+        Me.slblAccessories.P = Me.pbAccessories
+        Me.slblAccessories.Size = New System.Drawing.Size(68, 15)
+        Me.slblAccessories.TabIndex = 34
+        Me.slblAccessories.Text = "Accessories"
+        '
         'Avatar1
         '
         Me.Avatar1.Accessory = Nothing
         Me.Avatar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Avatar1.Coat = Nothing
+        Me.Avatar1.Controls.Add(Me.slblPreview)
         Me.Avatar1.Eyes = Nothing
         Me.Avatar1.Face = Nothing
         Me.Avatar1.Frame = Nothing
@@ -1207,11 +1252,24 @@ Partial Class frmEdit
         '
         Me.pbFrame.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbFrame.Controls.Add(Me.slblFrame)
         Me.pbFrame.Location = New System.Drawing.Point(369, 399)
         Me.pbFrame.Name = "pbFrame"
         Me.pbFrame.Size = New System.Drawing.Size(115, 115)
         Me.pbFrame.TabIndex = 30
         Me.pbFrame.TabStop = False
+        '
+        'slblFrame
+        '
+        Me.slblFrame.AutoSize = True
+        Me.slblFrame.BackColor = System.Drawing.Color.Transparent
+        Me.slblFrame.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblFrame.Location = New System.Drawing.Point(0, 0)
+        Me.slblFrame.Name = "slblFrame"
+        Me.slblFrame.P = Me.pbFrame
+        Me.slblFrame.Size = New System.Drawing.Size(40, 15)
+        Me.slblFrame.TabIndex = 34
+        Me.slblFrame.Text = "Frame"
         '
         'lblcbcc
         '
@@ -1228,31 +1286,70 @@ Partial Class frmEdit
         '
         Me.pbSkin.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbSkin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbSkin.Controls.Add(Me.slblSkin)
         Me.pbSkin.Location = New System.Drawing.Point(248, 157)
         Me.pbSkin.Name = "pbSkin"
         Me.pbSkin.Size = New System.Drawing.Size(115, 115)
         Me.pbSkin.TabIndex = 30
         Me.pbSkin.TabStop = False
         '
+        'slblSkin
+        '
+        Me.slblSkin.AutoSize = True
+        Me.slblSkin.BackColor = System.Drawing.Color.Transparent
+        Me.slblSkin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblSkin.Location = New System.Drawing.Point(0, 0)
+        Me.slblSkin.Name = "slblSkin"
+        Me.slblSkin.P = Me.pbSkin
+        Me.slblSkin.Size = New System.Drawing.Size(29, 15)
+        Me.slblSkin.TabIndex = 34
+        Me.slblSkin.Text = "Skin"
+        '
         'pbShades
         '
         Me.pbShades.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbShades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbShades.Controls.Add(Me.slblShades)
         Me.pbShades.Location = New System.Drawing.Point(127, 399)
         Me.pbShades.Name = "pbShades"
         Me.pbShades.Size = New System.Drawing.Size(115, 115)
         Me.pbShades.TabIndex = 30
         Me.pbShades.TabStop = False
         '
+        'slblShades
+        '
+        Me.slblShades.AutoSize = True
+        Me.slblShades.BackColor = System.Drawing.Color.Transparent
+        Me.slblShades.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblShades.Location = New System.Drawing.Point(0, 0)
+        Me.slblShades.Name = "slblShades"
+        Me.slblShades.P = Me.pbShades
+        Me.slblShades.Size = New System.Drawing.Size(44, 15)
+        Me.slblShades.TabIndex = 34
+        Me.slblShades.Text = "Shades"
+        '
         'pbShirt
         '
         Me.pbShirt.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbShirt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbShirt.Controls.Add(Me.slblShirt)
         Me.pbShirt.Location = New System.Drawing.Point(369, 157)
         Me.pbShirt.Name = "pbShirt"
         Me.pbShirt.Size = New System.Drawing.Size(115, 115)
         Me.pbShirt.TabIndex = 30
         Me.pbShirt.TabStop = False
+        '
+        'slblShirt
+        '
+        Me.slblShirt.AutoSize = True
+        Me.slblShirt.BackColor = System.Drawing.Color.Transparent
+        Me.slblShirt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblShirt.Location = New System.Drawing.Point(0, 0)
+        Me.slblShirt.Name = "slblShirt"
+        Me.slblShirt.P = Me.pbShirt
+        Me.slblShirt.Size = New System.Drawing.Size(31, 15)
+        Me.slblShirt.TabIndex = 34
+        Me.slblShirt.Text = "Shirt"
         '
         'lblc8c9
         '
@@ -1269,11 +1366,24 @@ Partial Class frmEdit
         '
         Me.pbMouth.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbMouth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbMouth.Controls.Add(Me.slblMouth)
         Me.pbMouth.Location = New System.Drawing.Point(369, 278)
         Me.pbMouth.Name = "pbMouth"
         Me.pbMouth.Size = New System.Drawing.Size(115, 115)
         Me.pbMouth.TabIndex = 30
         Me.pbMouth.TabStop = False
+        '
+        'slblMouth
+        '
+        Me.slblMouth.AutoSize = True
+        Me.slblMouth.BackColor = System.Drawing.Color.Transparent
+        Me.slblMouth.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblMouth.Location = New System.Drawing.Point(0, 0)
+        Me.slblMouth.Name = "slblMouth"
+        Me.slblMouth.P = Me.pbMouth
+        Me.slblMouth.Size = New System.Drawing.Size(43, 15)
+        Me.slblMouth.TabIndex = 34
+        Me.slblMouth.Text = "Mouth"
         '
         'lblc7c8
         '
@@ -1290,11 +1400,24 @@ Partial Class frmEdit
         '
         Me.pbEyes.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
         Me.pbEyes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbEyes.Controls.Add(Me.slblEyes)
         Me.pbEyes.Location = New System.Drawing.Point(248, 278)
         Me.pbEyes.Name = "pbEyes"
         Me.pbEyes.Size = New System.Drawing.Size(115, 115)
         Me.pbEyes.TabIndex = 30
         Me.pbEyes.TabStop = False
+        '
+        'slblEyes
+        '
+        Me.slblEyes.AutoSize = True
+        Me.slblEyes.BackColor = System.Drawing.Color.Transparent
+        Me.slblEyes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblEyes.Location = New System.Drawing.Point(0, 0)
+        Me.slblEyes.Name = "slblEyes"
+        Me.slblEyes.P = Me.pbEyes
+        Me.slblEyes.Size = New System.Drawing.Size(30, 15)
+        Me.slblEyes.TabIndex = 34
+        Me.slblEyes.Text = "Eyes"
         '
         'NsControlButton1
         '
@@ -1308,6 +1431,19 @@ Partial Class frmEdit
         Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
+        '
+        'slblPreview
+        '
+        Me.slblPreview.AutoSize = True
+        Me.slblPreview.BackColor = System.Drawing.Color.Transparent
+        Me.slblPreview.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.slblPreview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblPreview.Location = New System.Drawing.Point(0, 0)
+        Me.slblPreview.Name = "slblPreview"
+        Me.slblPreview.P = Me.Avatar1
+        Me.slblPreview.Size = New System.Drawing.Size(56, 19)
+        Me.slblPreview.TabIndex = 34
+        Me.slblPreview.Text = "Preview"
         '
         'frmEdit
         '
@@ -1342,14 +1478,32 @@ Partial Class frmEdit
         Me.GroupBox4.PerformLayout()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbHair, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbHair.ResumeLayout(False)
+        Me.pbHair.PerformLayout()
         CType(Me.pbAccessories, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbAccessories.ResumeLayout(False)
+        Me.pbAccessories.PerformLayout()
         CType(Me.Avatar1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Avatar1.ResumeLayout(False)
+        Me.Avatar1.PerformLayout()
         CType(Me.pbFrame, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbFrame.ResumeLayout(False)
+        Me.pbFrame.PerformLayout()
         CType(Me.pbSkin, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbSkin.ResumeLayout(False)
+        Me.pbSkin.PerformLayout()
         CType(Me.pbShades, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbShades.ResumeLayout(False)
+        Me.pbShades.PerformLayout()
         CType(Me.pbShirt, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbShirt.ResumeLayout(False)
+        Me.pbShirt.PerformLayout()
         CType(Me.pbMouth, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbMouth.ResumeLayout(False)
+        Me.pbMouth.PerformLayout()
         CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbEyes.ResumeLayout(False)
+        Me.pbEyes.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1451,4 +1605,13 @@ Partial Class frmEdit
     Friend WithEvents Label28 As Label
     Friend WithEvents Avatar1 As Avatar
     Friend WithEvents cbUnlockExSpec As NSCheckBox
+    Friend WithEvents slblSkin As SpecialLabel
+    Friend WithEvents slblShirt As SpecialLabel
+    Friend WithEvents slblHair As SpecialLabel
+    Friend WithEvents slblAccessories As SpecialLabel
+    Friend WithEvents slblFrame As SpecialLabel
+    Friend WithEvents slblShades As SpecialLabel
+    Friend WithEvents slblMouth As SpecialLabel
+    Friend WithEvents slblEyes As SpecialLabel
+    Friend WithEvents slblPreview As SpecialLabel
 End Class

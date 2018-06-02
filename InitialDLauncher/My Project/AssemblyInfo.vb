@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("InitialD Launcher")>
+<Assembly: AssemblyTitle("InitialD Arcade Stage Launcher")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Zettabyte Technology")>
-<Assembly: AssemblyProduct("InitialD Launcher")>
-<Assembly: AssemblyCopyright("Copyright © 2017-2018 InitialD Launcher")>
+<Assembly: AssemblyProduct("InitialD Arcade Stage Launcher")>
+<Assembly: AssemblyCopyright("Copyright © 2017-2018 Zettabyte Technology")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.10.526.1")>
-<Assembly: AssemblyFileVersion("2.10.526.1")>
+<Assembly: AssemblyVersion("2.10.602.2")>
+<Assembly: AssemblyFileVersion("2.10.602.2")>

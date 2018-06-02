@@ -5140,3 +5140,234 @@ Class NSListView
     End Sub
 
 End Class
+
+Class NSMessageBox
+
+    Public Shared Function ShowYesNo(text As String, caption As String) As DialogResult
+        Try
+            Dim F As Form = CreateDialog(text, caption)
+
+            Dim B1 As New NSButton
+            Dim B2 As New NSButton
+
+            Dim S As New Size(90, 25)
+            B1.Size = S
+            B2.Size = S
+
+            B2.Location = New Point(284, 119)
+            B1.Location = New Point(188, 119)
+
+            B1.Text = "Yes"
+            B2.Text = "No"
+
+            B1.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+            B2.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+
+            B1.Anchor = AnchorStyles.Bottom
+            B2.Anchor = AnchorStyles.Bottom
+
+            AddHandler B1.Click, Sub() F.DialogResult = DialogResult.Yes
+            AddHandler B2.Click, Sub() F.DialogResult = DialogResult.No
+
+            F.Controls(0).Controls.Add(B1)
+            F.Controls(0).Controls.Add(B2)
+
+            Return F.ShowDialog()
+        Catch ex As Exception
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Function
+
+    Public Shared Function ShowYesNo(text As String, icon As MessageBoxIcon, caption As String) As DialogResult
+        Try
+            Dim F As Form
+
+            Dim I As Bitmap = Nothing
+            Select Case icon
+                Case MessageBoxIcon.Asterisk
+                    I = SystemIcons.Asterisk.ToBitmap()
+                Case MessageBoxIcon.Error, MessageBoxIcon.Stop
+                    I = SystemIcons.Error.ToBitmap()
+                Case MessageBoxIcon.Exclamation
+                    I = SystemIcons.Exclamation.ToBitmap()
+                Case MessageBoxIcon.Hand
+                    I = SystemIcons.Hand.ToBitmap()
+                Case MessageBoxIcon.Information
+                    I = SystemIcons.Information.ToBitmap()
+                Case MessageBoxIcon.Question
+                    I = SystemIcons.Question.ToBitmap()
+                Case MessageBoxIcon.Warning
+                    I = SystemIcons.Warning.ToBitmap()
+                Case MessageBoxIcon.None
+                    I = Nothing
+            End Select
+            Dim P As New PictureBox
+            P.Size = New Size(30, 30)
+            P.Location = New Point(12, 38)
+            P.Image = I
+            P.SizeMode = PictureBoxSizeMode.StretchImage
+            F = CreateDialog(text, caption, P.Size.Width + P.Location.X + 3, 38)
+            F.Controls(0).Controls.Add(P)
+
+            Dim B1 As New NSButton
+            Dim B2 As New NSButton
+
+            Dim S As New Size(90, 25)
+            B1.Size = S
+            B2.Size = S
+
+            B2.Location = New Point(284, 119)
+            B1.Location = New Point(188, 119)
+
+            B1.Text = "Yes"
+            B2.Text = "No"
+
+            B1.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+            B2.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+
+            B1.Anchor = AnchorStyles.Bottom
+            B2.Anchor = AnchorStyles.Bottom
+
+            AddHandler B1.Click, Sub() F.DialogResult = DialogResult.Yes
+            AddHandler B2.Click, Sub() F.DialogResult = DialogResult.No
+
+            F.Controls(0).Controls.Add(B1)
+            F.Controls(0).Controls.Add(B2)
+
+            Return F.ShowDialog()
+        Catch ex As Exception
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Function
+
+    Public Shared Function ShowOk(text As String, caption As String) As DialogResult
+        Try
+            Dim F As Form = CreateDialog(text, caption)
+
+            Dim B1 As New NSButton
+
+            Dim S As New Size(90, 25)
+            B1.Size = S
+
+            B1.Location = New Point(284, 119)
+
+            B1.Text = "Ok"
+
+            B1.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+
+            B1.Anchor = AnchorStyles.Bottom
+
+            AddHandler B1.Click, Sub() F.DialogResult = DialogResult.OK
+
+            F.Controls(0).Controls.Add(B1)
+
+            Return F.ShowDialog()
+        Catch ex As Exception
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Function
+
+    Public Shared Function ShowOk(text As String, icon As MessageBoxIcon, caption As String) As DialogResult
+        Try
+            Dim F As Form
+
+            Dim I As Bitmap = Nothing
+            Select Case icon
+                Case MessageBoxIcon.Asterisk
+                    I = SystemIcons.Asterisk.ToBitmap()
+                Case MessageBoxIcon.Error, MessageBoxIcon.Stop
+                    I = SystemIcons.Error.ToBitmap()
+                Case MessageBoxIcon.Exclamation
+                    I = SystemIcons.Exclamation.ToBitmap()
+                Case MessageBoxIcon.Hand
+                    I = SystemIcons.Hand.ToBitmap()
+                Case MessageBoxIcon.Information
+                    I = SystemIcons.Information.ToBitmap()
+                Case MessageBoxIcon.Question
+                    I = SystemIcons.Question.ToBitmap()
+                Case MessageBoxIcon.Warning
+                    I = SystemIcons.Warning.ToBitmap()
+                Case MessageBoxIcon.None
+                    I = Nothing
+            End Select
+            Dim P As New PictureBox
+            P.Size = New Size(30, 30)
+            P.Location = New Point(12, 38)
+            P.Image = I
+            P.SizeMode = PictureBoxSizeMode.StretchImage
+            F = CreateDialog(text, caption, P.Size.Width + P.Location.X + 3, 38)
+            F.Controls(0).Controls.Add(P)
+
+            Dim B1 As New NSButton
+
+            Dim S As New Size(90, 25)
+            B1.Size = S
+
+            B1.Location = New Point(284, 119)
+
+            B1.Text = "Ok"
+
+            B1.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+
+            B1.Anchor = AnchorStyles.Bottom
+
+            AddHandler B1.Click, Sub() F.DialogResult = DialogResult.OK
+
+            F.Controls(0).Controls.Add(B1)
+
+            Return F.ShowDialog()
+        Catch ex As Exception
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Function
+
+    Private Shared Function CreateDialog(text As String, caption As String, Optional p1 As Integer = 12, Optional p2 As Integer = 38) As Form
+        Dim F As New Form
+
+        Try
+            Dim MTheme1 As New NSTheme()
+            Dim MControlButton1 As New NSControlButton()
+            Dim Label1 As New System.Windows.Forms.Label()
+
+            MTheme1.Controls.Add(MControlButton1)
+            MTheme1.Controls.Add(Label1)
+            MTheme1.Sizable = False
+            MTheme1.Size = New System.Drawing.Size(386, 156)
+            MTheme1.Text = caption
+
+            MControlButton1.ControlButton = NSControlButton.Button.Close
+            MControlButton1.Location = New System.Drawing.Point(360, 4)
+
+            Label1.Text = text
+            Label1.ForeColor = System.Drawing.Color.White
+            Label1.Location = New System.Drawing.Point(p1, p2)
+            Label1.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+            Dim C As Integer = LineCount(Label1) * 8
+            Label1.Size = New System.Drawing.Size(312, C)
+            Label1.TextAlign = ContentAlignment.MiddleLeft
+
+            F.StartPosition = FormStartPosition.CenterParent
+            F.ClientSize = New System.Drawing.Size(386, Label1.Size.Height + 100)
+            F.Controls.Add(MTheme1)
+            F.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            F.Text = caption
+            F.Icon = My.Resources.ID7
+            F.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+            F.TopMost = True
+        Catch ex As Exception
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+
+        Return F
+    End Function
+
+    Private Shared Function LineCount(Label As Label) As Integer
+        Dim g As Graphics = Label.CreateGraphics
+
+        Dim LineHeight As Single = g.MeasureString("X", Label.Font).Height
+        Dim TotalHeight As Single = g.MeasureString(Label.Text, Label.Font, Label.Width).Height
+
+        Return CInt(Math.Round(TotalHeight / LineHeight))
+    End Function
+
+End Class

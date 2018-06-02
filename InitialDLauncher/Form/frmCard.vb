@@ -86,7 +86,7 @@ Public Class frmCard
                 itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -157,7 +157,7 @@ Public Class frmCard
                 itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -224,7 +224,7 @@ Public Class frmCard
                 itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -254,7 +254,7 @@ Public Class frmCard
             select_card = ReadCfgValue("Select", langFile)
             deselect_card = ReadCfgValue("Deselect", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

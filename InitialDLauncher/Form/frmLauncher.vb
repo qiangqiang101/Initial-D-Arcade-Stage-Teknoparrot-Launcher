@@ -13,8 +13,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 38
-    Public buildDate As String = "26/05/2018"
+    Dim curVer As Integer = 39
+    Public buildDate As String = "02/06/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -73,7 +73,7 @@ Public Class frmLauncher
             Next
             LauncherNormalLoad()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
             Exit Sub
         End Try
@@ -132,7 +132,7 @@ Public Class frmLauncher
                 End
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -211,7 +211,7 @@ Public Class frmLauncher
             Timer1.Start()
             'AutoCardMove()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
             Exit Sub
         End Try
@@ -238,8 +238,13 @@ Public Class frmLauncher
             My.Computer.Audio.Play(My.Resources.ResourceManager.GetObject("Play" & x), AudioPlayMode.Background)
 
             If Not IsCardFolderEmpty(CardDir) AndAlso CardPath = Nothing Then
-                Dim result As Integer = MessageBox.Show(no_card_selected, "Initial D Launcher", MessageBoxButtons.YesNo)
+                Dim result As DialogResult = NSMessageBox.ShowYesNo(no_card_selected, MessageBoxIcon.Exclamation, Text)
                 If result = DialogResult.No Then
+                    If My.Settings.VideoBackground Then
+                        Timer3.Start()
+                        Timer4.Start()
+                    End If
+                    isGameRunning = False
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
                     selPath = CardPath
@@ -268,8 +273,13 @@ Public Class frmLauncher
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
+            If My.Settings.VideoBackground Then
+                Timer3.Start()
+                Timer4.Start()
+            End If
+            isGameRunning = False
             Exit Sub
         End Try
     End Sub
@@ -359,7 +369,7 @@ Public Class frmLauncher
 
     Private Sub lblDebug_Click(sender As Object, e As EventArgs) Handles lblDebug.Click, lblDebug.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        MsgBox(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}ID8 AppData Path: {12}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}ID8 GameDir Path: {13}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}ID8 Card File Path: {14}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}ID8 Game Path: {15}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}ID8 Selected Card: {16}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID, id8AppData, id8GameDir, id8CardPath, My.Settings.Id8Path, My.Settings.Id8CardName))
+        NSMessageBox.ShowOk(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}ID8 AppData Path: {12}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}ID8 GameDir Path: {13}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}ID8 Card File Path: {14}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}ID8 Game Path: {15}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}ID8 Selected Card: {16}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID, id8AppData, id8GameDir, id8CardPath, My.Settings.Id8Path, My.Settings.Id8CardName), Text)
     End Sub
 
     Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click, lblCardMan.EnterPressed
@@ -427,7 +437,7 @@ Public Class frmLauncher
                 Timer4.Start()
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -520,10 +530,10 @@ Public Class frmLauncher
             threadU = New Thread(AddressOf CheckUpdate)
             threadU.Start()
             If Today.Month = 4 AndAlso Today.Day = 1 Then
-                MessageBox.Show("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", "Initial D Launcher", MessageBoxButtons.YesNo)
+                NSMessageBox.ShowOk("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", Text)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -540,7 +550,7 @@ Public Class frmLauncher
     Private Sub CheckUpdate()
         Try
             If curVer <> CheckForUpdate() Then
-                Dim result As Integer = MessageBox.Show(new_version, "Initial D Launcher", MessageBoxButtons.YesNo)
+                Dim result As DialogResult = NSMessageBox.ShowYesNo(new_version, MessageBoxIcon.Exclamation, Text)
                 If result = DialogResult.No Then
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
@@ -554,7 +564,7 @@ Public Class frmLauncher
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub
@@ -568,6 +578,7 @@ Public Class frmLauncher
     Public Sub Translate()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Text = ReadCfgValue("LauncherTitle", langFile)
             lblStart6.Text = ReadCfgValue("Start6", langFile)
             lblStart7.Text = ReadCfgValue("Start7", langFile)
             lblStart8.Text = ReadCfgValue("Start8", langFile)
@@ -581,7 +592,7 @@ Public Class frmLauncher
             no_card_selected = ReadCfgValue("NoCardSelected", langFile)
             If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format(ReadCfgValue("Logout", langFile), My.Settings.UserName) Else lblLogout.Text = ReadCfgValue("Login", langFile)
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
     End Sub

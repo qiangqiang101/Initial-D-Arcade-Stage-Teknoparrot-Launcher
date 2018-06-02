@@ -79,16 +79,19 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Avatar.vb">
+    <Compile Include="Class\Component\Avatar.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Class\Car.vb" />
     <Compile Include="Class\CFGRead.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />
+    <Compile Include="Class\Component\SpecialLabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Class\GifImage.vb" />
     <Compile Include="Class\Logger.vb" />
     <Compile Include="Class\PluginLoader.vb" />
-    <Compile Include="Class\TextButton.vb">
+    <Compile Include="Class\Component\TextButton.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Form\Form2.Designer.vb">
@@ -224,6 +227,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form\Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLauncher.ja.resx">
+      <DependentUpon>frmLauncher.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmPicture.resx">
       <DependentUpon>frmPicture.vb</DependentUpon>

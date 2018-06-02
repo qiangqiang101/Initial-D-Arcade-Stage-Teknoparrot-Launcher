@@ -93,7 +93,7 @@ Partial Class frmAbout
         NsListViewColumnHeader2.Text = "Version"
         NsListViewColumnHeader2.Width = 60
         NsListViewColumnHeader3.Text = "Author"
-        NsListViewColumnHeader3.Width = 300
+        NsListViewColumnHeader3.Width = 150
         Me.lvPlugins.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1, NsListViewColumnHeader2, NsListViewColumnHeader3}
         Me.lvPlugins.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
         Me.lvPlugins.Location = New System.Drawing.Point(6, 36)
@@ -150,7 +150,7 @@ Partial Class frmAbout
         Me.lblVersion.ForeColor = System.Drawing.Color.White
         Me.lblVersion.Location = New System.Drawing.Point(13, 55)
         Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(79, 15)
+        Me.lblVersion.Size = New System.Drawing.Size(78, 15)
         Me.lblVersion.TabIndex = 1
         Me.lblVersion.Text = "Version: Build"
         '

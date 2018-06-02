@@ -306,7 +306,7 @@ Partial Class frmLauncher
         Me.MinimizeBox = False
         Me.Name = "frmLauncher"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Initial D Launcher"
+        Me.Text = "InitialD Arcade Stage Launcher"
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
