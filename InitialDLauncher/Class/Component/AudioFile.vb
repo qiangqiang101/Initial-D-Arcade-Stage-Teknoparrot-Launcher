@@ -30,19 +30,22 @@
             Case "mp3"
                 mciSendString("open """ & _filename & """ type mpegvideo alias audiofile", Nothing, 0, IntPtr.Zero)
 
-                Dim playCommand As String = "play audiofile from 0"
+                Dim playCommand As String = "play audiofile repeat from 0"
 
                 If _wait = True Then playCommand += " wait"
 
                 mciSendString(playCommand, Nothing, 0, IntPtr.Zero)
             Case "wav"
                 mciSendString("open """ & _filename & """ type waveaudio alias audiofile", Nothing, 0, IntPtr.Zero)
-                mciSendString("play audiofile from 0", Nothing, 0, IntPtr.Zero)
+                mciSendString("play audiofile repeat from 0", Nothing, 0, IntPtr.Zero)
             Case "mid", "idi"
                 mciSendString("stop midi", "", 0, 0)
                 mciSendString("close midi", "", 0, 0)
                 mciSendString("open sequencer!" & _filename & " alias midi", "", 0, 0)
-                mciSendString("play midi", "", 0, 0)
+                mciSendString("play midi repeat", "", 0, 0)
+            Case "wmv", "mp4", "avi"
+                mciSendString("open """ & _filename & """ type mpegvideo alias audiofile parent " & _handle & " style child", Nothing, 0, IntPtr.Zero)
+                mciSendString("play audiofile repeat", Nothing, 0, IntPtr.Zero)
             Case Else
                 Throw New Exception("File type not supported.")
                 Call Close()
@@ -233,4 +236,55 @@
             _filename = value
         End Set
     End Property
+
+    Private _handle As Int32
+    Public Property Handle() As Int32
+        Get
+            Return _handle
+        End Get
+        Set(value As Int32)
+            _handle = value
+        End Set
+    End Property
+
+    Public Sub SizeVideoWindow(maxSize As Size, ignoreAspectRatio As Boolean)
+
+        Dim ActualMovieSize As Size = getDefaultSize()
+        Dim AspectRatio As Single = ActualMovieSize.Width / ActualMovieSize.Height
+
+        Dim iLeft As Integer = 0
+        Dim iTop As Integer = 0
+
+        Dim newWidth As Integer = maxSize.Width
+        Dim newHeight As Integer = newWidth \ AspectRatio
+
+        If newHeight > maxSize.Height Then
+
+            newHeight = maxSize.Height
+            newWidth = newHeight * AspectRatio
+            iLeft = (maxSize.Width - newWidth) \ 2
+
+        Else
+
+            iTop = (maxSize.Height - newHeight) \ 2
+
+        End If
+
+        If ignoreAspectRatio Then
+            mciSendString("put audiofile window at 0 0 " & maxSize.Width & " " & maxSize.Height, 0, 0, 0)
+        Else
+            mciSendString("put audiofile window at " & iLeft & " " & iTop & " " & newWidth & " " & newHeight, 0, 0, 0)
+        End If
+
+
+    End Sub
+
+    Public Function getDefaultSize() As Size
+        'Returns the default width, height the movie
+        Dim c_Data As String = Space(128)
+        mciSendString("where audiofile source", c_Data, 128, 0)
+        Dim parts() As String = Split(c_Data, " ")
+
+        Return New Size(CInt(parts(2)), CInt(parts(3)))
+    End Function
 End Class

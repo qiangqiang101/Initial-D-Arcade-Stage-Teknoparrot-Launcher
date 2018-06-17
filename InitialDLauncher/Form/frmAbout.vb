@@ -41,13 +41,17 @@ Gammaガァマ - Car Name Offset,<br />
 DSThanatos - Time Attack ID6 Offset,<br />
 Turtle - Mileage Offset,<br />
 AsukaXVB - InitialD 8 Offsets,<br />
-TheKrzysiek - InitialD 8 Aura,<br />
+TheKrzysiek - InitialD 8 Aura, Custom Tachometers,<br />
 小默 - InitialD 8 Title Effects,<br />
 I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
 <h2>Thanks to</h2>
 (alphabetically)<br />
-Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), Chanchai Boonsiri, Christine Guillory, Chris Wong, Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juan, Juiced Box Computers, Kenny, Kira Manell, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Timo Düsterhöft, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
+Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), BYEONGHEOL LEE, Chanchai Boonsiri, Christine Guillory, Chris Wong, 
+Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juan, 
+Juiced Box Computers, Kenny, Kira Manell, Kito Zhayne Bordeos, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), 
+Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, Timo Düsterhöft, William Argoud, 
+Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
 <br />
 <h2>Special Thanks to</h2>
 Reaver, Keb, Avail, NTAuthority<br />

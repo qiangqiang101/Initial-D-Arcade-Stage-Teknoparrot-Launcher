@@ -11,11 +11,11 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim num As Integer = 1
-        For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\id8\frame", "*.png")
-            TextBox4.Text = String.Format("{0}{1}frame.Add({2}{3}{2}, fm.FM_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file).Replace("T", "X"))
-            num += 1
-        Next
+        'Dim num As Integer = 1
+        'For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\id8\frame", "*.png")
+        '    TextBox4.Text = String.Format("{0}{1}frame.Add({2}{3}{2}, fm.FM_{4})", TextBox4.Text, vbNewLine, """", num, IO.Path.GetFileNameWithoutExtension(file).Replace("T", "X"))
+        '    num += 1
+        'Next
 
         'For Each file As String In IO.Directory.GetFiles("C:\Users\Barry\Desktop\id8\frame", "*.png")
         '    Dim fname As String = IO.Path.GetFileNameWithoutExtension(file)
@@ -25,6 +25,16 @@
         '    If IsNumeric(fname1) Then fname2 = "_" & fname
         '    TextBox4.Text = String.Format("{0}{1}Public FM_{3} As New Bitmap(My.Resources.{4}) With {5}.Tag = {2}{3}{2}{6}", TextBox4.Text, vbNewLine, """", fname, fname2, "{", "}")
         'Next
+
+        Dim num As Integer = 1
+        For Each file As String In IO.Directory.GetFiles("D:\barry temp\d8 frame\" & TextBox6.Text, "*.png")
+            Dim filename As String = IO.Path.GetFileNameWithoutExtension(file)
+            Dim val As String = CInt(filename.Substring(0, filename.IndexOf(")"))).ToString("X2")
+            Dim txt2del As String = filename.Substring(0, filename.IndexOf(")")) & ")"
+            filename = filename.Replace(txt2del, "")
+            TextBox4.Text = String.Format("{0}{1}D8_FR_{2} {3}{5} / {4}{3}", TextBox4.Text, vbNewLine, val, """", filename, TextBox5.Text)
+            num += 1
+        Next
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click

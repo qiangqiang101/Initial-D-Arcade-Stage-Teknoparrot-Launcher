@@ -157,6 +157,7 @@ Public Class Card
             My.Computer.FileSystem.RenameFile(_filename, txtName.Text)
             frmCard.RefreshID6Cards()
             frmCard.RefreshID7Cards()
+            frmCard.RefreshID8Cards()
         Else
             NSMessageBox.ShowOk(String.Format(file_already_exist, fpath, txtName.Text), MsgBoxStyle.Critical, "Error")
         End If

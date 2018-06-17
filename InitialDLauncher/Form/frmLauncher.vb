@@ -14,7 +14,7 @@ Public Class frmLauncher
     Dim threadU As Thread
     Public shadow As Dropshadow
     Dim curVer As Integer = 39
-    Public buildDate As String = "02/06/2018"
+    Public buildDate As String = "18/06/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -137,6 +137,10 @@ Public Class frmLauncher
         End Try
     End Sub
 
+    Dim videoFile As String = String.Format("{0}\data\ADVERTISE\initialD8.wmv", My.Settings.Id8Path)
+    Dim video As AudioFile
+    Dim status As Integer = -1
+
     Private Sub LauncherNormalLoad()
         Try
             Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
@@ -145,11 +149,9 @@ Public Class frmLauncher
 
             If Not My.Settings.VideoBackground Then
                 Timer3.Stop()
-                Timer4.Stop()
                 BackgroundImage = My.Resources.launcher_bg
             Else
                 Timer3.Start()
-                Timer4.Start()
             End If
 
             If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
@@ -242,7 +244,6 @@ Public Class frmLauncher
                 If result = DialogResult.No Then
                     If My.Settings.VideoBackground Then
                         Timer3.Start()
-                        Timer4.Start()
                     End If
                     isGameRunning = False
                     Exit Sub
@@ -277,7 +278,6 @@ Public Class frmLauncher
             Logger.Log(ex.Message & ex.StackTrace)
             If My.Settings.VideoBackground Then
                 Timer3.Start()
-                Timer4.Start()
             End If
             isGameRunning = False
             Exit Sub
@@ -345,7 +345,6 @@ Public Class frmLauncher
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click, lblStart6.EnterPressed
         If My.Settings.VideoBackground Then
             Timer3.Stop()
-            Timer4.Stop()
         End If
         isGameRunning = True
         wait(500)
@@ -369,7 +368,6 @@ Public Class frmLauncher
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click, lblStart7.EnterPressed
         If My.Settings.VideoBackground Then
             Timer3.Stop()
-            Timer4.Stop()
         End If
         isGameRunning = True
         wait(500)
@@ -393,7 +391,6 @@ Public Class frmLauncher
     Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click, lblStart8.EnterPressed
         If My.Settings.VideoBackground Then
             Timer3.Stop()
-            Timer4.Stop()
         End If
         isGameRunning = True
         wait(500)
@@ -495,7 +492,6 @@ Public Class frmLauncher
             isGameRunning = False
             If My.Settings.VideoBackground Then
                 Timer3.Start()
-                Timer4.Start()
             End If
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
@@ -630,7 +626,7 @@ Public Class frmLauncher
         End Try
     End Sub
 
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick, Timer4.Tick
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         If Me.Enabled Then
             BackgroundImage = gifImage.GetNextFrame()
         End If

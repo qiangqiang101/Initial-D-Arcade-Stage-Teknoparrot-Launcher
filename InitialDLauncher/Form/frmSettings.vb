@@ -7,7 +7,7 @@ Public Class frmSettings
     Dim gotError As Boolean = False
 
     'Translate
-    Dim no_exe, no_name, name_is_taken, name_is_available As String
+    Dim no_exe, no_name, name_is_taken, name_is_available, tp_version As String
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -79,11 +79,9 @@ Public Class frmSettings
 
                 If Not My.Settings.VideoBackground Then
                     frmLauncher.Timer3.Stop()
-                    frmLauncher.Timer4.Stop()
                     frmLauncher.BackgroundImage = My.Resources.launcher_bg
                 Else
                     frmLauncher.Timer3.Start()
-                    frmLauncher.Timer4.Start()
                 End If
             End If
         Catch ex As Exception
@@ -148,6 +146,7 @@ Public Class frmSettings
             cbPicodaemon.Text = ReadCfgValue("Picodaemon", langFile)
             cbVideo.Text = ReadCfgValue("Video", langFile)
             cbFullScreen.Text = ReadCfgValue("FullScreen", langFile)
+            tp_version = ReadCfgValue("TPVersion", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -156,6 +155,16 @@ Public Class frmSettings
 
 
     Dim UpdateUserCountryURL As String = "http://id.imnotmental.com/SetUserCountry.php?"
+
+    Private Sub cbPicodaemon_CheckedChanged(sender As Object) Handles cbPicodaemon.CheckedChanged
+        If cbPicodaemon.Checked = True Then
+            Dim result As Integer = NSMessageBox.ShowYesNo(tp_version, Text)
+            If result = DialogResult.Yes Then
+                cbPicodaemon.Checked = False
+            End If
+        End If
+    End Sub
+
     Dim UpdateUserCountryURLCN As String = "http://www.emulot.cn/id/SetUserCountry.php?"
     Private Sub UpdateUserCountry()
         Try

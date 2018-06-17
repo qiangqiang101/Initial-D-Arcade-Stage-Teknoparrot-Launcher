@@ -45,6 +45,10 @@ Namespace InitialD8
             Public AC_27X1 As New Bitmap(My.Resources._27T1) With {.Tag = "27X1"}
             Public AC_28X1 As New Bitmap(My.Resources._28T1) With {.Tag = "28X1"}
             Public AC_29X1 As New Bitmap(My.Resources._29T1) With {.Tag = "29X1"}
+
+            Public list As New List(Of Bitmap) From {AC_00X0, AC_03X1, AC_04X1, AC_05X1, AC_06X1, AC_07X1, AC_08X1, AC_09X1, AC_0AX1, AC_0BX1, AC_0CX1, AC_0DX1, AC_0EX1, AC_0FX1, AC_10X1, AC_11X1,
+                AC_12X1, AC_13X1, AC_14X1, AC_15X1, AC_16X1, AC_17X1, AC_18X1, AC_19X1, AC_1AX1, AC_1BX1, AC_1CX1, AC_1DX1, AC_1EX1, AC_1FX1, AC_20X1, AC_21X1, AC_22X1, AC_23X1, AC_24X1, AC_25X1,
+                AC_26X1, AC_27X1, AC_28X1, AC_29X1}
         End Class
 
         Public Class Eyes
@@ -96,6 +100,10 @@ Namespace InitialD8
             Public EY_D5X0 As New Bitmap(My.Resources.D5T0) With {.Tag = "D5X0"}
             Public EY_D6X0 As New Bitmap(My.Resources.D6T0) With {.Tag = "D6X0"}
             Public EY_D7X0 As New Bitmap(My.Resources.D7T0) With {.Tag = "D7X0"}
+
+            Public list As New List(Of Bitmap) From {EY_A8X0, EY_A9X0, EY_AAX0, EY_ABX0, EY_ACX0, EY_ADX0, EY_AEX0, EY_AFX0, EY_B0X0, EY_B1X0, EY_B2X0, EY_B3X0, EY_B4X0, EY_B5X0, EY_B6X0, EY_B7X0,
+                EY_B8X0, EY_B9X0, EY_BAX0, EY_BBX0, EY_BCX0, EY_BDX0, EY_BEX0, EY_BFX0, EY_C0X0, EY_C1X0, EY_C2X0, EY_C3X0, EY_C4X0, EY_C5X0, EY_C6X0, EY_C7X0, EY_C8X0, EY_C9X0, EY_CAX0, EY_CBX0,
+                EY_CCX0, EY_CDX0, EY_CEX0, EY_CFX0, EY_D0X0, EY_D1X0, EY_D2X0, EY_D3X0, EY_D4X0, EY_D5X0, EY_D6X0, EY_D7X0}
         End Class
 
         Public Class Hair
@@ -241,6 +249,15 @@ Namespace InitialD8
             Public HA_CDX1 As New Bitmap(My.Resources.CDT1) With {.Tag = "CDX1"}
             Public HA_CEX1 As New Bitmap(My.Resources.CET1) With {.Tag = "CEX1"}
             Public HA_CFX1 As New Bitmap(My.Resources.CFT1) With {.Tag = "CFX1"}
+
+            Public list As New List(Of Bitmap) From {HA_41X1, HA_42X1, HA_43X1, HA_44X1, HA_45X1, HA_46X1, HA_47X1, HA_48X1, HA_49X1, HA_4AX1, HA_4BX1, HA_4CX1, HA_4DX1, HA_4EX1, HA_4FX1, HA_50X1,
+                HA_51X1, HA_52X1, HA_54X1, HA_55X1, HA_56X1, HA_57X1, HA_58X1, HA_59X1, HA_5AX1, HA_5BX1, HA_5CX1, HA_5DX1, HA_5EX1, HA_5FX1, HA_60X1, HA_61X1, HA_62X1, HA_63X1, HA_64X1, HA_65X1,
+                HA_66X1, HA_67X1, HA_68X1, HA_69X1, HA_6AX1, HA_6BX1, HA_6CX1, HA_6DX1, HA_6EX1, HA_6FX1, HA_70X1, HA_71X1, HA_72X1, HA_73X1, HA_74X1, HA_75X1, HA_76X1, HA_77X1, HA_78X1, HA_79X1,
+                HA_7AX1, HA_7BX1, HA_7CX1, HA_7DX1, HA_7EX1, HA_7FX1, HA_80X1, HA_81X1, HA_82X1, HA_83X1, HA_84X1, HA_85X1, HA_86X1, HA_87X1, HA_88X1, HA_89X1, HA_8AX1, HA_8BX1, HA_8CX1, HA_8DX1,
+                HA_8EX1, HA_8FX1, HA_90X1, HA_91X1, HA_92X1, HA_93X1, HA_94X1, HA_95X1, HA_96X1, HA_97X1, HA_98X1, HA_99X1, HA_9AX1, HA_9BX1, HA_9CX1, HA_9DX1, HA_9EX1, HA_9FX1, HA_A0X1, HA_A1X1,
+                HA_A2X1, HA_A3X1, HA_A4X1, HA_A5X1, HA_A6X1, HA_A7X1, HA_A8X1, HA_A9X1, HA_AAX1, HA_ABX1, HA_ACX1, HA_ADX1, HA_AEX1, HA_AFX1, HA_B0X1, HA_B1X1, HA_B2X1, HA_B3X1, HA_B4X1, HA_B5X1,
+                HA_B6X1, HA_B7X1, HA_B8X1, HA_B9X1, HA_BAX1, HA_BBX1, HA_BCX1, HA_BDX1, HA_BEX1, HA_BFX1, HA_C0X1, HA_C1X1, HA_C2X1, HA_C3X1, HA_C4X1, HA_C5X1, HA_C6X1, HA_C7X1, HA_C8X1, HA_C9X1,
+                HA_CAX1, HA_CBX1, HA_CCX1, HA_CDX1, HA_CEX1, HA_CFX1}
         End Class
 
         Public Class Mouth
@@ -287,6 +304,10 @@ Namespace InitialD8
             Public MO_FX0D As New Bitmap(My.Resources.FT0D) With {.Tag = "FX0D"}
             Public MO_FX0E As New Bitmap(My.Resources.FT0E) With {.Tag = "FX0E"}
             Public MO_FX0F As New Bitmap(My.Resources.FT0F) With {.Tag = "FX0F"}
+
+            Public list As New List(Of Bitmap) From {MO_0X0E, MO_0X0F, MO_0X10, MO_1X0E, MO_1X0F, MO_1X0F, MO_1X10, MO_2X0E, MO_2X0F, MO_2X10, MO_3X0E, MO_3X0F, MO_4X0E, MO_4X0F, MO_5X0E, MO_5X0F,
+                MO_6X0E, MO_6X0F, MO_7X0E, MO_7X0F, MO_8X0D, MO_8X0E, MO_8X0F, MO_9X0D, MO_9X0E, MO_9X0F, MO_AX0D, MO_AX0E, MO_AX0F, MO_BX0D, MO_BX0E, MO_BX0F, MO_CX0D, MO_CX0E, MO_CX0F, MO_DX0D,
+                MO_DX0E, MO_DX0F, MO_EX0D, MO_EX0E, MO_EX0F, MO_FX0D, MO_FX0E, MO_FX0F}
         End Class
 
         Public Class Shades
@@ -314,6 +335,9 @@ Namespace InitialD8
             Public SP_EX13 As New Bitmap(My.Resources.ET13) With {.Tag = "EX13"}
             Public SP_FX12 As New Bitmap(My.Resources.FT12) With {.Tag = "FX12"}
             Public SP_FX13 As New Bitmap(My.Resources.FT13) With {.Tag = "FX13"}
+
+            Public list As New List(Of Bitmap) From {SP_0X00, SP_0X13, SP_0X14, SP_1X13, SP_2X13, SP_3X13, SP_4X13, SP_5X13, SP_6X13, SP_7X13, SP_8X13, SP_9X13, SP_AX12, SP_AX13, SP_BX12, SP_BX13,
+                SP_CX12, SP_CX13, SP_DX12, SP_DX13, SP_EX12, SP_EX13, SP_FX12, SP_FX13}
         End Class
 
         Public Class Shirt
@@ -463,6 +487,15 @@ Namespace InitialD8
             Public SH_FX07 As New Bitmap(My.Resources.FT07) With {.Tag = "FX07"}
             Public SH_FX08 As New Bitmap(My.Resources.FT08) With {.Tag = "FX08"}
             Public SH_FX09 As New Bitmap(My.Resources.FT09) With {.Tag = "FX09"}
+
+            Public list As New List(Of Bitmap) From {SH_0X02, SH_0X03, SH_0X04, SH_0X05, SH_0X06, SH_0X07, SH_0X08, SH_0X09, SH_0X0A, SH_1X02, SH_1X03, SH_1X04, SH_1X05, SH_1X06, SH_1X07, SH_1X08,
+                SH_1X09, SH_1X0A, SH_2X02, SH_2X03, SH_2X04, SH_2X05, SH_2X06, SH_2X07, SH_2X08, SH_2X09, SH_2X0A, SH_3X02, SH_3X03, SH_3X04, SH_3X05, SH_3X06, SH_3X07, SH_3X08, SH_3X09, SH_3X0A,
+                SH_4X02, SH_4X03, SH_4X04, SH_4X05, SH_4X06, SH_4X07, SH_4X08, SH_4X09, SH_4X0A, SH_5X02, SH_5X03, SH_5X04, SH_5X05, SH_5X06, SH_5X07, SH_5X08, SH_5X09, SH_5X0A, SH_6X01, SH_6X02,
+                SH_6X03, SH_6X04, SH_6X05, SH_6X06, SH_6X07, SH_6X08, SH_6X09, SH_6X0A, SH_7X01, SH_7X02, SH_7X03, SH_7X04, SH_7X05, SH_7X06, SH_7X07, SH_7X08, SH_7X09, SH_7X0A, SH_8X01, SH_8X02,
+                SH_8X03, SH_8X04, SH_8X05, SH_8X06, SH_8X07, SH_8X08, SH_8X09, SH_9X01, SH_9X02, SH_9X03, SH_9X04, SH_9X05, SH_9X06, SH_9X07, SH_9X08, SH_9X09, SH_AX01, SH_AX02, SH_AX03, SH_AX04,
+                SH_AX05, SH_AX06, SH_AX07, SH_AX08, SH_AX09, SH_BX01, SH_BX02, SH_BX03, SH_BX04, SH_BX05, SH_BX06, SH_BX07, SH_BX08, SH_BX09, SH_CX01, SH_CX02, SH_CX03, SH_CX04, SH_CX05, SH_CX06,
+                SH_CX07, SH_CX08, SH_CX09, SH_DX01, SH_DX02, SH_DX03, SH_DX04, SH_DX05, SH_DX06, SH_DX07, SH_DX08, SH_DX09, SH_EX01, SH_EX02, SH_EX03, SH_EX04, SH_EX05, SH_EX06, SH_EX07, SH_EX08,
+                SH_EX09, SH_FX01, SH_FX02, SH_FX03, SH_FX04, SH_FX05, SH_FX06, SH_FX07, SH_FX08, SH_FX09}
         End Class
 
         Public Class Skin
@@ -487,6 +520,9 @@ Namespace InitialD8
             Public SK_13X0 As New Bitmap(My.Resources._13T0) With {.Tag = "13X0"}
             Public SK_14X0 As New Bitmap(My.Resources._14T0) With {.Tag = "14X0"}
             Public SK_15X0 As New Bitmap(My.Resources._15T0) With {.Tag = "15X0"}
+
+            Public list As New List(Of Bitmap) From {SK_01X0, SK_02X0, SK_03X0, SK_04X0, SK_05X0, SK_06X0, SK_07X0, SK_08X0, SK_09X0, SK_0AX0, SK_0BX0, SK_0CX0, SK_0DX0, SK_0EX0, SK_0FX0, SK_10X0,
+                SK_11X0, SK_12X0, SK_13X0, SK_14X0, SK_15X0}
         End Class
 
     End Namespace

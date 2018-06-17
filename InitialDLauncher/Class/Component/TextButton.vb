@@ -87,8 +87,17 @@
 
     Public Event EnterPressed(sender As Object, e As EventArgs)
 
+    Public Property P() As Control
+        Get
+            Return Parent
+        End Get
+        Set(value As Control)
+            Parent = value
+        End Set
+    End Property
 
     Public Sub New()
+        P = Parent
         NormalColor = Color.Gray
         MouseHoverColor = Color.White
         DisabledColor = Color.DarkGray

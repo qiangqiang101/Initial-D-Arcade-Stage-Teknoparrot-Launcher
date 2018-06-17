@@ -17,7 +17,6 @@ Public Class Dropshadow
     Private _shadowV As Integer
 
     Public Sub New(f As Form)
-
         Owner = f
         ShadowColor = Color.Black
 

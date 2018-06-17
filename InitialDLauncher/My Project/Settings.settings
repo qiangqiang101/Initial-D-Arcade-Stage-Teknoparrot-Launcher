@@ -57,7 +57,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="VideoBackground" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="FullScreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

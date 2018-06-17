@@ -14,6 +14,23 @@
         Return value
     End Function
 
+    Public Function ReadCfgValue(ByVal key As String, ByVal file As String, ByVal [default] As String) As String
+        Dim lines As String() = IO.File.ReadAllLines(file)
+        Dim temp As String = Nothing
+        Dim value As String = Nothing
+
+        For Each l As String In lines
+            If l.StartsWith(key) Then
+                temp = l.Substring(key.Length + 1)
+                value = temp.Replace(Chr(34), "")
+                Exit For
+            End If
+        Next
+
+        If IsNothing(value) Then value = [default]
+        Return value
+    End Function
+
     Public Sub WriteCfgValue(ByVal key As String, ByVal value As String, ByVal file__1 As String)
         Dim getext As String = file__1.Substring(file__1.LastIndexOf("."c))
         Dim tmp As String = file__1.Replace(getext, ".tmp")

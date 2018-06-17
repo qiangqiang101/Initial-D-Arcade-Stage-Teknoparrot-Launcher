@@ -150,6 +150,13 @@ Namespace InitialD7
             Public FM_E6 As New Bitmap(My.Resources.E6) With {.Tag = "E6"}
             Public FM_E7 As New Bitmap(My.Resources.E7) With {.Tag = "E7"}
             Public FM_E8 As New Bitmap(My.Resources.E8) With {.Tag = "E8"}
+
+            Public list As New List(Of Bitmap) From {FM_01, FM_02, FM_03, FM_04, FM_05, FM_06, FM_07, FM_08, FM_09, FM_0A, FM_0B, FM_0C, FM_0D, FM_0E, FM_0F, FM_10, FM_11, FM_12, FM_13, FM_14,
+                FM_15, FM_16, FM_17, FM_18, FM_19, FM_1A, FM_1B, FM_1C, FM_1D, FM_1E, FM_1F, FM_20, FM_21, FM_22, FM_23, FM_24, FM_65, FM_66, FM_67, FM_68, FM_69, FM_6A, FM_6B, FM_6C, FM_6D,
+                FM_6E, FM_6F, FM_70, FM_71, FM_72, FM_73, FM_74, FM_75, FM_76, FM_77, FM_78, FM_79, FM_7A, FM_7B, FM_7C, FM_7D, FM_7E, FM_7F, FM_80, FM_81, FM_82, FM_83, FM_84, FM_85, FM_86,
+                FM_87, FM_88, FM_89, FM_8A, FM_8B, FM_8C, FM_8D, FM_8E, FM_8F, FM_90, FM_91, FM_92, FM_93, FM_94, FM_95, FM_96, FM_97, FM_98, FM_99, FM_9A, FM_9B, FM_9C, FM_9D, FM_9E, FM_9F,
+                FM_A0, FM_A1, FM_A2, FM_A3, FM_A4, FM_A5, FM_A6, FM_A7, FM_A8, FM_A9, FM_AA, FM_AB, FM_AC, FM_AD, FM_AE, FM_AF, FM_B0, FM_B1, FM_C9, FM_CA, FM_CB, FM_CC, FM_CD, FM_CE, FM_CF,
+                FM_D0, FM_D1, FM_D2, FM_D3, FM_D4, FM_D5, FM_D6, FM_D7, FM_D8, FM_D9, FM_DA, FM_DB, FM_DC, FM_DD, FM_DE, FM_DF, FM_E0, FM_E1, FM_E2, FM_E3, FM_E4, FM_E5, FM_E6, FM_E7, FM_E8}
         End Class
 
     End Namespace

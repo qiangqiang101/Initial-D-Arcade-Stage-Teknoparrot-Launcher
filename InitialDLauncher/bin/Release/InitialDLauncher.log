@@ -1,0 +1,62 @@
+17/Jun/2018 3:06:49 AM:Input string was not in a correct format.   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at InitialDLauncher.frmEdit.btnSave_Click(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 353
+17/Jun/2018 3:06:52 AM:Input string was not in a correct format.   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at InitialDLauncher.frmEdit.btnSave_Click(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 353
+17/Jun/2018 12:20:47 PM:A circular control reference has been made. A control cannot be owned by or parented to itself.   at System.Windows.Forms.Control.CheckParentingCycle(Control bottom, Control toFind)
+   at System.Windows.Forms.Control.ControlCollection.Add(Control value)
+   at System.Windows.Forms.MdiClient.ControlCollection.Add(Control value)
+   at System.Windows.Forms.Control.set_ParentInternal(Control value)
+   at System.Windows.Forms.Form.set_ParentInternal(Control value)
+   at System.Windows.Forms.Form.set_MdiParentInternal(Form value)
+   at System.Windows.Forms.Form.set_MdiParent(Form value)
+   at InitialDLauncher.frmVideo..ctor(Form f) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmVideo.vb:line 12
+   at InitialDLauncher.frmLauncher.LauncherNormalLoad() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLauncher.vb:line 157
+17/Jun/2018 12:20:53 PM:A circular control reference has been made. A control cannot be owned by or parented to itself.   at System.Windows.Forms.Control.CheckParentingCycle(Control bottom, Control toFind)
+   at System.Windows.Forms.Control.ControlCollection.Add(Control value)
+   at System.Windows.Forms.MdiClient.ControlCollection.Add(Control value)
+   at System.Windows.Forms.Control.set_ParentInternal(Control value)
+   at System.Windows.Forms.Form.set_ParentInternal(Control value)
+   at System.Windows.Forms.Form.set_MdiParentInternal(Form value)
+   at System.Windows.Forms.Form.set_MdiParent(Form value)
+   at InitialDLauncher.frmVideo..ctor(Form f) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmVideo.vb:line 12
+   at InitialDLauncher.frmLauncher.LauncherNormalLoad() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLauncher.vb:line 157
+17/Jun/2018 8:13:40 PM:Object reference not set to an instance of an object.   at InitialDLauncher.frmEdit.btnSet_Click(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 258
+17/Jun/2018 8:24:37 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1457
+17/Jun/2018 8:30:17 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1460
+17/Jun/2018 8:30:35 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1460
+17/Jun/2018 8:31:11 PM:Unable to cast object of type 'System.String' to type 'System.Drawing.Bitmap'.   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1457
+17/Jun/2018 8:33:48 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1460
+17/Jun/2018 8:40:01 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1460
+17/Jun/2018 8:40:43 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1460
+17/Jun/2018 8:40:52 PM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1460
+17/Jun/2018 8:43:56 PM:Out of memory.   at System.Drawing.Graphics.CheckErrorStatus(Int32 status)
+   at System.Drawing.Graphics.DrawImage(Image image, Int32 x, Int32 y, Int32 width, Int32 height)
+   at System.Drawing.Bitmap..ctor(Image original, Int32 width, Int32 height)
+   at System.Drawing.Bitmap..ctor(Image original)
+   at Thumbs2.InitialD7.Female.Hair..ctor() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\D7Female.vb:line 218
+   at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1437

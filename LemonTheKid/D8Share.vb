@@ -259,6 +259,18 @@ Namespace InitialD8
             Public FM_FB As New Bitmap(My.Resources.FB) With {.Tag = "FB"}
             Public FM_FC As New Bitmap(My.Resources.FC) With {.Tag = "FC"}
             Public FM_FD As New Bitmap(My.Resources.FD) With {.Tag = "FD"}
+
+            Public list As New List(Of Bitmap) From {FM_00, FM_01, FM_02, FM_03, FM_04, FM_05, FM_06, FM_07, FM_08, FM_09, FM_0A, FM_0B, FM_0C, FM_0D, FM_0E, FM_0F, FM_10, FM_11, FM_12, FM_13,
+                FM_14, FM_15, FM_16, FM_17, FM_18, FM_19, FM_1A, FM_1B, FM_1C, FM_1D, FM_1E, FM_1F, FM_20, FM_21, FM_22, FM_23, FM_24, FM_25, FM_26, FM_27, FM_28, FM_29, FM_2A, FM_2B, FM_2C,
+                FM_2D, FM_2E, FM_2F, FM_30, FM_31, FM_32, FM_33, FM_34, FM_35, FM_36, FM_37, FM_38, FM_39, FM_3A, FM_3B, FM_3C, FM_3D, FM_3E, FM_3F, FM_40, FM_41, FM_42, FM_43, FM_44, FM_45,
+                FM_46, FM_47, FM_48, FM_49, FM_4A, FM_4B, FM_4C, FM_4D, FM_4E, FM_4F, FM_50, FM_51, FM_52, FM_53, FM_54, FM_55, FM_56, FM_57, FM_58, FM_59, FM_5A, FM_5B, FM_5C, FM_5D, FM_5E,
+                FM_5F, FM_60, FM_61, FM_62, FM_63, FM_64, FM_65, FM_66, FM_67, FM_68, FM_69, FM_6A, FM_6B, FM_6C, FM_6D, FM_6E, FM_6F, FM_70, FM_71, FM_72, FM_73, FM_74, FM_75, FM_76, FM_77,
+                FM_78, FM_79, FM_7A, FM_7B, FM_7C, FM_7D, FM_7E, FM_7F, FM_80, FM_81, FM_82, FM_83, FM_84, FM_85, FM_86, FM_87, FM_88, FM_89, FM_8A, FM_8B, FM_8C, FM_8D, FM_8E, FM_8F, FM_90,
+                FM_91, FM_92, FM_93, FM_94, FM_95, FM_96, FM_97, FM_98, FM_99, FM_9A, FM_9B, FM_9C, FM_9D, FM_9E, FM_9F, FM_A0, FM_A1, FM_A2, FM_A3, FM_A4, FM_A5, FM_A6, FM_A7, FM_A8, FM_A9,
+                FM_AA, FM_AB, FM_AC, FM_AD, FM_AE, FM_AF, FM_B0, FM_B1, FM_B2, FM_B3, FM_B4, FM_B5, FM_B6, FM_B7, FM_B8, FM_B9, FM_BA, FM_BB, FM_BC, FM_BD, FM_BE, FM_BF, FM_C0, FM_C1, FM_C2,
+                FM_C3, FM_C4, FM_C5, FM_C6, FM_C7, FM_C8, FM_C9, FM_CA, FM_CB, FM_CC, FM_CD, FM_CE, FM_CF, FM_D0, FM_D1, FM_D2, FM_D3, FM_D4, FM_D5, FM_D6, FM_D7, FM_D8, FM_D9, FM_DA, FM_DB,
+                FM_DC, FM_DD, FM_DE, FM_DF, FM_E0, FM_E1, FM_E2, FM_E3, FM_E4, FM_E5, FM_E6, FM_E7, FM_E8, FM_E9, FM_EA, FM_EB, FM_EC, FM_ED, FM_EE, FM_EF, FM_F0, FM_F1, FM_F2, FM_F3, FM_F4,
+                FM_F5, FM_F6, FM_F7, FM_F8, FM_F9, FM_FA, FM_FB, FM_FC, FM_FD}
         End Class
 
     End Namespace
