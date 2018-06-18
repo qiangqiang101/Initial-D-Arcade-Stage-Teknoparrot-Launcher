@@ -68,12 +68,7 @@ Public Class frmSubmit
             Dim numScore As String = score.Replace("'", "").Replace("""", "")
             Dim hash As String = Md5Sum((name & score & car & weather & track & coursetype & gameversion) & PrivateKey)
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-
-            If My.Settings.Server = "World" Then
-                client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
-            Else
-                client.DownloadString(Convert.ToString(AddScoreURLCN + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
-            End If
+            client.DownloadString(Convert.ToString(AddScoreURL + "name=" & name & "&score=" & numScore & "&car=" & car & "&weather=" & weather & "&track=" & track & "&coursetype=" & coursetype & "&gameversion=" & gameversion & "&diupc=" & cpuid & "&hash=") & hash)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -122,7 +117,6 @@ Public Class frmSubmit
             no_car = ReadCfgValue("NoCarSelected", langFile)
             u_r_banned = ReadCfgValue("URBanned", langFile)
             record_exist = ReadCfgValue("RecordExist", langFile)
-            Label8.Text = ReadCfgValue("Server", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

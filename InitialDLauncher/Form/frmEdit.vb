@@ -455,6 +455,7 @@ Public Class frmEdit
                             SetHex(_filename, CLng(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
                             SetHex(_filename, CLng(&H223), SetValue(cmbTachometer.SelectedIndex))
                             SetHex(_filename, CLng(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
+                            SetHex(_filename, CLng(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
                             SetHex(_filename, CLng(&H222), SetValue(cmbCup.SelectedIndex))
                             If cbUnlockExSpec.Checked Then SetHex(_filename, CLng(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
                     End Select
@@ -643,6 +644,7 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
                             SetHex(_filename, Neg3C(&H223), SetValue(cmbTachometer.SelectedIndex))
                             SetHex(_filename, Neg3C(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
+                            SetHex(_filename, Neg3C(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
                             SetHex(_filename, Neg3C(&H222), SetValue(cmbCup.SelectedIndex))
                             If cbUnlockExSpec.Checked Then SetHex(_filename, Neg3C(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
                     End Select
@@ -892,6 +894,7 @@ Public Class frmEdit
                     txtInfRank.Text = GetPridePoint(GetHex(_filename, &H236, 1), GetHex(_filename, &H237, 1))
                     cmbTachometer.SelectedIndex = GetTachometer(GetHex(_filename, &H223, 1))
                     cmbTitleEffect.SelectedIndex = GetTachometer(GetHex(_filename, &H3B5, 1))
+                    cmbTitle.SelectedIndex = GetPridePoint(GetHex(_filename, &H3B6, 1), GetHex(_filename, &H3B7, 1)) - 1
                     cmbCup.SelectedIndex = GetTachometer(GetHex(_filename, &H222, 1))
                 Else
 
@@ -993,6 +996,7 @@ Public Class frmEdit
                     txtInfRank.Text = GetPridePoint(GetHex(_filename, Neg60(&H236), 1), GetHex(_filename, Neg60(&H237), 1))
                     cmbTachometer.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H223), 1))
                     cmbTitleEffect.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H3B5), 1))
+                    cmbTitle.SelectedIndex = GetPridePoint(GetHex(_filename, Neg60(&H3B6), 1), GetHex(_filename, Neg60(&H3B7), 1)) - 1
                     cmbCup.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H222), 1))
                 End If
 
@@ -1139,12 +1143,14 @@ Public Class frmEdit
             Label25.Text = ReadCfgValue("InfRank", langFile)
             Label26.Text = ReadCfgValue("Tachometer", langFile)
             NsGroupBox2.Title = ReadCfgValue("Preview", langFile)
+            NsGroupBox3.Title = ReadCfgValue("Preview", langFile)
             Label27.Text = ReadCfgValue("TitleEffect", langFile)
             c8_paper = ReadCfgValue("PaperCup", langFile)
             c8_orange = ReadCfgValue("OrangeJuice", langFile)
             c8_tea = ReadCfgValue("GreenTea", langFile)
             Label28.Text = ReadCfgValue("Cup", langFile)
             cbUnlockExSpec.Text = ReadCfgValue("ExFullAllCar", langFile)
+            Label29.Text = ReadCfgValue("TitleName", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

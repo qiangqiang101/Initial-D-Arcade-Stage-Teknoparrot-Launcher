@@ -296,9 +296,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\id_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ID8.ico" />
     <Content Include="ID8_256.ico" />
     <Content Include="ID8_256_v2.ico" />
@@ -392,7 +389,6 @@
     <None Include="Resources\hakone.png" />
     <None Include="Resources\momijiline.png" />
     <None Include="Resources\card8m.png" />
-    <None Include="Resources\id_logo1.png" />
     <None Include="Resources\usui.jpg" />
     <None Include="Resources\tsukubaSnow.jpg" />
     <None Include="Resources\tsukuba.jpg" />

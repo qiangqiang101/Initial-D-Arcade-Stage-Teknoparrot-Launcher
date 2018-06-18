@@ -61,7 +61,6 @@
             cs.lblType.Text = lblType.Text
             cs.CourseType = tracktype.Item(lblType.Text)
             cs.lblWeather.Text = lblWeather.Text
-            cs.lblServer.Text = My.Settings.Server
             cs.Weather = trackweather.Item(lblWeather.Text)
             Dim car1, car2, car3 As String
             If _extension = "bin" Then

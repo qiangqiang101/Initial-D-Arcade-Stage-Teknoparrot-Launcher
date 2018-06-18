@@ -1140,12 +1140,7 @@ Module Helper
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
 
-            Dim reader As StreamReader
-            If My.Settings.Server = "World" Then
-                reader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & getNewCPUID())))
-            Else
-                reader = New StreamReader(Client.OpenRead(Convert.ToString("http://www.emulot.cn/id/isban.php?cpuid=" & getNewCPUID())))
-            End If
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString("http://id.imnotmental.com/isban.php?cpuid=" & getNewCPUID())))
             Dim Source As String = reader.ReadToEnd
             If Source = "no" Then
                 result = False
@@ -1164,13 +1159,7 @@ Module Helper
 
         Try
             Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-
-            Dim reader As StreamReader
-            If My.Settings.Server = "World" Then
-                reader = New StreamReader(Client.OpenRead(Convert.ToString(String.Format("http://id.imnotmental.com/isrecordexist.php?cpuid={0}&score={1}&track={2}&coursetype={3}&gameversion={4}&weather={5}", getNewCPUID, score, track, coursetype, version, weather))))
-            Else
-                reader = New StreamReader(Client.OpenRead(Convert.ToString(String.Format("http://www.emulot.cn/id/isrecordexist.php?cpuid={0}&score={1}&track={2}&coursetype={3}&gameversion={4}&weather={5}", getNewCPUID, score, track, coursetype, version, weather))))
-            End If
+            Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(String.Format("http://id.imnotmental.com/isrecordexist.php?cpuid={0}&score={1}&track={2}&coursetype={3}&gameversion={4}&weather={5}", getNewCPUID, score, track, coursetype, version, weather))))
             Dim Source As String = reader.ReadToEnd
             If Source = "no" Then
                 result = False

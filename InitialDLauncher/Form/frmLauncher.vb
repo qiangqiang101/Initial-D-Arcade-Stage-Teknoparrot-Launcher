@@ -44,20 +44,20 @@ Public Class frmLauncher
 
     Private gifImage As GifImage = New GifImage(My.Resources.background_video) With {.ReverseAtEnd = False}
 
-    Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown, pbLogo.MouseDown
+    Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
         drag = True
         mousex = Cursor.Position.X - Me.Left
         mousey = Cursor.Position.Y - Me.Top
     End Sub
 
-    Private Sub frmLauncher_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove, pbLogo.MouseMove
+    Private Sub frmLauncher_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
         If drag Then
             Me.Top = Cursor.Position.Y - mousey
             Me.Left = Cursor.Position.X - mousex
         End If
     End Sub
 
-    Private Sub frmLauncher_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp, pbLogo.MouseUp
+    Private Sub frmLauncher_MouseUp(sender As Object, e As MouseEventArgs) Handles MyBase.MouseUp
         drag = False
     End Sub
 

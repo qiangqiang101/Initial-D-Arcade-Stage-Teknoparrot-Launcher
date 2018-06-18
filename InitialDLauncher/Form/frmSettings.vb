@@ -169,12 +169,7 @@ Public Class frmSettings
     Private Sub UpdateUserCountry()
         Try
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
-
-            If My.Settings.Server = "World" Then
-                client.DownloadString(Convert.ToString(UpdateUserCountryURL + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
-            Else
-                client.DownloadString(Convert.ToString(UpdateUserCountryURLCN + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
-            End If
+            client.DownloadString(Convert.ToString(UpdateUserCountryURL + "userEmail=" & My.Settings.UserEmail & "&userCountry=" & cmbCountry.SelectedItem.ToString))
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

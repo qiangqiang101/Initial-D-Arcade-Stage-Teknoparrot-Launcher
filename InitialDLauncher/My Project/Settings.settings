@@ -29,9 +29,6 @@
     <Setting Name="UserName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">World</Value>
-    </Setting>
     <Setting Name="LoggedIn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

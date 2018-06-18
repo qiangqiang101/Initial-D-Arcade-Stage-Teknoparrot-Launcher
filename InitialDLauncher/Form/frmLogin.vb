@@ -14,8 +14,6 @@ Public Class frmLogin
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Translate()
-
-        cmbServer.SelectedIndex = 0
     End Sub
 
     Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -37,7 +35,6 @@ Public Class frmLogin
                 txtEmail.Focus()
             Else
                 My.Settings.LoggedIn = True
-                My.Settings.Server = cmbServer.SelectedItem.ToString
                 If cbRemember.Checked Then My.Settings.UserEmail = txtEmail.Text
                 My.Settings.UserName = GetUserName(txtEmail.Text)
                 My.Settings.UserCountry = GetUserCountry(txtEmail.Text)
@@ -58,7 +55,6 @@ Public Class frmLogin
             'ReadCfgValue("", langFile)
             Me.Text = ReadCfgValue("LoginMeText", langFile)
             NsTheme1.Text = Me.Text
-            Label23.Text = ReadCfgValue("Server", langFile)
             Label2.Text = ReadCfgValue("Email", langFile)
             Label1.Text = ReadCfgValue("Password", langFile)
             cbRemember.Text = ReadCfgValue("Remember", langFile)
@@ -75,12 +71,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub llblRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblRegister.LinkClicked
-        Select Case cmbServer.SelectedItem
-            Case "World"
-                Process.Start("http://id.imnotmental.com/member/register.php")
-            Case "China"
-                Process.Start("http://www.emulot.cn/id/member/register.php")
-        End Select
+        Process.Start("http://id.imnotmental.com/member/register.php")
     End Sub
 
     Private Function IsUserEmailPasswordValid(email As String, pass As String) As Boolean
@@ -89,12 +80,7 @@ Public Class frmLogin
         Dim sha256 As String = EncryptSHA256Managed(pass)
         Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
 
-        Dim reader As StreamReader
-        If cmbServer.SelectedItem.ToString = "World" Then
-            reader = New StreamReader(Client.OpenRead(Convert.ToString(GetLoginURL + "userEmail=" & email & "&userPass=" & sha256)))
-        Else
-            reader = New StreamReader(Client.OpenRead(Convert.ToString(GetLoginURLCN + "userEmail=" & email & "&userPass=" & sha256)))
-        End If
+        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(GetLoginURL + "userEmail=" & email & "&userPass=" & sha256)))
         Dim Source As String = reader.ReadToEnd
         If Source = "no" Then
             result = False
@@ -108,24 +94,14 @@ Public Class frmLogin
     Private Function GetUserName(email As String) As String
         Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
 
-        Dim reader As StreamReader
-        If My.Settings.Server = "World" Then
-            reader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserNameURL + "userEmail=" & email)))
-        Else
-            reader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserNameURLCN + "userEmail=" & email)))
-        End If
+        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserNameURL + "userEmail=" & email)))
         Return reader.ReadToEnd
     End Function
 
     Private Function GetUserCountry(email As String) As String
         Dim Client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
 
-        Dim reader As StreamReader
-        If My.Settings.Server = "World" Then
-            reader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserCountryURL + "userEmail=" & email)))
-        Else
-            reader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserCountryURLCN + "userEmail=" & email)))
-        End If
+        Dim reader As StreamReader = New StreamReader(Client.OpenRead(Convert.ToString(GetUserCountryURL + "userEmail=" & email)))
         Return reader.ReadToEnd
     End Function
 
