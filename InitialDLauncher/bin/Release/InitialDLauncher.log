@@ -60,3 +60,4 @@
    at System.Drawing.Bitmap..ctor(Image original)
    at Thumbs2.InitialD7.Female.Hair..ctor() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\D7Female.vb:line 218
    at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1437
+18/Jun/2018 12:15:43 PM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.Settings_Load(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 30

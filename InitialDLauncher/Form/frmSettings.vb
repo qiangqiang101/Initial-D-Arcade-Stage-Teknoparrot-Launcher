@@ -28,6 +28,12 @@ Public Class frmSettings
             cbVideo.Checked = My.Settings.VideoBackground
             cbPicodaemon.Checked = My.Settings.RunCardReader
             cbFullScreen.Checked = My.Settings.FullScreen
+            If My.Settings.ExtraLaunchOptions.Contains(",") Then
+                For Each item In My.Settings.ExtraLaunchOptions.Split(",")
+                    lvELO.AddItem(item)
+                Next
+            End If
+
             Translate()
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
@@ -67,6 +73,14 @@ Public Class frmSettings
                 My.Settings.VideoBackground = cbVideo.Checked
                 My.Settings.RunCardReader = cbPicodaemon.Checked
                 My.Settings.FullScreen = cbFullScreen.Checked
+                If Not lvELO.Items.Count = 0 Then
+                    Dim array As String = Nothing
+                    For Each item As NSListView.NSListViewItem In lvELO.Items
+                        array = array & item.Text & ","
+                    Next
+                    array = array.Trim().Remove(array.Length - 1)
+                    My.Settings.ExtraLaunchOptions = array
+                End If
                 My.Settings.Save()
 
                 frmLauncher.id6GameDir = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
@@ -147,6 +161,8 @@ Public Class frmSettings
             cbVideo.Text = ReadCfgValue("Video", langFile)
             cbFullScreen.Text = ReadCfgValue("FullScreen", langFile)
             tp_version = ReadCfgValue("TPVersion", langFile)
+            NsGroupBox1.Title = ReadCfgValue("ExtraLaunchOptions", langFile)
+            lvELO.Columns(0).Text = ReadCfgValue("ELPrograms", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -155,6 +171,59 @@ Public Class frmSettings
 
 
     Dim UpdateUserCountryURL As String = "http://id.imnotmental.com/SetUserCountry.php?"
+
+    Private Sub btnBrowse6_Click(sender As Object, e As EventArgs) Handles btnBrowse6.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "EXE files (*.exe)|*.exe"
+        ofd.Title = Label1.Text
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            txt6.Text = Path.GetDirectoryName(ofd.FileName)
+        End If
+    End Sub
+
+    Private Sub btnBrowse7_Click(sender As Object, e As EventArgs) Handles btnBrowse7.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "EXE files (*.exe)|*.exe"
+        ofd.Title = Label2.Text
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            txt7.Text = Path.GetDirectoryName(ofd.FileName)
+        End If
+    End Sub
+
+    Private Sub btnBrowse8_Click(sender As Object, e As EventArgs) Handles btnBrowse8.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "EXE files (*.exe)|*.exe"
+        ofd.Title = Label4.Text
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            txt8.Text = Path.GetDirectoryName(ofd.FileName)
+        End If
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "EXE files (*.exe)|*.exe"
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            lvELO.AddItem(ofd.FileName)
+        End If
+    End Sub
+
+    Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
+        If Not lvELO.SelectedItems(0) Is Nothing Then
+            lvELO.RemoveItem(lvELO.SelectedItems(0))
+        End If
+    End Sub
 
     Private Sub cbPicodaemon_CheckedChanged(sender As Object) Handles cbPicodaemon.CheckedChanged
         If cbPicodaemon.Checked = True Then

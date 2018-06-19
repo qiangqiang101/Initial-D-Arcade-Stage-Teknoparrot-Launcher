@@ -26,6 +26,7 @@ Partial Class frmEdit
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEdit))
         Me.lblAvatarOffset = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.GroupBox1 = New InitialDLauncher.NSGroupBox()
         Me.NsTabControl1 = New InitialDLauncher.NSTabControl()
@@ -134,7 +135,6 @@ Partial Class frmEdit
         Me.pbEyes = New System.Windows.Forms.PictureBox()
         Me.slblEyes = New InitialDLauncher.SpecialLabel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
@@ -184,6 +184,10 @@ Partial Class frmEdit
         'Timer1
         '
         Me.Timer1.Interval = 50
+        '
+        'Timer2
+        '
+        Me.Timer2.Interval = 50
         '
         'NsTheme1
         '
@@ -669,7 +673,7 @@ Partial Class frmEdit
         Me.cmbTitle.Location = New System.Drawing.Point(83, 99)
         Me.cmbTitle.Name = "cmbTitle"
         Me.cmbTitle.Size = New System.Drawing.Size(327, 24)
-        Me.cmbTitle.TabIndex = 73
+        Me.cmbTitle.TabIndex = 67
         '
         'Label29
         '
@@ -711,7 +715,7 @@ Partial Class frmEdit
         Me.cbUnlockExSpec.Location = New System.Drawing.Point(222, 69)
         Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
         Me.cbUnlockExSpec.Size = New System.Drawing.Size(188, 24)
-        Me.cbUnlockExSpec.TabIndex = 67
+        Me.cbUnlockExSpec.TabIndex = 66
         Me.cbUnlockExSpec.Text = "ExFull All Cars"
         '
         'cmbCup
@@ -724,7 +728,7 @@ Partial Class frmEdit
         Me.cmbCup.Location = New System.Drawing.Point(280, 39)
         Me.cmbCup.Name = "cmbCup"
         Me.cmbCup.Size = New System.Drawing.Size(130, 24)
-        Me.cmbCup.TabIndex = 66
+        Me.cmbCup.TabIndex = 64
         '
         'Label28
         '
@@ -1135,9 +1139,9 @@ Partial Class frmEdit
         '
         Me.cbSaveAvatar.Checked = False
         Me.cbSaveAvatar.ForeColor = System.Drawing.Color.White
-        Me.cbSaveAvatar.Location = New System.Drawing.Point(118, 127)
+        Me.cbSaveAvatar.Location = New System.Drawing.Point(237, 111)
         Me.cbSaveAvatar.Name = "cbSaveAvatar"
-        Me.cbSaveAvatar.Size = New System.Drawing.Size(246, 24)
+        Me.cbSaveAvatar.Size = New System.Drawing.Size(126, 30)
         Me.cbSaveAvatar.TabIndex = 4
         Me.cbSaveAvatar.Text = "Save Avatar"
         '
@@ -1169,9 +1173,9 @@ Partial Class frmEdit
         Me.cmbAvatarCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAvatarCat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbAvatarCat.FormattingEnabled = True
-        Me.cmbAvatarCat.Location = New System.Drawing.Point(118, 37)
+        Me.cmbAvatarCat.Location = New System.Drawing.Point(88, 37)
         Me.cmbAvatarCat.Name = "cmbAvatarCat"
-        Me.cmbAvatarCat.Size = New System.Drawing.Size(246, 24)
+        Me.cmbAvatarCat.Size = New System.Drawing.Size(276, 24)
         Me.cmbAvatarCat.TabIndex = 1
         '
         'lblc4c5
@@ -1257,16 +1261,16 @@ Partial Class frmEdit
         Me.cmbAvatar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAvatar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbAvatar.FormattingEnabled = True
-        Me.cmbAvatar.Location = New System.Drawing.Point(118, 67)
+        Me.cmbAvatar.Location = New System.Drawing.Point(88, 67)
         Me.cmbAvatar.Name = "cmbAvatar"
-        Me.cmbAvatar.Size = New System.Drawing.Size(246, 24)
+        Me.cmbAvatar.Size = New System.Drawing.Size(276, 24)
         Me.cmbAvatar.TabIndex = 2
         '
         'btnSet
         '
-        Me.btnSet.Location = New System.Drawing.Point(118, 97)
+        Me.btnSet.Location = New System.Drawing.Point(88, 97)
         Me.btnSet.Name = "btnSet"
-        Me.btnSet.Size = New System.Drawing.Size(246, 24)
+        Me.btnSet.Size = New System.Drawing.Size(143, 54)
         Me.btnSet.TabIndex = 3
         Me.btnSet.Text = "Apply"
         '
@@ -1507,10 +1511,6 @@ Partial Class frmEdit
         Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
-        '
-        'Timer2
-        '
-        Me.Timer2.Interval = 50
         '
         'frmEdit
         '
