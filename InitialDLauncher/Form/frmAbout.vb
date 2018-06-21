@@ -1,9 +1,21 @@
 ﻿Public Class frmAbout
 
-    Dim htmlstring As String = "<center><h2>Developed by</h2>
+    Dim htmlstring As String = "
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: #323232;
+}
+</style>
+</head>
+<body>
+<div style=""font-family:'Segoe UI'; font-size:small;"" ><center><font color=""white"">
+<h3>DEVELOPED BY</h3>
 I'm Not MentaL
 
-<h2>Third Party</h2>
+<h3>THIRD PARTY</h3>
 This application uses some parts which provided by third party.<br /><br />
 
 Build with Microsoft Visual Studio 2015, <br />
@@ -20,7 +32,7 @@ simple plugin mechanism © chriga, <br />
 GifImage © Jeremy Thompson<br />
 CheckJapaneseCharacterWidth © Gekka<br />
 
-<h2>Localization contributors</h2>
+<h3>LOCALIZATION CONTRIBUTORS</h3>
 English - I'm Not MentaL, <br />
 繁體中文 - 奥巴鸡, <br />
 简体中文 - 奥巴鸡, <br />
@@ -31,7 +43,7 @@ Deutsche - Soul, <br />
 Español - Gixer, <br />
 Français - nucleaireland<br />
 
-<h2>Community contributors</h2>
+<h3>COMMUNITY CONTRIBUTORS</h3>
 BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset,<br />
 Lemon The Kid - Avatar Offset, Avatar Preview Pictures, Car Color, Car Engine/Rollbar Parts, Car Fullspec, Car Number Plate, Aura & etc, <br />
 AkiiHoshi - Avatar Preview Pictures for InitialD 7, <br />
@@ -45,19 +57,26 @@ TheKrzysiek - InitialD 8 Aura, Custom Tachometers,<br />
 小默 - InitialD 8 Title Effects,<br />
 I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
 
-<h2>Thanks to</h2>
+<h3>THANKS TO</h3>
 (alphabetically)<br />
 Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), BYEONGHEOL LEE, Chanchai Boonsiri, Christine Guillory, Chris Wong, 
 Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juan, 
 Juiced Box Computers, Kenny, Kira Manell, Kito Zhayne Bordeos, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), 
-Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, Timo Düsterhöft, William Argoud, 
-Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
+Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, Timo Düsterhöft, Timur Nurtayev, 
+William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
 <br />
-<h2>Special Thanks to</h2>
+
+<h3>SPECIAL THANKS TO</h3>
 Reaver, Keb, Avail, NTAuthority<br />
 
-<h2>Huge Thanks to</h2>
-SEGA</center>"
+<h3>HUGE THANKS TO</h3>
+SEGA<br />
+
+<!--<h3>IN LOVING MEMORY OF OUR FRIEND & TEAMMATE</h3>
+奥巴鸡 (VG-特普鸡·莫得)-->
+</font></center></div>
+</body>
+</html>"
 
     Private Sub frmAbout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Translate()
@@ -66,6 +85,8 @@ SEGA</center>"
         For Each item In frmLauncher.plugins
             lvPlugins.AddItem(item.Name, item.Version, item.Author)
         Next
+
+        wbAbout.IsWebBrowserContextMenuEnabled = False
     End Sub
 
     Private Sub llblWebsite_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblWebsite.LinkClicked

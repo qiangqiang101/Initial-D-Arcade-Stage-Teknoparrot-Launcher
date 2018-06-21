@@ -69,6 +69,7 @@
     <Compile Include="D8Female.vb" />
     <Compile Include="D8Male.vb" />
     <Compile Include="D8Share.vb" />
+    <Compile Include="IDAvatar.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

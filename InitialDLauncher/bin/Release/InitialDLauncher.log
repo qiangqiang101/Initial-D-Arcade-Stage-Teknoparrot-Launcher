@@ -61,3 +61,55 @@
    at Thumbs2.InitialD7.Female.Hair..ctor() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\D7Female.vb:line 218
    at InitialDLauncher.frmEdit.DictionaryAdd7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1437
 18/Jun/2018 12:15:43 PM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.Settings_Load(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 30
+20/Jun/2018 9:25:51 AM:Unable to connect to the remote server   at System.Net.WebClient.OpenRead(Uri address)
+   at System.Net.WebClient.OpenRead(String address)
+   at InitialDLauncher.frmLeaderboard.RefreshLeaderboard8(String course, String type, String weather) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLeaderboard.vb:line 288
+20/Jun/2018 9:25:52 AM:Unable to connect to the remote server   at System.Net.WebClient.OpenRead(Uri address)
+   at System.Net.WebClient.OpenRead(String address)
+   at InitialDLauncher.frmLeaderboard.RefreshLeaderboard7(String course, String type, String weather) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLeaderboard.vb:line 251
+20/Jun/2018 12:11:33 PM:Parameter is not valid.   at System.Drawing.Bitmap..ctor(Int32 width, Int32 height, PixelFormat format)
+   at System.Drawing.Bitmap..ctor(Image original, Int32 width, Int32 height)
+   at System.Drawing.Bitmap..ctor(Image original)
+   at Thumbs.InitialD8.Male.Accessories..ctor()
+   at InitialDLauncher.frmEdit.GetAvatarFromCard()
+20/Jun/2018 12:17:26 PM:Parameter is not valid.   at System.Drawing.Bitmap..ctor(Int32 width, Int32 height, PixelFormat format)
+   at System.Drawing.Bitmap..ctor(Image original, Int32 width, Int32 height)
+   at System.Drawing.Bitmap..ctor(Image original)
+   at Thumbs.InitialD8.Male.Accessories..ctor()
+   at InitialDLauncher.frmEdit.GetAvatarFromCard()
+22/Jun/2018 3:30:14 AM:ComboBox that has a DataSource set cannot be sorted. Sort the data using the underlying data model.   at System.Windows.Forms.ComboBox.set_Sorted(Boolean value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1544
+22/Jun/2018 3:30:20 AM:ComboBox that has a DataSource set cannot be sorted. Sort the data using the underlying data model.   at System.Windows.Forms.ComboBox.set_Sorted(Boolean value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1544
+22/Jun/2018 3:30:32 AM:ComboBox that has a DataSource set cannot be sorted. Sort the data using the underlying data model.   at System.Windows.Forms.ComboBox.set_Sorted(Boolean value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1544
+22/Jun/2018 3:30:36 AM:Exception has been thrown by the target of an invocation.   at System.RuntimeMethodHandle.SerializationInvoke(IRuntimeMethodInfo method, Object target, SerializationInfo info, StreamingContext& context)
+   at System.Runtime.Serialization.ObjectManager.CompleteISerializableObject(Object obj, SerializationInfo info, StreamingContext context)
+   at System.Runtime.Serialization.ObjectManager.FixupSpecialObject(ObjectHolder holder)
+   at System.Runtime.Serialization.ObjectManager.DoFixups()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Resources.ResourceReader.DeserializeObject(Int32 typeIndex)
+   at System.Resources.ResourceReader._LoadObjectV2(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.ResourceReader.LoadObjectV2(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.ResourceReader.LoadObject(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.RuntimeResourceSet.GetObject(String key, Boolean ignoreCase, Boolean isString)
+   at System.Resources.RuntimeResourceSet.GetObject(String key, Boolean ignoreCase)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture, Boolean wrapUnmanagedMemStream)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture)
+   at InitialDLauncher.My.Resources.Resources.get_ID7() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\My Project\Resources.Designer.vb:line 587
+   at InitialDLauncher.NSMessageBox.CreateDialog(String text, String caption, Int32 p1, Int32 p2) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Component\Theme.vb:line 5353
+22/Jun/2018 3:30:38 AM:ComboBox that has a DataSource set cannot be sorted. Sort the data using the underlying data model.   at System.Windows.Forms.ComboBox.set_Sorted(Boolean value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1544
+22/Jun/2018 3:31:12 AM:ComboBox that has a DataSource set cannot be sorted. Sort the data using the underlying data model.   at System.Windows.Forms.ComboBox.set_Sorted(Boolean value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1544
+22/Jun/2018 3:31:22 AM:ComboBox that has a DataSource set cannot be sorted. Sort the data using the underlying data model.   at System.Windows.Forms.ComboBox.set_Sorted(Boolean value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1544
+22/Jun/2018 3:36:58 AM:Sort string contains a property that is not in the IBindingList.   at System.Windows.Forms.BindingSource.ParseSortString(String sortString)
+   at System.Windows.Forms.BindingSource.set_InnerListSort(String value)
+   at System.Windows.Forms.BindingSource.set_Sort(String value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1530
+22/Jun/2018 3:37:04 AM:Sort string contains a property that is not in the IBindingList.   at System.Windows.Forms.BindingSource.ParseSortString(String sortString)
+   at System.Windows.Forms.BindingSource.set_InnerListSort(String value)
+   at System.Windows.Forms.BindingSource.set_Sort(String value)
+   at InitialDLauncher.frmEdit.cmbAvatarCat_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1536

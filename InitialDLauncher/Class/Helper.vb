@@ -62,7 +62,7 @@ Module Helper
     End Sub
 
     Sub GetGamePath()
-        Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path}
+        Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id8Path}
         If pList.Contains(String.Empty) Then
             If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml") Then
                 Dim xd As New XmlDocument()

@@ -100,12 +100,6 @@
     <Compile Include="Form\Form2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\frmPicture.Designer.vb">
-      <DependentUpon>frmPicture.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form\frmPicture.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Form\User Control\Card.Designer.vb">
       <DependentUpon>Card.vb</DependentUpon>
     </Compile>
@@ -230,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\frmLauncher.ja.resx">
       <DependentUpon>frmLauncher.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\frmPicture.resx">
-      <DependentUpon>frmPicture.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\User Control\Card.resx">
       <DependentUpon>Card.vb</DependentUpon>

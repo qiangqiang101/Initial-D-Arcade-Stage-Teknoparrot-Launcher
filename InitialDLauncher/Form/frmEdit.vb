@@ -27,21 +27,21 @@ Public Class frmEdit
     Dim aura As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim cup As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim category As Dictionary(Of String, String) = New Dictionary(Of String, String)
-    Dim mouth_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim eyes_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim hair_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim skin_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim shirt_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim accessories_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim shades_f As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim mouth_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim eyes_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim hair_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim skin_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim shirt_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim accessories_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim shades_m As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
-    Dim frame As Dictionary(Of String, Bitmap) = New Dictionary(Of String, Bitmap)
+    Dim mouth_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim eyes_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim hair_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim skin_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim shirt_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim accessories_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim shades_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim mouth_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim eyes_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim hair_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim skin_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim shirt_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim accessories_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim shades_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+    Dim frame As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
 
     'Car Modifier
     Public car1 As New Car(), car2 As New Car(), car3 As New Car()
@@ -253,13 +253,280 @@ Public Class frmEdit
         End Set
     End Property
 
+    Private Sub GetAvatarFromCard()
+        Try
+            Dim c4c5 As String = C4 & C5.Replace(C5.Substring(0, 1), "X")
+            Dim c5c6 As String = C5.Replace(C5.Substring(C5.Length - 1), "X") & C6
+            Dim c7c8 As String = C7 & C8.Replace(C8.Substring(0, 1), "X")
+            Dim c8c9 As String = C8.Replace(C8.Substring(C8.Length - 1), "X") & C9
+            Dim cacb As String = CA & CB.Replace(CB.Substring(0, 1), "X")
+            Dim cbcc As String = CB.Replace(CB.Substring(CB.Length - 1), "X") & CC
+            Dim cdce As String = CD & CE.Replace(CE.Substring(0, 1), "X")
+            Dim f221 As String = _221
+
+            Select Case _version
+                Case 6
+                    Dim d6fsk As Object = New InitialD6.Female.Skin
+                    Dim d6fsh As Object = New InitialD6.Female.Shirt
+                    Dim d6fsp As Object = New InitialD6.Female.Shades
+                    Dim d6fmo As Object = New InitialD6.Female.Mouth
+                    Dim d6fha As Object = New InitialD6.Female.Hair
+                    Dim d6fey As Object = New InitialD6.Female.Eyes
+                    Dim d6fac As Object = New InitialD6.Female.Accessories
+                    Dim d6msk As Object = New InitialD6.Male.Skin
+                    Dim d6msh As Object = New InitialD6.Male.Shirt
+                    Dim d6msp As Object = New InitialD6.Male.Shades
+                    Dim d6mmo As Object = New InitialD6.Male.Mouth
+                    Dim d6mha As Object = New InitialD6.Male.Hair
+                    Dim d6mey As Object = New InitialD6.Male.Eyes
+                    Dim d6mac As Object = New InitialD6.Male.Accessories
+                    Dim d6frm As New InitialD7.Share.Frame
+                    Dim looplist As New List(Of Object)
+
+                    If cmbGender.SelectedIndex = 1 Then
+                        'Female
+                        looplist.AddRange({d6fac, d6fey, d6fha, d6fmo, d6fsh, d6fsk, d6fsp})
+                    Else
+                        'Male
+                        looplist.AddRange({d6mac, d6mey, d6mha, d6mmo, d6msh, d6msk, d6msp})
+                    End If
+
+                    For Each items In looplist
+                        For Each item In items.list
+                            Try
+                                If item.NormalHex.Contains(c4c5) Then
+                                    If d6fsk.list.Contains(item) OrElse d6msk.list.Contains(item) Then
+                                        lblc4c5.Text = item.NormalHex
+                                        pbSkin.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c5c6) Then
+                                    If d6fsh.list.Contains(item) OrElse d6msh.list.Contains(item) Then
+                                        lblc5c6.Text = item.NormalHex
+                                        pbShirt.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c7c8) Then
+                                    If d6fey.list.Contains(item) OrElse d6mey.list.Contains(item) Then
+                                        lblc7c8.Text = item.NormalHex
+                                        pbEyes.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c8c9) Then
+                                    If d6fmo.list.Contains(item) OrElse d6mmo.list.Contains(item) Then
+                                        lblc8c9.Text = item.NormalHex
+                                        pbMouth.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cacb) Then
+                                    If d6fac.list.contains(item) OrElse d6mac.list.Contains(item) Then
+                                        lblcacb.Text = item.NormalHex
+                                        pbAccessories.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cbcc) Then
+                                    If d6fsp.list.Contains(item) OrElse d6msp.list.Contains(item) Then
+                                        lblcbcc.Text = item.NormalHex
+                                        pbShades.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cdce) Then
+                                    If d6fha.list.Contains(item) OrElse d6mha.list.Contains(item) Then
+                                        lblcdce.Text = item.NormalHex
+                                        pbHair.BackgroundImage = item.Bitmap
+                                    End If
+                                End If
+                            Catch ex As Exception
+                                NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+                                Logger.Log(ex.Message & ex.StackTrace)
+                                Continue For
+                            End Try
+                        Next
+                    Next
+                    For Each item In d6frm.list
+                        If item.NormalHex.Contains(f221) Then
+                            lbl221.Text = item.NormalHex
+                            pbFrame.BackgroundImage = item.Bitmap
+                            Avatar1.Frame = item.Bitmap
+                        End If
+                    Next
+                Case 7
+                    Dim d7fsk As Object = New InitialD7.Female.Skin
+                    Dim d7fsh As Object = New InitialD7.Female.Shirt
+                    Dim d7fsp As Object = New InitialD7.Female.Shades
+                    Dim d7fmo As Object = New InitialD7.Female.Mouth
+                    Dim d7fha As Object = New InitialD7.Female.Hair
+                    Dim d7fey As Object = New InitialD7.Female.Eyes
+                    Dim d7fac As Object = New InitialD7.Female.Accessories
+                    Dim d7msk As Object = New InitialD7.Male.Skin
+                    Dim d7msh As Object = New InitialD7.Male.Shirt
+                    Dim d7msp As Object = New InitialD7.Male.Shades
+                    Dim d7mmo As Object = New InitialD7.Male.Mouth
+                    Dim d7mha As Object = New InitialD7.Male.Hair
+                    Dim d7mey As Object = New InitialD7.Male.Eyes
+                    Dim d7mac As Object = New InitialD7.Male.Accessories
+                    Dim d7frm As New InitialD7.Share.Frame
+                    Dim looplist As New List(Of Object)
+
+                    If cmbGender.SelectedIndex = 1 Then
+                        'Female
+                        looplist.AddRange({d7fac, d7fey, d7fha, d7fmo, d7fsh, d7fsk, d7fsp})
+                    Else
+                        'Male
+                        looplist.AddRange({d7mac, d7mey, d7mha, d7mmo, d7msh, d7msk, d7msp})
+                    End If
+
+                    For Each items In looplist
+                        For Each item In items.list
+                            Try
+                                If item.NormalHex.Contains(c4c5) Then
+                                    If d7fsk.list.Contains(item) OrElse d7msk.list.Contains(item) Then
+                                        lblc4c5.Text = item.NormalHex
+                                        pbSkin.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c5c6) Then
+                                    If d7fsh.list.Contains(item) OrElse d7msh.list.Contains(item) Then
+                                        lblc5c6.Text = item.NormalHex
+                                        pbShirt.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c7c8) Then
+                                    If d7fey.list.Contains(item) OrElse d7mey.list.Contains(item) Then
+                                        lblc7c8.Text = item.NormalHex
+                                        pbEyes.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c8c9) Then
+                                    If d7fmo.list.Contains(item) OrElse d7mmo.list.Contains(item) Then
+                                        lblc8c9.Text = item.NormalHex
+                                        pbMouth.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cacb) Then
+                                    If d7fac.list.contains(item) OrElse d7mac.list.Contains(item) Then
+                                        lblcacb.Text = item.NormalHex
+                                        pbAccessories.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cbcc) Then
+                                    If d7fsp.list.Contains(item) OrElse d7msp.list.Contains(item) Then
+                                        lblcbcc.Text = item.NormalHex
+                                        pbShades.BackgroundImage = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cdce) Then
+                                    If d7fha.list.Contains(item) OrElse d7mha.list.Contains(item) Then
+                                        lblcdce.Text = item.NormalHex
+                                        pbHair.BackgroundImage = item.Bitmap
+                                    End If
+                                End If
+                            Catch ex As Exception
+                                NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+                                Logger.Log(ex.Message & ex.StackTrace)
+                                Continue For
+                            End Try
+                        Next
+                    Next
+                    For Each item In d7frm.list
+                        If item.NormalHex.Contains(f221) Then
+                            lbl221.Text = item.NormalHex
+                            pbFrame.BackgroundImage = item.Bitmap
+                            Avatar1.Frame = item.Bitmap
+                        End If
+                    Next
+                Case 8
+                    Dim d8fsk As Object = New InitialD8.Female.Skin
+                    Dim d8fsh As Object = New InitialD8.Female.Shirt
+                    Dim d8fsp As Object = New InitialD8.Female.Shades
+                    Dim d8fmo As Object = New InitialD8.Female.Mouth
+                    Dim d8fha As Object = New InitialD8.Female.Hair
+                    Dim d8fey As Object = New InitialD8.Female.Eyes
+                    Dim d8fac As Object = New InitialD8.Female.Accessories
+                    Dim d8msk As Object = New InitialD8.Male.Skin
+                    Dim d8msh As Object = New InitialD8.Male.Shirt
+                    Dim d8msp As Object = New InitialD8.Male.Shades
+                    Dim d8mmo As Object = New InitialD8.Male.Mouth
+                    Dim d8mha As Object = New InitialD8.Male.Hair
+                    Dim d8mey As Object = New InitialD8.Male.Eyes
+                    Dim d8mac As Object = New InitialD8.Male.Accessories
+                    Dim d8frm As New InitialD8.Share.Frame
+                    Dim looplist As New List(Of Object)
+
+                    If cmbGender.SelectedIndex = 1 Then
+                        'Female
+                        looplist.AddRange({d8fac, d8fey, d8fha, d8fmo, d8fsh, d8fsk, d8fsp})
+                    Else
+                        'Male
+                        looplist.AddRange({d8mac, d8mey, d8mha, d8mmo, d8msh, d8msk, d8msp})
+                    End If
+
+                    For Each items In looplist
+                        For Each item In items.list
+                            Try
+                                If item.NormalHex.Contains(c4c5) Then
+                                    If d8fsk.list.Contains(item) OrElse d8msk.list.Contains(item) Then
+                                        lblc4c5.Text = item.NormalHex
+                                        pbSkin.BackgroundImage = item.Bitmap
+                                        Avatar1.Face = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c5c6) Then
+                                    If d8fsh.list.Contains(item) OrElse d8msh.list.Contains(item) Then
+                                        lblc5c6.Text = item.NormalHex
+                                        pbShirt.BackgroundImage = item.Bitmap
+                                        Avatar1.Coat = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c7c8) Then
+                                    If d8fey.list.Contains(item) OrElse d8mey.list.Contains(item) Then
+                                        lblc7c8.Text = item.NormalHex
+                                        pbEyes.BackgroundImage = item.Bitmap
+                                        Avatar1.Eyes = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(c8c9) Then
+                                    If d8fmo.list.Contains(item) OrElse d8mmo.list.Contains(item) Then
+                                        lblc8c9.Text = item.NormalHex
+                                        pbMouth.BackgroundImage = item.Bitmap
+                                        Avatar1.Mouth = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cacb) Then
+                                    If d8fac.list.contains(item) OrElse d8mac.list.Contains(item) Then
+                                        lblcacb.Text = item.NormalHex
+                                        pbAccessories.BackgroundImage = item.Bitmap
+                                        Avatar1.Accessory = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cbcc) Then
+                                    If d8fsp.list.Contains(item) OrElse d8msp.list.Contains(item) Then
+                                        lblcbcc.Text = item.NormalHex
+                                        pbShades.BackgroundImage = item.Bitmap
+                                        Avatar1.Shades = item.Bitmap
+                                    End If
+                                ElseIf item.NormalHex.Contains(cdce) Then
+                                    If d8fha.list.Contains(item) OrElse d8mha.list.Contains(item) Then
+                                        lblcdce.Text = item.NormalHex
+                                        pbHair.BackgroundImage = item.Bitmap
+                                        Avatar1.Hair = item.Bitmap
+                                    End If
+                                End If
+                            Catch ex As Exception
+                                NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+                                Logger.Log(ex.Message & ex.StackTrace)
+                                Continue For
+                            End Try
+                        Next
+                    Next
+                    For Each item In d8frm.list
+                        If item.NormalHex.Contains(f221) Then
+                            lbl221.Text = item.NormalHex
+                            pbFrame.BackgroundImage = item.Bitmap
+                            Avatar1.Frame = item.Bitmap
+                        End If
+                    Next
+
+            End Select
+
+            lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+            If _version = 8 Then Avatar1.RefreshImage()
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
     Private Sub btnSet_Click(sender As Object, e As EventArgs) Handles btnSet.Click
         Try
             Select Case cmbAvatarCat.SelectedValue.ToString
                 Case "SKIN"
                     lblc4c5.Text = cmbAvatar.SelectedValue.Tag
-                    pbSkin.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Face = cmbAvatar.SelectedValue
+                    pbSkin.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Face = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim C5A = C5.Substring(0, 1)
@@ -268,8 +535,8 @@ Public Class frmEdit
                     C5 = SV
                 Case "SHIRT"
                     lblc5c6.Text = cmbAvatar.SelectedValue.Tag
-                    pbShirt.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Coat = cmbAvatar.SelectedValue
+                    pbShirt.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Coat = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim C5B = C5.Substring(C5.Length - 1)
@@ -278,8 +545,8 @@ Public Class frmEdit
                     C6 = SV
                 Case "EYES"
                     lblc7c8.Text = cmbAvatar.SelectedValue.Tag
-                    pbEyes.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Eyes = cmbAvatar.SelectedValue
+                    pbEyes.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Eyes = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim C8A = C8.Substring(0, 1)
@@ -288,8 +555,8 @@ Public Class frmEdit
                     C8 = SV
                 Case "MOUTH"
                     lblc8c9.Text = cmbAvatar.SelectedValue.Tag
-                    pbMouth.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Mouth = cmbAvatar.SelectedValue
+                    pbMouth.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Mouth = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim C8B = C8.Substring(C8.Length - 1)
@@ -298,8 +565,8 @@ Public Class frmEdit
                     C9 = SV
                 Case "ACCESSORIES"
                     lblcacb.Text = cmbAvatar.SelectedValue.Tag
-                    pbAccessories.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Accessory = cmbAvatar.SelectedValue
+                    pbAccessories.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Accessory = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim CBA = CB.Substring(0, 1)
@@ -308,8 +575,8 @@ Public Class frmEdit
                     CB = SV
                 Case "SHADES"
                     lblcbcc.Text = cmbAvatar.SelectedValue.Tag
-                    pbShades.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Shades = cmbAvatar.SelectedValue
+                    pbShades.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Shades = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim CBB = CB.Substring(CB.Length - 1)
@@ -318,8 +585,8 @@ Public Class frmEdit
                     CC = SV
                 Case "HAIR"
                     lblcdce.Text = cmbAvatar.SelectedValue.Tag
-                    pbHair.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Hair = cmbAvatar.SelectedValue
+                    pbHair.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Hair = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     SV = SV.Replace("X", "0")
@@ -327,8 +594,8 @@ Public Class frmEdit
                     CE = SV
                 Case "FRAME"
                     lbl221.Text = cmbAvatar.SelectedValue.tag
-                    pbFrame.BackgroundImage = cmbAvatar.SelectedValue
-                    If _version = 8 Then Avatar1.Frame = cmbAvatar.SelectedValue
+                    pbFrame.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
+                    If _version = 8 Then Avatar1.Frame = cmbAvatar.SelectedValue.Bitmap
                     Dim FV = cmbAvatar.SelectedValue.tag
                     _221 = FV
             End Select
@@ -412,13 +679,14 @@ Public Class frmEdit
                 End If
 
                 If cbSaveAvatar.Checked Then
-                    SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
-                    SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
                     Select Case True
                         Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "0000"
                             NSMessageBox.ShowOk(must_select_avatar, MsgBoxStyle.Critical, "Error")
                             Exit Sub
                     End Select
+                    SetHex(_filename, CLng("&HC4"), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
+                    SetHex(_filename, CLng("&H221"), HexStringToBinary(_221)) 'Frame
+                    SetHex(_filename, &H740, HexStringToBinary(lblAvatarOffset.Text))
                 End If
 
                 SetHex(_filename, &H58, SetValue(cmbPlace.SelectedIndex))
@@ -601,13 +869,13 @@ Public Class frmEdit
                 End If
 
                 If cbSaveAvatar.Checked Then
-                    SetHex(_filename, Neg3C(&HC4), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
-                    SetHex(_filename, Neg3C(&H221), HexStringToBinary(_221)) 'Frame
                     Select Case True
                         Case lblc4c5.Text = "0000", lblc5c6.Text = "0000", lblc7c8.Text = "0000", lblc8c9.Text = "0000", lblcacb.Text = "0000", lblcbcc.Text = "0000", lblcdce.Text = "0000", lbl221.Text = "0000"
                             NSMessageBox.ShowOk(must_select_avatar, MsgBoxStyle.Critical, "Error")
                             Exit Sub
                     End Select
+                    SetHex(_filename, Neg3C(&HC4), HexStringToBinary(C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE))
+                    SetHex(_filename, Neg3C(&H221), HexStringToBinary(_221)) 'Frame
                 End If
 
                 SetHex(_filename, &H1C, SetValue(cmbPlace.SelectedIndex))
@@ -780,20 +1048,20 @@ Public Class frmEdit
 
         Select Case cmbGender.SelectedIndex
             Case 0 'male
-                Avatar1.Frame = (New InitialD8.Share.Frame).FM_00
-                Avatar1.Face = (New InitialD8.Male.Skin).SK_01X0
-                Avatar1.Eyes = (New InitialD8.Male.Eyes).EY_A8X0
-                Avatar1.Mouth = (New InitialD8.Male.Mouth).MO_0X0E
-                Avatar1.Coat = (New InitialD8.Male.Shirt).SH_0X02
-                Avatar1.Hair = (New InitialD8.Male.Hair).HA_41X1
+                Avatar1.Frame = (New InitialD8.Share.Frame).FM_00.Bitmap
+                Avatar1.Face = (New InitialD8.Male.Skin).SK_01X0.Bitmap
+                Avatar1.Eyes = (New InitialD8.Male.Eyes).EY_A8X0.Bitmap
+                Avatar1.Mouth = (New InitialD8.Male.Mouth).MO_0X0E.Bitmap
+                Avatar1.Coat = (New InitialD8.Male.Shirt).SH_0X02.Bitmap
+                Avatar1.Hair = (New InitialD8.Male.Hair).HA_41X1.Bitmap
                 Avatar1.RefreshImage()
             Case 1 'female
-                Avatar1.Frame = (New InitialD8.Share.Frame).FM_00
-                Avatar1.Face = (New InitialD8.Female.Skin).SK_01X0
-                Avatar1.Eyes = (New InitialD8.Female.Eyes).EY_AEX0
-                Avatar1.Mouth = (New InitialD8.Female.Mouth).MO_0X0E
-                Avatar1.Coat = (New InitialD8.Female.Shirt).SH_0X02
-                Avatar1.Hair = (New InitialD8.Female.Hair).HA_41X1
+                Avatar1.Frame = (New InitialD8.Share.Frame).FM_00.Bitmap
+                Avatar1.Face = (New InitialD8.Female.Skin).SK_01X0.Bitmap
+                Avatar1.Eyes = (New InitialD8.Female.Eyes).EY_AEX0.Bitmap
+                Avatar1.Mouth = (New InitialD8.Female.Mouth).MO_0X0E.Bitmap
+                Avatar1.Coat = (New InitialD8.Female.Shirt).SH_0X02.Bitmap
+                Avatar1.Hair = (New InitialD8.Female.Hair).HA_41X1.Bitmap
                 Avatar1.RefreshImage()
         End Select
 
@@ -857,6 +1125,35 @@ Public Class frmEdit
                 txtName.Text = GetName(GetHex(_filename, 240, 12))
                 txtGamePoint.Text = GetMilelage(GetHex(_filename, 192, 1), GetHex(_filename, 193, 1), GetHex(_filename, 194, 1), GetHex(_filename, 195, 1))
                 cmbPlace.SelectedIndex = GetLevel(GetHex(_filename, &H58, 1), True)
+                C4 = GetHexStringFromBinary(GetHex(_filename, &H740, 1))
+                C5 = GetHexStringFromBinary(GetHex(_filename, &H741, 1))
+                C6 = GetHexStringFromBinary(GetHex(_filename, &H742, 1))
+                C7 = GetHexStringFromBinary(GetHex(_filename, &H743, 1))
+                C8 = GetHexStringFromBinary(GetHex(_filename, &H744, 1))
+                C9 = GetHexStringFromBinary(GetHex(_filename, &H745, 1))
+                CA = GetHexStringFromBinary(GetHex(_filename, &H746, 1))
+                CB = GetHexStringFromBinary(GetHex(_filename, &H747, 1))
+                CC = GetHexStringFromBinary(GetHex(_filename, &H748, 1))
+                CD = GetHexStringFromBinary(GetHex(_filename, &H749, 1))
+                CE = GetHexStringFromBinary(GetHex(_filename, &H74A, 1))
+                _221 = GetHexStringFromBinary(GetHex(_filename, &H221, 1))
+                lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+                If lblAvatarOffset.Text = "0000000000000000000000" Then
+                    C4 = GetHexStringFromBinary(GetHex(_filename, CLng(&HC4), 1))
+                    C5 = GetHexStringFromBinary(GetHex(_filename, CLng(&HC5), 1))
+                    C6 = GetHexStringFromBinary(GetHex(_filename, CLng(&HC6), 1))
+                    C7 = GetHexStringFromBinary(GetHex(_filename, CLng(&HC7), 1))
+                    C8 = GetHexStringFromBinary(GetHex(_filename, CLng(&HC8), 1))
+                    C9 = GetHexStringFromBinary(GetHex(_filename, CLng(&HC9), 1))
+                    CA = GetHexStringFromBinary(GetHex(_filename, CLng(&HCA), 1))
+                    CB = GetHexStringFromBinary(GetHex(_filename, CLng(&HCB), 1))
+                    CC = GetHexStringFromBinary(GetHex(_filename, CLng(&HCC), 1))
+                    CD = GetHexStringFromBinary(GetHex(_filename, CLng(&HCD), 1))
+                    CE = GetHexStringFromBinary(GetHex(_filename, CLng(&HCE), 1))
+                    lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+                End If
+                GetAvatarFromCard()
+
                 If _version = 6 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, 164, 1), True)
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, 548, 1))
@@ -959,6 +1256,21 @@ Public Class frmEdit
                 txtName.Text = GetName(GetHex(_filename, Neg60(240), 12))
                 txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
                 cmbPlace.SelectedIndex = GetLevel(GetHex(_filename, &H1C, 1), True)
+                C4 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC4), 1))
+                C5 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC5), 1))
+                C6 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC6), 1))
+                C7 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC7), 1))
+                C8 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC8), 1))
+                C9 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC9), 1))
+                CA = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCA), 1))
+                CB = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCB), 1))
+                CC = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCC), 1))
+                CD = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCD), 1))
+                CE = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCE), 1))
+                _221 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&H221), 1))
+                lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
+                GetAvatarFromCard()
+
                 If _version = 6 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(164), 1), True)
                     txtChapLevel.Text = GetChapterLevel(GetHex(_filename, Neg60(548), 1))
@@ -1237,7 +1549,7 @@ Public Class frmEdit
     Private Sub cmbAvatar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAvatar.SelectedIndexChanged
         Try
             If cmbAvatar.SelectedItem IsNot Nothing Then
-                pbPreview.BackgroundImage = cmbAvatar.SelectedValue
+                pbPreview.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
             End If
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
