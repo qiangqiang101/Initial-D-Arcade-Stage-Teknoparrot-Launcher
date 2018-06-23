@@ -7,7 +7,7 @@ Namespace InitialD6
         Public Class Accessories
             Public AC_00X0 As New IDAvatar(My.Resources._00Y0) With {.Tag = "00X0"}
             Public AC_00X1 As New IDAvatar(My.Resources._00Y1) With {.Tag = "00X1"}
-            Public AC_01X1 As New IDAvatar(My.Resources._01Y1) With {.Tag = "02X1"}
+            Public AC_01X1 As New IDAvatar(My.Resources._01Y1) With {.Tag = "01X1"}
             Public AC_02X1 As New IDAvatar(My.Resources._02Y1) With {.Tag = "02X1"}
             Public AC_03X1 As New IDAvatar(My.Resources._03Y1) With {.Tag = "03X1"}
             Public AC_04X1 As New IDAvatar(My.Resources._04Y1) With {.Tag = "04X1"}

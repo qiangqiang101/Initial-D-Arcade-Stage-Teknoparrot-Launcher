@@ -408,6 +408,10 @@ Public Class frmLeaderboard
         thread8 = New Thread(Sub() RefreshLeaderboard8(cmbCourse8.SelectedValue.ToString, cmbType8.SelectedValue.ToString, cmbWeather8.SelectedValue.ToString))
         thread8.Start()
 
+        If frmLauncher.WindowState = FormWindowState.Maximized Then
+            NsControlButton3.Enabled = False
+        End If
+
         'RefreshLeaderboard6(cmbCourse6.SelectedValue.ToString, cmbType6.SelectedValue.ToString, cmbWeather6.SelectedValue.ToString)
         'RefreshLeaderboard7(cmbCourse7.SelectedValue.ToString, cmbType7.SelectedValue.ToString, cmbWeather7.SelectedValue.ToString)
     End Sub

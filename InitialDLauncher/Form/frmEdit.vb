@@ -50,11 +50,11 @@ Public Class frmEdit
 
     Private finishLoading As Boolean = False
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
         pbEffect.BackgroundImage = gifImage.GetNextFrame()
     End Sub
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs)
         pbEffect2.BackgroundImage = gifImage.GetNextFrame()
     End Sub
 
@@ -110,6 +110,10 @@ Public Class frmEdit
         Try
             If Not cmbCar1.Text = "" Then
                 Dim fe As frmEditCar = New frmEditCar()
+                If frmLauncher.WindowState = FormWindowState.Maximized Then
+                    fe.TopLevel = False
+                    frmLauncher.Controls.Add(fe)
+                End If
                 fe.Car = car1
                 fe.Version = _version
                 fe.FileName = _filename
@@ -118,6 +122,7 @@ Public Class frmEdit
                 fe.CarName = cmbCar1.Text
                 fe._parentForm = Me
                 fe.Show()
+                fe.Focus()
             Else
                 Dim ofd As New OpenFileDialog()
                 ofd.Filter = "Car files (*.car)|*.car"
@@ -149,6 +154,10 @@ Public Class frmEdit
         Try
             If Not cmbCar2.Text = "" Then
                 Dim fe As frmEditCar = New frmEditCar()
+                If frmLauncher.WindowState = FormWindowState.Maximized Then
+                    fe.TopLevel = False
+                    frmLauncher.Controls.Add(fe)
+                End If
                 fe.Car = car2
                 fe.Version = _version
                 fe.FileName = _filename
@@ -188,6 +197,10 @@ Public Class frmEdit
         Try
             If Not cmbCar3.Text = "" Then
                 Dim fe As frmEditCar = New frmEditCar()
+                If frmLauncher.WindowState = FormWindowState.Maximized Then
+                    fe.TopLevel = False
+                    frmLauncher.Controls.Add(fe)
+                End If
                 fe.Car = car3
                 fe.Version = _version
                 fe.FileName = _filename

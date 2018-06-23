@@ -33,7 +33,7 @@ GifImage © Jeremy Thompson<br />
 CheckJapaneseCharacterWidth © Gekka<br />
 
 <h3>LOCALIZATION CONTRIBUTORS</h3>
-English - I'm Not MentaL, <br />
+English - I'm Not MentaL, Kurisuchan, <br />
 繁體中文 - 奥巴鸡, <br />
 简体中文 - 奥巴鸡, <br />
 日本語 - 雪熊霸, <br />

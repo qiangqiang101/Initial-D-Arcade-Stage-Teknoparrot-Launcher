@@ -9,7 +9,7 @@ Public Class frmSettings
     'Translate
     Dim no_exe, no_name, name_is_taken, name_is_available, tp_version As String
 
-    Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Settings_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             For Each file As String In IO.Directory.GetFiles(String.Format("{0}\Languages", My.Application.Info.DirectoryPath), "*.ini")
                 cmbLang.Items.Add(IO.Path.GetFileNameWithoutExtension(file))
@@ -93,7 +93,7 @@ Public Class frmSettings
 
                 If Not My.Settings.VideoBackground Then
                     frmLauncher.Timer3.Stop()
-                    frmLauncher.BackgroundImage = My.Resources.launcher_bg
+                    frmLauncher.BackgroundImage = My.Resources.new_bg
                 Else
                     frmLauncher.Timer3.Start()
                 End If
@@ -223,6 +223,10 @@ Public Class frmSettings
         If Not lvELO.SelectedItems(0) Is Nothing Then
             lvELO.RemoveItem(lvELO.SelectedItems(0))
         End If
+    End Sub
+
+    Private Sub btnSave_Click_1(sender As Object, e As EventArgs) Handles btnSave.Click
+
     End Sub
 
     Private Sub cbPicodaemon_CheckedChanged(sender As Object) Handles cbPicodaemon.CheckedChanged

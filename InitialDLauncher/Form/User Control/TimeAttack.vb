@@ -51,6 +51,10 @@
     Private Sub btnTimeAttack_Click(sender As Object, e As EventArgs) Handles btnTimeAttack.Click
         Try
             Dim cs As frmSubmit = New frmSubmit()
+            If frmLauncher.WindowState = FormWindowState.Maximized Then
+                cs.TopLevel = False
+                frmLauncher.Controls.Add(frmLogin)
+            End If
             cs.Version = _version
             cs.Score = _score
             cs.lblName.Text = My.Settings.UserName
@@ -90,6 +94,7 @@
             If Not car3 = Nothing Then cs.cmbCar.Items.Add(car3)
             cs.cmbCar.SelectedIndex = 0
             cs.Show()
+            cs.Focus()
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

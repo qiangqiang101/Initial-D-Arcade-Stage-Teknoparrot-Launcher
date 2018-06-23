@@ -3211,6 +3211,10 @@
                 End If
             End If
         End If
+
+        If frmLauncher.WindowState = FormWindowState.Maximized Then
+            NsControlButton3.Enabled = False
+        End If
     End Sub
 
     Private Sub Translate()

@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 39
-    Public buildDate As String = "21/06/2018"
+    Dim curVer As Integer = 40
+    Public buildDate As String = "24/06/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -144,7 +144,7 @@ Public Class frmLauncher
 
             If Not My.Settings.VideoBackground Then
                 Timer3.Stop()
-                BackgroundImage = My.Resources.launcher_bg
+                BackgroundImage = My.Resources.new_bg
             Else
                 Timer3.Start()
             End If
@@ -442,8 +442,15 @@ Public Class frmLauncher
 
     Private Sub lblSetting_Click(sender As Object, e As EventArgs) Handles lblSetting.Click, lblSetting.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        frmSettings.Show()
-        Me.Enabled = False
+        If Me.WindowState = FormWindowState.Maximized Then
+            frmSettings.TopLevel = False
+            Me.Controls.Add(frmSettings)
+            frmSettings.Show()
+            frmSettings.Focus()
+        Else
+            frmSettings.Show()
+            Me.Enabled = False
+        End If
     End Sub
 
     Private Sub frmLauncher_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -461,14 +468,28 @@ Public Class frmLauncher
 
     Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click, lblCardMan.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        frmCard.Show()
-        Me.Enabled = False
+        If Me.WindowState = FormWindowState.Maximized Then
+            frmCard.TopLevel = False
+            Me.Controls.Add(frmCard)
+            frmCard.Show()
+            frmCard.Focus()
+        Else
+            frmCard.Show()
+            Me.Enabled = False
+        End If
     End Sub
 
     Private Sub lblLeaderboard_Click(sender As Object, e As EventArgs) Handles lblLeaderboard.Click, lblLeaderboard.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        frmLeaderboard.Show()
-        Me.Enabled = False
+        If Me.WindowState = FormWindowState.Maximized Then
+            frmLeaderboard.TopLevel = False
+            Me.Controls.Add(frmLeaderboard)
+            frmLeaderboard.Show()
+            frmLeaderboard.Focus()
+        Else
+            frmLeaderboard.Show()
+            Me.Enabled = False
+        End If
     End Sub
 
     Private Sub Proc_Exited() Handles proc.Exited
@@ -529,8 +550,15 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblVersion_Click(sender As Object, e As EventArgs) Handles lblVersion.Click, lblVersion.EnterPressed
-        Me.Enabled = False
-        frmAbout.Show()
+        If Me.WindowState = FormWindowState.Maximized Then
+            frmAbout.TopLevel = False
+            Me.Controls.Add(frmAbout)
+            frmAbout.Show()
+            frmAbout.Focus()
+        Else
+            frmAbout.Show()
+            Me.Enabled = False
+        End If
     End Sub
 
     Private Sub lblVersion_MouseEnter(sender As Object, e As EventArgs) Handles lblVersion.MouseEnter
@@ -551,8 +579,16 @@ Public Class frmLauncher
         My.Settings.UserCountry = Nothing
         My.Settings.Save()
         Translate()
-        frmLogin.Show()
-        Me.Enabled = False
+
+        If Me.WindowState = FormWindowState.Maximized Then
+            frmLogin.TopLevel = False
+            Me.Controls.Add(frmLogin)
+            frmLogin.Show()
+            frmLogin.Focus()
+        Else
+            frmLogin.Show()
+            Me.Enabled = False
+        End If
     End Sub
 
     Private Sub lblLogout_MouseEnter(sender As Object, e As EventArgs) Handles lblLogout.MouseEnter

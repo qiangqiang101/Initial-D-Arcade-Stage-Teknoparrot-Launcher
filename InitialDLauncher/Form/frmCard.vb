@@ -16,6 +16,10 @@ Public Class frmCard
         RefreshID8Cards()
 
         Translate()
+
+        If frmLauncher.WindowState = FormWindowState.Maximized Then
+            NsControlButton3.Enabled = False
+        End If
     End Sub
 
     Public Sub RefreshID6Cards()

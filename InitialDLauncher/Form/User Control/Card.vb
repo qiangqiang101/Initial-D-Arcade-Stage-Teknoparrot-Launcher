@@ -171,10 +171,15 @@ Public Class Card
     Private Sub EditCard()
         Try
             Dim fe As frmEdit = New frmEdit()
+            If frmLauncher.WindowState = FormWindowState.Maximized Then
+                fe.TopLevel = False
+                frmLauncher.Controls.Add(fe)
+            End If
             fe.Version = _cardVersion
             fe.FileName = _filename
             fe.Extension = _extension
             fe.Show()
+            fe.Focus()
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
