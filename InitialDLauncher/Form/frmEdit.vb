@@ -50,11 +50,11 @@ Public Class frmEdit
 
     Private finishLoading As Boolean = False
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         pbEffect.BackgroundImage = gifImage.GetNextFrame()
     End Sub
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs)
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         pbEffect2.BackgroundImage = gifImage.GetNextFrame()
     End Sub
 
@@ -93,6 +93,34 @@ Public Class frmEdit
             gifImage = New GifImage(My.Resources.ResourceManager.GetObject("E" & cmbTitleEffect.SelectedIndex.ToString("X2")))
             Timer1.Start()
         End If
+    End Sub
+
+    Private Sub cmbGender_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbGender.SelectedIndexChanged
+        mouth_f.Clear()
+        mouth_m.Clear()
+        skin_f.Clear()
+        skin_m.Clear()
+        shirt_f.Clear()
+        shirt_m.Clear()
+        eyes_f.Clear()
+        eyes_m.Clear()
+        accessories_f.Clear()
+        accessories_m.Clear()
+        shades_f.Clear()
+        shades_m.Clear()
+        hair_f.Clear()
+        hair_m.Clear()
+        frame.Clear()
+        category.Clear()
+
+        Select Case _version
+            Case 6
+                DictionaryAdd6()
+            Case 7
+                DictionaryAdd7()
+            Case 8
+                DictionaryAdd8()
+        End Select
     End Sub
 
     Private _version As Integer
@@ -1078,12 +1106,12 @@ Public Class frmEdit
                 Avatar1.RefreshImage()
         End Select
 
-        If _version = 6 Then
-            DictionaryAdd6()
-        End If
+        'If _version = 6 Then
+        '    DictionaryAdd6()
+        'End If
 
         If _version = 7 Then
-            DictionaryAdd7()
+            'DictionaryAdd7()
 
             'Add Aura
             aura.Add(a7_none, "NONE")
@@ -1099,7 +1127,7 @@ Public Class frmEdit
         End If
 
         If _version = 8 Then
-            DictionaryAdd8()
+            'DictionaryAdd8()
 
             'Add Aura
             aura.Add(a7_none, "NONE")
@@ -1574,126 +1602,189 @@ Public Class frmEdit
     Private Sub DictionaryAdd6()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
-
-            'Female
-            'Add Mouth
-            Dim mouth As New InitialD6.Female.Mouth
             Dim i As Integer = 0
-            For Each mo In mouth.list
-                mouth_f.Add(ReadCfgValue("D6F_MO_" & mo.Tag, langFile, i), mo)
-                i += 1
-            Next
 
-            'Add Skin
-            Dim skin As New InitialD6.Female.Skin
-            i = 0
-            For Each sk In skin.list
-                skin_f.Add(ReadCfgValue("D6F_SK_" & sk.Tag, langFile, i), sk)
-                i += 1
-            Next
+            If cmbGender.SelectedIndex = 1 Then
+                'Female
+                'Add Mouth
+                Dim mouth As New InitialD6.Female.Mouth
+                i = 0
+                For Each mo In mouth.list
+                    If mouth_f.ContainsKey(ReadCfgValue("D6F_MO_" & mo.Tag, langFile, i)) Then
+                        mouth_f.Add(ReadCfgValue("D6F_MO_" & mo.Tag & " (Duplicate)", langFile, i), mo)
+                    Else
+                        mouth_f.Add(ReadCfgValue("D6F_MO_" & mo.Tag, langFile, i), mo)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shirt
-            Dim shirt As New InitialD6.Female.Shirt
-            i = 0
-            For Each sh In shirt.list
-                shirt_f.Add(ReadCfgValue("D6F_SH_" & sh.Tag, langFile, i), sh)
-                i += 1
-            Next
+                'Add Skin
+                Dim skin As New InitialD6.Female.Skin
+                i = 0
+                For Each sk In skin.list
+                    If skin_f.ContainsKey(ReadCfgValue("D6F_SK_" & sk.Tag, langFile, i)) Then
+                        skin_f.Add(ReadCfgValue("D6F_SK_" & sk.Tag & " (Duplicate)", langFile, i), sk)
+                    Else
+                        skin_f.Add(ReadCfgValue("D6F_SK_" & sk.Tag, langFile, i), sk)
+                    End If
+                    i += 1
+                Next
 
-            'Add Eyes
-            Dim eyes As New InitialD6.Female.Eyes
-            i = 0
-            For Each ey In eyes.list
-                eyes_f.Add(ReadCfgValue("D6F_EY_" & ey.Tag, langFile, i), ey)
-                i += 1
-            Next
+                'Add Shirt
+                Dim shirt As New InitialD6.Female.Shirt
+                i = 0
+                For Each sh In shirt.list
+                    If shirt_f.ContainsKey(ReadCfgValue("D6F_SH_" & sh.Tag, langFile, i)) Then
+                        shirt_f.Add(ReadCfgValue("D6F_SH_" & sh.Tag & " (Duplicate)", langFile, i), sh)
+                    Else
+                        shirt_f.Add(ReadCfgValue("D6F_SH_" & sh.Tag, langFile, i), sh)
+                    End If
+                    i += 1
+                Next
 
-            'Add Accessories
-            Dim accessories As New InitialD6.Female.Accessories
-            i = 0
-            For Each ac In accessories.list
-                accessories_f.Add(ReadCfgValue("D6F_AC_" & ac.Tag, langFile, i), ac)
-                i += 1
-            Next
+                'Add Eyes
+                Dim eyes As New InitialD6.Female.Eyes
+                i = 0
+                For Each ey In eyes.list
+                    If eyes_f.ContainsKey(ReadCfgValue("D6F_EY_" & ey.Tag, langFile, i)) Then
+                        eyes_f.Add(ReadCfgValue("D6F_EY_" & ey.Tag & " (Duplicate)", langFile, i), ey)
+                    Else
+                        eyes_f.Add(ReadCfgValue("D6F_EY_" & ey.Tag, langFile, i), ey)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shades
-            Dim shades As New InitialD6.Female.Shades
-            i = 0
-            For Each sp In shades.list
-                shades_f.Add(ReadCfgValue("D6F_SP_" & sp.Tag, langFile, i), sp)
-                i += 1
-            Next
+                'Add Accessories
+                Dim accessories As New InitialD6.Female.Accessories
+                i = 0
+                For Each ac In accessories.list
+                    If accessories_f.ContainsKey(ReadCfgValue("D6F_AC_" & ac.Tag, langFile, i)) Then
+                        accessories_f.Add(ReadCfgValue("D6F_AC_" & ac.Tag & " (Duplicate)", langFile, i), ac)
+                    Else
+                        accessories_f.Add(ReadCfgValue("D6F_AC_" & ac.Tag, langFile, i), ac)
+                    End If
+                    i += 1
+                Next
 
-            'Add Hair
-            Dim hair As New InitialD6.Female.Hair
-            i = 0
-            For Each ha In hair.list
-                hair_f.Add(ReadCfgValue("D6F_HA_" & ha.Tag, langFile, i), ha)
-                i += 1
-            Next
+                'Add Shades
+                Dim shades As New InitialD6.Female.Shades
+                i = 0
+                For Each sp In shades.list
+                    If shades_f.ContainsKey(ReadCfgValue("D6F_SP_" & sp.Tag, langFile, i)) Then
+                        shades_f.Add(ReadCfgValue("D6F_SP_" & sp.Tag & " (Duplicate)", langFile, i), sp)
+                    Else
+                        shades_f.Add(ReadCfgValue("D6F_SP_" & sp.Tag, langFile, i), sp)
+                    End If
+                    i += 1
+                Next
 
-            'Male
-            'Add Skin
-            Dim skin2 As New InitialD6.Male.Skin
-            i = 0
-            For Each sk2 In skin2.list
-                skin_m.Add(ReadCfgValue("D6M_SK_" & sk2.Tag, langFile, i), sk2)
-                i += 1
-            Next
+                'Add Hair
+                Dim hair As New InitialD6.Female.Hair
+                i = 0
+                For Each ha In hair.list
+                    If hair_f.ContainsKey(ReadCfgValue("D6F_HA_" & ha.Tag, langFile, i)) Then
+                        hair_f.Add(ReadCfgValue("D6F_HA_" & ha.Tag & " (Duplicate)", langFile, i), ha)
+                    Else
+                        hair_f.Add(ReadCfgValue("D6F_HA_" & ha.Tag, langFile, i), ha)
+                    End If
+                    i += 1
+                Next
+            Else
+                'Male
+                'Add Skin
+                Dim skin2 As New InitialD6.Male.Skin
+                i = 0
+                For Each sk2 In skin2.list
+                    If skin_m.ContainsKey(ReadCfgValue("D6M_SK_" & sk2.Tag, langFile, i)) Then
+                        skin_m.Add(ReadCfgValue("D6M_SK_" & sk2.Tag & " (Duplicate)", langFile, i), sk2)
+                    Else
+                        skin_m.Add(ReadCfgValue("D6M_SK_" & sk2.Tag, langFile, i), sk2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shirt
-            Dim shirt2 As New InitialD6.Male.Shirt
-            i = 0
-            For Each sh2 In shirt2.list
-                shirt_m.Add(ReadCfgValue("D6M_SH_" & sh2.Tag, langFile, i), sh2)
-                i += 1
-            Next
+                'Add Shirt
+                Dim shirt2 As New InitialD6.Male.Shirt
+                i = 0
+                For Each sh2 In shirt2.list
+                    If shirt_m.ContainsKey(ReadCfgValue("D6M_SH_" & sh2.Tag, langFile, i)) Then
+                        shirt_m.Add(ReadCfgValue("D6M_SH_" & sh2.Tag & " (Duplicate)", langFile, i), sh2)
+                    Else
+                        shirt_m.Add(ReadCfgValue("D6M_SH_" & sh2.Tag, langFile, i), sh2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Eyes
-            Dim eyes2 As New InitialD6.Male.Eyes
-            i = 0
-            For Each ey2 In eyes2.list
-                eyes_m.Add(ReadCfgValue("D6M_EY_" & ey2.Tag, langFile, i), ey2)
-                i += 1
-            Next
+                'Add Eyes
+                Dim eyes2 As New InitialD6.Male.Eyes
+                i = 0
+                For Each ey2 In eyes2.list
+                    If eyes_m.ContainsKey(ReadCfgValue("D6M_EY_" & ey2.Tag, langFile, i)) Then
+                        eyes_m.Add(ReadCfgValue("D6M_EY_" & ey2.Tag & " (Duplicate)", langFile, i), ey2)
+                    Else
+                        eyes_m.Add(ReadCfgValue("D6M_EY_" & ey2.Tag, langFile, i), ey2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Mouth
-            Dim mouth2 As New InitialD6.Male.Mouth
-            i = 0
-            For Each mo2 In mouth2.list
-                mouth_m.Add(ReadCfgValue("D6M_MO_" & mo2.Tag, langFile, i), mo2)
-                i += 1
-            Next
+                'Add Mouth
+                Dim mouth2 As New InitialD6.Male.Mouth
+                i = 0
+                For Each mo2 In mouth2.list
+                    If mouth_m.ContainsKey(ReadCfgValue("D6M_MO_" & mo2.Tag, langFile, i)) Then
+                        mouth_m.Add(ReadCfgValue("D6M_MO_" & mo2.Tag & " (Duplicate)", langFile, i), mo2)
+                    Else
+                        mouth_m.Add(ReadCfgValue("D6M_MO_" & mo2.Tag, langFile, i), mo2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Accessories
-            Dim accessories2 As New InitialD6.Male.Accessories
-            i = 0
-            For Each ac2 In accessories2.list
-                accessories_m.Add(ReadCfgValue("D6M_AC_" & ac2.Tag, langFile, i), ac2)
-                i += 1
-            Next
+                'Add Accessories
+                Dim accessories2 As New InitialD6.Male.Accessories
+                i = 0
+                For Each ac2 In accessories2.list
+                    If accessories_m.ContainsKey(ReadCfgValue("D6M_AC_" & ac2.Tag, langFile, i)) Then
+                        accessories_m.Add(ReadCfgValue("D6M_AC_" & ac2.Tag & " (Duplicate)", langFile, i), ac2)
+                    Else
+                        accessories_m.Add(ReadCfgValue("D6M_AC_" & ac2.Tag, langFile, i), ac2)
+                    End If
+                    i += 1
+                Next
 
-            'Add shades
-            Dim shades2 As New InitialD6.Male.Shades
-            i = 0
-            For Each sp2 In shades2.list
-                shades_m.Add(ReadCfgValue("D6M_SP_" & sp2.Tag, langFile, i), sp2)
-                i += 1
-            Next
+                'Add shades
+                Dim shades2 As New InitialD6.Male.Shades
+                i = 0
+                For Each sp2 In shades2.list
+                    If shades_m.ContainsKey(ReadCfgValue("D6M_SP_" & sp2.Tag, langFile, i)) Then
+                        shades_m.Add(ReadCfgValue("D6M_SP_" & sp2.Tag & " (Duplicate)", langFile, i), sp2)
+                    Else
+                        shades_m.Add(ReadCfgValue("D6M_SP_" & sp2.Tag, langFile, i), sp2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Hair
-            Dim hair2 As New InitialD6.Male.Hair
-            i = 0
-            For Each ha2 In hair2.list
-                hair_m.Add(ReadCfgValue("D6M_HA_" & ha2.Tag, langFile, i), ha2)
-                i += 1
-            Next
+                'Add Hair
+                Dim hair2 As New InitialD6.Male.Hair
+                i = 0
+                For Each ha2 In hair2.list
+                    If hair_m.ContainsKey(ReadCfgValue("D6M_HA_" & ha2.Tag, langFile, i)) Then
+                        hair_m.Add(ReadCfgValue("D6M_HA_" & ha2.Tag & " (Duplicate)", langFile, i), ha2)
+                    Else
+                        hair_m.Add(ReadCfgValue("D6M_HA_" & ha2.Tag, langFile, i), ha2)
+                    End If
+                    i += 1
+                Next
+            End If
 
             'Add Frame
             Dim fm As New InitialD7.Share.Frame
             i = 0
             For Each f In fm.list
-                frame.Add(ReadCfgValue("D7_FR_" & f.Tag, langFile, i), f)
+                If frame.ContainsKey(ReadCfgValue("D7_FR_" & f.Tag, langFile, i)) Then
+                    frame.Add(ReadCfgValue("D7_FR_" & f.Tag & " (Duplicate)", langFile, i), f)
+                Else
+                    frame.Add(ReadCfgValue("D7_FR_" & f.Tag, langFile, i), f)
+                End If
                 i += 1
             Next
 
@@ -1719,129 +1810,189 @@ Public Class frmEdit
     Private Sub DictionaryAdd7()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
-
-            'Female
-            'Add Mouth
-            Dim mouth As New InitialD7.Female.Mouth
             Dim i As Integer = 0
-            For Each mo In mouth.list
-                mouth_f.Add(ReadCfgValue("D7F_MO_" & mo.Tag, langFile, i), mo)
-                i += 1
-            Next
 
-            'Add Skin
-            Dim skin As New InitialD7.Female.Skin
-            i = 0
-            For Each sk In skin.list
-                skin_f.Add(ReadCfgValue("D7F_SK_" & sk.Tag, langFile, i), sk)
-                i += 1
-            Next
+            If cmbGender.SelectedIndex = 1 Then
+                'Female
+                'Add Mouth
+                Dim mouth As New InitialD7.Female.Mouth
+                i = 0
+                For Each mo In mouth.list
+                    If mouth_f.ContainsKey(ReadCfgValue("D7F_MO_" & mo.Tag, langFile, i)) Then
+                        mouth_f.Add(ReadCfgValue("D7F_MO_" & mo.Tag & " (Duplicate)", langFile, i), mo)
+                    Else
+                        mouth_f.Add(ReadCfgValue("D7F_MO_" & mo.Tag, langFile, i), mo)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shirt
-            Dim shirt As New InitialD7.Female.Shirt
-            i = 0
-            For Each sh In shirt.list
-                shirt_f.Add(ReadCfgValue("D7F_SH_" & sh.Tag, langFile, i), sh)
-                i += 1
-            Next
+                'Add Skin
+                Dim skin As New InitialD7.Female.Skin
+                i = 0
+                For Each sk In skin.list
+                    If skin_f.ContainsKey(ReadCfgValue("D7F_SK_" & sk.Tag, langFile, i)) Then
+                        skin_f.Add(ReadCfgValue("D7F_SK_" & sk.Tag & " (Duplicate)", langFile, i), sk)
+                    Else
+                        skin_f.Add(ReadCfgValue("D7F_SK_" & sk.Tag, langFile, i), sk)
+                    End If
+                    i += 1
+                Next
 
-            'Add Eyes
-            Dim eyes As New InitialD7.Female.Eyes
-            i = 0
-            For Each ey In eyes.list
-                eyes_f.Add(ReadCfgValue("D7F_EY_" & ey.Tag, langFile, i), ey)
-                i += 1
-            Next
+                'Add Shirt
+                Dim shirt As New InitialD7.Female.Shirt
+                i = 0
+                For Each sh In shirt.list
+                    If shirt_f.ContainsKey(ReadCfgValue("D7F_SH_" & sh.Tag, langFile, i)) Then
+                        shirt_f.Add(ReadCfgValue("D7F_SH_" & sh.Tag & " (Duplicate)", langFile, i), sh)
+                    Else
+                        shirt_f.Add(ReadCfgValue("D7F_SH_" & sh.Tag, langFile, i), sh)
+                    End If
+                    i += 1
+                Next
 
-            'Add Accessories
-            Dim accessories As New InitialD7.Female.Accessories
-            i = 0
-            For Each ac In accessories.list
-                accessories_f.Add(ReadCfgValue("D7F_AC_" & ac.Tag, langFile, i), ac)
-                i += 1
-            Next
+                'Add Eyes
+                Dim eyes As New InitialD7.Female.Eyes
+                i = 0
+                For Each ey In eyes.list
+                    If eyes_f.ContainsKey(ReadCfgValue("D7F_EY_" & ey.Tag, langFile, i)) Then
+                        eyes_f.Add(ReadCfgValue("D7F_EY_" & ey.Tag & " (Duplicate)", langFile, i), ey)
+                    Else
+                        eyes_f.Add(ReadCfgValue("D7F_EY_" & ey.Tag, langFile, i), ey)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shades
-            Dim shades As New InitialD7.Female.Shades
-            i = 0
-            For Each sp In shades.list
-                shades_f.Add(ReadCfgValue("D7F_SP_" & sp.Tag, langFile, i), sp)
-                i += 1
-            Next
+                'Add Accessories
+                Dim accessories As New InitialD7.Female.Accessories
+                i = 0
+                For Each ac In accessories.list
+                    If accessories_f.ContainsKey(ReadCfgValue("D7F_AC_" & ac.Tag, langFile, i)) Then
+                        accessories_f.Add(ReadCfgValue("D7F_AC_" & ac.Tag & " (Duplicate)", langFile, i), ac)
+                    Else
+                        accessories_f.Add(ReadCfgValue("D7F_AC_" & ac.Tag, langFile, i), ac)
+                    End If
+                    i += 1
+                Next
 
-            'Add Hair
-            Dim hair As New InitialD7.Female.Hair
-            i = 0
-            For Each ha In hair.list
-                hair_f.Add(ReadCfgValue("D7F_HA_" & ha.Tag, langFile, i), ha)
-                i += 1
-            Next
+                'Add Shades
+                Dim shades As New InitialD7.Female.Shades
+                i = 0
+                For Each sp In shades.list
+                    If shades_f.ContainsKey(ReadCfgValue("D7F_SP_" & sp.Tag, langFile, i)) Then
+                        shades_f.Add(ReadCfgValue("D7F_SP_" & sp.Tag & " (Duplicate)", langFile, i), sp)
+                    Else
+                        shades_f.Add(ReadCfgValue("D7F_SP_" & sp.Tag, langFile, i), sp)
+                    End If
+                    i += 1
+                Next
 
-            'Male
-            'Add Skin
-            Dim skin2 As New InitialD7.Male.Skin
-            i = 0
-            For Each sk2 In skin2.list
-                skin_m.Add(ReadCfgValue("D7M_SK_" & sk2.Tag, langFile, i), sk2)
-                i += 1
-            Next
+                'Add Hair
+                Dim hair As New InitialD7.Female.Hair
+                i = 0
+                For Each ha In hair.list
+                    If hair_f.ContainsKey(ReadCfgValue("D7F_HA_" & ha.Tag, langFile, i)) Then
+                        hair_f.Add(ReadCfgValue("D7F_HA_" & ha.Tag & " (Duplicate)", langFile, i), ha)
+                    Else
+                        hair_f.Add(ReadCfgValue("D7F_HA_" & ha.Tag, langFile, i), ha)
+                    End If
+                    i += 1
+                Next
+            Else
+                'Male
+                'Add Skin
+                Dim skin2 As New InitialD7.Male.Skin
+                i = 0
+                For Each sk2 In skin2.list
+                    If skin_m.ContainsKey(ReadCfgValue("D7M_SK_" & sk2.Tag, langFile, i)) Then
+                        skin_m.Add(ReadCfgValue("D7M_SK_" & sk2.Tag & " (Duplicate)", langFile, i), sk2)
+                    Else
+                        skin_m.Add(ReadCfgValue("D7M_SK_" & sk2.Tag, langFile, i), sk2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shirt
-            Dim shirt2 As New InitialD7.Male.Shirt
-            i = 0
-            For Each sh2 In shirt2.list
-                If shirt_m.ContainsKey("D7M_SH_" & sh2.Tag) Then
-                    MsgBox("D7M_SH_" & sh2.Tag & "is duplicated.")
-                End If
-                shirt_m.Add(ReadCfgValue("D7M_SH_" & sh2.Tag, langFile, i), sh2)
-                i += 1
-            Next
+                'Add Shirt
+                Dim shirt2 As New InitialD7.Male.Shirt
+                i = 0
+                For Each sh2 In shirt2.list
+                    If shirt_m.ContainsKey(ReadCfgValue("D7M_SH_" & sh2.Tag, langFile, i)) Then
+                        shirt_m.Add(ReadCfgValue("D7M_SH_" & sh2.Tag & " (Duplicate)", langFile, i), sh2)
+                    Else
+                        shirt_m.Add(ReadCfgValue("D7M_SH_" & sh2.Tag, langFile, i), sh2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Eyes
-            Dim eyes2 As New InitialD7.Male.Eyes
-            i = 0
-            For Each ey2 In eyes2.list
-                eyes_m.Add(ReadCfgValue("D7M_EY_" & ey2.Tag, langFile, i), ey2)
-                i += 1
-            Next
+                'Add Eyes
+                Dim eyes2 As New InitialD7.Male.Eyes
+                i = 0
+                For Each ey2 In eyes2.list
+                    If eyes_m.ContainsKey(ReadCfgValue("D7M_EY_" & ey2.Tag, langFile, i)) Then
+                        eyes_m.Add(ReadCfgValue("D7M_EY_" & ey2.Tag & " (Duplicate)", langFile, i), ey2)
+                    Else
+                        eyes_m.Add(ReadCfgValue("D7M_EY_" & ey2.Tag, langFile, i), ey2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Mouth
-            Dim mouth2 As New InitialD7.Male.Mouth
-            i = 0
-            For Each mo2 In mouth2.list
-                mouth_m.Add(ReadCfgValue("D7M_MO_" & mo2.Tag, langFile, i), mo2)
-                i += 1
-            Next
+                'Add Mouth
+                Dim mouth2 As New InitialD7.Male.Mouth
+                i = 0
+                For Each mo2 In mouth2.list
+                    If mouth_m.ContainsKey(ReadCfgValue("D7M_MO_" & mo2.Tag, langFile, i)) Then
+                        mouth_m.Add(ReadCfgValue("D7M_MO_" & mo2.Tag & " (Duplicate)", langFile, i), mo2)
+                    Else
+                        mouth_m.Add(ReadCfgValue("D7M_MO_" & mo2.Tag, langFile, i), mo2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Accessories
-            Dim accessories2 As New InitialD7.Male.Accessories
-            i = 0
-            For Each ac2 In accessories2.list
-                accessories_m.Add(ReadCfgValue("D7M_AC_" & ac2.Tag, langFile, i), ac2)
-                i += 1
-            Next
+                'Add Accessories
+                Dim accessories2 As New InitialD7.Male.Accessories
+                i = 0
+                For Each ac2 In accessories2.list
+                    If accessories_m.ContainsKey(ReadCfgValue("D7M_AC_" & ac2.Tag, langFile, i)) Then
+                        accessories_m.Add(ReadCfgValue("D7M_AC_" & ac2.Tag & " (Duplicate)", langFile, i), ac2)
+                    Else
+                        accessories_m.Add(ReadCfgValue("D7M_AC_" & ac2.Tag, langFile, i), ac2)
+                    End If
+                    i += 1
+                Next
 
-            'Add shades
-            Dim shades2 As New InitialD7.Male.Shades
-            i = 0
-            For Each sp2 In shades2.list
-                shades_m.Add(ReadCfgValue("D7M_SP_" & sp2.Tag, langFile, i), sp2)
-                i += 1
-            Next
+                'Add shades
+                Dim shades2 As New InitialD7.Male.Shades
+                i = 0
+                For Each sp2 In shades2.list
+                    If shades_m.ContainsKey(ReadCfgValue("D7M_SP_" & sp2.Tag, langFile, i)) Then
+                        shades_m.Add(ReadCfgValue("D7M_SP_" & sp2.Tag & " (Duplicate)", langFile, i), sp2)
+                    Else
+                        shades_m.Add(ReadCfgValue("D7M_SP_" & sp2.Tag, langFile, i), sp2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Hair
-            Dim hair2 As New InitialD7.Male.Hair
-            i = 0
-            For Each ha2 In hair2.list
-                hair_m.Add(ReadCfgValue("D7M_HA_" & ha2.Tag, langFile, i), ha2)
-                i += 1
-            Next
+                'Add Hair
+                Dim hair2 As New InitialD7.Male.Hair
+                i = 0
+                For Each ha2 In hair2.list
+                    If hair_m.ContainsKey(ReadCfgValue("D7M_HA_" & ha2.Tag, langFile, i)) Then
+                        hair_m.Add(ReadCfgValue("D7M_HA_" & ha2.Tag & " (Duplicate)", langFile, i), ha2)
+                    Else
+                        hair_m.Add(ReadCfgValue("D7M_HA_" & ha2.Tag, langFile, i), ha2)
+                    End If
+                    i += 1
+                Next
+            End If
 
             'Add Frame
             Dim fm As New InitialD7.Share.Frame
             i = 0
             For Each f In fm.list
-                frame.Add(ReadCfgValue("D7_FR_" & f.Tag, langFile, i), f)
+                If frame.ContainsKey(ReadCfgValue("D7_FR_" & f.Tag, langFile, i)) Then
+                    frame.Add(ReadCfgValue("D7_FR_" & f.Tag & " (Duplicate)", langFile, i), f)
+                Else
+                    frame.Add(ReadCfgValue("D7_FR_" & f.Tag, langFile, i), f)
+                End If
                 i += 1
             Next
 
@@ -1867,126 +2018,189 @@ Public Class frmEdit
     Private Sub DictionaryAdd8()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
-
-            'Female
-            'Add Mouth
-            Dim mouth As New InitialD8.Female.Mouth
             Dim i As Integer = 0
-            For Each mo In mouth.list
-                mouth_f.Add(ReadCfgValue("D8F_MO_" & mo.Tag, langFile, i), mo)
-                i += 1
-            Next
 
-            'Add Skin
-            Dim skin As New InitialD8.Female.Skin
-            i = 0
-            For Each sk In skin.list
-                skin_f.Add(ReadCfgValue("D8F_SK_" & sk.Tag, langFile, i), sk)
-                i += 1
-            Next
+            If cmbGender.SelectedIndex = 1 Then
+                'Female
+                'Add Mouth
+                Dim mouth As New InitialD8.Female.Mouth
+                i = 0
+                For Each mo In mouth.list
+                    If mouth_f.ContainsKey(ReadCfgValue("D8F_MO_" & mo.Tag, langFile, i)) Then
+                        mouth_f.Add(ReadCfgValue("D8F_MO_" & mo.Tag & " (Duplicate)", langFile, i), mo)
+                    Else
+                        mouth_f.Add(ReadCfgValue("D8F_MO_" & mo.Tag, langFile, i), mo)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shirt
-            Dim shirt As New InitialD8.Female.Shirt
-            i = 0
-            For Each sh In shirt.list
-                shirt_f.Add(ReadCfgValue("D8F_SH_" & sh.Tag, langFile, i), sh)
-                i += 1
-            Next
+                'Add Skin
+                Dim skin As New InitialD8.Female.Skin
+                i = 0
+                For Each sk In skin.list
+                    If skin_f.ContainsKey(ReadCfgValue("D8F_SK_" & sk.Tag, langFile, i)) Then
+                        skin_f.Add(ReadCfgValue("D8F_SK_" & sk.Tag & " (Duplicate)", langFile, i), sk)
+                    Else
+                        skin_f.Add(ReadCfgValue("D8F_SK_" & sk.Tag, langFile, i), sk)
+                    End If
+                    i += 1
+                Next
 
-            'Add Eyes
-            Dim eyes As New InitialD8.Female.Eyes
-            i = 0
-            For Each ey In eyes.list
-                eyes_f.Add(ReadCfgValue("D8F_EY_" & ey.Tag, langFile, i), ey)
-                i += 1
-            Next
+                'Add Shirt
+                Dim shirt As New InitialD8.Female.Shirt
+                i = 0
+                For Each sh In shirt.list
+                    If shirt_f.ContainsKey(ReadCfgValue("D8F_SH_" & sh.Tag, langFile, i)) Then
+                        shirt_f.Add(ReadCfgValue("D8F_SH_" & sh.Tag & " (Duplicate)", langFile, i), sh)
+                    Else
+                        shirt_f.Add(ReadCfgValue("D8F_SH_" & sh.Tag, langFile, i), sh)
+                    End If
+                    i += 1
+                Next
 
-            'Add Accessories
-            Dim accessories As New InitialD8.Female.Accessories
-            i = 0
-            For Each ac In accessories.list
-                accessories_f.Add(ReadCfgValue("D8F_AC_" & ac.Tag, langFile, i), ac)
-                i += 1
-            Next
+                'Add Eyes
+                Dim eyes As New InitialD8.Female.Eyes
+                i = 0
+                For Each ey In eyes.list
+                    If eyes_f.ContainsKey(ReadCfgValue("D8F_EY_" & ey.Tag, langFile, i)) Then
+                        eyes_f.Add(ReadCfgValue("D8F_EY_" & ey.Tag & " (Duplicate)", langFile, i), ey)
+                    Else
+                        eyes_f.Add(ReadCfgValue("D8F_EY_" & ey.Tag, langFile, i), ey)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shades
-            Dim shades As New InitialD8.Female.Shades
-            i = 0
-            For Each sp In shades.list
-                shades_f.Add(ReadCfgValue("D8F_SP_" & sp.Tag, langFile, i), sp)
-                i += 1
-            Next
+                'Add Accessories
+                Dim accessories As New InitialD8.Female.Accessories
+                i = 0
+                For Each ac In accessories.list
+                    If accessories_f.ContainsKey(ReadCfgValue("D8F_AC_" & ac.Tag, langFile, i)) Then
+                        accessories_f.Add(ReadCfgValue("D8F_AC_" & ac.Tag & " (Duplicate)", langFile, i), ac)
+                    Else
+                        accessories_f.Add(ReadCfgValue("D8F_AC_" & ac.Tag, langFile, i), ac)
+                    End If
+                    i += 1
+                Next
 
-            'Add Hair
-            Dim hair As New InitialD8.Female.Hair
-            i = 0
-            For Each ha In hair.list
-                hair_f.Add(ReadCfgValue("D8F_HA_" & ha.Tag, langFile, i), ha)
-                i += 1
-            Next
+                'Add Shades
+                Dim shades As New InitialD8.Female.Shades
+                i = 0
+                For Each sp In shades.list
+                    If shades_f.ContainsKey(ReadCfgValue("D8F_SP_" & sp.Tag, langFile, i)) Then
+                        shades_f.Add(ReadCfgValue("D8F_SP_" & sp.Tag & " (Duplicate)", langFile, i), sp)
+                    Else
+                        shades_f.Add(ReadCfgValue("D8F_SP_" & sp.Tag, langFile, i), sp)
+                    End If
+                    i += 1
+                Next
 
-            'Male
-            'Add Skin
-            Dim skin2 As New InitialD8.Male.Skin
-            i = 0
-            For Each sk2 In skin2.list
-                skin_m.Add(ReadCfgValue("D8M_SK_" & sk2.Tag, langFile, i), sk2)
-                i += 1
-            Next
+                'Add Hair
+                Dim hair As New InitialD8.Female.Hair
+                i = 0
+                For Each ha In hair.list
+                    If hair_f.ContainsKey(ReadCfgValue("D8F_HA_" & ha.Tag, langFile, i)) Then
+                        hair_f.Add(ReadCfgValue("D8F_HA_" & ha.Tag & " (Duplicate)", langFile, i), ha)
+                    Else
+                        hair_f.Add(ReadCfgValue("D8F_HA_" & ha.Tag, langFile, i), ha)
+                    End If
+                    i += 1
+                Next
+            Else
+                'Male
+                'Add Skin
+                Dim skin2 As New InitialD8.Male.Skin
+                i = 0
+                For Each sk2 In skin2.list
+                    If skin_m.ContainsKey(ReadCfgValue("D8M_SK_" & sk2.Tag, langFile, i)) Then
+                        skin_m.Add(ReadCfgValue("D8M_SK_" & sk2.Tag & " (Duplicate)", langFile, i), sk2)
+                    Else
+                        skin_m.Add(ReadCfgValue("D8M_SK_" & sk2.Tag, langFile, i), sk2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Shirt
-            Dim shirt2 As New InitialD8.Male.Shirt
-            i = 0
-            For Each sh2 In shirt2.list
-                shirt_m.Add(ReadCfgValue("D8M_SH_" & sh2.Tag, langFile, i), sh2)
-                i += 1
-            Next
+                'Add Shirt
+                Dim shirt2 As New InitialD8.Male.Shirt
+                i = 0
+                For Each sh2 In shirt2.list
+                    If shirt_m.ContainsKey(ReadCfgValue("D8M_SH_" & sh2.Tag, langFile, i)) Then
+                        shirt_m.Add(ReadCfgValue("D8M_SH_" & sh2.Tag & " (Duplicate)", langFile, i), sh2)
+                    Else
+                        shirt_m.Add(ReadCfgValue("D8M_SH_" & sh2.Tag, langFile, i), sh2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Eyes
-            Dim eyes2 As New InitialD8.Male.Eyes
-            i = 0
-            For Each ey2 In eyes2.list
-                eyes_m.Add(ReadCfgValue("D8M_EY_" & ey2.Tag, langFile, i), ey2)
-                i += 1
-            Next
+                'Add Eyes
+                Dim eyes2 As New InitialD8.Male.Eyes
+                i = 0
+                For Each ey2 In eyes2.list
+                    If eyes_m.ContainsKey(ReadCfgValue("D8M_EY_" & ey2.Tag, langFile, i)) Then
+                        eyes_m.Add(ReadCfgValue("D8M_EY_" & ey2.Tag & " (Duplicate)", langFile, i), ey2)
+                    Else
+                        eyes_m.Add(ReadCfgValue("D8M_EY_" & ey2.Tag, langFile, i), ey2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Mouth
-            Dim mouth2 As New InitialD8.Male.Mouth
-            i = 0
-            For Each mo2 In mouth2.list
-                mouth_m.Add(ReadCfgValue("D8M_MO_" & mo2.Tag, langFile, i), mo2)
-                i += 1
-            Next
+                'Add Mouth
+                Dim mouth2 As New InitialD8.Male.Mouth
+                i = 0
+                For Each mo2 In mouth2.list
+                    If mouth_m.ContainsKey(ReadCfgValue("D8M_MO_" & mo2.Tag, langFile, i)) Then
+                        mouth_m.Add(ReadCfgValue("D8M_MO_" & mo2.Tag & " (Duplicate)", langFile, i), mo2)
+                    Else
+                        mouth_m.Add(ReadCfgValue("D8M_MO_" & mo2.Tag, langFile, i), mo2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Accessories
-            Dim accessories2 As New InitialD8.Male.Accessories
-            i = 0
-            For Each ac2 In accessories2.list
-                accessories_m.Add(ReadCfgValue("D8M_AC_" & ac2.Tag, langFile, i), ac2)
-                i += 1
-            Next
+                'Add Accessories
+                Dim accessories2 As New InitialD8.Male.Accessories
+                i = 0
+                For Each ac2 In accessories2.list
+                    If accessories_m.ContainsKey(ReadCfgValue("D8M_AC_" & ac2.Tag, langFile, i)) Then
+                        accessories_m.Add(ReadCfgValue("D8M_AC_" & ac2.Tag & " (Duplicate)", langFile, i), ac2)
+                    Else
+                        accessories_m.Add(ReadCfgValue("D8M_AC_" & ac2.Tag, langFile, i), ac2)
+                    End If
+                    i += 1
+                Next
 
-            'Add shades
-            Dim shades2 As New InitialD8.Male.Shades
-            i = 0
-            For Each sp2 In shades2.list
-                shades_m.Add(ReadCfgValue("D8M_SP_" & sp2.Tag, langFile, i), sp2)
-                i += 1
-            Next
+                'Add shades
+                Dim shades2 As New InitialD8.Male.Shades
+                i = 0
+                For Each sp2 In shades2.list
+                    If shades_m.ContainsKey(ReadCfgValue("D8M_SP_" & sp2.Tag, langFile, i)) Then
+                        shades_m.Add(ReadCfgValue("D8M_SP_" & sp2.Tag & " (Duplicate)", langFile, i), sp2)
+                    Else
+                        shades_m.Add(ReadCfgValue("D8M_SP_" & sp2.Tag, langFile, i), sp2)
+                    End If
+                    i += 1
+                Next
 
-            'Add Hair
-            Dim hair2 As New InitialD8.Male.Hair
-            i = 0
-            For Each ha2 In hair2.list
-                hair_m.Add(ReadCfgValue("D8M_HA_" & ha2.Tag, langFile, i), ha2)
-                i += 1
-            Next
+                'Add Hair
+                Dim hair2 As New InitialD8.Male.Hair
+                i = 0
+                For Each ha2 In hair2.list
+                    If hair_m.ContainsKey(ReadCfgValue("D8M_HA_" & ha2.Tag, langFile, i)) Then
+                        hair_m.Add(ReadCfgValue("D8M_HA_" & ha2.Tag & " (Duplicate)", langFile, i), ha2)
+                    Else
+                        hair_m.Add(ReadCfgValue("D8M_HA_" & ha2.Tag, langFile, i), ha2)
+                    End If
+                    i += 1
+                Next
+            End If
 
             'Add Frame
             Dim fm As New InitialD8.Share.Frame
             i = 0
             For Each f In fm.list
-                frame.Add(ReadCfgValue("D8_FR_" & f.Tag, langFile, i), f)
+                If frame.ContainsKey(ReadCfgValue("D8_FR_" & f.Tag, langFile, i)) Then
+                    frame.Add(ReadCfgValue("D8_FR_" & f.Tag & " (Duplicate)", langFile, i), f)
+                Else
+                    frame.Add(ReadCfgValue("D8_FR_" & f.Tag, langFile, i), f)
+                End If
                 i += 1
             Next
 

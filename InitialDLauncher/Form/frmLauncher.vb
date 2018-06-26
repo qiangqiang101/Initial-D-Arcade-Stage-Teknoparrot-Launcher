@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 40
-    Public buildDate As String = "24/06/2018"
+    Dim curVer As Integer = 41
+    Public buildDate As String = "26/06/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -66,6 +66,13 @@ Public Class frmLauncher
                     Exit Sub
                 End If
             Next
+            Dim file As String = Command$()
+            If Not file = "" Then
+                file = Replace(file, Chr(34), "")
+                CardEditorLoad(file)
+                Opacity = 0
+                Exit Sub
+            End If
             LauncherNormalLoad()
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
@@ -83,8 +90,6 @@ Public Class frmLauncher
             ofd.RestoreDirectory = True
             ofd.InitialDirectory = My.Application.Info.DirectoryPath
             If ofd.ShowDialog() = DialogResult.OK Then
-                'Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(ofd.FileName), Path.GetFileName(ofd.FileName))
-                'File.Copy(ofd.FileName, newFileName, True)
                 Select Case Path.GetExtension(ofd.FileName)
                     Case ".bin"
                         If GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 7 Then
@@ -109,12 +114,12 @@ Public Class frmLauncher
                             fe.FileName = ofd.FileName
                             fe.Extension = "crd"
                             fe.CardEditOnly = True
-                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 6 Then
+                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H14, 2)) = 6 Then
                             fe.Version = 6
                             fe.FileName = ofd.FileName
                             fe.Extension = "crd"
                             fe.CardEditOnly = True
-                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 8 Then
+                        ElseIf GetCardVersion(GetHex(ofd.FileName, &H14, 2)) = 8 Then
                             fe.Version = 8
                             fe.FileName = ofd.FileName
                             fe.Extension = "crd"
@@ -129,12 +134,61 @@ Public Class frmLauncher
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
+            End
         End Try
     End Sub
 
-    Dim videoFile As String = String.Format("{0}\data\ADVERTISE\initialD8.wmv", My.Settings.Id8Path)
-    Dim video As AudioFile
-    Dim status As Integer = -1
+    Private Sub CardEditorLoad(CardFile As String)
+        Try
+            Dim fe As frmEdit = New frmEdit()
+            If Not CardFile = Nothing Then
+                Select Case Path.GetExtension(CardFile)
+                    Case ".bin"
+                        If GetCardVersion(GetHex(CardFile, &H50, 2)) = 7 Then
+                            fe.Version = 7
+                            fe.FileName = CardFile
+                            fe.Extension = "bin"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = 6 Then
+                            fe.Version = 6
+                            fe.FileName = CardFile
+                            fe.Extension = "bin"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = 8 Then
+                            fe.Version = 8
+                            fe.FileName = CardFile
+                            fe.Extension = "bin"
+                            fe.CardEditOnly = True
+                        End If
+                    Case ".crd"
+                        If GetCardVersion(GetHex(CardFile, &H14, 2)) = 7 Then
+                            fe.Version = 7
+                            fe.FileName = CardFile
+                            fe.Extension = "crd"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(CardFile, &H14, 2)) = 6 Then
+                            fe.Version = 6
+                            fe.FileName = CardFile
+                            fe.Extension = "crd"
+                            fe.CardEditOnly = True
+                        ElseIf GetCardVersion(GetHex(CardFile, &H14, 2)) = 8 Then
+                            fe.Version = 8
+                            fe.FileName = CardFile
+                            fe.Extension = "crd"
+                            fe.CardEditOnly = True
+                        End If
+                End Select
+                fe.ShowDialog()
+                fe.BringToFront()
+            Else
+                End
+            End If
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+            End
+        End Try
+    End Sub
 
     Private Sub LauncherNormalLoad()
         Try

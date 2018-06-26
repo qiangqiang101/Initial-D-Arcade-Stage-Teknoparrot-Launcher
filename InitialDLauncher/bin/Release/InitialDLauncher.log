@@ -165,3 +165,23 @@
    at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
    at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
    at InitialDLauncher.frmEdit.DictionaryAdd6() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1690
+26/Jun/2018 2:47:38 AM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd8() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1957
+26/Jun/2018 7:02:36 AM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd8() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 2162
+26/Jun/2018 7:03:02 AM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd8() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 2207
+26/Jun/2018 7:04:03 AM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd8() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 2207
+26/Jun/2018 7:05:22 AM:An item with the same key has already been added.   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at InitialDLauncher.frmEdit.DictionaryAdd8() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 2163

@@ -1676,6 +1676,8 @@ Module Helper
                 result = 6
             Case "1580"
                 result = 8
+            Case Else
+                result = -1
         End Select
         Return result
     End Function

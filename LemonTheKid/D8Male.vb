@@ -306,7 +306,7 @@ Namespace InitialD8
             Public MO_FX0E As New IDAvatar(My.Resources.FT0E) With {.Tag = "FX0E"}
             Public MO_FX0F As New IDAvatar(My.Resources.FT0F) With {.Tag = "FX0F"}
 
-            Public list As New List(Of IDAvatar) From {MO_0X0E, MO_0X0F, MO_0X10, MO_1X0E, MO_1X0F, MO_1X0F, MO_1X10, MO_2X0E, MO_2X0F, MO_2X10, MO_3X0E, MO_3X0F, MO_4X0E, MO_4X0F, MO_5X0E, MO_5X0F,
+            Public list As New List(Of IDAvatar) From {MO_0X0E, MO_0X0F, MO_0X10, MO_1X0E, MO_1X0F, MO_1X10, MO_2X0E, MO_2X0F, MO_2X10, MO_3X0E, MO_3X0F, MO_4X0E, MO_4X0F, MO_5X0E, MO_5X0F,
                 MO_6X0E, MO_6X0F, MO_7X0E, MO_7X0F, MO_8X0D, MO_8X0E, MO_8X0F, MO_9X0D, MO_9X0E, MO_9X0F, MO_AX0D, MO_AX0E, MO_AX0F, MO_BX0D, MO_BX0E, MO_BX0F, MO_CX0D, MO_CX0E, MO_CX0F, MO_DX0D,
                 MO_DX0E, MO_DX0F, MO_EX0D, MO_EX0E, MO_EX0F, MO_FX0D, MO_FX0E, MO_FX0F}
         End Class

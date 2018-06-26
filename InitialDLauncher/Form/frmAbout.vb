@@ -18,44 +18,45 @@ I'm Not MentaL
 <h3>THIRD PARTY</h3>
 This application uses some parts which provided by third party.<br /><br />
 
-Build with Microsoft Visual Studio 2015, <br />
-The PHP Group, <br />
-Winform DropShadow © 陈杨文, <br />
-PlayFile © Blake Pell, <br />
-PHP/SQL Leaderboard © Alex Rose, <br />
-ExtendedWebClient © ChrisD, <br />
-GameSpot Theme © w3layouts, <br />
-Translucent Control using GDI+ © a_pess, <br />
-SplitButton Control © bergerkiller, <br />
-Net Seal Theme © aeonhack, <br />
-simple plugin mechanism © chriga, <br />
+Build with Microsoft Visual Studio 2015<br />
+The PHP Group<br />
+Winform DropShadow © 陈杨文<br />
+PlayFile © Blake Pell<br />
+PHP/SQL Leaderboard © Alex Rose<br />
+ExtendedWebClient © ChrisD<br />
+GameSpot Theme © w3layouts<br />
+Translucent Control using GDI+ © a_pess<br />
+SplitButton Control © bergerkiller<br />
+Net Seal Theme © aeonhack<br />
+simple plugin mechanism © chriga<br />
 GifImage © Jeremy Thompson<br />
 CheckJapaneseCharacterWidth © Gekka<br />
 
 <h3>LOCALIZATION CONTRIBUTORS</h3>
-English - I'm Not MentaL, Kurisuchan, <br />
-繁體中文 - 奥巴鸡, <br />
-简体中文 - 奥巴鸡, <br />
-日本語 - 雪熊霸, <br />
-한국어 - Mellanitomo Gen, <br />
-Bahasa Malaysia - Kurisuchan, <br />
-Deutsche - Soul, <br />
-Español - Gixer, <br />
+English - I'm Not MentaL & Kurisuchan<br />
+繁體中文 - 奥巴鸡<br />
+简体中文 - 奥巴鸡<br />
+日本語 - 雪熊霸<br />
+한국어 - Mellanitomo Gen<br />
+Bahasa Malaysia - Kurisuchan<br />
+Deutsche - Soul<br />
+Español - Gixer<br />
 Français - nucleaireland<br />
 
 <h3>COMMUNITY CONTRIBUTORS</h3>
-BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset,<br />
-Lemon The Kid - Avatar Offset, Avatar Preview Pictures, Car Color, Car Engine/Rollbar Parts, Car Fullspec, Car Number Plate, Aura & etc, <br />
-AkiiHoshi - Avatar Preview Pictures for InitialD 7, <br />
-Nezarn - Avatar Preview Pictures for InitialD 8, <br />
-oPTToXenMe - Level Offset,<br />
-Gammaガァマ - Car Name Offset,<br />
-DSThanatos - Time Attack ID6 Offset,<br />
-Turtle - Mileage Offset,<br />
-AsukaXVB - InitialD 8 Offsets,<br />
-TheKrzysiek - InitialD 8 Aura, Custom Tachometers,<br />
-小默 - InitialD 8 Title Effects,<br />
-I'm Not MentaL - Gender Offset, Time Attack ID7 Offset<br />
+BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset<br />
+Lemon The Kid - Avatar Offset, Avatar Preview Pictures for InitialD 6, MyFrame Preview Pictures ofr InitialD 8, Car Color, Car Engine/Rollbar Parts, Car Fullspec, Car Number Plate, 
+Aura, Avatar Names & etc<br />
+AkiiHoshi - Avatar Preview Pictures for InitialD 7<br />
+Nezarn - Avatar Preview Pictures for InitialD 8<br />
+oPTToXenMe - Level Offset<br />
+Gammaガァマ - Car Name Offset<br />
+DSThanatos - Time Attack ID6 Offset<br />
+Turtle - Mileage Offset<br />
+AsukaXVB - InitialD 8 Offsets<br />
+TheKrzysiek - InitialD 8 Aura & Custom Tachometers<br />
+小默 - InitialD 8 Title Effects & InitialD 8 Title<br />
+I'm Not MentaL - Gender Offset, Time Attack ID7 Offset & Time Attack ID8 Offset<br />
 
 <h3>THANKS TO</h3>
 (alphabetically)<br />
@@ -63,7 +64,7 @@ Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming
 Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juan, 
 Juiced Box Computers, Kenny, Kira Manell, Kito Zhayne Bordeos, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), 
 Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, Timo Düsterhöft, Timur Nurtayev, 
-William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁, דור צרפתי
+William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁 & דור צרפתי
 <br />
 
 <h3>SPECIAL THANKS TO</h3>
@@ -71,9 +72,6 @@ Reaver, Keb, Avail, NTAuthority<br />
 
 <h3>HUGE THANKS TO</h3>
 SEGA<br />
-
-<!--<h3>IN LOVING MEMORY OF OUR FRIEND & TEAMMATE</h3>
-奥巴鸡 (VG-特普鸡·莫得)-->
 </font></center></div>
 </body>
 </html>"
