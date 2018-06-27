@@ -62,6 +62,13 @@ Partial Class frmEdit
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtTPride = New InitialDLauncher.NSTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.NsGroupBox4 = New InitialDLauncher.NSGroupBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.cmbCourse8 = New InitialDLauncher.NSComboBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.txtProficiency = New InitialDLauncher.NSTextBox()
+        Me.cbStorySuperb = New InitialDLauncher.NSCheckBox()
+        Me.cbRiseUp = New InitialDLauncher.NSCheckBox()
         Me.cmbTitle = New InitialDLauncher.NSComboBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.NsGroupBox2 = New InitialDLauncher.NSGroupBox()
@@ -144,6 +151,7 @@ Partial Class frmEdit
         CType(Me.pbEffect2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NsGroupBox1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.NsGroupBox4.SuspendLayout()
         Me.NsGroupBox2.SuspendLayout()
         CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
@@ -641,6 +649,9 @@ Partial Class frmEdit
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage3.Controls.Add(Me.NsGroupBox4)
+        Me.TabPage3.Controls.Add(Me.cbStorySuperb)
+        Me.TabPage3.Controls.Add(Me.cbRiseUp)
         Me.TabPage3.Controls.Add(Me.cmbTitle)
         Me.TabPage3.Controls.Add(Me.Label29)
         Me.TabPage3.Controls.Add(Me.NsGroupBox2)
@@ -661,6 +672,85 @@ Partial Class frmEdit
         Me.TabPage3.Size = New System.Drawing.Size(417, 458)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Initial D8 ∞"
+        '
+        'NsGroupBox4
+        '
+        Me.NsGroupBox4.Controls.Add(Me.Label37)
+        Me.NsGroupBox4.Controls.Add(Me.cmbCourse8)
+        Me.NsGroupBox4.Controls.Add(Me.Label34)
+        Me.NsGroupBox4.Controls.Add(Me.txtProficiency)
+        Me.NsGroupBox4.DrawSeperator = True
+        Me.NsGroupBox4.Location = New System.Drawing.Point(6, 159)
+        Me.NsGroupBox4.Name = "NsGroupBox4"
+        Me.NsGroupBox4.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
+        Me.NsGroupBox4.Size = New System.Drawing.Size(404, 68)
+        Me.NsGroupBox4.SubTitle = ""
+        Me.NsGroupBox4.TabIndex = 77
+        Me.NsGroupBox4.Text = "NsGroupBox4"
+        Me.NsGroupBox4.Title = "Course Proficiency"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.ForeColor = System.Drawing.Color.White
+        Me.Label37.Location = New System.Drawing.Point(6, 39)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(44, 15)
+        Me.Label37.TabIndex = 57
+        Me.Label37.Text = "Course"
+        '
+        'cmbCourse8
+        '
+        Me.cmbCourse8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbCourse8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbCourse8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCourse8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbCourse8.FormattingEnabled = True
+        Me.cmbCourse8.Location = New System.Drawing.Point(77, 36)
+        Me.cmbCourse8.Name = "cmbCourse8"
+        Me.cmbCourse8.Size = New System.Drawing.Size(100, 24)
+        Me.cmbCourse8.TabIndex = 70
+        '
+        'Label34
+        '
+        Me.Label34.ForeColor = System.Drawing.Color.White
+        Me.Label34.Location = New System.Drawing.Point(213, 36)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(79, 24)
+        Me.Label34.TabIndex = 48
+        Me.Label34.Text = "Proficiency"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtProficiency
+        '
+        Me.txtProficiency.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtProficiency.Location = New System.Drawing.Point(298, 36)
+        Me.txtProficiency.MaxLength = 4
+        Me.txtProficiency.Multiline = False
+        Me.txtProficiency.Name = "txtProficiency"
+        Me.txtProficiency.ReadOnly = False
+        Me.txtProficiency.Size = New System.Drawing.Size(100, 24)
+        Me.txtProficiency.TabIndex = 71
+        Me.txtProficiency.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtProficiency.UseSystemPasswordChar = False
+        '
+        'cbStorySuperb
+        '
+        Me.cbStorySuperb.Checked = False
+        Me.cbStorySuperb.Location = New System.Drawing.Point(222, 129)
+        Me.cbStorySuperb.Name = "cbStorySuperb"
+        Me.cbStorySuperb.Size = New System.Drawing.Size(185, 24)
+        Me.cbStorySuperb.TabIndex = 69
+        Me.cbStorySuperb.Text = "Unlock All Story Superb"
+        '
+        'cbRiseUp
+        '
+        Me.cbRiseUp.Checked = False
+        Me.cbRiseUp.Location = New System.Drawing.Point(9, 129)
+        Me.cbRiseUp.Name = "cbRiseUp"
+        Me.cbRiseUp.Size = New System.Drawing.Size(204, 24)
+        Me.cbRiseUp.TabIndex = 68
+        Me.cbRiseUp.Text = "Unlock Rise Up"
         '
         'cmbTitle
         '
@@ -689,7 +779,7 @@ Partial Class frmEdit
         '
         Me.NsGroupBox2.Controls.Add(Me.pbEffect)
         Me.NsGroupBox2.DrawSeperator = True
-        Me.NsGroupBox2.Location = New System.Drawing.Point(6, 129)
+        Me.NsGroupBox2.Location = New System.Drawing.Point(6, 233)
         Me.NsGroupBox2.Name = "NsGroupBox2"
         Me.NsGroupBox2.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox2.Size = New System.Drawing.Size(404, 221)
@@ -999,7 +1089,7 @@ Partial Class frmEdit
         Me.btnSave.Location = New System.Drawing.Point(985, 667)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 71
+        Me.btnSave.TabIndex = 81
         Me.btnSave.Text = "Save"
         '
         'GroupBox5
@@ -1540,6 +1630,8 @@ Partial Class frmEdit
         Me.NsGroupBox1.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.NsGroupBox4.ResumeLayout(False)
+        Me.NsGroupBox4.PerformLayout()
         Me.NsGroupBox2.ResumeLayout(False)
         CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
@@ -1689,4 +1781,11 @@ Partial Class frmEdit
     Friend WithEvents Timer2 As Timer
     Friend WithEvents cmbTitle As NSComboBox
     Friend WithEvents Label29 As Label
+    Friend WithEvents cbRiseUp As NSCheckBox
+    Friend WithEvents NsGroupBox4 As NSGroupBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents txtProficiency As NSTextBox
+    Friend WithEvents cbStorySuperb As NSCheckBox
+    Friend WithEvents Label37 As Label
+    Friend WithEvents cmbCourse8 As NSComboBox
 End Class

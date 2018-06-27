@@ -290,6 +290,7 @@
     <Content Include="ID8.ico" />
     <Content Include="ID8_256.ico" />
     <Content Include="ID8_256_v2.ico" />
+    <None Include="Resources\prof.JPG" />
     <None Include="Resources\new_bg.jpg" />
     <None Include="Resources\A6.gif" />
     <None Include="Resources\A5.gif" />

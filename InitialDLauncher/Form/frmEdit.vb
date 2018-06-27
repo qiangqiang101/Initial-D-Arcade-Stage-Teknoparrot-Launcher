@@ -19,14 +19,19 @@ Public Class frmEdit
     Dim CE As String = "00"
     Dim _221 As String = "00"
 
+    'Course Proficiency
+    Dim LakeAkinaP, MyogiP, UsuiP, AkagiP, AkinaP, IrohazkaP, HappogaharaP, NagaoP, TsukubaP, TsubakiLineP, NanamagariP, SadamineP, TsuchisakaP, AkinaSnowP, HakoneP, MomijiLineP As Integer
+
     'Translation
     Dim tool_tip, mouth_t, eyes_t, face_skin_t, accessories_t, shades_t, hair_t, shirt_t, frame_t, male, female, coming_soon, must_select_avatar, a7_none, a7_hot, a7_wind, a7_light, a7_sprit, a7_overlord, a7_fly, import_complete, c8_paper, c8_orange, c8_tea As String
+    Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, Hakone, MomijiLine As String
 
     'Database
     Dim sex As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim aura As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim cup As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim category As Dictionary(Of String, String) = New Dictionary(Of String, String)
+
     Dim mouth_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
     Dim eyes_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
     Dim hair_f As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
@@ -41,6 +46,88 @@ Public Class frmEdit
     Dim shirt_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
     Dim accessories_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
     Dim shades_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
+
+    Private Sub txtProficiency_TextChanged(sender As Object, e As EventArgs) Handles txtProficiency.TextChanged
+        pbEffect.BackgroundImage = My.Resources.prof
+        Timer1.Stop()
+
+        Select Case cmbCourse8.SelectedValue.ToString
+            Case "LakeAkina"
+                LakeAkinaP = txtProficiency.Text
+            Case "Usui"
+                UsuiP = txtProficiency.Text
+            Case "Myogi"
+                MyogiP = txtProficiency.Text
+            Case "Akagi"
+                AkagiP = txtProficiency.Text
+            Case "Akina"
+                AkinaP = txtProficiency.Text
+            Case "Nagao"
+                NagaoP = txtProficiency.Text
+            Case "TsubakiLine"
+                TsubakiLineP = txtProficiency.Text
+            Case "Nanamagari"
+                NanamagariP = txtProficiency.Text
+            Case "Sadamine"
+                SadamineP = txtProficiency.Text
+            Case "Hakone"
+                HakoneP = txtProficiency.Text
+            Case "MomijiLine"
+                MomijiLineP = txtProficiency.Text
+            Case "Irohazka"
+                IrohazkaP = txtProficiency.Text
+            Case "Happogahara"
+                HappogaharaP = txtProficiency.Text
+            Case "Tsukuba"
+                TsukubaP = txtProficiency.Text
+            Case "Tsuchisaka"
+                TsuchisakaP = txtProficiency.Text
+            Case "AkinaSnow"
+                AkinaSnowP = txtProficiency.Text
+        End Select
+    End Sub
+
+
+    Private Sub cmbCourse8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse8.SelectedIndexChanged
+        pbEffect.BackgroundImage = My.Resources.prof
+        Timer1.Stop()
+
+        Select Case cmbCourse8.SelectedValue.ToString
+            Case "LakeAkina"
+                txtProficiency.Text = LakeAkinaP
+            Case "Usui"
+                txtProficiency.Text = UsuiP
+            Case "Myogi"
+                txtProficiency.Text = MyogiP
+            Case "Akagi"
+                txtProficiency.Text = AkagiP
+            Case "Akina"
+                txtProficiency.Text = AkinaP
+            Case "Nagao"
+                txtProficiency.Text = NagaoP
+            Case "TsubakiLine"
+                txtProficiency.Text = TsubakiLineP
+            Case "Nanamagari"
+                txtProficiency.Text = NanamagariP
+            Case "Sadamine"
+                txtProficiency.Text = SadamineP
+            Case "Hakone"
+                txtProficiency.Text = HakoneP
+            Case "MomijiLine"
+                txtProficiency.Text = MomijiLineP
+            Case "Irohazka"
+                txtProficiency.Text = IrohazkaP
+            Case "Happogahara"
+                txtProficiency.Text = HappogaharaP
+            Case "Tsukuba"
+                txtProficiency.Text = TsukubaP
+            Case "Tsuchisaka"
+                txtProficiency.Text = TsuchisakaP
+            Case "AkinaSnow"
+                txtProficiency.Text = AkinaSnowP
+        End Select
+    End Sub
+
     Dim frame As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
 
     'Car Modifier
@@ -49,6 +136,8 @@ Public Class frmEdit
     Private gifImage As GifImage = New GifImage(My.Resources.E00) With {.ReverseAtEnd = False}
 
     Private finishLoading As Boolean = False
+
+    Dim trackname8 As Dictionary(Of String, String) = New Dictionary(Of String, String)
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         pbEffect.BackgroundImage = gifImage.GetNextFrame()
@@ -767,6 +856,24 @@ Public Class frmEdit
                             SetHex(_filename, CLng(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
                             SetHex(_filename, CLng(&H222), SetValue(cmbCup.SelectedIndex))
                             If cbUnlockExSpec.Checked Then SetHex(_filename, CLng(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
+                            If cbRiseUp.Checked Then SetHex(_filename, &H378, HexStringToBinary("01"))
+                            If cbStorySuperb.Checked Then SetHex(_filename, &H230, HexStringToBinary("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"))
+                            SetHex(_filename, CLng(&H380), HexStringToBinary(SetPridePoint(LakeAkinaP)))
+                            SetHex(_filename, CLng(&H382), HexStringToBinary(SetPridePoint(MyogiP)))
+                            SetHex(_filename, CLng(&H384), HexStringToBinary(SetPridePoint(AkagiP)))
+                            SetHex(_filename, CLng(&H386), HexStringToBinary(SetPridePoint(AkinaP)))
+                            SetHex(_filename, CLng(&H388), HexStringToBinary(SetPridePoint(IrohazkaP)))
+                            SetHex(_filename, CLng(&H38A), HexStringToBinary(SetPridePoint(TsukubaP)))
+                            SetHex(_filename, CLng(&H38C), HexStringToBinary(SetPridePoint(HappogaharaP)))
+                            SetHex(_filename, CLng(&H38E), HexStringToBinary(SetPridePoint(NagaoP)))
+                            SetHex(_filename, CLng(&H390), HexStringToBinary(SetPridePoint(TsubakiLineP)))
+                            SetHex(_filename, CLng(&H392), HexStringToBinary(SetPridePoint(UsuiP)))
+                            SetHex(_filename, CLng(&H394), HexStringToBinary(SetPridePoint(SadamineP)))
+                            SetHex(_filename, CLng(&H396), HexStringToBinary(SetPridePoint(TsuchisakaP)))
+                            SetHex(_filename, CLng(&H398), HexStringToBinary(SetPridePoint(AkinaSnowP)))
+                            SetHex(_filename, CLng(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
+                            SetHex(_filename, CLng(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
+                            SetHex(_filename, CLng(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
                     End Select
                 End If
 
@@ -956,6 +1063,24 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
                             SetHex(_filename, Neg3C(&H222), SetValue(cmbCup.SelectedIndex))
                             If cbUnlockExSpec.Checked Then SetHex(_filename, Neg3C(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
+                            If cbRiseUp.Checked Then SetHex(_filename, Neg3C(&H378), HexStringToBinary("01"))
+                            If cbStorySuperb.Checked Then SetHex(_filename, Neg3C(&H230), HexStringToBinary("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"))
+                            SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetPridePoint(LakeAkinaP)))
+                            SetHex(_filename, Neg3C(&H382), HexStringToBinary(SetPridePoint(MyogiP)))
+                            SetHex(_filename, Neg3C(&H384), HexStringToBinary(SetPridePoint(AkagiP)))
+                            SetHex(_filename, Neg3C(&H386), HexStringToBinary(SetPridePoint(AkinaP)))
+                            SetHex(_filename, Neg3C(&H388), HexStringToBinary(SetPridePoint(IrohazkaP)))
+                            SetHex(_filename, Neg3C(&H38A), HexStringToBinary(SetPridePoint(TsukubaP)))
+                            SetHex(_filename, Neg3C(&H38C), HexStringToBinary(SetPridePoint(HappogaharaP)))
+                            SetHex(_filename, Neg3C(&H38E), HexStringToBinary(SetPridePoint(NagaoP)))
+                            SetHex(_filename, Neg3C(&H390), HexStringToBinary(SetPridePoint(TsubakiLineP)))
+                            SetHex(_filename, Neg3C(&H392), HexStringToBinary(SetPridePoint(UsuiP)))
+                            SetHex(_filename, Neg3C(&H394), HexStringToBinary(SetPridePoint(SadamineP)))
+                            SetHex(_filename, Neg3C(&H396), HexStringToBinary(SetPridePoint(TsuchisakaP)))
+                            SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(AkinaSnowP)))
+                            SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
+                            SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
+                            SetHex(_filename, Neg3C(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
                     End Select
                 End If
 
@@ -1149,6 +1274,26 @@ Public Class frmEdit
             cmbCup.DisplayMember = "Key"
             cmbCup.ValueMember = "Value"
             cmbCup.DataSource = New BindingSource(cup, Nothing)
+
+            trackname8.Add(LakeAkina, "LakeAkina")
+            trackname8.Add(Myogi, "Myogi")
+            trackname8.Add(Usui, "Usui")
+            trackname8.Add(Akagi, "Akagi")
+            trackname8.Add(Akina, "Akina")
+            trackname8.Add(Irohazka, "Irohazka")
+            trackname8.Add(Happogahara, "Happogahara")
+            trackname8.Add(Nagao, "Nagao")
+            trackname8.Add(Tsukuba, "Tsukuba")
+            trackname8.Add(TsubakiLine, "TsubakiLine")
+            trackname8.Add(Nanamagari, "Nanamagari")
+            trackname8.Add(Sadamine, "Sadamine")
+            trackname8.Add(Tsuchisaka, "Tsuchisaka")
+            trackname8.Add(AkinaSnow, "AkinaSnow")
+            trackname8.Add(Hakone, "Hakone")
+            trackname8.Add(MomijiLine, "MomijiLine")
+            cmbCourse8.DisplayMember = "Key"
+            cmbCourse8.ValueMember = "Value"
+            cmbCourse8.DataSource = New BindingSource(trackname8, Nothing)
         End If
 
         lblAvatarOffset.Visible = My.Settings.DebugMode
@@ -1234,6 +1379,24 @@ Public Class frmEdit
                     cmbTitleEffect.SelectedIndex = GetTachometer(GetHex(_filename, &H3B5, 1))
                     cmbTitle.SelectedIndex = GetPridePoint(GetHex(_filename, &H3B6, 1), GetHex(_filename, &H3B7, 1)) - 1
                     cmbCup.SelectedIndex = GetTachometer(GetHex(_filename, &H222, 1))
+                    LakeAkinaP = GetPridePoint(GetHex(_filename, CLng(&H380), 1), GetHex(_filename, CLng(&H381), 1))
+                    MyogiP = GetPridePoint(GetHex(_filename, CLng(&H382), 1), GetHex(_filename, CLng(&H383), 1))
+                    AkagiP = GetPridePoint(GetHex(_filename, CLng(&H384), 1), GetHex(_filename, CLng(&H385), 1))
+                    AkinaP = GetPridePoint(GetHex(_filename, CLng(&H386), 1), GetHex(_filename, CLng(&H387), 1))
+                    IrohazkaP = GetPridePoint(GetHex(_filename, CLng(&H388), 1), GetHex(_filename, CLng(&H389), 1))
+                    TsukubaP = GetPridePoint(GetHex(_filename, CLng(&H38A), 1), GetHex(_filename, CLng(&H38B), 1))
+                    HappogaharaP = GetPridePoint(GetHex(_filename, CLng(&H38C), 1), GetHex(_filename, CLng(&H38D), 1))
+                    NagaoP = GetPridePoint(GetHex(_filename, CLng(&H38E), 1), GetHex(_filename, CLng(&H38F), 1))
+                    TsubakiLineP = GetPridePoint(GetHex(_filename, CLng(&H390), 1), GetHex(_filename, CLng(&H391), 1))
+                    UsuiP = GetPridePoint(GetHex(_filename, CLng(&H392), 1), GetHex(_filename, CLng(&H393), 1))
+                    SadamineP = GetPridePoint(GetHex(_filename, CLng(&H394), 1), GetHex(_filename, CLng(&H395), 1))
+                    TsuchisakaP = GetPridePoint(GetHex(_filename, CLng(&H396), 1), GetHex(_filename, CLng(&H397), 1))
+                    AkinaSnowP = GetPridePoint(GetHex(_filename, CLng(&H398), 1), GetHex(_filename, CLng(&H399), 1))
+                    HakoneP = GetPridePoint(GetHex(_filename, CLng(&H39A), 1), GetHex(_filename, CLng(&H39B), 1))
+                    MomijiLineP = GetPridePoint(GetHex(_filename, CLng(&H39C), 1), GetHex(_filename, CLng(&H39D), 1))
+                    NanamagariP = GetPridePoint(GetHex(_filename, CLng(&H39E), 1), GetHex(_filename, CLng(&H39F), 1))
+                    cmbCourse8.SelectedIndex = 0
+                    txtProficiency.Text = LakeAkinaP
                 Else
 
                 End If
@@ -1351,6 +1514,24 @@ Public Class frmEdit
                     cmbTitleEffect.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H3B5), 1))
                     cmbTitle.SelectedIndex = GetPridePoint(GetHex(_filename, Neg60(&H3B6), 1), GetHex(_filename, Neg60(&H3B7), 1)) - 1
                     cmbCup.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H222), 1))
+                    LakeAkinaP = GetPridePoint(GetHex(_filename, Neg3C(&H380), 1), GetHex(_filename, Neg3C(&H381), 1))
+                    MyogiP = GetPridePoint(GetHex(_filename, Neg3C(&H382), 1), GetHex(_filename, Neg3C(&H383), 1))
+                    AkagiP = GetPridePoint(GetHex(_filename, Neg3C(&H384), 1), GetHex(_filename, Neg3C(&H385), 1))
+                    AkinaP = GetPridePoint(GetHex(_filename, Neg3C(&H386), 1), GetHex(_filename, Neg3C(&H387), 1))
+                    IrohazkaP = GetPridePoint(GetHex(_filename, Neg3C(&H388), 1), GetHex(_filename, Neg3C(&H389), 1))
+                    TsukubaP = GetPridePoint(GetHex(_filename, Neg3C(&H38A), 1), GetHex(_filename, Neg3C(&H38B), 1))
+                    HappogaharaP = GetPridePoint(GetHex(_filename, Neg3C(&H38C), 1), GetHex(_filename, Neg3C(&H38D), 1))
+                    NagaoP = GetPridePoint(GetHex(_filename, Neg3C(&H38E), 1), GetHex(_filename, Neg3C(&H38F), 1))
+                    TsubakiLineP = GetPridePoint(GetHex(_filename, Neg3C(&H390), 1), GetHex(_filename, Neg3C(&H391), 1))
+                    UsuiP = GetPridePoint(GetHex(_filename, Neg3C(&H392), 1), GetHex(_filename, Neg3C(&H393), 1))
+                    SadamineP = GetPridePoint(GetHex(_filename, Neg3C(&H394), 1), GetHex(_filename, Neg3C(&H395), 1))
+                    TsuchisakaP = GetPridePoint(GetHex(_filename, Neg3C(&H396), 1), GetHex(_filename, Neg3C(&H397), 1))
+                    AkinaSnowP = GetPridePoint(GetHex(_filename, Neg3C(&H398), 1), GetHex(_filename, Neg3C(&H399), 1))
+                    HakoneP = GetPridePoint(GetHex(_filename, Neg3C(&H39A), 1), GetHex(_filename, Neg3C(&H39B), 1))
+                    MomijiLineP = GetPridePoint(GetHex(_filename, Neg3C(&H39C), 1), GetHex(_filename, Neg3C(&H39D), 1))
+                    NanamagariP = GetPridePoint(GetHex(_filename, Neg3C(&H39E), 1), GetHex(_filename, Neg3C(&H39F), 1))
+                    cmbCourse8.SelectedIndex = 0
+                    txtProficiency.Text = LakeAkinaP
                 End If
 
                 'Read Car
@@ -1504,6 +1685,26 @@ Public Class frmEdit
             Label28.Text = ReadCfgValue("Cup", langFile)
             cbUnlockExSpec.Text = ReadCfgValue("ExFullAllCar", langFile)
             Label29.Text = ReadCfgValue("TitleName", langFile)
+            cbRiseUp.Text = ReadCfgValue("RiseUp", langFile)
+            Label37.Text = ReadCfgValue("Course", langFile)
+            Label34.Text = ReadCfgValue("Proficiency", langFile)
+            NsGroupBox4.Title = ReadCfgValue("CProficiency", langFile)
+            LakeAkina = ReadCfgValue("LakeAkina", langFile)
+            Myogi = ReadCfgValue("Myogi", langFile)
+            Usui = ReadCfgValue("Usui", langFile)
+            Akagi = ReadCfgValue("Akagi", langFile)
+            Akina = ReadCfgValue("Akina", langFile)
+            Irohazka = ReadCfgValue("Irohazaka", langFile)
+            Happogahara = ReadCfgValue("Happogahara", langFile)
+            Nagao = ReadCfgValue("Nagao", langFile)
+            Tsukuba = ReadCfgValue("Tsukuba", langFile)
+            TsubakiLine = ReadCfgValue("TsubakiLine", langFile)
+            Nanamagari = ReadCfgValue("Namagari", langFile)
+            Sadamine = ReadCfgValue("Sadamine", langFile)
+            Tsuchisaka = ReadCfgValue("Tsuchisaka", langFile)
+            AkinaSnow = ReadCfgValue("SnowAkina", langFile)
+            Hakone = ReadCfgValue("Hakone", langFile)
+            MomijiLine = ReadCfgValue("MomijiLine", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -1522,7 +1723,7 @@ Public Class frmEdit
         End Try
     End Sub
 
-    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtChapLevel.KeyPress, txtLevel.KeyPress, txtPridePoint.KeyPress, txtSPride.KeyPress, txtTPride.KeyPress, txtEvent.KeyPress, txtKanto.KeyPress, txtLegend.KeyPress, txtNational.KeyPress, txtStore.KeyPress, txtTag.KeyPress, txtTAttack.KeyPress
+    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtChapLevel.KeyPress, txtLevel.KeyPress, txtPridePoint.KeyPress, txtSPride.KeyPress, txtTPride.KeyPress, txtEvent.KeyPress, txtKanto.KeyPress, txtLegend.KeyPress, txtNational.KeyPress, txtStore.KeyPress, txtTag.KeyPress, txtTAttack.KeyPress, txtInfRank.KeyPress, txtProficiency.KeyPress
         Try
             If Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
            Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then

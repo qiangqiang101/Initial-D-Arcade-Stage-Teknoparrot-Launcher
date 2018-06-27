@@ -28,9 +28,9 @@ Public Class frmSettings
             cbVideo.Checked = My.Settings.VideoBackground
             cbPicodaemon.Checked = My.Settings.RunCardReader
             cbFullScreen.Checked = My.Settings.FullScreen
-            If My.Settings.ExtraLaunchOptions.Contains(",") Then
+            If My.Settings.ExtraLaunchOptions.Contains(";") Then
                 For Each item In My.Settings.ExtraLaunchOptions.Split(",")
-                    lvELO.AddItem(item)
+                    lvELO.AddItem(item.Replace(";", ""))
                 Next
             End If
 
@@ -78,7 +78,8 @@ Public Class frmSettings
                     For Each item As NSListView.NSListViewItem In lvELO.Items
                         array = array & item.Text & ","
                     Next
-                    array = array.Trim().Remove(array.Length - 1)
+                    Dim lastChar As String = array.Substring(array.Length - 1)
+                    array = array.Substring(0, array.Length - 1) & ";"c 'Replace(lastChar, ";")
                     My.Settings.ExtraLaunchOptions = array
                 End If
                 My.Settings.Save()
