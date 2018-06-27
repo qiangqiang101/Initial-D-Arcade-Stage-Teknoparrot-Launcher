@@ -41,7 +41,7 @@ English - I'm Not MentaL & Kurisuchan<br />
 Bahasa Malaysia - Kurisuchan<br />
 Deutsche - Soul<br />
 Español - Gixer<br />
-Français - nucleaireland<br />
+Français (Outdated) - nucleaireland<br />
 
 <h3>COMMUNITY CONTRIBUTORS</h3>
 BearBo Ultra/ComputerNoob - Player Name, Legend Chapter & Chapter Level Offset<br />

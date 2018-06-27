@@ -1689,6 +1689,7 @@ Public Class frmEdit
             Label37.Text = ReadCfgValue("Course", langFile)
             Label34.Text = ReadCfgValue("Proficiency", langFile)
             NsGroupBox4.Title = ReadCfgValue("CProficiency", langFile)
+            cbStorySuperb.Text = ReadCfgValue("StorySuperb", langFile)
             LakeAkina = ReadCfgValue("LakeAkina", langFile)
             Myogi = ReadCfgValue("Myogi", langFile)
             Usui = ReadCfgValue("Usui", langFile)
