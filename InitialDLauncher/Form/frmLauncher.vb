@@ -662,7 +662,7 @@ Public Class frmLauncher
             threadU = New Thread(AddressOf CheckUpdate)
             threadU.Start()
             If Today.Month = 4 AndAlso Today.Day = 1 Then
-                NSMessageBox.ShowOk("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", Text)
+                NSMessageBox.ShowYesNo("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", MessageBoxIcon.Warning, Text)
             End If
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
