@@ -61,10 +61,10 @@ I'm Not MentaL - Gender Offset, Time Attack ID7 Offset & Time Attack ID8 Offset<
 <h3>THANKS TO</h3>
 (alphabetically)<br />
 Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), BYEONGHEOL LEE, Chanchai Boonsiri, Christine Guillory, Chris Wong, 
-Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, David Womacks, Donkuro, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juan, 
-Juiced Box Computers, Kenny, Kira Manell, Kito Zhayne Bordeos, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), 
-Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, Timo Düsterhöft, Timur Nurtayev, 
-William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁 & דור צרפתי
+Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, Daniel Ly, David Womacks, Donkuro, Dr gina van Raphael, Насыров Адель, HCT Tuning, Heng Zhang, 
+Jacky Ng, James, John Yang, Juan, Juiced Box Computers, Kenny, Kira Manell, Kito Zhayne Bordeos, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, 
+Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, 
+Timo Düsterhöft, Timur Nurtayev, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁 & דור צרפתי
 <br />
 
 <h3>SPECIAL THANKS TO</h3>
@@ -98,7 +98,7 @@ SEGA<br />
     Private Sub Translate()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
-            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), My.Application.Info.Version, frmLauncher.buildDate)
+            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion, frmLauncher.buildDate)
             lblTitle.Text = ReadCfgValue("LauncherTitle", langFile)
             Me.Text = ReadCfgValue("AboutMeText", langFile)
             NsTheme1.Text = Me.Text

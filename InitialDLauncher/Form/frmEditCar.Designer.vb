@@ -466,6 +466,7 @@ Partial Class frmEditCar
         Me.cmbCarList.Name = "cmbCarList"
         Me.cmbCarList.Size = New System.Drawing.Size(269, 24)
         Me.cmbCarList.TabIndex = 1
+        Me.cmbCarList.Visible = False
         '
         'btnApply
         '
@@ -485,6 +486,7 @@ Partial Class frmEditCar
         Me.Label3.Size = New System.Drawing.Size(62, 15)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Change to"
+        Me.Label3.Visible = False
         '
         'frmEditCar
         '

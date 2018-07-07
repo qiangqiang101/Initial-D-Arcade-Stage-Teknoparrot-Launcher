@@ -185,3 +185,7 @@
    at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
    at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
    at InitialDLauncher.frmEdit.DictionaryAdd8() in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 2163
+07/Jul/2018 3:03:16 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.btnSave_Click(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 82
+07/Jul/2018 3:03:19 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.btnSave_Click(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 82
+07/Jul/2018 3:04:11 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.Settings_Load(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 30
+07/Jul/2018 3:04:15 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.Settings_Load(Object sender, EventArgs e) in C:\Users\Potato\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 30

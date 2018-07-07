@@ -142,6 +142,9 @@ Partial Class frmEdit
         Me.pbEyes = New System.Windows.Forms.PictureBox()
         Me.slblEyes = New InitialDLauncher.SpecialLabel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.cbInfinitySide = New InitialDLauncher.NSCheckBox()
+        Me.cbStoryHack = New InitialDLauncher.NSCheckBox()
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
@@ -175,6 +178,7 @@ Partial Class frmEdit
         Me.pbMouth.SuspendLayout()
         CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pbEyes.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblAvatarOffset
@@ -259,6 +263,7 @@ Partial Class frmEdit
         Me.NsTabControl1.Controls.Add(Me.TabPage1)
         Me.NsTabControl1.Controls.Add(Me.TabPage2)
         Me.NsTabControl1.Controls.Add(Me.TabPage3)
+        Me.NsTabControl1.Controls.Add(Me.TabPage4)
         Me.NsTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.NsTabControl1.ItemSize = New System.Drawing.Size(50, 110)
         Me.NsTabControl1.Location = New System.Drawing.Point(6, 154)
@@ -650,12 +655,9 @@ Partial Class frmEdit
         '
         Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.TabPage3.Controls.Add(Me.NsGroupBox4)
-        Me.TabPage3.Controls.Add(Me.cbStorySuperb)
-        Me.TabPage3.Controls.Add(Me.cbRiseUp)
         Me.TabPage3.Controls.Add(Me.cmbTitle)
         Me.TabPage3.Controls.Add(Me.Label29)
         Me.TabPage3.Controls.Add(Me.NsGroupBox2)
-        Me.TabPage3.Controls.Add(Me.cbUnlockExSpec)
         Me.TabPage3.Controls.Add(Me.cmbCup)
         Me.TabPage3.Controls.Add(Me.Label28)
         Me.TabPage3.Controls.Add(Me.cmbTitleEffect)
@@ -671,7 +673,7 @@ Partial Class frmEdit
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(417, 458)
         Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Initial D8 ∞"
+        Me.TabPage3.Text = "Initial D8 ∞ #1"
         '
         'NsGroupBox4
         '
@@ -680,7 +682,7 @@ Partial Class frmEdit
         Me.NsGroupBox4.Controls.Add(Me.Label34)
         Me.NsGroupBox4.Controls.Add(Me.txtProficiency)
         Me.NsGroupBox4.DrawSeperator = True
-        Me.NsGroupBox4.Location = New System.Drawing.Point(6, 159)
+        Me.NsGroupBox4.Location = New System.Drawing.Point(6, 129)
         Me.NsGroupBox4.Name = "NsGroupBox4"
         Me.NsGroupBox4.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox4.Size = New System.Drawing.Size(404, 68)
@@ -709,7 +711,7 @@ Partial Class frmEdit
         Me.cmbCourse8.Location = New System.Drawing.Point(77, 36)
         Me.cmbCourse8.Name = "cmbCourse8"
         Me.cmbCourse8.Size = New System.Drawing.Size(100, 24)
-        Me.cmbCourse8.TabIndex = 70
+        Me.cmbCourse8.TabIndex = 71
         '
         'Label34
         '
@@ -730,26 +732,26 @@ Partial Class frmEdit
         Me.txtProficiency.Name = "txtProficiency"
         Me.txtProficiency.ReadOnly = False
         Me.txtProficiency.Size = New System.Drawing.Size(100, 24)
-        Me.txtProficiency.TabIndex = 71
+        Me.txtProficiency.TabIndex = 72
         Me.txtProficiency.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtProficiency.UseSystemPasswordChar = False
         '
         'cbStorySuperb
         '
         Me.cbStorySuperb.Checked = False
-        Me.cbStorySuperb.Location = New System.Drawing.Point(222, 129)
+        Me.cbStorySuperb.Location = New System.Drawing.Point(216, 36)
         Me.cbStorySuperb.Name = "cbStorySuperb"
         Me.cbStorySuperb.Size = New System.Drawing.Size(185, 24)
-        Me.cbStorySuperb.TabIndex = 69
+        Me.cbStorySuperb.TabIndex = 83
         Me.cbStorySuperb.Text = "Unlock All Story Superb"
         '
         'cbRiseUp
         '
         Me.cbRiseUp.Checked = False
-        Me.cbRiseUp.Location = New System.Drawing.Point(9, 129)
+        Me.cbRiseUp.Location = New System.Drawing.Point(6, 36)
         Me.cbRiseUp.Name = "cbRiseUp"
         Me.cbRiseUp.Size = New System.Drawing.Size(204, 24)
-        Me.cbRiseUp.TabIndex = 68
+        Me.cbRiseUp.TabIndex = 82
         Me.cbRiseUp.Text = "Unlock Rise Up"
         '
         'cmbTitle
@@ -763,7 +765,7 @@ Partial Class frmEdit
         Me.cmbTitle.Location = New System.Drawing.Point(83, 99)
         Me.cmbTitle.Name = "cmbTitle"
         Me.cmbTitle.Size = New System.Drawing.Size(327, 24)
-        Me.cmbTitle.TabIndex = 67
+        Me.cmbTitle.TabIndex = 66
         '
         'Label29
         '
@@ -779,7 +781,7 @@ Partial Class frmEdit
         '
         Me.NsGroupBox2.Controls.Add(Me.pbEffect)
         Me.NsGroupBox2.DrawSeperator = True
-        Me.NsGroupBox2.Location = New System.Drawing.Point(6, 233)
+        Me.NsGroupBox2.Location = New System.Drawing.Point(6, 203)
         Me.NsGroupBox2.Name = "NsGroupBox2"
         Me.NsGroupBox2.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
         Me.NsGroupBox2.Size = New System.Drawing.Size(404, 221)
@@ -802,10 +804,10 @@ Partial Class frmEdit
         'cbUnlockExSpec
         '
         Me.cbUnlockExSpec.Checked = False
-        Me.cbUnlockExSpec.Location = New System.Drawing.Point(222, 69)
+        Me.cbUnlockExSpec.Location = New System.Drawing.Point(6, 66)
         Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
         Me.cbUnlockExSpec.Size = New System.Drawing.Size(188, 24)
-        Me.cbUnlockExSpec.TabIndex = 66
+        Me.cbUnlockExSpec.TabIndex = 84
         Me.cbUnlockExSpec.Text = "ExFull All Cars"
         '
         'cmbCup
@@ -1089,7 +1091,7 @@ Partial Class frmEdit
         Me.btnSave.Location = New System.Drawing.Point(985, 667)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
-        Me.btnSave.TabIndex = 81
+        Me.btnSave.TabIndex = 91
         Me.btnSave.Text = "Save"
         '
         'GroupBox5
@@ -1602,6 +1604,39 @@ Partial Class frmEdit
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
         '
+        'TabPage4
+        '
+        Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage4.Controls.Add(Me.cbStoryHack)
+        Me.TabPage4.Controls.Add(Me.cbInfinitySide)
+        Me.TabPage4.Controls.Add(Me.cbStorySuperb)
+        Me.TabPage4.Controls.Add(Me.cbRiseUp)
+        Me.TabPage4.Controls.Add(Me.cbUnlockExSpec)
+        Me.TabPage4.Location = New System.Drawing.Point(114, 4)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(417, 458)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Initial D8 ∞ #2"
+        '
+        'cbInfinitySide
+        '
+        Me.cbInfinitySide.Checked = False
+        Me.cbInfinitySide.Location = New System.Drawing.Point(6, 6)
+        Me.cbInfinitySide.Name = "cbInfinitySide"
+        Me.cbInfinitySide.Size = New System.Drawing.Size(405, 24)
+        Me.cbInfinitySide.TabIndex = 81
+        Me.cbInfinitySide.Text = "Unlocks Outsoar the Rainbow BGM and InfinitySide Story Mode"
+        '
+        'cbStoryHack
+        '
+        Me.cbStoryHack.Checked = False
+        Me.cbStoryHack.Location = New System.Drawing.Point(216, 66)
+        Me.cbStoryHack.Name = "cbStoryHack"
+        Me.cbStoryHack.Size = New System.Drawing.Size(185, 24)
+        Me.cbStoryHack.TabIndex = 85
+        Me.cbStoryHack.Text = "Complete All Story Mode"
+        '
         'frmEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1666,6 +1701,7 @@ Partial Class frmEdit
         CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pbEyes.ResumeLayout(False)
         Me.pbEyes.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1788,4 +1824,7 @@ Partial Class frmEdit
     Friend WithEvents cbStorySuperb As NSCheckBox
     Friend WithEvents Label37 As Label
     Friend WithEvents cmbCourse8 As NSComboBox
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents cbStoryHack As NSCheckBox
+    Friend WithEvents cbInfinitySide As NSCheckBox
 End Class

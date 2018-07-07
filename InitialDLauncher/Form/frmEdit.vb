@@ -874,6 +874,8 @@ Public Class frmEdit
                             SetHex(_filename, CLng(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
                             SetHex(_filename, CLng(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
                             SetHex(_filename, CLng(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
+                            If cbStoryHack.Checked Then SetHex(_filename, &H3A0, HexStringToBinary("FF7FFF7FFF7F02"))
+                            If cbInfinitySide.Checked Then SetHex(_filename, &H24A, HexStringToBinary("BC"))
                     End Select
                 End If
 
@@ -1081,6 +1083,8 @@ Public Class frmEdit
                             SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
                             SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
                             SetHex(_filename, Neg3C(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
+                            If cbStoryHack.Checked Then SetHex(_filename, Neg3C(&H3A0), HexStringToBinary("FF7FFF7FFF7F02"))
+                            If cbInfinitySide.Checked Then SetHex(_filename, Neg3C(&H24A), HexStringToBinary("BC"))
                     End Select
                 End If
 
@@ -1189,6 +1193,7 @@ Public Class frmEdit
         TabPage1.Enabled = False
         TabPage2.Enabled = False
         TabPage3.Enabled = False
+        TabPage4.Enabled = False
 
         Translate()
 
@@ -1368,6 +1373,7 @@ Public Class frmEdit
                     txtEvent.Text = GetPridePoint(GetHex(_filename, &H39C, 1), GetHex(_filename, &H39D, 1))
                 ElseIf _version = 8 Then
                     TabPage3.Enabled = True
+                    TabPage4.Enabled = True
                     txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True, True)
                     txtMileage.Text = GetMilelage(GetHex(_filename, 944, 1), GetHex(_filename, 945, 1), GetHex(_filename, 946, 1), GetHex(_filename, 947, 1))
                     cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 8)
@@ -1503,6 +1509,7 @@ Public Class frmEdit
                     txtEvent.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39C), 1), GetHex(_filename, Neg3C(&H39D), 1))
                 ElseIf _version = 8 Then
                     TabPage3.Enabled = True
+                    TabPage4.Enabled = True
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True, True)
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(944), 1), GetHex(_filename, Neg60(945), 1), GetHex(_filename, Neg60(946), 1), GetHex(_filename, Neg60(947), 1))
                     cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 8)
@@ -1622,7 +1629,8 @@ Public Class frmEdit
             GroupBox1.Title = ReadCfgValue("Cheat", langFile)
             TabPage1.Text = ReadCfgValue("EditTab6", langFile)
             TabPage2.Text = ReadCfgValue("EditTab7", langFile)
-            TabPage3.Text = ReadCfgValue("EditTab8", langFile)
+            TabPage3.Text = ReadCfgValue("EditTab8", langFile) & " #1"
+            TabPage4.Text = ReadCfgValue("EditTab8", langFile) & " #2"
             GroupBox4.Text = ReadCfgValue("Avatar", langFile)
             GroupBox4.Title = GroupBox4.Text
             Label10.Text = ReadCfgValue("Category", langFile)
@@ -1706,6 +1714,8 @@ Public Class frmEdit
             AkinaSnow = ReadCfgValue("SnowAkina", langFile)
             Hakone = ReadCfgValue("Hakone", langFile)
             MomijiLine = ReadCfgValue("MomijiLine", langFile)
+            cbStoryHack.Text = ReadCfgValue("D8StoryHack", langFile)
+            cbInfinitySide.Text = ReadCfgValue("InfinitySide", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

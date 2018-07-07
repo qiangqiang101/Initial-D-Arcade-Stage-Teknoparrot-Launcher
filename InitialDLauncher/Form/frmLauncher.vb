@@ -12,8 +12,8 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 42
-    Public buildDate As String = "27/06/2018"
+    Dim curVer As Integer = 43
+    Public buildDate As String = "07/07/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -317,7 +317,7 @@ Public Class frmLauncher
                     End If
                 End If
             Else
-                If My.Settings.ExtraLaunchOptions.Contains(",") Then
+                If My.Settings.ExtraLaunchOptions.Contains(";") Then
                     For Each item In My.Settings.ExtraLaunchOptions.Split(",")
                         Dim psi = New ProcessStartInfo With {.FileName = "CMD", .Arguments = String.Format("/C start """" ""{0}""", item.Replace(";", "")), .WorkingDirectory = Path.GetDirectoryName(item.Replace(";", "")), .UseShellExecute = True, .CreateNoWindow = False, .WindowStyle = ProcessWindowStyle.Normal}
                         Process.Start(psi)
@@ -719,7 +719,7 @@ Public Class frmLauncher
             lblSetting.Text = ReadCfgValue("Settings", langFile)
             lblExit.Text = ReadCfgValue("QuitGame", langFile)
             lblDebug.Text = ReadCfgValue("Debug", langFile)
-            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), My.Application.Info.Version, buildDate)
+            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion, buildDate)
             new_version = ReadCfgValue("NewVersion", langFile)
             no_card_selected = ReadCfgValue("NoCardSelected", langFile)
             If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format(ReadCfgValue("Logout", langFile), My.Settings.UserName) Else lblLogout.Text = ReadCfgValue("Login", langFile)

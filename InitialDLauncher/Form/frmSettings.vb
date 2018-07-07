@@ -73,7 +73,9 @@ Public Class frmSettings
                 My.Settings.VideoBackground = cbVideo.Checked
                 My.Settings.RunCardReader = cbPicodaemon.Checked
                 My.Settings.FullScreen = cbFullScreen.Checked
-                If Not lvELO.Items.Count = 0 Then
+                If lvELO.Items.Count = 0 Then
+                    My.Settings.ExtraLaunchOptions = ""
+                Else
                     Dim array As String = Nothing
                     For Each item As NSListView.NSListViewItem In lvELO.Items
                         array = array & item.Text & ","
@@ -221,13 +223,9 @@ Public Class frmSettings
     End Sub
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
-        If Not lvELO.SelectedItems(0) Is Nothing Then
+        If Not lvELO.SelectedItems.Count = 0 Then
             lvELO.RemoveItem(lvELO.SelectedItems(0))
         End If
-    End Sub
-
-    Private Sub btnSave_Click_1(sender As Object, e As EventArgs) Handles btnSave.Click
-
     End Sub
 
     Private Sub cbPicodaemon_CheckedChanged(sender As Object) Handles cbPicodaemon.CheckedChanged

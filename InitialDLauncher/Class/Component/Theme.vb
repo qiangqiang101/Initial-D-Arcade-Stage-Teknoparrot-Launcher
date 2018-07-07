@@ -2754,8 +2754,13 @@ Class NSCheckBox
         SZ1 = G.MeasureString(Text, Font)
         PT1 = New PointF(Height - 3, Height \ 2 - SZ1.Height / 2)
 
-        G.DrawString(Text, Font, Brushes.Black, PT1.X + 1, PT1.Y + 1)
-        G.DrawString(Text, Font, Brushes.WhiteSmoke, PT1)
+        If Enabled Then
+            G.DrawString(Text, Font, Brushes.Black, PT1.X + 1, PT1.Y + 1)
+            G.DrawString(Text, Font, Brushes.WhiteSmoke, PT1)
+        Else
+            'G.DrawString(Text, Font, Brushes.Black, PT1.X + 1, PT1.Y + 1)
+            G.DrawString(Text, Font, Brushes.Black, PT1)
+        End If
     End Sub
 
     Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
