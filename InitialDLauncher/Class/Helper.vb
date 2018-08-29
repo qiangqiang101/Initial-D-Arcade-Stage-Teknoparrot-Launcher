@@ -1682,6 +1682,20 @@ Module Helper
         Return result
     End Function
 
+    Function HexToBinary(hexString As String) As String
+        Dim result As String = Nothing
+        Dim num As Integer = CInt("&H" & hexString)
+        Do While num > 0
+            result = (num Mod 2).ToString & result
+            num = num \ 2
+        Loop
+        Return result
+    End Function
+
+    Function BinaryToHex(binaryString As String) As String
+        Return Convert.ToString(Convert.ToInt32(binaryString, 2), 16).ToUpper
+    End Function
+
     Private sjis As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_JIS")
     <System.Runtime.CompilerServices.Extension>
     Public Function IsWideEastAsianWidth_SJIS(ByVal c As Char) As Boolean
