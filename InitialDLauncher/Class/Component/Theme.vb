@@ -2561,6 +2561,16 @@ Class NSTextBox
         End Set
     End Property
 
+    Private _Tooltip As String
+    Property ToolTip As String
+        Get
+            Return _Tooltip
+        End Get
+        Set(value As String)
+            _Tooltip = value
+        End Set
+    End Property
+
     Overrides Property Font As Font
         Get
             Return MyBase.Font

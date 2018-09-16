@@ -67,13 +67,10 @@ Partial Class frmEdit
         Me.cmbCourse8 = New InitialDLauncher.NSComboBox()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.txtProficiency = New InitialDLauncher.NSTextBox()
-        Me.cbStorySuperb = New InitialDLauncher.NSCheckBox()
-        Me.cbRiseUp = New InitialDLauncher.NSCheckBox()
         Me.cmbTitle = New InitialDLauncher.NSComboBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.NsGroupBox2 = New InitialDLauncher.NSGroupBox()
         Me.pbEffect = New System.Windows.Forms.PictureBox()
-        Me.cbUnlockExSpec = New InitialDLauncher.NSCheckBox()
         Me.cmbCup = New InitialDLauncher.NSComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.cmbTitleEffect = New InitialDLauncher.NSComboBox()
@@ -84,6 +81,12 @@ Partial Class frmEdit
         Me.Label25 = New System.Windows.Forms.Label()
         Me.cmbAura8 = New InitialDLauncher.NSComboBox()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.cbStoryHack = New InitialDLauncher.NSCheckBox()
+        Me.cbInfinitySide = New InitialDLauncher.NSCheckBox()
+        Me.cbStorySuperb = New InitialDLauncher.NSCheckBox()
+        Me.cbRiseUp = New InitialDLauncher.NSCheckBox()
+        Me.cbUnlockExSpec = New InitialDLauncher.NSCheckBox()
         Me.btnEditCar3 = New InitialDLauncher.NSButton()
         Me.txtLevel = New InitialDLauncher.NSTextBox()
         Me.btnEditCar2 = New InitialDLauncher.NSButton()
@@ -142,9 +145,6 @@ Partial Class frmEdit
         Me.pbEyes = New System.Windows.Forms.PictureBox()
         Me.slblEyes = New InitialDLauncher.SpecialLabel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.cbInfinitySide = New InitialDLauncher.NSCheckBox()
-        Me.cbStoryHack = New InitialDLauncher.NSCheckBox()
         Me.NsTheme1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
@@ -157,6 +157,7 @@ Partial Class frmEdit
         Me.NsGroupBox4.SuspendLayout()
         Me.NsGroupBox2.SuspendLayout()
         CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.pbPreview, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -178,7 +179,6 @@ Partial Class frmEdit
         Me.pbMouth.SuspendLayout()
         CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pbEyes.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblAvatarOffset
@@ -300,6 +300,7 @@ Partial Class frmEdit
         Me.txtChapLevel.Size = New System.Drawing.Size(130, 24)
         Me.txtChapLevel.TabIndex = 31
         Me.txtChapLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtChapLevel.ToolTip = Nothing
         Me.txtChapLevel.UseSystemPasswordChar = False
         '
         'Label8
@@ -333,6 +334,7 @@ Partial Class frmEdit
         Me.txtPridePoint.Size = New System.Drawing.Size(130, 24)
         Me.txtPridePoint.TabIndex = 33
         Me.txtPridePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtPridePoint.ToolTip = Nothing
         Me.txtPridePoint.UseSystemPasswordChar = False
         '
         'cbLegend
@@ -434,6 +436,7 @@ Partial Class frmEdit
         Me.txtEvent.Size = New System.Drawing.Size(100, 24)
         Me.txtEvent.TabIndex = 49
         Me.txtEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtEvent.ToolTip = Nothing
         Me.txtEvent.UseSystemPasswordChar = False
         '
         'Label21
@@ -467,6 +470,7 @@ Partial Class frmEdit
         Me.txtKanto.Size = New System.Drawing.Size(100, 24)
         Me.txtKanto.TabIndex = 50
         Me.txtKanto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtKanto.ToolTip = Nothing
         Me.txtKanto.UseSystemPasswordChar = False
         '
         'txtTag
@@ -480,6 +484,7 @@ Partial Class frmEdit
         Me.txtTag.Size = New System.Drawing.Size(100, 24)
         Me.txtTag.TabIndex = 47
         Me.txtTag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTag.ToolTip = Nothing
         Me.txtTag.UseSystemPasswordChar = False
         '
         'Label18
@@ -523,6 +528,7 @@ Partial Class frmEdit
         Me.txtStore.Size = New System.Drawing.Size(100, 24)
         Me.txtStore.TabIndex = 48
         Me.txtStore.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtStore.ToolTip = Nothing
         Me.txtStore.UseSystemPasswordChar = False
         '
         'txtNational
@@ -536,6 +542,7 @@ Partial Class frmEdit
         Me.txtNational.Size = New System.Drawing.Size(100, 24)
         Me.txtNational.TabIndex = 46
         Me.txtNational.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtNational.ToolTip = Nothing
         Me.txtNational.UseSystemPasswordChar = False
         '
         'txtTAttack
@@ -549,6 +556,7 @@ Partial Class frmEdit
         Me.txtTAttack.Size = New System.Drawing.Size(100, 24)
         Me.txtTAttack.TabIndex = 51
         Me.txtTAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTAttack.ToolTip = Nothing
         Me.txtTAttack.UseSystemPasswordChar = False
         '
         'Label19
@@ -572,6 +580,7 @@ Partial Class frmEdit
         Me.txtLegend.Size = New System.Drawing.Size(100, 24)
         Me.txtLegend.TabIndex = 45
         Me.txtLegend.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLegend.ToolTip = Nothing
         Me.txtLegend.UseSystemPasswordChar = False
         '
         'txtSPride
@@ -585,6 +594,7 @@ Partial Class frmEdit
         Me.txtSPride.Size = New System.Drawing.Size(130, 24)
         Me.txtSPride.TabIndex = 41
         Me.txtSPride.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtSPride.ToolTip = Nothing
         Me.txtSPride.UseSystemPasswordChar = False
         '
         'cbGRumble
@@ -649,6 +659,7 @@ Partial Class frmEdit
         Me.txtTPride.Size = New System.Drawing.Size(130, 24)
         Me.txtTPride.TabIndex = 42
         Me.txtTPride.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtTPride.ToolTip = Nothing
         Me.txtTPride.UseSystemPasswordChar = False
         '
         'TabPage3
@@ -734,25 +745,8 @@ Partial Class frmEdit
         Me.txtProficiency.Size = New System.Drawing.Size(100, 24)
         Me.txtProficiency.TabIndex = 72
         Me.txtProficiency.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtProficiency.ToolTip = Nothing
         Me.txtProficiency.UseSystemPasswordChar = False
-        '
-        'cbStorySuperb
-        '
-        Me.cbStorySuperb.Checked = False
-        Me.cbStorySuperb.Location = New System.Drawing.Point(216, 36)
-        Me.cbStorySuperb.Name = "cbStorySuperb"
-        Me.cbStorySuperb.Size = New System.Drawing.Size(185, 24)
-        Me.cbStorySuperb.TabIndex = 83
-        Me.cbStorySuperb.Text = "Unlock All Story Superb"
-        '
-        'cbRiseUp
-        '
-        Me.cbRiseUp.Checked = False
-        Me.cbRiseUp.Location = New System.Drawing.Point(6, 36)
-        Me.cbRiseUp.Name = "cbRiseUp"
-        Me.cbRiseUp.Size = New System.Drawing.Size(204, 24)
-        Me.cbRiseUp.TabIndex = 82
-        Me.cbRiseUp.Text = "Unlock Rise Up"
         '
         'cmbTitle
         '
@@ -800,15 +794,6 @@ Partial Class frmEdit
         Me.pbEffect.Size = New System.Drawing.Size(398, 185)
         Me.pbEffect.TabIndex = 69
         Me.pbEffect.TabStop = False
-        '
-        'cbUnlockExSpec
-        '
-        Me.cbUnlockExSpec.Checked = False
-        Me.cbUnlockExSpec.Location = New System.Drawing.Point(6, 66)
-        Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
-        Me.cbUnlockExSpec.Size = New System.Drawing.Size(188, 24)
-        Me.cbUnlockExSpec.TabIndex = 84
-        Me.cbUnlockExSpec.Text = "ExFull All Cars"
         '
         'cmbCup
         '
@@ -889,6 +874,7 @@ Partial Class frmEdit
         Me.txtInfRank.Size = New System.Drawing.Size(130, 24)
         Me.txtInfRank.TabIndex = 62
         Me.txtInfRank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtInfRank.ToolTip = Nothing
         Me.txtInfRank.UseSystemPasswordChar = False
         '
         'Label25
@@ -923,6 +909,66 @@ Partial Class frmEdit
         Me.Label24.TabIndex = 61
         Me.Label24.Text = "Aura"
         '
+        'TabPage4
+        '
+        Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TabPage4.Controls.Add(Me.cbStoryHack)
+        Me.TabPage4.Controls.Add(Me.cbInfinitySide)
+        Me.TabPage4.Controls.Add(Me.cbStorySuperb)
+        Me.TabPage4.Controls.Add(Me.cbRiseUp)
+        Me.TabPage4.Controls.Add(Me.cbUnlockExSpec)
+        Me.TabPage4.Location = New System.Drawing.Point(114, 4)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(417, 458)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Initial D8 ∞ #2"
+        '
+        'cbStoryHack
+        '
+        Me.cbStoryHack.Checked = False
+        Me.cbStoryHack.Location = New System.Drawing.Point(216, 66)
+        Me.cbStoryHack.Name = "cbStoryHack"
+        Me.cbStoryHack.Size = New System.Drawing.Size(185, 24)
+        Me.cbStoryHack.TabIndex = 85
+        Me.cbStoryHack.Text = "Complete All Story Mode"
+        '
+        'cbInfinitySide
+        '
+        Me.cbInfinitySide.Checked = False
+        Me.cbInfinitySide.Location = New System.Drawing.Point(6, 6)
+        Me.cbInfinitySide.Name = "cbInfinitySide"
+        Me.cbInfinitySide.Size = New System.Drawing.Size(405, 24)
+        Me.cbInfinitySide.TabIndex = 81
+        Me.cbInfinitySide.Text = "Unlocks Outsoar the Rainbow BGM and InfinitySide Story Mode"
+        '
+        'cbStorySuperb
+        '
+        Me.cbStorySuperb.Checked = False
+        Me.cbStorySuperb.Location = New System.Drawing.Point(216, 36)
+        Me.cbStorySuperb.Name = "cbStorySuperb"
+        Me.cbStorySuperb.Size = New System.Drawing.Size(185, 24)
+        Me.cbStorySuperb.TabIndex = 83
+        Me.cbStorySuperb.Text = "Unlock All Story Superb"
+        '
+        'cbRiseUp
+        '
+        Me.cbRiseUp.Checked = False
+        Me.cbRiseUp.Location = New System.Drawing.Point(6, 36)
+        Me.cbRiseUp.Name = "cbRiseUp"
+        Me.cbRiseUp.Size = New System.Drawing.Size(204, 24)
+        Me.cbRiseUp.TabIndex = 82
+        Me.cbRiseUp.Text = "Unlock Rise Up"
+        '
+        'cbUnlockExSpec
+        '
+        Me.cbUnlockExSpec.Checked = False
+        Me.cbUnlockExSpec.Location = New System.Drawing.Point(6, 66)
+        Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
+        Me.cbUnlockExSpec.Size = New System.Drawing.Size(188, 24)
+        Me.cbUnlockExSpec.TabIndex = 84
+        Me.cbUnlockExSpec.Text = "ExFull All Cars"
+        '
         'btnEditCar3
         '
         Me.btnEditCar3.Location = New System.Drawing.Point(487, 124)
@@ -942,6 +988,7 @@ Partial Class frmEdit
         Me.txtLevel.Size = New System.Drawing.Size(100, 24)
         Me.txtLevel.TabIndex = 21
         Me.txtLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtLevel.ToolTip = Nothing
         Me.txtLevel.UseSystemPasswordChar = False
         '
         'btnEditCar2
@@ -991,6 +1038,7 @@ Partial Class frmEdit
         Me.txtGamePoint.Size = New System.Drawing.Size(100, 24)
         Me.txtGamePoint.TabIndex = 22
         Me.txtGamePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtGamePoint.ToolTip = Nothing
         Me.txtGamePoint.UseSystemPasswordChar = False
         '
         'cmbCar3
@@ -1004,6 +1052,7 @@ Partial Class frmEdit
         Me.cmbCar3.Size = New System.Drawing.Size(394, 24)
         Me.cmbCar3.TabIndex = 28
         Me.cmbCar3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.cmbCar3.ToolTip = Nothing
         Me.cmbCar3.UseSystemPasswordChar = False
         '
         'Label14
@@ -1037,6 +1086,7 @@ Partial Class frmEdit
         Me.cmbCar2.Size = New System.Drawing.Size(394, 24)
         Me.cmbCar2.TabIndex = 26
         Me.cmbCar2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.cmbCar2.ToolTip = Nothing
         Me.cmbCar2.UseSystemPasswordChar = False
         '
         'Label3
@@ -1060,6 +1110,7 @@ Partial Class frmEdit
         Me.txtMileage.Size = New System.Drawing.Size(100, 24)
         Me.txtMileage.TabIndex = 23
         Me.txtMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtMileage.ToolTip = Nothing
         Me.txtMileage.UseSystemPasswordChar = False
         '
         'cmbCar1
@@ -1073,6 +1124,7 @@ Partial Class frmEdit
         Me.cmbCar1.Size = New System.Drawing.Size(394, 24)
         Me.cmbCar1.TabIndex = 24
         Me.cmbCar1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.cmbCar1.ToolTip = Nothing
         Me.cmbCar1.UseSystemPasswordChar = False
         '
         'Label13
@@ -1168,6 +1220,7 @@ Partial Class frmEdit
         Me.txtName.Size = New System.Drawing.Size(166, 24)
         Me.txtName.TabIndex = 11
         Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txtName.ToolTip = Nothing
         Me.txtName.UseSystemPasswordChar = False
         '
         'Label2
@@ -1604,39 +1657,6 @@ Partial Class frmEdit
         Me.NsControlButton1.TabIndex = 55
         Me.NsControlButton1.Text = "NsControlButton1"
         '
-        'TabPage4
-        '
-        Me.TabPage4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.TabPage4.Controls.Add(Me.cbStoryHack)
-        Me.TabPage4.Controls.Add(Me.cbInfinitySide)
-        Me.TabPage4.Controls.Add(Me.cbStorySuperb)
-        Me.TabPage4.Controls.Add(Me.cbRiseUp)
-        Me.TabPage4.Controls.Add(Me.cbUnlockExSpec)
-        Me.TabPage4.Location = New System.Drawing.Point(114, 4)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(417, 458)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Initial D8 ∞ #2"
-        '
-        'cbInfinitySide
-        '
-        Me.cbInfinitySide.Checked = False
-        Me.cbInfinitySide.Location = New System.Drawing.Point(6, 6)
-        Me.cbInfinitySide.Name = "cbInfinitySide"
-        Me.cbInfinitySide.Size = New System.Drawing.Size(405, 24)
-        Me.cbInfinitySide.TabIndex = 81
-        Me.cbInfinitySide.Text = "Unlocks Outsoar the Rainbow BGM and InfinitySide Story Mode"
-        '
-        'cbStoryHack
-        '
-        Me.cbStoryHack.Checked = False
-        Me.cbStoryHack.Location = New System.Drawing.Point(216, 66)
-        Me.cbStoryHack.Name = "cbStoryHack"
-        Me.cbStoryHack.Size = New System.Drawing.Size(185, 24)
-        Me.cbStoryHack.TabIndex = 85
-        Me.cbStoryHack.Text = "Complete All Story Mode"
-        '
         'frmEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1669,6 +1689,7 @@ Partial Class frmEdit
         Me.NsGroupBox4.PerformLayout()
         Me.NsGroupBox2.ResumeLayout(False)
         CType(Me.pbEffect, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage4.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -1701,7 +1722,6 @@ Partial Class frmEdit
         CType(Me.pbEyes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pbEyes.ResumeLayout(False)
         Me.pbEyes.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

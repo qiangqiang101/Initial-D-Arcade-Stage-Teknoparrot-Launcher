@@ -40,7 +40,7 @@ English - I'm Not MentaL & Kurisuchan<br />
 한국어 - Mellanitomo Gen<br />
 Bahasa Malaysia - Kurisuchan<br />
 Deutsche - Soul<br />
-Español - Gixer<br />
+Español - Gixer & Batlez<br />
 Français (Outdated) - nucleaireland<br />
 
 <h3>COMMUNITY CONTRIBUTORS</h3>
@@ -60,11 +60,10 @@ I'm Not MentaL - Gender Offset, Time Attack ID7 Offset & Time Attack ID8 Offset<
 
 <h3>THANKS TO</h3>
 (alphabetically)<br />
-Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited (Nexus Mods), BYEONGHEOL LEE, Chanchai Boonsiri, Christine Guillory, Chris Wong, 
-Christopher Stewart (DoctorGTA), Daniel López Sánchez, Daniel Van der Meer, Daniel Ly, David Womacks, Donkuro, Dr gina van Raphael, Насыров Адель, HCT Tuning, Heng Zhang, 
-Jacky Ng, James, John Yang, Juan, Juiced Box Computers, Kenny, Kira Manell, Kito Zhayne Bordeos, Kyousuke Nanikawa, Lei CHEN, Map1e, Marcelle Waul, Matthew Adair, 
-Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, obataku7, Patrick Hu, Paul Cybulska, Rob Campbell, Ryu Taros, Tan Hock, teknoparrot7, Thomas Tunac-De Leon, 
-Timo Düsterhöft, Timur Nurtayev, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 雅博 宮田, 辰斐 丁 & דור צרפתי
+Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited, BYEONGHEOL LEE, Christine Guillory, Christopher Stewart (DoctorGTA), Chris Wong, 
+Daniel López Sánchez, Daniel Ly, Daniel Van der Meer, David Womacks, Насыров Адель, HCT Tuning, Heng Zhang, James, John Yang, Juiced Box Computers, Kira Manell, 
+Kito Zhayne Bordeos, Kyousuke Nanikawa, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, Patrick Hu, Paul Cybulska, Tan Hock, 
+Thomas Tunac-De Leon, Timo Düsterhöft, Timur Nurtayev, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 辰斐 丁, דור צרפתי
 <br />
 
 <h3>SPECIAL THANKS TO</h3>

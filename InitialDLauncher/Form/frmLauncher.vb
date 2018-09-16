@@ -11,9 +11,10 @@ Public Class frmLauncher
     Public WithEvents proc As Process
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
+    Public Shared RunGameThread As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 43
-    Public buildDate As String = "07/07/2018"
+    Dim curVer As Integer = 44
+    Public buildDate As String = "17/09/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -27,17 +28,16 @@ Public Class frmLauncher
     Dim id6CardDir As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardDir As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
     Dim id8CardDir As String = String.Format("{0}\ID8_CARD\", My.Application.Info.DirectoryPath)
+    Public Shared parrotData As ParrotData = New ParrotData(".\ParrotData.xml").ReadFromFile
 
-    Dim selPath As String = String.Empty
-    Dim lastGame As Integer = 0
+    Public Shared selPath As String = Nothing
+    Public Shared lastGame As Integer = 0
     Public Shared isGameRunning As Boolean = False
-
+    Public Shared pluginControls As New List(Of Control)
     Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins")
 
     'Translation
     Dim new_version, no_card_selected As String
-
-    Private gifImage As GifImage = New GifImage(My.Resources.background_video) With {.ReverseAtEnd = False}
 
     Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
         drag = True
@@ -196,13 +196,6 @@ Public Class frmLauncher
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
             Me.SetStyle(ControlStyles.UserPaint, True)
 
-            If Not My.Settings.VideoBackground Then
-                Timer3.Stop()
-                BackgroundImage = My.Resources.new_bg
-            Else
-                Timer3.Start()
-            End If
-
             If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
             If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
             If Not Directory.Exists(id8CardDir) Then Directory.CreateDirectory(id8CardDir)
@@ -218,7 +211,7 @@ Public Class frmLauncher
 
             lblDebug.Visible = debug
             CheckForIllegalCrossThreadCalls = False
-            GetGamePath()
+            'GetGamePath()
 
             If Not File.Exists(id6CardPath) Then
                 My.Settings.Id6CardName = ""
@@ -260,7 +253,11 @@ Public Class frmLauncher
             End If
 
             Timer1.Start()
-            'AutoCardMove()
+
+
+            For Each ctrl In pluginControls
+                Me.Controls.Add(ctrl)
+            Next
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -291,9 +288,6 @@ Public Class frmLauncher
             If Not IsCardFolderEmpty(CardDir) AndAlso CardPath = Nothing Then
                 Dim result As DialogResult = NSMessageBox.ShowYesNo(no_card_selected, MessageBoxIcon.Exclamation, Text)
                 If result = DialogResult.No Then
-                    If My.Settings.VideoBackground Then
-                        Timer3.Start()
-                    End If
                     isGameRunning = False
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
@@ -311,9 +305,11 @@ Public Class frmLauncher
                     If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
                     If IO.Path.GetExtension(AppData) = ".bin" Then If My.Settings.RunCardReader Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
                     If My.Settings.Multiplayer Then
-                        RunTeknoParrotOnline(True)
+                        RunGameThread = New Thread(Sub() RunTeknoParrotOnline(True))
+                        RunGameThread.Start()
                     Else
-                        RunParrotLoaderUI(Profile, True, My.Settings.TestMode)
+                        RunGameThread = New Thread(Sub() RunParrotLoaderUI(Profile, True, My.Settings.TestMode))
+                        RunGameThread.Start()
                     End If
                 End If
             Else
@@ -331,17 +327,16 @@ Public Class frmLauncher
                 If File.Exists(CardPath) Then If Not File.Exists(AppData) Then File.Move(CardPath, AppData)
                 If IO.Path.GetExtension(AppData) = ".bin" Then If My.Settings.RunCardReader Then RunParrotLoader(String.Format("{0}\picodaemon.exe", MySettingGameDir), False)
                 If My.Settings.Multiplayer Then
-                    RunTeknoParrotOnline(True)
+                    RunGameThread = New Thread(Sub() RunTeknoParrotOnline(True))
+                    RunGameThread.Start()
                 Else
-                    RunParrotLoaderUI(Profile, True, My.Settings.TestMode)
+                    RunGameThread = New Thread(Sub() RunParrotLoaderUI(Profile, True, My.Settings.TestMode))
+                    RunGameThread.Start()
                 End If
             End If
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
-            If My.Settings.VideoBackground Then
-                Timer3.Start()
-            End If
             isGameRunning = False
             Exit Sub
         End Try
@@ -426,9 +421,6 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click, lblStart6.EnterPressed
-        If My.Settings.VideoBackground Then
-            Timer3.Stop()
-        End If
         isGameRunning = True
         wait(500)
 
@@ -439,7 +431,7 @@ Public Class frmLauncher
             Case ".crd"
                 RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
             Case Else
-                Select Case My.Settings.PerferCardExt
+                Select Case My.Settings.PerferCardExt6
                     Case "CRD"
                         RunGame(id6CardDir, id6CardPath, 6, id6GameDir, My.Settings.Id6Path, "--profile=ID6.xml")
                     Case "BIN"
@@ -449,9 +441,6 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click, lblStart7.EnterPressed
-        If My.Settings.VideoBackground Then
-            Timer3.Stop()
-        End If
         isGameRunning = True
         wait(500)
 
@@ -462,7 +451,7 @@ Public Class frmLauncher
             Case ".crd"
                 RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
             Case Else
-                Select Case My.Settings.PerferCardExt
+                Select Case My.Settings.PerferCardExt7
                     Case "CRD"
                         RunGame(id7CardDir, id7CardPath, 7, id7GameDir, My.Settings.Id7Path, "--profile=ID7.xml")
                     Case "BIN"
@@ -472,9 +461,6 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click, lblStart8.EnterPressed
-        If My.Settings.VideoBackground Then
-            Timer3.Stop()
-        End If
         isGameRunning = True
         wait(500)
 
@@ -485,7 +471,7 @@ Public Class frmLauncher
             Case ".crd"
                 RunGame(id8CardDir, id8CardPath, 8, id8GameDir, My.Settings.Id8Path, "--profile=ID8.xml")
             Case Else
-                Select Case My.Settings.PerferCardExt
+                Select Case My.Settings.PerferCardExt8
                     Case "CRD"
                         RunGame(id8CardDir, id8CardPath, 8, id8GameDir, My.Settings.Id8Path, "--profile=ID8.xml")
                     Case "BIN"
@@ -546,34 +532,99 @@ Public Class frmLauncher
         End If
     End Sub
 
+    Private Sub RunParrotLoader(ByVal arg As String, wait As Boolean, Optional test As Boolean = False)
+        Dim startInfo As New ProcessStartInfo()
+        startInfo.FileName = My.Application.Info.DirectoryPath & "\ParrotLoader.exe"
+        startInfo.WindowStyle = ProcessWindowStyle.Minimized
+        If test Then
+            startInfo.Arguments = String.Format("""{0}"" {1}", arg, "-t")
+        Else
+            startInfo.Arguments = """" & arg & """"
+        End If
+        proc = Process.Start(startInfo)
+        If wait Then
+            proc.EnableRaisingEvents = True
+            proc.WaitForExit()
+            MovingBackCards()
+        Else
+            proc.EnableRaisingEvents = False
+        End If
+    End Sub
+
+    Private Sub RunParrotLoaderUI(ByVal arg As String, wait As Boolean, Optional test As Boolean = False)
+        Dim startInfo As New ProcessStartInfo()
+        startInfo.FileName = My.Application.Info.DirectoryPath & "\TeknoParrotUi.exe"
+        startInfo.WindowStyle = ProcessWindowStyle.Minimized
+        If test Then
+            startInfo.Arguments = String.Format("""{0}"" {1}", arg, "--test")
+        Else
+            startInfo.Arguments = """" & arg & """"
+        End If
+        proc = Process.Start(startInfo)
+        If wait Then
+            proc.EnableRaisingEvents = True
+            proc.WaitForExit()
+            MovingBackCards()
+        Else
+            proc.EnableRaisingEvents = False
+        End If
+    End Sub
+
+    Private Sub RunTeknoParrotOnline(wait As Boolean)
+        Process.Start("steam://rungameid/0")
+        Dim startInfo As New ProcessStartInfo()
+        startInfo.FileName = My.Application.Info.DirectoryPath & "\TeknoParrotOnline.exe"
+        startInfo.WindowStyle = ProcessWindowStyle.Normal
+        proc = Process.Start(startInfo)
+        If wait Then
+            proc.EnableRaisingEvents = True
+            proc.WaitForExit()
+            MovingBackCards()
+        Else
+            proc.EnableRaisingEvents = False
+        End If
+    End Sub
+
     Private Sub Proc_Exited() Handles proc.Exited
+        isGameRunning = False
+        Me.Enabled = True
+    End Sub
+
+    Private Sub MovingBackCards()
+        If My.Settings.FullScreen Then
+            WindowState = FormWindowState.Maximized
+        Else
+            WindowState = FormWindowState.Normal
+        End If
+
         Try
             If selPath = Nothing Then
-                If My.Settings.PerferCardExt = "CRD" Then
-                    Select Case lastGame
-                        Case 6
+                Select Case lastGame
+                    Case 6
+                        If My.Settings.PerferCardExt6 = "CRD" Then
                             selPath = String.Format("{0}\ID6_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                             If File.Exists(id6GameDir) Then File.Move(id6GameDir, selPath)
-                        Case 7
-                            selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                            If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
-                        Case 8
-                            selPath = String.Format("{0}\ID8_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
-                            If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
-                    End Select
-                ElseIf My.Settings.PerferCardExt = "BIN" Then
-                    Select Case lastGame
-                        Case 6
+                        ElseIf My.Settings.PerferCardExt6 = "BIN" Then
                             selPath = String.Format("{0}\ID6_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                             If File.Exists(id6AppData) Then File.Move(id6AppData, selPath)
-                        Case 7
+                        End If
+                    Case 7
+                        If My.Settings.PerferCardExt7 = "CRD" Then
+                            selPath = String.Format("{0}\ID7_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id7GameDir) Then File.Move(id7GameDir, selPath)
+                        ElseIf My.Settings.PerferCardExt7 = "BIN" Then
                             selPath = String.Format("{0}\ID7_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                             If File.Exists(id7AppData) Then File.Move(id7AppData, selPath)
-                        Case 8
+                        End If
+                    Case 8
+                        If My.Settings.PerferCardExt8 = "CRD" Then
+                            selPath = String.Format("{0}\ID8_CARD\{1}.crd", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
+                            If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
+                        ElseIf My.Settings.PerferCardExt8 = "BIN" Then
                             selPath = String.Format("{0}\ID8_CARD\{1}.bin", My.Application.Info.DirectoryPath, Guid.NewGuid.ToString())
                             If File.Exists(id8AppData) Then File.Move(id8AppData, selPath)
-                    End Select
-                End If
+                        End If
+                End Select
             Else
                 Select Case lastGame
                     Case 6
@@ -586,16 +637,6 @@ Public Class frmLauncher
                         If File.Exists(id8AppData) Then File.Move(id8AppData, selPath)
                         If File.Exists(id8GameDir) Then File.Move(id8GameDir, selPath)
                 End Select
-            End If
-
-            If My.Settings.FullScreen Then
-                WindowState = FormWindowState.Maximized
-            Else
-                WindowState = FormWindowState.Normal
-            End If
-            isGameRunning = False
-            If My.Settings.VideoBackground Then
-                Timer3.Start()
             End If
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
@@ -699,12 +740,6 @@ Public Class frmLauncher
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
-    End Sub
-
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
-        If Me.Enabled Then
-            BackgroundImage = gifImage.GetNextFrame()
-        End If
     End Sub
 
     Public Sub Translate()

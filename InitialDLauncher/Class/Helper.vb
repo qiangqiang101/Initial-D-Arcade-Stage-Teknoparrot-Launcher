@@ -5,105 +5,56 @@ Imports System.Text
 Imports System.Xml
 Imports System.Management
 Imports System.Net
+Imports System.Runtime.CompilerServices
 
 Module Helper
 
     Dim SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
     Dim SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
 
-    Sub RunParrotLoader(ByVal arg As String, wait As Boolean, Optional test As Boolean = False)
-        Dim startInfo As New ProcessStartInfo()
-        startInfo.FileName = My.Application.Info.DirectoryPath & "\ParrotLoader.exe"
-        startInfo.WindowStyle = ProcessWindowStyle.Minimized
-        If test Then
-            startInfo.Arguments = String.Format("""{0}"" {1}", arg, "-t")
-        Else
-            startInfo.Arguments = """" & arg & """"
-        End If
-        frmLauncher.proc = Process.Start(startInfo)
-        If wait Then
-            frmLauncher.proc.EnableRaisingEvents = True
-            frmLauncher.proc.WaitForExit()
-        Else
-            frmLauncher.proc.EnableRaisingEvents = False
-        End If
-    End Sub
-
-    Sub RunParrotLoaderUI(ByVal arg As String, wait As Boolean, Optional test As Boolean = False)
-        Dim startInfo As New ProcessStartInfo()
-        startInfo.FileName = My.Application.Info.DirectoryPath & "\TeknoParrotUi.exe"
-        startInfo.WindowStyle = ProcessWindowStyle.Minimized
-        If test Then
-            startInfo.Arguments = String.Format("""{0}"" {1}", arg, "--test")
-        Else
-            startInfo.Arguments = """" & arg & """"
-        End If
-        frmLauncher.proc = Process.Start(startInfo)
-        If wait Then
-            frmLauncher.proc.EnableRaisingEvents = True
-            frmLauncher.proc.WaitForExit()
-        Else
-            frmLauncher.proc.EnableRaisingEvents = False
-        End If
-    End Sub
-
-    Sub RunTeknoParrotOnline(wait As Boolean)
-        Process.Start("steam://rungameid/0")
-        Dim startInfo As New ProcessStartInfo()
-        startInfo.FileName = My.Application.Info.DirectoryPath & "\TeknoParrotOnline.exe"
-        startInfo.WindowStyle = ProcessWindowStyle.Normal
-        frmLauncher.proc = Process.Start(startInfo)
-        If wait Then
-            frmLauncher.proc.EnableRaisingEvents = True
-            frmLauncher.proc.WaitForExit()
-        Else
-            frmLauncher.proc.EnableRaisingEvents = False
-        End If
-    End Sub
-
     Sub GetGamePath()
-        Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id8Path}
-        If pList.Contains(String.Empty) Then
-            If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml") Then
-                Dim xd As New XmlDocument()
-                xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml")
-                Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
-                    For Each item As XmlNode In items
-                        Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-                        If Not GamePath = "" Then
-                            My.Settings.Id6Path = Path.GetDirectoryName(GamePath)
-                            My.Settings.Save()
-                        End If
-                    Next
-                End Using
-            End If
-            If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml") Then
-                Dim xd As New XmlDocument()
-                xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml")
-                Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
-                    For Each item As XmlNode In items
-                        Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-                        If Not GamePath = "" Then
-                            My.Settings.Id7Path = Path.GetDirectoryName(GamePath)
-                            My.Settings.Save()
-                        End If
-                    Next
-                End Using
-            End If
-            If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml") Then
-                Dim xd As New XmlDocument()
-                xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml")
-                Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
-                    For Each item As XmlNode In items
-                        Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-                        If Not GamePath = "" Then
-                            My.Settings.Id8Path = Path.GetDirectoryName(GamePath)
-                            My.Settings.Save()
-                        End If
-                    Next
-                End Using
-            End If
-        End If
+        'Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id8Path}
+        'If pList.Contains(String.Empty) Then
+        '    If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml") Then
+        '        Dim xd As New XmlDocument()
+        '        xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml")
+        '        Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
+        '            For Each item As XmlNode In items
+        '                Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
+        '                If Not GamePath = "" Then
+        '                    My.Settings.Id6Path = Path.GetDirectoryName(GamePath)
+        '                    My.Settings.Save()
+        '                End If
+        '            Next
+        '        End Using
+        '    End If
+        '    If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml") Then
+        '        Dim xd As New XmlDocument()
+        '        xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml")
+        '        Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
+        '            For Each item As XmlNode In items
+        '                Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
+        '                If Not GamePath = "" Then
+        '                    My.Settings.Id7Path = Path.GetDirectoryName(GamePath)
+        '                    My.Settings.Save()
+        '                End If
+        '            Next
+        '        End Using
+        '    End If
+        '    If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml") Then
+        '        Dim xd As New XmlDocument()
+        '        xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml")
+        '        Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
+        '            For Each item As XmlNode In items
+        '                Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
+        '                If Not GamePath = "" Then
+        '                    My.Settings.Id8Path = Path.GetDirectoryName(GamePath)
+        '                    My.Settings.Save()
+        '                End If
+        '            Next
+        '        End Using
+        '    End If
+        'End If
     End Sub
 
     Function GetHex(filename As String, offset As Integer, requiredBytes As Integer) As Byte()
@@ -1697,10 +1648,19 @@ Module Helper
     End Function
 
     Private sjis As System.Text.Encoding = System.Text.Encoding.GetEncoding("shift_JIS")
-    <System.Runtime.CompilerServices.Extension>
+    <Extension()>
     Public Function IsWideEastAsianWidth_SJIS(ByVal c As Char) As Boolean
         Dim byteCount As Integer = sjis.GetByteCount(c.ToString())
         Return byteCount = 2
+    End Function
+
+    Public Function FindFocussedControl(ByVal ctr As Control) As Control
+        Dim container As ContainerControl = TryCast(ctr, ContainerControl)
+        Do While (container IsNot Nothing)
+            ctr = container.ActiveControl
+            container = TryCast(ctr, ContainerControl)
+        Loop
+        Return ctr
     End Function
 
 End Module

@@ -213,12 +213,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("CRD")>  _
-        Public Property PerferCardExt() As String
+        Public Property PerferCardExt6() As String
             Get
-                Return CType(Me("PerferCardExt"),String)
+                Return CType(Me("PerferCardExt6"),String)
             End Get
             Set
-                Me("PerferCardExt") = value
+                Me("PerferCardExt6") = value
             End Set
         End Property
         
@@ -261,18 +261,6 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property VideoBackground() As Boolean
-            Get
-                Return CType(Me("VideoBackground"),Boolean)
-            End Get
-            Set
-                Me("VideoBackground") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property FullScreen() As Boolean
             Get
                 Return CType(Me("FullScreen"),Boolean)
@@ -291,6 +279,30 @@ Namespace My
             End Get
             Set
                 Me("ExtraLaunchOptions") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("CRD")>  _
+        Public Property PerferCardExt7() As String
+            Get
+                Return CType(Me("PerferCardExt7"),String)
+            End Get
+            Set
+                Me("PerferCardExt7") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("BIN")>  _
+        Public Property PerferCardExt8() As String
+            Get
+                Return CType(Me("PerferCardExt8"),String)
+            End Get
+            Set
+                Me("PerferCardExt8") = value
             End Set
         End Property
     End Class

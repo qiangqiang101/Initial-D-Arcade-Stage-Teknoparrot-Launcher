@@ -41,7 +41,7 @@
     <Setting Name="Multiplayer" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="PerferCardExt" Type="System.String" Scope="User">
+    <Setting Name="PerferCardExt6" Type="System.String" Scope="User">
       <Value Profile="(Default)">CRD</Value>
     </Setting>
     <Setting Name="Id8Path" Type="System.String" Scope="User">
@@ -53,14 +53,17 @@
     <Setting Name="RunCardReader" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="VideoBackground" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="FullScreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ExtraLaunchOptions" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PerferCardExt7" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CRD</Value>
+    </Setting>
+    <Setting Name="PerferCardExt8" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BIN</Value>
     </Setting>
   </Settings>
 </SettingsFile>

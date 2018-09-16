@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ParrotData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UseSto0ZDrivingHack>true</UseSto0ZDrivingHack>
+  <StoozPercent>10</StoozPercent>
+  <UseMouse>true</UseMouse>
+  <XInputMode>false</XInputMode>
+  <GunSensitivityPlayer1>1</GunSensitivityPlayer1>
+  <GunSensitivityPlayer2>1</GunSensitivityPlayer2>
+  <FullAxisGas>false</FullAxisGas>
+  <FullAxisBrake>false</FullAxisBrake>
+  <ReverseAxisGas>false</ReverseAxisGas>
+  <ReverseAxisBrake>false</ReverseAxisBrake>
+  <HapticDevice>vJoy Device</HapticDevice>
+  <UseHaptic>false</UseHaptic>
+  <HapticThrustmasterFix>false</HapticThrustmasterFix>
+  <ConstantBase>2421</ConstantBase>
+  <SineBase>1022</SineBase>
+  <FrictionBase>2421</FrictionBase>
+  <SpringBase>1000</SpringBase>
+</ParrotData>

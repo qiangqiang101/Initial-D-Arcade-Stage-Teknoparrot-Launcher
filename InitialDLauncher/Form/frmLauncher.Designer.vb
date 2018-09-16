@@ -25,8 +25,6 @@ Partial Class frmLauncher
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLauncher))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.lblStart6 = New InitialDLauncher.TextButton()
         Me.lblStart7 = New InitialDLauncher.TextButton()
         Me.lblLeaderboard = New InitialDLauncher.TextButton()
@@ -43,10 +41,6 @@ Partial Class frmLauncher
         '
         Me.Timer1.Interval = 5000
         '
-        'Timer3
-        '
-        Me.Timer3.Interval = 50
-        '
         'lblStart6
         '
         Me.lblStart6.AddEffect = True
@@ -55,16 +49,16 @@ Partial Class frmLauncher
         Me.lblStart6.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblStart6.EffectAfter = " <<"
         Me.lblStart6.EffectBefore = Nothing
-        Me.lblStart6.EffectWidth = 43
-        Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart6.EffectWidth = 39
+        Me.lblStart6.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblStart6.ForeColor = System.Drawing.Color.Silver
-        Me.lblStart6.Location = New System.Drawing.Point(587, 250)
+        Me.lblStart6.Location = New System.Drawing.Point(441, 201)
         Me.lblStart6.MouseHoverColor = System.Drawing.Color.White
         Me.lblStart6.MousePressedColor = System.Drawing.Color.Gold
         Me.lblStart6.Name = "lblStart6"
         Me.lblStart6.NormalColor = System.Drawing.Color.Silver
         Me.lblStart6.P = Me
-        Me.lblStart6.Size = New System.Drawing.Size(359, 38)
+        Me.lblStart6.Size = New System.Drawing.Size(359, 32)
         Me.lblStart6.TabIndex = 2
         Me.lblStart6.Text = "Play Initial D 6 AA"
         Me.lblStart6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -77,16 +71,16 @@ Partial Class frmLauncher
         Me.lblStart7.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblStart7.EffectAfter = " <<"
         Me.lblStart7.EffectBefore = Nothing
-        Me.lblStart7.EffectWidth = 43
-        Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart7.EffectWidth = 39
+        Me.lblStart7.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblStart7.ForeColor = System.Drawing.Color.Silver
-        Me.lblStart7.Location = New System.Drawing.Point(587, 288)
+        Me.lblStart7.Location = New System.Drawing.Point(441, 233)
         Me.lblStart7.MouseHoverColor = System.Drawing.Color.White
         Me.lblStart7.MousePressedColor = System.Drawing.Color.Gold
         Me.lblStart7.Name = "lblStart7"
         Me.lblStart7.NormalColor = System.Drawing.Color.Silver
         Me.lblStart7.P = Me
-        Me.lblStart7.Size = New System.Drawing.Size(359, 38)
+        Me.lblStart7.Size = New System.Drawing.Size(359, 32)
         Me.lblStart7.TabIndex = 3
         Me.lblStart7.Text = "Play Initial D 7 AAX"
         Me.lblStart7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -99,16 +93,16 @@ Partial Class frmLauncher
         Me.lblLeaderboard.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblLeaderboard.EffectAfter = " <<"
         Me.lblLeaderboard.EffectBefore = Nothing
-        Me.lblLeaderboard.EffectWidth = 43
-        Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblLeaderboard.EffectWidth = 39
+        Me.lblLeaderboard.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblLeaderboard.ForeColor = System.Drawing.Color.Silver
-        Me.lblLeaderboard.Location = New System.Drawing.Point(587, 384)
+        Me.lblLeaderboard.Location = New System.Drawing.Point(441, 317)
         Me.lblLeaderboard.MouseHoverColor = System.Drawing.Color.White
         Me.lblLeaderboard.MousePressedColor = System.Drawing.Color.Gold
         Me.lblLeaderboard.Name = "lblLeaderboard"
         Me.lblLeaderboard.NormalColor = System.Drawing.Color.Silver
         Me.lblLeaderboard.P = Me
-        Me.lblLeaderboard.Size = New System.Drawing.Size(359, 38)
+        Me.lblLeaderboard.Size = New System.Drawing.Size(359, 32)
         Me.lblLeaderboard.TabIndex = 5
         Me.lblLeaderboard.Text = "TA Leaderboard"
         Me.lblLeaderboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -143,16 +137,16 @@ Partial Class frmLauncher
         Me.lblStart8.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblStart8.EffectAfter = " <<"
         Me.lblStart8.EffectBefore = Nothing
-        Me.lblStart8.EffectWidth = 43
-        Me.lblStart8.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblStart8.EffectWidth = 39
+        Me.lblStart8.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblStart8.ForeColor = System.Drawing.Color.Silver
-        Me.lblStart8.Location = New System.Drawing.Point(587, 326)
+        Me.lblStart8.Location = New System.Drawing.Point(441, 265)
         Me.lblStart8.MouseHoverColor = System.Drawing.Color.White
         Me.lblStart8.MousePressedColor = System.Drawing.Color.Gold
         Me.lblStart8.Name = "lblStart8"
         Me.lblStart8.NormalColor = System.Drawing.Color.Silver
         Me.lblStart8.P = Me
-        Me.lblStart8.Size = New System.Drawing.Size(359, 38)
+        Me.lblStart8.Size = New System.Drawing.Size(359, 32)
         Me.lblStart8.TabIndex = 4
         Me.lblStart8.Text = "Play Initial D 8 Infinity"
         Me.lblStart8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -169,7 +163,7 @@ Partial Class frmLauncher
         Me.lblVersion.EffectWidth = 43
         Me.lblVersion.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.lblVersion.ForeColor = System.Drawing.Color.Silver
-        Me.lblVersion.Location = New System.Drawing.Point(12, 548)
+        Me.lblVersion.Location = New System.Drawing.Point(12, 452)
         Me.lblVersion.MouseHoverColor = System.Drawing.Color.White
         Me.lblVersion.MousePressedColor = System.Drawing.Color.Gold
         Me.lblVersion.Name = "lblVersion"
@@ -188,16 +182,16 @@ Partial Class frmLauncher
         Me.lblCardMan.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblCardMan.EffectAfter = " <<"
         Me.lblCardMan.EffectBefore = Nothing
-        Me.lblCardMan.EffectWidth = 43
-        Me.lblCardMan.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblCardMan.EffectWidth = 39
+        Me.lblCardMan.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblCardMan.ForeColor = System.Drawing.Color.Silver
-        Me.lblCardMan.Location = New System.Drawing.Point(587, 422)
+        Me.lblCardMan.Location = New System.Drawing.Point(441, 349)
         Me.lblCardMan.MouseHoverColor = System.Drawing.Color.White
         Me.lblCardMan.MousePressedColor = System.Drawing.Color.Gold
         Me.lblCardMan.Name = "lblCardMan"
         Me.lblCardMan.NormalColor = System.Drawing.Color.Silver
         Me.lblCardMan.P = Me
-        Me.lblCardMan.Size = New System.Drawing.Size(359, 38)
+        Me.lblCardMan.Size = New System.Drawing.Size(359, 32)
         Me.lblCardMan.TabIndex = 6
         Me.lblCardMan.Text = "Card Selection"
         Me.lblCardMan.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -210,16 +204,16 @@ Partial Class frmLauncher
         Me.lblExit.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblExit.EffectAfter = " <<"
         Me.lblExit.EffectBefore = Nothing
-        Me.lblExit.EffectWidth = 43
-        Me.lblExit.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblExit.EffectWidth = 39
+        Me.lblExit.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblExit.ForeColor = System.Drawing.Color.Silver
-        Me.lblExit.Location = New System.Drawing.Point(587, 498)
+        Me.lblExit.Location = New System.Drawing.Point(441, 413)
         Me.lblExit.MouseHoverColor = System.Drawing.Color.White
         Me.lblExit.MousePressedColor = System.Drawing.Color.Gold
         Me.lblExit.Name = "lblExit"
         Me.lblExit.NormalColor = System.Drawing.Color.Silver
         Me.lblExit.P = Me
-        Me.lblExit.Size = New System.Drawing.Size(359, 38)
+        Me.lblExit.Size = New System.Drawing.Size(359, 32)
         Me.lblExit.TabIndex = 8
         Me.lblExit.Text = "Quit Game"
         Me.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -232,16 +226,16 @@ Partial Class frmLauncher
         Me.lblSetting.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblSetting.EffectAfter = " <<"
         Me.lblSetting.EffectBefore = Nothing
-        Me.lblSetting.EffectWidth = 43
-        Me.lblSetting.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblSetting.EffectWidth = 39
+        Me.lblSetting.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblSetting.ForeColor = System.Drawing.Color.Silver
-        Me.lblSetting.Location = New System.Drawing.Point(587, 460)
+        Me.lblSetting.Location = New System.Drawing.Point(441, 381)
         Me.lblSetting.MouseHoverColor = System.Drawing.Color.White
         Me.lblSetting.MousePressedColor = System.Drawing.Color.Gold
         Me.lblSetting.Name = "lblSetting"
         Me.lblSetting.NormalColor = System.Drawing.Color.Silver
         Me.lblSetting.P = Me
-        Me.lblSetting.Size = New System.Drawing.Size(359, 38)
+        Me.lblSetting.Size = New System.Drawing.Size(359, 32)
         Me.lblSetting.TabIndex = 7
         Me.lblSetting.Text = "Settings"
         Me.lblSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -254,16 +248,16 @@ Partial Class frmLauncher
         Me.lblDebug.DisabledColor = System.Drawing.Color.DarkGray
         Me.lblDebug.EffectAfter = " <<"
         Me.lblDebug.EffectBefore = Nothing
-        Me.lblDebug.EffectWidth = 43
-        Me.lblDebug.Font = New System.Drawing.Font("Segoe UI", 20.0!)
+        Me.lblDebug.EffectWidth = 39
+        Me.lblDebug.Font = New System.Drawing.Font("Segoe UI", 18.0!)
         Me.lblDebug.ForeColor = System.Drawing.Color.Silver
-        Me.lblDebug.Location = New System.Drawing.Point(587, 212)
+        Me.lblDebug.Location = New System.Drawing.Point(441, 169)
         Me.lblDebug.MouseHoverColor = System.Drawing.Color.White
         Me.lblDebug.MousePressedColor = System.Drawing.Color.Gold
         Me.lblDebug.Name = "lblDebug"
         Me.lblDebug.NormalColor = System.Drawing.Color.Silver
         Me.lblDebug.P = Me
-        Me.lblDebug.Size = New System.Drawing.Size(359, 38)
+        Me.lblDebug.Size = New System.Drawing.Size(359, 32)
         Me.lblDebug.TabIndex = 1
         Me.lblDebug.Text = "Debug"
         Me.lblDebug.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -275,7 +269,7 @@ Partial Class frmLauncher
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.new_bg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1024, 576)
+        Me.ClientSize = New System.Drawing.Size(848, 480)
         Me.ControlBox = False
         Me.Controls.Add(Me.lblStart6)
         Me.Controls.Add(Me.lblStart7)
@@ -301,8 +295,6 @@ Partial Class frmLauncher
 
     End Sub
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Timer2 As Timer
-    Friend WithEvents Timer3 As Timer
     Friend WithEvents lblStart6 As TextButton
     Friend WithEvents lblStart7 As TextButton
     Friend WithEvents lblExit As TextButton

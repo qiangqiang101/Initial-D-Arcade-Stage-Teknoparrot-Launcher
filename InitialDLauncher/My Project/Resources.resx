@@ -340,9 +340,6 @@
   <data name="sadamine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sadamine.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background_video" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background_video.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="usui" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usui.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

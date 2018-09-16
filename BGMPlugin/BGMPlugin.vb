@@ -24,7 +24,7 @@ Public Class BGMPlugin
         End Get
     End Property
 
-    Dim mp3File As String = String.Format("{0}\Plugins\launcher.mp3", My.Application.Info.DirectoryPath)
+    Dim mp3File As String = ".\Plugins\launcher.mp3"
     Dim audio As AudioFile
     Dim isGameRunning As Boolean = False
     Dim status As Integer = -1

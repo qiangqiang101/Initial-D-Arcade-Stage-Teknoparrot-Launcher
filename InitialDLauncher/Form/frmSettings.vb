@@ -1,31 +1,37 @@
 ﻿Imports System.IO
-Imports System.Net
 
 Public Class frmSettings
 
-    Dim pattern As String
     Dim gotError As Boolean = False
 
-    'Translate
-    Dim no_exe, no_name, name_is_taken, name_is_available, tp_version As String
+    Dim id6XmlFile As String = ".\UserProfiles\ID6.xml"
+    Dim id7XmlFile As String = ".\UserProfiles\ID7.xml"
+    Dim id8XmlFile As String = ".\UserProfiles\ID8.xml"
+    Dim parrotDataFile As String = ".\ParrotData.xml"
+    Public XInputMode As Boolean = New ParrotData(parrotDataFile).XInputMode
 
-    Private Sub Settings_Load(sender As Object, e As EventArgs) Handles Me.Load
+    'Translate
+    Dim no_exe, no_name, name_is_taken, name_is_available, tp_version, save_haptic, no_haptic, restart_require As String
+
+    Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             For Each file As String In IO.Directory.GetFiles(String.Format("{0}\Languages", My.Application.Info.DirectoryPath), "*.ini")
                 cmbLang.Items.Add(IO.Path.GetFileNameWithoutExtension(file))
             Next
 
-            txt6.Text = My.Settings.Id6Path
-            txt7.Text = My.Settings.Id7Path
-            txt8.Text = My.Settings.Id8Path
+            Translate()
+
+            If File.Exists(id6XmlFile) Then ReadXml(id6XmlFile, txt6, flp6)
+            If File.Exists(id7XmlFile) Then ReadXml(id7XmlFile, txt7, flp7)
+            If File.Exists(id8XmlFile) Then ReadXml(id8XmlFile, txt8, flp8)
+            If File.Exists(parrotDataFile) Then ReadParrotData()
+
             txtPlayerName.Text = My.Settings.UserName
             cbTest.Checked = My.Settings.TestMode
             cbDebug.Checked = My.Settings.DebugMode
             cbMP.Checked = My.Settings.Multiplayer
             cmbLang.SelectedItem = My.Settings.Language
             cmbCountry.SelectedItem = My.Settings.UserCountry
-            cmbPrefer.SelectedItem = My.Settings.PerferCardExt
-            cbVideo.Checked = My.Settings.VideoBackground
             cbPicodaemon.Checked = My.Settings.RunCardReader
             cbFullScreen.Checked = My.Settings.FullScreen
             If My.Settings.ExtraLaunchOptions.Contains(";") Then
@@ -34,7 +40,7 @@ Public Class frmSettings
                 Next
             End If
 
-            Translate()
+            cmbHapticDevice.SelectedIndex = 0
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -43,34 +49,21 @@ Public Class frmSettings
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            If txt6.Text.Contains(".exe") Then
-                NSMessageBox.ShowOk(no_exe, MsgBoxStyle.Critical, "Error")
-                txt6.Focus()
-            ElseIf txt7.Text.Contains(".exe") Then
-                NSMessageBox.ShowOk(no_exe, MsgBoxStyle.Critical, "Error")
-                txt7.Focus()
-                'ElseIf txtPlayerName.Text = Nothing Then
-                '    NSMessageBox.ShowOk(no_name, MsgBoxStyle.Critical, "Error")
-                '    txtPlayerName.Focus()
-            ElseIf txt8.Text.Contains(".exe") Then
-                NSMessageBox.ShowOk(no_exe, MsgBoxStyle.Critical, "Error")
-                txt8.Focus()
-            ElseIf cmbLang.SelectedItem = Nothing Then
+            If File.Exists(parrotDataFile) Then WriteParrotData()
+            If File.Exists(id6XmlFile) Then WriteXml(id6XmlFile, flp6, txt6, 6)
+            If File.Exists(id7XmlFile) Then WriteXml(id7XmlFile, flp7, txt7, 7)
+            If File.Exists(id8XmlFile) Then WriteXml(id8XmlFile, flp8, txt8, 8)
+
+            If cmbLang.SelectedItem = Nothing Then
                 NSMessageBox.ShowOk("Please select language!", MsgBoxStyle.Critical, "Error")
             Else
                 If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
-
-                My.Settings.Id6Path = txt6.Text
-                My.Settings.Id7Path = txt7.Text
-                My.Settings.Id8Path = txt8.Text
                 My.Settings.UserName = txtPlayerName.Text
                 My.Settings.TestMode = cbTest.Checked
                 My.Settings.DebugMode = cbDebug.Checked
                 My.Settings.Multiplayer = cbMP.Checked
                 My.Settings.Language = cmbLang.SelectedItem
                 My.Settings.UserCountry = cmbCountry.SelectedItem
-                My.Settings.PerferCardExt = cmbPrefer.SelectedItem
-                My.Settings.VideoBackground = cbVideo.Checked
                 My.Settings.RunCardReader = cbPicodaemon.Checked
                 My.Settings.FullScreen = cbFullScreen.Checked
                 If lvELO.Items.Count = 0 Then
@@ -93,14 +86,9 @@ Public Class frmSettings
                 frmLauncher.lblDebug.Visible = cbDebug.Checked
                 frmLauncher.Translate()
                 If Not gotError Then Me.Close()
-
-                If Not My.Settings.VideoBackground Then
-                    frmLauncher.Timer3.Stop()
-                    frmLauncher.BackgroundImage = My.Resources.new_bg
-                Else
-                    frmLauncher.Timer3.Start()
-                End If
             End If
+
+            NSMessageBox.ShowOk(restart_require, MessageBoxIcon.Exclamation, Text)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -110,26 +98,6 @@ Public Class frmSettings
 
     Private Sub frmSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmLauncher.Enabled = True
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-        pattern = pattern & "1"
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        pattern = pattern & "2"
-    End Sub
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        If pattern = "12121" Then cbDebug.Enabled = True
-    End Sub
-
-    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs)
-        If Char.IsDigit(e.KeyChar) Or e.KeyChar = "." Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
-           Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then
-            Return
-        End If
-        e.Handled = True
     End Sub
 
     Dim _allowedCharacters As String = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
@@ -159,13 +127,37 @@ Public Class frmSettings
             Label22.Text = ReadCfgValue("UserName", langFile)
             Label23.Text = ReadCfgValue("Country", langFile)
             cbMP.Text = ReadCfgValue("Multiplayer", langFile)
-            Label3.Text = ReadCfgValue("CardPrefer", langFile)
             cbPicodaemon.Text = ReadCfgValue("Picodaemon", langFile)
-            cbVideo.Text = ReadCfgValue("Video", langFile)
             cbFullScreen.Text = ReadCfgValue("FullScreen", langFile)
             tp_version = ReadCfgValue("TPVersion", langFile)
             NsGroupBox1.Title = ReadCfgValue("ExtraLaunchOptions", langFile)
             lvELO.Columns(0).Text = ReadCfgValue("ELPrograms", langFile)
+            tpLauncher.Text = ReadCfgValue("ThisLauncher", langFile)
+            tpId6.Text = ReadCfgValue("ID6Settings", langFile)
+            tpId7.Text = ReadCfgValue("ID7Settings", langFile)
+            tpId8.Text = ReadCfgValue("ID8Settings", langFile)
+            tpTPEmu.Text = ReadCfgValue("TPEmulation", langFile)
+            Label5.Text = ReadCfgValue("JoystickInterface", langFile)
+            NsGroupBox2.Title = ReadCfgValue("Sto0zZone", langFile)
+            Label6.Text = ReadCfgValue("Sto0zPercent", langFile)
+            cbSto0z.Text = ReadCfgValue("Sto0zEnable", langFile)
+            NsGroupBox4.Title = ReadCfgValue("DirectInputWheel", langFile)
+            cbFullAxisGas.Text = ReadCfgValue("FullAG", langFile)
+            cbFullAxisBrake.Text = ReadCfgValue("FullAB", langFile)
+            cbReverseAxisGas.Text = ReadCfgValue("ReverseAG", langFile)
+            cbReverseAxisBrake.Text = ReadCfgValue("ReverseAB", langFile)
+            NsGroupBox5.Title = ReadCfgValue("ForceFB", langFile)
+            cbUseFFB.Text = ReadCfgValue("FFBEnable", langFile)
+            cbThrustmaster.Text = ReadCfgValue("Thrustmaster", langFile)
+            btnRefreshHaptic.Text = ReadCfgValue("RefreshHaptic", langFile)
+            Label9.Text = ReadCfgValue("HapticDevice", langFile)
+            save_haptic = ReadCfgValue("SavedHaptic", langFile)
+            no_haptic = ReadCfgValue("NoHaptic", langFile)
+            Label10.Text = ReadCfgValue("SineBase", langFile)
+            Label11.Text = ReadCfgValue("SpringBase", langFile)
+            Label12.Text = ReadCfgValue("FrictionBase", langFile)
+            Label13.Text = ReadCfgValue("ConstantBase", langFile)
+            restart_require = ReadCfgValue("RestartRequire", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -183,7 +175,8 @@ Public Class frmSettings
         ofd.RestoreDirectory = True
         ofd.InitialDirectory = My.Application.Info.DirectoryPath
         If ofd.ShowDialog() = DialogResult.OK Then
-            txt6.Text = Path.GetDirectoryName(ofd.FileName)
+            'txt6.Text = Path.GetDirectoryName(ofd.FileName)
+            txt6.Text = ofd.FileName
         End If
     End Sub
 
@@ -195,7 +188,8 @@ Public Class frmSettings
         ofd.RestoreDirectory = True
         ofd.InitialDirectory = My.Application.Info.DirectoryPath
         If ofd.ShowDialog() = DialogResult.OK Then
-            txt7.Text = Path.GetDirectoryName(ofd.FileName)
+            'txt7.Text = Path.GetDirectoryName(ofd.FileName)
+            txt7.Text = ofd.FileName
         End If
     End Sub
 
@@ -207,7 +201,8 @@ Public Class frmSettings
         ofd.RestoreDirectory = True
         ofd.InitialDirectory = My.Application.Info.DirectoryPath
         If ofd.ShowDialog() = DialogResult.OK Then
-            txt8.Text = Path.GetDirectoryName(ofd.FileName)
+            'txt8.Text = Path.GetDirectoryName(ofd.FileName)
+            txt8.Text = ofd.FileName
         End If
     End Sub
 
@@ -238,6 +233,37 @@ Public Class frmSettings
     End Sub
 
     Dim UpdateUserCountryURLCN As String = "http://www.emulot.cn/id/SetUserCountry.php?"
+
+    Private Sub tbSto0z_Scroll(sender As Object) Handles tbSto0z.Scroll
+        lblSto0zPercent.Text = $"{tbSto0z.Value}%"
+    End Sub
+
+    Private Sub btnRefreshHaptic_Click(sender As Object, e As EventArgs) Handles btnRefreshHaptic.Click
+        Dim xml As ParrotData = New ParrotData(parrotDataFile)
+        xml = xml.ReadFromFile()
+
+        cmbHapticDevice.Items.Clear()
+        If Not String.IsNullOrWhiteSpace(xml.HapticDevice) Then cmbHapticDevice.Items.Add(CreateJoystickItem(xml.HapticDevice, save_haptic))
+        cmbHapticDevice.Items.Add(CreateJoystickItem("", no_haptic))
+        Dim joysticks = ForceFeedbackJesus.BasicInformation.GetHapticDevices()
+        For Each joystickProfile In joysticks
+            cmbHapticDevice.Items.Add(CreateJoystickItem(joystickProfile))
+        Next
+        cmbHapticDevice.SelectedIndex = 0
+    End Sub
+
+    Private Function CreateJoystickItem(joystickName As String, Optional extraSting As String = "") As ComboboxItem
+        Dim content As String
+        If String.IsNullOrWhiteSpace(joystickName) AndAlso Not extraSting = "" Then
+            content = extraSting
+        ElseIf String.IsNullOrWhiteSpace(extraSting) AndAlso Not joystickName = "" Then
+            content = joystickName
+        Else
+            content = $"{joystickName} - {extraSting}"
+        End If
+        Return New ComboboxItem() With {.Text = content, .Value = joystickName}
+    End Function
+
     Private Sub UpdateUserCountry()
         Try
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
@@ -252,5 +278,146 @@ Public Class frmSettings
         If Me.Location.Y <= -1 Then
             Me.Location = New Point(Me.Location.X, 0)
         End If
+    End Sub
+
+    Private Sub ReadXml(xmlFile As String, gamePathTB As NSTextBox, gameFLP As FlowLayoutPanel)
+        Try
+            Dim xml As GameProfile = New GameProfile(xmlFile).ReadFromFile
+            Dim item As FieldInformationItem
+
+            gamePathTB.Text = xml.GamePath
+            For Each cv As FieldInformation In xml.ConfigValues
+                item = New FieldInformationItem()
+                gameFLP.Controls.Add(item)
+                With item
+                    .CategoryName = cv.CategoryName
+                    .FieldName = cv.FieldName
+                    .FieldValue = cv.FieldValue
+                    ._FieldType = cv.FieldType
+                    Select Case ._FieldType
+                        Case "Text"
+                            .Type = FieldInformationItem.FieldType.Text
+                            .TextField.Text = .FieldValue
+                            .TextField.ReadOnly = False
+                        Case "Bool"
+                            .Type = FieldInformationItem.FieldType.Bool
+                            .BoolField.Checked = Convert.ToBoolean(CInt(.FieldValue))
+                    End Select
+                    .LabelText.Text = $"{ .CategoryName} - { .FieldName}"
+                End With
+            Next
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
+    Private Sub WriteXml(fileName As String, flp As FlowLayoutPanel, gamePathTB As NSTextBox, gameVersion As Integer)
+        Dim xml As GameProfile = New GameProfile(fileName).ReadFromFile
+
+        Dim tempFI As New List(Of FieldInformation)
+        For Each s As FieldInformationItem In flp.Controls
+            Dim fi As New FieldInformation
+            With fi
+                .CategoryName = s.CategoryName
+                .FieldName = s.FieldName
+                .FieldType = s._FieldType
+                If s._FieldType = "Text" Then
+                    .FieldValue = s.TextField.Text
+                Else
+                    .FieldValue = If(s.BoolField.Checked, 1, 0)
+                End If
+            End With
+            tempFI.Add(fi)
+        Next
+
+        Dim gp As New GameProfile(fileName, xml.GameName, gamePathTB.Text, xml.TestMenuParameter, xml.TestMenuIsExecutable, xml.ExtraParameters, xml.TestMenuParameter, xml.IconName, tempFI, xml.JoystickButtons, xml.EmulationProfile, xml.GameProfileRevision, xml.HasSeparateTestMode, xml.Is64Bit)
+        gp.Save()
+
+        Select Case gameVersion
+            Case 6
+                My.Settings.Id6Path = Path.GetDirectoryName(xml.GamePath)
+                My.Settings.PerferCardExt6 = If(xml.ConfigValues(5).FieldValue = 0, "BIN", "CRD")
+            Case 7
+                My.Settings.Id7Path = Path.GetDirectoryName(xml.GamePath)
+                My.Settings.PerferCardExt7 = If(xml.ConfigValues(5).FieldValue = 0, "BIN", "CRD")
+            Case 8
+                My.Settings.Id8Path = Path.GetDirectoryName(xml.GamePath)
+                My.Settings.PerferCardExt8 = "BIN"
+        End Select
+        My.Settings.Save()
+    End Sub
+
+    Private Sub ReadParrotData()
+        Try
+            Dim xml As ParrotData = New ParrotData(parrotDataFile).ReadFromFile
+
+            cmbJoyInterface.SelectedIndex = If(xml.XInputMode, 1, 0)
+            cbSto0z.Checked = xml.UseSto0ZDrivingHack
+            tbSto0z.Value = xml.StoozPercent
+            cbFullAxisGas.Checked = xml.FullAxisGas
+            cbFullAxisBrake.Checked = xml.FullAxisBrake
+            cbReverseAxisGas.Checked = xml.ReverseAxisGas
+            cbReverseAxisBrake.Checked = xml.ReverseAxisBrake
+            cbUseFFB.Checked = xml.UseHaptic
+            cbThrustmaster.Checked = xml.HapticThrustmasterFix
+            txtSine.Text = xml.SineBase
+            txtFriction.Text = xml.FrictionBase
+            txtSpring.Text = xml.SpringBase
+            txtConstant.Text = xml.ConstantBase
+            Dim haptic As String = xml.HapticDevice
+            If Not String.IsNullOrWhiteSpace(xml.HapticDevice) Then cmbHapticDevice.Items.Add(CreateJoystickItem(xml.HapticDevice, save_haptic))
+            cmbHapticDevice.Items.Add(CreateJoystickItem("", no_haptic))
+            Dim joysticks = ForceFeedbackJesus.BasicInformation.GetHapticDevices()
+            For Each joystickProfile In joysticks
+                cmbHapticDevice.Items.Add(CreateJoystickItem(joystickProfile))
+            Next
+            cmbHapticDevice.SelectedItem = 0
+
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
+    Private Sub IP_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtConstant.KeyPress, txtFriction.KeyPress, txtSine.KeyPress, txtSpring.KeyPress
+        Try
+            If Char.IsDigit(e.KeyChar) Or Asc(e.KeyChar) = Keys.Delete Or Asc(e.KeyChar) = Keys.Control Or
+           Asc(e.KeyChar) = Keys.Right Or Asc(e.KeyChar) = Keys.Left Or Asc(e.KeyChar) = Keys.Back Then
+                Return
+            End If
+            e.Handled = True
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
+    Private Sub WriteParrotData()
+        Dim xml As ParrotData = New ParrotData(parrotDataFile).ReadFromFile
+
+        Dim pd As New ParrotData()
+        With pd
+            .XMLFileName = parrotDataFile
+            .UseMouse = xml.UseMouse
+            .XInputMode = If(cmbJoyInterface.SelectedIndex = 1, True, False)
+            .UseSto0ZDrivingHack = cbSto0z.Checked
+            .StoozPercent = tbSto0z.Value
+            .GunSensitivityPlayer1 = xml.GunSensitivityPlayer1
+            .GunSensitivityPlayer2 = xml.GunSensitivityPlayer2
+            .FullAxisGas = cbFullAxisGas.Checked
+            .FullAxisBrake = cbFullAxisBrake.Checked
+            .ReverseAxisGas = cbReverseAxisGas.Checked
+            .ReverseAxisBrake = cbReverseAxisBrake.Checked
+            .UseHaptic = cbUseFFB.Checked
+            .HapticThrustmasterFix = cbThrustmaster.Checked
+            .SineBase = txtSine.Text
+            .FrictionBase = txtFriction.Text
+            .SpringBase = txtSpring.Text
+            .ConstantBase = txtConstant.Text
+            Dim hd As ComboboxItem = cmbHapticDevice.SelectedItem
+            .HapticDevice = hd.Value.ToString
+        End With
+        pd.Save()
     End Sub
 End Class
