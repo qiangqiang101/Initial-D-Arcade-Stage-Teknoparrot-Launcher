@@ -15,6 +15,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BGMPlugin", "BGMPlugin\BGMP
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "D8FPPPlugin", "D8FPPPlugin\D8FPPPlugin.vbproj", "{81222CE0-B70F-41E2-AFD9-F806BFD8CE06}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CardEditorInGame", "CardEditorInGame\CardEditorInGame.vbproj", "{22C2F22A-02E8-434C-A1AA-47F31D4CBF18}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MouseJailed", "MouseJailed\MouseJailed.vbproj", "{8C093217-6128-43F8-9F59-CEB10133E801}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{81222CE0-B70F-41E2-AFD9-F806BFD8CE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81222CE0-B70F-41E2-AFD9-F806BFD8CE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81222CE0-B70F-41E2-AFD9-F806BFD8CE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C2F22A-02E8-434C-A1AA-47F31D4CBF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C2F22A-02E8-434C-A1AA-47F31D4CBF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C2F22A-02E8-434C-A1AA-47F31D4CBF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C2F22A-02E8-434C-A1AA-47F31D4CBF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C093217-6128-43F8-9F59-CEB10133E801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C093217-6128-43F8-9F59-CEB10133E801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C093217-6128-43F8-9F59-CEB10133E801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C093217-6128-43F8-9F59-CEB10133E801}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

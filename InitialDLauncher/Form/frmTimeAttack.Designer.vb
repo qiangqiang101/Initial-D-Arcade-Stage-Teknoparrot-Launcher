@@ -23,27 +23,13 @@ Partial Class frmTimeAttack
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTimeAttack))
-        Me.flPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.flPanel = New InitialDLauncher.MyFlowLayoutPanel()
         Me.NsControlButton3 = New InitialDLauncher.NSControlButton()
         Me.NsControlButton2 = New InitialDLauncher.NSControlButton()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.NsTheme1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'flPanel
-        '
-        Me.flPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.flPanel.AutoScroll = True
-        Me.flPanel.BackColor = System.Drawing.Color.White
-        Me.flPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.flPanel.Location = New System.Drawing.Point(9, 36)
-        Me.flPanel.Margin = New System.Windows.Forms.Padding(0)
-        Me.flPanel.Name = "flPanel"
-        Me.flPanel.Size = New System.Drawing.Size(920, 696)
-        Me.flPanel.TabIndex = 1
         '
         'NsTheme1
         '
@@ -51,6 +37,7 @@ Partial Class frmTimeAttack
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.flPanel)
         Me.NsTheme1.Controls.Add(Me.NsControlButton3)
         Me.NsTheme1.Controls.Add(Me.NsControlButton2)
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
@@ -70,6 +57,19 @@ Partial Class frmTimeAttack
         Me.NsTheme1.Text = "Time Attack"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
+        '
+        'flPanel
+        '
+        Me.flPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.flPanel.BackColor = System.Drawing.Color.White
+        Me.flPanel.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flPanel.ForeColor = System.Drawing.Color.White
+        Me.flPanel.Location = New System.Drawing.Point(12, 37)
+        Me.flPanel.Name = "flPanel"
+        Me.flPanel.Size = New System.Drawing.Size(914, 692)
+        Me.flPanel.TabIndex = 82
         '
         'NsControlButton3
         '
@@ -115,7 +115,6 @@ Partial Class frmTimeAttack
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(938, 741)
-        Me.Controls.Add(Me.flPanel)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -127,10 +126,9 @@ Partial Class frmTimeAttack
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents flPanel As FlowLayoutPanel
     Friend WithEvents NsTheme1 As NSTheme
     Friend WithEvents NsControlButton3 As NSControlButton
     Friend WithEvents NsControlButton2 As NSControlButton
     Friend WithEvents NsControlButton1 As NSControlButton
+    Friend WithEvents flPanel As MyFlowLayoutPanel
 End Class

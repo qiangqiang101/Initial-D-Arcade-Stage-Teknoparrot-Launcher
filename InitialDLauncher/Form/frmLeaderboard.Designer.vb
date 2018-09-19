@@ -22,33 +22,41 @@ Partial Class frmLeaderboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim NsListViewColumnHeader1 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader2 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader3 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader4 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader5 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader6 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLeaderboard))
+        Dim NsListViewColumnHeader7 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader8 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader9 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader10 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader11 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader12 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader13 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader14 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader15 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader16 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader17 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader18 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.tcGames = New InitialDLauncher.NSTabControl()
         Me.tp6 = New System.Windows.Forms.TabPage()
+        Me.lvLB6 = New InitialDLauncher.NSListView()
         Me.btnReport6 = New InitialDLauncher.NSButton()
         Me.btnRefresh6 = New InitialDLauncher.NSButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbCourse6 = New InitialDLauncher.NSComboBox()
-        Me.lv6 = New System.Windows.Forms.ListView()
-        Me.chNo6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chName6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chCar6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTime6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chDate6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmbWeather6 = New InitialDLauncher.NSComboBox()
         Me.cmbType6 = New InitialDLauncher.NSComboBox()
         Me.tp7 = New System.Windows.Forms.TabPage()
+        Me.lvLB7 = New InitialDLauncher.NSListView()
         Me.btnReport7 = New InitialDLauncher.NSButton()
         Me.btnRefresh7 = New InitialDLauncher.NSButton()
-        Me.lv7 = New System.Windows.Forms.ListView()
-        Me.chNo7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chName7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chCar7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTime7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chDate7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -56,14 +64,9 @@ Partial Class frmLeaderboard
         Me.cmbWeather7 = New InitialDLauncher.NSComboBox()
         Me.cmbType7 = New InitialDLauncher.NSComboBox()
         Me.tp8 = New System.Windows.Forms.TabPage()
+        Me.lvLB8 = New InitialDLauncher.NSListView()
         Me.btnReport8 = New InitialDLauncher.NSButton()
         Me.btnRefresh8 = New InitialDLauncher.NSButton()
-        Me.lv8 = New System.Windows.Forms.ListView()
-        Me.chNo8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chName8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chCar8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTime8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chDate8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -129,13 +132,13 @@ Partial Class frmLeaderboard
         'tp6
         '
         Me.tp6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tp6.Controls.Add(Me.lvLB6)
         Me.tp6.Controls.Add(Me.btnReport6)
         Me.tp6.Controls.Add(Me.btnRefresh6)
         Me.tp6.Controls.Add(Me.Label2)
         Me.tp6.Controls.Add(Me.Label1)
         Me.tp6.Controls.Add(Me.Label3)
         Me.tp6.Controls.Add(Me.cmbCourse6)
-        Me.tp6.Controls.Add(Me.lv6)
         Me.tp6.Controls.Add(Me.cmbWeather6)
         Me.tp6.Controls.Add(Me.cmbType6)
         Me.tp6.Location = New System.Drawing.Point(134, 4)
@@ -144,6 +147,33 @@ Partial Class frmLeaderboard
         Me.tp6.Size = New System.Drawing.Size(829, 503)
         Me.tp6.TabIndex = 0
         Me.tp6.Text = "Initial D 6 AA"
+        '
+        'lvLB6
+        '
+        Me.lvLB6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        NsListViewColumnHeader1.Text = "No."
+        NsListViewColumnHeader1.Width = 60
+        NsListViewColumnHeader2.Text = "Name"
+        NsListViewColumnHeader2.Width = 200
+        NsListViewColumnHeader3.Text = "Car"
+        NsListViewColumnHeader3.Width = 200
+        NsListViewColumnHeader4.Text = "Time"
+        NsListViewColumnHeader4.Width = 100
+        NsListViewColumnHeader5.Text = "Date"
+        NsListViewColumnHeader5.Width = 200
+        NsListViewColumnHeader6.Text = ""
+        NsListViewColumnHeader6.Width = 0
+        Me.lvLB6.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1, NsListViewColumnHeader2, NsListViewColumnHeader3, NsListViewColumnHeader4, NsListViewColumnHeader5, NsListViewColumnHeader6}
+        Me.lvLB6.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
+        Me.lvLB6.Location = New System.Drawing.Point(6, 36)
+        Me.lvLB6.MultiSelect = False
+        Me.lvLB6.Name = "lvLB6"
+        Me.lvLB6.SelectedIndices = CType(resources.GetObject("lvLB6.SelectedIndices"), System.Collections.Generic.List(Of Integer))
+        Me.lvLB6.Size = New System.Drawing.Size(817, 461)
+        Me.lvLB6.TabIndex = 10
+        Me.lvLB6.Text = "NsListView1"
         '
         'btnReport6
         '
@@ -205,47 +235,6 @@ Partial Class frmLeaderboard
         Me.cmbCourse6.Size = New System.Drawing.Size(120, 24)
         Me.cmbCourse6.TabIndex = 1
         '
-        'lv6
-        '
-        Me.lv6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv6.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo6, Me.chName6, Me.chCar6, Me.chTime6, Me.chDate6})
-        Me.lv6.FullRowSelect = True
-        Me.lv6.GridLines = True
-        Me.lv6.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lv6.Location = New System.Drawing.Point(6, 35)
-        Me.lv6.MultiSelect = False
-        Me.lv6.Name = "lv6"
-        Me.lv6.Size = New System.Drawing.Size(817, 462)
-        Me.lv6.TabIndex = 0
-        Me.lv6.UseCompatibleStateImageBehavior = False
-        Me.lv6.View = System.Windows.Forms.View.Details
-        '
-        'chNo6
-        '
-        Me.chNo6.Text = "No."
-        '
-        'chName6
-        '
-        Me.chName6.Text = "Name"
-        Me.chName6.Width = 150
-        '
-        'chCar6
-        '
-        Me.chCar6.Text = "Car"
-        Me.chCar6.Width = 200
-        '
-        'chTime6
-        '
-        Me.chTime6.Text = "Time"
-        Me.chTime6.Width = 100
-        '
-        'chDate6
-        '
-        Me.chDate6.Text = "Date"
-        Me.chDate6.Width = 200
-        '
         'cmbWeather6
         '
         Me.cmbWeather6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
@@ -273,9 +262,9 @@ Partial Class frmLeaderboard
         'tp7
         '
         Me.tp7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tp7.Controls.Add(Me.lvLB7)
         Me.tp7.Controls.Add(Me.btnReport7)
         Me.tp7.Controls.Add(Me.btnRefresh7)
-        Me.tp7.Controls.Add(Me.lv7)
         Me.tp7.Controls.Add(Me.Label4)
         Me.tp7.Controls.Add(Me.Label5)
         Me.tp7.Controls.Add(Me.Label6)
@@ -288,6 +277,33 @@ Partial Class frmLeaderboard
         Me.tp7.Size = New System.Drawing.Size(829, 503)
         Me.tp7.TabIndex = 1
         Me.tp7.Text = "Initial D 7 AAX"
+        '
+        'lvLB7
+        '
+        Me.lvLB7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        NsListViewColumnHeader7.Text = "No."
+        NsListViewColumnHeader7.Width = 60
+        NsListViewColumnHeader8.Text = "Name"
+        NsListViewColumnHeader8.Width = 200
+        NsListViewColumnHeader9.Text = "Car"
+        NsListViewColumnHeader9.Width = 200
+        NsListViewColumnHeader10.Text = "Time"
+        NsListViewColumnHeader10.Width = 100
+        NsListViewColumnHeader11.Text = "Date"
+        NsListViewColumnHeader11.Width = 200
+        NsListViewColumnHeader12.Text = ""
+        NsListViewColumnHeader12.Width = 0
+        Me.lvLB7.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader7, NsListViewColumnHeader8, NsListViewColumnHeader9, NsListViewColumnHeader10, NsListViewColumnHeader11, NsListViewColumnHeader12}
+        Me.lvLB7.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
+        Me.lvLB7.Location = New System.Drawing.Point(6, 36)
+        Me.lvLB7.MultiSelect = False
+        Me.lvLB7.Name = "lvLB7"
+        Me.lvLB7.SelectedIndices = CType(resources.GetObject("lvLB7.SelectedIndices"), System.Collections.Generic.List(Of Integer))
+        Me.lvLB7.Size = New System.Drawing.Size(817, 461)
+        Me.lvLB7.TabIndex = 16
+        Me.lvLB7.Text = "NsListView1"
         '
         'btnReport7
         '
@@ -306,47 +322,6 @@ Partial Class frmLeaderboard
         Me.btnRefresh7.Size = New System.Drawing.Size(75, 24)
         Me.btnRefresh7.TabIndex = 14
         Me.btnRefresh7.Text = "Refresh"
-        '
-        'lv7
-        '
-        Me.lv7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv7.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo7, Me.chName7, Me.chCar7, Me.chTime7, Me.chDate7})
-        Me.lv7.FullRowSelect = True
-        Me.lv7.GridLines = True
-        Me.lv7.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lv7.Location = New System.Drawing.Point(6, 35)
-        Me.lv7.MultiSelect = False
-        Me.lv7.Name = "lv7"
-        Me.lv7.Size = New System.Drawing.Size(816, 462)
-        Me.lv7.TabIndex = 16
-        Me.lv7.UseCompatibleStateImageBehavior = False
-        Me.lv7.View = System.Windows.Forms.View.Details
-        '
-        'chNo7
-        '
-        Me.chNo7.Text = "No."
-        '
-        'chName7
-        '
-        Me.chName7.Text = "Name"
-        Me.chName7.Width = 150
-        '
-        'chCar7
-        '
-        Me.chCar7.Text = "Car"
-        Me.chCar7.Width = 200
-        '
-        'chTime7
-        '
-        Me.chTime7.Text = "Time"
-        Me.chTime7.Width = 100
-        '
-        'chDate7
-        '
-        Me.chDate7.Text = "Date"
-        Me.chDate7.Width = 200
         '
         'Label4
         '
@@ -417,9 +392,9 @@ Partial Class frmLeaderboard
         'tp8
         '
         Me.tp8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tp8.Controls.Add(Me.lvLB8)
         Me.tp8.Controls.Add(Me.btnReport8)
         Me.tp8.Controls.Add(Me.btnRefresh8)
-        Me.tp8.Controls.Add(Me.lv8)
         Me.tp8.Controls.Add(Me.Label7)
         Me.tp8.Controls.Add(Me.Label8)
         Me.tp8.Controls.Add(Me.Label9)
@@ -432,6 +407,33 @@ Partial Class frmLeaderboard
         Me.tp8.Size = New System.Drawing.Size(829, 503)
         Me.tp8.TabIndex = 2
         Me.tp8.Text = "Initial D 8 ∞"
+        '
+        'lvLB8
+        '
+        Me.lvLB8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        NsListViewColumnHeader13.Text = "No."
+        NsListViewColumnHeader13.Width = 60
+        NsListViewColumnHeader14.Text = "Name"
+        NsListViewColumnHeader14.Width = 200
+        NsListViewColumnHeader15.Text = "Car"
+        NsListViewColumnHeader15.Width = 200
+        NsListViewColumnHeader16.Text = "Time"
+        NsListViewColumnHeader16.Width = 100
+        NsListViewColumnHeader17.Text = "Date"
+        NsListViewColumnHeader17.Width = 200
+        NsListViewColumnHeader18.Text = ""
+        NsListViewColumnHeader18.Width = 0
+        Me.lvLB8.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader13, NsListViewColumnHeader14, NsListViewColumnHeader15, NsListViewColumnHeader16, NsListViewColumnHeader17, NsListViewColumnHeader18}
+        Me.lvLB8.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
+        Me.lvLB8.Location = New System.Drawing.Point(6, 36)
+        Me.lvLB8.MultiSelect = False
+        Me.lvLB8.Name = "lvLB8"
+        Me.lvLB8.SelectedIndices = CType(resources.GetObject("lvLB8.SelectedIndices"), System.Collections.Generic.List(Of Integer))
+        Me.lvLB8.Size = New System.Drawing.Size(817, 461)
+        Me.lvLB8.TabIndex = 25
+        Me.lvLB8.Text = "NsListView1"
         '
         'btnReport8
         '
@@ -450,47 +452,6 @@ Partial Class frmLeaderboard
         Me.btnRefresh8.Size = New System.Drawing.Size(75, 24)
         Me.btnRefresh8.TabIndex = 21
         Me.btnRefresh8.Text = "Refresh"
-        '
-        'lv8
-        '
-        Me.lv8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lv8.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chNo8, Me.chName8, Me.chCar8, Me.chTime8, Me.chDate8})
-        Me.lv8.FullRowSelect = True
-        Me.lv8.GridLines = True
-        Me.lv8.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lv8.Location = New System.Drawing.Point(6, 35)
-        Me.lv8.MultiSelect = False
-        Me.lv8.Name = "lv8"
-        Me.lv8.Size = New System.Drawing.Size(816, 462)
-        Me.lv8.TabIndex = 25
-        Me.lv8.UseCompatibleStateImageBehavior = False
-        Me.lv8.View = System.Windows.Forms.View.Details
-        '
-        'chNo8
-        '
-        Me.chNo8.Text = "No."
-        '
-        'chName8
-        '
-        Me.chName8.Text = "Name"
-        Me.chName8.Width = 150
-        '
-        'chCar8
-        '
-        Me.chCar8.Text = "Car"
-        Me.chCar8.Width = 200
-        '
-        'chTime8
-        '
-        Me.chTime8.Text = "Time"
-        Me.chTime8.Width = 100
-        '
-        'chDate8
-        '
-        Me.chDate8.Text = "Date"
-        Me.chDate8.Width = 200
         '
         'Label7
         '
@@ -626,22 +587,12 @@ Partial Class frmLeaderboard
     Friend WithEvents tcGames As NSTabControl
     Friend WithEvents tp6 As TabPage
     Friend WithEvents tp7 As TabPage
-    Friend WithEvents lv6 As ListView
-    Friend WithEvents chNo6 As ColumnHeader
-    Friend WithEvents chName6 As ColumnHeader
-    Friend WithEvents chCar6 As ColumnHeader
-    Friend WithEvents chTime6 As ColumnHeader
     Friend WithEvents cmbWeather6 As NSComboBox
     Friend WithEvents cmbType6 As NSComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents cmbCourse6 As NSComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents lv7 As ListView
-    Friend WithEvents chNo7 As ColumnHeader
-    Friend WithEvents chName7 As ColumnHeader
-    Friend WithEvents chCar7 As ColumnHeader
-    Friend WithEvents chTime7 As ColumnHeader
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
@@ -652,8 +603,6 @@ Partial Class frmLeaderboard
     Friend WithEvents btnRefresh7 As NSButton
     Friend WithEvents btnReport6 As NSButton
     Friend WithEvents btnReport7 As NSButton
-    Friend WithEvents chDate6 As ColumnHeader
-    Friend WithEvents chDate7 As ColumnHeader
     Friend WithEvents NsTheme1 As NSTheme
     Friend WithEvents NsControlButton3 As NSControlButton
     Friend WithEvents NsControlButton2 As NSControlButton
@@ -661,16 +610,13 @@ Partial Class frmLeaderboard
     Friend WithEvents tp8 As TabPage
     Friend WithEvents btnReport8 As NSButton
     Friend WithEvents btnRefresh8 As NSButton
-    Friend WithEvents lv8 As ListView
-    Friend WithEvents chNo8 As ColumnHeader
-    Friend WithEvents chName8 As ColumnHeader
-    Friend WithEvents chCar8 As ColumnHeader
-    Friend WithEvents chTime8 As ColumnHeader
-    Friend WithEvents chDate8 As ColumnHeader
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents cmbCourse8 As NSComboBox
     Friend WithEvents cmbWeather8 As NSComboBox
     Friend WithEvents cmbType8 As NSComboBox
+    Friend WithEvents lvLB6 As NSListView
+    Friend WithEvents lvLB7 As NSListView
+    Friend WithEvents lvLB8 As NSListView
 End Class

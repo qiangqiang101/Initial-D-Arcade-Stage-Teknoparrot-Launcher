@@ -8,9 +8,12 @@ Public Class frmCard
     Dim id6CardPath As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardPath As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
     Dim id8CardPath As String = String.Format("{0}\ID8_CARD\", My.Application.Info.DirectoryPath)
+    Dim LastLocation As Point = New Point(0, 0)
     Dim item As Card, itemBlank As CardEmpty
 
     Private Sub frmCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not My.Settings.FullScreen Then MaximumSize = My.Computer.Screen.WorkingArea.Size
+
         RefreshID6Cards()
         RefreshID7Cards()
         RefreshID8Cards()
@@ -24,7 +27,7 @@ Public Class frmCard
 
     Public Sub RefreshID6Cards()
         Try
-            flp6.Controls.Clear()
+            flp6.FP.Controls.Clear()
             For Each file As String In IO.Directory.GetFiles(id6CardPath, "*.bin")
                 item = New Card()
                 With item
@@ -50,7 +53,7 @@ Public Class frmCard
                     End If
                 End With
                 If GetCardVersion(GetHex(file, &H50, 2)) = 6 Then
-                    flp6.Controls.Add(item)
+                    flp6.FP.Controls.Add(item)
                 End If
             Next
             For Each file As String In IO.Directory.GetFiles(id6CardPath, "*.crd")
@@ -78,15 +81,15 @@ Public Class frmCard
                     End If
                 End With
                 If GetCardVersion(GetHex(file, &H14, 2)) = 6 Then
-                    flp6.Controls.Add(item)
+                    flp6.FP.Controls.Add(item)
                 End If
             Next
-            If flp6.Controls.Count = 0 Then
+            If flp6.FP.Controls.Count = 0 Then
                 itemBlank = New CardEmpty() With {.CardVersion = 6}
                 With itemBlank
                     .Translate()
                 End With
-                flp6.Controls.Add(itemBlank)
+                flp6.FP.Controls.Add(itemBlank)
                 itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
             End If
         Catch ex As Exception
@@ -97,7 +100,7 @@ Public Class frmCard
 
     Public Sub RefreshID7Cards()
         Try
-            flp7.Controls.Clear()
+            flp7.FP.Controls.Clear()
             For Each file As String In IO.Directory.GetFiles(id7CardPath, "*.bin")
                 item = New Card()
                 With item
@@ -122,7 +125,7 @@ Public Class frmCard
                     End If
                 End With
                 If GetCardVersion(GetHex(file, &H50, 2)) = 7 Then
-                    flp7.Controls.Add(item)
+                    flp7.FP.Controls.Add(item)
                 End If
             Next
             For Each file As String In IO.Directory.GetFiles(id7CardPath, "*.crd")
@@ -149,15 +152,15 @@ Public Class frmCard
                     End If
                 End With
                 If GetCardVersion(GetHex(file, &H14, 2)) = 7 Then
-                    flp7.Controls.Add(item)
+                    flp7.FP.Controls.Add(item)
                 End If
             Next
-            If flp7.Controls.Count = 0 Then
+            If flp7.FP.Controls.Count = 0 Then
                 itemBlank = New CardEmpty() With {.CardVersion = 7}
                 With itemBlank
                     .Translate()
                 End With
-                flp7.Controls.Add(itemBlank)
+                flp7.FP.Controls.Add(itemBlank)
                 itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
             End If
         Catch ex As Exception
@@ -168,7 +171,7 @@ Public Class frmCard
 
     Public Sub RefreshID8Cards()
         Try
-            flp8.Controls.Clear()
+            flp8.FP.Controls.Clear()
             For Each file As String In IO.Directory.GetFiles(id8CardPath, "*.bin")
                 item = New Card()
                 With item
@@ -191,7 +194,7 @@ Public Class frmCard
                     End If
                 End With
                 If GetCardVersion(GetHex(file, &H50, 2)) = 8 Then
-                    flp8.Controls.Add(item)
+                    flp8.FP.Controls.Add(item)
                 End If
             Next
             For Each file As String In IO.Directory.GetFiles(id8CardPath, "*.crd")
@@ -216,15 +219,15 @@ Public Class frmCard
                     End If
                 End With
                 If GetCardVersion(GetHex(file, &H14, 2)) = 8 Then
-                    flp8.Controls.Add(item)
+                    flp8.FP.Controls.Add(item)
                 End If
             Next
-            If flp8.Controls.Count = 0 Then
+            If flp8.FP.Controls.Count = 0 Then
                 itemBlank = New CardEmpty() With {.CardVersion = 8}
                 With itemBlank
                     .Translate()
                 End With
-                flp8.Controls.Add(itemBlank)
+                flp8.FP.Controls.Add(itemBlank)
                 itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
             End If
         Catch ex As Exception
@@ -241,6 +244,10 @@ Public Class frmCard
         If Me.Location.Y <= -1 Then
             Me.Location = New Point(Me.Location.X, 0)
         End If
+    End Sub
+
+    Private Sub NsControlButton3_Click(sender As Object, e As EventArgs) Handles NsControlButton3.Click
+        LastLocation = Me.Location
     End Sub
 
     Public Sub Translate()
@@ -263,4 +270,8 @@ Public Class frmCard
         End Try
     End Sub
 
+    Protected Overrides Sub OnActivated(ByVal e As System.EventArgs)
+        MyBase.OnActivated(e)
+        Me.Location = LastLocation
+    End Sub
 End Class

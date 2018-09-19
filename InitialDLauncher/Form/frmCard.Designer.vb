@@ -31,11 +31,11 @@ Partial Class frmCard
         Me.NsControlButton2 = New InitialDLauncher.NSControlButton()
         Me.nstcTab = New InitialDLauncher.NSTabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.flp6 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flp6 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.flp7 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flp7 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.flp8 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flp8 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
         Me.NsTheme1.SuspendLayout()
         Me.nstcTab.SuspendLayout()
@@ -88,6 +88,7 @@ Partial Class frmCard
         Me.txt8.TabIndex = 60
         Me.txt8.Text = "ID8 Card:"
         Me.txt8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt8.ToolTip = Nothing
         Me.txt8.UseSystemPasswordChar = False
         '
         'txt7
@@ -103,6 +104,7 @@ Partial Class frmCard
         Me.txt7.TabIndex = 59
         Me.txt7.Text = "ID7 Card:"
         Me.txt7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt7.ToolTip = Nothing
         Me.txt7.UseSystemPasswordChar = False
         '
         'txt6
@@ -118,6 +120,7 @@ Partial Class frmCard
         Me.txt6.TabIndex = 58
         Me.txt6.Text = "ID6 Card:"
         Me.txt6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt6.ToolTip = Nothing
         Me.txt6.UseSystemPasswordChar = False
         '
         'NsControlButton3
@@ -178,8 +181,10 @@ Partial Class frmCard
         '
         'flp6
         '
-        Me.flp6.AutoScroll = True
+        Me.flp6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.flp6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flp6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp6.ForeColor = System.Drawing.Color.White
         Me.flp6.Location = New System.Drawing.Point(3, 3)
         Me.flp6.Name = "flp6"
         Me.flp6.Size = New System.Drawing.Size(801, 557)
@@ -198,8 +203,10 @@ Partial Class frmCard
         '
         'flp7
         '
-        Me.flp7.AutoScroll = True
+        Me.flp7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.flp7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flp7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp7.ForeColor = System.Drawing.Color.White
         Me.flp7.Location = New System.Drawing.Point(3, 3)
         Me.flp7.Name = "flp7"
         Me.flp7.Size = New System.Drawing.Size(801, 557)
@@ -218,12 +225,14 @@ Partial Class frmCard
         '
         'flp8
         '
-        Me.flp8.AutoScroll = True
+        Me.flp8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.flp8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flp8.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp8.ForeColor = System.Drawing.Color.White
         Me.flp8.Location = New System.Drawing.Point(3, 3)
         Me.flp8.Name = "flp8"
         Me.flp8.Size = New System.Drawing.Size(801, 557)
-        Me.flp8.TabIndex = 2
+        Me.flp8.TabIndex = 1
         '
         'NsControlButton1
         '
@@ -259,8 +268,6 @@ Partial Class frmCard
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents flp6 As FlowLayoutPanel
-    Friend WithEvents flp7 As FlowLayoutPanel
     Friend WithEvents NsTheme1 As NSTheme
     Friend WithEvents NsControlButton1 As NSControlButton
     Friend WithEvents nstcTab As NSTabControl
@@ -272,5 +279,7 @@ Partial Class frmCard
     Friend WithEvents txt6 As NSTextBox
     Friend WithEvents txt8 As NSTextBox
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents flp8 As FlowLayoutPanel
+    Friend WithEvents flp6 As MyFlowLayoutPanel
+    Friend WithEvents flp7 As MyFlowLayoutPanel
+    Friend WithEvents flp8 As MyFlowLayoutPanel
 End Class

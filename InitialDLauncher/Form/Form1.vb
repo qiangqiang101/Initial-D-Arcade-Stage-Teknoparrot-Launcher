@@ -3,7 +3,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SBUU_e2prom = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\" & TextBox2.Text
-        TextBox1.Text = GetSeatName(GetHex(SBUU_e2prom, 116, 4), 7)
+        TextBox1.Text = GetSeatName(GetHex(SBUU_e2prom, &H2B, 1))
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -68,6 +68,10 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Avatar1.RefreshImage()
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        'temp(TextBox4.Text)
     End Sub
 
     'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

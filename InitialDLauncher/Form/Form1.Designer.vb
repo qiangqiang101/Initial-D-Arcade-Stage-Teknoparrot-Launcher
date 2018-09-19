@@ -37,6 +37,7 @@ Partial Class Form1
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Avatar1 = New InitialDLauncher.Avatar()
+        Me.Button8 = New System.Windows.Forms.Button()
         CType(Me.Avatar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -167,11 +168,21 @@ Partial Class Form1
         Me.Avatar1.TabIndex = 74
         Me.Avatar1.TabStop = False
         '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(667, 467)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 23)
+        Me.Button8.TabIndex = 76
+        Me.Button8.Text = "CRC Test"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 644)
+        Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Avatar1)
         Me.Controls.Add(Me.Button6)
@@ -208,4 +219,5 @@ Partial Class Form1
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Avatar1 As Avatar
+    Friend WithEvents Button8 As Button
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Threading
+Imports System.Windows
 Imports PluginContract
 
 Public Class frmLauncher
@@ -13,8 +14,8 @@ Public Class frmLauncher
     Dim threadU As Thread
     Public Shared RunGameThread As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 44
-    Public buildDate As String = "17/09/2018"
+    Dim curVer As Integer = 45
+    Public buildDate As String = "19/09/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -275,7 +276,7 @@ Public Class frmLauncher
     Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click, lblExit.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
         Me.Enabled = False
-        Thread.Sleep(2000)
+        wait(2000)
         End
     End Sub
 
@@ -701,6 +702,7 @@ Public Class frmLauncher
         Try
             Timer1.Stop()
             threadU = New Thread(AddressOf CheckUpdate)
+            threadU.IsBackground = True
             threadU.Start()
             If Today.Month = 4 AndAlso Today.Day = 1 Then
                 NSMessageBox.ShowYesNo("Your license has expired. Click Yes to buy a license for 1 month for $100 or 1 year for $1,000. Click No to close this application.", MessageBoxIcon.Warning, Text)
@@ -722,7 +724,7 @@ Public Class frmLauncher
 
     Private Sub CheckUpdate()
         Try
-            If curVer <> CheckForUpdate() Then
+            If curVer < CheckForUpdate() Then
                 Dim result As DialogResult = NSMessageBox.ShowYesNo(new_version, MessageBoxIcon.Exclamation, Text)
                 If result = DialogResult.No Then
                     Exit Sub
@@ -742,6 +744,16 @@ Public Class frmLauncher
         End Try
     End Sub
 
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Enabled = False
+        wait(2000)
+        End
+    End Sub
+
+    Private Sub btnMin_Click(sender As Object, e As EventArgs) Handles btnMin.Click
+        WindowState = FormWindowState.Minimized
+    End Sub
+
     Public Sub Translate()
         Try
             Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
@@ -754,7 +766,7 @@ Public Class frmLauncher
             lblSetting.Text = ReadCfgValue("Settings", langFile)
             lblExit.Text = ReadCfgValue("QuitGame", langFile)
             lblDebug.Text = ReadCfgValue("Debug", langFile)
-            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion, buildDate)
+            lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), FileVersionInfo.GetVersionInfo(Forms.Application.ExecutablePath).FileVersion, buildDate)
             new_version = ReadCfgValue("NewVersion", langFile)
             no_card_selected = ReadCfgValue("NoCardSelected", langFile)
             If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format(ReadCfgValue("Logout", langFile), My.Settings.UserName) Else lblLogout.Text = ReadCfgValue("Login", langFile)

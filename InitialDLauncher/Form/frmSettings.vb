@@ -8,7 +8,7 @@ Public Class frmSettings
     Dim id7XmlFile As String = ".\UserProfiles\ID7.xml"
     Dim id8XmlFile As String = ".\UserProfiles\ID8.xml"
     Dim parrotDataFile As String = ".\ParrotData.xml"
-    Public XInputMode As Boolean = New ParrotData(parrotDataFile).XInputMode
+    Public Shared pluginControls As New List(Of Control)
 
     'Translate
     Dim no_exe, no_name, name_is_taken, name_is_available, tp_version, save_haptic, no_haptic, restart_require As String
@@ -21,9 +21,9 @@ Public Class frmSettings
 
             Translate()
 
-            If File.Exists(id6XmlFile) Then ReadXml(id6XmlFile, txt6, flp6)
-            If File.Exists(id7XmlFile) Then ReadXml(id7XmlFile, txt7, flp7)
-            If File.Exists(id8XmlFile) Then ReadXml(id8XmlFile, txt8, flp8)
+            If File.Exists(id6XmlFile) Then ReadXml(id6XmlFile, txt6, flp6.FP)
+            If File.Exists(id7XmlFile) Then ReadXml(id7XmlFile, txt7, flp7.FP)
+            If File.Exists(id8XmlFile) Then ReadXml(id8XmlFile, txt8, flp8.FP)
             If File.Exists(parrotDataFile) Then ReadParrotData()
 
             txtPlayerName.Text = My.Settings.UserName
@@ -34,6 +34,10 @@ Public Class frmSettings
             cmbCountry.SelectedItem = My.Settings.UserCountry
             cbPicodaemon.Checked = My.Settings.RunCardReader
             cbFullScreen.Checked = My.Settings.FullScreen
+            If File.Exists(SBUU_e2prom) Then cmbSeat6.SelectedItem = GetSeatName(GetHex(SBUU_e2prom, &H2B, 1))
+            If File.Exists(SBYD_e2prom) Then cmbSeat7.SelectedItem = GetSeatName(GetHex(SBYD_e2prom, &H2B, 1))
+            If File.Exists(SBZZ_e2prom) Then cmbSeat8.SelectedItem = GetSeatName(GetHex(SBZZ_e2prom, &H2B, 1))
+
             If My.Settings.ExtraLaunchOptions.Contains(";") Then
                 For Each item In My.Settings.ExtraLaunchOptions.Split(",")
                     lvELO.AddItem(item.Replace(";", ""))
@@ -41,6 +45,10 @@ Public Class frmSettings
             End If
 
             cmbHapticDevice.SelectedIndex = 0
+
+            For Each ctrl In pluginControls
+                pPluginSettings.Controls.Add(ctrl)
+            Next
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -50,13 +58,16 @@ Public Class frmSettings
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             If File.Exists(parrotDataFile) Then WriteParrotData()
-            If File.Exists(id6XmlFile) Then WriteXml(id6XmlFile, flp6, txt6, 6)
-            If File.Exists(id7XmlFile) Then WriteXml(id7XmlFile, flp7, txt7, 7)
-            If File.Exists(id8XmlFile) Then WriteXml(id8XmlFile, flp8, txt8, 8)
+            If File.Exists(id6XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt6.Text) Then WriteXml(id6XmlFile, flp6.FP, txt6, 6)
+            If File.Exists(id7XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt7.Text) Then WriteXml(id7XmlFile, flp7.FP, txt7, 7)
+            If File.Exists(id8XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt8.Text) Then WriteXml(id8XmlFile, flp8.FP, txt8, 8)
 
             If cmbLang.SelectedItem = Nothing Then
                 NSMessageBox.ShowOk("Please select language!", MsgBoxStyle.Critical, "Error")
             Else
+                If File.Exists(SBUU_e2prom) Then SetSeatName(cmbSeat6.SelectedItem, SBUU_e2prom)
+                If File.Exists(SBYD_e2prom) Then SetSeatName(cmbSeat7.SelectedItem, SBYD_e2prom)
+                If File.Exists(SBZZ_e2prom) Then SetSeatName(cmbSeat8.SelectedItem, SBZZ_e2prom)
                 If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
                 My.Settings.UserName = txtPlayerName.Text
                 My.Settings.TestMode = cbTest.Checked
@@ -158,6 +169,9 @@ Public Class frmSettings
             Label12.Text = ReadCfgValue("FrictionBase", langFile)
             Label13.Text = ReadCfgValue("ConstantBase", langFile)
             restart_require = ReadCfgValue("RestartRequire", langFile)
+            Label3.Text = ReadCfgValue("SeatNumber", langFile)
+            Label7.Text = ReadCfgValue("SeatNumber", langFile)
+            Label8.Text = ReadCfgValue("SeatNumber", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

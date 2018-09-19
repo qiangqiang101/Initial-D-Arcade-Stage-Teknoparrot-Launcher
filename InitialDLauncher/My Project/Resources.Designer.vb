@@ -552,6 +552,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property gold() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gold", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property hakone() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("hakone", resourceCulture)
@@ -575,6 +585,16 @@ Namespace My.Resources
         Friend ReadOnly Property ID7() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("ID7", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property ID8() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ID8", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
@@ -928,6 +948,16 @@ Namespace My.Resources
         Friend ReadOnly Property sadamine() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("sadamine", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property silver() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("silver", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

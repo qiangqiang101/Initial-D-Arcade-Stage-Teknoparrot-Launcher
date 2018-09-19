@@ -31,6 +31,7 @@ Net Seal Theme © aeonhack<br />
 simple plugin mechanism © chriga<br />
 GifImage © Jeremy Thompson<br />
 CheckJapaneseCharacterWidth © Gekka<br />
+CRCDotNet © Gediminas Masaitis<br />
 
 <h3>LOCALIZATION CONTRIBUTORS</h3>
 English - I'm Not MentaL & Kurisuchan<br />
@@ -77,13 +78,13 @@ SEGA<br />
 
     Private Sub frmAbout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Translate()
-        wbAbout.DocumentText = htmlstring
+        wbAbout.WB.DocumentText = htmlstring
 
         For Each item In frmLauncher.plugins
-            lvPlugins.AddItem(item.Name, item.Version, item.Author)
+            lvPlugins.AddItem(item.Name, item.Version, item.Author, "")
         Next
 
-        wbAbout.IsWebBrowserContextMenuEnabled = False
+        wbAbout.WB.IsWebBrowserContextMenuEnabled = False
     End Sub
 
     Private Sub llblWebsite_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblWebsite.LinkClicked

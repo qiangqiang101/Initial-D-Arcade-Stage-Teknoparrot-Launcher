@@ -2,6 +2,7 @@
 Imports InitialDLauncher
 Imports System.IO
 Imports System.Windows.Forms
+Imports System.Drawing
 
 Public Class BGMPlugin
     Implements iPlugin
@@ -20,7 +21,7 @@ Public Class BGMPlugin
 
     Public ReadOnly Property Version As String Implements iPlugin.Version
         Get
-            Version = "1.1a"
+            Version = "2.0"
         End Get
     End Property
 
@@ -28,13 +29,18 @@ Public Class BGMPlugin
     Dim audio As AudioFile
     Dim isGameRunning As Boolean = False
     Dim status As Integer = -1
+    Dim WithEvents nsTrackbar As New NSTrackBar() With {.Maximum = 1000, .Minimum = 0, .Value = My.Settings.Volume, .Location = New Point(126, 4), .Size = New Size(155, 23)}
+    Dim WithEvents label As New Label() With {.Text = "BGM", .Location = New Point(9, 9), .Size = New Size(111, 15), .ForeColor = Color.White}
 
     Public Sub DoSomething() Implements iPlugin.DoSomething
         If File.Exists(mp3File) Then
             audio = New AudioFile(mp3File)
             audio.Play()
-            audio.SetVolume(500)
+            audio.SetVolume(My.Settings.Volume)
             status = 0
+
+            frmSettings.pluginControls.Add(label)
+            frmSettings.pluginControls.Add(nsTrackbar)
         End If
     End Sub
 
@@ -57,5 +63,23 @@ Public Class BGMPlugin
             MsgBox(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
+    End Sub
+
+    Private Sub nsTrackbar_Scroll(sender As Object) Handles nsTrackbar.Scroll
+        My.Settings.Volume = nsTrackbar.Value
+        My.Settings.Save()
+        If status = 0 Then audio.SetVolume(My.Settings.Volume)
+    End Sub
+
+    Private Sub nsTrackbar_Disposed(sender As Object, e As EventArgs) Handles nsTrackbar.Disposed
+        frmSettings.pluginControls.Remove(nsTrackbar)
+        nsTrackbar = New NSTrackBar() With {.Maximum = 1000, .Minimum = 0, .Value = My.Settings.Volume, .Location = New Point(126, 4), .Size = New Size(155, 23)}
+        frmSettings.pluginControls.Add(nsTrackbar)
+    End Sub
+
+    Private Sub label_Disposed(sender As Object, e As EventArgs) Handles label.Disposed
+        frmSettings.pluginControls.Remove(label)
+        label = New Label() With {.Text = "BGM", .Location = New Point(9, 9), .Size = New Size(111, 15), .ForeColor = Color.White}
+        frmSettings.pluginControls.Add(label)
     End Sub
 End Class

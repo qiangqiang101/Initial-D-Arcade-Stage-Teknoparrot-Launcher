@@ -25,13 +25,14 @@ Partial Class frmAbout
         Dim NsListViewColumnHeader1 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim NsListViewColumnHeader2 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim NsListViewColumnHeader3 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader4 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAbout))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
+        Me.wbAbout = New InitialDLauncher.MyWebBrowser()
         Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
         Me.lvPlugins = New InitialDLauncher.NSListView()
         Me.btnDonate = New InitialDLauncher.NSButton()
         Me.NsControlButton1 = New InitialDLauncher.NSControlButton()
-        Me.wbAbout = New System.Windows.Forms.WebBrowser()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.llblWebsite = New System.Windows.Forms.LinkLabel()
@@ -45,10 +46,10 @@ Partial Class frmAbout
         Me.NsTheme1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.NsTheme1.BorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.NsTheme1.Colors = New InitialDLauncher.Bloom(-1) {}
+        Me.NsTheme1.Controls.Add(Me.wbAbout)
         Me.NsTheme1.Controls.Add(Me.NsGroupBox1)
         Me.NsTheme1.Controls.Add(Me.btnDonate)
         Me.NsTheme1.Controls.Add(Me.NsControlButton1)
-        Me.NsTheme1.Controls.Add(Me.wbAbout)
         Me.NsTheme1.Controls.Add(Me.lblTitle)
         Me.NsTheme1.Controls.Add(Me.lblVersion)
         Me.NsTheme1.Controls.Add(Me.llblWebsite)
@@ -68,6 +69,18 @@ Partial Class frmAbout
         Me.NsTheme1.Text = "About"
         Me.NsTheme1.TransparencyKey = System.Drawing.Color.Empty
         Me.NsTheme1.Transparent = False
+        '
+        'wbAbout
+        '
+        Me.wbAbout.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.wbAbout.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.wbAbout.HorizontalScrollBar = False
+        Me.wbAbout.HTMLString = Nothing
+        Me.wbAbout.Location = New System.Drawing.Point(12, 98)
+        Me.wbAbout.Name = "wbAbout"
+        Me.wbAbout.Size = New System.Drawing.Size(451, 426)
+        Me.wbAbout.TabIndex = 57
+        Me.wbAbout.VerticalScrollBar = True
         '
         'NsGroupBox1
         '
@@ -94,11 +107,14 @@ Partial Class frmAbout
         NsListViewColumnHeader2.Width = 60
         NsListViewColumnHeader3.Text = "Author"
         NsListViewColumnHeader3.Width = 150
-        Me.lvPlugins.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1, NsListViewColumnHeader2, NsListViewColumnHeader3}
+        NsListViewColumnHeader4.Text = Nothing
+        NsListViewColumnHeader4.Width = 60
+        Me.lvPlugins.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1, NsListViewColumnHeader2, NsListViewColumnHeader3, NsListViewColumnHeader4}
         Me.lvPlugins.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
         Me.lvPlugins.Location = New System.Drawing.Point(6, 36)
         Me.lvPlugins.MultiSelect = True
         Me.lvPlugins.Name = "lvPlugins"
+        Me.lvPlugins.SelectedIndices = CType(resources.GetObject("lvPlugins.SelectedIndices"), System.Collections.Generic.List(Of Integer))
         Me.lvPlugins.Size = New System.Drawing.Size(439, 108)
         Me.lvPlugins.TabIndex = 10
         Me.lvPlugins.Text = "NsListView1"
@@ -124,14 +140,6 @@ Partial Class frmAbout
         Me.NsControlButton1.Size = New System.Drawing.Size(18, 20)
         Me.NsControlButton1.TabIndex = 54
         Me.NsControlButton1.Text = "NsControlButton1"
-        '
-        'wbAbout
-        '
-        Me.wbAbout.Location = New System.Drawing.Point(12, 98)
-        Me.wbAbout.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.wbAbout.Name = "wbAbout"
-        Me.wbAbout.Size = New System.Drawing.Size(451, 426)
-        Me.wbAbout.TabIndex = 53
         '
         'lblTitle
         '
@@ -189,10 +197,10 @@ Partial Class frmAbout
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblVersion As Label
     Friend WithEvents llblWebsite As LinkLabel
-    Friend WithEvents wbAbout As WebBrowser
     Friend WithEvents NsTheme1 As NSTheme
     Friend WithEvents NsControlButton1 As NSControlButton
     Friend WithEvents btnDonate As NSButton
     Friend WithEvents NsGroupBox1 As NSGroupBox
     Friend WithEvents lvPlugins As NSListView
+    Friend WithEvents wbAbout As MyWebBrowser
 End Class

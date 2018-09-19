@@ -50,6 +50,10 @@
     <ApplicationIcon>ID8_256_v2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Crc, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrcDotNET.1.0.2\lib\net35\Crc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ForceFeedbackJesus">
       <HintPath>..\..\..\..\..\..\TeknoParrotLatest\ForceFeedbackJesus.dll</HintPath>
     </Reference>
@@ -93,6 +97,7 @@
     <Compile Include="Class\CFGRead.vb" />
     <Compile Include="Class\Component\AudioFile.vb" />
     <Compile Include="Class\Component\ComboboxItem.vb" />
+    <Compile Include="Class\Component\Crc32.vb" />
     <Compile Include="Class\Component\SpecialLabel.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -194,6 +199,18 @@
     <Compile Include="Form\User Control\FieldInformationItem.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Form\User Control\MyFlowLayoutPanel.Designer.vb">
+      <DependentUpon>MyFlowLayoutPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User Control\MyFlowLayoutPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\User Control\MyWebBrowser.Designer.vb">
+      <DependentUpon>MyWebBrowser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User Control\MyWebBrowser.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -280,6 +297,12 @@
     <EmbeddedResource Include="Form\User Control\FieldInformationItem.resx">
       <DependentUpon>FieldInformationItem.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\User Control\MyFlowLayoutPanel.resx">
+      <DependentUpon>MyFlowLayoutPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\User Control\MyWebBrowser.resx">
+      <DependentUpon>MyWebBrowser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -294,6 +317,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -309,6 +333,9 @@
     <Content Include="ID8.ico" />
     <Content Include="ID8_256.ico" />
     <Content Include="ID8_256_v2.ico" />
+    <None Include="Resources\gold.png" />
+    <None Include="Resources\silver.png" />
+    <None Include="packages.config" />
     <None Include="Resources\prof.JPG" />
     <None Include="Resources\new_bg.jpg" />
     <None Include="Resources\A6.gif" />

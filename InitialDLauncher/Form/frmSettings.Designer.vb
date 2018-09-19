@@ -27,11 +27,13 @@ Partial Class frmSettings
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.NsTabControl1 = New InitialDLauncher.NSTabControl()
         Me.tpLauncher = New System.Windows.Forms.TabPage()
-        Me.cbDebug = New InitialDLauncher.NSCheckBox()
         Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
         Me.btnRemove = New InitialDLauncher.NSButton()
         Me.btnAdd = New InitialDLauncher.NSButton()
         Me.lvELO = New InitialDLauncher.NSListView()
+        Me.NsSeperator6 = New InitialDLauncher.NSSeperator()
+        Me.pPluginSettings = New System.Windows.Forms.Panel()
+        Me.cbDebug = New InitialDLauncher.NSCheckBox()
         Me.NsSeperator2 = New InitialDLauncher.NSSeperator()
         Me.txtPlayerName = New InitialDLauncher.NSTextBox()
         Me.cmbLang = New InitialDLauncher.NSComboBox()
@@ -44,22 +46,28 @@ Partial Class frmSettings
         Me.Label23 = New System.Windows.Forms.Label()
         Me.cbMP = New InitialDLauncher.NSCheckBox()
         Me.tpId6 = New System.Windows.Forms.TabPage()
-        Me.flp6 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flp6 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.NsSeperator3 = New InitialDLauncher.NSSeperator()
         Me.btnBrowse6 = New InitialDLauncher.NSButton()
+        Me.cmbSeat6 = New InitialDLauncher.NSComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt6 = New InitialDLauncher.NSTextBox()
         Me.tpId7 = New System.Windows.Forms.TabPage()
-        Me.flp7 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flp7 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.NsSeperator4 = New InitialDLauncher.NSSeperator()
         Me.btnBrowse7 = New InitialDLauncher.NSButton()
         Me.txt7 = New InitialDLauncher.NSTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbSeat7 = New InitialDLauncher.NSComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.tpId8 = New System.Windows.Forms.TabPage()
-        Me.flp8 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flp8 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.NsSeperator5 = New InitialDLauncher.NSSeperator()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.btnBrowse8 = New InitialDLauncher.NSButton()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbSeat8 = New InitialDLauncher.NSComboBox()
         Me.txt8 = New InitialDLauncher.NSTextBox()
         Me.tpTPEmu = New System.Windows.Forms.TabPage()
         Me.NsGroupBox5 = New InitialDLauncher.NSGroupBox()
@@ -122,7 +130,7 @@ Partial Class frmSettings
         Me.NsTheme1.Name = "NsTheme1"
         Me.NsTheme1.NoRounding = False
         Me.NsTheme1.Sizable = False
-        Me.NsTheme1.Size = New System.Drawing.Size(711, 451)
+        Me.NsTheme1.Size = New System.Drawing.Size(711, 530)
         Me.NsTheme1.SmartBounds = True
         Me.NsTheme1.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.NsTheme1.TabIndex = 61
@@ -144,15 +152,17 @@ Partial Class frmSettings
         Me.NsTabControl1.Multiline = True
         Me.NsTabControl1.Name = "NsTabControl1"
         Me.NsTabControl1.SelectedIndex = 0
-        Me.NsTabControl1.Size = New System.Drawing.Size(687, 372)
+        Me.NsTabControl1.Size = New System.Drawing.Size(687, 451)
         Me.NsTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.NsTabControl1.TabIndex = 79
         '
         'tpLauncher
         '
         Me.tpLauncher.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.tpLauncher.Controls.Add(Me.cbDebug)
         Me.tpLauncher.Controls.Add(Me.NsGroupBox1)
+        Me.tpLauncher.Controls.Add(Me.NsSeperator6)
+        Me.tpLauncher.Controls.Add(Me.pPluginSettings)
+        Me.tpLauncher.Controls.Add(Me.cbDebug)
         Me.tpLauncher.Controls.Add(Me.NsSeperator2)
         Me.tpLauncher.Controls.Add(Me.txtPlayerName)
         Me.tpLauncher.Controls.Add(Me.cmbLang)
@@ -167,18 +177,9 @@ Partial Class frmSettings
         Me.tpLauncher.Location = New System.Drawing.Point(114, 4)
         Me.tpLauncher.Name = "tpLauncher"
         Me.tpLauncher.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpLauncher.Size = New System.Drawing.Size(569, 364)
+        Me.tpLauncher.Size = New System.Drawing.Size(569, 443)
         Me.tpLauncher.TabIndex = 0
         Me.tpLauncher.Text = "This Launcher Settings"
-        '
-        'cbDebug
-        '
-        Me.cbDebug.Checked = False
-        Me.cbDebug.Location = New System.Drawing.Point(434, 8)
-        Me.cbDebug.Name = "cbDebug"
-        Me.cbDebug.Size = New System.Drawing.Size(130, 24)
-        Me.cbDebug.TabIndex = 12
-        Me.cbDebug.Text = "Debug Mode"
         '
         'NsGroupBox1
         '
@@ -186,10 +187,10 @@ Partial Class frmSettings
         Me.NsGroupBox1.Controls.Add(Me.btnAdd)
         Me.NsGroupBox1.Controls.Add(Me.lvELO)
         Me.NsGroupBox1.DrawSeperator = True
-        Me.NsGroupBox1.Location = New System.Drawing.Point(12, 114)
+        Me.NsGroupBox1.Location = New System.Drawing.Point(6, 286)
         Me.NsGroupBox1.Name = "NsGroupBox1"
         Me.NsGroupBox1.Padding = New System.Windows.Forms.Padding(3, 33, 3, 3)
-        Me.NsGroupBox1.Size = New System.Drawing.Size(552, 239)
+        Me.NsGroupBox1.Size = New System.Drawing.Size(557, 151)
         Me.NsGroupBox1.SubTitle = ""
         Me.NsGroupBox1.TabIndex = 77
         Me.NsGroupBox1.Text = "NsGroupBox1"
@@ -198,7 +199,7 @@ Partial Class frmSettings
         'btnRemove
         '
         Me.btnRemove.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRemove.Location = New System.Drawing.Point(522, 66)
+        Me.btnRemove.Location = New System.Drawing.Point(527, 66)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(24, 24)
         Me.btnRemove.TabIndex = 19
@@ -207,7 +208,7 @@ Partial Class frmSettings
         'btnAdd
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAdd.Location = New System.Drawing.Point(522, 36)
+        Me.btnAdd.Location = New System.Drawing.Point(527, 36)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(24, 24)
         Me.btnAdd.TabIndex = 18
@@ -225,22 +226,47 @@ Partial Class frmSettings
         Me.lvELO.Location = New System.Drawing.Point(6, 36)
         Me.lvELO.MultiSelect = True
         Me.lvELO.Name = "lvELO"
-        Me.lvELO.Size = New System.Drawing.Size(510, 197)
+        Me.lvELO.SelectedIndices = CType(resources.GetObject("lvELO.SelectedIndices"), System.Collections.Generic.List(Of Integer))
+        Me.lvELO.Size = New System.Drawing.Size(515, 109)
         Me.lvELO.TabIndex = 17
         Me.lvELO.Text = "NsListView1"
         '
+        'NsSeperator6
+        '
+        Me.NsSeperator6.Location = New System.Drawing.Point(6, 269)
+        Me.NsSeperator6.Name = "NsSeperator6"
+        Me.NsSeperator6.Size = New System.Drawing.Size(557, 23)
+        Me.NsSeperator6.TabIndex = 80
+        Me.NsSeperator6.Text = "NsSeperator6"
+        '
+        'pPluginSettings
+        '
+        Me.pPluginSettings.Location = New System.Drawing.Point(0, 112)
+        Me.pPluginSettings.Name = "pPluginSettings"
+        Me.pPluginSettings.Size = New System.Drawing.Size(569, 151)
+        Me.pPluginSettings.TabIndex = 79
+        '
+        'cbDebug
+        '
+        Me.cbDebug.Checked = False
+        Me.cbDebug.Location = New System.Drawing.Point(434, 8)
+        Me.cbDebug.Name = "cbDebug"
+        Me.cbDebug.Size = New System.Drawing.Size(130, 24)
+        Me.cbDebug.TabIndex = 12
+        Me.cbDebug.Text = "Debug Mode"
+        '
         'NsSeperator2
         '
-        Me.NsSeperator2.Location = New System.Drawing.Point(12, 98)
+        Me.NsSeperator2.Location = New System.Drawing.Point(6, 98)
         Me.NsSeperator2.Name = "NsSeperator2"
-        Me.NsSeperator2.Size = New System.Drawing.Size(552, 23)
+        Me.NsSeperator2.Size = New System.Drawing.Size(557, 23)
         Me.NsSeperator2.TabIndex = 78
         Me.NsSeperator2.Text = "NsSeperator2"
         '
         'txtPlayerName
         '
         Me.txtPlayerName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPlayerName.Location = New System.Drawing.Point(137, 6)
+        Me.txtPlayerName.Location = New System.Drawing.Point(126, 4)
         Me.txtPlayerName.MaxLength = 20
         Me.txtPlayerName.Multiline = False
         Me.txtPlayerName.Name = "txtPlayerName"
@@ -258,7 +284,7 @@ Partial Class frmSettings
         Me.cmbLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbLang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbLang.FormattingEnabled = True
-        Me.cmbLang.Location = New System.Drawing.Point(137, 64)
+        Me.cmbLang.Location = New System.Drawing.Point(126, 64)
         Me.cmbLang.Name = "cmbLang"
         Me.cmbLang.Size = New System.Drawing.Size(155, 24)
         Me.cmbLang.TabIndex = 9
@@ -318,7 +344,7 @@ Partial Class frmSettings
         Me.cmbCountry.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbCountry.FormattingEnabled = True
         Me.cmbCountry.Items.AddRange(New Object() {"Afghanistan", "Aland Islands", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua & Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Myanmar/Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominican Republic", "Dominica", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Great Britain", "Greece", "Grenada", "Guadeloupe", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mcdonald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong, SAR China", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel and the Occupied Territories", "Italy", "Ivory Coast (Cote d'Ivoire)", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kosovo", "Kuwait", "Kyrgyz Republic (Kyrgyzstan)", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao, SAR China", "Republic of Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Moldova, Republic of", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Korea, Democratic Republic of (North Korea)", "Norway", "Oman", "Pacific Islands", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint-Barthélemy", "Saint Helena", "Saint Kitts and Nevis", "Saint Lucia", "Saint-Martin", "Saint Pierre and Miquelon", "Saint Vincent's & Grenadines", "Samoa", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovak Republic (Slovakia)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Korea, Republic of (South Korea)", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan, Republic of China", "Tajikistan", "Tanzania", "Thailand", "Timor Leste", "Togo", "Tokelau", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos Islands", "Uganda", "Ukraine", "United Arab Emirates", "United States of America (USA)", "Uruguay", "US Minor Outlying Islands", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (UK)", "Virgin Islands (US)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"})
-        Me.cmbCountry.Location = New System.Drawing.Point(137, 35)
+        Me.cmbCountry.Location = New System.Drawing.Point(126, 34)
         Me.cmbCountry.Name = "cmbCountry"
         Me.cmbCountry.Size = New System.Drawing.Size(155, 24)
         Me.cmbCountry.TabIndex = 8
@@ -348,26 +374,30 @@ Partial Class frmSettings
         Me.tpId6.Controls.Add(Me.flp6)
         Me.tpId6.Controls.Add(Me.NsSeperator3)
         Me.tpId6.Controls.Add(Me.btnBrowse6)
+        Me.tpId6.Controls.Add(Me.cmbSeat6)
+        Me.tpId6.Controls.Add(Me.Label3)
         Me.tpId6.Controls.Add(Me.Label1)
         Me.tpId6.Controls.Add(Me.txt6)
         Me.tpId6.Location = New System.Drawing.Point(114, 4)
         Me.tpId6.Name = "tpId6"
         Me.tpId6.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpId6.Size = New System.Drawing.Size(569, 364)
+        Me.tpId6.Size = New System.Drawing.Size(569, 443)
         Me.tpId6.TabIndex = 1
-        Me.tpId6.Text = "InitialD 6AA Settings"
+        Me.tpId6.Text = "Initial D6AA Settings"
         '
         'flp6
         '
-        Me.flp6.AutoScroll = True
-        Me.flp6.Location = New System.Drawing.Point(6, 54)
+        Me.flp6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.flp6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp6.ForeColor = System.Drawing.Color.White
+        Me.flp6.Location = New System.Drawing.Point(6, 83)
         Me.flp6.Name = "flp6"
-        Me.flp6.Size = New System.Drawing.Size(558, 304)
-        Me.flp6.TabIndex = 75
+        Me.flp6.Size = New System.Drawing.Size(557, 354)
+        Me.flp6.TabIndex = 81
         '
         'NsSeperator3
         '
-        Me.NsSeperator3.Location = New System.Drawing.Point(6, 36)
+        Me.NsSeperator3.Location = New System.Drawing.Point(6, 66)
         Me.NsSeperator3.Name = "NsSeperator3"
         Me.NsSeperator3.Size = New System.Drawing.Size(558, 23)
         Me.NsSeperator3.TabIndex = 74
@@ -380,6 +410,29 @@ Partial Class frmSettings
         Me.btnBrowse6.Size = New System.Drawing.Size(27, 24)
         Me.btnBrowse6.TabIndex = 2
         Me.btnBrowse6.Text = "..."
+        '
+        'cmbSeat6
+        '
+        Me.cmbSeat6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSeat6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSeat6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSeat6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSeat6.FormattingEnabled = True
+        Me.cmbSeat6.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
+        Me.cmbSeat6.Location = New System.Drawing.Point(137, 36)
+        Me.cmbSeat6.Name = "cmbSeat6"
+        Me.cmbSeat6.Size = New System.Drawing.Size(155, 24)
+        Me.cmbSeat6.TabIndex = 79
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(3, 39)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(94, 15)
+        Me.Label3.TabIndex = 80
+        Me.Label3.Text = "Initial D6AA Seat"
         '
         'Label1
         '
@@ -413,26 +466,30 @@ Partial Class frmSettings
         Me.tpId7.Controls.Add(Me.btnBrowse7)
         Me.tpId7.Controls.Add(Me.txt7)
         Me.tpId7.Controls.Add(Me.Label2)
+        Me.tpId7.Controls.Add(Me.cmbSeat7)
+        Me.tpId7.Controls.Add(Me.Label7)
         Me.tpId7.Location = New System.Drawing.Point(114, 4)
         Me.tpId7.Name = "tpId7"
         Me.tpId7.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpId7.Size = New System.Drawing.Size(569, 364)
+        Me.tpId7.Size = New System.Drawing.Size(569, 443)
         Me.tpId7.TabIndex = 2
-        Me.tpId7.Text = "InitialD 7AAX Settings"
+        Me.tpId7.Text = "Initial D7AAX Settings"
         '
         'flp7
         '
-        Me.flp7.AutoScroll = True
-        Me.flp7.Location = New System.Drawing.Point(6, 54)
+        Me.flp7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.flp7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp7.ForeColor = System.Drawing.Color.White
+        Me.flp7.Location = New System.Drawing.Point(6, 83)
         Me.flp7.Name = "flp7"
-        Me.flp7.Size = New System.Drawing.Size(558, 304)
-        Me.flp7.TabIndex = 75
+        Me.flp7.Size = New System.Drawing.Size(557, 354)
+        Me.flp7.TabIndex = 83
         '
         'NsSeperator4
         '
-        Me.NsSeperator4.Location = New System.Drawing.Point(6, 36)
+        Me.NsSeperator4.Location = New System.Drawing.Point(6, 66)
         Me.NsSeperator4.Name = "NsSeperator4"
-        Me.NsSeperator4.Size = New System.Drawing.Size(558, 23)
+        Me.NsSeperator4.Size = New System.Drawing.Size(557, 23)
         Me.NsSeperator4.TabIndex = 76
         Me.NsSeperator4.Text = "NsSeperator4"
         '
@@ -468,36 +525,73 @@ Partial Class frmSettings
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Initial D 7AAX Path"
         '
+        'cmbSeat7
+        '
+        Me.cmbSeat7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSeat7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSeat7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSeat7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSeat7.FormattingEnabled = True
+        Me.cmbSeat7.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
+        Me.cmbSeat7.Location = New System.Drawing.Point(137, 36)
+        Me.cmbSeat7.Name = "cmbSeat7"
+        Me.cmbSeat7.Size = New System.Drawing.Size(155, 24)
+        Me.cmbSeat7.TabIndex = 81
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(3, 39)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(101, 15)
+        Me.Label7.TabIndex = 82
+        Me.Label7.Text = "Initial D7AAX Seat"
+        '
         'tpId8
         '
         Me.tpId8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.tpId8.Controls.Add(Me.flp8)
         Me.tpId8.Controls.Add(Me.NsSeperator5)
+        Me.tpId8.Controls.Add(Me.Label8)
         Me.tpId8.Controls.Add(Me.btnBrowse8)
         Me.tpId8.Controls.Add(Me.Label4)
+        Me.tpId8.Controls.Add(Me.cmbSeat8)
         Me.tpId8.Controls.Add(Me.txt8)
         Me.tpId8.Location = New System.Drawing.Point(114, 4)
         Me.tpId8.Name = "tpId8"
         Me.tpId8.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpId8.Size = New System.Drawing.Size(569, 364)
+        Me.tpId8.Size = New System.Drawing.Size(569, 443)
         Me.tpId8.TabIndex = 3
         Me.tpId8.Text = "Initial D8 ∞ Settings"
         '
         'flp8
         '
-        Me.flp8.AutoScroll = True
-        Me.flp8.Location = New System.Drawing.Point(6, 54)
+        Me.flp8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.flp8.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp8.ForeColor = System.Drawing.Color.White
+        Me.flp8.Location = New System.Drawing.Point(6, 83)
         Me.flp8.Name = "flp8"
-        Me.flp8.Size = New System.Drawing.Size(558, 304)
-        Me.flp8.TabIndex = 75
+        Me.flp8.Size = New System.Drawing.Size(557, 354)
+        Me.flp8.TabIndex = 85
         '
         'NsSeperator5
         '
-        Me.NsSeperator5.Location = New System.Drawing.Point(6, 36)
+        Me.NsSeperator5.Location = New System.Drawing.Point(6, 66)
         Me.NsSeperator5.Name = "NsSeperator5"
-        Me.NsSeperator5.Size = New System.Drawing.Size(558, 23)
+        Me.NsSeperator5.Size = New System.Drawing.Size(557, 23)
         Me.NsSeperator5.TabIndex = 78
         Me.NsSeperator5.Text = "NsSeperator5"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(3, 39)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 15)
+        Me.Label8.TabIndex = 84
+        Me.Label8.Text = "Initial D8 ∞ Seat"
         '
         'btnBrowse8
         '
@@ -516,6 +610,19 @@ Partial Class frmSettings
         Me.Label4.Size = New System.Drawing.Size(83, 15)
         Me.Label4.TabIndex = 72
         Me.Label4.Text = "Initial D 8 Path"
+        '
+        'cmbSeat8
+        '
+        Me.cmbSeat8.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSeat8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSeat8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSeat8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSeat8.FormattingEnabled = True
+        Me.cmbSeat8.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
+        Me.cmbSeat8.Location = New System.Drawing.Point(137, 36)
+        Me.cmbSeat8.Name = "cmbSeat8"
+        Me.cmbSeat8.Size = New System.Drawing.Size(155, 24)
+        Me.cmbSeat8.TabIndex = 83
         '
         'txt8
         '
@@ -543,7 +650,7 @@ Partial Class frmSettings
         Me.tpTPEmu.Location = New System.Drawing.Point(114, 4)
         Me.tpTPEmu.Name = "tpTPEmu"
         Me.tpTPEmu.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpTPEmu.Size = New System.Drawing.Size(569, 364)
+        Me.tpTPEmu.Size = New System.Drawing.Size(569, 443)
         Me.tpTPEmu.TabIndex = 4
         Me.tpTPEmu.Text = "TP Emulation Settings"
         '
@@ -871,7 +978,7 @@ Partial Class frmSettings
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(624, 416)
+        Me.btnSave.Location = New System.Drawing.Point(624, 495)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 24)
         Me.btnSave.TabIndex = 20
@@ -881,7 +988,7 @@ Partial Class frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(711, 451)
+        Me.ClientSize = New System.Drawing.Size(711, 530)
         Me.Controls.Add(Me.NsTheme1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -940,16 +1047,12 @@ Partial Class frmSettings
     Friend WithEvents btnRemove As NSButton
     Friend WithEvents btnAdd As NSButton
     Friend WithEvents NsTabControl1 As NSTabControl
-    Friend WithEvents tpLauncher As TabPage
     Friend WithEvents tpId6 As TabPage
     Friend WithEvents tpId7 As TabPage
     Friend WithEvents tpId8 As TabPage
     Friend WithEvents tpTPEmu As TabPage
     Friend WithEvents NsSeperator3 As NSSeperator
-    Friend WithEvents flp6 As FlowLayoutPanel
-    Friend WithEvents flp7 As FlowLayoutPanel
     Friend WithEvents NsSeperator4 As NSSeperator
-    Friend WithEvents flp8 As FlowLayoutPanel
     Friend WithEvents NsSeperator5 As NSSeperator
     Friend WithEvents NsGroupBox5 As NSGroupBox
     Friend WithEvents btnRefreshHaptic As NSButton
@@ -978,4 +1081,16 @@ Partial Class frmSettings
     Friend WithEvents tbSto0z As NSTrackBar
     Friend WithEvents cbSto0z As NSCheckBox
     Friend WithEvents NsSeperator1 As NSSeperator
+    Friend WithEvents Label7 As Label
+    Friend WithEvents cmbSeat7 As NSComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cmbSeat6 As NSComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents cmbSeat8 As NSComboBox
+    Friend WithEvents flp6 As MyFlowLayoutPanel
+    Friend WithEvents flp7 As MyFlowLayoutPanel
+    Friend WithEvents flp8 As MyFlowLayoutPanel
+    Friend WithEvents NsSeperator6 As NSSeperator
+    Friend WithEvents pPluginSettings As Panel
+    Friend WithEvents tpLauncher As TabPage
 End Class

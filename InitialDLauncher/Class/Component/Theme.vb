@@ -14,8 +14,8 @@ Imports System.IO
 'Creator: aeonhack
 'Site: elitevs.net
 'Created: 08/02/2011
-'Changed: 12/06/2011
-'Version: 1.5.4
+'Changed: 18/09/2018
+'Version: 1.6.0
 '------------------
 
 MustInherit Class ThemeContainer154
@@ -4301,9 +4301,9 @@ Class NSVScrollBar
         Width = 18
 
         B1 = New SolidBrush(Color.FromArgb(55, 55, 55))
-        B2 = New SolidBrush(Color.FromArgb(24, 24, 24))
+        B2 = New SolidBrush(Color.FromArgb(35, 35, 35))
 
-        P1 = New Pen(Color.FromArgb(24, 24, 24))
+        P1 = New Pen(Color.FromArgb(35, 35, 35))
         P2 = New Pen(Color.FromArgb(65, 65, 65))
         P3 = New Pen(Color.FromArgb(55, 55, 55))
         P4 = New Pen(Color.FromArgb(40, 40, 40))
@@ -4315,6 +4315,7 @@ Class NSVScrollBar
     Private B1, B2 As SolidBrush
 
     Dim I1 As Integer
+    Dim G As Graphics
 
     Protected Overrides Sub OnPaint(e As System.Windows.Forms.PaintEventArgs)
         G = e.Graphics
@@ -4382,13 +4383,25 @@ Class NSVScrollBar
         ShowThumb = ((_Maximum - _Minimum) > Shaft.Height)
 
         If ShowThumb Then
-            'ThumbSize = Math.Max(0, 14) 'TODO: Implement this.
+            ThumbSize = GetThumbSize() 'TODO: Implement this.
             Thumb = New Rectangle(1, 0, Width - 3, ThumbSize)
         End If
 
         RaiseEvent Scroll(Me)
         InvalidatePosition()
     End Sub
+
+    Function GetThumbSize() As Integer
+        If Maximum = 0 Or LargeChange = 0 Then Return 0 : Exit Function
+        Dim ThumbHt As Integer = (Height - 35) / (Maximum / LargeChange)
+
+        Select Case ThumbHt
+            Case Is < 24
+                Return 24
+            Case Else
+                Return ThumbHt
+        End Select
+    End Function
 
     Private Sub InvalidatePosition()
         Thumb.Y = CInt(GetProgress() * (Shaft.Height - ThumbSize)) + TSA.Height
@@ -4442,7 +4455,7 @@ Class NSVScrollBar
     End Sub
 
     Private Function GetProgress() As Double
-        Return (_Value - _Minimum) / (_Maximum - _Minimum)
+        Return CDbl((_Value - _Minimum)) / CDbl((_Maximum - _Minimum))
     End Function
 
 End Class
@@ -4802,13 +4815,22 @@ Class NSListView
 
     Class NSListViewItem
         Property Text As String
+        Property Icon As Image
+        Property Tag As Object
         <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)>
         Property SubItems As New List(Of NSListViewSubItem)
 
         Protected UniqueId As Guid
+        Private parent As NSListView
 
-        Sub New()
+        Sub New(ByVal parent As NSListView)
             UniqueId = Guid.NewGuid()
+            Me.parent = parent
+        End Sub
+
+        Sub SetSubItem(ByVal index As Integer, ByVal value As String)
+            SubItems(index).Text = value
+            parent.Invalidate()
         End Sub
 
         Public Overrides Function ToString() As String
@@ -4821,6 +4843,10 @@ Class NSListView
             End If
 
             Return False
+        End Function
+
+        Public Overrides Function GetHashCode() As Integer
+            Return MyBase.GetHashCode
         End Function
 
     End Class
@@ -4861,6 +4887,9 @@ Class NSListView
         End Get
     End Property
 
+    Property SelectedIndices As List(Of Integer)
+    Delegate Sub OnSelectedIndexChanged()
+    Event SelectIndexChanged As OnSelectedIndexChanged
     Private _Columns As New List(Of NSListViewColumnHeader)
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)>
     Public Property Columns() As NSListViewColumnHeader()
@@ -4911,7 +4940,15 @@ Class NSListView
 
     'Ok, you've seen everything of importance at this point; I am begging you to spare yourself. You must not read any further!
 
-    Public Sub AddItem(text As String, ParamArray subItems As String())
+    Public Sub AddItem(ByVal text As String, ParamArray subItems As String())
+        AddItem(text, Nothing, Nothing, subItems)
+    End Sub
+
+    Public Sub AddItem(ByVal text As String, ByVal icon As Image, ParamArray subItems As String())
+        AddItem(text, icon, Nothing, subItems)
+    End Sub
+
+    Public Sub AddItem(text As String, ByVal icon As Image, ByVal tag As Object, ParamArray subItems As String())
         Dim Items As New List(Of NSListViewSubItem)
         For Each I As String In subItems
             Dim SubItem As New NSListViewSubItem()
@@ -4919,8 +4956,10 @@ Class NSListView
             Items.Add(SubItem)
         Next
 
-        Dim Item As New NSListViewItem()
+        Dim Item As New NSListViewItem(Me)
         Item.Text = text
+        Item.Icon = icon
+        Item.Tag = tag
         Item.SubItems = Items
 
         _Items.Add(Item)
@@ -4945,16 +4984,24 @@ Class NSListView
         InvalidateScroll()
     End Sub
 
+    Public Sub Clear()
+        _Items.Clear()
+        _SelectedItems.Clear()
+        SelectedIndices.Clear()
+        InvalidateScroll()
+    End Sub
+
 #End Region
 
     Private VS As NSVScrollBar
 
     Sub New()
+        SelectedIndices = New List(Of Integer)()
         SetStyle(DirectCast(139286, ControlStyles), True)
         SetStyle(ControlStyles.Selectable, True)
 
         P1 = New Pen(Color.FromArgb(55, 55, 55))
-        P2 = New Pen(Color.FromArgb(24, 24, 24))
+        P2 = New Pen(Color.FromArgb(35, 35, 35))
         P3 = New Pen(Color.FromArgb(65, 65, 65))
 
         B1 = New SolidBrush(Color.FromArgb(62, 62, 62))
@@ -5014,7 +5061,7 @@ Class NSListView
     Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
         Focus()
 
-        If e.Button = System.Windows.Forms.MouseButtons.Left Then
+        If e.Button = System.Windows.Forms.MouseButtons.Left OrElse (e.Button = System.Windows.Forms.MouseButtons.Right AndAlso _SelectedItems.Count <= 1) Then
             Dim Offset As Integer = CInt(VS.Percent * (VS.Maximum - (Height - (ItemHeight * 2))))
             Dim Index As Integer = ((e.Y + Offset - ItemHeight) \ ItemHeight)
 
@@ -5026,13 +5073,19 @@ Class NSListView
                 If ModifierKeys = Keys.Control AndAlso _MultiSelect Then
                     If _SelectedItems.Contains(_Items(Index)) Then
                         _SelectedItems.Remove(_Items(Index))
+                        SelectedIndices.Remove(Index)
                     Else
                         _SelectedItems.Add(_Items(Index))
+                        SelectedIndices.Add(Index)
                     End If
                 Else
                     _SelectedItems.Clear()
+                    SelectedIndices.Clear()
                     _SelectedItems.Add(_Items(Index))
+                    SelectedIndices.Add(Index)
                 End If
+
+                RaiseEvent SelectIndexChanged()
             End If
 
             Invalidate()
@@ -5044,6 +5097,7 @@ Class NSListView
     Private P1, P2, P3 As Pen
     Private B1, B2, B3, B4 As SolidBrush
     Private GB1 As LinearGradientBrush
+    Private G As Graphics
 
     'I am so sorry you have to witness this. I tried warning you. ;.;
 
@@ -5093,20 +5147,34 @@ Class NSListView
             G.DrawLine(P2, 0, R1.Bottom, Width, R1.Bottom)
 
             If Columns.Length > 0 Then
-                R1.Width = Columns(0).Width
+                If Columns(0).Width <> 0 Then
+                    R1.Width = Columns(0).Width
+                Else
+                    R1.Width = Width
+                End If
                 G.SetClip(R1)
             End If
 
+            Dim imageWidth As Integer = 0
+            Dim imageMarginX As Integer = 12
+            Dim imageMarginY As Integer = 8
+
+            If CI.Icon IsNot Nothing Then
+                Dim scale As Double = CDbl((ItemHeight - imageMarginY)) / CI.Icon.Height
+                imageWidth = CInt((scale * CI.Icon.Width))
+                G.DrawImage(CI.Icon, New Rectangle(imageMarginX / 2, R1.Top + (imageMarginY / 2), imageWidth, ItemHeight - imageMarginY))
+            End If
+
             'TODO: Ellipse text that overhangs seperators.
-            G.DrawString(CI.Text, Font, Brushes.Black, 10, Y + 1)
-            G.DrawString(CI.Text, Font, Brushes.WhiteSmoke, 9, Y)
+            G.DrawString(CI.Text, Font, Brushes.Black, imageWidth + imageMarginX / 2 + 1, Y + 1)
+            G.DrawString(CI.Text, Font, Brushes.WhiteSmoke, imageWidth + imageMarginX / 2, Y)
 
             If CI.SubItems IsNot Nothing Then
                 For I2 As Integer = 0 To Math.Min(CI.SubItems.Count, _Columns.Count) - 1
                     X = ColumnOffsets(I2 + 1) + 4
 
                     R1.X = X
-                    R1.Width = Columns(I2).Width
+                    R1.Width = Columns(I2 + 1).Width - 12
                     G.SetClip(R1)
 
                     G.DrawString(CI.SubItems(I2).Text, Font, Brushes.Black, X + 1, Y + 1)
@@ -5366,7 +5434,7 @@ Class NSMessageBox
             F.Controls.Add(MTheme1)
             F.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             F.Text = caption
-            F.Icon = My.Resources.ID7
+            F.Icon = My.Resources.ID8
             F.Font = New Font("Segoe UI", 9, FontStyle.Regular)
             F.TopMost = True
         Catch ex As Exception

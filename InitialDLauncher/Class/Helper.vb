@@ -9,8 +9,9 @@ Imports System.Runtime.CompilerServices
 
 Module Helper
 
-    Dim SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
-    Dim SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
+    Public SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
+    Public SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
+    Public SBZZ_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBZZ_e2prom.bin"
 
     Sub GetGamePath()
         'Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id8Path}
@@ -858,126 +859,77 @@ Module Helper
         Return True
     End Function
 
-    Function GetSeatName(hex As Byte(), version As Integer) As String
+    Function GetSeatName(hex As Byte()) As String
         Dim result As String = Nothing
-        If version = 6 Then
-            Select Case BitConverter.ToString(hex).Replace("-", "")
-                Case "F9F0952A"
-                    result = "A1"
-                Case "AA12B0E9"
-                    result = "A2"
-                Case "A44E7C1E"
-                    result = "B1"
-                Case "4DD08AB4"
-                    result = "B2"
-                Case "438C4643"
-                    result = "C1"
-                Case "106E6380"
-                    result = "C2"
-                Case "1E32AF77"
-                    result = "D1"
-                Case "8355FF0E"
-                    result = "D2"
-                Case "F7AC59DD"
-                    result = "Single"
-                Case Else
-                    result = "Unknown"
-            End Select
-        Else
-            Select Case BitConverter.ToString(hex).Replace("-", "")
-                Case "C8DA86D4"
-                    result = "A1"
-                Case "9B38A317"
-                    result = "A2"
-                Case "95646FE0"
-                    result = "B1"
-                Case "7CFA994A"
-                    result = "B2"
-                Case "72A655BD"
-                    result = "C1"
-                Case "2144707E"
-                    result = "C2"
-                Case "2F18BC89"
-                    result = "D1"
-                Case "B27FECF0"
-                    result = "D2"
-                Case "C6864A23"
-                    result = "Single"
-                Case Else
-                    result = "Unknown"
-            End Select
-        End If
+        Select Case BitConverter.ToString(hex).Replace("-", "")
+            Case "01"
+                result = "A1"
+            Case "02"
+                result = "A2"
+            Case "03"
+                result = "B1"
+            Case "04"
+                result = "B2"
+            Case "05"
+                result = "C1"
+            Case "06"
+                result = "C2"
+            Case "07"
+                result = "D1"
+            Case "08"
+                result = "D2"
+            Case "00"
+                result = "Single"
+        End Select
 
         Return result ' & " | " & BitConverter.ToString(hex)
     End Function
 
-    'Sub SetSeatName(str As String, version As Integer)
-    '    If version = 6 Then
-    '        Select Case str
-    '            Case "A1"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("F9F0952A"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("F9F0952A"))
-    '            Case "A2"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("AA12B0E9"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("AA12B0E9"))
-    '            Case "B1"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("A44E7C1E"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("A44E7C1E"))
-    '            Case "B2"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("4DD08AB4"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("4DD08AB4"))
-    '            Case "C1"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("438C4643"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("438C4643"))
-    '            Case "C2"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("106E6380"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("106E6380"))
-    '            Case "D1"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("1E32AF77"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("1E32AF77"))
-    '            Case "D2"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("8355FF0E"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("8355FF0E"))
-    '            Case "Single"
-    '                SetHex(SBUU_e2prom, CLng("&H00"), HexStringToBinary("F7AC59DD"))
-    '                SetHex(SBUU_e2prom, CLng("&H74"), HexStringToBinary("F7AC59DD"))
-    '            Case Else
-    '                NSMessageBox.ShowOk("Please change your Cabinet!")
-    '        End Select
-    '    Else
-    '        Select Case str
-    '            Case "A1"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("C8DA86D4"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("C8DA86D4"))
-    '            Case "A2"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("9B38A317"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("9B38A317"))
-    '            Case "B1"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("95646FE0"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("95646FE0"))
-    '            Case "B2"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("7CFA994A"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("7CFA994A"))
-    '            Case "C1"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("72A655BD"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("72A655BD"))
-    '            Case "C2"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("2144707E"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("2144707E"))
-    '            Case "D1"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("2F18BC89"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("2F18BC89"))
-    '            Case "D2"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("B27FECF0"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("B27FECF0"))
-    '            Case "Single"
-    '                SetHex(SBYD_e2prom, CLng("&H00"), HexStringToBinary("C6864A23"))
-    '                SetHex(SBYD_e2prom, CLng("&H74"), HexStringToBinary("C6864A23"))
-    '            Case Else
-    '                NSMessageBox.ShowOk("Please change your Cabinet!")
-    '        End Select
-    '    End If
-    'End Sub
+    Sub SetSeatName(str As String, e2promFile As String)
+        Dim _042A As String = BitConverter.ToString(GetHex(e2promFile, &H4, 39)).Replace("-", "")
+        Dim _2C73 As String = BitConverter.ToString(GetHex(e2promFile, &H2C, 72)).Replace("-", "")
+        Dim _2B As String = Nothing
+
+        Select Case str
+            Case "A1"
+                _2B = "01"
+            Case "A2"
+                _2B = "02"
+            Case "B1"
+                _2B = "03"
+            Case "B2"
+                _2B = "04"
+            Case "C1"
+                _2B = "05"
+            Case "C2"
+                _2B = "06"
+            Case "D1"
+                _2B = "07"
+            Case "D2"
+                _2B = "08"
+            Case "Single"
+                _2B = "00"
+        End Select
+
+        Dim result As String = CalculateCRC32(_042A & _2B & _2C73)
+        Dim whole As String = result & _042A & _2B & _2C73 & result & _042A & _2B & _2C73
+
+        SetHex(e2promFile, &H0, HexStringToBinary(whole))
+    End Sub
+
+    Function CalculateCRC32(hexString As String) As String
+        Dim crc As New Crc32()
+        Dim rbytes As Byte() = crc.ComputeHash(HexStringToBinary(hexString))
+        Dim result As String = BitConverter.ToUInt32(rbytes, 0).ToString("X8")
+        Dim F4 = result.Substring(0, 4)
+        Dim L4 = result.Substring(4)
+        Dim F2 = F4.Substring(0, 2)
+        Dim L2 = F4.Substring(2)
+        Dim _F2 = L4.Substring(0, 2)
+        Dim _L2 = L4.Substring(2)
+        Dim _0003 As String = _L2 & _F2 & L2 & F2
+        Return _0003
+    End Function
 
     Function HexStringToBinary(ByVal hexString As String) As Byte()
         Return Enumerable.Range(0, hexString.Length).Where(Function(x) x Mod 2 = 0).[Select](Function(x) Convert.ToByte(hexString.Substring(x, 2), 16)).ToArray()
@@ -1662,5 +1614,4 @@ Module Helper
         Loop
         Return ctr
     End Function
-
 End Module

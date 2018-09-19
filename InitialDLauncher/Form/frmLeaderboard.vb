@@ -4,8 +4,8 @@ Imports System.Threading
 
 Public Class frmLeaderboard
 
+    Dim LastLocation As Point = New Point(0, 0)
     Dim TopScoresURL As String = "http://id.imnotmental.com/TopScores.php?"
-    Dim items As New ListViewItem()
 
     Dim trackname6 As Dictionary(Of String, String) = New Dictionary(Of String, String)
     Dim trackname7 As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -22,6 +22,10 @@ Public Class frmLeaderboard
     'Translate
     Dim LakeAkina, Myogi, Usui, Akagi, Akina, Irohazka, Happogahara, Nagao, Tsukuba, TsubakiLine, Nanamagari, Sadamine, Tsuchisaka, AkinaSnow, TsukubaSnow, TsuchisakaSnow, Hakone, MomijiLine As String
 
+    Private Sub NsControlButton3_Click(sender As Object, e As EventArgs) Handles NsControlButton3.Click
+        LastLocation = Me.Location
+    End Sub
+
     Private Sub btnReport6_Click(sender As Object, e As EventArgs) Handles btnReport6.Click
 
     End Sub
@@ -34,29 +38,29 @@ Public Class frmLeaderboard
 
     End Sub
 
-    Private Sub lv7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv7.SelectedIndexChanged
-        If lv7.SelectedItems.Count >= 1 Then
-            btnReport7.Enabled = True
-        Else
-            btnReport7.Enabled = False
-        End If
-    End Sub
+    'Private Sub lv7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv7.SelectedIndexChanged
+    '    If lv7.SelectedItems.Count >= 1 Then
+    '        btnReport7.Enabled = True
+    '    Else
+    '        btnReport7.Enabled = False
+    '    End If
+    'End Sub
 
-    Private Sub lv6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv6.SelectedIndexChanged
-        If lv6.SelectedItems.Count >= 1 Then
-            btnReport6.Enabled = True
-        Else
-            btnReport6.Enabled = False
-        End If
-    End Sub
+    'Private Sub lv6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv6.SelectedIndexChanged
+    '    If lv6.SelectedItems.Count >= 1 Then
+    '        btnReport6.Enabled = True
+    '    Else
+    '        btnReport6.Enabled = False
+    '    End If
+    'End Sub
 
-    Private Sub lv8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv8.SelectedIndexChanged
-        If lv8.SelectedItems.Count >= 1 Then
-            btnReport8.Enabled = True
-        Else
-            btnReport8.Enabled = False
-        End If
-    End Sub
+    'Private Sub lv8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lv8.SelectedIndexChanged
+    '    If lv8.SelectedItems.Count >= 1 Then
+    '        btnReport8.Enabled = True
+    '    Else
+    '        btnReport8.Enabled = False
+    '    End If
+    'End Sub
 
     Private Sub cmbCourse8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCourse8.SelectedIndexChanged
         cmbType8.DataSource = Nothing
@@ -204,7 +208,8 @@ Public Class frmLeaderboard
     End Sub
 
     Private Sub RefreshLeaderboard6(course As String, type As String, weather As String)
-        lv6.Items.Clear()
+        lvLB6.Clear()
+
         Dim number As Integer = 1
 
         Try
@@ -217,20 +222,14 @@ Public Class frmLeaderboard
                 Dim Lines() As String = Source2.Split("#"c)
                 For Each s As String In Lines
                     Dim result() As String = s.Split(","c)
-                    Dim name As String = result(0)
+                    Dim name As String = result(0).Replace("]", "] ")
                     Dim score As String = result(1)
                     Dim car As String = result(2)
                     Dim id As String = result(3)
                     Dim cpuid As String = result(4)
                     Dim ts As String = result(5)
-                    items = lv6.Items.Add(number)
-                    With items
-                        .SubItems.Add(name)
-                        .SubItems.Add(car)
-                        .SubItems.Add(ScoreToTime(score))
-                        .SubItems.Add(ts)
-                        .Tag = id
-                    End With
+                    Dim tag As Object = id
+                    lvLB6.AddItem(If(number >= 11, $"     {number.ToString()}", number.ToString()), If(number = 1, My.Resources.gold, If(number >= 11, Nothing, My.Resources.silver)), tag, name, car, ScoreToTime(score), ts)
                     number += 1
                 Next
             End If
@@ -241,7 +240,7 @@ Public Class frmLeaderboard
     End Sub
 
     Private Sub RefreshLeaderboard7(course As String, type As String, weather As String)
-        lv7.Items.Clear()
+        lvLB7.Clear()
         Dim number As Integer = 1
 
         Try
@@ -254,20 +253,14 @@ Public Class frmLeaderboard
                 Dim Lines() As String = Source2.Split("#"c)
                 For Each s As String In Lines
                     Dim result() As String = s.Split(","c)
-                    Dim name As String = result(0)
+                    Dim name As String = result(0).Replace("]", "] ")
                     Dim score As String = result(1)
                     Dim car As String = result(2)
                     Dim id As String = result(3)
                     Dim cpuid As String = result(4)
                     Dim ts As String = result(5)
-                    items = lv7.Items.Add(number)
-                    With items
-                        .SubItems.Add(name)
-                        .SubItems.Add(car)
-                        .SubItems.Add(ScoreToTime(score))
-                        .SubItems.Add(ts)
-                        .Tag = id
-                    End With
+                    Dim tag As Object = id
+                    lvLB7.AddItem(If(number >= 11, $"     {number.ToString()}", number.ToString()), If(number = 1, My.Resources.gold, If(number >= 11, Nothing, My.Resources.silver)), tag, name, car, ScoreToTime(score), ts)
                     number += 1
                 Next
             End If
@@ -278,7 +271,7 @@ Public Class frmLeaderboard
     End Sub
 
     Private Sub RefreshLeaderboard8(course As String, type As String, weather As String)
-        lv8.Items.Clear()
+        lvLB8.Clear()
         Dim number As Integer = 1
 
         Try
@@ -291,20 +284,14 @@ Public Class frmLeaderboard
                 Dim Lines() As String = Source2.Split("#"c)
                 For Each s As String In Lines
                     Dim result() As String = s.Split(","c)
-                    Dim name As String = result(0)
+                    Dim name As String = result(0).Replace("]", "] ")
                     Dim score As String = result(1)
                     Dim car As String = result(2)
                     Dim id As String = result(3)
                     Dim cpuid As String = result(4)
                     Dim ts As String = result(5)
-                    items = lv8.Items.Add(number)
-                    With items
-                        .SubItems.Add(name)
-                        .SubItems.Add(car)
-                        .SubItems.Add(ScoreToTime(score))
-                        .SubItems.Add(ts)
-                        .Tag = id
-                    End With
+                    Dim tag As Object = id
+                    lvLB8.AddItem(If(number >= 11, $"     {number.ToString()}", number.ToString()), If(number = 1, My.Resources.gold, If(number >= 11, Nothing, My.Resources.silver)), tag, name, car, ScoreToTime(score), ts)
                     number += 1
                 Next
             End If
@@ -335,6 +322,7 @@ Public Class frmLeaderboard
 
     Private Sub frmLeaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
+        If Not My.Settings.FullScreen Then MaximumSize = My.Computer.Screen.WorkingArea.Size
 
         Translate()
 
@@ -436,21 +424,21 @@ Public Class frmLeaderboard
             btnRefresh6.Text = ReadCfgValue("Refresh", langFile)
             btnRefresh7.Text = btnRefresh6.Text
             btnRefresh8.Text = btnRefresh6.Text
-            chNo6.Text = ReadCfgValue("RankNo", langFile)
-            chNo7.Text = chNo6.Text
-            chName6.Text = ReadCfgValue("RankName", langFile)
-            chName7.Text = chName6.Text
-            chCar6.Text = ReadCfgValue("RankCar", langFile)
-            chCar7.Text = chCar6.Text
-            chTime6.Text = ReadCfgValue("RankTime", langFile)
-            chTime7.Text = chTime6.Text
-            chDate6.Text = ReadCfgValue("RankDate", langFile)
-            chDate7.Text = chDate6.Text
-            chNo8.Text = chNo6.Text
-            chName8.Text = chName6.Text
-            chCar8.Text = chCar6.Text
-            chTime8.Text = chTime6.Text
-            chDate8.Text = chDate6.Text
+            lvLB6.Columns(0).Text = ReadCfgValue("RankNo", langFile)
+            lvLB6.Columns(1).Text = ReadCfgValue("RankName", langFile)
+            lvLB6.Columns(2).Text = ReadCfgValue("RankCar", langFile)
+            lvLB6.Columns(3).Text = ReadCfgValue("RankTime", langFile)
+            lvLB6.Columns(4).Text = ReadCfgValue("RankDate", langFile)
+            lvLB7.Columns(0).Text = ReadCfgValue("RankNo", langFile)
+            lvLB7.Columns(1).Text = ReadCfgValue("RankName", langFile)
+            lvLB7.Columns(2).Text = ReadCfgValue("RankCar", langFile)
+            lvLB7.Columns(3).Text = ReadCfgValue("RankTime", langFile)
+            lvLB7.Columns(4).Text = ReadCfgValue("RankDate", langFile)
+            lvLB8.Columns(0).Text = ReadCfgValue("RankNo", langFile)
+            lvLB8.Columns(1).Text = ReadCfgValue("RankName", langFile)
+            lvLB8.Columns(2).Text = ReadCfgValue("RankCar", langFile)
+            lvLB8.Columns(3).Text = ReadCfgValue("RankTime", langFile)
+            lvLB8.Columns(4).Text = ReadCfgValue("RankDate", langFile)
             LakeAkina = ReadCfgValue("LakeAkina", langFile)
             Myogi = ReadCfgValue("Myogi", langFile)
             Usui = ReadCfgValue("Usui", langFile)
@@ -492,5 +480,10 @@ Public Class frmLeaderboard
         If Me.Location.Y <= -1 Then
             Me.Location = New Point(Me.Location.X, 0)
         End If
+    End Sub
+
+    Protected Overrides Sub OnActivated(ByVal e As System.EventArgs)
+        MyBase.OnActivated(e)
+        Me.Location = LastLocation
     End Sub
 End Class

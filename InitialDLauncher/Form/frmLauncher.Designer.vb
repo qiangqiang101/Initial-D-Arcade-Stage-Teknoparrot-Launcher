@@ -25,6 +25,8 @@ Partial Class frmLauncher
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLauncher))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnMin = New InitialDLauncher.TextButton()
+        Me.btnExit = New InitialDLauncher.TextButton()
         Me.lblStart6 = New InitialDLauncher.TextButton()
         Me.lblStart7 = New InitialDLauncher.TextButton()
         Me.lblLeaderboard = New InitialDLauncher.TextButton()
@@ -40,6 +42,50 @@ Partial Class frmLauncher
         'Timer1
         '
         Me.Timer1.Interval = 5000
+        '
+        'btnMin
+        '
+        Me.btnMin.AddEffect = False
+        Me.btnMin.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMin.BackColor = System.Drawing.Color.Transparent
+        Me.btnMin.DisabledColor = System.Drawing.Color.DarkGray
+        Me.btnMin.EffectAfter = ""
+        Me.btnMin.EffectBefore = Nothing
+        Me.btnMin.EffectWidth = 39
+        Me.btnMin.Font = New System.Drawing.Font("Marlett", 10.0!)
+        Me.btnMin.ForeColor = System.Drawing.Color.Silver
+        Me.btnMin.Location = New System.Drawing.Point(792, 9)
+        Me.btnMin.MouseHoverColor = System.Drawing.Color.White
+        Me.btnMin.MousePressedColor = System.Drawing.Color.Gold
+        Me.btnMin.Name = "btnMin"
+        Me.btnMin.NormalColor = System.Drawing.Color.Silver
+        Me.btnMin.P = Me
+        Me.btnMin.Size = New System.Drawing.Size(19, 19)
+        Me.btnMin.TabIndex = 10
+        Me.btnMin.Text = "0"
+        Me.btnMin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnExit
+        '
+        Me.btnExit.AddEffect = False
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExit.BackColor = System.Drawing.Color.Transparent
+        Me.btnExit.DisabledColor = System.Drawing.Color.DarkGray
+        Me.btnExit.EffectAfter = ""
+        Me.btnExit.EffectBefore = Nothing
+        Me.btnExit.EffectWidth = 39
+        Me.btnExit.Font = New System.Drawing.Font("Marlett", 10.0!)
+        Me.btnExit.ForeColor = System.Drawing.Color.Silver
+        Me.btnExit.Location = New System.Drawing.Point(817, 8)
+        Me.btnExit.MouseHoverColor = System.Drawing.Color.White
+        Me.btnExit.MousePressedColor = System.Drawing.Color.Gold
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.NormalColor = System.Drawing.Color.Silver
+        Me.btnExit.P = Me
+        Me.btnExit.Size = New System.Drawing.Size(19, 19)
+        Me.btnExit.TabIndex = 11
+        Me.btnExit.Text = "r"
+        Me.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblStart6
         '
@@ -271,6 +317,8 @@ Partial Class frmLauncher
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(848, 480)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnMin)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblStart6)
         Me.Controls.Add(Me.lblStart7)
         Me.Controls.Add(Me.lblLeaderboard)
@@ -305,4 +353,6 @@ Partial Class frmLauncher
     Friend WithEvents lblLeaderboard As TextButton
     Friend WithEvents lblLogout As TextButton
     Friend WithEvents lblStart8 As TextButton
+    Friend WithEvents btnMin As TextButton
+    Friend WithEvents btnExit As TextButton
 End Class
