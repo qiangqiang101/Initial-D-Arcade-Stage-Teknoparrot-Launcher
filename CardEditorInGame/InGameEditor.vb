@@ -22,7 +22,7 @@ Public Class CardEditorInGame
 
     Public ReadOnly Property Version As String Implements iPlugin.Version
         Get
-            Version = "1.0"
+            Version = "1.1"
         End Get
     End Property
 
@@ -39,17 +39,17 @@ Public Class CardEditorInGame
     Public Shared Function GetAsyncKeyState(ByVal vKey As Int32) As Short
     End Function
 
-    Shared ReadOnly HWND_TOPMOST As New IntPtr(-1)
-    Shared ReadOnly HWND_NOTOPMOST As New IntPtr(-2)
-    Shared ReadOnly HWND_TOP As New IntPtr(0)
-    Shared ReadOnly HWND_BOTTOM As New IntPtr(1)
-    Const SWP_NOSIZE As UInt32 = &H1
-    Const SWP_NOMOVE As UInt32 = &H2
-    Const TOPMOST_FLAGS As UInt32 = SWP_NOMOVE Or SWP_NOSIZE
-    <DllImport("user32.dll")>
-    Public Shared Function SetWindowPos(hWnd As IntPtr, hWndInsertAfter As IntPtr, X As Integer, Y As Integer, cx As Integer, cy As Integer,
-            uFlags As UInteger) As <MarshalAs(UnmanagedType.Bool)> Boolean
-    End Function
+    'Shared ReadOnly HWND_TOPMOST As New IntPtr(-1)
+    'Shared ReadOnly HWND_NOTOPMOST As New IntPtr(-2)
+    'Shared ReadOnly HWND_TOP As New IntPtr(0)
+    'Shared ReadOnly HWND_BOTTOM As New IntPtr(1)
+    'Const SWP_NOSIZE As UInt32 = &H1
+    'Const SWP_NOMOVE As UInt32 = &H2
+    'Const TOPMOST_FLAGS As UInt32 = SWP_NOMOVE Or SWP_NOSIZE
+    '<DllImport("user32.dll")>
+    'Public Shared Function SetWindowPos(hWnd As IntPtr, hWndInsertAfter As IntPtr, X As Integer, Y As Integer, cx As Integer, cy As Integer,
+    '        uFlags As UInteger) As <MarshalAs(UnmanagedType.Bool)> Boolean
+    'End Function
 
     Public Sub DoSomething() Implements iPlugin.DoSomething
         If File.Exists(".\UserProfiles\ID8.xml") Then
@@ -112,11 +112,11 @@ Public Class CardEditorInGame
             frmEdit.FileName = CardFile
             frmEdit.Extension = cardExt
             frmEdit.CardEditOnly = False
-            frmEdit.TopLevel = True
-            frmEdit.TopMost = True
+            'frmEdit.TopLevel = True
+            'frmEdit.TopMost = True
             frmEdit.Show()
 
-            SetWindowPos(frmEdit.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS)
+            'SetWindowPos(frmEdit.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS)
         Catch ex As Exception
             MsgBox(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

@@ -274,4 +274,8 @@ Public Class frmCard
         MyBase.OnActivated(e)
         Me.Location = LastLocation
     End Sub
+
+    Private Sub frmCard_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
+        LastLocation = Me.Location
+    End Sub
 End Class

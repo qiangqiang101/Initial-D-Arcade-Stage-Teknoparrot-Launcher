@@ -22,7 +22,7 @@ Public Class MouseJailed
 
     Public ReadOnly Property Version As String Implements iPlugin.Version
         Get
-            Version = "1.0"
+            Version = "2.0"
         End Get
     End Property
 
@@ -33,13 +33,15 @@ Public Class MouseJailed
     Public Shared Function GetAsyncKeyState(ByVal vKey As Int32) As Short
     End Function
 
-    Dim modActivated As Boolean = True
+    Dim modActivated As Boolean = My.Settings.AutoEnable
     Dim isGameRunning As Boolean = False
     Dim WithEvents labelS As New Label() With {.Text = "Mouse Jailed", .Location = New Point(289, 9), .Size = New Size(111, 15), .ForeColor = Color.White}
+    Dim WithEvents checkBox As New NSCheckBox() With {.Text = "Mouse Jailed Enable", .Location = New Point(289, 34), .Size = New Size(266, 24), .ForeColor = Color.White, .Font = New Font("Segoe UI", 10, FontStyle.Regular), .Checked = My.Settings.AutoEnable}
     Dim WithEvents comboBox As NSComboBox
 
     Public Sub DoSomething() Implements iPlugin.DoSomething
         frmSettings.pluginControls.Add(labelS)
+        frmSettings.pluginControls.Add(checkBox)
 
         comboBox = New NSComboBox()
         For Each i In [Enum].GetValues(GetType(Keys))
@@ -99,5 +101,17 @@ Public Class MouseJailed
         My.Settings.HotKey = [Enum].Parse(GetType(Keys), comboBox.SelectedItem)
         My.Settings.Index = comboBox.SelectedIndex
         My.Settings.Save()
+    End Sub
+
+    Private Sub checkBox_Disposed(sender As Object, e As EventArgs) Handles checkBox.Disposed
+        frmSettings.pluginControls.Remove(checkBox)
+        checkBox = New NSCheckBox() With {.Text = "Mouse Jailed Enable", .Location = New Point(289, 34), .Size = New Size(266, 24), .ForeColor = Color.White, .Font = New Font("Segoe UI", 10, FontStyle.Regular), .Checked = My.Settings.AutoEnable}
+        frmSettings.pluginControls.Add(checkBox)
+    End Sub
+
+    Private Sub checkBox_CheckedChanged(sender As Object) Handles checkBox.CheckedChanged
+        My.Settings.AutoEnable = checkBox.Checked
+        My.Settings.Save()
+        modActivated = checkBox.Checked
     End Sub
 End Class
