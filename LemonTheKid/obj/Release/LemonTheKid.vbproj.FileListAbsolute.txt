@@ -7,4 +7,3 @@ F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launche
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.xml
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.pdb
 F:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.Resources.resources
-E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\LemonTheKid\obj\Release\Thumbs.dll
