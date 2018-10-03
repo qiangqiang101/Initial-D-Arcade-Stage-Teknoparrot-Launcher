@@ -272,10 +272,10 @@ Public Class frmCard
 
     Protected Overrides Sub OnActivated(ByVal e As System.EventArgs)
         MyBase.OnActivated(e)
-        Me.Location = LastLocation
+        Location = LastLocation
     End Sub
 
-    Private Sub frmCard_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
-        LastLocation = Me.Location
+    Private Sub frmCard_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus, Me.Deactivate
+        LastLocation = Location
     End Sub
 End Class

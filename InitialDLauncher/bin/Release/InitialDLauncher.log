@@ -1,4 +1,51 @@
-14/Sep/2018 11:20:56 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.ReadId6xml() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 283
-14/Sep/2018 11:22:25 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.ReadId6xml() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 262
-14/Sep/2018 11:28:13 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmSettings.ReadId6xml() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmSettings.vb:line 262
-18/Sep/2018 9:09:14 PM:Index was outside the bounds of the array.   at InitialDLauncher.frmLeaderboard.RefreshLeaderboard6(String course, String type, String weather) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLeaderboard.vb:line 208
+25/Sep/2018 6:06:14 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:06:15 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:06:51 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:06:51 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:09:13 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:09:13 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:09:35 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:09:35 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:10:08 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:10:09 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:10:30 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:10:30 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:10:45 AM:Parameter is not valid.   at System.Drawing.Image.get_RawFormat()
+   at System.Drawing.Graphics.DrawImage(Image image, Int32 x, Int32 y)
+   at InitialDLauncher.Avatar.RefreshImage() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Component\Avatar.vb:line 75
+25/Sep/2018 6:10:47 AM:Exception has been thrown by the target of an invocation.   at System.RuntimeMethodHandle.SerializationInvoke(IRuntimeMethodInfo method, Object target, SerializationInfo info, StreamingContext& context)
+   at System.Runtime.Serialization.ObjectManager.CompleteISerializableObject(Object obj, SerializationInfo info, StreamingContext context)
+   at System.Runtime.Serialization.ObjectManager.FixupSpecialObject(ObjectHolder holder)
+   at System.Runtime.Serialization.ObjectManager.DoFixups()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Resources.ResourceReader.DeserializeObject(Int32 typeIndex)
+   at System.Resources.ResourceReader._LoadObjectV2(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.ResourceReader.LoadObjectV2(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.ResourceReader.LoadObject(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.RuntimeResourceSet.GetObject(String key, Boolean ignoreCase, Boolean isString)
+   at System.Resources.RuntimeResourceSet.GetObject(String key, Boolean ignoreCase)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture, Boolean wrapUnmanagedMemStream)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture)
+   at InitialDLauncher.My.Resources.Resources.get_ID8() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\My Project\Resources.Designer.vb:line 917
+   at InitialDLauncher.NSMessageBox.CreateDialog(String text, String caption, Int32 p1, Int32 p2) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Component\Theme.vb:line 5436
+25/Sep/2018 6:10:48 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:10:48 AM:Exception has been thrown by the target of an invocation.   at System.RuntimeMethodHandle.SerializationInvoke(IRuntimeMethodInfo method, Object target, SerializationInfo info, StreamingContext& context)
+   at System.Runtime.Serialization.ObjectManager.CompleteISerializableObject(Object obj, SerializationInfo info, StreamingContext context)
+   at System.Runtime.Serialization.ObjectManager.FixupSpecialObject(ObjectHolder holder)
+   at System.Runtime.Serialization.ObjectManager.DoFixups()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Resources.ResourceReader.DeserializeObject(Int32 typeIndex)
+   at System.Resources.ResourceReader._LoadObjectV2(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.ResourceReader.LoadObjectV2(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.ResourceReader.LoadObject(Int32 pos, ResourceTypeCode& typeCode)
+   at System.Resources.RuntimeResourceSet.GetObject(String key, Boolean ignoreCase, Boolean isString)
+   at System.Resources.RuntimeResourceSet.GetObject(String key, Boolean ignoreCase)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture, Boolean wrapUnmanagedMemStream)
+   at System.Resources.ResourceManager.GetObject(String name, CultureInfo culture)
+   at InitialDLauncher.My.Resources.Resources.get_ID8() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\My Project\Resources.Designer.vb:line 917
+   at InitialDLauncher.NSMessageBox.CreateDialog(String text, String caption, Int32 p1, Int32 p2) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Component\Theme.vb:line 5436
+25/Sep/2018 6:10:48 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:18:36 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382
+25/Sep/2018 6:18:37 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 382

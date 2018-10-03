@@ -115,6 +115,12 @@
     <Compile Include="Form\Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\User Control\CarCtrl.Designer.vb">
+      <DependentUpon>CarCtrl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\User Control\CarCtrl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Form\User Control\Card.Designer.vb">
       <DependentUpon>Card.vb</DependentUpon>
     </Compile>
@@ -258,6 +264,9 @@
     <EmbeddedResource Include="Form\frmLauncher.ja.resx">
       <DependentUpon>frmLauncher.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\User Control\CarCtrl.resx">
+      <DependentUpon>CarCtrl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\User Control\Card.resx">
       <DependentUpon>Card.vb</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +342,57 @@
     <Content Include="ID8.ico" />
     <Content Include="ID8_256.ico" />
     <Content Include="ID8_256_v2.ico" />
+    <None Include="Resources\FT86.jpg" />
+    <None Include="Resources\Z33.jpg" />
+    <None Include="Resources\SUPRA.jpg" />
+    <None Include="Resources\SIL80.jpg" />
+    <None Include="Resources\S2000-CC.jpg" />
+    <None Include="Resources\S2000.jpg" />
+    <None Include="Resources\S15.jpg" />
+    <None Include="Resources\S14.jpg" />
+    <None Include="Resources\S13.jpg" />
+    <None Include="Resources\RX8.jpg" />
+    <None Include="Resources\R35.jpg" />
+    <None Include="Resources\PRIUS.jpg" />
+    <None Include="Resources\NSX.jpg" />
+    <None Include="Resources\NB8C.jpg" />
+    <None Include="Resources\NA8C-Kai.jpg" />
+    <None Include="Resources\NA6CE.jpg" />
+    <None Include="Resources\NA2-CC.jpg" />
+    <None Include="Resources\MRS.jpg" />
+    <None Include="Resources\MR2.jpg" />
+    <None Include="Resources\JZA80-Kai.jpg" />
+    <None Include="Resources\GT86.jpg" />
+    <None Include="Resources\GCBF.jpg" />
+    <None Include="Resources\GCBA.jpg" />
+    <None Include="Resources\GC8.jpg" />
+    <None Include="Resources\FD3SRS.jpg" />
+    <None Include="Resources\FD3S-CC.jpg" />
+    <None Include="Resources\FD3S.jpg" />
+    <None Include="Resources\FC3S.jpg" />
+    <None Include="Resources\EVO10.jpg" />
+    <None Include="Resources\EVO9.jpg" />
+    <None Include="Resources\EVO7.jpg" />
+    <None Include="Resources\EVO6.jpg" />
+    <None Include="Resources\EVO5.jpg" />
+    <None Include="Resources\EVO4.jpg" />
+    <None Include="Resources\EVO3.jpg" />
+    <None Include="Resources\ER34.jpg" />
+    <None Include="Resources\EK9-CC.jpg" />
+    <None Include="Resources\EK9.jpg" />
+    <None Include="Resources\EG6.jpg" />
+    <None Include="Resources\EA11R.jpg" />
+    <None Include="Resources\DC2.jpg" />
+    <None Include="Resources\CELICA.jpg" />
+    <None Include="Resources\BRZ.jpg" />
+    <None Include="Resources\BNR34.jpg" />
+    <None Include="Resources\BNR32.jpg" />
+    <None Include="Resources\ALTEZZA.jpg" />
+    <None Include="Resources\AE862D.jpg" />
+    <None Include="Resources\AE86T.jpg" />
+    <None Include="Resources\AE86L.jpg" />
+    <None Include="Resources\AE85.jpg" />
+    <None Include="Resources\180SX.jpg" />
     <None Include="Resources\gold.png" />
     <None Include="Resources\silver.png" />
     <None Include="packages.config" />

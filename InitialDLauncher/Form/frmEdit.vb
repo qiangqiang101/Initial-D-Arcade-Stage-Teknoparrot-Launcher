@@ -47,6 +47,8 @@ Public Class frmEdit
     Dim accessories_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
     Dim shades_m As Dictionary(Of String, IDAvatar) = New Dictionary(Of String, IDAvatar)
 
+    Dim myCar1, myCar2, myCar3 As New CarCtrl()
+
     Private Sub txtProficiency_TextChanged(sender As Object, e As EventArgs) Handles txtProficiency.TextChanged
         pbEffect.BackgroundImage = My.Resources.prof
         Timer1.Stop()
@@ -149,7 +151,6 @@ Public Class frmEdit
 
     Private Sub cmbTachometer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTachometer.SelectedIndexChanged
         If finishLoading Then
-            'gifImage = New GifImage(My.Resources.ResourceManager.GetObject("T" & cmbTachometer.SelectedIndex))
             pbEffect.BackgroundImage = My.Resources.ResourceManager.GetObject("T" & cmbTachometer.SelectedIndex)
             Timer1.Stop()
         End If
@@ -157,7 +158,6 @@ Public Class frmEdit
 
     Private Sub cmbCup_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCup.SelectedIndexChanged
         If finishLoading AndAlso Not cmbCup.SelectedIndex = 0 Then
-            'gifImage = New GifImage(My.Resources.ResourceManager.GetObject("C" & cmbCup.SelectedIndex))
             pbEffect.BackgroundImage = My.Resources.ResourceManager.GetObject("C" & cmbCup.SelectedIndex)
             Timer1.Stop()
         End If
@@ -222,136 +222,6 @@ Public Class frmEdit
             _version = value
         End Set
     End Property
-
-    Private Sub btnEditCar1_Click(sender As Object, e As EventArgs) Handles btnEditCar1.Click
-        Try
-            If Not cmbCar1.Text = "" Then
-                Dim fe As frmEditCar = New frmEditCar()
-                If frmLauncher.WindowState = FormWindowState.Maximized Then
-                    fe.TopLevel = False
-                    frmLauncher.Controls.Add(fe)
-                End If
-                fe.Car = car1
-                fe.Version = _version
-                fe.FileName = _filename
-                fe.Extension = _extension
-                fe.CarSlot = 1
-                fe.CarName = cmbCar1.Text
-                fe._parentForm = Me
-                fe.Show()
-                fe.Focus()
-            Else
-                Dim ofd As New OpenFileDialog()
-                ofd.Filter = "Car files (*.car)|*.car"
-                ofd.FilterIndex = 1
-                ofd.RestoreDirectory = True
-                ofd.InitialDirectory = My.Application.Info.DirectoryPath
-                If ofd.ShowDialog() = DialogResult.OK Then
-                    Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
-                    File.Copy(_filename, newFileName, True)
-                    Select Case _extension
-                        Case "crd"
-                            SetHex(_filename, &HC4, GetHex(ofd.FileName, &H0, 96))
-                            cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
-                        Case "bin"
-                            SetHex(_filename, Plus3C(&HC4), GetHex(ofd.FileName, &H0, 96))
-                            cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
-                    End Select
-                    NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
-                    Me.Close()
-                End If
-            End If
-        Catch ex As Exception
-            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
-            Logger.Log(ex.Message & ex.StackTrace)
-        End Try
-    End Sub
-
-    Private Sub btnEditCar2_Click(sender As Object, e As EventArgs) Handles btnEditCar2.Click
-        Try
-            If Not cmbCar2.Text = "" Then
-                Dim fe As frmEditCar = New frmEditCar()
-                If frmLauncher.WindowState = FormWindowState.Maximized Then
-                    fe.TopLevel = False
-                    frmLauncher.Controls.Add(fe)
-                End If
-                fe.Car = car2
-                fe.Version = _version
-                fe.FileName = _filename
-                fe.Extension = _extension
-                fe.CarSlot = 2
-                fe.CarName = cmbCar2.Text
-                fe._parentForm = Me
-                fe.Show()
-            Else
-                Dim ofd As New OpenFileDialog()
-                ofd.Filter = "Car files (*.car)|*.car"
-                ofd.FilterIndex = 1
-                ofd.RestoreDirectory = True
-                ofd.InitialDirectory = My.Application.Info.DirectoryPath
-                If ofd.ShowDialog() = DialogResult.OK Then
-                    Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
-                    File.Copy(_filename, newFileName, True)
-                    Select Case _extension
-                        Case "crd"
-                            SetHex(_filename, &H124, GetHex(ofd.FileName, &H0, 96))
-                            cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
-                        Case "bin"
-                            SetHex(_filename, Plus3C(&H124), GetHex(ofd.FileName, &H0, 96))
-                            cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
-                    End Select
-                    NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
-                    Me.Close()
-                End If
-            End If
-        Catch ex As Exception
-            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
-            Logger.Log(ex.Message & ex.StackTrace)
-        End Try
-    End Sub
-
-    Private Sub btnEditCar3_Click(sender As Object, e As EventArgs) Handles btnEditCar3.Click
-        Try
-            If Not cmbCar3.Text = "" Then
-                Dim fe As frmEditCar = New frmEditCar()
-                If frmLauncher.WindowState = FormWindowState.Maximized Then
-                    fe.TopLevel = False
-                    frmLauncher.Controls.Add(fe)
-                End If
-                fe.Car = car3
-                fe.Version = _version
-                fe.FileName = _filename
-                fe.Extension = _extension
-                fe.CarSlot = 3
-                fe.CarName = cmbCar3.Text
-                fe._parentForm = Me
-                fe.Show()
-            Else
-                Dim ofd As New OpenFileDialog()
-                ofd.Filter = "Car files (*.car)|*.car"
-                ofd.FilterIndex = 1
-                ofd.RestoreDirectory = True
-                ofd.InitialDirectory = My.Application.Info.DirectoryPath
-                If ofd.ShowDialog() = DialogResult.OK Then
-                    Dim newFileName As String = String.Format("{0}\{1}.bak", Path.GetDirectoryName(_filename), Path.GetFileName(_filename))
-                    File.Copy(_filename, newFileName, True)
-                    Select Case _extension
-                        Case "crd"
-                            SetHex(_filename, &H184, GetHex(ofd.FileName, &H0, 96))
-                            cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
-                        Case "bin"
-                            SetHex(_filename, Plus3C(&H184), GetHex(ofd.FileName, &H0, 96))
-                            cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
-                    End Select
-                    NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
-                    Me.Close()
-                End If
-            End If
-        Catch ex As Exception
-            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
-            Logger.Log(ex.Message & ex.StackTrace)
-        End Try
-    End Sub
 
     Private _filename As String
     Public Property FileName() As String
@@ -821,63 +691,61 @@ Public Class frmEdit
 
                 SetHex(_filename, &H58, SetValue(cmbPlace.SelectedIndex))
 
-                If GroupBox1.Enabled Then
-                    SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
+                SetHex(_filename, CLng("&HC0"), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
 
-                    Select Case _version
-                        Case 6
-                            If cbLegend.Checked Then SetHex(_filename, CLng("&H222"), HexStringToBinary("218F"))
-                            SetHex(_filename, CLng("&H224"), SetValue(txtChapLevel.Text))
-                            SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
-                            SetHex(_filename, CLng("&HAD"), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
-                            SetHex(_filename, CLng("&H448"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                        Case 7
-                            SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
-                            SetHex(_filename, CLng("&HBD"), HexStringToBinary("20")) 'Unlock X level
-                            SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
-                            SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
-                            SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                            SetHex(_filename, Plus3C(&H374), SetValue(cmbAura7.SelectedIndex))
-                            SetHex(_filename, &H390, HexStringToBinary(SetPridePoint(txtLegend.Text)))
-                            SetHex(_filename, &H392, HexStringToBinary(SetPridePoint(txtTAttack.Text)))
-                            SetHex(_filename, &H394, HexStringToBinary(SetPridePoint(txtNational.Text)))
-                            SetHex(_filename, &H396, HexStringToBinary(SetPridePoint(txtStore.Text)))
-                            SetHex(_filename, &H398, HexStringToBinary(SetPridePoint(txtTag.Text)))
-                            SetHex(_filename, &H39A, HexStringToBinary(SetPridePoint(txtKanto.Text)))
-                            SetHex(_filename, &H39C, HexStringToBinary(SetPridePoint(txtEvent.Text)))
-                            If cbGRumble.Checked Then SetHex(_filename, Plus3C(&H33C), HexStringToBinary("01"))
-                        Case 8
-                            SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
-                            SetHex(_filename, CLng("&H3B0"), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                            SetHex(_filename, CLng(&H3B4), SetValue(cmbAura8.SelectedIndex))
-                            SetHex(_filename, CLng(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
-                            SetHex(_filename, CLng(&H223), SetValue(cmbTachometer.SelectedIndex))
-                            SetHex(_filename, CLng(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
-                            SetHex(_filename, CLng(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
-                            SetHex(_filename, CLng(&H222), SetValue(cmbCup.SelectedIndex))
-                            If cbUnlockExSpec.Checked Then SetHex(_filename, CLng(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
-                            If cbRiseUp.Checked Then SetHex(_filename, &H378, HexStringToBinary("01"))
-                            If cbStorySuperb.Checked Then SetHex(_filename, &H230, HexStringToBinary("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"))
-                            SetHex(_filename, CLng(&H380), HexStringToBinary(SetPridePoint(LakeAkinaP)))
-                            SetHex(_filename, CLng(&H382), HexStringToBinary(SetPridePoint(MyogiP)))
-                            SetHex(_filename, CLng(&H384), HexStringToBinary(SetPridePoint(AkagiP)))
-                            SetHex(_filename, CLng(&H386), HexStringToBinary(SetPridePoint(AkinaP)))
-                            SetHex(_filename, CLng(&H388), HexStringToBinary(SetPridePoint(IrohazkaP)))
-                            SetHex(_filename, CLng(&H38A), HexStringToBinary(SetPridePoint(TsukubaP)))
-                            SetHex(_filename, CLng(&H38C), HexStringToBinary(SetPridePoint(HappogaharaP)))
-                            SetHex(_filename, CLng(&H38E), HexStringToBinary(SetPridePoint(NagaoP)))
-                            SetHex(_filename, CLng(&H390), HexStringToBinary(SetPridePoint(TsubakiLineP)))
-                            SetHex(_filename, CLng(&H392), HexStringToBinary(SetPridePoint(UsuiP)))
-                            SetHex(_filename, CLng(&H394), HexStringToBinary(SetPridePoint(SadamineP)))
-                            SetHex(_filename, CLng(&H396), HexStringToBinary(SetPridePoint(TsuchisakaP)))
-                            SetHex(_filename, CLng(&H398), HexStringToBinary(SetPridePoint(AkinaSnowP)))
-                            SetHex(_filename, CLng(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
-                            SetHex(_filename, CLng(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
-                            SetHex(_filename, CLng(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
-                            If cbStoryHack.Checked Then SetHex(_filename, &H3A0, HexStringToBinary("FF7FFF7FFF7F02"))
-                            If cbInfinitySide.Checked Then SetHex(_filename, &H24A, HexStringToBinary("BC"))
-                    End Select
-                End If
+                Select Case _version
+                    Case 6
+                        If cbLegend.Checked Then SetHex(_filename, CLng("&H222"), HexStringToBinary("218F"))
+                        SetHex(_filename, CLng("&H224"), SetValue(txtChapLevel.Text))
+                        SetHex(_filename, CLng("&HA4"), SetValue(txtLevel.Text))
+                        SetHex(_filename, CLng("&HAD"), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
+                        SetHex(_filename, CLng("&H448"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                    Case 7
+                        SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
+                        SetHex(_filename, CLng("&HBD"), HexStringToBinary("20")) 'Unlock X level
+                        SetHex(_filename, CLng("&HAA"), HexStringToBinary(SetPridePoint(txtSPride.Text)))
+                        SetHex(_filename, CLng("&HAC"), HexStringToBinary(SetPridePoint(txtTPride.Text)))
+                        SetHex(_filename, CLng("&H380"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                        SetHex(_filename, Plus3C(&H374), SetValue(cmbAura7.SelectedIndex))
+                        SetHex(_filename, &H390, HexStringToBinary(SetPridePoint(txtLegend.Text)))
+                        SetHex(_filename, &H392, HexStringToBinary(SetPridePoint(txtTAttack.Text)))
+                        SetHex(_filename, &H394, HexStringToBinary(SetPridePoint(txtNational.Text)))
+                        SetHex(_filename, &H396, HexStringToBinary(SetPridePoint(txtStore.Text)))
+                        SetHex(_filename, &H398, HexStringToBinary(SetPridePoint(txtTag.Text)))
+                        SetHex(_filename, &H39A, HexStringToBinary(SetPridePoint(txtKanto.Text)))
+                        SetHex(_filename, &H39C, HexStringToBinary(SetPridePoint(txtEvent.Text)))
+                        If cbGRumble.Checked Then SetHex(_filename, Plus3C(&H33C), HexStringToBinary("01"))
+                    Case 8
+                        SetHex(_filename, CLng("&HA3"), SetValue(txtLevel.Text))
+                        SetHex(_filename, CLng("&H3B0"), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                        SetHex(_filename, CLng(&H3B4), SetValue(cmbAura8.SelectedIndex))
+                        SetHex(_filename, CLng(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
+                        SetHex(_filename, CLng(&H223), SetValue(cmbTachometer.SelectedIndex))
+                        SetHex(_filename, CLng(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
+                        SetHex(_filename, CLng(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
+                        SetHex(_filename, CLng(&H222), SetValue(cmbCup.SelectedIndex))
+                        If cbUnlockExSpec.Checked Then SetHex(_filename, CLng(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
+                        If cbRiseUp.Checked Then SetHex(_filename, &H378, HexStringToBinary("01"))
+                        If cbStorySuperb.Checked Then SetHex(_filename, &H230, HexStringToBinary("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"))
+                        SetHex(_filename, CLng(&H380), HexStringToBinary(SetPridePoint(LakeAkinaP)))
+                        SetHex(_filename, CLng(&H382), HexStringToBinary(SetPridePoint(MyogiP)))
+                        SetHex(_filename, CLng(&H384), HexStringToBinary(SetPridePoint(AkagiP)))
+                        SetHex(_filename, CLng(&H386), HexStringToBinary(SetPridePoint(AkinaP)))
+                        SetHex(_filename, CLng(&H388), HexStringToBinary(SetPridePoint(IrohazkaP)))
+                        SetHex(_filename, CLng(&H38A), HexStringToBinary(SetPridePoint(TsukubaP)))
+                        SetHex(_filename, CLng(&H38C), HexStringToBinary(SetPridePoint(HappogaharaP)))
+                        SetHex(_filename, CLng(&H38E), HexStringToBinary(SetPridePoint(NagaoP)))
+                        SetHex(_filename, CLng(&H390), HexStringToBinary(SetPridePoint(TsubakiLineP)))
+                        SetHex(_filename, CLng(&H392), HexStringToBinary(SetPridePoint(UsuiP)))
+                        SetHex(_filename, CLng(&H394), HexStringToBinary(SetPridePoint(SadamineP)))
+                        SetHex(_filename, CLng(&H396), HexStringToBinary(SetPridePoint(TsuchisakaP)))
+                        SetHex(_filename, CLng(&H398), HexStringToBinary(SetPridePoint(AkinaSnowP)))
+                        SetHex(_filename, CLng(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
+                        SetHex(_filename, CLng(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
+                        SetHex(_filename, CLng(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
+                        If cbStoryHack.Checked Then SetHex(_filename, &H3A0, HexStringToBinary("FF7FFF7FFF7F02"))
+                        If cbInfinitySide.Checked Then SetHex(_filename, &H24A, HexStringToBinary("BC"))
+                End Select
 
                 'Save Car
                 If car1.Edited Then
@@ -1030,63 +898,61 @@ Public Class frmEdit
 
                 SetHex(_filename, &H1C, SetValue(cmbPlace.SelectedIndex))
 
-                If GroupBox1.Enabled Then
-                    SetHex(_filename, Neg3C(&HC0), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
+                SetHex(_filename, Neg3C(&HC0), HexStringToBinary(SetMilelage(txtGamePoint.Text)))
 
-                    Select Case _version
-                        Case 6
-                            If cbLegend.Checked Then SetHex(_filename, Neg3C(&H222), HexStringToBinary("218F"))
-                            SetHex(_filename, Neg3C(&H224), SetValue(txtChapLevel.Text))
-                            SetHex(_filename, Neg3C(&HA4), SetValue(txtLevel.Text))
-                            SetHex(_filename, Neg3C(&HAD), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
-                            SetHex(_filename, Neg3C(&H448), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                        Case 7
-                            SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
-                            SetHex(_filename, Neg3C(&HBD), HexStringToBinary("20")) 'Unlock X level
-                            SetHex(_filename, Neg3C(&HAA), HexStringToBinary(SetPridePoint(txtSPride.Text)))
-                            SetHex(_filename, Neg3C(&HAC), HexStringToBinary(SetPridePoint(txtTPride.Text)))
-                            SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                            SetHex(_filename, &H374, SetValue(cmbAura7.SelectedIndex))
-                            If cbGRumble.Checked Then SetHex(_filename, &H33C, HexStringToBinary("01"))
-                            SetHex(_filename, Neg3C(&H390), HexStringToBinary(SetPridePoint(txtLegend.Text)))
-                            SetHex(_filename, Neg3C(&H392), HexStringToBinary(SetPridePoint(txtTAttack.Text)))
-                            SetHex(_filename, Neg3C(&H394), HexStringToBinary(SetPridePoint(txtNational.Text)))
-                            SetHex(_filename, Neg3C(&H396), HexStringToBinary(SetPridePoint(txtStore.Text)))
-                            SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(txtTag.Text)))
-                            SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(txtKanto.Text)))
-                            SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(txtEvent.Text)))
-                        Case 8
-                            SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
-                            SetHex(_filename, Neg3C(&H3B0), HexStringToBinary(SetMilelage(txtMileage.Text)))
-                            SetHex(_filename, Neg3C(&H3B4), SetValue(cmbAura8.SelectedIndex))
-                            SetHex(_filename, Neg3C(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
-                            SetHex(_filename, Neg3C(&H223), SetValue(cmbTachometer.SelectedIndex))
-                            SetHex(_filename, Neg3C(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
-                            SetHex(_filename, Neg3C(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
-                            SetHex(_filename, Neg3C(&H222), SetValue(cmbCup.SelectedIndex))
-                            If cbUnlockExSpec.Checked Then SetHex(_filename, Neg3C(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
-                            If cbRiseUp.Checked Then SetHex(_filename, Neg3C(&H378), HexStringToBinary("01"))
-                            If cbStorySuperb.Checked Then SetHex(_filename, Neg3C(&H230), HexStringToBinary("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"))
-                            SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetPridePoint(LakeAkinaP)))
-                            SetHex(_filename, Neg3C(&H382), HexStringToBinary(SetPridePoint(MyogiP)))
-                            SetHex(_filename, Neg3C(&H384), HexStringToBinary(SetPridePoint(AkagiP)))
-                            SetHex(_filename, Neg3C(&H386), HexStringToBinary(SetPridePoint(AkinaP)))
-                            SetHex(_filename, Neg3C(&H388), HexStringToBinary(SetPridePoint(IrohazkaP)))
-                            SetHex(_filename, Neg3C(&H38A), HexStringToBinary(SetPridePoint(TsukubaP)))
-                            SetHex(_filename, Neg3C(&H38C), HexStringToBinary(SetPridePoint(HappogaharaP)))
-                            SetHex(_filename, Neg3C(&H38E), HexStringToBinary(SetPridePoint(NagaoP)))
-                            SetHex(_filename, Neg3C(&H390), HexStringToBinary(SetPridePoint(TsubakiLineP)))
-                            SetHex(_filename, Neg3C(&H392), HexStringToBinary(SetPridePoint(UsuiP)))
-                            SetHex(_filename, Neg3C(&H394), HexStringToBinary(SetPridePoint(SadamineP)))
-                            SetHex(_filename, Neg3C(&H396), HexStringToBinary(SetPridePoint(TsuchisakaP)))
-                            SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(AkinaSnowP)))
-                            SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
-                            SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
-                            SetHex(_filename, Neg3C(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
-                            If cbStoryHack.Checked Then SetHex(_filename, Neg3C(&H3A0), HexStringToBinary("FF7FFF7FFF7F02"))
-                            If cbInfinitySide.Checked Then SetHex(_filename, Neg3C(&H24A), HexStringToBinary("BC"))
-                    End Select
-                End If
+                Select Case _version
+                    Case 6
+                        If cbLegend.Checked Then SetHex(_filename, Neg3C(&H222), HexStringToBinary("218F"))
+                        SetHex(_filename, Neg3C(&H224), SetValue(txtChapLevel.Text))
+                        SetHex(_filename, Neg3C(&HA4), SetValue(txtLevel.Text))
+                        SetHex(_filename, Neg3C(&HAD), HexStringToBinary(SetPridePoint(txtPridePoint.Text)))
+                        SetHex(_filename, Neg3C(&H448), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                    Case 7
+                        SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
+                        SetHex(_filename, Neg3C(&HBD), HexStringToBinary("20")) 'Unlock X level
+                        SetHex(_filename, Neg3C(&HAA), HexStringToBinary(SetPridePoint(txtSPride.Text)))
+                        SetHex(_filename, Neg3C(&HAC), HexStringToBinary(SetPridePoint(txtTPride.Text)))
+                        SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                        SetHex(_filename, &H374, SetValue(cmbAura7.SelectedIndex))
+                        If cbGRumble.Checked Then SetHex(_filename, &H33C, HexStringToBinary("01"))
+                        SetHex(_filename, Neg3C(&H390), HexStringToBinary(SetPridePoint(txtLegend.Text)))
+                        SetHex(_filename, Neg3C(&H392), HexStringToBinary(SetPridePoint(txtTAttack.Text)))
+                        SetHex(_filename, Neg3C(&H394), HexStringToBinary(SetPridePoint(txtNational.Text)))
+                        SetHex(_filename, Neg3C(&H396), HexStringToBinary(SetPridePoint(txtStore.Text)))
+                        SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(txtTag.Text)))
+                        SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(txtKanto.Text)))
+                        SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(txtEvent.Text)))
+                    Case 8
+                        SetHex(_filename, Neg3C(&HA3), SetValue(txtLevel.Text))
+                        SetHex(_filename, Neg3C(&H3B0), HexStringToBinary(SetMilelage(txtMileage.Text)))
+                        SetHex(_filename, Neg3C(&H3B4), SetValue(cmbAura8.SelectedIndex))
+                        SetHex(_filename, Neg3C(&H236), HexStringToBinary(SetPridePoint(txtInfRank.Text)))
+                        SetHex(_filename, Neg3C(&H223), SetValue(cmbTachometer.SelectedIndex))
+                        SetHex(_filename, Neg3C(&H3B5), SetValue(cmbTitleEffect.SelectedIndex))
+                        SetHex(_filename, Neg3C(&H3B6), HexStringToBinary(SetPridePoint(cmbTitle.SelectedIndex + 1)))
+                        SetHex(_filename, Neg3C(&H222), SetValue(cmbCup.SelectedIndex))
+                        If cbUnlockExSpec.Checked Then SetHex(_filename, Neg3C(&H4E8), HexStringToBinary("77777777777777777777777777777777777777777777777777"))
+                        If cbRiseUp.Checked Then SetHex(_filename, Neg3C(&H378), HexStringToBinary("01"))
+                        If cbStorySuperb.Checked Then SetHex(_filename, Neg3C(&H230), HexStringToBinary("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"))
+                        SetHex(_filename, Neg3C(&H380), HexStringToBinary(SetPridePoint(LakeAkinaP)))
+                        SetHex(_filename, Neg3C(&H382), HexStringToBinary(SetPridePoint(MyogiP)))
+                        SetHex(_filename, Neg3C(&H384), HexStringToBinary(SetPridePoint(AkagiP)))
+                        SetHex(_filename, Neg3C(&H386), HexStringToBinary(SetPridePoint(AkinaP)))
+                        SetHex(_filename, Neg3C(&H388), HexStringToBinary(SetPridePoint(IrohazkaP)))
+                        SetHex(_filename, Neg3C(&H38A), HexStringToBinary(SetPridePoint(TsukubaP)))
+                        SetHex(_filename, Neg3C(&H38C), HexStringToBinary(SetPridePoint(HappogaharaP)))
+                        SetHex(_filename, Neg3C(&H38E), HexStringToBinary(SetPridePoint(NagaoP)))
+                        SetHex(_filename, Neg3C(&H390), HexStringToBinary(SetPridePoint(TsubakiLineP)))
+                        SetHex(_filename, Neg3C(&H392), HexStringToBinary(SetPridePoint(UsuiP)))
+                        SetHex(_filename, Neg3C(&H394), HexStringToBinary(SetPridePoint(SadamineP)))
+                        SetHex(_filename, Neg3C(&H396), HexStringToBinary(SetPridePoint(TsuchisakaP)))
+                        SetHex(_filename, Neg3C(&H398), HexStringToBinary(SetPridePoint(AkinaSnowP)))
+                        SetHex(_filename, Neg3C(&H39A), HexStringToBinary(SetPridePoint(HakoneP)))
+                        SetHex(_filename, Neg3C(&H39C), HexStringToBinary(SetPridePoint(MomijiLineP)))
+                        SetHex(_filename, Neg3C(&H39E), HexStringToBinary(SetPridePoint(NanamagariP)))
+                        If cbStoryHack.Checked Then SetHex(_filename, Neg3C(&H3A0), HexStringToBinary("FF7FFF7FFF7F02"))
+                        If cbInfinitySide.Checked Then SetHex(_filename, Neg3C(&H24A), HexStringToBinary("BC"))
+                End Select
 
                 'Save Car
                 If car1.Edited Then
@@ -1193,9 +1059,14 @@ Public Class frmEdit
         TabPage1.Enabled = False
         TabPage2.Enabled = False
         TabPage3.Enabled = False
-        TabPage4.Enabled = False
 
         Translate()
+
+        If _version = 8 Then
+            Avatar1.Visible = True
+        Else
+            pAvatar.Visible = True
+        End If
 
         'Add Gender
         sex.Add(male, "MALE")
@@ -1351,18 +1222,18 @@ Public Class frmEdit
                     txtPridePoint.Text = GetPridePoint(GetHex(_filename, 173, 1), GetHex(_filename, 174, 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, 1096, 1), GetHex(_filename, 1097, 1), GetHex(_filename, 1098, 1), GetHex(_filename, 1099, 1))
                     TabPage1.Enabled = True
-                    cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
-                    cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
-                    cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
+                    myCar1.CarName = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
+                    myCar2.CarName = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
+                    myCar3.CarName = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
                 ElseIf _version = 7 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True)
                     TabPage2.Enabled = True
                     txtSPride.Text = GetPridePoint(GetHex(_filename, 170, 1), GetHex(_filename, 171, 1))
                     txtTPride.Text = GetPridePoint(GetHex(_filename, 172, 1), GetHex(_filename, 173, 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, 896, 1), GetHex(_filename, 897, 1), GetHex(_filename, 898, 1), GetHex(_filename, 899, 1))
-                    cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1))
-                    cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1))
-                    cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1))
+                    myCar1.CarName = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 7)
+                    myCar2.CarName = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 7)
+                    myCar3.CarName = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 7)
                     cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, Plus60(884), 1))
                     txtLegend.Text = GetPridePoint(GetHex(_filename, &H390, 1), GetHex(_filename, &H391, 1))
                     txtTAttack.Text = GetPridePoint(GetHex(_filename, &H392, 1), GetHex(_filename, &H393, 1))
@@ -1373,12 +1244,11 @@ Public Class frmEdit
                     txtEvent.Text = GetPridePoint(GetHex(_filename, &H39C, 1), GetHex(_filename, &H39D, 1))
                 ElseIf _version = 8 Then
                     TabPage3.Enabled = True
-                    TabPage4.Enabled = True
                     txtLevel.Text = GetLevel(GetHex(_filename, 163, 1), True, True)
                     txtMileage.Text = GetMilelage(GetHex(_filename, 944, 1), GetHex(_filename, 945, 1), GetHex(_filename, 946, 1), GetHex(_filename, 947, 1))
-                    cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 8)
-                    cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 8)
-                    cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 8)
+                    myCar1.CarName = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 8)
+                    myCar2.CarName = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 8)
+                    myCar3.CarName = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 8)
                     cmbAura8.SelectedIndex = GetID7Aura(GetHex(_filename, &H3B4, 1))
                     txtInfRank.Text = GetPridePoint(GetHex(_filename, &H236, 1), GetHex(_filename, &H237, 1))
                     cmbTachometer.SelectedIndex = GetTachometer(GetHex(_filename, &H223, 1))
@@ -1407,60 +1277,88 @@ Public Class frmEdit
 
                 End If
 
+
+
+
+
                 'Read Car
-                If Not cmbCar1.Text = "" Then
-                    car1.ReplaceTo = Nothing
-                    car1.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(198), 1))
-                    car1.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(208), 1))
-                    car1.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(209), 1))
-                    car1.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(210), 1))
-                    car1.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(211), 1))
-                    car1.PlateNo = GetPlateNumber(GetHex(_filename, 284, 1), GetHex(_filename, 285, 1), GetHex(_filename, 286, 1))
-                    car1.ClassCode = GetPridePoint(GetHex(_filename, &H11A, 1), GetHex(_filename, &H11B, 1))
-                    car1.Hiragana = GetLevel(GetHex(_filename, 281, 1), True)
-                    car1.PlaceName = GetLevel(GetHex(_filename, 280, 1), True)
-                    car1.Transmission = GetTransmission(GetHex(_filename, 261, 1))
-                    car1.Param = Nothing
-                    car1.FullSpec = False
-                    car1.Engine = ""
-                    car1.Rollbar = ""
-                    car1.Edited = False
+                If Not myCar1.CarName = "" Then
+                    myCar1.Car = car1
+                    myCar1.CarSlot = 1
+                    myCar1.Version = _version
+                    myCar1.FileName = _filename
+                    myCar1.Extension = _extension
+                    myCar1._parentForm = Me
+                    myCar1.pbCar.Image = GetCarImage(myCar1.CarName)
+                    myCar1.Car.ReplaceTo = Nothing
+                    myCar1.Car.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(198), 1))
+                    myCar1.Car.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(208), 1))
+                    myCar1.Car.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(209), 1))
+                    myCar1.Car.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(210), 1))
+                    myCar1.Car.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(211), 1))
+                    myCar1.Car.PlateNo = GetPlateNumber(GetHex(_filename, 284, 1), GetHex(_filename, 285, 1), GetHex(_filename, 286, 1))
+                    myCar1.Car.ClassCode = GetPridePoint(GetHex(_filename, &H11A, 1), GetHex(_filename, &H11B, 1))
+                    myCar1.Car.Hiragana = GetLevel(GetHex(_filename, 281, 1), True)
+                    myCar1.Car.PlaceName = GetLevel(GetHex(_filename, 280, 1), True)
+                    myCar1.Car.Transmission = GetTransmission(GetHex(_filename, 261, 1))
+                    myCar1.Car.Param = Nothing
+                    myCar1.Car.FullSpec = False
+                    myCar1.Car.Engine = ""
+                    myCar1.Car.Rollbar = ""
+                    myCar1.Car.Edited = False
+                    MyFlowLayoutPanel1.FP.Controls.Add(myCar1)
                 End If
-                If Not cmbCar2.Text = "" Then
-                    car2.ReplaceTo = Nothing
-                    car2.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(294), 1))
-                    car2.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(304), 1))
-                    car2.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(305), 1))
-                    car2.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(306), 1))
-                    car2.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(307), 1))
-                    car2.PlateNo = GetPlateNumber(GetHex(_filename, 380, 1), GetHex(_filename, 381, 1), GetHex(_filename, 382, 1))
-                    car2.ClassCode = GetPridePoint(GetHex(_filename, &H17A, 1), GetHex(_filename, &H17B, 1))
-                    car2.Hiragana = GetLevel(GetHex(_filename, 377, 1), True)
-                    car2.PlaceName = GetLevel(GetHex(_filename, 376, 1), True)
-                    car2.Transmission = GetTransmission(GetHex(_filename, 357, 1))
-                    car2.Param = Nothing
-                    car2.FullSpec = False
-                    car2.Engine = ""
-                    car2.Rollbar = ""
-                    car2.Edited = False
+                If Not myCar2.CarName = "" Then
+                    myCar2.Car = car2
+                    myCar2.CarSlot = 2
+                    myCar2.Version = _version
+                    myCar2.FileName = _filename
+                    myCar2.Extension = _extension
+                    myCar2._parentForm = Me
+                    myCar2.pbCar.Image = GetCarImage(myCar2.CarName)
+                    myCar2.Car.ReplaceTo = Nothing
+                    myCar2.Car.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(294), 1))
+                    myCar2.Car.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(304), 1))
+                    myCar2.Car.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(305), 1))
+                    myCar2.Car.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(306), 1))
+                    myCar2.Car.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(307), 1))
+                    myCar2.Car.PlateNo = GetPlateNumber(GetHex(_filename, 380, 1), GetHex(_filename, 381, 1), GetHex(_filename, 382, 1))
+                    myCar2.Car.ClassCode = GetPridePoint(GetHex(_filename, &H17A, 1), GetHex(_filename, &H17B, 1))
+                    myCar2.Car.Hiragana = GetLevel(GetHex(_filename, 377, 1), True)
+                    myCar2.Car.PlaceName = GetLevel(GetHex(_filename, 376, 1), True)
+                    myCar2.Car.Transmission = GetTransmission(GetHex(_filename, 357, 1))
+                    myCar2.Car.Param = Nothing
+                    myCar2.Car.FullSpec = False
+                    myCar2.Car.Engine = ""
+                    myCar2.Car.Rollbar = ""
+                    myCar2.Car.Edited = False
+                    MyFlowLayoutPanel1.FP.Controls.Add(myCar2)
                 End If
-                If Not cmbCar3.Text = "" Then
-                    car3.ReplaceTo = Nothing
-                    car3.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(390), 1))
-                    car3.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(400), 1))
-                    car3.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(401), 1))
-                    car3.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(402), 1))
-                    car3.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(403), 1))
-                    car3.PlateNo = GetPlateNumber(GetHex(_filename, 476, 1), GetHex(_filename, 477, 1), GetHex(_filename, 478, 1))
-                    car3.ClassCode = GetPridePoint(GetHex(_filename, &H1DA, 1), GetHex(_filename, &H1DB, 1))
-                    car3.Hiragana = GetLevel(GetHex(_filename, 473, 1), True)
-                    car3.PlaceName = GetLevel(GetHex(_filename, 472, 1), True)
-                    car3.Transmission = GetTransmission(GetHex(_filename, 453, 1))
-                    car3.Param = Nothing
-                    car3.FullSpec = False
-                    car3.Engine = ""
-                    car3.Rollbar = ""
-                    car3.Edited = False
+                If Not myCar3.CarName = "" Then
+                    myCar3.Car = car3
+                    myCar3.CarSlot = 3
+                    myCar3.Version = _version
+                    myCar3.FileName = _filename
+                    myCar3.Extension = _extension
+                    myCar3._parentForm = Me
+                    myCar3.pbCar.Image = GetCarImage(myCar3.CarName)
+                    myCar3.Car.ReplaceTo = Nothing
+                    myCar3.Car.CarColor = GetHexStringFromBinary(GetHex(_filename, Plus60(390), 1))
+                    myCar3.Car.Sticker1 = GetHexStringFromBinary(GetHex(_filename, Plus60(400), 1))
+                    myCar3.Car.Sticker2 = GetHexStringFromBinary(GetHex(_filename, Plus60(401), 1))
+                    myCar3.Car.Sticker3 = GetHexStringFromBinary(GetHex(_filename, Plus60(402), 1))
+                    myCar3.Car.Sticker4 = GetHexStringFromBinary(GetHex(_filename, Plus60(403), 1))
+                    myCar3.Car.PlateNo = GetPlateNumber(GetHex(_filename, 476, 1), GetHex(_filename, 477, 1), GetHex(_filename, 478, 1))
+                    myCar3.Car.ClassCode = GetPridePoint(GetHex(_filename, &H1DA, 1), GetHex(_filename, &H1DB, 1))
+                    myCar3.Car.Hiragana = GetLevel(GetHex(_filename, 473, 1), True)
+                    myCar3.Car.PlaceName = GetLevel(GetHex(_filename, 472, 1), True)
+                    myCar3.Car.Transmission = GetTransmission(GetHex(_filename, 453, 1))
+                    myCar3.Car.Param = Nothing
+                    myCar3.Car.FullSpec = False
+                    myCar3.Car.Engine = ""
+                    myCar3.Car.Rollbar = ""
+                    myCar3.Car.Edited = False
+                    MyFlowLayoutPanel1.FP.Controls.Add(myCar3)
                 End If
             Else
                 txtName.Text = GetName(GetHex(_filename, Neg60(240), 12))
@@ -1487,18 +1385,18 @@ Public Class frmEdit
                     txtPridePoint.Text = GetPridePoint(GetHex(_filename, Neg60(173), 1), GetHex(_filename, Neg60(174), 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(1096), 1), GetHex(_filename, Neg60(1097), 1), GetHex(_filename, Neg60(1098), 1), GetHex(_filename, Neg60(1099), 1))
                     TabPage1.Enabled = True
-                    cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
-                    cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
-                    cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
+                    myCar1.CarName = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
+                    myCar2.CarName = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
+                    myCar3.CarName = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
                 ElseIf _version = 7 Then
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True)
                     TabPage2.Enabled = True
                     txtSPride.Text = GetPridePoint(GetHex(_filename, Neg60(170), 1), GetHex(_filename, Neg60(171), 1))
                     txtTPride.Text = GetPridePoint(GetHex(_filename, Neg60(172), 1), GetHex(_filename, Neg60(173), 1))
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(896), 1), GetHex(_filename, Neg60(897), 1), GetHex(_filename, Neg60(898), 1), GetHex(_filename, Neg60(899), 1))
-                    cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1))
-                    cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1))
-                    cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1))
+                    myCar1.CarName = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 7)
+                    myCar2.CarName = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 7)
+                    myCar3.CarName = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 7)
                     cmbAura7.SelectedIndex = GetID7Aura(GetHex(_filename, 884, 1))
                     txtLegend.Text = GetPridePoint(GetHex(_filename, Neg3C(&H390), 1), GetHex(_filename, Neg3C(&H391), 1))
                     txtTAttack.Text = GetPridePoint(GetHex(_filename, Neg3C(&H392), 1), GetHex(_filename, Neg3C(&H393), 1))
@@ -1509,12 +1407,11 @@ Public Class frmEdit
                     txtEvent.Text = GetPridePoint(GetHex(_filename, Neg3C(&H39C), 1), GetHex(_filename, Neg3C(&H39D), 1))
                 ElseIf _version = 8 Then
                     TabPage3.Enabled = True
-                    TabPage4.Enabled = True
                     txtLevel.Text = GetLevel(GetHex(_filename, Neg60(163), 1), True, True)
                     txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(944), 1), GetHex(_filename, Neg60(945), 1), GetHex(_filename, Neg60(946), 1), GetHex(_filename, Neg60(947), 1))
-                    cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 8)
-                    cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 8)
-                    cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 8)
+                    myCar1.CarName = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 8)
+                    myCar2.CarName = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 8)
+                    myCar3.CarName = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 8)
                     cmbAura8.SelectedIndex = GetID7Aura(GetHex(_filename, Neg60(&H3B4), 1))
                     txtInfRank.Text = GetPridePoint(GetHex(_filename, Neg60(&H236), 1), GetHex(_filename, Neg60(&H237), 1))
                     cmbTachometer.SelectedIndex = GetTachometer(GetHex(_filename, Neg60(&H223), 1))
@@ -1542,63 +1439,85 @@ Public Class frmEdit
                 End If
 
                 'Read Car
-                If Not cmbCar1.Text = "" Then
-                    car1.ReplaceTo = Nothing
-                    car1.CarColor = GetHexStringFromBinary(GetHex(_filename, 198, 1))
-                    car1.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 208, 1))
-                    car1.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 209, 1))
-                    car1.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 210, 1))
-                    car1.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 211, 1))
-                    car1.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(284), 1), GetHex(_filename, Neg60(285), 1), GetHex(_filename, Neg60(286), 1))
-                    car1.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H11A), 1), GetHex(_filename, Neg3C(&H11B), 1))
-                    car1.Hiragana = GetLevel(GetHex(_filename, Neg60(281), 1), True)
-                    car1.PlaceName = GetLevel(GetHex(_filename, Neg60(280), 1), True)
-                    car1.Transmission = GetTransmission(GetHex(_filename, Neg60(261), 1))
-                    car1.Param = Nothing
-                    car1.FullSpec = False
-                    car1.Engine = ""
-                    car1.Rollbar = ""
-                    car1.Edited = False
+                If Not myCar1.CarName = "" Then
+                    myCar1.Car = car1
+                    myCar1.CarSlot = 1
+                    myCar1.Version = _version
+                    myCar1.FileName = _filename
+                    myCar1.Extension = _extension
+                    myCar1._parentForm = Me
+                    myCar1.pbCar.Image = GetCarImage(myCar1.CarName)
+                    myCar1.Car.ReplaceTo = Nothing
+                    myCar1.Car.CarColor = GetHexStringFromBinary(GetHex(_filename, 198, 1))
+                    myCar1.Car.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 208, 1))
+                    myCar1.Car.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 209, 1))
+                    myCar1.Car.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 210, 1))
+                    myCar1.Car.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 211, 1))
+                    myCar1.Car.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(284), 1), GetHex(_filename, Neg60(285), 1), GetHex(_filename, Neg60(286), 1))
+                    myCar1.Car.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H11A), 1), GetHex(_filename, Neg3C(&H11B), 1))
+                    myCar1.Car.Hiragana = GetLevel(GetHex(_filename, Neg60(281), 1), True)
+                    myCar1.Car.PlaceName = GetLevel(GetHex(_filename, Neg60(280), 1), True)
+                    myCar1.Car.Transmission = GetTransmission(GetHex(_filename, Neg60(261), 1))
+                    myCar1.Car.Param = Nothing
+                    myCar1.Car.FullSpec = False
+                    myCar1.Car.Engine = ""
+                    myCar1.Car.Rollbar = ""
+                    myCar1.Car.Edited = False
+                    MyFlowLayoutPanel1.FP.Controls.Add(myCar1)
                 End If
-                If Not cmbCar2.Text = "" Then
-                    car2.ReplaceTo = Nothing
-                    car2.CarColor = GetHexStringFromBinary(GetHex(_filename, 294, 1))
-                    car2.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 304, 1))
-                    car2.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 305, 1))
-                    car2.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 306, 1))
-                    car2.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 307, 1))
-                    car2.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(380), 1), GetHex(_filename, Neg60(381), 1), GetHex(_filename, Neg60(382), 1))
-                    car2.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H17A), 1), GetHex(_filename, Neg3C(&H17B), 1))
-                    car2.Hiragana = GetLevel(GetHex(_filename, Neg60(377), 1), True)
-                    car2.PlaceName = GetLevel(GetHex(_filename, Neg60(376), 1), True)
-                    car2.Transmission = GetTransmission(GetHex(_filename, Neg60(357), 1))
-                    car2.Param = Nothing
-                    car2.FullSpec = False
-                    car2.Engine = ""
-                    car2.Rollbar = ""
-                    car2.Edited = False
+                If Not myCar2.CarName = "" Then
+                    myCar2.Car = car2
+                    myCar2.CarSlot = 2
+                    myCar2.Version = _version
+                    myCar2.FileName = _filename
+                    myCar2.Extension = _extension
+                    myCar2._parentForm = Me
+                    myCar2.pbCar.Image = GetCarImage(myCar2.CarName)
+                    myCar2.Car.ReplaceTo = Nothing
+                    myCar2.Car.CarColor = GetHexStringFromBinary(GetHex(_filename, 294, 1))
+                    myCar2.Car.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 304, 1))
+                    myCar2.Car.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 305, 1))
+                    myCar2.Car.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 306, 1))
+                    myCar2.Car.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 307, 1))
+                    myCar2.Car.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(380), 1), GetHex(_filename, Neg60(381), 1), GetHex(_filename, Neg60(382), 1))
+                    myCar2.Car.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H17A), 1), GetHex(_filename, Neg3C(&H17B), 1))
+                    myCar2.Car.Hiragana = GetLevel(GetHex(_filename, Neg60(377), 1), True)
+                    myCar2.Car.PlaceName = GetLevel(GetHex(_filename, Neg60(376), 1), True)
+                    myCar2.Car.Transmission = GetTransmission(GetHex(_filename, Neg60(357), 1))
+                    myCar2.Car.Param = Nothing
+                    myCar2.Car.FullSpec = False
+                    myCar2.Car.Engine = ""
+                    myCar2.Car.Rollbar = ""
+                    myCar2.Car.Edited = False
+                    MyFlowLayoutPanel1.FP.Controls.Add(myCar2)
                 End If
-                If Not cmbCar3.Text = "" Then
-                    car3.ReplaceTo = Nothing
-                    car3.CarColor = GetHexStringFromBinary(GetHex(_filename, 390, 1))
-                    car3.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 400, 1))
-                    car3.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 401, 1))
-                    car3.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 402, 1))
-                    car3.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 403, 1))
-                    car3.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(476), 1), GetHex(_filename, Neg60(477), 1), GetHex(_filename, Neg60(478), 1))
-                    car3.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H1DA), 1), GetHex(_filename, Neg3C(&H1DB), 1))
-                    car3.Hiragana = GetLevel(GetHex(_filename, Neg60(473), 1), True)
-                    car3.PlaceName = GetLevel(GetHex(_filename, Neg60(472), 1), True)
-                    car3.Transmission = GetTransmission(GetHex(_filename, Neg60(453), 1))
-                    car3.Param = Nothing
-                    car3.FullSpec = False
-                    car3.Engine = ""
-                    car3.Rollbar = ""
-                    car3.Edited = False
+                If Not myCar3.CarName = "" Then
+                    myCar3.Car = car3
+                    myCar3.CarSlot = 3
+                    myCar3.Version = _version
+                    myCar3.FileName = _filename
+                    myCar3.Extension = _extension
+                    myCar3._parentForm = Me
+                    myCar3.pbCar.Image = GetCarImage(myCar3.CarName)
+                    myCar3.Car.ReplaceTo = Nothing
+                    myCar3.Car.CarColor = GetHexStringFromBinary(GetHex(_filename, 390, 1))
+                    myCar3.Car.Sticker1 = GetHexStringFromBinary(GetHex(_filename, 400, 1))
+                    myCar3.Car.Sticker2 = GetHexStringFromBinary(GetHex(_filename, 401, 1))
+                    myCar3.Car.Sticker3 = GetHexStringFromBinary(GetHex(_filename, 402, 1))
+                    myCar3.Car.Sticker4 = GetHexStringFromBinary(GetHex(_filename, 403, 1))
+                    myCar3.Car.PlateNo = GetPlateNumber(GetHex(_filename, Neg60(476), 1), GetHex(_filename, Neg60(477), 1), GetHex(_filename, Neg60(478), 1))
+                    myCar3.Car.ClassCode = GetPridePoint(GetHex(_filename, Neg3C(&H1DA), 1), GetHex(_filename, Neg3C(&H1DB), 1))
+                    myCar3.Car.Hiragana = GetLevel(GetHex(_filename, Neg60(473), 1), True)
+                    myCar3.Car.PlaceName = GetLevel(GetHex(_filename, Neg60(472), 1), True)
+                    myCar3.Car.Transmission = GetTransmission(GetHex(_filename, Neg60(453), 1))
+                    myCar3.Car.Param = Nothing
+                    myCar3.Car.FullSpec = False
+                    myCar3.Car.Engine = ""
+                    myCar3.Car.Rollbar = ""
+                    myCar3.Car.Edited = False
+                    MyFlowLayoutPanel1.FP.Controls.Add(myCar3)
                 End If
             End If
-
-            Translate2()
 
             finishLoading = True
         Catch ex As Exception
@@ -1617,22 +1536,16 @@ Public Class frmEdit
             Label6.Text = ReadCfgValue("Level", langFile)
             Label7.Text = ReadCfgValue("PridePoint", langFile)
             Label8.Text = ReadCfgValue("ChapterLevel", langFile)
-            Label3.Text = ReadCfgValue("Car1", langFile)
-            Label4.Text = ReadCfgValue("Car2", langFile)
-            Label5.Text = ReadCfgValue("Car3", langFile)
             Label13.Text = ReadCfgValue("Mileage", langFile)
             Label14.Text = ReadCfgValue("GamePoint", langFile)
             Label9.Text = ReadCfgValue("SinglePride", langFile)
             Label11.Text = ReadCfgValue("TagPride", langFile)
             cbLegend.Text = ReadCfgValue("Legend", langFile)
             btnSave.Text = ReadCfgValue("Save", langFile)
-            GroupBox1.Title = ReadCfgValue("Cheat", langFile)
             TabPage1.Text = ReadCfgValue("EditTab6", langFile)
             TabPage2.Text = ReadCfgValue("EditTab7", langFile)
-            TabPage3.Text = ReadCfgValue("EditTab8", langFile) & " #1"
-            TabPage4.Text = ReadCfgValue("EditTab8", langFile) & " #2"
-            GroupBox4.Text = ReadCfgValue("Avatar", langFile)
-            GroupBox4.Title = GroupBox4.Text
+            TabPage3.Text = ReadCfgValue("EditTab8", langFile)
+            tpAvatar.Text = ReadCfgValue("Avatar", langFile)
             Label10.Text = ReadCfgValue("Category", langFile)
             Label12.Text = ReadCfgValue("Selection", langFile)
             mouth_t = ReadCfgValue("Mouth", langFile)
@@ -1655,13 +1568,10 @@ Public Class frmEdit
             male = ReadCfgValue("Male", langFile)
             female = ReadCfgValue("Female", langFile)
             btnSet.Text = ReadCfgValue("Apply", langFile)
-            GroupBox5.Title = ReadCfgValue("Basic", langFile)
+            tpBasic.Text = ReadCfgValue("Basic", langFile)
             cbSaveAvatar.Text = ReadCfgValue("SaveAvatar", langFile)
             coming_soon = ReadCfgValue("ComingSoon", langFile)
             must_select_avatar = ReadCfgValue("MustSelectAvatar", langFile)
-            btnEditCar1.Text = ReadCfgValue("EditBtn", langFile)
-            btnEditCar2.Text = btnEditCar1.Text
-            btnEditCar3.Text = btnEditCar1.Text
             Label15.Text = ReadCfgValue("Aura", langFile)
             Label24.Text = Label15.Text
             a7_none = ReadCfgValue("None", langFile)
@@ -1716,18 +1626,6 @@ Public Class frmEdit
             MomijiLine = ReadCfgValue("MomijiLine", langFile)
             cbStoryHack.Text = ReadCfgValue("D8StoryHack", langFile)
             cbInfinitySide.Text = ReadCfgValue("InfinitySide", langFile)
-        Catch ex As Exception
-            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
-            Logger.Log(ex.Message & ex.StackTrace)
-        End Try
-    End Sub
-
-    Private Sub Translate2()
-        Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
-            If cmbCar1.Text = "" Then btnEditCar1.Text = ReadCfgValue("ImportBtn", langFile)
-            If cmbCar2.Text = "" Then btnEditCar2.Text = ReadCfgValue("ImportBtn", langFile)
-            If cmbCar3.Text = "" Then btnEditCar3.Text = ReadCfgValue("ImportBtn", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

@@ -3248,7 +3248,7 @@
         Me.Location = LastLocation
     End Sub
 
-    Private Sub frmTimeAttack_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
+    Private Sub frmTimeAttack_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus, Me.Deactivate
         LastLocation = Me.Location
     End Sub
 End Class

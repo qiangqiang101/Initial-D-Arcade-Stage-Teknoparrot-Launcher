@@ -1,0 +1,20 @@
+25/Sep/2018 4:06:06 AM:Could not find a part of the path 'C:\Users\Barry\AppData\Local\Microsoft\VisualStudio\14.0\ProjectAssemblies\3lonx5e201\Languages\English.ini'.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.InternalReadAllLines(String path, Encoding encoding)
+   at System.IO.File.ReadAllLines(String path)
+   at InitialDLauncher.CFGread.ReadCfgValue(String key, String file) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\CFGRead.vb:line 3
+   at InitialDLauncher.CarCtrl.Translate() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 170
+25/Sep/2018 4:06:07 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 386
+25/Sep/2018 4:09:21 AM:Could not find a part of the path 'C:\Users\Barry\AppData\Local\Microsoft\VisualStudio\14.0\ProjectAssemblies\xuj64iia01\Languages\English.ini'.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.InternalReadAllLines(String path, Encoding encoding)
+   at System.IO.File.ReadAllLines(String path)
+   at InitialDLauncher.CFGread.ReadCfgValue(String key, String file) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\CFGRead.vb:line 3
+   at InitialDLauncher.CarCtrl.Translate() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 179
+25/Sep/2018 4:09:21 AM:Object reference not set to an instance of an object.   at InitialDLauncher.CarCtrl.CarCtrl_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CarCtrl.vb:line 395

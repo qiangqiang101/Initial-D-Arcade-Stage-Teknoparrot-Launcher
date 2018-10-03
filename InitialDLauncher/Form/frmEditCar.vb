@@ -125,25 +125,25 @@ Public Class frmEditCar
                         Select Case _slot
                             Case 1
                                 SetHex(_filename, &HC4, GetHex(ofd.FileName, &H0, 96))
-                                _parentForm.cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
+                                '_parentForm.cmbCar1.Text = GetCar(GetHex(_filename, Neg60(256), 2), GetHex(_filename, Neg60(271), 1), 6)
                             Case 2
                                 SetHex(_filename, &H124, GetHex(ofd.FileName, &H0, 96))
-                                _parentForm.cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
+                                '_parentForm.cmbCar2.Text = GetCar(GetHex(_filename, Neg60(352), 2), GetHex(_filename, Neg60(367), 1), 6)
                             Case 3
                                 SetHex(_filename, &H184, GetHex(ofd.FileName, &H0, 96))
-                                _parentForm.cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
+                                ' _parentForm.cmbCar3.Text = GetCar(GetHex(_filename, Neg60(448), 2), GetHex(_filename, Neg60(463), 1), 6)
                         End Select
                     Case "bin"
                         Select Case _slot
                             Case 1
                                 SetHex(_filename, Plus3C(&HC4), GetHex(ofd.FileName, &H0, 96))
-                                _parentForm.cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
+                               ' _parentForm.cmbCar1.Text = GetCar(GetHex(_filename, 256, 2), GetHex(_filename, 271, 1), 6)
                             Case 2
                                 SetHex(_filename, Plus3C(&H124), GetHex(ofd.FileName, &H0, 96))
-                                _parentForm.cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
+                               ' _parentForm.cmbCar2.Text = GetCar(GetHex(_filename, 352, 2), GetHex(_filename, 367, 1), 6)
                             Case 3
                                 SetHex(_filename, Plus3C(&H184), GetHex(ofd.FileName, &H0, 96))
-                                _parentForm.cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
+                                ' _parentForm.cmbCar3.Text = GetCar(GetHex(_filename, 448, 2), GetHex(_filename, 463, 1), 6)
                         End Select
                 End Select
                 NSMessageBox.ShowOk(import_complete, MsgBoxStyle.Information, Me.Text)
@@ -462,13 +462,13 @@ Public Class frmEditCar
             Select Case _slot
                 Case 1
                     tCar = _parentForm.car1
-                    If Not cmbCarList.SelectedItem = Nothing Then _parentForm.cmbCar1.Text = cmbCarList.SelectedItem
+                   ' If Not cmbCarList.SelectedItem = Nothing Then _parentForm.cmbCar1.Text = cmbCarList.SelectedItem
                 Case 2
                     tCar = _parentForm.car2
-                    If Not cmbCarList.SelectedItem = Nothing Then _parentForm.cmbCar2.Text = cmbCarList.SelectedItem
+                   ' If Not cmbCarList.SelectedItem = Nothing Then _parentForm.cmbCar2.Text = cmbCarList.SelectedItem
                 Case 3
                     tCar = _parentForm.car3
-                    If Not cmbCarList.SelectedItem = Nothing Then _parentForm.cmbCar3.Text = cmbCarList.SelectedItem
+                    ' If Not cmbCarList.SelectedItem = Nothing Then _parentForm.cmbCar3.Text = cmbCarList.SelectedItem
             End Select
 
             tCar.ReplaceTo = cmbCarList.SelectedItem

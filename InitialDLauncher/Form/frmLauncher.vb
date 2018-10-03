@@ -14,8 +14,8 @@ Public Class frmLauncher
     Dim threadU As Thread
     Public Shared RunGameThread As Thread
     Public shadow As Dropshadow
-    Dim curVer As Integer = 46
-    Public buildDate As String = "21/09/2018"
+    Dim curVer As Integer = 47
+    Public buildDate As String = "23/09/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -292,6 +292,7 @@ Public Class frmLauncher
                     isGameRunning = False
                     Exit Sub
                 ElseIf result = DialogResult.Yes Then
+                    isGameRunning = True
                     If My.Settings.ExtraLaunchOptions.Contains(",") Then
                         For Each item In My.Settings.ExtraLaunchOptions.Split(",")
                             Dim psi = New ProcessStartInfo With {.FileName = "CMD", .Arguments = String.Format("/C start """" ""{0}""", item.Replace(";", "")), .WorkingDirectory = Path.GetDirectoryName(item.Replace(";", "")), .UseShellExecute = True, .CreateNoWindow = False, .WindowStyle = ProcessWindowStyle.Normal}
@@ -314,6 +315,7 @@ Public Class frmLauncher
                     End If
                 End If
             Else
+                isGameRunning = True
                 If My.Settings.ExtraLaunchOptions.Contains(";") Then
                     For Each item In My.Settings.ExtraLaunchOptions.Split(",")
                         Dim psi = New ProcessStartInfo With {.FileName = "CMD", .Arguments = String.Format("/C start """" ""{0}""", item.Replace(";", "")), .WorkingDirectory = Path.GetDirectoryName(item.Replace(";", "")), .UseShellExecute = True, .CreateNoWindow = False, .WindowStyle = ProcessWindowStyle.Normal}
@@ -422,7 +424,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click, lblStart6.EnterPressed
-        isGameRunning = True
+        'isGameRunning = True
         wait(500)
 
         QuickScan(6)
@@ -442,7 +444,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click, lblStart7.EnterPressed
-        isGameRunning = True
+        'isGameRunning = True
         wait(500)
 
         QuickScan(7)
@@ -462,7 +464,7 @@ Public Class frmLauncher
     End Sub
 
     Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click, lblStart8.EnterPressed
-        isGameRunning = True
+        'isGameRunning = True
         wait(500)
 
         QuickScan(8)
@@ -733,7 +735,7 @@ Public Class frmLauncher
                         Process.Start("https://www.imnotmental.com/tool/initial-d-arcade-stage-launcher-teknoparrot/")
                         End
                     Else
-                        Process.Start("https://www.patreon.com/posts/initial-d-arcade-15177342")
+                        Process.Start("https://www.patreon.com/posts/initiald-arcade-16661248")
                         End
                     End If
                 End If

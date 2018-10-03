@@ -13,51 +13,6 @@ Module Helper
     Public SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
     Public SBZZ_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBZZ_e2prom.bin"
 
-    Sub GetGamePath()
-        'Dim pList As List(Of String) = New List(Of String) From {My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id8Path}
-        'If pList.Contains(String.Empty) Then
-        '    If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml") Then
-        '        Dim xd As New XmlDocument()
-        '        xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID6.xml")
-        '        Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
-        '            For Each item As XmlNode In items
-        '                Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-        '                If Not GamePath = "" Then
-        '                    My.Settings.Id6Path = Path.GetDirectoryName(GamePath)
-        '                    My.Settings.Save()
-        '                End If
-        '            Next
-        '        End Using
-        '    End If
-        '    If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml") Then
-        '        Dim xd As New XmlDocument()
-        '        xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID7.xml")
-        '        Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
-        '            For Each item As XmlNode In items
-        '                Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-        '                If Not GamePath = "" Then
-        '                    My.Settings.Id7Path = Path.GetDirectoryName(GamePath)
-        '                    My.Settings.Save()
-        '                End If
-        '            Next
-        '        End Using
-        '    End If
-        '    If File.Exists(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml") Then
-        '        Dim xd As New XmlDocument()
-        '        xd.Load(My.Application.Info.DirectoryPath & "\UserProfiles\ID8.xml")
-        '        Using items As XmlNodeList = xd.DocumentElement.SelectNodes("/GameProfile")
-        '            For Each item As XmlNode In items
-        '                Dim GamePath As String = item.SelectSingleNode("GamePath").InnerText
-        '                If Not GamePath = "" Then
-        '                    My.Settings.Id8Path = Path.GetDirectoryName(GamePath)
-        '                    My.Settings.Save()
-        '                End If
-        '            Next
-        '        End Using
-        '    End If
-        'End If
-    End Sub
-
     Function GetHex(filename As String, offset As Integer, requiredBytes As Integer) As Byte()
         Dim value(0 To requiredBytes - 1) As Byte
         Using reader As New BinaryReader(File.Open(filename, FileMode.Open))
@@ -643,6 +598,128 @@ Module Helper
                 result = "0408"
             Case Else
                 result = "FFFF"
+        End Select
+        Return result
+    End Function
+
+    Function GetCarImage(carName As String) As Bitmap
+        Dim result As Bitmap = Nothing
+        Select Case carName
+            'TOYOTA
+            Case "TRUENO GT-APEX (AE86)"
+                result = My.Resources.AE86T
+            Case "LEVIN GT-APEX (AE86)"
+                result = My.Resources.AE86L
+            Case "LEVIN SR (AE85)"
+                result = My.Resources.AE85
+            Case "86 GT (ZN6)"
+                result = My.Resources.GT86
+            Case "FT-86 G Sports Concept"
+                result = My.Resources.FT86
+            Case "MR2 G-Limited (SW20)"
+                result = My.Resources.MR2
+            Case "MR-S (ZZW30)"
+                result = My.Resources.MRS
+            Case "ALTEZZA RS200 (SXE10)"
+                result = My.Resources.ALTEZZA
+            Case "SUPRA RZ (JZA80)"
+                result = My.Resources.SUPRA
+            Case "PRIUS (ZVW30)"
+                result = My.Resources.PRIUS
+            Case "CELICA GT-FOUR (ST205)"
+                result = My.Resources.CELICA
+            Case "SPRINTER TRUENO 2door GT-APEX (AE86)"
+                result = My.Resources.AE862D
+                'NISSAN
+            Case "SKYLINE GT-R (BNR32)"
+                result = My.Resources.BNR32
+            Case "SKYLINE GT-R (BNR34)"
+                result = My.Resources.BNR34
+            Case "SILVIA K's (S13)"
+                result = My.Resources.S13
+            Case "Silvia Q's (S14)"
+                result = My.Resources.S14
+            Case "Silvia spec-R (S15)"
+                result = My.Resources.S15
+            Case "180SX TYPE II (RPS13)"
+                result = My.Resources._180SX
+            Case "FAIRLADY Z (Z33)"
+                result = My.Resources.Z33
+            Case "GT-R (R35)", "GT-R NISMO (R35)"
+                result = My.Resources.R35
+            Case "SKYLINE 25GT TURBO (ER34)"
+                result = My.Resources.ER34
+                'HONDA
+            Case "Civic SiR・II (EG6)"
+                result = My.Resources.EG6
+            Case "CIVIC TYPE R (EK9)"
+                result = My.Resources.EK9
+            Case "INTEGRA TYPE R (DC2)"
+                result = My.Resources.DC2
+            Case "S2000 (AP1)"
+                result = My.Resources.S2000
+            Case "NSX (NA1)"
+                result = My.Resources.NSX
+                'MAZDA
+            Case "RX-7 ∞III (FC3S)"
+                result = My.Resources.FC3S
+            Case "RX-7 Type R (FD3S)"
+                result = My.Resources.FD3S
+            Case "RX-7 Type RS (FD3S)"
+                result = My.Resources.FD3SRS
+            Case "RX-8 Type S (SE3P)"
+                result = My.Resources.RX8
+            Case "ROADSTER (NA6CE)"
+                result = My.Resources.NA6CE
+            Case "ROADSTER RS (NB8C)"
+                result = My.Resources.NB8C
+                'SUBARU
+            Case "IMPREZA STi Ver.V (GC8)"
+                result = My.Resources.GC8
+            Case "IMPREZA STi (GDBA)"
+                result = My.Resources.GCBA
+            Case "IMPREZA STI (GDBF)"
+                result = My.Resources.GCBF
+            Case "BRZ S (ZC6)"
+                result = My.Resources.BRZ
+                'MITSUBISHI
+            Case "LANCER Evolution III (CE9A)"
+                result = My.Resources.EVO3
+            Case "LANCER EVOLUTION IV (CN9A)"
+                result = My.Resources.EVO4
+            Case "LANCER Evolution VII (CT9A)"
+                result = My.Resources.EVO5
+            Case "LANCER Evolution IX (CT9A)"
+                result = My.Resources.EVO6
+            Case "LANCER EVOLUTION X (CZ4A)"
+                result = My.Resources.EVO7
+            Case "LANCER RS EVOLUTION V (CP9A)"
+                result = My.Resources.EVO9
+            Case "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
+                result = My.Resources.EVO10
+                'SUZUKI
+            Case "Cappuccino (EA11R)"
+                result = My.Resources.EA11R
+                'INITIAL D
+            Case "SILEIGHTY"
+                result = My.Resources.SIL80
+            Case "TRUENO 2door GT-APEX (AE86)"
+                result = My.Resources.AE862D
+                'COMPLETE
+            Case "G-FORCE SUPRA (JZA80-kai)"
+                result = My.Resources.JZA80_Kai
+            Case "MONSTER CIVIC R (EK9)"
+                result = My.Resources.EK9_CC
+            Case "NSX-R GT (NA2)"
+                result = My.Resources.NA2_CC
+            Case "RE Amemiya Genki-7 (FD3S)"
+                result = My.Resources.FD3S_CC
+            Case "S2000 GT1 (AP1)"
+                result = My.Resources.S2000_CC
+            Case "ROADSTER C-SPEC (NA8C Kai)"
+                result = My.Resources.NA8C_Kai
+            Case Else
+                result = New Bitmap(218, 127)
         End Select
         Return result
     End Function
