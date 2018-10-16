@@ -297,37 +297,37 @@ Public Class frmEdit
                                 If item.NormalHex.Contains(c4c5) Then
                                     If d6fsk.list.Contains(item) OrElse d6msk.list.Contains(item) Then
                                         lblc4c5.Text = item.NormalHex
-                                        pbSkin.BackgroundImage = item.Bitmap
+                                        pbSkin.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(c5c6) Then
                                     If d6fsh.list.Contains(item) OrElse d6msh.list.Contains(item) Then
                                         lblc5c6.Text = item.NormalHex
-                                        pbShirt.BackgroundImage = item.Bitmap
+                                        pbShirt.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(c7c8) Then
                                     If d6fey.list.Contains(item) OrElse d6mey.list.Contains(item) Then
                                         lblc7c8.Text = item.NormalHex
-                                        pbEyes.BackgroundImage = item.Bitmap
+                                        pbEyes.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(c8c9) Then
                                     If d6fmo.list.Contains(item) OrElse d6mmo.list.Contains(item) Then
                                         lblc8c9.Text = item.NormalHex
-                                        pbMouth.BackgroundImage = item.Bitmap
+                                        pbMouth.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(cacb) Then
                                     If d6fac.list.contains(item) OrElse d6mac.list.Contains(item) Then
                                         lblcacb.Text = item.NormalHex
-                                        pbAccessories.BackgroundImage = item.Bitmap
+                                        pbAccessories.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(cbcc) Then
                                     If d6fsp.list.Contains(item) OrElse d6msp.list.Contains(item) Then
                                         lblcbcc.Text = item.NormalHex
-                                        pbShades.BackgroundImage = item.Bitmap
+                                        pbShades.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(cdce) Then
                                     If d6fha.list.Contains(item) OrElse d6mha.list.Contains(item) Then
                                         lblcdce.Text = item.NormalHex
-                                        pbHair.BackgroundImage = item.Bitmap
+                                        pbHair.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 End If
                             Catch ex As Exception
@@ -340,8 +340,7 @@ Public Class frmEdit
                     For Each item In d6frm.list
                         If item.NormalHex.Contains(f221) Then
                             lbl221.Text = item.NormalHex
-                            pbFrame.BackgroundImage = item.Bitmap
-                            Avatar1.Frame = item.Bitmap
+                            pbFrame.ChangeBackgroundImage(item.Bitmap)
                         End If
                     Next
                 Case 7
@@ -376,37 +375,37 @@ Public Class frmEdit
                                 If item.NormalHex.Contains(c4c5) Then
                                     If d7fsk.list.Contains(item) OrElse d7msk.list.Contains(item) Then
                                         lblc4c5.Text = item.NormalHex
-                                        pbSkin.BackgroundImage = item.Bitmap
+                                        pbSkin.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(c5c6) Then
                                     If d7fsh.list.Contains(item) OrElse d7msh.list.Contains(item) Then
                                         lblc5c6.Text = item.NormalHex
-                                        pbShirt.BackgroundImage = item.Bitmap
+                                        pbShirt.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(c7c8) Then
                                     If d7fey.list.Contains(item) OrElse d7mey.list.Contains(item) Then
                                         lblc7c8.Text = item.NormalHex
-                                        pbEyes.BackgroundImage = item.Bitmap
+                                        pbEyes.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(c8c9) Then
                                     If d7fmo.list.Contains(item) OrElse d7mmo.list.Contains(item) Then
                                         lblc8c9.Text = item.NormalHex
-                                        pbMouth.BackgroundImage = item.Bitmap
+                                        pbMouth.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(cacb) Then
                                     If d7fac.list.contains(item) OrElse d7mac.list.Contains(item) Then
                                         lblcacb.Text = item.NormalHex
-                                        pbAccessories.BackgroundImage = item.Bitmap
+                                        pbAccessories.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(cbcc) Then
                                     If d7fsp.list.Contains(item) OrElse d7msp.list.Contains(item) Then
                                         lblcbcc.Text = item.NormalHex
-                                        pbShades.BackgroundImage = item.Bitmap
+                                        pbShades.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 ElseIf item.NormalHex.Contains(cdce) Then
                                     If d7fha.list.Contains(item) OrElse d7mha.list.Contains(item) Then
                                         lblcdce.Text = item.NormalHex
-                                        pbHair.BackgroundImage = item.Bitmap
+                                        pbHair.ChangeBackgroundImage(item.Bitmap)
                                     End If
                                 End If
                             Catch ex As Exception
@@ -419,8 +418,7 @@ Public Class frmEdit
                     For Each item In d7frm.list
                         If item.NormalHex.Contains(f221) Then
                             lbl221.Text = item.NormalHex
-                            pbFrame.BackgroundImage = item.Bitmap
-                            Avatar1.Frame = item.Bitmap
+                            pbFrame.ChangeBackgroundImage(item.Bitmap)
                         End If
                     Next
                 Case 8
@@ -455,43 +453,57 @@ Public Class frmEdit
                                 If item.NormalHex.Contains(c4c5) Then
                                     If d8fsk.list.Contains(item) OrElse d8msk.list.Contains(item) Then
                                         lblc4c5.Text = item.NormalHex
-                                        pbSkin.BackgroundImage = item.Bitmap
+                                        pbSkin.ChangeBackgroundImage(item.Bitmap)
+                                        lblc4c5_2.Text = item.NormalHex
+                                        pbSkin2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Face = item.Bitmap
                                     End If
                                 ElseIf item.NormalHex.Contains(c5c6) Then
                                     If d8fsh.list.Contains(item) OrElse d8msh.list.Contains(item) Then
                                         lblc5c6.Text = item.NormalHex
-                                        pbShirt.BackgroundImage = item.Bitmap
+                                        pbShirt.ChangeBackgroundImage(item.Bitmap)
+                                        lblc5c6_2.Text = item.NormalHex
+                                        pbShirt2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Coat = item.Bitmap
                                     End If
                                 ElseIf item.NormalHex.Contains(c7c8) Then
                                     If d8fey.list.Contains(item) OrElse d8mey.list.Contains(item) Then
                                         lblc7c8.Text = item.NormalHex
-                                        pbEyes.BackgroundImage = item.Bitmap
+                                        pbEyes.ChangeBackgroundImage(item.Bitmap)
+                                        lblc7c8_2.Text = item.NormalHex
+                                        pbEyes2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Eyes = item.Bitmap
                                     End If
                                 ElseIf item.NormalHex.Contains(c8c9) Then
                                     If d8fmo.list.Contains(item) OrElse d8mmo.list.Contains(item) Then
                                         lblc8c9.Text = item.NormalHex
-                                        pbMouth.BackgroundImage = item.Bitmap
+                                        pbMouth.ChangeBackgroundImage(item.Bitmap)
+                                        lblc8c9_2.Text = item.NormalHex
+                                        pbMouth2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Mouth = item.Bitmap
                                     End If
                                 ElseIf item.NormalHex.Contains(cacb) Then
                                     If d8fac.list.contains(item) OrElse d8mac.list.Contains(item) Then
                                         lblcacb.Text = item.NormalHex
-                                        pbAccessories.BackgroundImage = item.Bitmap
+                                        pbAccessories.ChangeBackgroundImage(item.Bitmap)
+                                        lblcacb_2.Text = item.NormalHex
+                                        pbAccessories2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Accessory = item.Bitmap
                                     End If
                                 ElseIf item.NormalHex.Contains(cbcc) Then
                                     If d8fsp.list.Contains(item) OrElse d8msp.list.Contains(item) Then
                                         lblcbcc.Text = item.NormalHex
-                                        pbShades.BackgroundImage = item.Bitmap
+                                        pbShades.ChangeBackgroundImage(item.Bitmap)
+                                        lblcbcc_2.Text = item.NormalHex
+                                        pbShades2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Shades = item.Bitmap
                                     End If
                                 ElseIf item.NormalHex.Contains(cdce) Then
                                     If d8fha.list.Contains(item) OrElse d8mha.list.Contains(item) Then
                                         lblcdce.Text = item.NormalHex
-                                        pbHair.BackgroundImage = item.Bitmap
+                                        pbHair.ChangeBackgroundImage(item.Bitmap)
+                                        lblcdce_2.Text = item.NormalHex
+                                        pbHair2.ChangeBackgroundImage(item.Bitmap)
                                         Avatar1.Hair = item.Bitmap
                                     End If
                                 End If
@@ -505,7 +517,9 @@ Public Class frmEdit
                     For Each item In d8frm.list
                         If item.NormalHex.Contains(f221) Then
                             lbl221.Text = item.NormalHex
-                            pbFrame.BackgroundImage = item.Bitmap
+                            pbFrame.ChangeBackgroundImage(item.Bitmap)
+                            lbl221_2.Text = item.NormalHex
+                            pbFrame2.ChangeBackgroundImage(item.Bitmap)
                             Avatar1.Frame = item.Bitmap
                         End If
                     Next
@@ -525,8 +539,8 @@ Public Class frmEdit
             Select Case cmbAvatarCat.SelectedValue.ToString
                 Case "SKIN"
                     lblc4c5.Text = cmbAvatar.SelectedValue.Tag
-                    pbSkin.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Face = cmbAvatar.SelectedValue.Bitmap
+                    pbSkin.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeFaceImage(cmbAvatar.SelectedValue.Bitmap) : lblc4c5_2.Text = cmbAvatar.SelectedValue.Tag : pbSkin2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim C5A = C5.Substring(0, 1)
@@ -535,8 +549,8 @@ Public Class frmEdit
                     C5 = SV
                 Case "SHIRT"
                     lblc5c6.Text = cmbAvatar.SelectedValue.Tag
-                    pbShirt.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Coat = cmbAvatar.SelectedValue.Bitmap
+                    pbShirt.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeCoatImage(cmbAvatar.SelectedValue.Bitmap) : lblc5c6_2.Text = cmbAvatar.SelectedValue.Tag : pbShirt2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim C5B = C5.Substring(C5.Length - 1)
@@ -545,8 +559,8 @@ Public Class frmEdit
                     C6 = SV
                 Case "EYES"
                     lblc7c8.Text = cmbAvatar.SelectedValue.Tag
-                    pbEyes.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Eyes = cmbAvatar.SelectedValue.Bitmap
+                    pbEyes.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeEyesImage(cmbAvatar.SelectedValue.Bitmap) : lblc7c8_2.Text = cmbAvatar.SelectedValue.Tag : pbEyes2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim C8A = C8.Substring(0, 1)
@@ -555,8 +569,8 @@ Public Class frmEdit
                     C8 = SV
                 Case "MOUTH"
                     lblc8c9.Text = cmbAvatar.SelectedValue.Tag
-                    pbMouth.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Mouth = cmbAvatar.SelectedValue.Bitmap
+                    pbMouth.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeMouthImage(cmbAvatar.SelectedValue.Bitmap) : lblc8c9_2.Text = cmbAvatar.SelectedValue.Tag : pbMouth2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim C8B = C8.Substring(C8.Length - 1)
@@ -565,8 +579,8 @@ Public Class frmEdit
                     C9 = SV
                 Case "ACCESSORIES"
                     lblcacb.Text = cmbAvatar.SelectedValue.Tag
-                    pbAccessories.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Accessory = cmbAvatar.SelectedValue.Bitmap
+                    pbAccessories.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeAccessoryImage(cmbAvatar.SelectedValue.Bitmap) : lblcacb_2.Text = cmbAvatar.SelectedValue.Tag : pbAccessories2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     Dim CBA = CB.Substring(0, 1)
@@ -575,8 +589,8 @@ Public Class frmEdit
                     CB = SV
                 Case "SHADES"
                     lblcbcc.Text = cmbAvatar.SelectedValue.Tag
-                    pbShades.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Shades = cmbAvatar.SelectedValue.Bitmap
+                    pbShades.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeShadesImage(cmbAvatar.SelectedValue.Bitmap) : lblcbcc_2.Text = cmbAvatar.SelectedValue.Tag : pbShades2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '0X
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    '00
                     Dim CBB = CB.Substring(CB.Length - 1)
@@ -585,8 +599,8 @@ Public Class frmEdit
                     CC = SV
                 Case "HAIR"
                     lblcdce.Text = cmbAvatar.SelectedValue.Tag
-                    pbHair.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Hair = cmbAvatar.SelectedValue.Bitmap
+                    pbHair.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeHairImage(cmbAvatar.SelectedValue.Bitmap) : lblcdce_2.Text = cmbAvatar.SelectedValue.Tag : pbHair2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.Tag.Substring(0, 2)                                           '00
                     Dim SV = cmbAvatar.SelectedValue.Tag.Substring(cmbAvatar.SelectedValue.Tag.Length - 2)    'X0
                     SV = SV.Replace("X", "0")
@@ -594,8 +608,8 @@ Public Class frmEdit
                     CE = SV
                 Case "FRAME"
                     lbl221.Text = cmbAvatar.SelectedValue.tag
-                    pbFrame.BackgroundImage = cmbAvatar.SelectedValue.Bitmap
-                    If _version = 8 Then Avatar1.Frame = cmbAvatar.SelectedValue.Bitmap
+                    pbFrame.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
+                    If _version = 8 Then Avatar1.ChangeFrameImage(cmbAvatar.SelectedValue.Bitmap) : lbl221_2.Text = cmbAvatar.SelectedValue.Tag : pbFrame2.ChangeBackgroundImage(cmbAvatar.SelectedValue.Bitmap)
                     Dim FV = cmbAvatar.SelectedValue.tag
                     _221 = FV
             End Select
@@ -1064,6 +1078,7 @@ Public Class frmEdit
 
         If _version = 8 Then
             Avatar1.Visible = True
+            pAvatar2.Visible = True
         Else
             pAvatar.Visible = True
         End If
@@ -1181,6 +1196,14 @@ Public Class frmEdit
         lblcbcc.Visible = My.Settings.DebugMode
         lblcdce.Visible = My.Settings.DebugMode
         lbl221.Visible = My.Settings.DebugMode
+        lblc4c5_2.Visible = My.Settings.DebugMode
+        lblc5c6_2.Visible = My.Settings.DebugMode
+        lblc7c8_2.Visible = My.Settings.DebugMode
+        lblc8c9_2.Visible = My.Settings.DebugMode
+        lblcacb_2.Visible = My.Settings.DebugMode
+        lblcbcc_2.Visible = My.Settings.DebugMode
+        lblcdce_2.Visible = My.Settings.DebugMode
+        lbl221_2.Visible = My.Settings.DebugMode
 
         Try
             If _extension = "bin" Then
@@ -1555,6 +1578,7 @@ Public Class frmEdit
             shades_t = ReadCfgValue("Specs", langFile)
             hair_t = ReadCfgValue("Hair", langFile)
             shirt_t = ReadCfgValue("Shirt", langFile)
+            frame_t = ReadCfgValue("Frame", langFile)
             slblMouth.Text = mouth_t
             slblEyes.Text = eyes_t
             slblSkin.Text = face_skin_t
@@ -1562,13 +1586,21 @@ Public Class frmEdit
             slblShades.Text = shades_t
             slblHair.Text = hair_t
             slblShirt.Text = shirt_t
-            frame_t = ReadCfgValue("Frame", langFile)
             slblFrame.Text = frame_t
+            slblMouth2.Text = mouth_t
+            slblEyes2.Text = eyes_t
+            slblSkin2.Text = face_skin_t
+            slblAccessories2.Text = accessories_t
+            slblShades2.Text = shades_t
+            slblHair2.Text = hair_t
+            slblShirt2.Text = shirt_t
+            slblFrame2.Text = frame_t
             slblPreview.Text = ReadCfgValue("Preview", langFile)
             male = ReadCfgValue("Male", langFile)
             female = ReadCfgValue("Female", langFile)
             btnSet.Text = ReadCfgValue("Apply", langFile)
             tpBasic.Text = ReadCfgValue("Basic", langFile)
+            tpCar.Text = ReadCfgValue("CarEditor", langFile)
             cbSaveAvatar.Text = ReadCfgValue("SaveAvatar", langFile)
             coming_soon = ReadCfgValue("ComingSoon", langFile)
             must_select_avatar = ReadCfgValue("MustSelectAvatar", langFile)

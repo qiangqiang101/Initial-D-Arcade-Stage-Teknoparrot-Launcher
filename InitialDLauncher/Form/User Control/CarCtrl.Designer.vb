@@ -55,12 +55,14 @@ Partial Class CarCtrl
         Me.btnSave = New InitialDLauncher.NSButton()
         Me.btnLoad = New InitialDLauncher.NSButton()
         Me.btnApply = New InitialDLauncher.NSButton()
+        Me.NsGroupBox1 = New InitialDLauncher.NSGroupBox()
         CType(Me.pbCar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pbCar.SuspendLayout()
         Me.NsTabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.NsGroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pbCar
@@ -104,7 +106,7 @@ Partial Class CarCtrl
         Me.cmbSticker4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSticker4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbSticker4.FormattingEnabled = True
-        Me.cmbSticker4.Location = New System.Drawing.Point(102, 96)
+        Me.cmbSticker4.Location = New System.Drawing.Point(101, 96)
         Me.cmbSticker4.Name = "cmbSticker4"
         Me.cmbSticker4.Size = New System.Drawing.Size(150, 24)
         Me.cmbSticker4.TabIndex = 13
@@ -116,7 +118,7 @@ Partial Class CarCtrl
         Me.cmbSticker3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSticker3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbSticker3.FormattingEnabled = True
-        Me.cmbSticker3.Location = New System.Drawing.Point(102, 66)
+        Me.cmbSticker3.Location = New System.Drawing.Point(101, 66)
         Me.cmbSticker3.Name = "cmbSticker3"
         Me.cmbSticker3.Size = New System.Drawing.Size(150, 24)
         Me.cmbSticker3.TabIndex = 12
@@ -148,7 +150,7 @@ Partial Class CarCtrl
         Me.cmbSticker2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSticker2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbSticker2.FormattingEnabled = True
-        Me.cmbSticker2.Location = New System.Drawing.Point(102, 36)
+        Me.cmbSticker2.Location = New System.Drawing.Point(101, 36)
         Me.cmbSticker2.Name = "cmbSticker2"
         Me.cmbSticker2.Size = New System.Drawing.Size(150, 24)
         Me.cmbSticker2.TabIndex = 11
@@ -160,7 +162,7 @@ Partial Class CarCtrl
         Me.cmbSticker1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSticker1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbSticker1.FormattingEnabled = True
-        Me.cmbSticker1.Location = New System.Drawing.Point(102, 6)
+        Me.cmbSticker1.Location = New System.Drawing.Point(101, 6)
         Me.cmbSticker1.Name = "cmbSticker1"
         Me.cmbSticker1.Size = New System.Drawing.Size(150, 24)
         Me.cmbSticker1.TabIndex = 10
@@ -182,16 +184,16 @@ Partial Class CarCtrl
         Me.cmbColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbColor.FormattingEnabled = True
-        Me.cmbColor.Location = New System.Drawing.Point(71, 136)
+        Me.cmbColor.Location = New System.Drawing.Point(46, 136)
         Me.cmbColor.Name = "cmbColor"
-        Me.cmbColor.Size = New System.Drawing.Size(150, 24)
+        Me.cmbColor.Size = New System.Drawing.Size(175, 24)
         Me.cmbColor.TabIndex = 62
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(0, 139)
+        Me.Label4.Location = New System.Drawing.Point(4, 139)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(36, 15)
         Me.Label4.TabIndex = 63
@@ -200,7 +202,7 @@ Partial Class CarCtrl
         'txtClassCode
         '
         Me.txtClassCode.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtClassCode.Location = New System.Drawing.Point(103, 36)
+        Me.txtClassCode.Location = New System.Drawing.Point(101, 36)
         Me.txtClassCode.MaxLength = 3
         Me.txtClassCode.Multiline = False
         Me.txtClassCode.Name = "txtClassCode"
@@ -214,7 +216,7 @@ Partial Class CarCtrl
         'Label12
         '
         Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(5, 33)
+        Me.Label12.Location = New System.Drawing.Point(6, 36)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(83, 24)
         Me.Label12.TabIndex = 61
@@ -224,7 +226,7 @@ Partial Class CarCtrl
         'Label7
         '
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(5, 94)
+        Me.Label7.Location = New System.Drawing.Point(6, 97)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(92, 24)
         Me.Label7.TabIndex = 60
@@ -239,7 +241,7 @@ Partial Class CarCtrl
         Me.cmbPlace.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbPlace.FormattingEnabled = True
         Me.cmbPlace.Items.AddRange(New Object() {"札幌", "函館", "旭川", "室蘭", "釧路", "帯広", "北見", "青森", "八戸", "岩手", "宮城", "仙台", "福島", "いわき", "会津", "山形", "庄内", "秋田", "水戸", "土浦", "つくば", "栃木", "宇都宮", "とちぎ", "那須", "群馬", "高崎", "千葉", "野田", "習志野", "袖ヶ浦", "成田", "柏", "大宮", "熊谷", "春日部", "所沢", "川越", "品川", "足立", "練馬", "多摩", "八王子", "横浜", "川崎", "相模", "湘南", "山梨", "新潟", "長岡", "長野", "松本", "諏訪", "富山", "石川", "金沢", "名古屋", "三河", "尾張小牧", "豊橋", "豊田", "岡崎", "一宮", "静岡", "沼津", "浜松", "伊豆", "岐阜", "飛騨", "三重", "鈴鹿", "福井", "大阪", "なにわ", "和泉", "堺", "京都", "奈良", "滋賀", "和歌山", "神戸", "姫路", "広島", "福山", "鳥取", "島根", "岡山", "倉敷", "山口", "下関", "徳島", "香川", "愛媛", "高知", "福岡", "北九州", "筑豊", "久留米", "佐賀", "長崎", "佐世保", "熊本", "大分", "宮崎", "鹿児島", "沖縄", "富士山"})
-        Me.cmbPlace.Location = New System.Drawing.Point(103, 96)
+        Me.cmbPlace.Location = New System.Drawing.Point(101, 96)
         Me.cmbPlace.Name = "cmbPlace"
         Me.cmbPlace.Size = New System.Drawing.Size(150, 24)
         Me.cmbPlace.TabIndex = 23
@@ -252,7 +254,7 @@ Partial Class CarCtrl
         Me.cmbHiragana.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbHiragana.FormattingEnabled = True
         Me.cmbHiragana.Items.AddRange(New Object() {"あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ", "さ"})
-        Me.cmbHiragana.Location = New System.Drawing.Point(103, 66)
+        Me.cmbHiragana.Location = New System.Drawing.Point(101, 66)
         Me.cmbHiragana.Name = "cmbHiragana"
         Me.cmbHiragana.Size = New System.Drawing.Size(150, 24)
         Me.cmbHiragana.TabIndex = 22
@@ -260,7 +262,7 @@ Partial Class CarCtrl
         'txtNumberPlate
         '
         Me.txtNumberPlate.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtNumberPlate.Location = New System.Drawing.Point(103, 6)
+        Me.txtNumberPlate.Location = New System.Drawing.Point(101, 6)
         Me.txtNumberPlate.MaxLength = 5
         Me.txtNumberPlate.Multiline = False
         Me.txtNumberPlate.Name = "txtNumberPlate"
@@ -274,7 +276,7 @@ Partial Class CarCtrl
         'Label5
         '
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(5, 64)
+        Me.Label5.Location = New System.Drawing.Point(6, 67)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(92, 24)
         Me.Label5.TabIndex = 53
@@ -284,7 +286,7 @@ Partial Class CarCtrl
         'Label6
         '
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(5, 3)
+        Me.Label6.Location = New System.Drawing.Point(6, 6)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(83, 24)
         Me.Label6.TabIndex = 12
@@ -309,7 +311,7 @@ Partial Class CarCtrl
         Me.cmbRollbar.Enabled = False
         Me.cmbRollbar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbRollbar.FormattingEnabled = True
-        Me.cmbRollbar.Location = New System.Drawing.Point(102, 96)
+        Me.cmbRollbar.Location = New System.Drawing.Point(101, 96)
         Me.cmbRollbar.Name = "cmbRollbar"
         Me.cmbRollbar.Size = New System.Drawing.Size(150, 24)
         Me.cmbRollbar.TabIndex = 32
@@ -333,7 +335,7 @@ Partial Class CarCtrl
         Me.cmbEngine.Enabled = False
         Me.cmbEngine.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.cmbEngine.FormattingEnabled = True
-        Me.cmbEngine.Location = New System.Drawing.Point(102, 66)
+        Me.cmbEngine.Location = New System.Drawing.Point(101, 68)
         Me.cmbEngine.Name = "cmbEngine"
         Me.cmbEngine.Size = New System.Drawing.Size(150, 24)
         Me.cmbEngine.TabIndex = 31
@@ -370,7 +372,7 @@ Partial Class CarCtrl
         Me.NsTabControl1.Multiline = True
         Me.NsTabControl1.Name = "NsTabControl1"
         Me.NsTabControl1.SelectedIndex = 0
-        Me.NsTabControl1.Size = New System.Drawing.Size(375, 158)
+        Me.NsTabControl1.Size = New System.Drawing.Size(375, 157)
         Me.NsTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.NsTabControl1.TabIndex = 66
         '
@@ -388,7 +390,7 @@ Partial Class CarCtrl
         Me.TabPage1.Location = New System.Drawing.Point(114, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(257, 150)
+        Me.TabPage1.Size = New System.Drawing.Size(257, 149)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Event Stickers"
         '
@@ -406,7 +408,7 @@ Partial Class CarCtrl
         Me.TabPage2.Location = New System.Drawing.Point(114, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(257, 150)
+        Me.TabPage2.Size = New System.Drawing.Size(257, 149)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Number Plate"
         '
@@ -422,7 +424,7 @@ Partial Class CarCtrl
         Me.TabPage3.Location = New System.Drawing.Point(114, 4)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(257, 150)
+        Me.TabPage3.Size = New System.Drawing.Size(257, 149)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Performance    Parts"
         '
@@ -447,35 +449,49 @@ Partial Class CarCtrl
         'btnApply
         '
         Me.btnApply.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnApply.Location = New System.Drawing.Point(608, 116)
+        Me.btnApply.Location = New System.Drawing.Point(608, 115)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(65, 45)
         Me.btnApply.TabIndex = 69
         Me.btnApply.Text = "Apply"
+        '
+        'NsGroupBox1
+        '
+        Me.NsGroupBox1.Controls.Add(Me.btnApply)
+        Me.NsGroupBox1.Controls.Add(Me.pbCar)
+        Me.NsGroupBox1.Controls.Add(Me.btnLoad)
+        Me.NsGroupBox1.Controls.Add(Me.Label4)
+        Me.NsGroupBox1.Controls.Add(Me.btnSave)
+        Me.NsGroupBox1.Controls.Add(Me.cmbColor)
+        Me.NsGroupBox1.Controls.Add(Me.NsTabControl1)
+        Me.NsGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NsGroupBox1.DrawSeperator = False
+        Me.NsGroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.NsGroupBox1.Name = "NsGroupBox1"
+        Me.NsGroupBox1.Size = New System.Drawing.Size(676, 163)
+        Me.NsGroupBox1.SubTitle = ""
+        Me.NsGroupBox1.TabIndex = 70
+        Me.NsGroupBox1.Text = "NsGroupBox1"
+        Me.NsGroupBox1.Title = ""
         '
         'CarCtrl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.Controls.Add(Me.btnApply)
-        Me.Controls.Add(Me.btnLoad)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.NsTabControl1)
-        Me.Controls.Add(Me.cmbColor)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.pbCar)
+        Me.Controls.Add(Me.NsGroupBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Name = "CarCtrl"
-        Me.Size = New System.Drawing.Size(676, 164)
+        Me.Size = New System.Drawing.Size(676, 163)
         CType(Me.pbCar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pbCar.ResumeLayout(False)
         Me.NsTabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
+        Me.NsGroupBox1.ResumeLayout(False)
+        Me.NsGroupBox1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -512,4 +528,5 @@ Partial Class CarCtrl
     Friend WithEvents btnSave As NSButton
     Friend WithEvents btnLoad As NSButton
     Friend WithEvents btnApply As NSButton
+    Friend WithEvents NsGroupBox1 As NSGroupBox
 End Class

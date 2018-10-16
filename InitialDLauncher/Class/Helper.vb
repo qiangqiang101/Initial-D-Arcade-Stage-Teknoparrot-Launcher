@@ -123,7 +123,7 @@ Module Helper
         Dim back2 As String = "00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF"
         Dim none As String = "00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF"
         Select Case carname
-            'TOYOTA
+      'TOYOTA
             Case "TRUENO GT-APEX (AE86)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("1754", New List(Of String)(New String() {"21", "22", "70"}), New List(Of String)(New String() {"Turbo", "Supercharger", "Racing"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
             Case "LEVIN GT-APEX (AE86)"
@@ -142,7 +142,7 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222C", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
             Case "PRIUS (ZVW30)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("1722", New List(Of String)(New String() {"A0"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
-                'NISSAN
+        'NISSAN
             Case "SKYLINE GT-R (BNR32)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("3316", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "SKYLINE GT-R (BNR34)"
@@ -159,7 +159,7 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222C", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
             Case "GT-R (R35)", "GT-R NISMO (R35)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222E", New List(Of String)(New String() {"00"}), New List(Of String)(New String() {"None"}), New List(Of String)(New String() {none}), New List(Of String)(New String() {"None"}))
-                'HONDA
+        'HONDA
             Case "Civic SiR・II (EG6)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("4452", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
             Case "CIVIC TYPE R (EK9)"
@@ -170,7 +170,7 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("662C", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
             Case "NSX (NA1)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("4411", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
-                'MAZDA
+        'MAZDA
             Case "RX-7 ∞III (FC3S)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("2254", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "RX-7 Type R (FD3S)"
@@ -183,14 +183,14 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("3354", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
             Case "ROADSTER RS (NB8C)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("336C", New List(Of String)(New String() {"20"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
-                'SUBARU
+        'SUBARU
             Case "IMPREZA STi Ver.V (GC8)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("3356", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "IMPREZA STi (GDBA)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("442E", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "IMPREZA STI (GDBF)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("442E", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
-                'MITSUBISHI
+        'MITSUBISHI
             Case "LANCER Evolution III (CE9A)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("2256", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "LANCER EVOLUTION IV (CN9A)"
@@ -201,15 +201,15 @@ Module Helper
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222E", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "LANCER EVOLUTION X (CZ4A)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222E", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
-                'SUZUKI
+        'SUZUKI
             Case "Cappuccino (EA11R)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("55C4", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
-                'INITIAL D
+        'INITIAL D
             Case "SILEIGHTY"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("3354", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "TRUENO 2door GT-APEX (AE86)", "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("1154", New List(Of String)(New String() {"21", "22", "20"}), New List(Of String)(New String() {"Turbo", "Supercharger", "Stock"}), New List(Of String)(New String() {"01BC0194" & back}), New List(Of String)(New String() {"None"}))
-                'COMPLETE
+        'COMPLETE
             Case "G-FORCE SUPRA (JZA80-kai)"
                 result = New Tuple(Of String, List(Of String), List(Of String), List(Of String), List(Of String))("222C", New List(Of String)(New String() {"21"}), New List(Of String)(New String() {"Fullspec"}), New List(Of String)(New String() {"01BC019401BF" & back2}), New List(Of String)(New String() {"None"}))
             Case "MONSTER CIVIC R (EK9)"
@@ -230,115 +230,115 @@ Module Helper
         Dim result As Tuple(Of String, List(Of String), List(Of String)) = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {Nothing}), New List(Of String)(New String() {Nothing}))
 
         Select Case carname
-            'TOYOTA
+      'TOYOTA
             Case "TRUENO GT-APEX (AE86)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LEVIN GT-APEX (AE86)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "LIGHT GREEN", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "LIGHT GREEN", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LEVIN SR (AE85)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WHITE", "RED", "SILVER METALLIC", "YELLOW", "BLUE", "LIGHT BLUE", "BLACK", "ORANGE", "LIGHT GREEN", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WHITE", "RED", "SILVER METALLIC", "YELLOW", "BLUE", "LIGHT BLUE", "BLACK", "ORANGE", "LIGHT GREEN", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "86 GT (ZN6)", "FT-86 G Sports Concept"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"LIGHTNING RED", "SATIN WHITE PEARL", "STERLING SILVER METALLIC", "DARK GREY METALLIC", "CRYSTAL BLACK SILICA", "ORANGE METALLIC", "GALAXY BLUE SILICA", "HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "STERLING SILVER TWO TONE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"LIGHTNING RED", "SATIN WHITE PEARL", "STERLING SILVER METALLIC", "DARK GREY METALLIC", "CRYSTAL BLACK SILICA", "ORANGE METALLIC", "GALAXY BLUE SILICA", "HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "STERLING SILVER TWO TONE", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "MR2 G-Limited (SW20)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"STRONG BLUE METALLIC", "SUPER WHITE Ⅱ", "BLUISH GREY ARGENTUM MICA", "BLACK", "SUPER RED Ⅱ", "SUPER BRIGHT YELLOW", "DARK GREEN MICA", "DARK PURPLE MICA", "ORANGE MICA METALLIC", "BEIGE MICA METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"STRONG BLUE METALLIC", "SUPER WHITE Ⅱ", "BLUISH GREY ARGENTUM MICA", "BLACK", "SUPER RED Ⅱ", "SUPER BRIGHT YELLOW", "DARK GREEN MICA", "DARK PURPLE MICA", "ORANGE MICA METALLIC", "BEIGE MICA METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "MR-S (ZZW30)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SILVER METALLIC", "SUPER WHITE Ⅱ", "BLACK", "SUPER RED", "SUPER BRIGHT YELLOW", "GREEN MICA METALLIC", "BLUE MICA", "DARK PURPLE MICA", "ORANGE MICA METALLIC", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SILVER METALLIC", "SUPER WHITE Ⅱ", "BLACK", "SUPER RED", "SUPER BRIGHT YELLOW", "GREEN MICA METALLIC", "BLUE MICA", "DARK PURPLE MICA", "ORANGE MICA METALLIC", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "ALTEZZA RS200 (SXE10)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SILVER METALLIC", "SUPER WHITE Ⅱ", "DARK GREY MICA METALLIC", "BLACK", "RED MICA METALLIC", "SUPER BRIGHT YELLOW", "DARK GREEN MICA", "BLUE MICA", "WINE RED", "ORANGE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SILVER METALLIC", "SUPER WHITE Ⅱ", "DARK GREY MICA METALLIC", "BLACK", "RED MICA METALLIC", "SUPER BRIGHT YELLOW", "DARK GREEN MICA", "BLUE MICA", "WINE RED", "ORANGE", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "SUPRA RZ (JZA80)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "SUPER RED Ⅳ", "DEEP TEAL METALLIC", "SUPER BRIGHT YELLOW", "BLUE MICA", "ORANGE MICA METALLIC", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "SUPER RED Ⅳ", "DEEP TEAL METALLIC", "SUPER BRIGHT YELLOW", "BLUE MICA", "ORANGE MICA METALLIC", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "PRIUS (ZVW30)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "RED MICA METALLIC", "AQUA BLUE METALLIC", "DARK BLUE METALLIC", "ICEBERG SILVER MICA METALLIC", "ORANGE MICA METALLIC", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "RED MICA METALLIC", "AQUA BLUE METALLIC", "DARK BLUE METALLIC", "ICEBERG SILVER MICA METALLIC", "ORANGE MICA METALLIC", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "CELICA GT-FOUR (ST205)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BLACK", "SUPER WHITE �U", "SILVER METALLIC", "SUPER RED �W", "LIGHT GREEN METALLIC", "BLUE MICA METALLIC", "YELLOW", "DARK PURPLE MICA", "ORANGE MICA METALLIC", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
-                'NISSAN
+        'NISSAN
             Case "SKYLINE GT-R (BNR32)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BLACK PEARL METALLIC", "GUN GREY METALLIC", "CRYSTAL WHITE", "SPARKLE SILVER METALLIC", "RED PEARL", "BLUE", "ACTIVE RED", "LIGHTNING YELLOW", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BLACK PEARL METALLIC", "GUN GREY METALLIC", "CRYSTAL WHITE", "SPARKLE SILVER METALLIC", "RED PEARL", "BLUE", "ACTIVE RED", "LIGHTNING YELLOW", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "SKYLINE GT-R (BNR34)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"MILLENNIUM JADE", "BAYSIDE BLUE", "WHITE PEARL", "WHITE", "SPARKLING SILVER", "BLACK PEARL", "SILICA BRASS", "LIGHTNING YELLOW", "MIDNIGHT PURPLE Ⅱ", "DARK RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"MILLENNIUM JADE", "BAYSIDE BLUE", "WHITE PEARL", "WHITE", "SPARKLING SILVER", "BLACK PEARL", "SILICA BRASS", "LIGHTNING YELLOW", "MIDNIGHT PURPLE Ⅱ", "DARK RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "SILVIA K's (S13)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"LIME GREEN TWO TONE", "BLUISH SILVER TWO TONE", "WARM WHITE TWO TONE", "VELVET BLUE", "CRANBERRY RED", "SUPER BLACK", "SUPER RED", "YELLOW", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"LIME GREEN TWO TONE", "BLUISH SILVER TWO TONE", "WARM WHITE TWO TONE", "VELVET BLUE", "CRANBERRY RED", "SUPER BLACK", "SUPER RED", "YELLOW", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "Silvia Q's (S14)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER CLEAR RED", "GREENISH BLUE", "SUPER BLACK", "BLUISH SILVER", "PEARL WHITE", "BRILLIANT BLUE", "RED", "LIGHTNING YELLOW", "ORANGE", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUPER CLEAR RED", "GREENISH BLUE", "SUPER BLACK", "BLUISH SILVER", "PEARL WHITE", "BRILLIANT BLUE", "RED", "LIGHTNING YELLOW", "ORANGE", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "Silvia spec-R (S15)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SPARKLING SILVER", "BRILLIANT BLUE", "PEARL WHITE", "SUPER RED", "SUPER BLACK", "LIGHTNING YELLOW", "GREEN", "GOLD", "ORANGE", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SPARKLING SILVER", "BRILLIANT BLUE", "PEARL WHITE", "SUPER RED", "SUPER BLACK", "LIGHTNING YELLOW", "GREEN", "GOLD", "ORANGE", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "180SX TYPE II (RPS13)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WARM WHITE", "YELLOWISH SILVER", "SUPER BLACK", "DARK GREY", "SUPER RED", "VELVET BLUE", "PURPLISH GREY", "RED PEARL METALLIC", "LIGHTNING YELLOW", "ORANGE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WARM WHITE", "YELLOWISH SILVER", "SUPER BLACK", "DARK GREY", "SUPER RED", "VELVET BLUE", "PURPLISH GREY", "RED PEARL METALLIC", "LIGHTNING YELLOW", "ORANGE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "FAIRLADY Z (Z33)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BURNING RED", "MONTEREY BLUE", "SUNSET ORANGE", "WHITE PEARL", "DIAMOND SILVER", "SPARKLING SILVER", "SUPER BLACK", "PINK", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"BURNING RED", "MONTEREY BLUE", "SUNSET ORANGE", "WHITE PEARL", "DIAMOND SILVER", "SPARKLING SILVER", "SUPER BLACK", "PINK", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "GT-R (R35)", "GT-R NISMO (R35)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"ULTIMATE METAL SILVER", "TITANIUM GRAY", "WHITE PEARL", "VIBRANT RED", "DARK METAL GRAY", "SUPER BLACK", "SILICA BRASS", "LIGHTNING YELLOW", "MIDNIGHT PURPLE Ⅱ", "BAYSIDE BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"ULTIMATE METAL SILVER", "TITANIUM GRAY", "WHITE PEARL", "VIBRANT RED", "DARK METAL GRAY", "SUPER BLACK", "SILICA BRASS", "LIGHTNING YELLOW", "MIDNIGHT PURPLE Ⅱ", "BAYSIDE BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "SKYLINE 25GT TURBO (ER34)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"DARK BLUE PEARL", "BLACK PEARL", "LIGHTNING YELLOW", "ATHLETE SILVER", "SONIC SILVER", "ACTIVE RED", "WHITE", "PINK", "MIDNIGHT PURPLE", "CHAMPAGNE GOLD", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
-                'HONDA
+        'HONDA
             Case "Civic SiR・II (EG6)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"MILANO RED", "CAPTIVA BLUE PEARL", "FROST WHITE", "PEWTER GREY METALLIC", "CARNIVAL YELLOW", "BRILLIANT BLACK", "VOGUE SILVER METALLIC", "BLUE", "NEW IMOLA ORANGE PEARL", "SAMBA GREEN PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"MILANO RED", "CAPTIVA BLUE PEARL", "FROST WHITE", "PEWTER GREY METALLIC", "CARNIVAL YELLOW", "BRILLIANT BLACK", "VOGUE SILVER METALLIC", "BLUE", "NEW IMOLA ORANGE PEARL", "SAMBA GREEN PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "CIVIC TYPE R (EK9)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUNLIGHT YELLOW", "CHAMPIONSHIP WHITE", "STARLIGHT BLACK PEARL", "VOGUE SILVER METALLIC", "ARCTIC BLUE PEARL", "MILANO RED", "MOONROCK METALLIC", "ROYAL NAVY BLUE PEARL", "NEW IMOLA ORANGE PEARL", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SUNLIGHT YELLOW", "CHAMPIONSHIP WHITE", "STARLIGHT BLACK PEARL", "VOGUE SILVER METALLIC", "ARCTIC BLUE PEARL", "MILANO RED", "MOONROCK METALLIC", "ROYAL NAVY BLUE PEARL", "NEW IMOLA ORANGE PEARL", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "INTEGRA TYPE R (DC2)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CHAMPIONSHIP WHITE", "GRANADA BLACK PEARL", "MILANO RED", "VOGUE SILVER METALLIC", "ARCTIC BLUE PEARL", "SUNLIGHT YELLOW", "MOONROCK METALLIC", "ROYAL NAVY BLUE PEARL", "NEW IMOLA ORANGE PEARL", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CHAMPIONSHIP WHITE", "GRANADA BLACK PEARL", "MILANO RED", "VOGUE SILVER METALLIC", "ARCTIC BLUE PEARL", "SUNLIGHT YELLOW", "MOONROCK METALLIC", "ROYAL NAVY BLUE PEARL", "NEW IMOLA ORANGE PEARL", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "S2000 (AP1)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"LONG BEACH BLUE PEARL", "SILVERSTONE METALLIC", "BERLINA BLACK", "NEW FORMULA RED", "MONTE CARLO BLUE PEARL", "INDY YELLOW PEARL", "GRAND PRIX WHITE", "DEEP BURGUNDY METALLIC", "NEW IMOLA ORANGE PEARL", "LIME GREEN METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"LONG BEACH BLUE PEARL", "SILVERSTONE METALLIC", "BERLINA BLACK", "NEW FORMULA RED", "MONTE CARLO BLUE PEARL", "INDY YELLOW PEARL", "GRAND PRIX WHITE", "DEEP BURGUNDY METALLIC", "NEW IMOLA ORANGE PEARL", "LIME GREEN METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "NSX (NA1)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"NEW FORMULA RED", "SEBRING SILVER METALLIC", "KAISER SILVER METALLIC", "BERLINA BLACK", "CHARLOTTE GREEN PEARL", "NEUTRON WHITE PEARL", "INDY YELLOW PEARL", "CHAMPIONSHIP WHITE", "NEW IMOLA ORANGE PEARL", "MONTE CARLO BLUE PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
-                'MAZDA
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"NEW FORMULA RED", "SEBRING SILVER METALLIC", "KAISER SILVER METALLIC", "BERLINA BLACK", "CHARLOTTE GREEN PEARL", "NEUTRON WHITE PEARL", "INDY YELLOW PEARL", "CHAMPIONSHIP WHITE", "NEW IMOLA ORANGE PEARL", "MONTE CARLO BLUE PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
+        'MAZDA
             Case "RX-7 ∞III (FC3S)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CRYSTAL WHITE", "BRILLIANT BLACK", "SHADOW SILVER", "WINNING SILVER", "BLAZE RED", "HARBOR BLUE", "SHADE GREEN", "YELLOW", "ORANGE METALLIC", "INNOCENT BLUE MICA", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CRYSTAL WHITE", "BRILLIANT BLACK", "SHADOW SILVER", "WINNING SILVER", "BLAZE RED", "HARBOR BLUE", "SHADE GREEN", "YELLOW", "ORANGE METALLIC", "INNOCENT BLUE MICA", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "RX-7 Type R (FD3S)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"COMPETITION YELLOW MICA", "BRILLIANT BLACK", "VINTAGE RED", "SILVERSTONE METALLIC", "MONTEGO BLUE MICA", "CHASTE WHITE", "INNOCENT BLUE MICA", "SUNBURST YELLOW", "ORANGE", "BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"COMPETITION YELLOW MICA", "BRILLIANT BLACK", "VINTAGE RED", "SILVERSTONE METALLIC", "MONTEGO BLUE MICA", "CHASTE WHITE", "INNOCENT BLUE MICA", "SUNBURST YELLOW", "ORANGE", "BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "RX-7 Type RS (FD3S)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"VINTAGE RED", "INNOCENT BLUE MICA", "SUNLIGHT SILVER METALLIC", "BRILLIANT BLACK", "PURE WHITE", "METALLIC MAZENDA", "GREEN", "SUNBURST YELLOW", "TITANIUM GRAY METALLIC", "BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"VINTAGE RED", "INNOCENT BLUE MICA", "SUNLIGHT SILVER METALLIC", "BRILLIANT BLACK", "PURE WHITE", "METALLIC MAZENDA", "GREEN", "SUNBURST YELLOW", "TITANIUM GRAY METALLIC", "BLUE", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "RX-8 Type S (SE3P)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"VELOCITY RED MICA", "STORMY BLUE MICA", "GALAXY GREY MICA", "WINNING SILVER METALLIC", "SUNLIGHT SILVER METALLIC", "CRYSTAL WHITE PEARL MICA", "PHANTOM BLUE MICA", "BRILLIANT BLACK", "LIGHTNING YELLOW", "GREEN", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"VELOCITY RED MICA", "STORMY BLUE MICA", "GALAXY GREY MICA", "WINNING SILVER METALLIC", "SUNLIGHT SILVER METALLIC", "CRYSTAL WHITE PEARL MICA", "PHANTOM BLUE MICA", "BRILLIANT BLACK", "LIGHTNING YELLOW", "GREEN", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "ROADSTER (NA6CE)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CLASSIC RED", "SILVERSTONE METALLIC", "CRYSTAL WHITE", "MARINER BLUE", "NEO GREEN", "ARTVIN RED MICA", "SATELLITE BLUE MICA", "LAGUNA BLUE METALLIC", "SPARKLING GREEN METALLIC", "SUNBURST YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CLASSIC RED", "SILVERSTONE METALLIC", "CRYSTAL WHITE", "MARINER BLUE", "NEO GREEN", "ARTVIN RED MICA", "SATELLITE BLUE MICA", "LAGUNA BLUE METALLIC", "SPARKLING GREEN METALLIC", "SUNBURST YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "ROADSTER RS (NB8C)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"EVOLUTION ORANGE MICA", "CLASSIC RED", "TWILIGHT BLUE MICA", "HIGHLIGHT SILVER METALLIC", "BRILLIANT BLACK", "SHASTE WHITE", "GRACE GREEN MICA", "CRYSTAL BLUE METALLIC", "RADIANT EBONY MICA", "SUNBURST YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
-                'SUBARU
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"EVOLUTION ORANGE MICA", "CLASSIC RED", "TWILIGHT BLUE MICA", "HIGHLIGHT SILVER METALLIC", "BRILLIANT BLACK", "SHASTE WHITE", "GRACE GREEN MICA", "CRYSTAL BLUE METALLIC", "RADIANT EBONY MICA", "SUNBURST YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
+        'SUBARU
             Case "IMPREZA STi Ver.V (GC8)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SONIC BLUE MICA", "PURE WHITE", "ARCTIC SILVER METALLIC", "BLACK MICA", "COOL GREY METALLIC", "ROSE RED MICA", "SPORTS YELLOW", "COSMIC BLUE MICA", "ORANGE METALLIC", "YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SONIC BLUE MICA", "PURE WHITE", "ARCTIC SILVER METALLIC", "BLACK MICA", "COOL GREY METALLIC", "ROSE RED MICA", "SPORTS YELLOW", "COSMIC BLUE MICA", "ORANGE METALLIC", "YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "IMPREZA STi (GDBA)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WR BLUE MICA", "MIDNIGHT BLACK MICA", "PREMIUM SILVER METALLIC", "PURE WHITE", "URBAN GREY METALLIC", "SOLID RED", "YELLOW", "ASTRAL YELLOW", "ORANGE METALLIC", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WR BLUE MICA", "MIDNIGHT BLACK MICA", "PREMIUM SILVER METALLIC", "PURE WHITE", "URBAN GREY METALLIC", "SOLID RED", "YELLOW", "ASTRAL YELLOW", "ORANGE METALLIC", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "IMPREZA STI (GDBF)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WR BLUE MICA", "OBSIDIAN BLACK PEARL", "PREMIUM SILVER METALLIC", "PURE WHITE", "URBAN GREY METALLIC", "SOLID RED", "YELLOW", "ASTRAL YELLOW", "ORANGE METALLIC", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"WR BLUE MICA", "OBSIDIAN BLACK PEARL", "PREMIUM SILVER METALLIC", "PURE WHITE", "URBAN GREY METALLIC", "SOLID RED", "YELLOW", "ASTRAL YELLOW", "ORANGE METALLIC", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "BRZ S (ZC6)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C"}), New List(Of String)(New String() {"WR BLUE MICA", "SATIN WHITE PEARL", "STERLING SILVER METALLIC", "DARK GREY METALLIC", "CRYSTAL BLACK SILICA", "LIGHTNING RED", "GALAXY BLUE SILICA", "SPORTS YELLOW", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
-                'MITSUBISHI
+        'MITSUBISHI
             Case "LANCER Evolution III (CE9A)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"PYRENEES BLACK", "SCOTIA WHITE", "QUEEN'S SILVER", "DANDELION YELLOW", "MONACO RED", "MOON LIGHT BLUE", "ORANGE", "DEEP PURPLE METALLIC", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"PYRENEES BLACK", "SCOTIA WHITE", "QUEEN'S SILVER", "DANDELION YELLOW", "MONACO RED", "MOON LIGHT BLUE", "ORANGE", "DEEP PURPLE METALLIC", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LANCER EVOLUTION IV (CN9A)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SCOTIA WHITE", "STEEL SILVER", "PYRENEES BLACK", "PALMA RED", "IJSSEL BLUE", "MOON LIGHT BLUE", "ORANGE", "LEMON YELLOW", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SCOTIA WHITE", "STEEL SILVER", "PYRENEES BLACK", "PALMA RED", "IJSSEL BLUE", "MOON LIGHT BLUE", "ORANGE", "LEMON YELLOW", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LANCER Evolution VII (CT9A)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"DANDELION YELLOW", "FRENCH BLUE", "SATELLITE SILVER", "AMETHYST BLACK", "EISEN GREY METALLIC", "PALMA RED", "SCOTIA WHITE", "YELLOW　METALLIC", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"DANDELION YELLOW", "FRENCH BLUE", "SATELLITE SILVER", "AMETHYST BLACK", "EISEN GREY METALLIC", "PALMA RED", "SCOTIA WHITE", "YELLOW METALLIC", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LANCER Evolution IX (CT9A)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"COOL SILVER METALLIC", "BLACK MICA", "BLUE MICA", "SOLID YELLOW", "SOLID RED", "SOLID WHITE", "MEDIUM PURPLISH GREY MICA", "LEMON YELLOW", "WINE RED", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"COOL SILVER METALLIC", "BLACK MICA", "BLUE MICA", "SOLID YELLOW", "SOLID RED", "SOLID WHITE", "MEDIUM PURPLISH GREY MICA", "LEMON YELLOW", "WINE RED", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LANCER EVOLUTION X (CZ4A)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"RED METALLIC", "LIGHTNING BLUE MICA", "COOL SILVER METALLIC", "PHANTOM BLACK PEARL", "WHITE PEARL", "SOLID RED", "MEDIUM PURPLISH GREY MICA", "LEMON YELLOW", "GREEN", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"RED METALLIC", "LIGHTNING BLUE MICA", "COOL SILVER METALLIC", "PHANTOM BLACK PEARL", "WHITE PEARL", "SOLID RED", "MEDIUM PURPLISH GREY MICA", "LEMON YELLOW", "GREEN", "PURPLE METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LANCER RS EVOLUTION V (CP9A)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SCOTIA WHITE", "SATELLITE SILVER", "PYRENEES BLACK", "PALMA RED", "DANDELION YELLOW", "DEEP BLUE MICA", "ORANGE", "LEMON YELLOW", "WINE RED", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
                 result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SCOTIA WHITE", "SATELLITE SILVER", "PYRENEES BLACK", "CANAL BLUE", "PASSION RED", "MOON LIGHT BLUE", "ORANGE", "LEMON YELLOW", "WINE RED", "GREEN", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
-                'SUZUKI
+        'SUZUKI
             Case "Cappuccino (EA11R)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CORDOVA RED", "SATELLITE SILVER METALLIC", "DARK CLASSIC JADE PEARL", "DEEP BLUE PEARL", "SATURN BLACK METALLIC", "BRITISH GREEN PEARL", "YELLOW", "BLUE MICA", "WHITE", "ORANGE", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
-                'INITIAL D
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CORDOVA RED", "SATELLITE SILVER METALLIC", "DARK CLASSIC JADE PEARL", "DEEP BLUE PEARL", "SATURN BLACK METALLIC", "BRITISH GREEN PEARL", "YELLOW", "BLUE MICA", "WHITE", "ORANGE", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
+        'INITIAL D
             Case "SILEIGHTY"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"IMPACT BLUE", "YELLOWISH SILVER", "SUPER BLACK", "DARK GREY", "SUPER RED", "VELVET BLUE", "PURPLISH GREY", "WARM WHITE", "LIGHTNING YELLOW", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"IMPACT BLUE", "YELLOWISH SILVER", "SUPER BLACK", "DARK GREY", "SUPER RED", "VELVET BLUE", "PURPLISH GREY", "WARM WHITE", "LIGHTNING YELLOW", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "TRUENO 2door GT-APEX (AE86)", "SPRINTER TRUENO 2door GT-APEX (AE86)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
-                'COMPLETE
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"HIGH TECH TWO TONE", "HIGH FLASH TWO TONE", "HIGH METAL TWO TONE", "WHITE", "YELLOW", "BLUE", "RED", "BLACK", "ORANGE", "PINK", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
+        'COMPLETE
             Case "G-FORCE SUPRA (JZA80-kai)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"TOP SECRET GOLD", "SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "SUPER RED Ⅳ", "DEEP TEAL METALLIC", "SUPER BRIGHT YELLOW", "BLUE MICA", "ORANGE MICA METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"TOP SECRET GOLD", "SUPER WHITE Ⅱ", "DARK BROWNISH GREY MICA METALLIC", "SILVER METALLIC", "BLACK", "SUPER RED Ⅳ", "DEEP TEAL METALLIC", "SUPER BRIGHT YELLOW", "BLUE MICA", "ORANGE MICA METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "MONSTER CIVIC R (EK9)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CHAMPIONSHIP WHITE", "SUNLIGHT YELLOW", "STARLIGHT BLACK PEARL", "VOGUE SILVER METALLIC", "ARCTIC BLUE PEARL", "MILANO RED", "MOONROCK METALLIC", "ROYAL NAVY BLUE PEARL", "NEW IMOLA ORANGE PEARL", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CHAMPIONSHIP WHITE", "SUNLIGHT YELLOW", "STARLIGHT BLACK PEARL", "VOGUE SILVER METALLIC", "ARCTIC BLUE PEARL", "MILANO RED", "MOONROCK METALLIC", "ROYAL NAVY BLUE PEARL", "NEW IMOLA ORANGE PEARL", "WINE RED", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "NSX-R GT (NA2)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CHAMPIONSHIP WHITE", "NEW FORMULA RED", "NEW INDY YELLOW PEARL", "SEBRING SILVER METALLIC", "BERLINA BLACK", "SILVERSTONE METALLIC", "KAISER SILVER METALLIC", "CHARLOTTE GREEN PEARL", "NEW IMOLA ORANGE PEARL", "MONTE CARLO BLUE PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"CHAMPIONSHIP WHITE", "NEW FORMULA RED", "NEW INDY YELLOW PEARL", "SEBRING SILVER METALLIC", "BERLINA BLACK", "SILVERSTONE METALLIC", "KAISER SILVER METALLIC", "CHARLOTTE GREEN PEARL", "NEW IMOLA ORANGE PEARL", "MONTE CARLO BLUE PEARL", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "RE Amemiya Genki-7 (FD3S)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"DEEP BLUE", "LIGHT BLUE", "VINTAGE RED", "SUNLIGHT SILVER METALLIC", "BRILLIANT BLACK", "PURE WHITE", "METALLIC MAZENDA", "GREEN", "SUNBURST YELLOW", "TITANIUM GRAY METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"DEEP BLUE", "LIGHT BLUE", "VINTAGE RED", "SUNLIGHT SILVER METALLIC", "BRILLIANT BLACK", "PURE WHITE", "METALLIC MAZENDA", "GREEN", "SUNBURST YELLOW", "TITANIUM GRAY METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "S2000 GT1 (AP1)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"GRAND PRIX WHITE", "NEW FORMULA RED", "LONG BEACH BLUE PEARL", "SILVERSTONE METALLIC", "BERLINA BLACK", "MONTE CARLO BLUE PEARL", "INDY YELLOW PEARL", "DEEP BURGUNDY METALLIC", "NEW IMOLA ORANGE PEARL", "LIME GREEN METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"GRAND PRIX WHITE", "NEW FORMULA RED", "LONG BEACH BLUE PEARL", "SILVERSTONE METALLIC", "BERLINA BLACK", "MONTE CARLO BLUE PEARL", "INDY YELLOW PEARL", "DEEP BURGUNDY METALLIC", "NEW IMOLA ORANGE PEARL", "LIME GREEN METALLIC", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
             Case "ROADSTER C-SPEC (NA8C Kai)"
-                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SILVERSTONE METALLIC", "CLASSIC RED", "NEO GREEN", "SHASTE WHITE", "TWILIGHT BLUE MICA", "EVOLUTION ORANGE MICA", "BRILLIANT BLACK", "GRACE GREEN MICA", "RADIANT EBONY MICA", "SUNBURST YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL　RED/GRADATION", "SPECIAL　BLUE/GRADATION", "SPECIAL　YELLOW/GRADATION"}))
+                result = New Tuple(Of String, List(Of String), List(Of String))(Nothing, New List(Of String)(New String() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0A", "0B", "0C", "0D"}), New List(Of String)(New String() {"SILVERSTONE METALLIC", "CLASSIC RED", "NEO GREEN", "SHASTE WHITE", "TWILIGHT BLUE MICA", "EVOLUTION ORANGE MICA", "BRILLIANT BLACK", "GRACE GREEN MICA", "RADIANT EBONY MICA", "SUNBURST YELLOW", "SPECIAL GREEN/GRADATION", "SPECIAL RED/GRADATION", "SPECIAL BLUE/GRADATION", "SPECIAL YELLOW/GRADATION"}))
         End Select
         Return result
     End Function
@@ -354,7 +354,7 @@ Module Helper
         Dim ff As String = BitConverter.ToString(hex2).Replace("-", "")
         If Not ff = "00" Then
             Select Case BitConverter.ToString(hex).Replace("-", "")
-            'TOYOTA
+      'TOYOTA
                 Case "0000"
                     result = "TRUENO GT-APEX (AE86)"
                 Case "0100"
@@ -381,7 +381,7 @@ Module Helper
                     result = "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 Case "0A00"
                     result = "CELICA GT-FOUR (ST205)"
-                'NISSAN
+        'NISSAN
                 Case "0001"
                     result = "SKYLINE GT-R (BNR32)"
                 Case "0101"
@@ -404,7 +404,7 @@ Module Helper
                     End If
                 Case "0801"
                     result = "SKYLINE 25GT TURBO (ER34)"
-               'HONDA
+        'HONDA
                 Case "0002"
                     result = "Civic SiR・II (EG6)"
                 Case "0102"
@@ -415,7 +415,7 @@ Module Helper
                     result = "S2000 (AP1)"
                 Case "0402"
                     result = "NSX (NA1)"
-                'MAZDA
+        'MAZDA
                 Case "0003"
                     result = "RX-7 ∞III (FC3S)"
                 Case "0103"
@@ -428,7 +428,7 @@ Module Helper
                     result = "ROADSTER (NA6CE)"
                 Case "0403"
                     result = "ROADSTER RS (NB8C)"
-                'SUBARU
+        'SUBARU
                 Case "0004"
                     result = "IMPREZA STi Ver.V (GC8)"
                 Case "0204"
@@ -437,7 +437,7 @@ Module Helper
                     result = "IMPREZA STI (GDBF)"
                 Case "0304"
                     result = "BRZ S (ZC6)"
-                'MITSUBISHI
+        'MITSUBISHI
                 Case "0005"
                     result = "LANCER Evolution III (CE9A)"
                 Case "0105"
@@ -452,15 +452,15 @@ Module Helper
                     result = "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
                 Case "0505"
                     result = "LANCER RS EVOLUTION V (CP9A)"
-                'SUZUKI
+        'SUZUKI
                 Case "0006"
                     result = "Cappuccino (EA11R)"
-                'INITIAL D
+        'INITIAL D
                 Case "0007"
                     result = "SILEIGHTY"
                 Case "0107"
                     result = "TRUENO 2door GT-APEX (AE86)"
-                'COMPLETE
+        'COMPLETE
                 Case "0308"
                     result = "G-FORCE SUPRA (JZA80-kai)"
                 Case "0108"
@@ -485,7 +485,7 @@ Module Helper
     Function SetCar(carName As String) As String
         Dim result As String = Nothing
         Select Case carName
-            'TOYOTA
+      'TOYOTA
             Case "TRUENO GT-APEX (AE86)"
                 result = "0000"
             Case "LEVIN GT-APEX (AE86)"
@@ -508,7 +508,7 @@ Module Helper
                 result = "0A00"
             Case "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 result = "0900"
-                'NISSAN
+        'NISSAN
             Case "SKYLINE GT-R (BNR32)"
                 result = "0001"
             Case "SKYLINE GT-R (BNR34)"
@@ -527,7 +527,7 @@ Module Helper
                 result = "0701"
             Case "SKYLINE 25GT TURBO (ER34)"
                 result = "0801"
-                'HONDA
+        'HONDA
             Case "Civic SiR・II (EG6)"
                 result = "0002"
             Case "CIVIC TYPE R (EK9)"
@@ -538,7 +538,7 @@ Module Helper
                 result = "0302"
             Case "NSX (NA1)"
                 result = "0402"
-                'MAZDA
+        'MAZDA
             Case "RX-7 ∞III (FC3S)"
                 result = "0003"
             Case "RX-7 Type R (FD3S)"
@@ -551,7 +551,7 @@ Module Helper
                 result = "0303"
             Case "ROADSTER RS (NB8C)"
                 result = "0403"
-                'SUBARU
+        'SUBARU
             Case "IMPREZA STi Ver.V (GC8)"
                 result = "0004"
             Case "IMPREZA STi (GDBA)"
@@ -560,7 +560,7 @@ Module Helper
                 result = "0104"
             Case "BRZ S (ZC6)"
                 result = "0304"
-                'MITSUBISHI
+        'MITSUBISHI
             Case "LANCER Evolution III (CE9A)"
                 result = "0005"
             Case "LANCER EVOLUTION IV (CN9A)"
@@ -575,15 +575,15 @@ Module Helper
                 result = "0505"
             Case "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
                 result = "0605"
-                'SUZUKI
+        'SUZUKI
             Case "Cappuccino (EA11R)"
                 result = "0006"
-                'INITIAL D
+        'INITIAL D
             Case "SILEIGHTY"
                 result = "0007"
             Case "TRUENO 2door GT-APEX (AE86)"
                 result = "0107"
-                'COMPLETE
+        'COMPLETE
             Case "G-FORCE SUPRA (JZA80-kai)"
                 result = "0308"
             Case "MONSTER CIVIC R (EK9)"
@@ -605,7 +605,7 @@ Module Helper
     Function GetCarImage(carName As String) As Bitmap
         Dim result As Bitmap = Nothing
         Select Case carName
-            'TOYOTA
+      'TOYOTA
             Case "TRUENO GT-APEX (AE86)"
                 result = My.Resources.AE86T
             Case "LEVIN GT-APEX (AE86)"
@@ -630,7 +630,7 @@ Module Helper
                 result = My.Resources.CELICA
             Case "SPRINTER TRUENO 2door GT-APEX (AE86)"
                 result = My.Resources.AE862D
-                'NISSAN
+        'NISSAN
             Case "SKYLINE GT-R (BNR32)"
                 result = My.Resources.BNR32
             Case "SKYLINE GT-R (BNR34)"
@@ -649,7 +649,7 @@ Module Helper
                 result = My.Resources.R35
             Case "SKYLINE 25GT TURBO (ER34)"
                 result = My.Resources.ER34
-                'HONDA
+        'HONDA
             Case "Civic SiR・II (EG6)"
                 result = My.Resources.EG6
             Case "CIVIC TYPE R (EK9)"
@@ -660,7 +660,7 @@ Module Helper
                 result = My.Resources.S2000
             Case "NSX (NA1)"
                 result = My.Resources.NSX
-                'MAZDA
+        'MAZDA
             Case "RX-7 ∞III (FC3S)"
                 result = My.Resources.FC3S
             Case "RX-7 Type R (FD3S)"
@@ -673,7 +673,7 @@ Module Helper
                 result = My.Resources.NA6CE
             Case "ROADSTER RS (NB8C)"
                 result = My.Resources.NB8C
-                'SUBARU
+        'SUBARU
             Case "IMPREZA STi Ver.V (GC8)"
                 result = My.Resources.GC8
             Case "IMPREZA STi (GDBA)"
@@ -682,7 +682,7 @@ Module Helper
                 result = My.Resources.GCBF
             Case "BRZ S (ZC6)"
                 result = My.Resources.BRZ
-                'MITSUBISHI
+        'MITSUBISHI
             Case "LANCER Evolution III (CE9A)"
                 result = My.Resources.EVO3
             Case "LANCER EVOLUTION IV (CN9A)"
@@ -697,15 +697,15 @@ Module Helper
                 result = My.Resources.EVO9
             Case "LANCER GSR EVOLUTION VI T.M.EDITION (CP9A)"
                 result = My.Resources.EVO10
-                'SUZUKI
+        'SUZUKI
             Case "Cappuccino (EA11R)"
                 result = My.Resources.EA11R
-                'INITIAL D
+        'INITIAL D
             Case "SILEIGHTY"
                 result = My.Resources.SIL80
             Case "TRUENO 2door GT-APEX (AE86)"
                 result = My.Resources.AE862D
-                'COMPLETE
+        'COMPLETE
             Case "G-FORCE SUPRA (JZA80-kai)"
                 result = My.Resources.JZA80_Kai
             Case "MONSTER CIVIC R (EK9)"
@@ -1691,4 +1691,11 @@ Module Helper
         Loop
         Return ctr
     End Function
+
+    <Extension()>
+    Public Sub ChangeBackgroundImage(picturebox As PictureBox, image As Bitmap)
+        If picturebox.BackgroundImage IsNot Nothing Then picturebox.BackgroundImage.Dispose()
+        picturebox.BackgroundImage = Nothing
+        picturebox.BackgroundImage = image
+    End Sub
 End Module

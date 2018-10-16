@@ -23,8 +23,6 @@ Partial Class frmEdit
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim NsListViewColumnHeader1 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
-        Dim NsListViewColumnHeader2 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEdit))
         Me.lblAvatarOffset = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -32,7 +30,31 @@ Partial Class frmEdit
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.tcGames = New InitialDLauncher.NSTabControl()
         Me.tpAvatar = New System.Windows.Forms.TabPage()
-        Me.lvAvatar = New InitialDLauncher.NSListView()
+        Me.pAvatar2 = New System.Windows.Forms.Panel()
+        Me.lblc5c6_2 = New System.Windows.Forms.Label()
+        Me.lblc8c9_2 = New System.Windows.Forms.Label()
+        Me.lblc7c8_2 = New System.Windows.Forms.Label()
+        Me.lblcbcc_2 = New System.Windows.Forms.Label()
+        Me.pbShades2 = New System.Windows.Forms.PictureBox()
+        Me.slblShades2 = New InitialDLauncher.SpecialLabel()
+        Me.lblcacb_2 = New System.Windows.Forms.Label()
+        Me.pbShirt2 = New System.Windows.Forms.PictureBox()
+        Me.slblShirt2 = New InitialDLauncher.SpecialLabel()
+        Me.lblcdce_2 = New System.Windows.Forms.Label()
+        Me.lblc4c5_2 = New System.Windows.Forms.Label()
+        Me.lbl221_2 = New System.Windows.Forms.Label()
+        Me.pbMouth2 = New System.Windows.Forms.PictureBox()
+        Me.slblMouth2 = New InitialDLauncher.SpecialLabel()
+        Me.pbEyes2 = New System.Windows.Forms.PictureBox()
+        Me.slblEyes2 = New InitialDLauncher.SpecialLabel()
+        Me.pbAccessories2 = New System.Windows.Forms.PictureBox()
+        Me.slblAccessories2 = New InitialDLauncher.SpecialLabel()
+        Me.pbSkin2 = New System.Windows.Forms.PictureBox()
+        Me.slblSkin2 = New InitialDLauncher.SpecialLabel()
+        Me.pbFrame2 = New System.Windows.Forms.PictureBox()
+        Me.slblFrame2 = New InitialDLauncher.SpecialLabel()
+        Me.pbHair2 = New System.Windows.Forms.PictureBox()
+        Me.slblHair2 = New InitialDLauncher.SpecialLabel()
         Me.pAvatar = New System.Windows.Forms.Panel()
         Me.lblc5c6 = New System.Windows.Forms.Label()
         Me.lblc8c9 = New System.Windows.Forms.Label()
@@ -144,6 +166,23 @@ Partial Class frmEdit
         Me.NsTheme1.SuspendLayout()
         Me.tcGames.SuspendLayout()
         Me.tpAvatar.SuspendLayout()
+        Me.pAvatar2.SuspendLayout()
+        CType(Me.pbShades2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbShades2.SuspendLayout()
+        CType(Me.pbShirt2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbShirt2.SuspendLayout()
+        CType(Me.pbMouth2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbMouth2.SuspendLayout()
+        CType(Me.pbEyes2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbEyes2.SuspendLayout()
+        CType(Me.pbAccessories2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbAccessories2.SuspendLayout()
+        CType(Me.pbSkin2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbSkin2.SuspendLayout()
+        CType(Me.pbFrame2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbFrame2.SuspendLayout()
+        CType(Me.pbHair2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbHair2.SuspendLayout()
         Me.pAvatar.SuspendLayout()
         CType(Me.pbShades, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pbShades.SuspendLayout()
@@ -246,7 +285,7 @@ Partial Class frmEdit
         'tpAvatar
         '
         Me.tpAvatar.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.tpAvatar.Controls.Add(Me.lvAvatar)
+        Me.tpAvatar.Controls.Add(Me.pAvatar2)
         Me.tpAvatar.Controls.Add(Me.pAvatar)
         Me.tpAvatar.Controls.Add(Me.cbSaveAvatar)
         Me.tpAvatar.Controls.Add(Me.cmbGender)
@@ -265,21 +304,301 @@ Partial Class frmEdit
         Me.tpAvatar.TabIndex = 0
         Me.tpAvatar.Text = "Avatar Editor"
         '
-        'lvAvatar
+        'pAvatar2
         '
-        NsListViewColumnHeader1.Text = "Category"
-        NsListViewColumnHeader1.Width = 100
-        NsListViewColumnHeader2.Text = "Selection"
-        NsListViewColumnHeader2.Width = 200
-        Me.lvAvatar.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1, NsListViewColumnHeader2}
-        Me.lvAvatar.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
-        Me.lvAvatar.Location = New System.Drawing.Point(387, 126)
-        Me.lvAvatar.MultiSelect = True
-        Me.lvAvatar.Name = "lvAvatar"
-        Me.lvAvatar.SelectedIndices = CType(resources.GetObject("lvAvatar.SelectedIndices"), System.Collections.Generic.List(Of Integer))
-        Me.lvAvatar.Size = New System.Drawing.Size(313, 378)
-        Me.lvAvatar.TabIndex = 6
-        Me.lvAvatar.Text = "NsListView1"
+        Me.pAvatar2.Controls.Add(Me.lblc5c6_2)
+        Me.pAvatar2.Controls.Add(Me.lblc8c9_2)
+        Me.pAvatar2.Controls.Add(Me.lblc7c8_2)
+        Me.pAvatar2.Controls.Add(Me.lblcbcc_2)
+        Me.pAvatar2.Controls.Add(Me.pbShades2)
+        Me.pAvatar2.Controls.Add(Me.lblcacb_2)
+        Me.pAvatar2.Controls.Add(Me.pbShirt2)
+        Me.pAvatar2.Controls.Add(Me.lblcdce_2)
+        Me.pAvatar2.Controls.Add(Me.lblc4c5_2)
+        Me.pAvatar2.Controls.Add(Me.lbl221_2)
+        Me.pAvatar2.Controls.Add(Me.pbMouth2)
+        Me.pAvatar2.Controls.Add(Me.pbEyes2)
+        Me.pAvatar2.Controls.Add(Me.pbAccessories2)
+        Me.pAvatar2.Controls.Add(Me.pbSkin2)
+        Me.pAvatar2.Controls.Add(Me.pbFrame2)
+        Me.pAvatar2.Controls.Add(Me.pbHair2)
+        Me.pAvatar2.Location = New System.Drawing.Point(387, 126)
+        Me.pAvatar2.Name = "pAvatar2"
+        Me.pAvatar2.Size = New System.Drawing.Size(188, 378)
+        Me.pAvatar2.TabIndex = 77
+        Me.pAvatar2.Visible = False
+        '
+        'lblc5c6_2
+        '
+        Me.lblc5c6_2.AutoSize = True
+        Me.lblc5c6_2.BackColor = System.Drawing.Color.Black
+        Me.lblc5c6_2.ForeColor = System.Drawing.Color.White
+        Me.lblc5c6_2.Location = New System.Drawing.Point(97, 76)
+        Me.lblc5c6_2.Name = "lblc5c6_2"
+        Me.lblc5c6_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblc5c6_2.TabIndex = 32
+        Me.lblc5c6_2.Text = "0000"
+        '
+        'lblc8c9_2
+        '
+        Me.lblc8c9_2.AutoSize = True
+        Me.lblc8c9_2.BackColor = System.Drawing.Color.Black
+        Me.lblc8c9_2.ForeColor = System.Drawing.Color.White
+        Me.lblc8c9_2.Location = New System.Drawing.Point(97, 170)
+        Me.lblc8c9_2.Name = "lblc8c9_2"
+        Me.lblc8c9_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblc8c9_2.TabIndex = 33
+        Me.lblc8c9_2.Text = "0000"
+        '
+        'lblc7c8_2
+        '
+        Me.lblc7c8_2.AutoSize = True
+        Me.lblc7c8_2.BackColor = System.Drawing.Color.Black
+        Me.lblc7c8_2.ForeColor = System.Drawing.Color.White
+        Me.lblc7c8_2.Location = New System.Drawing.Point(3, 170)
+        Me.lblc7c8_2.Name = "lblc7c8_2"
+        Me.lblc7c8_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblc7c8_2.TabIndex = 33
+        Me.lblc7c8_2.Text = "0000"
+        '
+        'lblcbcc_2
+        '
+        Me.lblcbcc_2.AutoSize = True
+        Me.lblcbcc_2.BackColor = System.Drawing.Color.Black
+        Me.lblcbcc_2.ForeColor = System.Drawing.Color.White
+        Me.lblcbcc_2.Location = New System.Drawing.Point(97, 264)
+        Me.lblcbcc_2.Name = "lblcbcc_2"
+        Me.lblcbcc_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblcbcc_2.TabIndex = 33
+        Me.lblcbcc_2.Text = "0000"
+        '
+        'pbShades2
+        '
+        Me.pbShades2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbShades2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbShades2.Controls.Add(Me.slblShades2)
+        Me.pbShades2.Location = New System.Drawing.Point(97, 191)
+        Me.pbShades2.Name = "pbShades2"
+        Me.pbShades2.Size = New System.Drawing.Size(88, 88)
+        Me.pbShades2.TabIndex = 30
+        Me.pbShades2.TabStop = False
+        '
+        'slblShades2
+        '
+        Me.slblShades2.AutoSize = True
+        Me.slblShades2.BackColor = System.Drawing.Color.Transparent
+        Me.slblShades2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblShades2.Location = New System.Drawing.Point(0, 0)
+        Me.slblShades2.Name = "slblShades2"
+        Me.slblShades2.P = Me.pbShades2
+        Me.slblShades2.Size = New System.Drawing.Size(44, 15)
+        Me.slblShades2.TabIndex = 34
+        Me.slblShades2.Text = "Shades"
+        '
+        'lblcacb_2
+        '
+        Me.lblcacb_2.AutoSize = True
+        Me.lblcacb_2.BackColor = System.Drawing.Color.Black
+        Me.lblcacb_2.ForeColor = System.Drawing.Color.White
+        Me.lblcacb_2.Location = New System.Drawing.Point(3, 264)
+        Me.lblcacb_2.Name = "lblcacb_2"
+        Me.lblcacb_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblcacb_2.TabIndex = 33
+        Me.lblcacb_2.Text = "0000"
+        '
+        'pbShirt2
+        '
+        Me.pbShirt2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbShirt2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbShirt2.Controls.Add(Me.slblShirt2)
+        Me.pbShirt2.Location = New System.Drawing.Point(97, 3)
+        Me.pbShirt2.Name = "pbShirt2"
+        Me.pbShirt2.Size = New System.Drawing.Size(88, 88)
+        Me.pbShirt2.TabIndex = 30
+        Me.pbShirt2.TabStop = False
+        '
+        'slblShirt2
+        '
+        Me.slblShirt2.AutoSize = True
+        Me.slblShirt2.BackColor = System.Drawing.Color.Transparent
+        Me.slblShirt2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblShirt2.Location = New System.Drawing.Point(0, 0)
+        Me.slblShirt2.Name = "slblShirt2"
+        Me.slblShirt2.P = Me.pbShirt2
+        Me.slblShirt2.Size = New System.Drawing.Size(31, 15)
+        Me.slblShirt2.TabIndex = 34
+        Me.slblShirt2.Text = "Shirt"
+        '
+        'lblcdce_2
+        '
+        Me.lblcdce_2.AutoSize = True
+        Me.lblcdce_2.BackColor = System.Drawing.Color.Black
+        Me.lblcdce_2.ForeColor = System.Drawing.Color.White
+        Me.lblcdce_2.Location = New System.Drawing.Point(3, 358)
+        Me.lblcdce_2.Name = "lblcdce_2"
+        Me.lblcdce_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblcdce_2.TabIndex = 33
+        Me.lblcdce_2.Text = "0000"
+        '
+        'lblc4c5_2
+        '
+        Me.lblc4c5_2.AutoSize = True
+        Me.lblc4c5_2.BackColor = System.Drawing.Color.Black
+        Me.lblc4c5_2.ForeColor = System.Drawing.Color.White
+        Me.lblc4c5_2.Location = New System.Drawing.Point(3, 76)
+        Me.lblc4c5_2.Name = "lblc4c5_2"
+        Me.lblc4c5_2.Size = New System.Drawing.Size(31, 15)
+        Me.lblc4c5_2.TabIndex = 31
+        Me.lblc4c5_2.Text = "0000"
+        '
+        'lbl221_2
+        '
+        Me.lbl221_2.AutoSize = True
+        Me.lbl221_2.BackColor = System.Drawing.Color.Black
+        Me.lbl221_2.ForeColor = System.Drawing.Color.White
+        Me.lbl221_2.Location = New System.Drawing.Point(97, 358)
+        Me.lbl221_2.Name = "lbl221_2"
+        Me.lbl221_2.Size = New System.Drawing.Size(31, 15)
+        Me.lbl221_2.TabIndex = 33
+        Me.lbl221_2.Text = "0000"
+        '
+        'pbMouth2
+        '
+        Me.pbMouth2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbMouth2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbMouth2.Controls.Add(Me.slblMouth2)
+        Me.pbMouth2.Location = New System.Drawing.Point(97, 97)
+        Me.pbMouth2.Name = "pbMouth2"
+        Me.pbMouth2.Size = New System.Drawing.Size(88, 88)
+        Me.pbMouth2.TabIndex = 30
+        Me.pbMouth2.TabStop = False
+        '
+        'slblMouth2
+        '
+        Me.slblMouth2.AutoSize = True
+        Me.slblMouth2.BackColor = System.Drawing.Color.Transparent
+        Me.slblMouth2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblMouth2.Location = New System.Drawing.Point(0, 0)
+        Me.slblMouth2.Name = "slblMouth2"
+        Me.slblMouth2.P = Me.pbMouth2
+        Me.slblMouth2.Size = New System.Drawing.Size(43, 15)
+        Me.slblMouth2.TabIndex = 34
+        Me.slblMouth2.Text = "Mouth"
+        '
+        'pbEyes2
+        '
+        Me.pbEyes2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbEyes2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbEyes2.Controls.Add(Me.slblEyes2)
+        Me.pbEyes2.Location = New System.Drawing.Point(3, 97)
+        Me.pbEyes2.Name = "pbEyes2"
+        Me.pbEyes2.Size = New System.Drawing.Size(88, 88)
+        Me.pbEyes2.TabIndex = 30
+        Me.pbEyes2.TabStop = False
+        '
+        'slblEyes2
+        '
+        Me.slblEyes2.AutoSize = True
+        Me.slblEyes2.BackColor = System.Drawing.Color.Transparent
+        Me.slblEyes2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblEyes2.Location = New System.Drawing.Point(0, 0)
+        Me.slblEyes2.Name = "slblEyes2"
+        Me.slblEyes2.P = Me.pbEyes2
+        Me.slblEyes2.Size = New System.Drawing.Size(30, 15)
+        Me.slblEyes2.TabIndex = 34
+        Me.slblEyes2.Text = "Eyes"
+        '
+        'pbAccessories2
+        '
+        Me.pbAccessories2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbAccessories2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbAccessories2.Controls.Add(Me.slblAccessories2)
+        Me.pbAccessories2.Location = New System.Drawing.Point(3, 191)
+        Me.pbAccessories2.Name = "pbAccessories2"
+        Me.pbAccessories2.Size = New System.Drawing.Size(88, 88)
+        Me.pbAccessories2.TabIndex = 30
+        Me.pbAccessories2.TabStop = False
+        '
+        'slblAccessories2
+        '
+        Me.slblAccessories2.AutoSize = True
+        Me.slblAccessories2.BackColor = System.Drawing.Color.Transparent
+        Me.slblAccessories2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblAccessories2.Location = New System.Drawing.Point(0, 0)
+        Me.slblAccessories2.Name = "slblAccessories2"
+        Me.slblAccessories2.P = Me.pbAccessories2
+        Me.slblAccessories2.Size = New System.Drawing.Size(68, 15)
+        Me.slblAccessories2.TabIndex = 34
+        Me.slblAccessories2.Text = "Accessories"
+        '
+        'pbSkin2
+        '
+        Me.pbSkin2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbSkin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbSkin2.Controls.Add(Me.slblSkin2)
+        Me.pbSkin2.Location = New System.Drawing.Point(3, 3)
+        Me.pbSkin2.Name = "pbSkin2"
+        Me.pbSkin2.Size = New System.Drawing.Size(88, 88)
+        Me.pbSkin2.TabIndex = 30
+        Me.pbSkin2.TabStop = False
+        '
+        'slblSkin2
+        '
+        Me.slblSkin2.AutoSize = True
+        Me.slblSkin2.BackColor = System.Drawing.Color.Transparent
+        Me.slblSkin2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblSkin2.Location = New System.Drawing.Point(0, 0)
+        Me.slblSkin2.Name = "slblSkin2"
+        Me.slblSkin2.P = Me.pbSkin2
+        Me.slblSkin2.Size = New System.Drawing.Size(29, 15)
+        Me.slblSkin2.TabIndex = 34
+        Me.slblSkin2.Text = "Skin"
+        '
+        'pbFrame2
+        '
+        Me.pbFrame2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbFrame2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbFrame2.Controls.Add(Me.slblFrame2)
+        Me.pbFrame2.Location = New System.Drawing.Point(97, 285)
+        Me.pbFrame2.Name = "pbFrame2"
+        Me.pbFrame2.Size = New System.Drawing.Size(88, 88)
+        Me.pbFrame2.TabIndex = 30
+        Me.pbFrame2.TabStop = False
+        '
+        'slblFrame2
+        '
+        Me.slblFrame2.AutoSize = True
+        Me.slblFrame2.BackColor = System.Drawing.Color.Transparent
+        Me.slblFrame2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblFrame2.Location = New System.Drawing.Point(0, 0)
+        Me.slblFrame2.Name = "slblFrame2"
+        Me.slblFrame2.P = Me.pbFrame2
+        Me.slblFrame2.Size = New System.Drawing.Size(40, 15)
+        Me.slblFrame2.TabIndex = 34
+        Me.slblFrame2.Text = "Frame"
+        '
+        'pbHair2
+        '
+        Me.pbHair2.BackgroundImage = Global.InitialDLauncher.My.Resources.Resources.nada
+        Me.pbHair2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pbHair2.Controls.Add(Me.slblHair2)
+        Me.pbHair2.Location = New System.Drawing.Point(3, 285)
+        Me.pbHair2.Name = "pbHair2"
+        Me.pbHair2.Size = New System.Drawing.Size(88, 88)
+        Me.pbHair2.TabIndex = 30
+        Me.pbHair2.TabStop = False
+        '
+        'slblHair2
+        '
+        Me.slblHair2.AutoSize = True
+        Me.slblHair2.BackColor = System.Drawing.Color.Transparent
+        Me.slblHair2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.slblHair2.Location = New System.Drawing.Point(0, 0)
+        Me.slblHair2.Name = "slblHair2"
+        Me.slblHair2.P = Me.pbHair2
+        Me.slblHair2.Size = New System.Drawing.Size(29, 15)
+        Me.slblHair2.TabIndex = 34
+        Me.slblHair2.Text = "Hair"
         '
         'pAvatar
         '
@@ -700,8 +1019,8 @@ Partial Class frmEdit
         Me.btnSet.Location = New System.Drawing.Point(86, 96)
         Me.btnSet.Name = "btnSet"
         Me.btnSet.Size = New System.Drawing.Size(143, 24)
-        Me.btnSet.TabIndex = 3
-        Me.btnSet.Text = "4"
+        Me.btnSet.TabIndex = 4
+        Me.btnSet.Text = "Apply"
         '
         'tpBasic
         '
@@ -774,7 +1093,7 @@ Partial Class frmEdit
         Me.txtChapLevel.Name = "txtChapLevel"
         Me.txtChapLevel.ReadOnly = False
         Me.txtChapLevel.Size = New System.Drawing.Size(150, 24)
-        Me.txtChapLevel.TabIndex = 21
+        Me.txtChapLevel.TabIndex = 11
         Me.txtChapLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtChapLevel.ToolTip = Nothing
         Me.txtChapLevel.UseSystemPasswordChar = False
@@ -808,7 +1127,7 @@ Partial Class frmEdit
         Me.txtPridePoint.Name = "txtPridePoint"
         Me.txtPridePoint.ReadOnly = False
         Me.txtPridePoint.Size = New System.Drawing.Size(150, 24)
-        Me.txtPridePoint.TabIndex = 23
+        Me.txtPridePoint.TabIndex = 13
         Me.txtPridePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtPridePoint.ToolTip = Nothing
         Me.txtPridePoint.UseSystemPasswordChar = False
@@ -819,7 +1138,7 @@ Partial Class frmEdit
         Me.cbLegend.Location = New System.Drawing.Point(249, 6)
         Me.cbLegend.Name = "cbLegend"
         Me.cbLegend.Size = New System.Drawing.Size(254, 24)
-        Me.cbLegend.TabIndex = 22
+        Me.cbLegend.TabIndex = 12
         Me.cbLegend.Text = "Unlock Legend Chapter"
         '
         'TabPage2
@@ -910,7 +1229,7 @@ Partial Class frmEdit
         Me.txtEvent.Name = "txtEvent"
         Me.txtEvent.ReadOnly = False
         Me.txtEvent.Size = New System.Drawing.Size(150, 24)
-        Me.txtEvent.TabIndex = 39
+        Me.txtEvent.TabIndex = 29
         Me.txtEvent.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtEvent.ToolTip = Nothing
         Me.txtEvent.UseSystemPasswordChar = False
@@ -944,7 +1263,7 @@ Partial Class frmEdit
         Me.txtKanto.Name = "txtKanto"
         Me.txtKanto.ReadOnly = False
         Me.txtKanto.Size = New System.Drawing.Size(150, 24)
-        Me.txtKanto.TabIndex = 40
+        Me.txtKanto.TabIndex = 30
         Me.txtKanto.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtKanto.ToolTip = Nothing
         Me.txtKanto.UseSystemPasswordChar = False
@@ -958,7 +1277,7 @@ Partial Class frmEdit
         Me.txtTag.Name = "txtTag"
         Me.txtTag.ReadOnly = False
         Me.txtTag.Size = New System.Drawing.Size(150, 24)
-        Me.txtTag.TabIndex = 37
+        Me.txtTag.TabIndex = 27
         Me.txtTag.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTag.ToolTip = Nothing
         Me.txtTag.UseSystemPasswordChar = False
@@ -1002,7 +1321,7 @@ Partial Class frmEdit
         Me.txtStore.Name = "txtStore"
         Me.txtStore.ReadOnly = False
         Me.txtStore.Size = New System.Drawing.Size(150, 24)
-        Me.txtStore.TabIndex = 38
+        Me.txtStore.TabIndex = 28
         Me.txtStore.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtStore.ToolTip = Nothing
         Me.txtStore.UseSystemPasswordChar = False
@@ -1016,7 +1335,7 @@ Partial Class frmEdit
         Me.txtNational.Name = "txtNational"
         Me.txtNational.ReadOnly = False
         Me.txtNational.Size = New System.Drawing.Size(150, 24)
-        Me.txtNational.TabIndex = 36
+        Me.txtNational.TabIndex = 26
         Me.txtNational.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtNational.ToolTip = Nothing
         Me.txtNational.UseSystemPasswordChar = False
@@ -1030,7 +1349,7 @@ Partial Class frmEdit
         Me.txtTAttack.Name = "txtTAttack"
         Me.txtTAttack.ReadOnly = False
         Me.txtTAttack.Size = New System.Drawing.Size(150, 24)
-        Me.txtTAttack.TabIndex = 41
+        Me.txtTAttack.TabIndex = 31
         Me.txtTAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTAttack.ToolTip = Nothing
         Me.txtTAttack.UseSystemPasswordChar = False
@@ -1054,7 +1373,7 @@ Partial Class frmEdit
         Me.txtLegend.Name = "txtLegend"
         Me.txtLegend.ReadOnly = False
         Me.txtLegend.Size = New System.Drawing.Size(150, 24)
-        Me.txtLegend.TabIndex = 35
+        Me.txtLegend.TabIndex = 25
         Me.txtLegend.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtLegend.ToolTip = Nothing
         Me.txtLegend.UseSystemPasswordChar = False
@@ -1068,7 +1387,7 @@ Partial Class frmEdit
         Me.txtSPride.Name = "txtSPride"
         Me.txtSPride.ReadOnly = False
         Me.txtSPride.Size = New System.Drawing.Size(150, 24)
-        Me.txtSPride.TabIndex = 31
+        Me.txtSPride.TabIndex = 21
         Me.txtSPride.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtSPride.ToolTip = Nothing
         Me.txtSPride.UseSystemPasswordChar = False
@@ -1079,7 +1398,7 @@ Partial Class frmEdit
         Me.cbGRumble.Location = New System.Drawing.Point(337, 36)
         Me.cbGRumble.Name = "cbGRumble"
         Me.cbGRumble.Size = New System.Drawing.Size(233, 24)
-        Me.cbGRumble.TabIndex = 34
+        Me.cbGRumble.TabIndex = 24
         Me.cbGRumble.Text = "Unlock Gamble Rumble"
         '
         'Label9
@@ -1102,7 +1421,7 @@ Partial Class frmEdit
         Me.cmbAura7.Location = New System.Drawing.Point(81, 36)
         Me.cmbAura7.Name = "cmbAura7"
         Me.cmbAura7.Size = New System.Drawing.Size(150, 24)
-        Me.cmbAura7.TabIndex = 33
+        Me.cmbAura7.TabIndex = 23
         '
         'Label11
         '
@@ -1133,7 +1452,7 @@ Partial Class frmEdit
         Me.txtTPride.Name = "txtTPride"
         Me.txtTPride.ReadOnly = False
         Me.txtTPride.Size = New System.Drawing.Size(150, 24)
-        Me.txtTPride.TabIndex = 32
+        Me.txtTPride.TabIndex = 22
         Me.txtTPride.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtTPride.ToolTip = Nothing
         Me.txtTPride.UseSystemPasswordChar = False
@@ -1173,7 +1492,7 @@ Partial Class frmEdit
         Me.cbInfinitySide.Location = New System.Drawing.Point(175, 203)
         Me.cbInfinitySide.Name = "cbInfinitySide"
         Me.cbInfinitySide.Size = New System.Drawing.Size(395, 24)
-        Me.cbInfinitySide.TabIndex = 63
+        Me.cbInfinitySide.TabIndex = 53
         Me.cbInfinitySide.Text = "Unlocks Outsoar the Rainbow BGM and InfinitySide Story Mode"
         '
         'cbStoryHack
@@ -1182,7 +1501,7 @@ Partial Class frmEdit
         Me.cbStoryHack.Location = New System.Drawing.Point(344, 173)
         Me.cbStoryHack.Name = "cbStoryHack"
         Me.cbStoryHack.Size = New System.Drawing.Size(163, 24)
-        Me.cbStoryHack.TabIndex = 61
+        Me.cbStoryHack.TabIndex = 51
         Me.cbStoryHack.Text = "Complete All Story Mode"
         '
         'NsGroupBox4
@@ -1221,7 +1540,7 @@ Partial Class frmEdit
         Me.cmbCourse8.Location = New System.Drawing.Point(77, 36)
         Me.cmbCourse8.Name = "cmbCourse8"
         Me.cmbCourse8.Size = New System.Drawing.Size(166, 24)
-        Me.cmbCourse8.TabIndex = 57
+        Me.cmbCourse8.TabIndex = 47
         '
         'Label34
         '
@@ -1242,7 +1561,7 @@ Partial Class frmEdit
         Me.txtProficiency.Name = "txtProficiency"
         Me.txtProficiency.ReadOnly = False
         Me.txtProficiency.Size = New System.Drawing.Size(166, 24)
-        Me.txtProficiency.TabIndex = 58
+        Me.txtProficiency.TabIndex = 48
         Me.txtProficiency.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtProficiency.ToolTip = Nothing
         Me.txtProficiency.UseSystemPasswordChar = False
@@ -1258,7 +1577,7 @@ Partial Class frmEdit
         Me.cmbTitle.Location = New System.Drawing.Point(313, 69)
         Me.cmbTitle.Name = "cmbTitle"
         Me.cmbTitle.Size = New System.Drawing.Size(150, 24)
-        Me.cmbTitle.TabIndex = 56
+        Me.cmbTitle.TabIndex = 46
         '
         'cbStorySuperb
         '
@@ -1266,7 +1585,7 @@ Partial Class frmEdit
         Me.cbStorySuperb.Location = New System.Drawing.Point(175, 173)
         Me.cbStorySuperb.Name = "cbStorySuperb"
         Me.cbStorySuperb.Size = New System.Drawing.Size(163, 24)
-        Me.cbStorySuperb.TabIndex = 60
+        Me.cbStorySuperb.TabIndex = 50
         Me.cbStorySuperb.Text = "Unlock All Story Superb"
         '
         'Label29
@@ -1309,7 +1628,7 @@ Partial Class frmEdit
         Me.cbUnlockExSpec.Location = New System.Drawing.Point(6, 203)
         Me.cbUnlockExSpec.Name = "cbUnlockExSpec"
         Me.cbUnlockExSpec.Size = New System.Drawing.Size(163, 24)
-        Me.cbUnlockExSpec.TabIndex = 62
+        Me.cbUnlockExSpec.TabIndex = 52
         Me.cbUnlockExSpec.Text = "ExFull All Cars"
         '
         'cmbCup
@@ -1322,7 +1641,7 @@ Partial Class frmEdit
         Me.cmbCup.Location = New System.Drawing.Point(313, 39)
         Me.cmbCup.Name = "cmbCup"
         Me.cmbCup.Size = New System.Drawing.Size(150, 24)
-        Me.cmbCup.TabIndex = 54
+        Me.cmbCup.TabIndex = 44
         '
         'Label28
         '
@@ -1340,7 +1659,7 @@ Partial Class frmEdit
         Me.cbRiseUp.Location = New System.Drawing.Point(6, 173)
         Me.cbRiseUp.Name = "cbRiseUp"
         Me.cbRiseUp.Size = New System.Drawing.Size(163, 24)
-        Me.cbRiseUp.TabIndex = 59
+        Me.cbRiseUp.TabIndex = 49
         Me.cbRiseUp.Text = "Unlock Rise Up"
         '
         'cmbTitleEffect
@@ -1354,7 +1673,7 @@ Partial Class frmEdit
         Me.cmbTitleEffect.Location = New System.Drawing.Point(83, 69)
         Me.cmbTitleEffect.Name = "cmbTitleEffect"
         Me.cmbTitleEffect.Size = New System.Drawing.Size(150, 24)
-        Me.cmbTitleEffect.TabIndex = 55
+        Me.cmbTitleEffect.TabIndex = 45
         '
         'Label27
         '
@@ -1377,7 +1696,7 @@ Partial Class frmEdit
         Me.cmbTachometer.Location = New System.Drawing.Point(83, 39)
         Me.cmbTachometer.Name = "cmbTachometer"
         Me.cmbTachometer.Size = New System.Drawing.Size(150, 24)
-        Me.cmbTachometer.TabIndex = 53
+        Me.cmbTachometer.TabIndex = 43
         '
         'Label26
         '
@@ -1398,7 +1717,7 @@ Partial Class frmEdit
         Me.txtInfRank.Name = "txtInfRank"
         Me.txtInfRank.ReadOnly = False
         Me.txtInfRank.Size = New System.Drawing.Size(150, 24)
-        Me.txtInfRank.TabIndex = 52
+        Me.txtInfRank.TabIndex = 42
         Me.txtInfRank.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtInfRank.ToolTip = Nothing
         Me.txtInfRank.UseSystemPasswordChar = False
@@ -1423,7 +1742,7 @@ Partial Class frmEdit
         Me.cmbAura8.Location = New System.Drawing.Point(83, 9)
         Me.cmbAura8.Name = "cmbAura8"
         Me.cmbAura8.Size = New System.Drawing.Size(150, 24)
-        Me.cmbAura8.TabIndex = 51
+        Me.cmbAura8.TabIndex = 41
         '
         'Label24
         '
@@ -1446,7 +1765,7 @@ Partial Class frmEdit
         Me.cmbPlace.Location = New System.Drawing.Point(83, 36)
         Me.cmbPlace.Name = "cmbPlace"
         Me.cmbPlace.Size = New System.Drawing.Size(150, 24)
-        Me.cmbPlace.TabIndex = 14
+        Me.cmbPlace.TabIndex = 4
         '
         'txtName
         '
@@ -1457,7 +1776,7 @@ Partial Class frmEdit
         Me.txtName.Name = "txtName"
         Me.txtName.ReadOnly = False
         Me.txtName.Size = New System.Drawing.Size(150, 24)
-        Me.txtName.TabIndex = 11
+        Me.txtName.TabIndex = 1
         Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtName.ToolTip = Nothing
         Me.txtName.UseSystemPasswordChar = False
@@ -1471,7 +1790,7 @@ Partial Class frmEdit
         Me.txtLevel.Name = "txtLevel"
         Me.txtLevel.ReadOnly = False
         Me.txtLevel.Size = New System.Drawing.Size(150, 24)
-        Me.txtLevel.TabIndex = 12
+        Me.txtLevel.TabIndex = 2
         Me.txtLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtLevel.ToolTip = Nothing
         Me.txtLevel.UseSystemPasswordChar = False
@@ -1515,7 +1834,7 @@ Partial Class frmEdit
         Me.txtMileage.Name = "txtMileage"
         Me.txtMileage.ReadOnly = False
         Me.txtMileage.Size = New System.Drawing.Size(150, 24)
-        Me.txtMileage.TabIndex = 15
+        Me.txtMileage.TabIndex = 5
         Me.txtMileage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtMileage.ToolTip = Nothing
         Me.txtMileage.UseSystemPasswordChar = False
@@ -1529,7 +1848,7 @@ Partial Class frmEdit
         Me.txtGamePoint.Name = "txtGamePoint"
         Me.txtGamePoint.ReadOnly = False
         Me.txtGamePoint.Size = New System.Drawing.Size(150, 24)
-        Me.txtGamePoint.TabIndex = 13
+        Me.txtGamePoint.TabIndex = 3
         Me.txtGamePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.txtGamePoint.ToolTip = Nothing
         Me.txtGamePoint.UseSystemPasswordChar = False
@@ -1607,6 +1926,32 @@ Partial Class frmEdit
         Me.tcGames.ResumeLayout(False)
         Me.tpAvatar.ResumeLayout(False)
         Me.tpAvatar.PerformLayout()
+        Me.pAvatar2.ResumeLayout(False)
+        Me.pAvatar2.PerformLayout()
+        CType(Me.pbShades2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbShades2.ResumeLayout(False)
+        Me.pbShades2.PerformLayout()
+        CType(Me.pbShirt2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbShirt2.ResumeLayout(False)
+        Me.pbShirt2.PerformLayout()
+        CType(Me.pbMouth2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbMouth2.ResumeLayout(False)
+        Me.pbMouth2.PerformLayout()
+        CType(Me.pbEyes2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbEyes2.ResumeLayout(False)
+        Me.pbEyes2.PerformLayout()
+        CType(Me.pbAccessories2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbAccessories2.ResumeLayout(False)
+        Me.pbAccessories2.PerformLayout()
+        CType(Me.pbSkin2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbSkin2.ResumeLayout(False)
+        Me.pbSkin2.PerformLayout()
+        CType(Me.pbFrame2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbFrame2.ResumeLayout(False)
+        Me.pbFrame2.PerformLayout()
+        CType(Me.pbHair2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pbHair2.ResumeLayout(False)
+        Me.pbHair2.PerformLayout()
         Me.pAvatar.ResumeLayout(False)
         Me.pAvatar.PerformLayout()
         CType(Me.pbShades, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1771,6 +2116,30 @@ Partial Class frmEdit
     Friend WithEvents tpBasic As TabPage
     Friend WithEvents tpCar As TabPage
     Friend WithEvents pAvatar As Panel
-    Friend WithEvents lvAvatar As NSListView
     Friend WithEvents MyFlowLayoutPanel1 As MyFlowLayoutPanel
+    Friend WithEvents pAvatar2 As Panel
+    Friend WithEvents lblc5c6_2 As Label
+    Friend WithEvents lblc8c9_2 As Label
+    Friend WithEvents lblc7c8_2 As Label
+    Friend WithEvents lblcbcc_2 As Label
+    Friend WithEvents pbShades2 As PictureBox
+    Friend WithEvents slblShades2 As SpecialLabel
+    Friend WithEvents lblcacb_2 As Label
+    Friend WithEvents pbShirt2 As PictureBox
+    Friend WithEvents slblShirt2 As SpecialLabel
+    Friend WithEvents lblcdce_2 As Label
+    Friend WithEvents lblc4c5_2 As Label
+    Friend WithEvents lbl221_2 As Label
+    Friend WithEvents pbMouth2 As PictureBox
+    Friend WithEvents slblMouth2 As SpecialLabel
+    Friend WithEvents pbEyes2 As PictureBox
+    Friend WithEvents slblEyes2 As SpecialLabel
+    Friend WithEvents pbAccessories2 As PictureBox
+    Friend WithEvents slblAccessories2 As SpecialLabel
+    Friend WithEvents pbSkin2 As PictureBox
+    Friend WithEvents slblSkin2 As SpecialLabel
+    Friend WithEvents pbFrame2 As PictureBox
+    Friend WithEvents slblFrame2 As SpecialLabel
+    Friend WithEvents pbHair2 As PictureBox
+    Friend WithEvents slblHair2 As SpecialLabel
 End Class

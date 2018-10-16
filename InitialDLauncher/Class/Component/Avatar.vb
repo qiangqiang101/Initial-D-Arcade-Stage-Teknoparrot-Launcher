@@ -67,6 +67,54 @@
         End Set
     End Property
 
+    Public Sub ChangeAccessoryImage(image As Bitmap)
+        If _acc IsNot Nothing Then _acc.Dispose()
+        _acc = Nothing
+        _acc = image
+    End Sub
+
+    Public Sub ChangeHairImage(image As Bitmap)
+        If _hair IsNot Nothing Then _hair.Dispose()
+        _hair = Nothing
+        _hair = image
+    End Sub
+
+    Public Sub ChangeEyesImage(image As Bitmap)
+        If _eyes IsNot Nothing Then _eyes.Dispose()
+        _eyes = Nothing
+        _eyes = image
+    End Sub
+
+    Public Sub ChangeMouthImage(image As Bitmap)
+        If _mouth IsNot Nothing Then _mouth.Dispose()
+        _mouth = Nothing
+        _mouth = image
+    End Sub
+
+    Public Sub ChangeFaceImage(image As Bitmap)
+        If _face IsNot Nothing Then _face.Dispose()
+        _face = Nothing
+        _face = image
+    End Sub
+
+    Public Sub ChangeShadesImage(image As Bitmap)
+        If _shades IsNot Nothing Then _shades.Dispose()
+        _shades = Nothing
+        _shades = image
+    End Sub
+
+    Public Sub ChangeCoatImage(image As Bitmap)
+        If _coat IsNot Nothing Then _coat.Dispose()
+        _coat = Nothing
+        _coat = image
+    End Sub
+
+    Public Sub ChangeFrameImage(image As Bitmap)
+        If _frame IsNot Nothing Then _frame.Dispose()
+        _frame = Nothing
+        _frame = image
+    End Sub
+
     Public Sub RefreshImage()
         Try
             If Not i Is Nothing Then i.Dispose()
