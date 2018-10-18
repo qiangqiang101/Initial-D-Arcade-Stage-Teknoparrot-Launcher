@@ -188,7 +188,7 @@ Public Class Card
 
     Private Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             'ReadCfgValue("", langFile)
             Text = ReadCfgValue("LauncherTitle", langFile)
             error_5108_fixed = ReadCfgValue("E5108Fixed", langFile)

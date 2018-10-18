@@ -25,7 +25,7 @@ Public Class BGMPlugin
         End Get
     End Property
 
-    Dim mp3File As String = ".\Plugins\launcher.mp3"
+    Dim mp3File As String = ".\Plugins\IDAS\launcher.mp3"
     Dim audio As AudioFile
     Dim isGameRunning As Boolean = False
     Dim status As Integer = -1

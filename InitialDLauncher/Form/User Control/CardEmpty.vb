@@ -122,7 +122,7 @@ Public Class CardEmpty
 
     Public Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             'ReadCfgValue("", langFile)
             lblNoCard.Text = ReadCfgValue("NoCardFound", langFile)
             btnBrowse.Text = ReadCfgValue("Browse", langFile)

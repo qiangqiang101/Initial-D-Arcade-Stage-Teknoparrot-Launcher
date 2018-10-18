@@ -165,7 +165,7 @@ Public Class frmEditCar
 
     Private Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             'ReadCfgValue("", langFile)
             Me.Text = ReadCfgValue("EditCarMeText", langFile) & _carname & "[" & _slot & "]"
             NsTheme1.Text = Me.Text

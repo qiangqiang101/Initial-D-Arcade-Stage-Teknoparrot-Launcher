@@ -1551,7 +1551,7 @@ Public Class frmEdit
 
     Private Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Me.Text = String.Format(ReadCfgValue("EditMeText", langFile), Path.GetFileName(_filename))
             NsTheme1.Text = Me.Text
             Label1.Text = ReadCfgValue("Name", langFile)
@@ -1743,7 +1743,7 @@ Public Class frmEdit
 #Region "Avatar Dictionary"
     Private Sub DictionaryAdd6()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Dim i As Integer = 0
 
             If cmbGender.SelectedIndex = 1 Then
@@ -1951,7 +1951,7 @@ Public Class frmEdit
 
     Private Sub DictionaryAdd7()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Dim i As Integer = 0
 
             If cmbGender.SelectedIndex = 1 Then
@@ -2159,7 +2159,7 @@ Public Class frmEdit
 
     Private Sub DictionaryAdd8()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Dim i As Integer = 0
 
             If cmbGender.SelectedIndex = 1 Then

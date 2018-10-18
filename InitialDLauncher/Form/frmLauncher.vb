@@ -15,7 +15,7 @@ Public Class frmLauncher
     Public Shared RunGameThread As Thread
     Public shadow As Dropshadow
     Dim curVer As Integer = 48
-    Public buildDate As String = "17/10/2018"
+    Public buildDate As String = "19/10/2018"
 
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
@@ -35,7 +35,7 @@ Public Class frmLauncher
     Public Shared lastGame As Integer = 0
     Public Shared isGameRunning As Boolean = False
     Public Shared pluginControls As New List(Of Control)
-    Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins")
+    Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins\IDAS")
 
     'Translation
     Dim new_version, no_card_selected As String
@@ -758,7 +758,7 @@ Public Class frmLauncher
 
     Public Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Text = ReadCfgValue("LauncherTitle", langFile)
             lblStart6.Text = ReadCfgValue("Start6", langFile)
             lblStart7.Text = ReadCfgValue("Start7", langFile)

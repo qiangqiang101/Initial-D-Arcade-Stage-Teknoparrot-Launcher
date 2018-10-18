@@ -97,7 +97,7 @@ SEGA<br />
 
     Private Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             lblVersion.Text = String.Format(ReadCfgValue("VersionBuild", langFile), FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion, frmLauncher.buildDate)
             lblTitle.Text = ReadCfgValue("LauncherTitle", langFile)
             Me.Text = ReadCfgValue("AboutMeText", langFile)

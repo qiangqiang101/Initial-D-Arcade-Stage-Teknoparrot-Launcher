@@ -163,7 +163,7 @@ Public Class CarCtrl
 
     Private Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             'ReadCfgValue("", langFile)
             Text = ReadCfgValue("EditCarMeText", langFile) & lblCarName.Text & "[" & _slot & "]"
             cbFullSpec.Text = ReadCfgValue("UnlockFullspec", langFile)

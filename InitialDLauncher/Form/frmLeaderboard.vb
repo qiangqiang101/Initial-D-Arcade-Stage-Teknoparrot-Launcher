@@ -406,7 +406,7 @@ Public Class frmLeaderboard
 
     Private Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Me.Text = ReadCfgValue("LeaderboardMeText", langFile)
             NsTheme1.Text = Me.Text
             tp6.Text = ReadCfgValue("EditTab6", langFile)

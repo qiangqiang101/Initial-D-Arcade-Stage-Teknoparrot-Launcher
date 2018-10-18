@@ -15,7 +15,7 @@ Public Class frmSettings
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            For Each file As String In IO.Directory.GetFiles(String.Format("{0}\Languages", My.Application.Info.DirectoryPath), "*.ini")
+            For Each file As String In IO.Directory.GetFiles(String.Format("{0}\Languages\IDAS", My.Application.Info.DirectoryPath), "*.ini")
                 cmbLang.Items.Add(IO.Path.GetFileNameWithoutExtension(file))
             Next
 
@@ -120,7 +120,7 @@ Public Class frmSettings
 
     Public Sub Translate()
         Try
-            Dim langFile As String = String.Format("{0}\Languages\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
+            Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             'ReadCfgValue("", langFile)
             Me.Text = ReadCfgValue("SettingsMeText", langFile)
             NsTheme1.Text = Me.Text
