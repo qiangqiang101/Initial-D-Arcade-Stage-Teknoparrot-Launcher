@@ -342,6 +342,13 @@
     <Content Include="ID8.ico" />
     <Content Include="ID8_256.ico" />
     <Content Include="ID8_256_v2.ico" />
+    <None Include="Resources\card4japm.png" />
+    <None Include="Resources\card4japf.png" />
+    <None Include="Resources\card4m.png" />
+    <None Include="Resources\card4f.png" />
+    <None Include="Resources\card5m.png" />
+    <None Include="Resources\card5f.png" />
+    <None Include="Resources\bg_header.jpg" />
     <None Include="Resources\FT86.jpg" />
     <None Include="Resources\Z33.jpg" />
     <None Include="Resources\SUPRA.jpg" />

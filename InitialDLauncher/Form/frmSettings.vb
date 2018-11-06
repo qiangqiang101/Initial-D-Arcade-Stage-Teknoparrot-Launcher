@@ -4,6 +4,9 @@ Public Class frmSettings
 
     Dim gotError As Boolean = False
 
+    Dim id4XmlFile As String = ".\UserProfiles\ID4Jap.xml"
+    Dim id4eXmlFile As String = ".\UserProfiles\ID4Exp.xml"
+    Dim id5XmlFile As String = ".\UserProfiles\ID5.xml"
     Dim id6XmlFile As String = ".\UserProfiles\ID6.xml"
     Dim id7XmlFile As String = ".\UserProfiles\ID7.xml"
     Dim id8XmlFile As String = ".\UserProfiles\ID8.xml"
@@ -21,6 +24,9 @@ Public Class frmSettings
 
             Translate()
 
+            If File.Exists(id4XmlFile) Then ReadXml(id4XmlFile, txt4, flp4.FP)
+            If File.Exists(id4eXmlFile) Then ReadXml(id4eXmlFile, txt4e, flp4e.FP)
+            If File.Exists(id5XmlFile) Then ReadXml(id5XmlFile, txt5, flp5.FP)
             If File.Exists(id6XmlFile) Then ReadXml(id6XmlFile, txt6, flp6.FP)
             If File.Exists(id7XmlFile) Then ReadXml(id7XmlFile, txt7, flp7.FP)
             If File.Exists(id8XmlFile) Then ReadXml(id8XmlFile, txt8, flp8.FP)
@@ -34,6 +40,9 @@ Public Class frmSettings
             cmbCountry.SelectedItem = My.Settings.UserCountry
             cbPicodaemon.Checked = My.Settings.RunCardReader
             cbFullScreen.Checked = My.Settings.FullScreen
+            If File.Exists(SBML_e2prom) Then cmbSeat4.SelectedItem = GetSeatName(GetHex(SBML_e2prom, &H2B, 1))
+            If File.Exists(SBNK_e2prom) Then cmbSeat4e.SelectedItem = GetSeatName(GetHex(SBNK_e2prom, &H2B, 1))
+            If File.Exists(SBQZ_e2prom) Then cmbSeat5.SelectedItem = GetSeatName(GetHex(SBQZ_e2prom, &H2B, 1))
             If File.Exists(SBUU_e2prom) Then cmbSeat6.SelectedItem = GetSeatName(GetHex(SBUU_e2prom, &H2B, 1))
             If File.Exists(SBYD_e2prom) Then cmbSeat7.SelectedItem = GetSeatName(GetHex(SBYD_e2prom, &H2B, 1))
             If File.Exists(SBZZ_e2prom) Then cmbSeat8.SelectedItem = GetSeatName(GetHex(SBZZ_e2prom, &H2B, 1))
@@ -58,6 +67,9 @@ Public Class frmSettings
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             If File.Exists(parrotDataFile) Then WriteParrotData()
+            If File.Exists(id4XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt4.Text) Then WriteXml(id4XmlFile, flp4.FP, txt4, 4)
+            If File.Exists(id4eXmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt4e.Text) Then WriteXml(id4eXmlFile, flp4e.FP, txt4e, &H4E)
+            If File.Exists(id5XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt5.Text) Then WriteXml(id5XmlFile, flp5.FP, txt5, 5)
             If File.Exists(id6XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt6.Text) Then WriteXml(id6XmlFile, flp6.FP, txt6, 6)
             If File.Exists(id7XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt7.Text) Then WriteXml(id7XmlFile, flp7.FP, txt7, 7)
             If File.Exists(id8XmlFile) AndAlso Not String.IsNullOrWhiteSpace(txt8.Text) Then WriteXml(id8XmlFile, flp8.FP, txt8, 8)
@@ -68,6 +80,9 @@ Public Class frmSettings
                 If File.Exists(SBUU_e2prom) Then SetSeatName(cmbSeat6.SelectedItem, SBUU_e2prom)
                 If File.Exists(SBYD_e2prom) Then SetSeatName(cmbSeat7.SelectedItem, SBYD_e2prom)
                 If File.Exists(SBZZ_e2prom) Then SetSeatName(cmbSeat8.SelectedItem, SBZZ_e2prom)
+                If File.Exists(SBML_e2prom) Then SetSeatName(cmbSeat4.SelectedItem, SBML_e2prom)
+                If File.Exists(SBNK_e2prom) Then SetSeatName(cmbSeat4e.SelectedItem, SBNK_e2prom)
+                If File.Exists(SBQZ_e2prom) Then SetSeatName(cmbSeat5.SelectedItem, SBQZ_e2prom)
                 If Not txtPlayerName.Text = "" Then If My.Settings.UserCountry <> cmbCountry.SelectedItem.ToString Then UpdateUserCountry()
                 My.Settings.UserName = txtPlayerName.Text
                 My.Settings.TestMode = cbTest.Checked
@@ -90,6 +105,9 @@ Public Class frmSettings
                 End If
                 My.Settings.Save()
 
+                frmLauncher.id4GameDir = Path.Combine(My.Settings.Id4Path, "InidCrd000.crd")
+                frmLauncher.id4eGameDir = Path.Combine(My.Settings.Id4ePath, "InidCrd000.crd")
+                frmLauncher.id5GameDir = Path.Combine(My.Settings.Id5Path, "InidCrd000.crd")
                 frmLauncher.id6GameDir = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
                 frmLauncher.id7GameDir = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
                 frmLauncher.id8GameDir = Path.Combine(My.Settings.Id8Path, "InidCrd000.crd")
@@ -127,6 +145,9 @@ Public Class frmSettings
             Label1.Text = ReadCfgValue("Path6", langFile)
             Label2.Text = ReadCfgValue("Path7", langFile)
             Label4.Text = ReadCfgValue("Path8", langFile)
+            Label15.Text = ReadCfgValue("Path4jp", langFile)
+            Label17.Text = ReadCfgValue("Path4exp", langFile)
+            Label19.Text = ReadCfgValue("Path5", langFile)
             cbTest.Text = ReadCfgValue("TestMenu", langFile)
             cbDebug.Text = ReadCfgValue("DebugMode", langFile)
             Label21.Text = ReadCfgValue("Language", langFile)
@@ -147,6 +168,9 @@ Public Class frmSettings
             tpId6.Text = ReadCfgValue("ID6Settings", langFile)
             tpId7.Text = ReadCfgValue("ID7Settings", langFile)
             tpId8.Text = ReadCfgValue("ID8Settings", langFile)
+            tpId4.Text = ReadCfgValue("ID4Settings", langFile)
+            tpId4E.Text = ReadCfgValue("ID4eSettings", langFile)
+            tpId5.Text = ReadCfgValue("ID5Settings", langFile)
             tpTPEmu.Text = ReadCfgValue("TPEmulation", langFile)
             Label5.Text = ReadCfgValue("JoystickInterface", langFile)
             NsGroupBox2.Title = ReadCfgValue("Sto0zZone", langFile)
@@ -172,6 +196,9 @@ Public Class frmSettings
             Label3.Text = ReadCfgValue("SeatNumber", langFile)
             Label7.Text = ReadCfgValue("SeatNumber", langFile)
             Label8.Text = ReadCfgValue("SeatNumber", langFile)
+            Label14.Text = ReadCfgValue("SeatNumber", langFile)
+            Label16.Text = ReadCfgValue("SeatNumber", langFile)
+            Label18.Text = ReadCfgValue("SeatNumber", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -278,6 +305,42 @@ Public Class frmSettings
         Return New ComboboxItem() With {.Text = content, .Value = joystickName}
     End Function
 
+    Private Sub btnBrowse4_Click(sender As Object, e As EventArgs) Handles btnBrowse4.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "ELF files (*.elf)|*.elf"
+        ofd.Title = Label15.Text
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            txt4.Text = ofd.FileName
+        End If
+    End Sub
+
+    Private Sub btnBrowse4e_Click(sender As Object, e As EventArgs) Handles btnBrowse4e.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "ELF files (*.elf)|*.elf"
+        ofd.Title = Label17.Text
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            txt4e.Text = ofd.FileName
+        End If
+    End Sub
+
+    Private Sub btnBrowse5_Click(sender As Object, e As EventArgs) Handles btnBrowse5.Click
+        Dim ofd As New OpenFileDialog()
+        ofd.Filter = "ELF files (*.elf)|*.elf"
+        ofd.Title = Label19.Text
+        ofd.FilterIndex = 1
+        ofd.RestoreDirectory = True
+        ofd.InitialDirectory = My.Application.Info.DirectoryPath
+        If ofd.ShowDialog() = DialogResult.OK Then
+            txt5.Text = ofd.FileName
+        End If
+    End Sub
+
     Private Sub UpdateUserCountry()
         Try
             Dim client As WebClientEx = New WebClientEx() With {.Timeout = 10000}
@@ -349,6 +412,15 @@ Public Class frmSettings
         gp.Save()
 
         Select Case gameVersion
+            Case 4
+                My.Settings.Id4Path = Path.GetDirectoryName(xml.GamePath)
+                My.Settings.PerferCardExt4 = "CRD"
+            Case &H4E
+                My.Settings.Id4ePath = Path.GetDirectoryName(xml.GamePath)
+                My.Settings.PerferCardExt4e = "CRD"
+            Case 5
+                My.Settings.Id5Path = Path.GetDirectoryName(xml.GamePath)
+                My.Settings.PerferCardExt5 = "CRD"
             Case 6
                 My.Settings.Id6Path = Path.GetDirectoryName(xml.GamePath)
                 My.Settings.PerferCardExt6 = If(xml.ConfigValues(5).FieldValue = 0, "BIN", "CRD")

@@ -305,6 +305,114 @@ Namespace My
                 Me("PerferCardExt8") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Id4Path() As String
+            Get
+                Return CType(Me("Id4Path"),String)
+            End Get
+            Set
+                Me("Id4Path") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Id4ePath() As String
+            Get
+                Return CType(Me("Id4ePath"),String)
+            End Get
+            Set
+                Me("Id4ePath") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Id5Path() As String
+            Get
+                Return CType(Me("Id5Path"),String)
+            End Get
+            Set
+                Me("Id5Path") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Id4CardName() As String
+            Get
+                Return CType(Me("Id4CardName"),String)
+            End Get
+            Set
+                Me("Id4CardName") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Id4eCardName() As String
+            Get
+                Return CType(Me("Id4eCardName"),String)
+            End Get
+            Set
+                Me("Id4eCardName") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Id5CardName() As String
+            Get
+                Return CType(Me("Id5CardName"),String)
+            End Get
+            Set
+                Me("Id5CardName") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("CRD")>  _
+        Public Property PerferCardExt4() As String
+            Get
+                Return CType(Me("PerferCardExt4"),String)
+            End Get
+            Set
+                Me("PerferCardExt4") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("CRD")>  _
+        Public Property PerferCardExt4e() As String
+            Get
+                Return CType(Me("PerferCardExt4e"),String)
+            End Get
+            Set
+                Me("PerferCardExt4e") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("CRD")>  _
+        Public Property PerferCardExt5() As String
+            Get
+                Return CType(Me("PerferCardExt5"),String)
+            End Get
+            Set
+                Me("PerferCardExt5") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -203,7 +203,7 @@ Public Class frmEdit
         category.Clear()
 
         Select Case _version
-            Case 6
+            Case 4, &H4E, 5, 6
                 DictionaryAdd6()
             Case 7
                 DictionaryAdd7()
@@ -265,7 +265,7 @@ Public Class frmEdit
             Dim f221 As String = _221
 
             Select Case _version
-                Case 6
+                Case 4, &H4E, 5, 6
                     Dim d6fsk As Object = New InitialD6.Female.Skin
                     Dim d6fsh As Object = New InitialD6.Female.Shirt
                     Dim d6fsp As Object = New InitialD6.Female.Shades
@@ -1387,18 +1387,34 @@ Public Class frmEdit
                 txtName.Text = GetName(GetHex(_filename, Neg60(240), 12))
                 txtGamePoint.Text = GetMilelage(GetHex(_filename, Neg60(192), 1), GetHex(_filename, Neg60(193), 1), GetHex(_filename, Neg60(194), 1), GetHex(_filename, Neg60(195), 1))
                 cmbPlace.SelectedIndex = GetLevel(GetHex(_filename, &H1C, 1), True)
-                C4 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC4), 1))
-                C5 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC5), 1))
-                C6 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC6), 1))
-                C7 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC7), 1))
-                C8 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC8), 1))
-                C9 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC9), 1))
-                CA = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCA), 1))
-                CB = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCB), 1))
-                CC = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCC), 1))
-                CD = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCD), 1))
-                CE = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCE), 1))
-                _221 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&H221), 1))
+                Select Case _version
+                    Case 4, &H4E
+                        C4 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HC4)), 1))
+                        C5 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HC5)), 1))
+                        C6 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HC6)), 1))
+                        C7 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HC7)), 1))
+                        C8 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HC8)), 1))
+                        C9 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HC9)), 1))
+                        CA = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HCA)), 1))
+                        CB = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HCB)), 1))
+                        CC = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HCC)), 1))
+                        CD = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HCD)), 1))
+                        CE = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&HCE)), 1))
+                        _221 = GetHexStringFromBinary(GetHex(_filename, Neg3C(Cid4(&H221)), 1))
+                    Case Else
+                        C4 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC4), 1))
+                        C5 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC5), 1))
+                        C6 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC6), 1))
+                        C7 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC7), 1))
+                        C8 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC8), 1))
+                        C9 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HC9), 1))
+                        CA = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCA), 1))
+                        CB = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCB), 1))
+                        CC = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCC), 1))
+                        CD = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCD), 1))
+                        CE = GetHexStringFromBinary(GetHex(_filename, Neg3C(&HCE), 1))
+                        _221 = GetHexStringFromBinary(GetHex(_filename, Neg3C(&H221), 1))
+                End Select
                 lblAvatarOffset.Text = C4 & C5 & C6 & C7 & C8 & C9 & CA & CB & CC & CD & CE
                 GetAvatarFromCard()
 
@@ -1459,6 +1475,12 @@ Public Class frmEdit
                     NanamagariP = GetPridePoint(GetHex(_filename, Neg3C(&H39E), 1), GetHex(_filename, Neg3C(&H39F), 1))
                     cmbCourse8.SelectedIndex = 0
                     txtProficiency.Text = LakeAkinaP
+                ElseIf _version = 4 Or &HE4 Then
+                    txtLevel.Text = GetLevel(GetHex(_filename, Neg60(Cid4(164)), 1), True, True)
+                    txtMileage.Text = GetMilelage(GetHex(_filename, Neg60(Cid4(944)), 1), GetHex(_filename, Neg60(Cid4(945)), 1), GetHex(_filename, Neg60(Cid4(946)), 1), GetHex(_filename, Neg60(Cid4(947)), 1))
+                    myCar1.CarName = GetCar(GetHex(_filename, Neg60(Cid4(256)), 2), GetHex(_filename, Neg60(Cid4(271)), 1), 8)
+                    myCar2.CarName = GetCar(GetHex(_filename, Neg60(Cid4(352)), 2), GetHex(_filename, Neg60(Cid4(367)), 1), 8)
+                    myCar3.CarName = GetCar(GetHex(_filename, Neg60(Cid4(448)), 2), GetHex(_filename, Neg60(Cid4(463)), 1), 8)
                 End If
 
                 'Read Car

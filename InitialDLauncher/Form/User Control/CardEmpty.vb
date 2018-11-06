@@ -33,6 +33,9 @@ Public Class CardEmpty
                         If GetCardVersion(GetHex(fileName, &H14, 2)) = _cardVersion Then
                             File.Move(fileName, destination)
                             frmCard.Translate()
+                            frmCard.RefreshID4Cards()
+                            frmCard.RefreshID4eCards()
+                            frmCard.RefreshID5Cards()
                             frmCard.RefreshID6Cards()
                             frmCard.RefreshID7Cards()
                             frmCard.RefreshID8Cards()
@@ -43,6 +46,9 @@ Public Class CardEmpty
                         If GetCardVersion(GetHex(fileName, &H50, 2)) = _cardVersion Then
                             File.Move(fileName, destination)
                             frmCard.Translate()
+                            frmCard.RefreshID4Cards()
+                            frmCard.RefreshID4eCards()
+                            frmCard.RefreshID5Cards()
                             frmCard.RefreshID6Cards()
                             frmCard.RefreshID7Cards()
                             frmCard.RefreshID8Cards()
@@ -72,6 +78,42 @@ Public Class CardEmpty
             Next
 
             Select Case _cardVersion
+                Case 4
+                    If Directory.Exists(My.Settings.Id4Path) Then
+                        For Each file As String In IO.Directory.GetFiles(My.Settings.Id4Path, "*.crd")
+                            Dim fileName As String = file
+                            Dim fileNameOnly As String = Path.GetFileName(file)
+                            Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                            Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID" & CardVersion & "_CARD\" & fileNameOnly)
+                            If GetCardVersion(GetHex(fileName, &H14, 2)) = 4 Then
+                                IO.File.Move(fileName, destination)
+                            End If
+                        Next
+                    End If
+                Case &H4E
+                    If Directory.Exists(My.Settings.Id4ePath) Then
+                        For Each file As String In IO.Directory.GetFiles(My.Settings.Id4ePath, "*.crd")
+                            Dim fileName As String = file
+                            Dim fileNameOnly As String = Path.GetFileName(file)
+                            Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                            Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID4E_CARD\" & fileNameOnly)
+                            If GetCardVersion(GetHex(fileName, &H14, 2)) = &H4E Then
+                                IO.File.Move(fileName, destination)
+                            End If
+                        Next
+                    End If
+                Case 5
+                    If Directory.Exists(My.Settings.Id5Path) Then
+                        For Each file As String In IO.Directory.GetFiles(My.Settings.Id5Path, "*.crd")
+                            Dim fileName As String = file
+                            Dim fileNameOnly As String = Path.GetFileName(file)
+                            Dim extension As String = Path.GetExtension(file).Replace(".", "").ToLower
+                            Dim destination As String = Path.Combine(My.Application.Info.DirectoryPath, "ID" & CardVersion & "_CARD\" & fileNameOnly)
+                            If GetCardVersion(GetHex(fileName, &H14, 2)) = 5 Then
+                                IO.File.Move(fileName, destination)
+                            End If
+                        Next
+                    End If
                 Case 6
                     If Directory.Exists(My.Settings.Id6Path) Then
                         For Each file As String In IO.Directory.GetFiles(My.Settings.Id6Path, "*.crd")
@@ -111,6 +153,9 @@ Public Class CardEmpty
             End Select
 
             frmCard.Translate()
+            frmCard.RefreshID4Cards()
+            frmCard.RefreshID4eCards()
+            frmCard.RefreshID5Cards()
             frmCard.RefreshID6Cards()
             frmCard.RefreshID7Cards()
             frmCard.RefreshID8Cards()

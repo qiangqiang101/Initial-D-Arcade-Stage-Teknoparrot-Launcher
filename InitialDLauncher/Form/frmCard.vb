@@ -5,6 +5,9 @@ Public Class frmCard
     'Translate
     Dim select_card, deselect_card As String
 
+    Dim id4CardPath As String = String.Format("{0}\ID4_CARD\", My.Application.Info.DirectoryPath)
+    Dim id4eCardPath As String = String.Format("{0}\ID4E_CARD\", My.Application.Info.DirectoryPath)
+    Dim id5CardPath As String = String.Format("{0}\ID5_CARD\", My.Application.Info.DirectoryPath)
     Dim id6CardPath As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardPath As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
     Dim id8CardPath As String = String.Format("{0}\ID8_CARD\", My.Application.Info.DirectoryPath)
@@ -14,6 +17,9 @@ Public Class frmCard
     Private Sub frmCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not My.Settings.FullScreen Then MaximumSize = My.Computer.Screen.WorkingArea.Size
 
+        RefreshID4Cards()
+        RefreshID4eCards()
+        RefreshID5Cards()
         RefreshID6Cards()
         RefreshID7Cards()
         RefreshID8Cards()
@@ -25,6 +31,7 @@ Public Class frmCard
         End If
     End Sub
 
+#Region "Refresh Cards"
     Public Sub RefreshID6Cards()
         Try
             flp6.FP.Controls.Clear()
@@ -236,6 +243,228 @@ Public Class frmCard
         End Try
     End Sub
 
+    Public Sub RefreshID4Cards()
+        Try
+            flp4.FP.Controls.Clear()
+            For Each file As String In IO.Directory.GetFiles(id4CardPath, "*.bin")
+                item = New Card()
+                With item
+                    .lblName.Text = GetName(GetHex(file, Cid4(240), 12))
+                    .lblCar.Text = GetCar(GetHex(file, Cid4(256), 2), GetHex(file, Cid4(271), 1))
+                    .lblLevel.Text = GetLevel(GetHex(file, Cid4(163), 1), True)
+                    .FileName = file
+                    .Extension = "bin"
+                    If GetGender(GetHex(file, Cid4(90), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card4japf
+                    Else
+                        .BackgroundImage = My.Resources.card4japm
+                    End If
+                    .CardVersion = 4
+                    If My.Settings.Id4CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H50, 2)) = 4 Then
+                    flp4.FP.Controls.Add(item)
+                End If
+            Next
+            For Each file As String In IO.Directory.GetFiles(id4CardPath, "*.crd")
+                item = New Card()
+                With item
+                    .lblName.Text = GetName(GetHex(file, Neg60(Cid4(240)), 12))
+                    .lblCar.Text = GetCar(GetHex(file, Neg60(Cid4(256)), 2), GetHex(file, Neg60(Cid4(271)), 1))
+                    .lblLevel.Text = GetLevel(GetHex(file, Neg60(Cid4(163)), 1), True)
+                    .FileName = file
+                    .Extension = "crd"
+                    If GetGender(GetHex(file, Neg60(Cid4(90)), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card4japf
+                    Else
+                        .BackgroundImage = My.Resources.card4japm
+                    End If
+                    .CardVersion = 4
+                    If My.Settings.Id4CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H14, 2)) = 4 Then
+                    flp4.FP.Controls.Add(item)
+                End If
+            Next
+            If flp4.FP.Controls.Count = 0 Then
+                itemBlank = New CardEmpty() With {.CardVersion = 4}
+                With itemBlank
+                    .Translate()
+                End With
+                flp4.FP.Controls.Add(itemBlank)
+                itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
+            End If
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
+    Public Sub RefreshID4eCards()
+        Try
+            flp4e.FP.Controls.Clear()
+            For Each file As String In IO.Directory.GetFiles(id4eCardPath, "*.bin")
+                item = New Card()
+                With item
+                    .lblName.Location = New Point(72, 26)
+                    .lblName.Text = GetName(GetHex(file, Cid4(240), 12))
+                    .lblLevel.Visible = False
+                    .lblCar.Visible = False
+                    '.lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1))
+                    '.lblLevel.Text = GetLevel(GetHex(file, 163, 1))
+                    .FileName = file
+                    .Extension = "bin"
+                    If GetGender(GetHex(file, Cid4(90), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card4f
+                    Else
+                        .BackgroundImage = My.Resources.card4m
+                    End If
+                    .CardVersion = &H4E
+                    If My.Settings.Id4eCardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H50, 2)) = &H4E Then
+                    flp4e.FP.Controls.Add(item)
+                End If
+            Next
+            For Each file As String In IO.Directory.GetFiles(id4eCardPath, "*.crd")
+                item = New Card()
+                With item
+                    .lblName.Location = New Point(72, 26)
+                    .lblName.Text = GetName(GetHex(file, Neg60(Cid4(240)), 12))
+                    '.lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
+                    '.lblLevel.Text = GetLevel(GetHex(file, Neg60(163), 1))
+                    .lblCar.Visible = False
+                    .lblLevel.Visible = False
+                    .FileName = file
+                    .Extension = "crd"
+                    If GetGender(GetHex(file, Neg60(Cid4(90)), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card4f
+                    Else
+                        .BackgroundImage = My.Resources.card4m
+                    End If
+                    .CardVersion = &H4E
+                    If My.Settings.Id4eCardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H14, 2)) = &H4E Then
+                    flp4e.FP.Controls.Add(item)
+                End If
+            Next
+            If flp4e.FP.Controls.Count = 0 Then
+                itemBlank = New CardEmpty() With {.CardVersion = &H4E}
+                With itemBlank
+                    .Translate()
+                End With
+                flp4e.FP.Controls.Add(itemBlank)
+                itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
+            End If
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+
+    Public Sub RefreshID5Cards()
+        Try
+            flp5.FP.Controls.Clear()
+            For Each file As String In IO.Directory.GetFiles(id5CardPath, "*.bin")
+                item = New Card()
+                With item
+                    .lblName.Text = GetName(GetHex(file, 240, 12))
+                    .lblCar.Text = GetCar(GetHex(file, 256, 2), GetHex(file, 271, 1))
+                    .lblLevel.Location = New Point(260, 5)
+                    .lblLevel.Text = GetLevel(GetHex(file, 163, 1))
+                    .FileName = file
+                    .Extension = "bin"
+                    If GetGender(GetHex(file, 90, 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card5f
+                    Else
+                        .BackgroundImage = My.Resources.card5m
+                    End If
+                    .CardVersion = 5
+                    If My.Settings.Id5CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H50, 2)) = 5 Then
+                    flp5.FP.Controls.Add(item)
+                End If
+            Next
+            For Each file As String In IO.Directory.GetFiles(id5CardPath, "*.crd")
+                item = New Card()
+                With item
+                    .lblName.Text = GetName(GetHex(file, Neg60(240), 12))
+                    .lblCar.Text = GetCar(GetHex(file, Neg60(256), 2), GetHex(file, Neg60(271), 1))
+                    .lblLevel.Location = New Point(260, 5)
+                    .lblLevel.Text = GetLevel(GetHex(file, Neg60(163), 1))
+                    .FileName = file
+                    .Extension = "crd"
+                    If GetGender(GetHex(file, Neg60(90), 1)) = Gender.female Then
+                        .BackgroundImage = My.Resources.card5f
+                    Else
+                        .BackgroundImage = My.Resources.card5m
+                    End If
+                    .CardVersion = 5
+                    If My.Settings.Id5CardName = file Then
+                        .BackColor = Color.LightBlue
+                        .btnSelect.Text = deselect_card
+                        .Selected = True
+                    Else
+                        .btnSelect.Text = select_card
+                        .Selected = False
+                    End If
+                End With
+                If GetCardVersion(GetHex(file, &H14, 2)) = 5 Then
+                    flp5.FP.Controls.Add(item)
+                End If
+            Next
+            If flp5.FP.Controls.Count = 0 Then
+                itemBlank = New CardEmpty() With {.CardVersion = 5}
+                With itemBlank
+                    .Translate()
+                End With
+                flp5.FP.Controls.Add(itemBlank)
+                itemBlank.Size = New Size(itemBlank.Parent.Size.Width - 6, itemBlank.Parent.Size.Height - 6)
+            End If
+        Catch ex As Exception
+            NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
+            Logger.Log(ex.Message & ex.StackTrace)
+        End Try
+    End Sub
+#End Region
+
     Private Sub frmCard_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmLauncher.Enabled = True
     End Sub
@@ -259,9 +488,15 @@ Public Class frmCard
             TabPage3.Text = ReadCfgValue("CardTab6", langFile)
             TabPage4.Text = ReadCfgValue("CardTab7", langFile)
             TabPage1.Text = ReadCfgValue("CardTab8", langFile)
+            TabPage2.Text = ReadCfgValue("CardTab4Jap", langFile)
+            TabPage5.Text = ReadCfgValue("CardTab4Exp", langFile)
+            TabPage6.Text = ReadCfgValue("CardTab5", langFile)
             txt6.Text = String.Format(ReadCfgValue("Text6", langFile), Path.GetFileName(My.Settings.Id6CardName))
             txt7.Text = String.Format(ReadCfgValue("Text7", langFile), Path.GetFileName(My.Settings.Id7CardName))
             txt8.Text = String.Format(ReadCfgValue("Text8", langFile), Path.GetFileName(My.Settings.Id8CardName))
+            txt4.Text = String.Format(ReadCfgValue("Text4", langFile), Path.GetFileName(My.Settings.Id4CardName))
+            txt4e.Text = String.Format(ReadCfgValue("Text4e", langFile), Path.GetFileName(My.Settings.Id4eCardName))
+            txt5.Text = String.Format(ReadCfgValue("Text5", langFile), Path.GetFileName(My.Settings.Id5CardName))
             select_card = ReadCfgValue("Select", langFile)
             deselect_card = ReadCfgValue("Deselect", langFile)
         Catch ex As Exception

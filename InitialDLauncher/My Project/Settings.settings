@@ -65,5 +65,32 @@
     <Setting Name="PerferCardExt8" Type="System.String" Scope="User">
       <Value Profile="(Default)">BIN</Value>
     </Setting>
+    <Setting Name="Id4Path" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Id4ePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Id5Path" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Id4CardName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Id4eCardName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Id5CardName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PerferCardExt4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CRD</Value>
+    </Setting>
+    <Setting Name="PerferCardExt4e" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CRD</Value>
+    </Setting>
+    <Setting Name="PerferCardExt5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CRD</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

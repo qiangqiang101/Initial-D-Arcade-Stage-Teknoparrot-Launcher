@@ -104,3 +104,48 @@
    at InitialDLauncher.frmLauncher.Translate() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLauncher.vb:line 761
 19/Oct/2018 6:31:43 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmLauncher.LauncherNormalLoad() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLauncher.vb:line 236
 19/Oct/2018 6:32:12 AM:Object reference not set to an instance of an object.   at InitialDLauncher.frmLauncher.LauncherNormalLoad() in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLauncher.vb:line 236
+23/Oct/2018 10:28:52 PM:The operation has timed out   at System.Net.WebClient.OpenRead(Uri address)
+   at System.Net.WebClient.OpenRead(String address)
+   at InitialDLauncher.frmLeaderboard.RefreshLeaderboard6(String course, String type, String weather) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLeaderboard.vb:line 218
+23/Oct/2018 10:28:53 PM:The operation has timed out   at System.Net.WebClient.OpenRead(Uri address)
+   at System.Net.WebClient.OpenRead(String address)
+   at InitialDLauncher.frmLeaderboard.RefreshLeaderboard8(String course, String type, String weather) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmLeaderboard.vb:line 280
+24/Oct/2018 5:38:38 PM:Could not find a part of the path.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.__Error.WinIOError()
+   at System.IO.File.InternalMove(String sourceFileName, String destFileName, Boolean checkHost)
+   at InitialDLauncher.CardEmpty.btnScan_Click(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CardEmpty.vb:line 101
+24/Oct/2018 5:38:41 PM:Could not find a part of the path.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.__Error.WinIOError()
+   at System.IO.File.InternalMove(String sourceFileName, String destFileName, Boolean checkHost)
+   at InitialDLauncher.CardEmpty.btnScan_Click(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CardEmpty.vb:line 101
+24/Oct/2018 5:38:59 PM:Could not find a part of the path.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.__Error.WinIOError()
+   at System.IO.File.InternalMove(String sourceFileName, String destFileName, Boolean checkHost)
+   at InitialDLauncher.CardEmpty.btnScan_Click(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CardEmpty.vb:line 101
+24/Oct/2018 6:01:45 PM:Could not find a part of the path.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.__Error.WinIOError()
+   at System.IO.File.InternalMove(String sourceFileName, String destFileName, Boolean checkHost)
+   at InitialDLauncher.CardEmpty.btnScan_Click(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CardEmpty.vb:line 101
+24/Oct/2018 6:09:00 PM:Could not find a part of the path.   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.__Error.WinIOError()
+   at System.IO.File.InternalMove(String sourceFileName, String destFileName, Boolean checkHost)
+   at InitialDLauncher.CardEmpty.btnScan_Click(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\User Control\CardEmpty.vb:line 101
+24/Oct/2018 6:11:30 PM:Arithmetic operation resulted in an overflow.   at Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger(String Value)
+   at InitialDLauncher.Helper.GetMilelage(Byte[] hex1, Byte[] hex2, Byte[] hex3, Byte[] hex4) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Helper.vb:line 746
+   at InitialDLauncher.frmEdit.frmEdit_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1388
+24/Oct/2018 6:12:12 PM:Object reference not set to an instance of an object.   at InitialDLauncher.frmEdit.btnSet_Click(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 539
+25/Oct/2018 3:00:15 AM:Arithmetic operation resulted in an overflow.   at Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger(String Value)
+   at InitialDLauncher.Helper.GetMilelage(Byte[] hex1, Byte[] hex2, Byte[] hex3, Byte[] hex4) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Helper.vb:line 746
+   at InitialDLauncher.frmEdit.frmEdit_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1388
+25/Oct/2018 4:27:12 PM:Arithmetic operation resulted in an overflow.   at Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger(String Value)
+   at InitialDLauncher.Helper.GetMilelage(Byte[] hex1, Byte[] hex2, Byte[] hex3, Byte[] hex4) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Helper.vb:line 750
+   at InitialDLauncher.frmEdit.frmEdit_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1388
+25/Oct/2018 4:34:48 PM:Arithmetic operation resulted in an overflow.   at Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger(String Value)
+   at InitialDLauncher.Helper.GetMilelage(Byte[] hex1, Byte[] hex2, Byte[] hex3, Byte[] hex4) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Helper.vb:line 750
+   at InitialDLauncher.frmEdit.frmEdit_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1388
+25/Oct/2018 4:37:31 PM:Arithmetic operation resulted in an overflow.   at Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger(String Value)
+   at InitialDLauncher.Helper.GetMilelage(Byte[] hex1, Byte[] hex2, Byte[] hex3, Byte[] hex4) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Helper.vb:line 750
+   at InitialDLauncher.frmEdit.frmEdit_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1388
+25/Oct/2018 4:42:06 PM:Arithmetic operation resulted in an overflow.   at Microsoft.VisualBasic.CompilerServices.Conversions.ToInteger(String Value)
+   at InitialDLauncher.Helper.GetMilelage(Byte[] hex1, Byte[] hex2, Byte[] hex3, Byte[] hex4) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Class\Helper.vb:line 750
+   at InitialDLauncher.frmEdit.frmEdit_Load(Object sender, EventArgs e) in E:\Users\Barry\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\InitialDLauncher\Form\frmEdit.vb:line 1388

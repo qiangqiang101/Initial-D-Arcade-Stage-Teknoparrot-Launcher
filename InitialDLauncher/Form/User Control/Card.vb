@@ -3,7 +3,7 @@
 Public Class Card
 
     'Translation
-    Dim file_already_exist, rules, select_card, deselect_card, error_5108_fixed, opt_edit, opt_fix5108, opt_rename, opt_ta As String
+    Dim file_already_exist, rules, select_card, deselect_card, error_5108_fixed, opt_edit, opt_fix5108, opt_rename, opt_ta, not_available_edit, not_available_ta As String
 
     'Database
     Dim opt As Dictionary(Of String, String) = New Dictionary(Of String, String)
@@ -51,6 +51,48 @@ Public Class Card
     Private Sub btnSelect_Click(sender As Object, e As EventArgs) Handles btnSelect.Click
         Try
             Select Case _cardVersion
+                Case 4
+                    If btnSelect.Text = select_card Then
+                        My.Settings.Id4CardName = _filename
+                        My.Settings.Save()
+                        frmLauncher.id4CardPath = _filename
+                        frmCard.Translate()
+                        frmCard.RefreshID4Cards()
+                    Else
+                        My.Settings.Id4CardName = ""
+                        My.Settings.Save()
+                        frmLauncher.id4CardPath = ""
+                        frmCard.Translate()
+                        frmCard.RefreshID4Cards()
+                    End If
+                Case &H4E
+                    If btnSelect.Text = select_card Then
+                        My.Settings.Id4eCardName = _filename
+                        My.Settings.Save()
+                        frmLauncher.id4eCardPath = _filename
+                        frmCard.Translate()
+                        frmCard.RefreshID4eCards()
+                    Else
+                        My.Settings.Id4eCardName = ""
+                        My.Settings.Save()
+                        frmLauncher.id4eCardPath = ""
+                        frmCard.Translate()
+                        frmCard.RefreshID4eCards()
+                    End If
+                Case 5
+                    If btnSelect.Text = select_card Then
+                        My.Settings.Id5CardName = _filename
+                        My.Settings.Save()
+                        frmLauncher.id5CardPath = _filename
+                        frmCard.Translate()
+                        frmCard.RefreshID5Cards()
+                    Else
+                        My.Settings.Id5CardName = ""
+                        My.Settings.Save()
+                        frmLauncher.id5CardPath = ""
+                        frmCard.Translate()
+                        frmCard.RefreshID5Cards()
+                    End If
                 Case 6
                     If btnSelect.Text = select_card Then
                         My.Settings.Id6CardName = _filename
@@ -136,11 +178,16 @@ Public Class Card
                         frmCard.Close()
                         frmLauncher.Enabled = False
                     Else
-                        Dim ta As frmTimeAttack = New frmTimeAttack()
-                        ta.Version = _cardVersion
-                        ta.FileName = _filename
-                        ta.Extension = _extension
-                        ta.Show()
+                        Select Case _cardVersion
+                            Case 4, &H4E, 5
+                                NSMessageBox.ShowOk(not_available_ta, MsgBoxStyle.Critical, "Error")
+                            Case Else
+                                Dim ta As frmTimeAttack = New frmTimeAttack()
+                                ta.Version = _cardVersion
+                                ta.FileName = _filename
+                                ta.Extension = _extension
+                                ta.Show()
+                        End Select
                     End If
                 Catch ex As Exception
                     NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
@@ -155,6 +202,9 @@ Public Class Card
         Dim fpath As String = Path.GetDirectoryName(_filename)
         If Not File.Exists(String.Format("{0}\{1}", fpath, txtName.Text)) Then
             My.Computer.FileSystem.RenameFile(_filename, txtName.Text)
+            frmCard.RefreshID4Cards()
+            frmCard.RefreshID4eCards()
+            frmCard.RefreshID5Cards()
             frmCard.RefreshID6Cards()
             frmCard.RefreshID7Cards()
             frmCard.RefreshID8Cards()
@@ -170,16 +220,21 @@ Public Class Card
 
     Private Sub EditCard()
         Try
-            Dim fe As frmEdit = New frmEdit()
-            If frmLauncher.WindowState = FormWindowState.Maximized Then
-                fe.TopLevel = False
-                frmLauncher.Controls.Add(fe)
-            End If
-            fe.Version = _cardVersion
-            fe.FileName = _filename
-            fe.Extension = _extension
-            fe.Show()
-            fe.Focus()
+            Select Case _cardVersion
+                Case 4, &H4E, 5
+                    NSMessageBox.ShowOk(not_available_edit, MsgBoxStyle.Critical, "Error")
+                Case Else
+                    Dim fe As frmEdit = New frmEdit()
+                    If frmLauncher.WindowState = FormWindowState.Maximized Then
+                        fe.TopLevel = False
+                        frmLauncher.Controls.Add(fe)
+                    End If
+                    fe.Version = _cardVersion
+                    fe.FileName = _filename
+                    fe.Extension = _extension
+                    fe.Show()
+                    fe.Focus()
+            End Select
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
@@ -206,6 +261,8 @@ Public Class Card
             GroupBox1.Title = ReadCfgValue("OptRename", langFile)
             file_already_exist = ReadCfgValue("FileAlreadyExist", langFile)
             rules = ReadCfgValue("Rules", langFile)
+            not_available_edit = ReadCfgValue("NotAvailEdit", langFile)
+            not_available_ta = ReadCfgValue("NotAvailTA", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

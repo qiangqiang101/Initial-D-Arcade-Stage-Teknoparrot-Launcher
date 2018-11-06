@@ -12,6 +12,9 @@ Module Helper
     Public SBUU_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBUU_e2prom.bin"
     Public SBYD_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBYD_e2prom.bin"
     Public SBZZ_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBZZ_e2prom.bin"
+    Public SBNK_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBNK_e2prom.bin"
+    Public SBML_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBML_e2prom.bin"
+    Public SBQZ_e2prom As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\TeknoParrot\SBQZ_e2prom.bin"
 
     Function GetHex(filename As String, offset As Integer, requiredBytes As Integer) As Byte()
         Dim value(0 To requiredBytes - 1) As Byte
@@ -36,6 +39,10 @@ Module Helper
 
     Function Plus60(offset As Integer) As Integer
         Return (offset + 60)
+    End Function
+
+    Function Cid4(offset As Integer) As Integer
+        Return (offset - 4)
     End Function
 
     Sub SetHex(filename As String, offset As Long, value As Byte())
@@ -1656,6 +1663,12 @@ Module Helper
                 result = 6
             Case "1580"
                 result = 8
+            Case "3310"
+                result = &H4E
+            Case "FFFF"
+                result = 4
+            Case "1052"
+                result = 5
             Case Else
                 result = -1
         End Select

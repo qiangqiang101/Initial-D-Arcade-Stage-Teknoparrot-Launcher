@@ -61,10 +61,10 @@ I'm Not MentaL - Gender Offset, Time Attack ID7 Offset & Time Attack ID8 Offset<
 
 <h3>THANKS TO</h3>
 (alphabetically)<br />
-Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Black Tree Gaming Limited, BYEONGHEOL LEE, Christine Guillory, Christopher Stewart (DoctorGTA), Chris Wong, 
-Daniel López Sánchez, Daniel Ly, Daniel Van der Meer, David Womacks, Насыров Адель, HCT Tuning, Heng Zhang, James, John Yang, Juiced Box Computers, Kira Manell, 
-Kito Zhayne Bordeos, Kyousuke Nanikawa, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, Patrick Hu, Paul Cybulska, Tan Hock, 
-Thomas Tunac-De Leon, Timo Düsterhöft, Timur Nurtayev, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 辰斐 丁, דור צרפתי
+Adrian Bloeß, Alexander Pfitzner (GTAInside), Angela Ziegler, Bao-Hong Chen, Black Tree Gaming Limited, BYEONGHEOL LEE, Chris Delos Santos, Christine Guillory, Christopher Stewart (DoctorGTA), Chris Wong, 
+Daniel López Sánchez, Daniel Ly, Daniel Van der Meer, David Womacks, Насыров Адель, HCT Tuning, Heng Zhang, Jacky Ng, James, John Yang, Juiced Box Computers, Kira Manell, 
+Kito Zhayne Bordeos, Kyde Man, Kyousuke Nanikawa, Leung Kayneth, Luke Dylan, Marcelle Waul, Matthew Adair, Michael J Bradley (Digitalclips), Muhammad Alfa Alghifari, Neil Pulido, Patrick Hu, Paul Cybulska, qq888999123, Robert Henry, Ryu Taros, Tan Hock, 
+Thomas Tunac-De Leon, Timo Düsterhöft, Timur Nurtayev, William Argoud, Yongli Chang, Zhenjie Zou, Zigeng Ma, 愛 田中, 鍇鍄 楊, 辰斐 丁, דור צרפתי
 <br />
 
 <h3>SPECIAL THANKS TO</h3>

@@ -15,17 +15,31 @@ Public Class frmLauncher
     Public Shared RunGameThread As Thread
     Public shadow As Dropshadow
     Dim curVer As Integer = 48
-    Public buildDate As String = "19/10/2018"
+    Public buildDate As String = "06/11/2018"
 
+    Dim id4AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBML_card.bin")
+    Dim id4eAppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBNK_card.bin")
+    Dim id5AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBQZ_card.bin")
     Dim id6AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBUU_card.bin")
     Dim id7AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBYD_card.bin")
     Dim id8AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBZZ_card.bin")
+    Dim AppDataDir As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot")
+
+    Public Shared id4GameDir As String = Path.Combine(My.Settings.Id4Path, "InidCrd000.crd")
+    Public Shared id4eGameDir As String = Path.Combine(My.Settings.Id4ePath, "InidCrd000.crd")
+    Public Shared id5GameDir As String = Path.Combine(My.Settings.Id5Path, "InidCrd000.crd")
     Public Shared id6GameDir As String = Path.Combine(My.Settings.Id6Path, "InidCrd000.crd")
     Public Shared id7GameDir As String = Path.Combine(My.Settings.Id7Path, "InidCrd000.crd")
     Public Shared id8GameDir As String = Path.Combine(My.Settings.Id8Path, "InidCrd000.crd")
+    Public id4CardPath As String = My.Settings.Id4CardName
+    Public id4eCardPath As String = My.Settings.Id4eCardName
+    Public id5CardPath As String = My.Settings.Id5CardName
     Public id6CardPath As String = My.Settings.Id6CardName
     Public id7CardPath As String = My.Settings.Id7CardName
     Public id8CardPath As String = My.Settings.Id8CardName
+    Dim id4CardDir As String = String.Format("{0}\ID4_CARD\", My.Application.Info.DirectoryPath)
+    Dim id4eCardDir As String = String.Format("{0}\ID4E_CARD\", My.Application.Info.DirectoryPath)
+    Dim id5CardDir As String = String.Format("{0}\ID5_CARD\", My.Application.Info.DirectoryPath)
     Dim id6CardDir As String = String.Format("{0}\ID6_CARD\", My.Application.Info.DirectoryPath)
     Dim id7CardDir As String = String.Format("{0}\ID7_CARD\", My.Application.Info.DirectoryPath)
     Dim id8CardDir As String = String.Format("{0}\ID8_CARD\", My.Application.Info.DirectoryPath)
@@ -38,7 +52,7 @@ Public Class frmLauncher
     Public plugins As ICollection(Of iPlugin) = PluginLoader.LoadPlugins("Plugins\IDAS")
 
     'Translation
-    Dim new_version, no_card_selected As String
+    Dim new_version, no_card_selected, not_available_edit As String
 
     Private Sub frmLauncher_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
         drag = True
@@ -108,6 +122,23 @@ Public Class frmLauncher
                             fe.FileName = ofd.FileName
                             fe.Extension = "bin"
                             fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 4 Then
+                            '    fe.Version = 4
+                            '    fe.FileName = ofd.FileName
+                            '    fe.Extension = "bin"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = &H4E Then
+                            '    fe.Version = &H4E
+                            '    fe.FileName = ofd.FileName
+                            '    fe.Extension = "bin"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 5 Then
+                            '    fe.Version = 5
+                            '    fe.FileName = ofd.FileName
+                            '    fe.Extension = "bin"
+                            '    fe.CardEditOnly = True
+                        Else
+                            NSMessageBox.ShowOk(not_available_edit, MsgBoxStyle.Critical, "Error")
                         End If
                     Case ".crd"
                         If GetCardVersion(GetHex(ofd.FileName, &H14, 2)) = 7 Then
@@ -125,6 +156,23 @@ Public Class frmLauncher
                             fe.FileName = ofd.FileName
                             fe.Extension = "crd"
                             fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 4 Then
+                            '    fe.Version = 4
+                            '    fe.FileName = ofd.FileName
+                            '    fe.Extension = "crd"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = &H4E Then
+                            '    fe.Version = &H4E
+                            '    fe.FileName = ofd.FileName
+                            '    fe.Extension = "crd"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(ofd.FileName, &H50, 2)) = 5 Then
+                            '    fe.Version = 5
+                            '    fe.FileName = ofd.FileName
+                            '    fe.Extension = "crd"
+                            '    fe.CardEditOnly = True
+                        Else
+                            NSMessageBox.ShowOk(not_available_edit, MsgBoxStyle.Critical, "Error")
                         End If
                 End Select
                 fe.ShowDialog()
@@ -160,6 +208,23 @@ Public Class frmLauncher
                             fe.FileName = CardFile
                             fe.Extension = "bin"
                             fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = 4 Then
+                            '    fe.Version = 4
+                            '    fe.FileName = CardFile
+                            '    fe.Extension = "bin"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = &H4E Then
+                            '    fe.Version = &H4E
+                            '    fe.FileName = CardFile
+                            '    fe.Extension = "bin"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = 5 Then
+                            '    fe.Version = 5
+                            '    fe.FileName = CardFile
+                            '    fe.Extension = "bin"
+                            '    fe.CardEditOnly = True
+                        Else
+                            NSMessageBox.ShowOk(not_available_edit, MsgBoxStyle.Critical, "Error")
                         End If
                     Case ".crd"
                         If GetCardVersion(GetHex(CardFile, &H14, 2)) = 7 Then
@@ -177,6 +242,23 @@ Public Class frmLauncher
                             fe.FileName = CardFile
                             fe.Extension = "crd"
                             fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = 4 Then
+                            '    fe.Version = 4
+                            '    fe.FileName = CardFile
+                            '    fe.Extension = "crd"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = &H4E Then
+                            '    fe.Version = &H4E
+                            '    fe.FileName = CardFile
+                            '    fe.Extension = "crd"
+                            '    fe.CardEditOnly = True
+                            'ElseIf GetCardVersion(GetHex(CardFile, &H50, 2)) = 5 Then
+                            '    fe.Version = 5
+                            '    fe.FileName = CardFile
+                            '    fe.Extension = "crd"
+                            '    fe.CardEditOnly = True
+                        Else
+                            NSMessageBox.ShowOk(not_available_edit, MsgBoxStyle.Critical, "Error")
                         End If
                 End Select
                 fe.ShowDialog()
@@ -197,9 +279,13 @@ Public Class frmLauncher
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
             Me.SetStyle(ControlStyles.UserPaint, True)
 
+            If Not Directory.Exists(id4CardDir) Then Directory.CreateDirectory(id4CardDir)
+            If Not Directory.Exists(id4eCardDir) Then Directory.CreateDirectory(id4eCardDir)
+            If Not Directory.Exists(id5CardDir) Then Directory.CreateDirectory(id5CardDir)
             If Not Directory.Exists(id6CardDir) Then Directory.CreateDirectory(id6CardDir)
             If Not Directory.Exists(id7CardDir) Then Directory.CreateDirectory(id7CardDir)
             If Not Directory.Exists(id8CardDir) Then Directory.CreateDirectory(id8CardDir)
+            If Not Directory.Exists(AppDataDir) Then Directory.CreateDirectory(AppDataDir)
 
             If My.Settings.FullScreen Then
                 WindowState = FormWindowState.Maximized
@@ -214,6 +300,18 @@ Public Class frmLauncher
             CheckForIllegalCrossThreadCalls = False
             'GetGamePath()
 
+            If Not File.Exists(id4CardPath) Then
+                My.Settings.Id4CardName = ""
+                My.Settings.Save()
+            End If
+            If Not File.Exists(id4eCardPath) Then
+                My.Settings.Id4eCardName = ""
+                My.Settings.Save()
+            End If
+            If Not File.Exists(id5CardPath) Then
+                My.Settings.Id5CardName = ""
+                My.Settings.Save()
+            End If
             If Not File.Exists(id6CardPath) Then
                 My.Settings.Id6CardName = ""
                 My.Settings.Save()
@@ -227,9 +325,12 @@ Public Class frmLauncher
                 My.Settings.Save()
             End If
 
-            If My.Settings.Id6Path = Nothing Then lblStart6.Enabled = False
-            If My.Settings.Id7Path = Nothing Then lblStart7.Enabled = False
-            If My.Settings.Id8Path = Nothing Then lblStart8.Enabled = False
+            If My.Settings.Id4Path = Nothing Then btnStart4.Enabled = False
+            If My.Settings.Id4ePath = Nothing Then btnStart4e.Enabled = False
+            If My.Settings.Id5Path = Nothing Then btnStart5.Enabled = False
+            If My.Settings.Id6Path = Nothing Then btnStart6.Enabled = False
+            If My.Settings.Id7Path = Nothing Then btnStart7.Enabled = False
+            If My.Settings.Id8Path = Nothing Then btnStart8.Enabled = False
 
             Translate()
 
@@ -239,22 +340,8 @@ Public Class frmLauncher
                 AddHandler timer.Tick, AddressOf item.TimerTick
             Next
 
-            If lblStart6.Enabled Then
-                lblStart6.Focus()
-            Else
-                If lblStart7.Enabled Then
-                    lblStart7.Focus()
-                Else
-                    If lblStart8.Enabled Then
-                        lblStart8.Focus()
-                    Else
-                        If lblLeaderboard.Enabled Then lblLeaderboard.Focus()
-                    End If
-                End If
-            End If
-
+            lblStart.Focus()
             Timer1.Start()
-
 
             For Each ctrl In pluginControls
                 Me.Controls.Add(ctrl)
@@ -423,8 +510,7 @@ Public Class frmLauncher
         End Try
     End Sub
 
-    Private Sub lblStart6_Click(sender As Object, e As EventArgs) Handles lblStart6.Click, lblStart6.EnterPressed
-        'isGameRunning = True
+    Private Sub btnStart6_Click(sender As Object, e As EventArgs) Handles btnStart6.Click, btnStart6.EnterPressed
         wait(500)
 
         QuickScan(6)
@@ -443,8 +529,7 @@ Public Class frmLauncher
         End Select
     End Sub
 
-    Private Sub lblStart7_Click(sender As Object, e As EventArgs) Handles lblStart7.Click, lblStart7.EnterPressed
-        'isGameRunning = True
+    Private Sub btnStart7_Click(sender As Object, e As EventArgs) Handles btnStart7.Click, btnStart7.EnterPressed
         wait(500)
 
         QuickScan(7)
@@ -463,8 +548,7 @@ Public Class frmLauncher
         End Select
     End Sub
 
-    Private Sub lblStart8_Click(sender As Object, e As EventArgs) Handles lblStart8.Click, lblStart8.EnterPressed
-        'isGameRunning = True
+    Private Sub btnStart8_Click(sender As Object, e As EventArgs) Handles btnStart8.Click, btnStart8.EnterPressed
         wait(500)
 
         QuickScan(8)
@@ -506,7 +590,13 @@ Public Class frmLauncher
 
     Private Sub lblDebug_Click(sender As Object, e As EventArgs) Handles lblDebug.Click, lblDebug.EnterPressed
         My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background)
-        NSMessageBox.ShowOk(String.Format("ID6 AppData Path: {0}{1}ID7 AppData Path: {2}{1}ID8 AppData Path: {12}{1}{1}ID6 GameDir Path: {3}{1}ID7 GameDir Path: {4}{1}ID8 GameDir Path: {13}{1}{1}ID6 Card File Path: {5}{1}ID7 Card File Path: {6}{1}ID8 Card File Path: {14}{1}{1}ID6 Game Path: {7}{1}ID7 Game Path: {8}{1}ID8 Game Path: {15}{1}{1}ID6 Selected Card: {9}{1}ID7 Selected Card: {10}{1}ID8 Selected Card: {16}{1}{1}CPU ID: {11}", id6AppData, vbNewLine, id7AppData, id6GameDir, id7GameDir, id6CardPath, id7CardPath, My.Settings.Id6Path, My.Settings.Id7Path, My.Settings.Id6CardName, My.Settings.Id7CardName, getNewCPUID, id8AppData, id8GameDir, id8CardPath, My.Settings.Id8Path, My.Settings.Id8CardName), Text)
+        Dim n As String = vbNewLine
+        NSMessageBox.ShowOk($"APPDATA PATH{n} ID4: {id4AppData}{n} ID4 EXP: {id4eAppData}{n} ID5: {id5AppData}{n} ID6: {id6AppData}{n} ID7: {id7AppData}{n} ID8: {id8AppData}{n}{n}" &
+                            $"GAME DIRECTORY{n} ID4: {id4GameDir}{n} ID4 EXP: {id4eGameDir}{n} ID5: {id5GameDir}{n} ID6: {id6GameDir}{n} ID7: {id7GameDir}{n} ID8: {id8GameDir}", Text)
+        NSMessageBox.ShowOk($"CARD FILE PATH{n} ID4: {id4CardPath}{n} ID4 EXP: {id4eCardPath}{n} ID5: {id5CardPath}{n} ID6: {id6CardPath}{n} ID7: {id7CardPath}{n} ID8: {id8CardPath}{n}{n}" &
+                            $"GAME PATH{n} ID4: {My.Settings.Id4Path}{n} ID4 EXP: {My.Settings.Id4ePath}{n} ID5: {My.Settings.Id5Path}{n} ID6: {My.Settings.Id6Path}{n} ID7: {My.Settings.Id7Path}{n} ID8: {My.Settings.Id8Path}", Text)
+        NSMessageBox.ShowOk($"SELECTED CARD{n} ID4: {My.Settings.Id4CardName}{n} ID4 EXP: {My.Settings.Id4eCardName}{n} ID5: {My.Settings.Id5CardName}{n} ID6: {My.Settings.Id6CardName}{n} ID7: {My.Settings.Id7CardName}{n} ID8: {My.Settings.Id8CardName}{n}{n}" &
+                            $"CPU ID: {getNewCPUID()}", Text)
     End Sub
 
     Private Sub lblCardMan_Click(sender As Object, e As EventArgs) Handles lblCardMan.Click, lblCardMan.EnterPressed
@@ -756,13 +846,108 @@ Public Class frmLauncher
         WindowState = FormWindowState.Minimized
     End Sub
 
+    Private Sub lblStart_Click(sender As Object, e As EventArgs) Handles lblStart.Click, lblStart.EnterPressed, btnExit2.Click, btnExit2.EnterPressed
+        If sender Is lblStart Then My.Computer.Audio.Play(My.Resources.play, AudioPlayMode.Background) : If Not tcPlay.Visible Then wait(2000)
+        tcPlay.Visible = Not tcPlay.Visible
+        If tcPlay.Visible Then
+            If btnStart4.Enabled Then
+                btnStart4.Focus()
+            Else
+                If btnStart4e.Enabled Then
+                    btnStart4e.Focus()
+                Else
+                    If btnStart5.Enabled Then
+                        btnStart5.Focus()
+                    Else
+                        If btnStart6.Enabled Then
+                            btnStart6.Focus()
+                        Else
+                            If btnStart7.Enabled Then
+                                btnStart7.Focus()
+                            Else
+                                If btnStart8.Enabled Then
+                                    btnStart8.Focus()
+                                Else
+                                    btnExit2.Focus()
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        Else
+            lblStart.Focus()
+        End If
+    End Sub
+
+    Private Sub btnStart4_Click(sender As Object, e As EventArgs) Handles btnStart4.Click, btnStart4.EnterPressed
+        wait(500)
+
+        QuickScan(4)
+        Select Case IO.Path.GetExtension(My.Settings.Id4CardName)
+            Case ".bin"
+                RunGame(id4CardDir, id4CardPath, 4, id4AppData, My.Settings.Id4Path, "--profile=ID4Jap.xml")
+            Case ".crd"
+                RunGame(id4CardDir, id4CardPath, 4, id4GameDir, My.Settings.Id4Path, "--profile=ID4Jap.xml")
+            Case Else
+                Select Case My.Settings.PerferCardExt4
+                    Case "CRD"
+                        RunGame(id4CardDir, id4CardPath, 4, id4GameDir, My.Settings.Id4Path, "--profile=ID4Jap.xml")
+                    Case "BIN"
+                        RunGame(id4CardDir, id4CardPath, 6, id4AppData, My.Settings.Id4Path, "--profile=ID4Jap.xml")
+                End Select
+        End Select
+    End Sub
+
+    Private Sub btnStart4e_Click(sender As Object, e As EventArgs) Handles btnStart4e.Click, btnStart4e.EnterPressed
+        wait(500)
+
+        QuickScan(&H4E)
+        Select Case IO.Path.GetExtension(My.Settings.Id4eCardName)
+            Case ".bin"
+                RunGame(id4eCardDir, id4eCardPath, &H4E, id4eAppData, My.Settings.Id4ePath, "--profile=ID4Exp.xml")
+            Case ".crd"
+                RunGame(id4eCardDir, id4eCardPath, &H4E, id4eGameDir, My.Settings.Id4ePath, "--profile=ID4Exp.xml")
+            Case Else
+                Select Case My.Settings.PerferCardExt4e
+                    Case "CRD"
+                        RunGame(id4eCardDir, id4eCardPath, &H4E, id4eGameDir, My.Settings.Id4ePath, "--profile=ID4Exp.xml")
+                    Case "BIN"
+                        RunGame(id4eCardDir, id4eCardPath, &H4E, id4eAppData, My.Settings.Id4ePath, "--profile=ID4Exp.xml")
+                End Select
+        End Select
+    End Sub
+
+    Private Sub btnStart5_Click(sender As Object, e As EventArgs) Handles btnStart5.Click, btnStart5.EnterPressed
+        wait(500)
+
+        QuickScan(5)
+        Select Case IO.Path.GetExtension(My.Settings.Id5CardName)
+            Case ".bin"
+                RunGame(id5CardDir, id5CardPath, 5, id5AppData, My.Settings.Id5Path, "--profile=ID5.xml")
+            Case ".crd"
+                RunGame(id5CardDir, id5CardPath, 5, id5GameDir, My.Settings.Id5Path, "--profile=ID5.xml")
+            Case Else
+                Select Case My.Settings.PerferCardExt5
+                    Case "CRD"
+                        RunGame(id5CardDir, id5CardPath, 5, id5GameDir, My.Settings.Id5Path, "--profile=ID5.xml")
+                    Case "BIN"
+                        RunGame(id5CardDir, id5CardPath, 5, id5AppData, My.Settings.Id5Path, "--profile=ID5.xml")
+                End Select
+        End Select
+    End Sub
+
     Public Sub Translate()
         Try
             Dim langFile As String = String.Format("{0}\Languages\IDAS\{1}.ini", My.Application.Info.DirectoryPath, My.Settings.Language)
             Text = ReadCfgValue("LauncherTitle", langFile)
-            lblStart6.Text = ReadCfgValue("Start6", langFile)
-            lblStart7.Text = ReadCfgValue("Start7", langFile)
-            lblStart8.Text = ReadCfgValue("Start8", langFile)
+            lblStart.Text = ReadCfgValue("StartGame", langFile)
+            btnStart4.Text = ReadCfgValue("Start4jp", langFile)
+            btnStart4e.Text = ReadCfgValue("Start4exp", langFile)
+            btnStart5.Text = ReadCfgValue("Start5", langFile)
+            btnStart6.Text = ReadCfgValue("Start6", langFile)
+            btnStart7.Text = ReadCfgValue("Start7", langFile)
+            btnStart8.Text = ReadCfgValue("Start8", langFile)
             lblLeaderboard.Text = ReadCfgValue("Leaderboard", langFile)
             lblCardMan.Text = ReadCfgValue("CardSelection", langFile)
             lblSetting.Text = ReadCfgValue("Settings", langFile)
@@ -772,6 +957,7 @@ Public Class frmLauncher
             new_version = ReadCfgValue("NewVersion", langFile)
             no_card_selected = ReadCfgValue("NoCardSelected", langFile)
             If Not My.Settings.UserName = "" Then lblLogout.Text = String.Format(ReadCfgValue("Logout", langFile), My.Settings.UserName) Else lblLogout.Text = ReadCfgValue("Login", langFile)
+            not_available_edit = ReadCfgValue("NotAvailEdit", langFile)
         Catch ex As Exception
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)

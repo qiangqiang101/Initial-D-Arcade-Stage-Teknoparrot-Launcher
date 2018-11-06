@@ -22,7 +22,7 @@ Partial Class frmSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim NsListViewColumnHeader1 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader3 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.NsTabControl1 = New InitialDLauncher.NSTabControl()
@@ -45,6 +45,30 @@ Partial Class frmSettings
         Me.cmbCountry = New InitialDLauncher.NSComboBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.cbMP = New InitialDLauncher.NSCheckBox()
+        Me.tpId4 = New System.Windows.Forms.TabPage()
+        Me.flp4 = New InitialDLauncher.MyFlowLayoutPanel()
+        Me.NsSeperator7 = New InitialDLauncher.NSSeperator()
+        Me.btnBrowse4 = New InitialDLauncher.NSButton()
+        Me.cmbSeat4 = New InitialDLauncher.NSComboBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txt4 = New InitialDLauncher.NSTextBox()
+        Me.tpId4E = New System.Windows.Forms.TabPage()
+        Me.flp4e = New InitialDLauncher.MyFlowLayoutPanel()
+        Me.NsSeperator8 = New InitialDLauncher.NSSeperator()
+        Me.btnBrowse4e = New InitialDLauncher.NSButton()
+        Me.cmbSeat4e = New InitialDLauncher.NSComboBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txt4e = New InitialDLauncher.NSTextBox()
+        Me.tpId5 = New System.Windows.Forms.TabPage()
+        Me.flp5 = New InitialDLauncher.MyFlowLayoutPanel()
+        Me.NsSeperator9 = New InitialDLauncher.NSSeperator()
+        Me.btnBrowse5 = New InitialDLauncher.NSButton()
+        Me.cmbSeat5 = New InitialDLauncher.NSComboBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txt5 = New InitialDLauncher.NSTextBox()
         Me.tpId6 = New System.Windows.Forms.TabPage()
         Me.flp6 = New InitialDLauncher.MyFlowLayoutPanel()
         Me.NsSeperator3 = New InitialDLauncher.NSSeperator()
@@ -103,6 +127,9 @@ Partial Class frmSettings
         Me.NsTabControl1.SuspendLayout()
         Me.tpLauncher.SuspendLayout()
         Me.NsGroupBox1.SuspendLayout()
+        Me.tpId4.SuspendLayout()
+        Me.tpId4E.SuspendLayout()
+        Me.tpId5.SuspendLayout()
         Me.tpId6.SuspendLayout()
         Me.tpId7.SuspendLayout()
         Me.tpId8.SuspendLayout()
@@ -142,6 +169,9 @@ Partial Class frmSettings
         '
         Me.NsTabControl1.Alignment = System.Windows.Forms.TabAlignment.Left
         Me.NsTabControl1.Controls.Add(Me.tpLauncher)
+        Me.NsTabControl1.Controls.Add(Me.tpId4)
+        Me.NsTabControl1.Controls.Add(Me.tpId4E)
+        Me.NsTabControl1.Controls.Add(Me.tpId5)
         Me.NsTabControl1.Controls.Add(Me.tpId6)
         Me.NsTabControl1.Controls.Add(Me.tpId7)
         Me.NsTabControl1.Controls.Add(Me.tpId8)
@@ -219,9 +249,9 @@ Partial Class frmSettings
         Me.lvELO.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        NsListViewColumnHeader1.Text = "Programs"
-        NsListViewColumnHeader1.Width = 500
-        Me.lvELO.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader1}
+        NsListViewColumnHeader3.Text = "Programs"
+        NsListViewColumnHeader3.Width = 500
+        Me.lvELO.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader3}
         Me.lvELO.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
         Me.lvELO.Location = New System.Drawing.Point(6, 36)
         Me.lvELO.MultiSelect = True
@@ -367,6 +397,276 @@ Partial Class frmSettings
         Me.cbMP.Size = New System.Drawing.Size(130, 24)
         Me.cbMP.TabIndex = 15
         Me.cbMP.Text = "Multiplayer"
+        '
+        'tpId4
+        '
+        Me.tpId4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tpId4.Controls.Add(Me.flp4)
+        Me.tpId4.Controls.Add(Me.NsSeperator7)
+        Me.tpId4.Controls.Add(Me.btnBrowse4)
+        Me.tpId4.Controls.Add(Me.cmbSeat4)
+        Me.tpId4.Controls.Add(Me.Label14)
+        Me.tpId4.Controls.Add(Me.Label15)
+        Me.tpId4.Controls.Add(Me.txt4)
+        Me.tpId4.Location = New System.Drawing.Point(114, 4)
+        Me.tpId4.Name = "tpId4"
+        Me.tpId4.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpId4.Size = New System.Drawing.Size(569, 443)
+        Me.tpId4.TabIndex = 5
+        Me.tpId4.Text = "Initial D4 Settings"
+        '
+        'flp4
+        '
+        Me.flp4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.flp4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp4.ForeColor = System.Drawing.Color.White
+        Me.flp4.Location = New System.Drawing.Point(6, 83)
+        Me.flp4.Name = "flp4"
+        Me.flp4.Size = New System.Drawing.Size(557, 354)
+        Me.flp4.TabIndex = 88
+        '
+        'NsSeperator7
+        '
+        Me.NsSeperator7.Location = New System.Drawing.Point(6, 66)
+        Me.NsSeperator7.Name = "NsSeperator7"
+        Me.NsSeperator7.Size = New System.Drawing.Size(558, 23)
+        Me.NsSeperator7.TabIndex = 85
+        Me.NsSeperator7.Text = "NsSeperator7"
+        '
+        'btnBrowse4
+        '
+        Me.btnBrowse4.Location = New System.Drawing.Point(537, 6)
+        Me.btnBrowse4.Name = "btnBrowse4"
+        Me.btnBrowse4.Size = New System.Drawing.Size(27, 24)
+        Me.btnBrowse4.TabIndex = 84
+        Me.btnBrowse4.Text = "..."
+        '
+        'cmbSeat4
+        '
+        Me.cmbSeat4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSeat4.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSeat4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSeat4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSeat4.FormattingEnabled = True
+        Me.cmbSeat4.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
+        Me.cmbSeat4.Location = New System.Drawing.Point(137, 36)
+        Me.cmbSeat4.Name = "cmbSeat4"
+        Me.cmbSeat4.Size = New System.Drawing.Size(155, 24)
+        Me.cmbSeat4.TabIndex = 86
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.ForeColor = System.Drawing.Color.White
+        Me.Label14.Location = New System.Drawing.Point(3, 39)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(78, 15)
+        Me.Label14.TabIndex = 87
+        Me.Label14.Text = "Initial D4 Seat"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.ForeColor = System.Drawing.Color.White
+        Me.Label15.Location = New System.Drawing.Point(3, 11)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(83, 15)
+        Me.Label15.TabIndex = 82
+        Me.Label15.Text = "Initial D 4 Path"
+        '
+        'txt4
+        '
+        Me.txt4.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt4.Location = New System.Drawing.Point(137, 6)
+        Me.txt4.MaxLength = 32767
+        Me.txt4.Multiline = False
+        Me.txt4.Name = "txt4"
+        Me.txt4.ReadOnly = True
+        Me.txt4.Size = New System.Drawing.Size(394, 24)
+        Me.txt4.TabIndex = 83
+        Me.txt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt4.ToolTip = Nothing
+        Me.txt4.UseSystemPasswordChar = False
+        '
+        'tpId4E
+        '
+        Me.tpId4E.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tpId4E.Controls.Add(Me.flp4e)
+        Me.tpId4E.Controls.Add(Me.NsSeperator8)
+        Me.tpId4E.Controls.Add(Me.btnBrowse4e)
+        Me.tpId4E.Controls.Add(Me.cmbSeat4e)
+        Me.tpId4E.Controls.Add(Me.Label16)
+        Me.tpId4E.Controls.Add(Me.Label17)
+        Me.tpId4E.Controls.Add(Me.txt4e)
+        Me.tpId4E.Location = New System.Drawing.Point(114, 4)
+        Me.tpId4E.Name = "tpId4E"
+        Me.tpId4E.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpId4E.Size = New System.Drawing.Size(569, 443)
+        Me.tpId4E.TabIndex = 6
+        Me.tpId4E.Text = "Initial D4 Export Settings"
+        '
+        'flp4e
+        '
+        Me.flp4e.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.flp4e.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp4e.ForeColor = System.Drawing.Color.White
+        Me.flp4e.Location = New System.Drawing.Point(6, 83)
+        Me.flp4e.Name = "flp4e"
+        Me.flp4e.Size = New System.Drawing.Size(557, 354)
+        Me.flp4e.TabIndex = 88
+        '
+        'NsSeperator8
+        '
+        Me.NsSeperator8.Location = New System.Drawing.Point(6, 66)
+        Me.NsSeperator8.Name = "NsSeperator8"
+        Me.NsSeperator8.Size = New System.Drawing.Size(558, 23)
+        Me.NsSeperator8.TabIndex = 85
+        Me.NsSeperator8.Text = "NsSeperator8"
+        '
+        'btnBrowse4e
+        '
+        Me.btnBrowse4e.Location = New System.Drawing.Point(537, 6)
+        Me.btnBrowse4e.Name = "btnBrowse4e"
+        Me.btnBrowse4e.Size = New System.Drawing.Size(27, 24)
+        Me.btnBrowse4e.TabIndex = 84
+        Me.btnBrowse4e.Text = "..."
+        '
+        'cmbSeat4e
+        '
+        Me.cmbSeat4e.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSeat4e.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSeat4e.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSeat4e.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSeat4e.FormattingEnabled = True
+        Me.cmbSeat4e.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
+        Me.cmbSeat4e.Location = New System.Drawing.Point(137, 36)
+        Me.cmbSeat4e.Name = "cmbSeat4e"
+        Me.cmbSeat4e.Size = New System.Drawing.Size(155, 24)
+        Me.cmbSeat4e.TabIndex = 86
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.ForeColor = System.Drawing.Color.White
+        Me.Label16.Location = New System.Drawing.Point(3, 39)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(101, 15)
+        Me.Label16.TabIndex = 87
+        Me.Label16.Text = "Initial D4 EXP Seat"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.ForeColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(3, 11)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(106, 15)
+        Me.Label17.TabIndex = 82
+        Me.Label17.Text = "Initial D 4 EXP Path"
+        '
+        'txt4e
+        '
+        Me.txt4e.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt4e.Location = New System.Drawing.Point(137, 6)
+        Me.txt4e.MaxLength = 32767
+        Me.txt4e.Multiline = False
+        Me.txt4e.Name = "txt4e"
+        Me.txt4e.ReadOnly = True
+        Me.txt4e.Size = New System.Drawing.Size(394, 24)
+        Me.txt4e.TabIndex = 83
+        Me.txt4e.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt4e.ToolTip = Nothing
+        Me.txt4e.UseSystemPasswordChar = False
+        '
+        'tpId5
+        '
+        Me.tpId5.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.tpId5.Controls.Add(Me.flp5)
+        Me.tpId5.Controls.Add(Me.NsSeperator9)
+        Me.tpId5.Controls.Add(Me.btnBrowse5)
+        Me.tpId5.Controls.Add(Me.cmbSeat5)
+        Me.tpId5.Controls.Add(Me.Label18)
+        Me.tpId5.Controls.Add(Me.Label19)
+        Me.tpId5.Controls.Add(Me.txt5)
+        Me.tpId5.Location = New System.Drawing.Point(114, 4)
+        Me.tpId5.Name = "tpId5"
+        Me.tpId5.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpId5.Size = New System.Drawing.Size(569, 443)
+        Me.tpId5.TabIndex = 7
+        Me.tpId5.Text = "Initial D5 Settings"
+        '
+        'flp5
+        '
+        Me.flp5.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.flp5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.flp5.ForeColor = System.Drawing.Color.White
+        Me.flp5.Location = New System.Drawing.Point(6, 83)
+        Me.flp5.Name = "flp5"
+        Me.flp5.Size = New System.Drawing.Size(557, 354)
+        Me.flp5.TabIndex = 88
+        '
+        'NsSeperator9
+        '
+        Me.NsSeperator9.Location = New System.Drawing.Point(6, 66)
+        Me.NsSeperator9.Name = "NsSeperator9"
+        Me.NsSeperator9.Size = New System.Drawing.Size(558, 23)
+        Me.NsSeperator9.TabIndex = 85
+        Me.NsSeperator9.Text = "NsSeperator9"
+        '
+        'btnBrowse5
+        '
+        Me.btnBrowse5.Location = New System.Drawing.Point(537, 6)
+        Me.btnBrowse5.Name = "btnBrowse5"
+        Me.btnBrowse5.Size = New System.Drawing.Size(27, 24)
+        Me.btnBrowse5.TabIndex = 84
+        Me.btnBrowse5.Text = "..."
+        '
+        'cmbSeat5
+        '
+        Me.cmbSeat5.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.cmbSeat5.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSeat5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSeat5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.cmbSeat5.FormattingEnabled = True
+        Me.cmbSeat5.Items.AddRange(New Object() {"Single", "A1", "A2", "B1", "B2", "C1", "C2", "D1", "D2"})
+        Me.cmbSeat5.Location = New System.Drawing.Point(137, 36)
+        Me.cmbSeat5.Name = "cmbSeat5"
+        Me.cmbSeat5.Size = New System.Drawing.Size(155, 24)
+        Me.cmbSeat5.TabIndex = 86
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(3, 39)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(78, 15)
+        Me.Label18.TabIndex = 87
+        Me.Label18.Text = "Initial D5 Seat"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.ForeColor = System.Drawing.Color.White
+        Me.Label19.Location = New System.Drawing.Point(3, 11)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(83, 15)
+        Me.Label19.TabIndex = 82
+        Me.Label19.Text = "Initial D 5 Path"
+        '
+        'txt5
+        '
+        Me.txt5.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txt5.Location = New System.Drawing.Point(137, 6)
+        Me.txt5.MaxLength = 32767
+        Me.txt5.Multiline = False
+        Me.txt5.Name = "txt5"
+        Me.txt5.ReadOnly = True
+        Me.txt5.Size = New System.Drawing.Size(394, 24)
+        Me.txt5.TabIndex = 83
+        Me.txt5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.txt5.ToolTip = Nothing
+        Me.txt5.UseSystemPasswordChar = False
         '
         'tpId6
         '
@@ -1001,6 +1301,12 @@ Partial Class frmSettings
         Me.tpLauncher.ResumeLayout(False)
         Me.tpLauncher.PerformLayout()
         Me.NsGroupBox1.ResumeLayout(False)
+        Me.tpId4.ResumeLayout(False)
+        Me.tpId4.PerformLayout()
+        Me.tpId4E.ResumeLayout(False)
+        Me.tpId4E.PerformLayout()
+        Me.tpId5.ResumeLayout(False)
+        Me.tpId5.PerformLayout()
         Me.tpId6.ResumeLayout(False)
         Me.tpId6.PerformLayout()
         Me.tpId7.ResumeLayout(False)
@@ -1093,4 +1399,28 @@ Partial Class frmSettings
     Friend WithEvents NsSeperator6 As NSSeperator
     Friend WithEvents pPluginSettings As Panel
     Friend WithEvents tpLauncher As TabPage
+    Friend WithEvents tpId4 As TabPage
+    Friend WithEvents flp4 As MyFlowLayoutPanel
+    Friend WithEvents NsSeperator7 As NSSeperator
+    Friend WithEvents btnBrowse4 As NSButton
+    Friend WithEvents cmbSeat4 As NSComboBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents txt4 As NSTextBox
+    Friend WithEvents tpId4E As TabPage
+    Friend WithEvents flp4e As MyFlowLayoutPanel
+    Friend WithEvents NsSeperator8 As NSSeperator
+    Friend WithEvents btnBrowse4e As NSButton
+    Friend WithEvents cmbSeat4e As NSComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txt4e As NSTextBox
+    Friend WithEvents tpId5 As TabPage
+    Friend WithEvents flp5 As MyFlowLayoutPanel
+    Friend WithEvents NsSeperator9 As NSSeperator
+    Friend WithEvents btnBrowse5 As NSButton
+    Friend WithEvents cmbSeat5 As NSComboBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txt5 As NSTextBox
 End Class
