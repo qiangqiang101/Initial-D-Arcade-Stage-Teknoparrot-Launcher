@@ -1,4 +1,6 @@
-﻿Public Class TextButton
+﻿Imports System.Drawing.Drawing2D
+
+Public Class TextButton
     Inherits Label
 
     Private _normal As Color
@@ -96,6 +98,40 @@
         End Set
     End Property
 
+    Private _borderSize As Single = 1.0F
+    Private _borderColor As Color = Color.White
+    Private _drawPen As New Pen(New SolidBrush(_borderColor), _borderSize)
+    Private _forColorBrush As New SolidBrush(ForeColor)
+    Public Property BorderSize() As Single
+        Get
+            Return _borderSize
+        End Get
+        Set(value As Single)
+            _borderSize = value
+            If value = 0 Then
+                _drawPen.Color = Color.Transparent
+            Else
+                _drawPen.Color = _borderColor
+                _drawPen.Width = value
+            End If
+            MyBase.OnTextChanged(EventArgs.Empty)
+        End Set
+    End Property
+
+    Public Property BorderColor() As Color
+        Get
+            Return _borderColor
+        End Get
+        Set(value As Color)
+            _borderColor = value
+            If Not _borderSize = 0 Then
+                _drawPen.Color = value
+            End If
+
+            Invalidate()
+        End Set
+    End Property
+
     Public Sub New()
         P = Parent
         NormalColor = Color.Gray
@@ -177,5 +213,75 @@
             e.Handled = True
             SendKeys.SendWait("{TAB}")
         End If
+    End Sub
+
+    Protected Overrides Sub OnForeColorChanged(e As EventArgs)
+        _forColorBrush.Color = ForeColor
+        MyBase.OnForeColorChanged(e)
+        Invalidate()
+    End Sub
+
+    Protected Overrides Sub OnTextAlignChanged(e As EventArgs)
+        MyBase.OnTextAlignChanged(e)
+        Invalidate()
+    End Sub
+
+    Protected Overrides Sub OnFontChanged(e As EventArgs)
+        MyBase.OnFontChanged(e)
+        Invalidate()
+    End Sub
+
+    Protected Overrides Sub OnTextChanged(e As EventArgs)
+        MyBase.OnTextChanged(e)
+    End Sub
+
+    Private drawSize As SizeF
+    Private point As PointF
+    Private drawPath As New GraphicsPath
+    Protected Overrides Sub OnPaint(e As PaintEventArgs)
+        MyBase.OnPaint(e)
+        If Text.Length = 0 Then Exit Sub
+
+        e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
+        e.Graphics.CompositingQuality = CompositingQuality.HighQuality
+
+        drawSize = e.Graphics.MeasureString(Text, Font, New PointF(), StringFormat.GenericTypographic)
+
+        If AutoSize Then
+            point.X = Padding.Left
+            point.Y = Padding.Top
+        Else
+            If TextAlign = ContentAlignment.TopLeft OrElse TextAlign = ContentAlignment.MiddleLeft OrElse TextAlign = ContentAlignment.BottomLeft Then
+                point.X = Padding.Left
+            ElseIf TextAlign = ContentAlignment.TopCenter OrElse TextAlign = ContentAlignment.MiddleCenter OrElse TextAlign = ContentAlignment.BottomCenter Then
+                point.X = (Width - drawSize.Width) / 2
+            Else
+                point.X = Width - (Padding.Right + drawSize.Width)
+            End If
+
+            If TextAlign = ContentAlignment.TopLeft OrElse TextAlign = ContentAlignment.TopCenter OrElse TextAlign = ContentAlignment.TopRight Then
+                point.Y = Padding.Top
+            ElseIf TextAlign = ContentAlignment.MiddleLeft OrElse TextAlign = ContentAlignment.MiddleCenter OrElse TextAlign = ContentAlignment.MiddleRight Then
+                point.Y = (Height - drawSize.Height) / 2
+            Else
+                point.Y = Height - (Padding.Bottom + drawSize.Height)
+            End If
+        End If
+
+        Dim fontSize As Single = e.Graphics.DpiY * Font.SizeInPoints / 72
+        drawPath.Reset()
+        drawPath.AddString(Text, Font.FontFamily, CInt(Font.Style), fontSize, point, StringFormat.GenericTypographic)
+
+        e.Graphics.DrawPath(_drawPen, drawPath)
+        e.Graphics.FillPath(_forColorBrush, drawPath)
+    End Sub
+
+    Protected Overrides Sub Dispose(disposing As Boolean)
+        If disposing Then
+            If _forColorBrush IsNot Nothing Then _forColorBrush.Dispose()
+            If drawPath IsNot Nothing Then drawPath.Dispose()
+            If _drawPen IsNot Nothing Then _drawPen.Dispose()
+        End If
+        MyBase.Dispose(disposing)
     End Sub
 End Class

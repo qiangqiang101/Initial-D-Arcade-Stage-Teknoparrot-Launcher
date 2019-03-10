@@ -1,0 +1,12 @@
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\bin\Release\Thumbs2.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\bin\Release\Thumbs2.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\bin\Release\Thumbs2.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\bin\Release\Thumbs.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\bin\Release\Thumbs.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\bin\Release\Thumbs.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\obj\Release\AkiiHoshi.vbprojResolveAssemblyReference.cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\obj\Release\Thumbs2.Resources.resources
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\obj\Release\AkiiHoshi.vbproj.GenerateResource.Cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\obj\Release\Thumbs2.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\obj\Release\Thumbs2.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\AkiiHoshi\obj\Release\Thumbs2.pdb

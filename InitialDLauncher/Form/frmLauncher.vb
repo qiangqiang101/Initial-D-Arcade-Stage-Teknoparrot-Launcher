@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.Net
 Imports System.Threading
 Imports System.Windows
 Imports PluginContract
@@ -13,9 +12,9 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public Shared RunGameThread As Thread
-    Public shadow As Dropshadow
     Dim curVer As Integer = 48
-    Public buildDate As String = "06/11/2018"
+    Public shadow As Dropshadow
+    Public buildDate As String = "11/03/2018"
 
     Dim id4AppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBML_card.bin")
     Dim id4eAppData As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TeknoParrot\SBNK_card.bin")
@@ -278,6 +277,17 @@ Public Class frmLauncher
             Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
             Me.SetStyle(ControlStyles.UserPaint, True)
+
+            Dim rand As New Random()
+            Dim num As Integer = rand.Next(1, 4)
+            Select Case num
+                Case 1
+                    BackgroundImage = My.Resources.ADVload030_bg_05_n_D8
+                Case 2
+                    BackgroundImage = My.Resources.ADVload030_bg_17_n_D8
+                Case Else
+                    BackgroundImage = My.Resources.ADVload030_bg_19_n_D8
+            End Select
 
             If Not Directory.Exists(id4CardDir) Then Directory.CreateDirectory(id4CardDir)
             If Not Directory.Exists(id4eCardDir) Then Directory.CreateDirectory(id4eCardDir)
@@ -962,5 +972,12 @@ Public Class frmLauncher
             NSMessageBox.ShowOk(ex.Message, MessageBoxIcon.Error, "Error")
             Logger.Log(ex.Message & ex.StackTrace)
         End Try
+    End Sub
+
+    Private Sub frmLauncher_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
+        If WindowState = FormWindowState.Normal Then
+            Size = MinimumSize
+            Invalidate()
+        End If
     End Sub
 End Class

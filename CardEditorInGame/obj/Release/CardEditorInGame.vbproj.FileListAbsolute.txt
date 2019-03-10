@@ -1,0 +1,13 @@
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\obj\Release\CardEditorInGame.vbprojResolveAssemblyReference.cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\obj\Release\CardEditorInGame.Resources.resources
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\obj\Release\CardEditorInGame.vbproj.GenerateResource.Cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\CardEditorInGame.dll.config
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\CardEditorInGame.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\CardEditorInGame.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\CardEditorInGame.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\PluginContract.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\PluginContract.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\bin\Release\PluginContract.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\obj\Release\CardEditorInGame.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\obj\Release\CardEditorInGame.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\CardEditorInGame\obj\Release\CardEditorInGame.pdb

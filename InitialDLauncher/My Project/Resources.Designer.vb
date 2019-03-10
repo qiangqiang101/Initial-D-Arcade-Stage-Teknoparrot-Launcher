@@ -142,6 +142,36 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property ADVload030_bg_05_n_D8() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ADVload030_bg_05_n_D8", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ADVload030_bg_17_n_D8() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ADVload030_bg_17_n_D8", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ADVload030_bg_19_n_D8() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ADVload030_bg_19_n_D8", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property AE85() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("AE85", resourceCulture)
@@ -215,16 +245,6 @@ Namespace My.Resources
         Friend ReadOnly Property ALTEZZA() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ALTEZZA", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property bg_header() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("bg_header", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

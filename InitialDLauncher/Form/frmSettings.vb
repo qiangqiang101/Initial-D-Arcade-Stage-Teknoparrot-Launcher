@@ -408,7 +408,13 @@ Public Class frmSettings
             tempFI.Add(fi)
         Next
 
-        Dim gp As New GameProfile(fileName, xml.GameName, gamePathTB.Text, xml.TestMenuParameter, xml.TestMenuIsExecutable, xml.ExtraParameters, xml.TestMenuParameter, xml.IconName, tempFI, xml.JoystickButtons, xml.EmulationProfile, xml.GameProfileRevision, xml.HasSeparateTestMode, xml.Is64Bit)
+        If xml.EmulatorType = Nothing Then
+            xml.EmulatorType = "TeknoParrot"
+            xml.ForceFeedback = True
+            xml.GunGame = False
+        End If
+
+        Dim gp As New GameProfile(fileName, xml.GameName, gamePathTB.Text, xml.TestMenuParameter, xml.TestMenuIsExecutable, xml.ExtraParameters, xml.TestMenuParameter, xml.IconName, tempFI, xml.JoystickButtons, xml.EmulationProfile, xml.GameProfileRevision, xml.HasSeparateTestMode, xml.Is64Bit, xml.EmulatorType, xml.ForceFeedback, xml.GunGame)
         gp.Save()
 
         Select Case gameVersion
@@ -486,6 +492,8 @@ Public Class frmSettings
         With pd
             .XMLFileName = parrotDataFile
             .UseMouse = xml.UseMouse
+            .SaveLastPlayed = xml.SaveLastPlayed
+            .UseDiscordRPC = xml.UseDiscordRPC
             .XInputMode = If(cmbJoyInterface.SelectedIndex = 1, True, False)
             .UseSto0ZDrivingHack = cbSto0z.Checked
             .StoozPercent = tbSto0z.Value

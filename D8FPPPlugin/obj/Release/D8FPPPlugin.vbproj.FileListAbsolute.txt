@@ -1,0 +1,13 @@
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\obj\Release\D8FPPPlugin.Resources.resources
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\obj\Release\D8FPPPlugin.vbproj.GenerateResource.Cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\D8FreePlayDisable.dll.config
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\D8FreePlayDisable.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\D8FreePlayDisable.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\D8FreePlayDisable.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\PluginContract.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\PluginContract.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\bin\Release\PluginContract.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\obj\Release\D8FPPPlugin.vbprojResolveAssemblyReference.cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\obj\Release\D8FreePlayDisable.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\obj\Release\D8FreePlayDisable.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\D8FPPPlugin\obj\Release\D8FreePlayDisable.pdb

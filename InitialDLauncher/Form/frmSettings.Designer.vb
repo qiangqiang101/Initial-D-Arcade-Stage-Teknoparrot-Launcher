@@ -22,7 +22,7 @@ Partial Class frmSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim NsListViewColumnHeader3 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
+        Dim NsListViewColumnHeader2 As InitialDLauncher.NSListView.NSListViewColumnHeader = New InitialDLauncher.NSListView.NSListViewColumnHeader()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
         Me.NsTheme1 = New InitialDLauncher.NSTheme()
         Me.NsTabControl1 = New InitialDLauncher.NSTabControl()
@@ -249,9 +249,9 @@ Partial Class frmSettings
         Me.lvELO.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        NsListViewColumnHeader3.Text = "Programs"
-        NsListViewColumnHeader3.Width = 500
-        Me.lvELO.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader3}
+        NsListViewColumnHeader2.Text = "Programs"
+        NsListViewColumnHeader2.Width = 500
+        Me.lvELO.Columns = New InitialDLauncher.NSListView.NSListViewColumnHeader() {NsListViewColumnHeader2}
         Me.lvELO.Items = New InitialDLauncher.NSListView.NSListViewItem(-1) {}
         Me.lvELO.Location = New System.Drawing.Point(6, 36)
         Me.lvELO.MultiSelect = True

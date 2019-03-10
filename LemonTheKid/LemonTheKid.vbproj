@@ -6029,7 +6029,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY "$(TargetPath)" "E:\TeknoParrotLatest"</PostBuildEvent>
+    <PostBuildEvent>COPY "$(TargetPath)" "E:\TeknoParrot"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,8 +28,11 @@ Public Structure GameProfile
     Public GameProfileRevision As Integer
     Public HasSeparateTestMode As Boolean
     Public Is64Bit As Boolean
+    Public EmulatorType As String
+    Public ForceFeedback As Boolean
+    Public GunGame As Boolean
 
-    Public Sub New(fName As String, gName As String, gPath As String, tmParam As String, tmiExe As Boolean, eParam As String, tmeParam As String, iName As String, cVal As List(Of FieldInformation), jBtn As List(Of JoystickButtons), eProf As String, gpRev As Integer, hsTestM As Boolean, is64B As Boolean)
+    Public Sub New(fName As String, gName As String, gPath As String, tmParam As String, tmiExe As Boolean, eParam As String, tmeParam As String, iName As String, cVal As List(Of FieldInformation), jBtn As List(Of JoystickButtons), eProf As String, gpRev As Integer, hsTestM As Boolean, is64B As Boolean, et As String, ffb As Boolean, gg As Boolean)
         XMLFileName = fName
         GameName = gName
         GamePath = gPath
@@ -44,6 +47,9 @@ Public Structure GameProfile
         GameProfileRevision = gpRev
         HasSeparateTestMode = hsTestM
         Is64Bit = is64B
+        EmulatorType = et
+        ForceFeedback = ffb
+        GunGame = gg
     End Sub
 
     Public Sub New(fName As String)
@@ -65,7 +71,7 @@ Public Structure GameProfile
     Public Function ReadFromFile() As GameProfile
         If Not File.Exists(XMLFileName) Then
             Logger.Log(String.Format("Unable to load XML File {0}{1}{0}, file not found.", """", XMLFileName))
-            Return New GameProfile(XMLFileName, GameName, GamePath, TestMenuParameter, TestMenuExtraParameters, ExtraParameters, TestMenuExtraParameters, IconName, ConfigValues, JoystickButtons, EmulationProfile, GameProfileRevision, HasSeparateTestMode, Is64Bit)
+            Return New GameProfile(XMLFileName, GameName, GamePath, TestMenuParameter, TestMenuExtraParameters, ExtraParameters, TestMenuExtraParameters, IconName, ConfigValues, JoystickButtons, EmulationProfile, GameProfileRevision, HasSeparateTestMode, Is64Bit, EmulatorType, ForceFeedback, GunGame)
         End If
 
         Try
@@ -76,7 +82,7 @@ Public Structure GameProfile
             Return instance
         Catch ex As Exception
             Logger.Log(ex.Message & ex.StackTrace)
-            Return New GameProfile(XMLFileName, GameName, GamePath, TestMenuParameter, TestMenuExtraParameters, ExtraParameters, TestMenuExtraParameters, IconName, ConfigValues, JoystickButtons, EmulationProfile, GameProfileRevision, HasSeparateTestMode, Is64Bit)
+            Return New GameProfile(XMLFileName, GameName, GamePath, TestMenuParameter, TestMenuExtraParameters, ExtraParameters, TestMenuExtraParameters, IconName, ConfigValues, JoystickButtons, EmulationProfile, GameProfileRevision, HasSeparateTestMode, Is64Bit, EmulatorType, ForceFeedback, GunGame)
         End Try
     End Function
 

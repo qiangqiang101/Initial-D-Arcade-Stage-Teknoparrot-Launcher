@@ -31,8 +31,10 @@ Public Structure ParrotData
     Public SineBase As Integer
     Public FrictionBase As Integer
     Public SpringBase As Integer
+    Public SaveLastPlayed As Boolean
+    Public UseDiscordRPC As Boolean
 
-    Public Sub New(fName As String, sto0zHack As Boolean, sto0zPercent As Integer, mouse As Boolean, xInput As Boolean, gunSensP1 As Integer, gunSensP2 As Integer, faGas As Boolean, faBrake As Boolean, raGas As Boolean, raBrake As Boolean, hapDevice As String, useHap As Boolean, thrust As Boolean, cBase As Integer, sBase As Integer, fBase As Integer, spBase As Integer)
+    Public Sub New(fName As String, sto0zHack As Boolean, sto0zPercent As Integer, mouse As Boolean, xInput As Boolean, gunSensP1 As Integer, gunSensP2 As Integer, faGas As Boolean, faBrake As Boolean, raGas As Boolean, raBrake As Boolean, hapDevice As String, useHap As Boolean, thrust As Boolean, cBase As Integer, sBase As Integer, fBase As Integer, spBase As Integer, slp As Boolean, discord As Boolean)
         XMLFileName = fName
         UseSto0ZDrivingHack = sto0zHack
         StoozPercent = sto0zPercent
@@ -51,6 +53,8 @@ Public Structure ParrotData
         SineBase = sBase
         FrictionBase = fBase
         SpringBase = spBase
+        SaveLastPlayed = slp
+        UseDiscordRPC = discord
     End Sub
 
     Public Sub New(fName As String)
@@ -72,7 +76,7 @@ Public Structure ParrotData
     Public Function ReadFromFile() As ParrotData
         If Not File.Exists(XMLFileName) Then
             Logger.Log(String.Format("Unable to load XML File {0}{1}{0}, file not found.", """", XMLFileName))
-            Return New ParrotData(XMLFileName, UseSto0ZDrivingHack, StoozPercent, UseMouse, XInputMode, GunSensitivityPlayer1, GunSensitivityPlayer2, FullAxisGas, FullAxisBrake, ReverseAxisGas, ReverseAxisBrake, HapticDevice, UseHaptic, HapticThrustmasterFix, ConstantBase, SineBase, FrictionBase, SpringBase)
+            Return New ParrotData(XMLFileName, UseSto0ZDrivingHack, StoozPercent, UseMouse, XInputMode, GunSensitivityPlayer1, GunSensitivityPlayer2, FullAxisGas, FullAxisBrake, ReverseAxisGas, ReverseAxisBrake, HapticDevice, UseHaptic, HapticThrustmasterFix, ConstantBase, SineBase, FrictionBase, SpringBase, SaveLastPlayed, UseDiscordRPC)
         End If
 
         Try
@@ -83,7 +87,7 @@ Public Structure ParrotData
             Return instance
         Catch ex As Exception
             Logger.Log(ex.Message & ex.StackTrace)
-            Return New ParrotData(XMLFileName, UseSto0ZDrivingHack, StoozPercent, UseMouse, XInputMode, GunSensitivityPlayer1, GunSensitivityPlayer2, FullAxisGas, FullAxisBrake, ReverseAxisGas, ReverseAxisBrake, HapticDevice, UseHaptic, HapticThrustmasterFix, ConstantBase, SineBase, FrictionBase, SpringBase)
+            Return New ParrotData(XMLFileName, UseSto0ZDrivingHack, StoozPercent, UseMouse, XInputMode, GunSensitivityPlayer1, GunSensitivityPlayer2, FullAxisGas, FullAxisBrake, ReverseAxisGas, ReverseAxisBrake, HapticDevice, UseHaptic, HapticThrustmasterFix, ConstantBase, SineBase, FrictionBase, SpringBase, SaveLastPlayed, UseDiscordRPC)
         End Try
     End Function
 End Structure

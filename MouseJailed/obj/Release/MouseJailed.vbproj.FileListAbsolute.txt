@@ -1,0 +1,13 @@
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\obj\Release\MouseJailed.vbprojResolveAssemblyReference.cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\obj\Release\MouseJailed.Resources.resources
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\obj\Release\MouseJailed.vbproj.GenerateResource.Cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\MouseJailed.dll.config
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\MouseJailed.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\MouseJailed.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\MouseJailed.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\PluginContract.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\PluginContract.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\bin\Release\PluginContract.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\obj\Release\MouseJailed.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\obj\Release\MouseJailed.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\MouseJailed\obj\Release\MouseJailed.pdb

@@ -1,0 +1,8 @@
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\bin\Release\PluginContract.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\bin\Release\PluginContract.pdb
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\bin\Release\PluginContract.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\obj\Release\PluginContract.Resources.resources
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\obj\Release\PluginContract.vbproj.GenerateResource.Cache
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\obj\Release\PluginContract.dll
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\obj\Release\PluginContract.xml
+E:\Users\Bartholomew\Documents\GitHub\Initial-D-Arcade-Stage-Teknoparrot-Launcher\PluginContract\obj\Release\PluginContract.pdb

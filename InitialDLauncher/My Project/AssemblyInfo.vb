@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Zettabyte Technology")>
 <Assembly: AssemblyProduct("InitialD Arcade Stage Launcher")>
-<Assembly: AssemblyCopyright("Copyright © 2017-2018 Zettabyte Technology")>
+<Assembly: AssemblyCopyright("Copyright © 2017-2019 Zettabyte Technology")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.0.0.75")>
-<Assembly: AssemblyFileVersion("2.14.1106.1")>
+<Assembly: AssemblyVersion("0.0.0.76")>
+<Assembly: AssemblyFileVersion("2.15.311.0")>
