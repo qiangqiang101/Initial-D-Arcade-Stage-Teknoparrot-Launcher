@@ -12,7 +12,7 @@ Public Class frmLauncher
     Dim debug As Boolean = My.Settings.DebugMode
     Dim threadU As Thread
     Public Shared RunGameThread As Thread
-    Dim curVer As Integer = 48
+    Dim curVer As Integer = 49
     Public shadow As Dropshadow
     Public buildDate As String = "11/03/2018"
 
